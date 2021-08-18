@@ -30,7 +30,7 @@ namespace DXApplication1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductList));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
@@ -67,10 +67,10 @@ namespace DXApplication1
             // 
             this.sqlDataSource1.ConnectionName = "DXApplication1.Properties.Settings.subConnString";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "dcProduct";
-            customSqlQuery1.Sql = "select *\r\n  from \"dbo\".\"dcProduct\" \"dcProduct\"";
+            customSqlQuery2.Name = "dcProduct";
+            customSqlQuery2.Sql = "select *\r\n  from \"dbo\".\"dcProduct\" \"dcProduct\"";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
+            customSqlQuery2});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gridView1
@@ -114,16 +114,12 @@ namespace DXApplication1
             // 
             this.colProductTypeCode.FieldName = "ProductTypeCode";
             this.colProductTypeCode.Name = "colProductTypeCode";
-            this.colProductTypeCode.Visible = true;
-            this.colProductTypeCode.VisibleIndex = 3;
             this.colProductTypeCode.Width = 93;
             // 
             // colUsePos
             // 
             this.colUsePos.FieldName = "UsePos";
             this.colUsePos.Name = "colUsePos";
-            this.colUsePos.Visible = true;
-            this.colUsePos.VisibleIndex = 5;
             this.colUsePos.Width = 50;
             // 
             // colPromotionCode
@@ -131,7 +127,7 @@ namespace DXApplication1
             this.colPromotionCode.FieldName = "PromotionCode";
             this.colPromotionCode.Name = "colPromotionCode";
             this.colPromotionCode.Visible = true;
-            this.colPromotionCode.VisibleIndex = 6;
+            this.colPromotionCode.VisibleIndex = 5;
             this.colPromotionCode.Width = 50;
             // 
             // colPromotionCode2
@@ -139,7 +135,7 @@ namespace DXApplication1
             this.colPromotionCode2.FieldName = "PromotionCode2";
             this.colPromotionCode2.Name = "colPromotionCode2";
             this.colPromotionCode2.Visible = true;
-            this.colPromotionCode2.VisibleIndex = 7;
+            this.colPromotionCode2.VisibleIndex = 6;
             this.colPromotionCode2.Width = 50;
             // 
             // colTaxRate
@@ -147,15 +143,13 @@ namespace DXApplication1
             this.colTaxRate.FieldName = "TaxRate";
             this.colTaxRate.Name = "colTaxRate";
             this.colTaxRate.Visible = true;
-            this.colTaxRate.VisibleIndex = 8;
+            this.colTaxRate.VisibleIndex = 7;
             this.colTaxRate.Width = 50;
             // 
             // colIsDisabled
             // 
             this.colIsDisabled.FieldName = "IsDisabled";
             this.colIsDisabled.Name = "colIsDisabled";
-            this.colIsDisabled.Visible = true;
-            this.colIsDisabled.VisibleIndex = 9;
             this.colIsDisabled.Width = 50;
             // 
             // colPosDiscountRate
@@ -163,7 +157,7 @@ namespace DXApplication1
             this.colPosDiscountRate.FieldName = "PosDiscountRate";
             this.colPosDiscountRate.Name = "colPosDiscountRate";
             this.colPosDiscountRate.Visible = true;
-            this.colPosDiscountRate.VisibleIndex = 10;
+            this.colPosDiscountRate.VisibleIndex = 4;
             this.colPosDiscountRate.Width = 53;
             // 
             // colRetailPrice
@@ -171,7 +165,7 @@ namespace DXApplication1
             this.colRetailPrice.FieldName = "RetailPrice";
             this.colRetailPrice.Name = "colRetailPrice";
             this.colRetailPrice.Visible = true;
-            this.colRetailPrice.VisibleIndex = 4;
+            this.colRetailPrice.VisibleIndex = 3;
             this.colRetailPrice.Width = 54;
             // 
             // colProductDescription
@@ -188,6 +182,7 @@ namespace DXApplication1
             this.ClientSize = new System.Drawing.Size(674, 415);
             this.Controls.Add(this.gridControl1);
             this.Name = "FormProductList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormProductList";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

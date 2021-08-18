@@ -31,14 +31,14 @@ namespace DXApplication1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomer));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.textEditBonusCard = new DevExpress.XtraEditors.TextEdit();
+            this.textEditFirstName = new DevExpress.XtraEditors.TextEdit();
+            this.textEditLastName = new DevExpress.XtraEditors.TextEdit();
+            this.textEditPhoneNum = new DevExpress.XtraEditors.TextEdit();
+            this.memoEditAddress = new DevExpress.XtraEditors.MemoEdit();
             this.simpleButtonOk = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.textEditBirthDate = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemCardNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemName = new DevExpress.XtraLayout.LayoutControlItem();
@@ -51,12 +51,12 @@ namespace DXApplication1
             this.layoutControlItemBirthdate = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditBonusCard.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditFirstName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditLastName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPhoneNum.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEditAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditBirthDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCardNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemName)).BeginInit();
@@ -71,14 +71,14 @@ namespace DXApplication1
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.textEdit4);
-            this.layoutControl1.Controls.Add(this.memoEdit1);
+            this.layoutControl1.Controls.Add(this.textEditBonusCard);
+            this.layoutControl1.Controls.Add(this.textEditFirstName);
+            this.layoutControl1.Controls.Add(this.textEditLastName);
+            this.layoutControl1.Controls.Add(this.textEditPhoneNum);
+            this.layoutControl1.Controls.Add(this.memoEditAddress);
             this.layoutControl1.Controls.Add(this.simpleButtonOk);
             this.layoutControl1.Controls.Add(this.simpleButton2);
-            this.layoutControl1.Controls.Add(this.textEdit5);
+            this.layoutControl1.Controls.Add(this.textEditBirthDate);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -88,45 +88,45 @@ namespace DXApplication1
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // textEdit1
+            // textEditBonusCard
             // 
-            this.textEdit1.Location = new System.Drawing.Point(77, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(280, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
+            this.textEditBonusCard.Location = new System.Drawing.Point(77, 12);
+            this.textEditBonusCard.Name = "textEditBonusCard";
+            this.textEditBonusCard.Size = new System.Drawing.Size(280, 20);
+            this.textEditBonusCard.StyleController = this.layoutControl1;
+            this.textEditBonusCard.TabIndex = 4;
             // 
-            // textEdit2
+            // textEditFirstName
             // 
-            this.textEdit2.Location = new System.Drawing.Point(77, 36);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(280, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 5;
+            this.textEditFirstName.Location = new System.Drawing.Point(77, 36);
+            this.textEditFirstName.Name = "textEditFirstName";
+            this.textEditFirstName.Size = new System.Drawing.Size(280, 20);
+            this.textEditFirstName.StyleController = this.layoutControl1;
+            this.textEditFirstName.TabIndex = 5;
             // 
-            // textEdit3
+            // textEditLastName
             // 
-            this.textEdit3.Location = new System.Drawing.Point(77, 60);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(280, 20);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 6;
+            this.textEditLastName.Location = new System.Drawing.Point(77, 60);
+            this.textEditLastName.Name = "textEditLastName";
+            this.textEditLastName.Size = new System.Drawing.Size(280, 20);
+            this.textEditLastName.StyleController = this.layoutControl1;
+            this.textEditLastName.TabIndex = 6;
             // 
-            // textEdit4
+            // textEditPhoneNum
             // 
-            this.textEdit4.Location = new System.Drawing.Point(77, 84);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(280, 20);
-            this.textEdit4.StyleController = this.layoutControl1;
-            this.textEdit4.TabIndex = 7;
+            this.textEditPhoneNum.Location = new System.Drawing.Point(77, 84);
+            this.textEditPhoneNum.Name = "textEditPhoneNum";
+            this.textEditPhoneNum.Size = new System.Drawing.Size(280, 20);
+            this.textEditPhoneNum.StyleController = this.layoutControl1;
+            this.textEditPhoneNum.TabIndex = 7;
             // 
-            // memoEdit1
+            // memoEditAddress
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(77, 132);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(280, 76);
-            this.memoEdit1.StyleController = this.layoutControl1;
-            this.memoEdit1.TabIndex = 8;
+            this.memoEditAddress.Location = new System.Drawing.Point(77, 132);
+            this.memoEditAddress.Name = "memoEditAddress";
+            this.memoEditAddress.Size = new System.Drawing.Size(280, 76);
+            this.memoEditAddress.StyleController = this.layoutControl1;
+            this.memoEditAddress.TabIndex = 8;
             // 
             // simpleButtonOk
             // 
@@ -151,13 +151,13 @@ namespace DXApplication1
             this.simpleButton2.TabIndex = 10;
             this.simpleButton2.Text = "simpleButton2";
             // 
-            // textEdit5
+            // textEditBirthDate
             // 
-            this.textEdit5.Location = new System.Drawing.Point(77, 108);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(280, 20);
-            this.textEdit5.StyleController = this.layoutControl1;
-            this.textEdit5.TabIndex = 11;
+            this.textEditBirthDate.Location = new System.Drawing.Point(77, 108);
+            this.textEditBirthDate.Name = "textEditBirthDate";
+            this.textEditBirthDate.Size = new System.Drawing.Size(280, 20);
+            this.textEditBirthDate.StyleController = this.layoutControl1;
+            this.textEditBirthDate.TabIndex = 11;
             // 
             // Root
             // 
@@ -179,7 +179,7 @@ namespace DXApplication1
             // 
             // layoutControlItemCardNum
             // 
-            this.layoutControlItemCardNum.Control = this.textEdit1;
+            this.layoutControlItemCardNum.Control = this.textEditBonusCard;
             this.layoutControlItemCardNum.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemCardNum.Name = "layoutControlItemCardNum";
             this.layoutControlItemCardNum.Size = new System.Drawing.Size(349, 24);
@@ -188,7 +188,7 @@ namespace DXApplication1
             // 
             // layoutControlItemName
             // 
-            this.layoutControlItemName.Control = this.textEdit2;
+            this.layoutControlItemName.Control = this.textEditFirstName;
             this.layoutControlItemName.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItemName.Name = "layoutControlItemName";
             this.layoutControlItemName.Size = new System.Drawing.Size(349, 24);
@@ -197,7 +197,7 @@ namespace DXApplication1
             // 
             // layoutControlItemLastname
             // 
-            this.layoutControlItemLastname.Control = this.textEdit3;
+            this.layoutControlItemLastname.Control = this.textEditLastName;
             this.layoutControlItemLastname.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItemLastname.Name = "layoutControlItemLastname";
             this.layoutControlItemLastname.Size = new System.Drawing.Size(349, 24);
@@ -206,7 +206,7 @@ namespace DXApplication1
             // 
             // layoutControlItemPhoneNum
             // 
-            this.layoutControlItemPhoneNum.Control = this.textEdit4;
+            this.layoutControlItemPhoneNum.Control = this.textEditPhoneNum;
             this.layoutControlItemPhoneNum.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItemPhoneNum.Name = "layoutControlItemPhoneNum";
             this.layoutControlItemPhoneNum.Size = new System.Drawing.Size(349, 24);
@@ -215,7 +215,7 @@ namespace DXApplication1
             // 
             // layoutControlItemAddress
             // 
-            this.layoutControlItemAddress.Control = this.memoEdit1;
+            this.layoutControlItemAddress.Control = this.memoEditAddress;
             this.layoutControlItemAddress.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItemAddress.Name = "layoutControlItemAddress";
             this.layoutControlItemAddress.Size = new System.Drawing.Size(349, 80);
@@ -254,7 +254,7 @@ namespace DXApplication1
             // 
             // layoutControlItemBirthdate
             // 
-            this.layoutControlItemBirthdate.Control = this.textEdit5;
+            this.layoutControlItemBirthdate.Control = this.textEditBirthDate;
             this.layoutControlItemBirthdate.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItemBirthdate.Name = "layoutControlItemBirthdate";
             this.layoutControlItemBirthdate.Size = new System.Drawing.Size(349, 24);
@@ -272,12 +272,12 @@ namespace DXApplication1
             this.Text = "FormCustomerAdd";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditBonusCard.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditFirstName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditLastName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPhoneNum.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEditAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditBirthDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCardNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemName)).EndInit();
@@ -295,19 +295,19 @@ namespace DXApplication1
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit textEditBonusCard;
+        private DevExpress.XtraEditors.TextEdit textEditFirstName;
+        private DevExpress.XtraEditors.TextEdit textEditLastName;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCardNum;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemLastname;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit textEditPhoneNum;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemPhoneNum;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.MemoEdit memoEditAddress;
         private DevExpress.XtraEditors.SimpleButton simpleButtonOk;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit textEditBirthDate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemAddress;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;

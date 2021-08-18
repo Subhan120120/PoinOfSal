@@ -87,9 +87,9 @@ namespace DXApplication1
             else return false;
         }
 
-        public string GetDocumentNumber(string columnName, string tableName)
+        public string GetNextNumber(string columnName, string tableName)
         {
-            string qryProcGetDocNum = "dbo.GetDocNum @ColumnName = @ColumnName, @TableName = @TableName";
+            string qryProcGetDocNum = "dbo.GetNextNum @ColumnName = @ColumnName, @TableName = @TableName";
             paramArray = new SqlParameter[]
              {
                 new SqlParameter("@ColumnName", columnName),
@@ -155,7 +155,7 @@ namespace DXApplication1
             return result;
         }
 
-        public int InsertCustomer(dcCurrAcc dcCurrAcc, object invoiceLineId)
+        public int InsertCustomer(dcCurrAcc dcCurrAcc)
         {
             string qryInsertCustomer = "INSERT INTO [dbo].[dcCurrAcc]([CurrAccTypeCode],[CurrAccCode],[FirstName],[LastName],[BonusCardNum],[Address],[PhoneNum]) " +
                 "VALUES(@CurrAccTypeCode,@CurrAccCode,@FirstName,@LastName,@BonusCardNum,@Address,@PhoneNum)";
@@ -172,6 +172,19 @@ namespace DXApplication1
             };
 
             int result = SqlExec(qryInsertCustomer, paramArray);
+            return result;
+        }
+
+        public int UpdateCurrAccCode(string currAccCode, object invoiceHeaderId)
+        {
+            string qryUpdateCurrAccCode = "UPDATE [dbo].[trInvoiceHeader] set CurrAccCode = @CurrAccCode where InvoiceHeaderId = @InvoiceHeaderId";
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId),
+                new SqlParameter("@CurrAccCode", currAccCode)
+            };
+            int result = SqlExec(qryUpdateCurrAccCode, paramArray);
             return result;
         }
     }

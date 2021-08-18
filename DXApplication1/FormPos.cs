@@ -65,7 +65,7 @@ namespace DXApplication1
                 {
                     if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = sqlMethods.GetDocumentNumber("DocumentNumber", "trInvoiceHeader");
+                        string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
                         sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
                     }
 
@@ -167,7 +167,6 @@ namespace DXApplication1
 
         private void simpleButtonNum_Click(object sender, EventArgs e)
         {
-
             SimpleButton simpleButton = sender as SimpleButton;
             switch (simpleButton.Text)
             {
@@ -227,7 +226,7 @@ namespace DXApplication1
 
             if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
             {
-                string NewDocNum = sqlMethods.GetDocumentNumber("DocumentNumber", "trInvoiceHeader");
+                string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
                 sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
             }
             int result = sqlMethods.InsertLine(dcProduct, invoiceHeaderID);
@@ -237,17 +236,22 @@ namespace DXApplication1
                 gridControl1.DataSource = BindToData();
                 gridControl1.DataMember = "customQuery1";
                 gridView1.MoveLast();
-                textEditBarcode.EditValue = "";
+                textEditBarcode.EditValue = string.Empty;
             }
         }
 
         private void simpleButtonCustomerAdd_Click(object sender, EventArgs e)
         {
-            using (FormCustomer formCustomer = new FormCustomer())
+            using (FormCustomer formCustomer = new FormCustomer(""))
             {
                 if (formCustomer.ShowDialog(this) == DialogResult.OK)
                 {
+                    int result = sqlMethods.UpdateCurrAccCode(formCustomer.currAccCode, invoiceHeaderID);
 
+                    if (result >= 0)
+                    {
+
+                    }
                 }
             }
         }
