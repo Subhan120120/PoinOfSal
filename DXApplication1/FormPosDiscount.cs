@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace DXApplication1
@@ -14,7 +16,7 @@ namespace DXApplication1
         {
             this.Amount = Amount;
             this.PosDiscountRate = PosDiscountRate;
-            
+
             InitializeComponent();
         }
 
@@ -23,8 +25,8 @@ namespace DXApplication1
             AcceptButton = simpleButtonOk;
             CancelButton = simpleButtonCancel;
             NetAmount = Amount - (Amount * PosDiscountRate / 100);
-            textEditDiscountRate.Text = PosDiscountRate.ToString();
-            textEditNetAmount.Text = NetAmount.ToString();
+            textEditDiscountRate.EditValue = PosDiscountRate.ToString();
+            textEditNetAmount.EditValue = NetAmount.ToString();
         }
 
         private void textEditDiscountRate_EditValueChanged(object sender, EventArgs e)
@@ -37,14 +39,14 @@ namespace DXApplication1
                 PosDiscountRate = 0;
 
             NetAmount = Amount - (Amount * PosDiscountRate / 100);
-            textEditNetAmount.EditValueChanged -= new EventHandler(textEditNetAmount_EditValueChanged);            
-            textEditNetAmount.Text = (NetAmount.ToString());
+            textEditNetAmount.EditValueChanged -= new EventHandler(textEditNetAmount_EditValueChanged);
+            textEditNetAmount.EditValue = (NetAmount.ToString());
             textEditNetAmount.EditValueChanged += new EventHandler(textEditNetAmount_EditValueChanged);
         }
 
         private void textEditNetAmount_EditValueChanged(object sender, EventArgs e)
         {
-            textEditNetAmount.DoValidate();
+            textEditNetAmount.DoValidate();            
             NetAmount = float.Parse(textEditNetAmount.EditValue.ToString());
             if (NetAmount > Amount)
                 NetAmount = Amount;
@@ -53,37 +55,93 @@ namespace DXApplication1
 
             PosDiscountRate = (Amount - NetAmount) / Amount * 100;
             textEditDiscountRate.EditValueChanged -= new EventHandler(textEditDiscountRate_EditValueChanged);
-            textEditDiscountRate.Text = (PosDiscountRate.ToString());
-            textEditDiscountRate.EditValueChanged += new EventHandler(textEditDiscountRate_EditValueChanged);
+            textEditDiscountRate.EditValue = (PosDiscountRate.ToString());
+            textEditDiscountRate.EditValueChanged += new EventHandler(textEditDiscountRate_EditValueChanged); 
         }
 
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
         }
-        private void textEditDiscountRate_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void textEditDiscountRate_Validating(object sender, CancelEventArgs e)
         {
             Validate_BetweenMinAndMaxRule(sender as BaseEdit, 0, 100);
         }
-        private void textEditNetAmount_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void textEditNetAmount_Validating(object sender, CancelEventArgs e)
         {
             Validate_BetweenMinAndMaxRule(sender as BaseEdit, 0, Amount);
         }
 
         private void Validate_BetweenMinAndMaxRule(BaseEdit control, float min, float max)
         {
-            //if (!(control.EditValue is decimal)) return;
             float val = float.Parse(control.EditValue.ToString());
             if ((val < min)) dxErrorProvider1.SetError(control, "Endirim ədədi " + (min).ToString() + " dan böyük olmalıdır ", ErrorType.Critical);
             else if (val > max) dxErrorProvider1.SetError(control, "Endirim ədədi " + (max).ToString() + " dən kiçik olmalıdır ", ErrorType.Critical);
             else dxErrorProvider1.SetError(control, "");
         }
 
-        private void textEditDiscountRate_InvalidValue(object sender, DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs e)
+        private void textEditDiscountRate_InvalidValue(object sender, InvalidValueExceptionEventArgs e)
         {
-            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+            e.ExceptionMode = ExceptionMode.NoAction;
             MessageBox.Show("Enter a date within the current month.", "Error");
         }
 
+        private void simpleButtonNum_Click(object sender, EventArgs e)
+        {
+            SimpleButton simpleButton = sender as SimpleButton;
+            string key = simpleButton.Text;
+
+            switch (key)
+            {
+                case "0":
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                case ",":
+                case "*":
+                    SendKeys.Send(key);
+                    break;
+                case "C":                    
+                    SendKeys.Send("^A");
+                    SendKeys.Send("{BACKSPACE}");
+                    break;
+                case "←":
+                    SendKeys.Send("{BACKSPACE}");
+                    break;               
+                case "↵":
+                    DialogResult = DialogResult.OK;
+                    break;
+                default:
+                    // code block
+                    break;
+            }
+
+            //Control control = FindFocusedControl(this);
+            //if (control.GetType() == typeof(TextEdit) || control.Parent.GetType() == typeof(TextEdit))
+            //{
+            //    TextEdit txtEdit = control as TextEdit;
+            //    if (txtEdit == null)
+            //    {
+            //        txtEdit = control.Parent as TextEdit;
+            //    }
+            //    txtEdit.EditValue += simpleButton.Text;
+            //}
+        }
+        //public Control FindFocusedControl(Control control)
+        //{
+        //    ContainerControl container = control as ContainerControl;
+        //    while (container != null)
+        //    {
+        //        control = container.ActiveControl;
+        //        container = control as ContainerControl;
+        //    }
+        //    return control;
+        //}
     }
 }

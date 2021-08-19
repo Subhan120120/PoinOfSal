@@ -30,6 +30,7 @@ namespace DXApplication1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPosDiscount));
             DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
@@ -41,10 +42,13 @@ namespace DXApplication1
             DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition7 = new DevExpress.XtraLayout.RowDefinition();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPosDiscount));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButtonNum7 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEditDiscountRate = new DevExpress.XtraEditors.TextEdit();
+            this.textEditNetAmount = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButtonOk = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonNum8 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonNum9 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonBackSpace = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonNum4 = new DevExpress.XtraEditors.SimpleButton();
@@ -59,7 +63,11 @@ namespace DXApplication1
             this.simpleButtonEnter = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemNum7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemTxtBxPercent = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemTxtBxAmount = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemOk = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemNum8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemNum9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemBackSpace = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemNum4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -73,19 +81,17 @@ namespace DXApplication1
             this.layoutControlItemComma = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemEnter = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.textEditDiscountRate = new DevExpress.XtraEditors.TextEdit();
-            this.textEditNetAmount = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonOk = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItemTxtBxPercent = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemTxtBxAmount = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemOk = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDiscountRate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNetAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxPercent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBackSpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum4)).BeginInit();
@@ -99,12 +105,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDiscountRate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditNetAmount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxPercent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -138,129 +138,223 @@ namespace DXApplication1
             // 
             // simpleButtonNum7
             // 
+            this.simpleButtonNum7.AllowFocus = false;
             this.simpleButtonNum7.Location = new System.Drawing.Point(12, 58);
             this.simpleButtonNum7.Name = "simpleButtonNum7";
+            this.simpleButtonNum7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum7.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum7.StyleController = this.layoutControl1;
             this.simpleButtonNum7.TabIndex = 4;
             this.simpleButtonNum7.Text = "7";
+            this.simpleButtonNum7.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            // 
+            // textEditDiscountRate
+            // 
+            this.textEditDiscountRate.Location = new System.Drawing.Point(41, 12);
+            this.textEditDiscountRate.Name = "textEditDiscountRate";
+            this.textEditDiscountRate.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEditDiscountRate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.textEditDiscountRate.Properties.Mask.EditMask = "P";
+            this.textEditDiscountRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textEditDiscountRate.Size = new System.Drawing.Size(281, 20);
+            this.textEditDiscountRate.StyleController = this.layoutControl1;
+            this.textEditDiscountRate.TabIndex = 5;
+            this.textEditDiscountRate.InvalidValue += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.textEditDiscountRate_InvalidValue);
+            this.textEditDiscountRate.EditValueChanged += new System.EventHandler(this.textEditDiscountRate_EditValueChanged);
+            this.textEditDiscountRate.Validating += new System.ComponentModel.CancelEventHandler(this.textEditDiscountRate_Validating);
+            // 
+            // textEditNetAmount
+            // 
+            this.textEditNetAmount.Location = new System.Drawing.Point(41, 290);
+            this.textEditNetAmount.Name = "textEditNetAmount";
+            this.textEditNetAmount.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEditNetAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.textEditNetAmount.Properties.Mask.EditMask = "n";
+            this.textEditNetAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textEditNetAmount.Size = new System.Drawing.Size(281, 20);
+            this.textEditNetAmount.StyleController = this.layoutControl1;
+            this.textEditNetAmount.TabIndex = 6;
+            this.textEditNetAmount.EditValueChanged += new System.EventHandler(this.textEditNetAmount_EditValueChanged);
+            this.textEditNetAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textEditNetAmount_Validating);
+            // 
+            // simpleButtonOk
+            // 
+            this.simpleButtonOk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOk.ImageOptions.Image")));
+            this.simpleButtonOk.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButtonOk.Location = new System.Drawing.Point(168, 338);
+            this.simpleButtonOk.Name = "simpleButtonOk";
+            this.simpleButtonOk.Size = new System.Drawing.Size(74, 54);
+            this.simpleButtonOk.StyleController = this.layoutControl1;
+            this.simpleButtonOk.TabIndex = 7;
+            this.simpleButtonOk.Text = "simpleButtonOk";
+            this.simpleButtonOk.Click += new System.EventHandler(this.simpleButtonOk_Click);
             // 
             // simpleButtonNum8
             // 
+            this.simpleButtonNum8.AllowFocus = false;
             this.simpleButtonNum8.Location = new System.Drawing.Point(90, 58);
             this.simpleButtonNum8.Name = "simpleButtonNum8";
+            this.simpleButtonNum8.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum8.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum8.StyleController = this.layoutControl1;
             this.simpleButtonNum8.TabIndex = 8;
             this.simpleButtonNum8.Text = "8";
+            this.simpleButtonNum8.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            // 
+            // simpleButtonCancel
+            // 
+            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
+            this.simpleButtonCancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButtonCancel.Location = new System.Drawing.Point(246, 338);
+            this.simpleButtonCancel.Name = "simpleButtonCancel";
+            this.simpleButtonCancel.Size = new System.Drawing.Size(76, 54);
+            this.simpleButtonCancel.StyleController = this.layoutControl1;
+            this.simpleButtonCancel.TabIndex = 9;
+            this.simpleButtonCancel.Text = "simpleButtonCancel";
             // 
             // simpleButtonNum9
             // 
+            this.simpleButtonNum9.AllowFocus = false;
             this.simpleButtonNum9.Location = new System.Drawing.Point(168, 58);
             this.simpleButtonNum9.Name = "simpleButtonNum9";
+            this.simpleButtonNum9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum9.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum9.StyleController = this.layoutControl1;
             this.simpleButtonNum9.TabIndex = 10;
             this.simpleButtonNum9.Text = "9";
+            this.simpleButtonNum9.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonBackSpace
             // 
+            this.simpleButtonBackSpace.AllowFocus = false;
             this.simpleButtonBackSpace.Location = new System.Drawing.Point(246, 58);
             this.simpleButtonBackSpace.Name = "simpleButtonBackSpace";
+            this.simpleButtonBackSpace.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonBackSpace.Size = new System.Drawing.Size(76, 54);
             this.simpleButtonBackSpace.StyleController = this.layoutControl1;
             this.simpleButtonBackSpace.TabIndex = 11;
             this.simpleButtonBackSpace.Text = "←";
+            this.simpleButtonBackSpace.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonNum4
             // 
+            this.simpleButtonNum4.AllowFocus = false;
             this.simpleButtonNum4.Location = new System.Drawing.Point(12, 116);
             this.simpleButtonNum4.Name = "simpleButtonNum4";
+            this.simpleButtonNum4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum4.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum4.StyleController = this.layoutControl1;
             this.simpleButtonNum4.TabIndex = 12;
             this.simpleButtonNum4.Text = "4";
+            this.simpleButtonNum4.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonNum5
             // 
+            this.simpleButtonNum5.AllowFocus = false;
             this.simpleButtonNum5.Location = new System.Drawing.Point(90, 116);
             this.simpleButtonNum5.Name = "simpleButtonNum5";
+            this.simpleButtonNum5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum5.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum5.StyleController = this.layoutControl1;
             this.simpleButtonNum5.TabIndex = 13;
             this.simpleButtonNum5.Text = "5";
+            this.simpleButtonNum5.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonNum6
             // 
+            this.simpleButtonNum6.AllowFocus = false;
             this.simpleButtonNum6.Location = new System.Drawing.Point(168, 116);
             this.simpleButtonNum6.Name = "simpleButtonNum6";
+            this.simpleButtonNum6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum6.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum6.StyleController = this.layoutControl1;
             this.simpleButtonNum6.TabIndex = 14;
             this.simpleButtonNum6.Text = "6";
+            this.simpleButtonNum6.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonC
             // 
+            this.simpleButtonC.AllowFocus = false;
             this.simpleButtonC.Location = new System.Drawing.Point(246, 116);
             this.simpleButtonC.Name = "simpleButtonC";
+            this.simpleButtonC.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonC.Size = new System.Drawing.Size(76, 54);
             this.simpleButtonC.StyleController = this.layoutControl1;
             this.simpleButtonC.TabIndex = 15;
             this.simpleButtonC.Text = "C";
+            this.simpleButtonC.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonNum1
             // 
+            this.simpleButtonNum1.AllowFocus = false;
             this.simpleButtonNum1.Location = new System.Drawing.Point(12, 174);
             this.simpleButtonNum1.Name = "simpleButtonNum1";
+            this.simpleButtonNum1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum1.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum1.StyleController = this.layoutControl1;
             this.simpleButtonNum1.TabIndex = 16;
             this.simpleButtonNum1.Text = "1";
+            this.simpleButtonNum1.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonNum2
             // 
+            this.simpleButtonNum2.AllowFocus = false;
             this.simpleButtonNum2.Location = new System.Drawing.Point(90, 174);
             this.simpleButtonNum2.Name = "simpleButtonNum2";
+            this.simpleButtonNum2.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum2.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum2.StyleController = this.layoutControl1;
             this.simpleButtonNum2.TabIndex = 17;
             this.simpleButtonNum2.Text = "2";
+            this.simpleButtonNum2.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonNum3
             // 
+            this.simpleButtonNum3.AllowFocus = false;
             this.simpleButtonNum3.Location = new System.Drawing.Point(168, 174);
             this.simpleButtonNum3.Name = "simpleButtonNum3";
+            this.simpleButtonNum3.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum3.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonNum3.StyleController = this.layoutControl1;
             this.simpleButtonNum3.TabIndex = 18;
             this.simpleButtonNum3.Text = "3";
+            this.simpleButtonNum3.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonNum0
             // 
+            this.simpleButtonNum0.AllowFocus = false;
             this.simpleButtonNum0.Location = new System.Drawing.Point(12, 232);
             this.simpleButtonNum0.Name = "simpleButtonNum0";
+            this.simpleButtonNum0.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonNum0.Size = new System.Drawing.Size(152, 54);
             this.simpleButtonNum0.StyleController = this.layoutControl1;
             this.simpleButtonNum0.TabIndex = 19;
             this.simpleButtonNum0.Text = "0";
+            this.simpleButtonNum0.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonComma
             // 
+            this.simpleButtonComma.AllowFocus = false;
             this.simpleButtonComma.Location = new System.Drawing.Point(168, 232);
             this.simpleButtonComma.Name = "simpleButtonComma";
+            this.simpleButtonComma.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonComma.Size = new System.Drawing.Size(74, 54);
             this.simpleButtonComma.StyleController = this.layoutControl1;
             this.simpleButtonComma.TabIndex = 20;
             this.simpleButtonComma.Text = ",";
+            this.simpleButtonComma.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // simpleButtonEnter
             // 
+            this.simpleButtonEnter.AllowFocus = false;
             this.simpleButtonEnter.Location = new System.Drawing.Point(246, 174);
             this.simpleButtonEnter.Name = "simpleButtonEnter";
+            this.simpleButtonEnter.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButtonEnter.Size = new System.Drawing.Size(76, 112);
             this.simpleButtonEnter.StyleController = this.layoutControl1;
             this.simpleButtonEnter.TabIndex = 21;
             this.simpleButtonEnter.Text = "↵";
+            this.simpleButtonEnter.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
             // Root
             // 
@@ -337,6 +431,40 @@ namespace DXApplication1
             this.layoutControlItemNum7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemNum7.TextVisible = false;
             // 
+            // layoutControlItemTxtBxPercent
+            // 
+            this.layoutControlItemTxtBxPercent.Control = this.textEditDiscountRate;
+            this.layoutControlItemTxtBxPercent.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItemTxtBxPercent.Name = "layoutControlItemTxtBxPercent";
+            this.layoutControlItemTxtBxPercent.OptionsTableLayoutItem.ColumnSpan = 4;
+            this.layoutControlItemTxtBxPercent.Size = new System.Drawing.Size(314, 46);
+            this.layoutControlItemTxtBxPercent.Text = "Faiz";
+            this.layoutControlItemTxtBxPercent.TextSize = new System.Drawing.Size(26, 13);
+            // 
+            // layoutControlItemTxtBxAmount
+            // 
+            this.layoutControlItemTxtBxAmount.Control = this.textEditNetAmount;
+            this.layoutControlItemTxtBxAmount.Location = new System.Drawing.Point(0, 278);
+            this.layoutControlItemTxtBxAmount.Name = "layoutControlItemTxtBxAmount";
+            this.layoutControlItemTxtBxAmount.OptionsTableLayoutItem.ColumnSpan = 4;
+            this.layoutControlItemTxtBxAmount.OptionsTableLayoutItem.RowIndex = 5;
+            this.layoutControlItemTxtBxAmount.Size = new System.Drawing.Size(314, 48);
+            this.layoutControlItemTxtBxAmount.Text = "Tutar";
+            this.layoutControlItemTxtBxAmount.TextSize = new System.Drawing.Size(26, 13);
+            // 
+            // layoutControlItemOk
+            // 
+            this.layoutControlItemOk.Control = this.simpleButtonOk;
+            this.layoutControlItemOk.Location = new System.Drawing.Point(156, 326);
+            this.layoutControlItemOk.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItemOk.Name = "layoutControlItemOk";
+            this.layoutControlItemOk.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItemOk.OptionsTableLayoutItem.RowIndex = 6;
+            this.layoutControlItemOk.Size = new System.Drawing.Size(78, 58);
+            this.layoutControlItemOk.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemOk.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemOk.TextVisible = false;
+            // 
             // layoutControlItemNum8
             // 
             this.layoutControlItemNum8.Control = this.simpleButtonNum8;
@@ -349,6 +477,19 @@ namespace DXApplication1
             this.layoutControlItemNum8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItemNum8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemNum8.TextVisible = false;
+            // 
+            // layoutControlItemCancel
+            // 
+            this.layoutControlItemCancel.Control = this.simpleButtonCancel;
+            this.layoutControlItemCancel.Location = new System.Drawing.Point(234, 326);
+            this.layoutControlItemCancel.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItemCancel.Name = "layoutControlItemCancel";
+            this.layoutControlItemCancel.OptionsTableLayoutItem.ColumnIndex = 3;
+            this.layoutControlItemCancel.OptionsTableLayoutItem.RowIndex = 6;
+            this.layoutControlItemCancel.Size = new System.Drawing.Size(80, 58);
+            this.layoutControlItemCancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemCancel.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemCancel.TextVisible = false;
             // 
             // layoutControlItemNum9
             // 
@@ -509,105 +650,6 @@ namespace DXApplication1
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
-            // textEditDiscountRate
-            // 
-            this.textEditDiscountRate.Location = new System.Drawing.Point(41, 12);
-            this.textEditDiscountRate.Name = "textEditDiscountRate";
-            this.textEditDiscountRate.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEditDiscountRate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.textEditDiscountRate.Properties.Mask.EditMask = "P";
-            this.textEditDiscountRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditDiscountRate.Size = new System.Drawing.Size(281, 20);
-            this.textEditDiscountRate.StyleController = this.layoutControl1;
-            this.textEditDiscountRate.TabIndex = 5;
-            this.textEditDiscountRate.InvalidValue += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.textEditDiscountRate_InvalidValue);
-            this.textEditDiscountRate.EditValueChanged += new System.EventHandler(this.textEditDiscountRate_EditValueChanged);
-            this.textEditDiscountRate.Validating += new System.ComponentModel.CancelEventHandler(this.textEditDiscountRate_Validating);
-            // 
-            // textEditNetAmount
-            // 
-            this.textEditNetAmount.Location = new System.Drawing.Point(41, 290);
-            this.textEditNetAmount.Name = "textEditNetAmount";
-            this.textEditNetAmount.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEditNetAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.textEditNetAmount.Properties.Mask.EditMask = "n";
-            this.textEditNetAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditNetAmount.Size = new System.Drawing.Size(281, 20);
-            this.textEditNetAmount.StyleController = this.layoutControl1;
-            this.textEditNetAmount.TabIndex = 6;
-            this.textEditNetAmount.EditValueChanged += new System.EventHandler(this.textEditNetAmount_EditValueChanged);
-            this.textEditNetAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textEditNetAmount_Validating);
-            // 
-            // simpleButtonOk
-            // 
-            this.simpleButtonOk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOk.ImageOptions.Image")));
-            this.simpleButtonOk.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonOk.Location = new System.Drawing.Point(168, 338);
-            this.simpleButtonOk.Name = "simpleButtonOk";
-            this.simpleButtonOk.Size = new System.Drawing.Size(74, 54);
-            this.simpleButtonOk.StyleController = this.layoutControl1;
-            this.simpleButtonOk.TabIndex = 7;
-            this.simpleButtonOk.Text = "simpleButtonOk";
-            this.simpleButtonOk.Click += new System.EventHandler(this.simpleButtonOk_Click);
-            // 
-            // simpleButtonCancel
-            // 
-            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
-            this.simpleButtonCancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonCancel.Location = new System.Drawing.Point(246, 338);
-            this.simpleButtonCancel.Name = "simpleButtonCancel";
-            this.simpleButtonCancel.Size = new System.Drawing.Size(76, 54);
-            this.simpleButtonCancel.StyleController = this.layoutControl1;
-            this.simpleButtonCancel.TabIndex = 9;
-            this.simpleButtonCancel.Text = "simpleButtonCancel";
-            // 
-            // layoutControlItemTxtBxPercent
-            // 
-            this.layoutControlItemTxtBxPercent.Control = this.textEditDiscountRate;
-            this.layoutControlItemTxtBxPercent.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemTxtBxPercent.Name = "layoutControlItemTxtBxPercent";
-            this.layoutControlItemTxtBxPercent.OptionsTableLayoutItem.ColumnSpan = 4;
-            this.layoutControlItemTxtBxPercent.Size = new System.Drawing.Size(314, 46);
-            this.layoutControlItemTxtBxPercent.Text = "Faiz";
-            this.layoutControlItemTxtBxPercent.TextSize = new System.Drawing.Size(26, 13);
-            // 
-            // layoutControlItemTxtBxAmount
-            // 
-            this.layoutControlItemTxtBxAmount.Control = this.textEditNetAmount;
-            this.layoutControlItemTxtBxAmount.Location = new System.Drawing.Point(0, 278);
-            this.layoutControlItemTxtBxAmount.Name = "layoutControlItemTxtBxAmount";
-            this.layoutControlItemTxtBxAmount.OptionsTableLayoutItem.ColumnSpan = 4;
-            this.layoutControlItemTxtBxAmount.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItemTxtBxAmount.Size = new System.Drawing.Size(314, 48);
-            this.layoutControlItemTxtBxAmount.Text = "Tutar";
-            this.layoutControlItemTxtBxAmount.TextSize = new System.Drawing.Size(26, 13);
-            // 
-            // layoutControlItemOk
-            // 
-            this.layoutControlItemOk.Control = this.simpleButtonOk;
-            this.layoutControlItemOk.Location = new System.Drawing.Point(156, 326);
-            this.layoutControlItemOk.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemOk.Name = "layoutControlItemOk";
-            this.layoutControlItemOk.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItemOk.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItemOk.Size = new System.Drawing.Size(78, 58);
-            this.layoutControlItemOk.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemOk.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemOk.TextVisible = false;
-            // 
-            // layoutControlItemCancel
-            // 
-            this.layoutControlItemCancel.Control = this.simpleButtonCancel;
-            this.layoutControlItemCancel.Location = new System.Drawing.Point(234, 326);
-            this.layoutControlItemCancel.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemCancel.Name = "layoutControlItemCancel";
-            this.layoutControlItemCancel.OptionsTableLayoutItem.ColumnIndex = 3;
-            this.layoutControlItemCancel.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItemCancel.Size = new System.Drawing.Size(80, 58);
-            this.layoutControlItemCancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCancel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCancel.TextVisible = false;
-            // 
             // FormPosDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,9 +662,15 @@ namespace DXApplication1
             this.Load += new System.EventHandler(this.FormPosDiscount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDiscountRate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNetAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxPercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBackSpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum4)).EndInit();
@@ -636,12 +684,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDiscountRate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditNetAmount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxPercent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
             this.ResumeLayout(false);
 
         }

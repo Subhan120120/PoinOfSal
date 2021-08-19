@@ -166,7 +166,7 @@ namespace DXApplication1
                 new SqlParameter("@CurrAccCode", dcCurrAcc.CurrAccCode),
                 new SqlParameter("@FirstName", dcCurrAcc.FirstName),
                 new SqlParameter("@LastName", dcCurrAcc.LastName),
-                new SqlParameter("@BonusCardNum", dcCurrAcc.BonusCardNum),
+                new SqlParameter("@BonusCardNum", dcCurrAcc.BonusCardNum ),
                 new SqlParameter("@Address", dcCurrAcc.Address),
                 new SqlParameter("@PhoneNum", dcCurrAcc.PhoneNum)
             };

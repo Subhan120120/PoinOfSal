@@ -20,6 +20,7 @@ namespace DXApplication1
         public FormPos()
         {
             InitializeComponent();
+            //AcceptButton = simpleButtonEnter;
             simpleButtonCustomerAdd.BorderStyle = BorderStyles.UltraFlat;
             simpleButton3.BorderStyle = BorderStyles.UltraFlat;
             simpleButton4.BorderStyle = BorderStyles.UltraFlat;
@@ -29,6 +30,7 @@ namespace DXApplication1
         private void FormPos_Load(object sender, EventArgs e)
         {
             invoiceHeaderID = Guid.NewGuid().ToString();
+            textEditBarcode.Focus();
         }
 
         private void gridView1_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)
@@ -73,12 +75,14 @@ namespace DXApplication1
 
                     int result = sqlMethods.InsertLine(dcProduct, invoiceHeaderID);
 
-                    if (result >= 0)
+                    if (result > 0)
                     {
                         gridControl1.DataSource = BindToData();
                         gridControl1.DataMember = "customQuery1";
                         gridView1.MoveLast();
                     }
+                    else
+                        MessageBox.Show("Məhsul əlavə edilə bilmədi");
                 }
             }
         }
@@ -168,50 +172,29 @@ namespace DXApplication1
         private void simpleButtonNum_Click(object sender, EventArgs e)
         {
             SimpleButton simpleButton = sender as SimpleButton;
-            switch (simpleButton.Text)
+            string key = simpleButton.Text;
+
+            switch (key)
             {
                 case "0":
-                    textEditBarcode.EditValue += "0";
-                    break;
                 case "1":
-                    textEditBarcode.EditValue += "1";
-                    break;
                 case "2":
-                    textEditBarcode.EditValue += "2";
-                    break;
                 case "3":
-                    textEditBarcode.EditValue += "3";
-                    break;
                 case "4":
-                    textEditBarcode.EditValue += "4";
-                    break;
                 case "5":
-                    textEditBarcode.EditValue += "5";
-                    break;
                 case "6":
-                    textEditBarcode.EditValue += "6";
-                    break;
                 case "7":
-                    textEditBarcode.EditValue += "7";
-                    break;
                 case "8":
-                    textEditBarcode.EditValue += "8";
-                    break;
                 case "9":
-                    textEditBarcode.EditValue += "9";
-                    break;
                 case ",":
-                    textEditBarcode.EditValue += ",";
-                    break;
                 case "*":
-                    textEditBarcode.EditValue += "*";
+                    SendKeys.Send(key);
                     break;
                 case "C":
                     textEditBarcode.EditValue = "";
                     break;
                 case "←":
-                    if (textEditBarcode.Text.Length != 0)
-                        textEditBarcode.EditValue = textEditBarcode.Text.Substring(0, textEditBarcode.Text.Length - 1);
+                    SendKeys.Send("{BACKSPACE}");
                     break;
                 default:
                     // code block
@@ -221,39 +204,56 @@ namespace DXApplication1
 
         private void simpleButtonEnter_Click(object sender, EventArgs e)
         {
-            string barcode = textEditBarcode.EditValue.ToString();
-            dcProduct dcProduct = new dcProduct { Barcode = barcode };
-
-            if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+            if (textEditBarcode.EditValue != null)
             {
-                string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
-                sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
-            }
-            int result = sqlMethods.InsertLine(dcProduct, invoiceHeaderID);
+                dcProduct dcProduct = new dcProduct { Barcode = textEditBarcode.EditValue.ToString() };
 
-            if (result >= 0)
-            {
-                gridControl1.DataSource = BindToData();
-                gridControl1.DataMember = "customQuery1";
-                gridView1.MoveLast();
-                textEditBarcode.EditValue = string.Empty;
+                if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                {
+                    string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
+                    sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
+                }
+                int result = sqlMethods.InsertLine(dcProduct, invoiceHeaderID);
+
+                if (result > 0)
+                {
+                    gridControl1.DataSource = BindToData();
+                    gridControl1.DataMember = "customQuery1";
+                    gridView1.MoveLast();
+                    textEditBarcode.EditValue = string.Empty;
+                }
+                else
+                    MessageBox.Show("Barkod Tapılmadı", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void simpleButtonCustomerAdd_Click(object sender, EventArgs e)
         {
-            using (FormCustomer formCustomer = new FormCustomer(""))
+            using (FormCustomer formCustomer = new FormCustomer(new dcCurrAcc()))
             {
                 if (formCustomer.ShowDialog(this) == DialogResult.OK)
                 {
-                    int result = sqlMethods.UpdateCurrAccCode(formCustomer.currAccCode, invoiceHeaderID);
+                    if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                    {
+                        string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
+                        sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
+                    }
+                    int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderID);
 
                     if (result >= 0)
                     {
-
+                        textEditBonCardNum.EditValue = formCustomer.dcCurrAcc.BonusCardNum;
+                        textEditCustomerName.EditValue = formCustomer.dcCurrAcc.FirstName + " " + formCustomer.dcCurrAcc.LastName;
+                        textEditCustomerAddress.EditValue = formCustomer.dcCurrAcc.Address;
+                        textEditCustomerPhoneNum.EditValue = formCustomer.dcCurrAcc.PhoneNum;
                     }
                 }
             }
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            //simpleButtonEnter.PerformClick();
         }
     }
 }
