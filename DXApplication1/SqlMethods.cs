@@ -157,8 +157,8 @@ namespace DXApplication1
 
         public int InsertCustomer(dcCurrAcc dcCurrAcc)
         {
-            string qryInsertCustomer = "INSERT INTO [dbo].[dcCurrAcc]([CurrAccTypeCode],[CurrAccCode],[FirstName],[LastName],[BonusCardNum],[Address],[PhoneNum]) " +
-                "VALUES(@CurrAccTypeCode,@CurrAccCode,@FirstName,@LastName,@BonusCardNum,@Address,@PhoneNum)";
+            string qryInsertCustomer = "INSERT INTO [dbo].[dcCurrAcc]([CurrAccTypeCode],[CurrAccCode],[FirstName],[LastName],[BonusCardNum],[Address],[PhoneNum],[BirthDate]) " +
+                "VALUES(@CurrAccTypeCode,@CurrAccCode,@FirstName,@LastName,@BonusCardNum,@Address,@PhoneNum, @BirthDate)";
 
             paramArray = new SqlParameter[]
             {
@@ -168,6 +168,7 @@ namespace DXApplication1
                 new SqlParameter("@LastName", dcCurrAcc.LastName),
                 new SqlParameter("@BonusCardNum", dcCurrAcc.BonusCardNum ),
                 new SqlParameter("@Address", dcCurrAcc.Address),
+                new SqlParameter("@BirthDate", dcCurrAcc.BirthDate),
                 new SqlParameter("@PhoneNum", dcCurrAcc.PhoneNum)
             };
 

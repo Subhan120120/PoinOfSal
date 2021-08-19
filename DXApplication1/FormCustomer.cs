@@ -34,6 +34,7 @@ namespace DXApplication1
                 BonusCardNum = textEditBonusCard.EditValue is null ? "" : textEditBonusCard.EditValue.ToString(),
                 FirstName = textEditFirstName.EditValue is null ? "" : textEditFirstName.EditValue.ToString(),
                 LastName = textEditLastName.EditValue is null ? "" : textEditLastName.EditValue.ToString(),
+                BirthDate = textEditBirthDate.EditValue is null ? DateTime.MinValue : Convert.ToDateTime(textEditBirthDate.EditValue),
                 PhoneNum = textEditPhoneNum.EditValue is null ? "" : textEditPhoneNum.EditValue.ToString()
             };
 

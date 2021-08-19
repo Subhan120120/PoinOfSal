@@ -121,27 +121,6 @@ namespace DXApplication1
                     // code block
                     break;
             }
-
-            //Control control = FindFocusedControl(this);
-            //if (control.GetType() == typeof(TextEdit) || control.Parent.GetType() == typeof(TextEdit))
-            //{
-            //    TextEdit txtEdit = control as TextEdit;
-            //    if (txtEdit == null)
-            //    {
-            //        txtEdit = control.Parent as TextEdit;
-            //    }
-            //    txtEdit.EditValue += simpleButton.Text;
-            //}
-        }
-        //public Control FindFocusedControl(Control control)
-        //{
-        //    ContainerControl container = control as ContainerControl;
-        //    while (container != null)
-        //    {
-        //        control = container.ActiveControl;
-        //        container = control as ContainerControl;
-        //    }
-        //    return control;
-        //}
+        }        
     }
 }

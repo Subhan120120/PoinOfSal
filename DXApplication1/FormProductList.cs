@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace DXApplication1
 {
-    public partial class FormProductList : DevExpress.XtraEditors.XtraForm
+    public partial class FormProductList : XtraForm
     {
         public FormProductList()
         {
@@ -42,8 +42,8 @@ namespace DXApplication1
                     ProductDescription = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProductDescription"]).ToString(),
                     RetailPrice = float.Parse(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["RetailPrice"]).ToString())
                 };
+                DialogResult = DialogResult.OK;
             }
-            DialogResult = DialogResult.OK;
         }
     }
 }

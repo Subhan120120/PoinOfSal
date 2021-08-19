@@ -13,6 +13,7 @@ namespace DXApplication1.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string BonusCardNum { get; set; }
+        public DateTime BirthDate { get; set; }
         public string Address { get; set; }
         public string PhoneNum { get; set; }
     }

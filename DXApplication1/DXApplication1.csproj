@@ -87,6 +87,7 @@
     <Compile Include="Model\dcProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReserveCode.cs" />
     <Compile Include="SqlMethods.cs" />
     <EmbeddedResource Include="FormCustomer.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>

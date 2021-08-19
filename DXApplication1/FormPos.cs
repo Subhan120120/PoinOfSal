@@ -20,17 +20,27 @@ namespace DXApplication1
         public FormPos()
         {
             InitializeComponent();
-            //AcceptButton = simpleButtonEnter;
+            AcceptButton = simpleButtonEnter;
             simpleButtonCustomerAdd.BorderStyle = BorderStyles.UltraFlat;
             simpleButton3.BorderStyle = BorderStyles.UltraFlat;
             simpleButton4.BorderStyle = BorderStyles.UltraFlat;
-            simpleButton5.BorderStyle = BorderStyles.UltraFlat;
+            simpleButton5.BorderStyle = BorderStyles.UltraFlat; 
+            //ActiveControl = textEditBarcode;
         }
 
         private void FormPos_Load(object sender, EventArgs e)
         {
-            invoiceHeaderID = Guid.NewGuid().ToString();
-            textEditBarcode.Focus();
+            invoiceHeaderID = Guid.NewGuid().ToString();            
+        }
+        public Control FindFocusedControl(Control control)
+        {
+            ContainerControl container = control as ContainerControl;
+            while (container != null)
+            {
+                control = container.ActiveControl;
+                container = control as ContainerControl;
+            }
+            return control;
         }
 
         private void gridView1_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)
@@ -190,11 +200,11 @@ namespace DXApplication1
                 case "*":
                     SendKeys.Send(key);
                     break;
-                case "C":
-                    textEditBarcode.EditValue = "";
-                    break;
                 case "←":
                     SendKeys.Send("{BACKSPACE}");
+                    break;
+                case "C":
+                    textEditBarcode.EditValue = "";
                     break;
                 default:
                     // code block
@@ -253,7 +263,25 @@ namespace DXApplication1
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            //simpleButtonEnter.PerformClick();
+            Control control = FindFocusedControl(this);
+
+            MessageBox.Show(control.GetType().ToString());
+            MessageBox.Show(control.Parent.GetType().ToString());
+            if (control.GetType() == typeof(LookUpEdit) || control.Parent.GetType() == typeof(LookUpEdit))
+            {
+                LookUpEdit lue;
+                lue = control as LookUpEdit;
+                if (lue == null)
+                {
+                    lue = control.Parent as LookUpEdit;
+                }
+                lue.Text = "BlaBlaBla";
+            }
+        }
+
+        private void gridControl1_MouseUp(object sender, MouseEventArgs e)
+        {
+            textEditBarcode.Focus();
         }
     }
 }

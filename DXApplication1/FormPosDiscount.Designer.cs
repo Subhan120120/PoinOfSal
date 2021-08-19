@@ -139,6 +139,8 @@ namespace DXApplication1
             // simpleButtonNum7
             // 
             this.simpleButtonNum7.AllowFocus = false;
+            this.simpleButtonNum7.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum7.Appearance.Options.UseFont = true;
             this.simpleButtonNum7.Location = new System.Drawing.Point(12, 58);
             this.simpleButtonNum7.Name = "simpleButtonNum7";
             this.simpleButtonNum7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -152,11 +154,13 @@ namespace DXApplication1
             // 
             this.textEditDiscountRate.Location = new System.Drawing.Point(41, 12);
             this.textEditDiscountRate.Name = "textEditDiscountRate";
+            this.textEditDiscountRate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.textEditDiscountRate.Properties.Appearance.Options.UseFont = true;
             this.textEditDiscountRate.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditDiscountRate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditDiscountRate.Properties.Mask.EditMask = "P";
             this.textEditDiscountRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditDiscountRate.Size = new System.Drawing.Size(281, 20);
+            this.textEditDiscountRate.Size = new System.Drawing.Size(281, 32);
             this.textEditDiscountRate.StyleController = this.layoutControl1;
             this.textEditDiscountRate.TabIndex = 5;
             this.textEditDiscountRate.InvalidValue += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.textEditDiscountRate_InvalidValue);
@@ -167,11 +171,13 @@ namespace DXApplication1
             // 
             this.textEditNetAmount.Location = new System.Drawing.Point(41, 290);
             this.textEditNetAmount.Name = "textEditNetAmount";
+            this.textEditNetAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.textEditNetAmount.Properties.Appearance.Options.UseFont = true;
             this.textEditNetAmount.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditNetAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditNetAmount.Properties.Mask.EditMask = "n";
             this.textEditNetAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditNetAmount.Size = new System.Drawing.Size(281, 20);
+            this.textEditNetAmount.Size = new System.Drawing.Size(281, 32);
             this.textEditNetAmount.StyleController = this.layoutControl1;
             this.textEditNetAmount.TabIndex = 6;
             this.textEditNetAmount.EditValueChanged += new System.EventHandler(this.textEditNetAmount_EditValueChanged);
@@ -192,6 +198,8 @@ namespace DXApplication1
             // simpleButtonNum8
             // 
             this.simpleButtonNum8.AllowFocus = false;
+            this.simpleButtonNum8.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum8.Appearance.Options.UseFont = true;
             this.simpleButtonNum8.Location = new System.Drawing.Point(90, 58);
             this.simpleButtonNum8.Name = "simpleButtonNum8";
             this.simpleButtonNum8.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -215,6 +223,8 @@ namespace DXApplication1
             // simpleButtonNum9
             // 
             this.simpleButtonNum9.AllowFocus = false;
+            this.simpleButtonNum9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum9.Appearance.Options.UseFont = true;
             this.simpleButtonNum9.Location = new System.Drawing.Point(168, 58);
             this.simpleButtonNum9.Name = "simpleButtonNum9";
             this.simpleButtonNum9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -227,6 +237,8 @@ namespace DXApplication1
             // simpleButtonBackSpace
             // 
             this.simpleButtonBackSpace.AllowFocus = false;
+            this.simpleButtonBackSpace.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.simpleButtonBackSpace.Appearance.Options.UseFont = true;
             this.simpleButtonBackSpace.Location = new System.Drawing.Point(246, 58);
             this.simpleButtonBackSpace.Name = "simpleButtonBackSpace";
             this.simpleButtonBackSpace.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -239,6 +251,8 @@ namespace DXApplication1
             // simpleButtonNum4
             // 
             this.simpleButtonNum4.AllowFocus = false;
+            this.simpleButtonNum4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum4.Appearance.Options.UseFont = true;
             this.simpleButtonNum4.Location = new System.Drawing.Point(12, 116);
             this.simpleButtonNum4.Name = "simpleButtonNum4";
             this.simpleButtonNum4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -251,6 +265,8 @@ namespace DXApplication1
             // simpleButtonNum5
             // 
             this.simpleButtonNum5.AllowFocus = false;
+            this.simpleButtonNum5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum5.Appearance.Options.UseFont = true;
             this.simpleButtonNum5.Location = new System.Drawing.Point(90, 116);
             this.simpleButtonNum5.Name = "simpleButtonNum5";
             this.simpleButtonNum5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -263,6 +279,8 @@ namespace DXApplication1
             // simpleButtonNum6
             // 
             this.simpleButtonNum6.AllowFocus = false;
+            this.simpleButtonNum6.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum6.Appearance.Options.UseFont = true;
             this.simpleButtonNum6.Location = new System.Drawing.Point(168, 116);
             this.simpleButtonNum6.Name = "simpleButtonNum6";
             this.simpleButtonNum6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -275,6 +293,8 @@ namespace DXApplication1
             // simpleButtonC
             // 
             this.simpleButtonC.AllowFocus = false;
+            this.simpleButtonC.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonC.Appearance.Options.UseFont = true;
             this.simpleButtonC.Location = new System.Drawing.Point(246, 116);
             this.simpleButtonC.Name = "simpleButtonC";
             this.simpleButtonC.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -287,6 +307,8 @@ namespace DXApplication1
             // simpleButtonNum1
             // 
             this.simpleButtonNum1.AllowFocus = false;
+            this.simpleButtonNum1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum1.Appearance.Options.UseFont = true;
             this.simpleButtonNum1.Location = new System.Drawing.Point(12, 174);
             this.simpleButtonNum1.Name = "simpleButtonNum1";
             this.simpleButtonNum1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -299,6 +321,8 @@ namespace DXApplication1
             // simpleButtonNum2
             // 
             this.simpleButtonNum2.AllowFocus = false;
+            this.simpleButtonNum2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum2.Appearance.Options.UseFont = true;
             this.simpleButtonNum2.Location = new System.Drawing.Point(90, 174);
             this.simpleButtonNum2.Name = "simpleButtonNum2";
             this.simpleButtonNum2.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -311,6 +335,8 @@ namespace DXApplication1
             // simpleButtonNum3
             // 
             this.simpleButtonNum3.AllowFocus = false;
+            this.simpleButtonNum3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum3.Appearance.Options.UseFont = true;
             this.simpleButtonNum3.Location = new System.Drawing.Point(168, 174);
             this.simpleButtonNum3.Name = "simpleButtonNum3";
             this.simpleButtonNum3.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -323,6 +349,8 @@ namespace DXApplication1
             // simpleButtonNum0
             // 
             this.simpleButtonNum0.AllowFocus = false;
+            this.simpleButtonNum0.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonNum0.Appearance.Options.UseFont = true;
             this.simpleButtonNum0.Location = new System.Drawing.Point(12, 232);
             this.simpleButtonNum0.Name = "simpleButtonNum0";
             this.simpleButtonNum0.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -335,6 +363,8 @@ namespace DXApplication1
             // simpleButtonComma
             // 
             this.simpleButtonComma.AllowFocus = false;
+            this.simpleButtonComma.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButtonComma.Appearance.Options.UseFont = true;
             this.simpleButtonComma.Location = new System.Drawing.Point(168, 232);
             this.simpleButtonComma.Name = "simpleButtonComma";
             this.simpleButtonComma.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -347,6 +377,8 @@ namespace DXApplication1
             // simpleButtonEnter
             // 
             this.simpleButtonEnter.AllowFocus = false;
+            this.simpleButtonEnter.Appearance.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.simpleButtonEnter.Appearance.Options.UseFont = true;
             this.simpleButtonEnter.Location = new System.Drawing.Point(246, 174);
             this.simpleButtonEnter.Name = "simpleButtonEnter";
             this.simpleButtonEnter.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
