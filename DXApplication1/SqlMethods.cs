@@ -1,4 +1,6 @@
-﻿using DXApplication1.Model;
+﻿using DevExpress.DataAccess.ConnectionParameters;
+using DevExpress.DataAccess.Sql;
+using DXApplication1.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,6 +47,23 @@ namespace DXApplication1
                     return dt;
                 }
             }
+        }
+
+        public SqlDataSource BindToData(string invoiceHeaderID)
+        {
+            CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
+
+            SqlDataSource ds = new SqlDataSource(connectionParameters);
+            CustomSqlQuery query = new CustomSqlQuery();
+            query.Name = "customQuery1";
+            query.Sql = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
+                "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
+                "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+
+            ds.Queries.Add(query);
+            ds.Fill();
+
+            return ds;
         }
 
         public int InsertLine(dcProduct dcProduct, string invoiceHeaderID)

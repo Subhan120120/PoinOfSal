@@ -29,7 +29,6 @@ namespace DXApplication1
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPos));
             DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
@@ -166,8 +165,6 @@ namespace DXApplication1
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlPOS)).BeginInit();
             this.layoutControlPOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -227,8 +224,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.navigationPage1.SuspendLayout();
-            this.navigationPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControlPOS
@@ -296,6 +291,8 @@ namespace DXApplication1
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(221)))), ((int)(((byte)(245)))));
+            this.gridView1.Appearance.HideSelectionRow.Options.UseBackColor = true;
             this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
             this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -580,6 +577,8 @@ namespace DXApplication1
             // simpleButtonProductSearch
             // 
             this.simpleButtonProductSearch.AllowFocus = false;
+            this.simpleButtonProductSearch.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButtonProductSearch.Appearance.Options.UseBackColor = true;
             this.simpleButtonProductSearch.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButtonProductSearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonProductSearch.ImageOptions.SvgImage")));
             this.simpleButtonProductSearch.Location = new System.Drawing.Point(725, 252);
@@ -635,6 +634,8 @@ namespace DXApplication1
             // simpleButtonDiscount
             // 
             this.simpleButtonDiscount.AllowFocus = false;
+            this.simpleButtonDiscount.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButtonDiscount.Appearance.Options.UseBackColor = true;
             this.simpleButtonDiscount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonDiscount.ImageOptions.Image")));
             this.simpleButtonDiscount.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButtonDiscount.Location = new System.Drawing.Point(816, 252);
@@ -649,7 +650,7 @@ namespace DXApplication1
             // simpleButtonVisa
             // 
             this.simpleButtonVisa.AllowFocus = false;
-            this.simpleButtonVisa.ImageOptions.Image = global::DXApplication1.Properties.Resources.CreditCard_32x32;
+            this.simpleButtonVisa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonVisa.ImageOptions.Image")));
             this.simpleButtonVisa.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButtonVisa.Location = new System.Drawing.Point(816, 605);
             this.simpleButtonVisa.Name = "simpleButtonVisa";
@@ -662,6 +663,8 @@ namespace DXApplication1
             // simpleButtonCash
             // 
             this.simpleButtonCash.AllowFocus = false;
+            this.simpleButtonCash.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButtonCash.Appearance.Options.UseBackColor = true;
             this.simpleButtonCash.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCash.ImageOptions.Image")));
             this.simpleButtonCash.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButtonCash.Location = new System.Drawing.Point(725, 605);
@@ -671,6 +674,7 @@ namespace DXApplication1
             this.simpleButtonCash.StyleController = this.layoutControlPOS;
             this.simpleButtonCash.TabIndex = 27;
             this.simpleButtonCash.Text = "Cash";
+            this.simpleButtonCash.Click += new System.EventHandler(this.simpleButtonCash_Click);
             // 
             // simpleButtonBonus
             // 
@@ -688,6 +692,8 @@ namespace DXApplication1
             // simpleButtonCancelInvoice
             // 
             this.simpleButtonCancelInvoice.AllowFocus = false;
+            this.simpleButtonCancelInvoice.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButtonCancelInvoice.Appearance.Options.UseBackColor = true;
             this.simpleButtonCancelInvoice.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancelInvoice.ImageOptions.Image")));
             this.simpleButtonCancelInvoice.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButtonCancelInvoice.Location = new System.Drawing.Point(1000, 252);
@@ -702,6 +708,8 @@ namespace DXApplication1
             // simpleButtonDeleteLine
             // 
             this.simpleButtonDeleteLine.AllowFocus = false;
+            this.simpleButtonDeleteLine.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButtonDeleteLine.Appearance.Options.UseBackColor = true;
             this.simpleButtonDeleteLine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonDeleteLine.ImageOptions.Image")));
             this.simpleButtonDeleteLine.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButtonDeleteLine.Location = new System.Drawing.Point(908, 252);
@@ -736,7 +744,7 @@ namespace DXApplication1
             this.simpleButtonCustomerAdd.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
             this.simpleButtonCustomerAdd.AppearancePressed.Options.UseBackColor = true;
             this.simpleButtonCustomerAdd.AppearancePressed.Options.UseBorderColor = true;
-            this.simpleButtonCustomerAdd.ImageOptions.Image = global::DXApplication1.Properties.Resources.add_client_32px;
+            this.simpleButtonCustomerAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCustomerAdd.ImageOptions.Image")));
             this.simpleButtonCustomerAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButtonCustomerAdd.Location = new System.Drawing.Point(1037, 45);
             this.simpleButtonCustomerAdd.Name = "simpleButtonCustomerAdd";
@@ -770,7 +778,7 @@ namespace DXApplication1
             this.simpleButton3.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
             this.simpleButton3.AppearancePressed.Options.UseBackColor = true;
             this.simpleButton3.AppearancePressed.Options.UseBorderColor = true;
-            this.simpleButton3.ImageOptions.Image = global::DXApplication1.Properties.Resources.search_client_32px;
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
             this.simpleButton3.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButton3.Location = new System.Drawing.Point(1037, 85);
             this.simpleButton3.Name = "simpleButton3";
@@ -803,7 +811,7 @@ namespace DXApplication1
             this.simpleButton4.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
             this.simpleButton4.AppearancePressed.Options.UseBackColor = true;
             this.simpleButton4.AppearancePressed.Options.UseBorderColor = true;
-            this.simpleButton4.ImageOptions.Image = global::DXApplication1.Properties.Resources.registration_32px;
+            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
             this.simpleButton4.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButton4.Location = new System.Drawing.Point(1037, 125);
             this.simpleButton4.Name = "simpleButton4";
@@ -887,6 +895,8 @@ namespace DXApplication1
             // simpleButtonSalesPerson
             // 
             this.simpleButtonSalesPerson.AllowFocus = false;
+            this.simpleButtonSalesPerson.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButtonSalesPerson.Appearance.Options.UseBackColor = true;
             this.simpleButtonSalesPerson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonSalesPerson.ImageOptions.Image")));
             this.simpleButtonSalesPerson.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButtonSalesPerson.Location = new System.Drawing.Point(725, 329);
@@ -898,10 +908,14 @@ namespace DXApplication1
             // 
             // simpleButton6
             // 
+            this.simpleButton6.AllowFocus = false;
+            this.simpleButton6.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButton6.Appearance.Options.UseBackColor = true;
             this.simpleButton6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
             this.simpleButton6.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButton6.Location = new System.Drawing.Point(725, 483);
             this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton6.Size = new System.Drawing.Size(87, 73);
             this.simpleButton6.StyleController = this.layoutControlPOS;
             this.simpleButton6.TabIndex = 42;
@@ -909,10 +923,14 @@ namespace DXApplication1
             // 
             // simpleButton7
             // 
+            this.simpleButton7.AllowFocus = false;
+            this.simpleButton7.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButton7.Appearance.Options.UseBackColor = true;
             this.simpleButton7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton7.ImageOptions.Image")));
             this.simpleButton7.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButton7.Location = new System.Drawing.Point(816, 406);
             this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton7.Size = new System.Drawing.Size(88, 73);
             this.simpleButton7.StyleController = this.layoutControlPOS;
             this.simpleButton7.TabIndex = 43;
@@ -920,10 +938,14 @@ namespace DXApplication1
             // 
             // simpleButton8
             // 
+            this.simpleButton8.AllowFocus = false;
+            this.simpleButton8.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButton8.Appearance.Options.UseBackColor = true;
             this.simpleButton8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton8.ImageOptions.Image")));
             this.simpleButton8.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButton8.Location = new System.Drawing.Point(725, 406);
             this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton8.Size = new System.Drawing.Size(87, 73);
             this.simpleButton8.StyleController = this.layoutControlPOS;
             this.simpleButton8.TabIndex = 44;
@@ -931,10 +953,14 @@ namespace DXApplication1
             // 
             // simpleButton9
             // 
+            this.simpleButton9.AllowFocus = false;
+            this.simpleButton9.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButton9.Appearance.Options.UseBackColor = true;
             this.simpleButton9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton9.ImageOptions.Image")));
             this.simpleButton9.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButton9.Location = new System.Drawing.Point(908, 406);
             this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton9.Size = new System.Drawing.Size(88, 73);
             this.simpleButton9.StyleController = this.layoutControlPOS;
             this.simpleButton9.TabIndex = 45;
@@ -942,10 +968,14 @@ namespace DXApplication1
             // 
             // simpleButton10
             // 
+            this.simpleButton10.AllowFocus = false;
+            this.simpleButton10.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButton10.Appearance.Options.UseBackColor = true;
             this.simpleButton10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
             this.simpleButton10.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButton10.Location = new System.Drawing.Point(1000, 406);
             this.simpleButton10.Name = "simpleButton10";
+            this.simpleButton10.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton10.Size = new System.Drawing.Size(88, 73);
             this.simpleButton10.StyleController = this.layoutControlPOS;
             this.simpleButton10.TabIndex = 46;
@@ -1711,17 +1741,8 @@ namespace DXApplication1
             // navigationPage2
             // 
             this.navigationPage2.Caption = "navigationPage2";
-            this.navigationPage2.Controls.Add(this.simpleButton2);
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(1112, 715);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(189, 158);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 0;
-            this.simpleButton2.Text = "simpleButton2";
             // 
             // FormPos
             // 
@@ -1791,8 +1812,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
             this.navigationFrame1.ResumeLayout(false);
             this.navigationPage1.ResumeLayout(false);
-            this.navigationPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1878,7 +1897,6 @@ namespace DXApplication1
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCustomerAdd;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem;
@@ -1895,7 +1913,6 @@ namespace DXApplication1
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerAddress;
         private DevExpress.XtraEditors.TextEdit textEditBonCardNum;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemBonCardNum;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraEditors.SimpleButton simpleButtonSalesPerson;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;

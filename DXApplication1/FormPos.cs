@@ -1,36 +1,42 @@
-﻿using DevExpress.DataAccess.ConnectionParameters;
-using DevExpress.DataAccess.Sql;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
 using DXApplication1.Model;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DXApplication1
 {
     public partial class FormPos : XtraForm
     {
-        public string subConnString = Properties.Settings.Default.subConnString;
-        public string invoiceHeaderID = "";
+        public string invoiceHeaderID = Guid.NewGuid().ToString();
         SqlMethods sqlMethods = new SqlMethods();
 
         public FormPos()
         {
             InitializeComponent();
-            AcceptButton = simpleButtonEnter;
             simpleButtonCustomerAdd.BorderStyle = BorderStyles.UltraFlat;
             simpleButton3.BorderStyle = BorderStyles.UltraFlat;
             simpleButton4.BorderStyle = BorderStyles.UltraFlat;
-            simpleButton5.BorderStyle = BorderStyles.UltraFlat; 
-            //ActiveControl = textEditBarcode;
+            simpleButton5.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButton6.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButton7.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButton8.BorderStyle = BorderStyles.UltraFlat; 
+            //simpleButton9.BorderStyle = BorderStyles.UltraFlat; 
+            //simpleButton10.BorderStyle = BorderStyles.UltraFlat; 
+            //simpleButtonSalesPerson.BorderStyle = BorderStyles.UltraFlat; 
+            //simpleButtonDiscount.BorderStyle = BorderStyles.UltraFlat; 
+            //simpleButtonDeleteLine.BorderStyle = BorderStyles.UltraFlat; 
+            //simpleButtonCancelInvoice.BorderStyle = BorderStyles.UltraFlat; 
+            //simpleButtonProductSearch.BorderStyle = BorderStyles.UltraFlat; 
+            //AcceptButton = simpleButtonEnter;
+
+            ActiveControl = textEditBarcode;
         }
 
         private void FormPos_Load(object sender, EventArgs e)
         {
-            invoiceHeaderID = Guid.NewGuid().ToString();            
+            //invoiceHeaderID = Guid.NewGuid().ToString();
         }
         public Control FindFocusedControl(Control control)
         {
@@ -54,9 +60,9 @@ namespace DXApplication1
             string VatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
 
 
-            float DiscountAmount = 0;
+            decimal DiscountAmount = 0;
             if (Amount != string.Empty && NetAmount != string.Empty)
-                DiscountAmount = float.Parse(Amount) - float.Parse(NetAmount);
+                DiscountAmount = Math.Round(Convert.ToDecimal(Amount) - Convert.ToDecimal(NetAmount), 2);
 
             string previewText = "ƏDV: " + VatRate + "%\n";
 
@@ -87,7 +93,7 @@ namespace DXApplication1
 
                     if (result > 0)
                     {
-                        gridControl1.DataSource = BindToData();
+                        gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
                         gridControl1.DataMember = "customQuery1";
                         gridView1.MoveLast();
                     }
@@ -95,23 +101,6 @@ namespace DXApplication1
                         MessageBox.Show("Məhsul əlavə edilə bilmədi");
                 }
             }
-        }
-
-        public SqlDataSource BindToData()
-        {
-            CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
-
-            SqlDataSource ds = new SqlDataSource(connectionParameters);
-            CustomSqlQuery query = new CustomSqlQuery();
-            query.Name = "customQuery1";
-            query.Sql = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
-                "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
-                "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
-
-            ds.Queries.Add(query);
-            ds.Fill();
-
-            return ds;
         }
 
         private void simpleButtonCancelInvoice_Click(object sender, EventArgs e)
@@ -123,7 +112,7 @@ namespace DXApplication1
 
                 if (result >= 0)
                 {
-                    gridControl1.DataSource = BindToData();
+                    gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
                     invoiceHeaderID = Guid.NewGuid().ToString();
                 }
             }
@@ -142,7 +131,7 @@ namespace DXApplication1
 
                     if (result >= 0)
                     {
-                        gridControl1.DataSource = BindToData();
+                        gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
                         gridView1.MoveLast();
                     }
                 }
@@ -157,8 +146,8 @@ namespace DXApplication1
 
             if (gridView1.FocusedRowHandle >= 0)
             {
-                float PosDiscountRate = float.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "PosDiscountRate").ToString());
-                float Amount = float.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Amount").ToString());
+                decimal PosDiscountRate = Math.Round(Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "PosDiscountRate").ToString()), 2);
+                decimal Amount = Math.Round(Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Amount").ToString()), 2);
                 using (FormPosDiscount formPosDiscount = new FormPosDiscount(PosDiscountRate, Amount))
                 {
                     if (formPosDiscount.ShowDialog(this) == DialogResult.OK)
@@ -168,7 +157,7 @@ namespace DXApplication1
 
                         if (result >= 0)
                         {
-                            gridControl1.DataSource = BindToData();
+                            gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
                             gridView1.MoveLast();
                         }
                     }
@@ -227,7 +216,7 @@ namespace DXApplication1
 
                 if (result > 0)
                 {
-                    gridControl1.DataSource = BindToData();
+                    gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
                     gridControl1.DataMember = "customQuery1";
                     gridView1.MoveLast();
                     textEditBarcode.EditValue = string.Empty;
@@ -267,21 +256,23 @@ namespace DXApplication1
 
             MessageBox.Show(control.GetType().ToString());
             MessageBox.Show(control.Parent.GetType().ToString());
-            if (control.GetType() == typeof(LookUpEdit) || control.Parent.GetType() == typeof(LookUpEdit))
-            {
-                LookUpEdit lue;
-                lue = control as LookUpEdit;
-                if (lue == null)
-                {
-                    lue = control.Parent as LookUpEdit;
-                }
-                lue.Text = "BlaBlaBla";
-            }
+
         }
 
         private void gridControl1_MouseUp(object sender, MouseEventArgs e)
         {
             textEditBarcode.Focus();
+        }
+
+        private void simpleButtonCash_Click(object sender, EventArgs e)
+        {
+            using (FormPayment formPayment = new FormPayment())
+            {
+                if (formPayment.ShowDialog(this) == DialogResult.OK)
+                {
+
+                }
+            }
         }
     }
 }

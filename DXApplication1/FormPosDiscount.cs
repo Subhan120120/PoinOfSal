@@ -9,10 +9,10 @@ namespace DXApplication1
 {
     public partial class FormPosDiscount : XtraForm
     {
-        float Amount = 0;
-        float NetAmount = 0;
-        public float PosDiscountRate = 0;
-        public FormPosDiscount(float PosDiscountRate, float Amount)
+        decimal Amount = 0;
+        decimal NetAmount = 0;
+        public decimal PosDiscountRate = 0;
+        public FormPosDiscount(decimal PosDiscountRate, decimal Amount)
         {
             this.Amount = Amount;
             this.PosDiscountRate = PosDiscountRate;
@@ -24,7 +24,7 @@ namespace DXApplication1
         {
             AcceptButton = simpleButtonOk;
             CancelButton = simpleButtonCancel;
-            NetAmount = Amount - (Amount * PosDiscountRate / 100);
+            NetAmount = Math.Round(Amount - (Amount * PosDiscountRate / 100), 2);
             textEditDiscountRate.EditValue = PosDiscountRate.ToString();
             textEditNetAmount.EditValue = NetAmount.ToString();
         }
@@ -32,13 +32,13 @@ namespace DXApplication1
         private void textEditDiscountRate_EditValueChanged(object sender, EventArgs e)
         {
             textEditDiscountRate.DoValidate();
-            PosDiscountRate = float.Parse(textEditDiscountRate.EditValue.ToString());
+            PosDiscountRate = Math.Round(Convert.ToDecimal(textEditDiscountRate.EditValue.ToString()), 2);
             if (PosDiscountRate > 100)
                 PosDiscountRate = 100;
             else if (PosDiscountRate < 0)
                 PosDiscountRate = 0;
 
-            NetAmount = Amount - (Amount * PosDiscountRate / 100);
+            NetAmount = Math.Round(Amount - (Amount * PosDiscountRate / 100), 2);
             textEditNetAmount.EditValueChanged -= new EventHandler(textEditNetAmount_EditValueChanged);
             textEditNetAmount.EditValue = (NetAmount.ToString());
             textEditNetAmount.EditValueChanged += new EventHandler(textEditNetAmount_EditValueChanged);
@@ -46,17 +46,17 @@ namespace DXApplication1
 
         private void textEditNetAmount_EditValueChanged(object sender, EventArgs e)
         {
-            textEditNetAmount.DoValidate();            
-            NetAmount = float.Parse(textEditNetAmount.EditValue.ToString());
+            textEditNetAmount.DoValidate();
+            NetAmount = Math.Round(Convert.ToDecimal(textEditNetAmount.EditValue.ToString()), 2);
             if (NetAmount > Amount)
                 NetAmount = Amount;
             else if (NetAmount < 0)
                 NetAmount = 0;
 
-            PosDiscountRate = (Amount - NetAmount) / Amount * 100;
+            PosDiscountRate = Math.Round((Amount - NetAmount) / Amount * 100, 2);
             textEditDiscountRate.EditValueChanged -= new EventHandler(textEditDiscountRate_EditValueChanged);
             textEditDiscountRate.EditValue = (PosDiscountRate.ToString());
-            textEditDiscountRate.EditValueChanged += new EventHandler(textEditDiscountRate_EditValueChanged); 
+            textEditDiscountRate.EditValueChanged += new EventHandler(textEditDiscountRate_EditValueChanged);
         }
 
         private void simpleButtonOk_Click(object sender, EventArgs e)
@@ -72,9 +72,9 @@ namespace DXApplication1
             Validate_BetweenMinAndMaxRule(sender as BaseEdit, 0, Amount);
         }
 
-        private void Validate_BetweenMinAndMaxRule(BaseEdit control, float min, float max)
+        private void Validate_BetweenMinAndMaxRule(BaseEdit control, decimal min, decimal max)
         {
-            float val = float.Parse(control.EditValue.ToString());
+            decimal val = Convert.ToDecimal(control.EditValue.ToString());
             if ((val < min)) dxErrorProvider1.SetError(control, "Endirim ədədi " + (min).ToString() + " dan böyük olmalıdır ", ErrorType.Critical);
             else if (val > max) dxErrorProvider1.SetError(control, "Endirim ədədi " + (max).ToString() + " dən kiçik olmalıdır ", ErrorType.Critical);
             else dxErrorProvider1.SetError(control, "");
@@ -107,13 +107,13 @@ namespace DXApplication1
                 case "*":
                     SendKeys.Send(key);
                     break;
-                case "C":                    
+                case "C":
                     SendKeys.Send("^A");
                     SendKeys.Send("{BACKSPACE}");
                     break;
                 case "←":
                     SendKeys.Send("{BACKSPACE}");
-                    break;               
+                    break;
                 case "↵":
                     DialogResult = DialogResult.OK;
                     break;
@@ -121,6 +121,6 @@ namespace DXApplication1
                     // code block
                     break;
             }
-        }        
+        }
     }
 }
