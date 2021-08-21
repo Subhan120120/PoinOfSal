@@ -31,8 +31,6 @@ namespace DXApplication1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPayment));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
@@ -44,7 +42,6 @@ namespace DXApplication1
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemCash = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCashless = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemChange = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCusBonus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -52,10 +49,11 @@ namespace DXApplication1
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItemBank = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
@@ -65,7 +63,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCashless)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemChange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCusBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -73,11 +70,13 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Controls.Add(this.textEdit1);
             this.layoutControl1.Controls.Add(this.textEdit2);
             this.layoutControl1.Controls.Add(this.textEdit3);
@@ -91,91 +90,74 @@ namespace DXApplication1
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(410, 0, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(709, 325);
+            this.layoutControl1.Size = new System.Drawing.Size(360, 423);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // gridControl1
-            // 
-            this.gridControl1.Location = new System.Drawing.Point(371, 12);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(326, 233);
-            this.gridControl1.TabIndex = 8;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.OptionsView.ShowIndicator = false;
-            // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(81, 12);
+            this.textEdit1.Location = new System.Drawing.Point(93, 45);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEdit1.Size = new System.Drawing.Size(108, 32);
+            this.textEdit1.Size = new System.Drawing.Size(243, 32);
             this.textEdit1.StyleController = this.layoutControl1;
             this.textEdit1.TabIndex = 4;
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(81, 48);
+            this.textEdit2.Location = new System.Drawing.Point(93, 162);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
             this.textEdit2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEdit2.Size = new System.Drawing.Size(108, 32);
+            this.textEdit2.Size = new System.Drawing.Size(243, 32);
             this.textEdit2.StyleController = this.layoutControl1;
             this.textEdit2.TabIndex = 5;
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(81, 84);
+            this.textEdit3.Location = new System.Drawing.Point(93, 279);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.textEdit3.Properties.Appearance.Options.UseFont = true;
             this.textEdit3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEdit3.Size = new System.Drawing.Size(108, 32);
+            this.textEdit3.Size = new System.Drawing.Size(243, 32);
             this.textEdit3.StyleController = this.layoutControl1;
             this.textEdit3.TabIndex = 6;
             // 
             // textEdit5
             // 
-            this.textEdit5.Location = new System.Drawing.Point(262, 12);
+            this.textEdit5.Location = new System.Drawing.Point(93, 81);
             this.textEdit5.Name = "textEdit5";
             this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.textEdit5.Properties.Appearance.Options.UseFont = true;
             this.textEdit5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEdit5.Size = new System.Drawing.Size(105, 32);
+            this.textEdit5.Size = new System.Drawing.Size(243, 32);
             this.textEdit5.StyleController = this.layoutControl1;
             this.textEdit5.TabIndex = 9;
             // 
             // textEdit6
             // 
-            this.textEdit6.Location = new System.Drawing.Point(262, 84);
+            this.textEdit6.Location = new System.Drawing.Point(93, 315);
             this.textEdit6.Name = "textEdit6";
             this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.textEdit6.Properties.Appearance.Options.UseFont = true;
             this.textEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEdit6.Size = new System.Drawing.Size(105, 32);
+            this.textEdit6.Size = new System.Drawing.Size(243, 32);
             this.textEdit6.StyleController = this.layoutControl1;
             this.textEdit6.TabIndex = 11;
             // 
             // textEdit4
             // 
-            this.textEdit4.Location = new System.Drawing.Point(262, 48);
+            this.textEdit4.Location = new System.Drawing.Point(93, 198);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.textEdit4.Properties.Appearance.Options.UseFont = true;
             this.textEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEdit4.Size = new System.Drawing.Size(105, 32);
+            this.textEdit4.Size = new System.Drawing.Size(243, 32);
             this.textEdit4.StyleController = this.layoutControl1;
             this.textEdit4.TabIndex = 10;
             // 
@@ -183,9 +165,9 @@ namespace DXApplication1
             // 
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(623, 249);
+            this.simpleButton1.Location = new System.Drawing.Point(274, 363);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(74, 64);
+            this.simpleButton1.Size = new System.Drawing.Size(74, 48);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 12;
             this.simpleButton1.Text = "simpleButton1";
@@ -194,9 +176,9 @@ namespace DXApplication1
             // 
             this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(545, 249);
+            this.simpleButton2.Location = new System.Drawing.Point(196, 363);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(74, 64);
+            this.simpleButton2.Size = new System.Drawing.Size(74, 48);
             this.simpleButton2.StyleController = this.layoutControl1;
             this.simpleButton2.TabIndex = 13;
             this.simpleButton2.Text = "simpleButton2";
@@ -206,18 +188,14 @@ namespace DXApplication1
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemCash,
-            this.layoutControlItemCashless,
-            this.layoutControlItem4,
-            this.layoutControlItemChange,
-            this.layoutControlItemCusBonus,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
             this.emptySpaceItem1,
-            this.layoutControlItemBank,
-            this.layoutControlItemCustomerBonus});
+            this.layoutControlItem2,
+            this.layoutControlItem1,
+            this.layoutControlGroup1,
+            this.layoutControlGroup2,
+            this.layoutControlGroup3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(709, 325);
+            this.Root.Size = new System.Drawing.Size(360, 423);
             this.Root.TextVisible = false;
             // 
             // layoutControlItemCash
@@ -226,7 +204,7 @@ namespace DXApplication1
             this.layoutControlItemCash.ImageOptions.Image = global::DXApplication1.Properties.Resources.Untitled_32x32x;
             this.layoutControlItemCash.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemCash.Name = "layoutControlItemCash";
-            this.layoutControlItemCash.Size = new System.Drawing.Size(181, 36);
+            this.layoutControlItemCash.Size = new System.Drawing.Size(316, 36);
             this.layoutControlItemCash.Text = "Nağd";
             this.layoutControlItemCash.TextSize = new System.Drawing.Size(66, 32);
             // 
@@ -234,46 +212,37 @@ namespace DXApplication1
             // 
             this.layoutControlItemCashless.Control = this.textEdit2;
             this.layoutControlItemCashless.ImageOptions.Image = global::DXApplication1.Properties.Resources.CreditCard_32x32;
-            this.layoutControlItemCashless.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItemCashless.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemCashless.Name = "layoutControlItemCashless";
-            this.layoutControlItemCashless.Size = new System.Drawing.Size(181, 36);
+            this.layoutControlItemCashless.Size = new System.Drawing.Size(316, 36);
             this.layoutControlItemCashless.Text = "Visa";
             this.layoutControlItemCashless.TextSize = new System.Drawing.Size(66, 32);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.gridControl1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(359, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(330, 237);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItemChange
             // 
             this.layoutControlItemChange.Control = this.textEdit5;
-            this.layoutControlItemChange.Location = new System.Drawing.Point(181, 0);
+            this.layoutControlItemChange.Location = new System.Drawing.Point(0, 36);
             this.layoutControlItemChange.Name = "layoutControlItemChange";
-            this.layoutControlItemChange.Size = new System.Drawing.Size(178, 36);
+            this.layoutControlItemChange.Size = new System.Drawing.Size(316, 36);
             this.layoutControlItemChange.Text = "Pul qalığı";
             this.layoutControlItemChange.TextSize = new System.Drawing.Size(66, 13);
             // 
             // layoutControlItemCusBonus
             // 
             this.layoutControlItemCusBonus.Control = this.textEdit6;
-            this.layoutControlItemCusBonus.Location = new System.Drawing.Point(181, 72);
+            this.layoutControlItemCusBonus.Location = new System.Drawing.Point(0, 36);
             this.layoutControlItemCusBonus.Name = "layoutControlItemCusBonus";
-            this.layoutControlItemCusBonus.Size = new System.Drawing.Size(178, 233);
+            this.layoutControlItemCusBonus.Size = new System.Drawing.Size(316, 36);
             this.layoutControlItemCusBonus.Text = "Puan";
             this.layoutControlItemCusBonus.TextSize = new System.Drawing.Size(66, 13);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.simpleButton1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(611, 237);
+            this.layoutControlItem1.Location = new System.Drawing.Point(262, 351);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(78, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(78, 68);
+            this.layoutControlItem1.Size = new System.Drawing.Size(78, 52);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -281,10 +250,10 @@ namespace DXApplication1
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.simpleButton2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(533, 237);
+            this.layoutControlItem2.Location = new System.Drawing.Point(184, 351);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(78, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(78, 68);
+            this.layoutControlItem2.Size = new System.Drawing.Size(78, 52);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -292,17 +261,17 @@ namespace DXApplication1
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(359, 237);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 351);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(174, 68);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(184, 52);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItemBank
             // 
             this.layoutControlItemBank.Control = this.textEdit4;
-            this.layoutControlItemBank.Location = new System.Drawing.Point(181, 36);
+            this.layoutControlItemBank.Location = new System.Drawing.Point(0, 36);
             this.layoutControlItemBank.Name = "layoutControlItemBank";
-            this.layoutControlItemBank.Size = new System.Drawing.Size(178, 36);
+            this.layoutControlItemBank.Size = new System.Drawing.Size(316, 36);
             this.layoutControlItemBank.Text = "Bank";
             this.layoutControlItemBank.TextSize = new System.Drawing.Size(66, 13);
             // 
@@ -310,25 +279,53 @@ namespace DXApplication1
             // 
             this.layoutControlItemCustomerBonus.Control = this.textEdit3;
             this.layoutControlItemCustomerBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItemCustomerBonus.ImageOptions.Image")));
-            this.layoutControlItemCustomerBonus.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItemCustomerBonus.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemCustomerBonus.Name = "layoutControlItemCustomerBonus";
-            this.layoutControlItemCustomerBonus.Size = new System.Drawing.Size(181, 233);
+            this.layoutControlItemCustomerBonus.Size = new System.Drawing.Size(316, 36);
             this.layoutControlItemCustomerBonus.Text = "Bonus";
             this.layoutControlItemCustomerBonus.TextSize = new System.Drawing.Size(66, 32);
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItemCash,
+            this.layoutControlItemChange});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(340, 117);
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItemCashless,
+            this.layoutControlItemBank});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 117);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(340, 117);
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItemCustomerBonus,
+            this.layoutControlItemCusBonus});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 234);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(340, 117);
             // 
             // FormPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 325);
+            this.ClientSize = new System.Drawing.Size(360, 423);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FormPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "XtraForm1";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
@@ -338,7 +335,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCashless)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemChange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCusBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -346,6 +342,9 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBank)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -360,9 +359,6 @@ namespace DXApplication1
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCash;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCashless;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerBonus;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraEditors.TextEdit textEdit5;
         private DevExpress.XtraEditors.TextEdit textEdit6;
         private DevExpress.XtraEditors.ComboBoxEdit textEdit4;
@@ -374,5 +370,8 @@ namespace DXApplication1
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
     }
 }

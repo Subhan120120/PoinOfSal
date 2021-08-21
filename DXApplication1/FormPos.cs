@@ -36,7 +36,6 @@ namespace DXApplication1
 
         private void FormPos_Load(object sender, EventArgs e)
         {
-            //invoiceHeaderID = Guid.NewGuid().ToString();
         }
         public Control FindFocusedControl(Control control)
         {
@@ -59,7 +58,11 @@ namespace DXApplication1
             string NetAmount = view.GetRowCellDisplayText(e.RowHandle, view.Columns["NetAmount"]);
             string VatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
 
+            e.PreviewText = GetPreviewText(Barcode, PosDiscountRate, Amount, NetAmount, VatRate);
+        }
 
+        private static string GetPreviewText(string Barcode, string PosDiscountRate, string Amount, string NetAmount, string VatRate)
+        {
             decimal DiscountAmount = 0;
             if (Amount != string.Empty && NetAmount != string.Empty)
                 DiscountAmount = Math.Round(Convert.ToDecimal(Amount) - Convert.ToDecimal(NetAmount), 2);
@@ -71,8 +74,7 @@ namespace DXApplication1
 
             if (PosDiscountRate != "0")
                 previewText += "Pos Endirimi: [" + PosDiscountRate + "%] = " + DiscountAmount.ToString() + "\n";
-
-            e.PreviewText = previewText;
+            return previewText;
         }
 
         private void simpleButtonProductSearch_Click(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace DXApplication1
         private void simpleButtonDiscount_Click(object sender, EventArgs e)
         {
 
-            if (gridView1.FocusedRowHandle >= 0)
+            if (gridView1.FocusedRowHandle >= 0) //if product selected
             {
                 decimal PosDiscountRate = Math.Round(Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "PosDiscountRate").ToString()), 2);
                 decimal Amount = Math.Round(Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Amount").ToString()), 2);
@@ -196,7 +198,7 @@ namespace DXApplication1
                     textEditBarcode.EditValue = "";
                     break;
                 default:
-                    // code block
+
                     break;
             }
         }
@@ -252,11 +254,13 @@ namespace DXApplication1
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            Control control = FindFocusedControl(this);
+            Object summaryValue = gridView1.Columns["NetAmount"].SummaryItem.SummaryValue;
+            MessageBox.Show(summaryValue.ToString());
 
-            MessageBox.Show(control.GetType().ToString());
-            MessageBox.Show(control.Parent.GetType().ToString());
+            //Control control = FindFocusedControl(this);
 
+            //MessageBox.Show(control.GetType().ToString());
+            //MessageBox.Show(control.Parent.GetType().ToString());
         }
 
         private void gridControl1_MouseUp(object sender, MouseEventArgs e)
@@ -270,7 +274,7 @@ namespace DXApplication1
             {
                 if (formPayment.ShowDialog(this) == DialogResult.OK)
                 {
-
+                    
                 }
             }
         }
