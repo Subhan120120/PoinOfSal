@@ -99,6 +99,7 @@
       <DependentUpon>FormProductList.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\dcCurrAcc.cs" />
+    <Compile Include="Model\dcPaymentType.cs" />
     <Compile Include="Model\dcProduct.cs" />
     <Compile Include="Model\trInvoiceLine.cs" />
     <Compile Include="Model\trPaymentHeader.cs" />

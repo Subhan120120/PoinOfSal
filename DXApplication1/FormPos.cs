@@ -149,7 +149,7 @@ namespace DXApplication1
                         trInvoiceLine trInvoiceLine = new trInvoiceLine()
                         {
                             InvoiceLineId = invoiceLineId.ToString(),
-                            NetAmount = formPosDiscount.NetAmount,
+                            NetAmount = Amount - formPosDiscount.PosDiscount,
                             PosDiscount = formPosDiscount.PosDiscount
                         };
                         int result = sqlMethods.UpdatePosDiscount(trInvoiceLine);

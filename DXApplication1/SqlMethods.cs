@@ -98,7 +98,8 @@ namespace DXApplication1
             };
             DataTable dt = SqlGetDt(qry, paramArray);
 
-            int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
+            //int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
+            int HeaderCount = dt.Rows.Count;
             if (HeaderCount > 0) return true;
             else return false;
         }
@@ -213,7 +214,7 @@ namespace DXApplication1
             {
                 new SqlParameter("@PaymentHeaderID", trPayment.PaymentHeaderID),
                 new SqlParameter("@InvoiceHeaderID", trPayment.InvoiceHeaderID),
-                new SqlParameter("@DocumentNumber", trPayment.DocumentNumber),
+                new SqlParameter("@DocumentNumber", "P-1-" + trPayment.DocumentNumber),
                 new SqlParameter("@CurrAccCode", "C-0-0")
             };
 
@@ -222,17 +223,50 @@ namespace DXApplication1
 
         public int InsertPaymentLine(trPaymentLine trPaymentLine)
         {
-            string qry = "INSERT INTO [dbo].[trPaymentLine] ([PaymentLineID],[PaymentHeaderID],[PaymentTypeCode]) " +
-                "VALUES (@PaymentLineID,@PaymentHeaderID,@PaymentTypeCode)";
+            string qry = "INSERT INTO [dbo].[trPaymentLine] ([PaymentLineID],[PaymentHeaderID],[Payment],[PaymentTypeCode]) " +
+                "VALUES (@PaymentLineID,@PaymentHeaderID,@Payment,@PaymentTypeCode)";
 
             paramArray = new SqlParameter[]
             {
                 new SqlParameter("@PaymentLineID", trPaymentLine.PaymentLineID),
                 new SqlParameter("@PaymentHeaderID", trPaymentLine.PaymentHeaderID),
+                new SqlParameter("@Payment", trPaymentLine.Payment),
                 new SqlParameter("@PaymentTypeCode", trPaymentLine.PaymentTypeCode)
             };
 
             return SqlExec(qry, paramArray);
+        }
+        public bool PaymentHeaderExist(string invoiceHeaderID)
+        {
+            string qry = "SELECT TOP 1 PaymentHeaderID FROM [trPaymentHeader] WHERE ([InvoiceHeaderID] = @InvoiceHeaderID)";
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderID", invoiceHeaderID)
+            };
+            DataTable dt = SqlGetDt(qry, paramArray);
+            //int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
+            int HeaderCount = dt.Rows.Count;
+            if (HeaderCount > 0) return true;
+            else return false;
+        }
+
+        public bool PaymentLineExist(string invoiceHeaderID, int paymentTypeCode)
+        {
+            string qry = "select TOP 1 PaymentLineID from [trPaymentLine] " +
+                "left join[trPaymentHeader] on[trPaymentHeader].[PaymentHeaderID] = [trPaymentLine].[PaymentHeaderID] " +
+                "WHERE [InvoiceHeaderID] = @InvoiceHeaderID AND [PaymentTypeCode] = @PaymentTypeCode ";
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderID", invoiceHeaderID),
+                new SqlParameter("@PaymentTypeCode", paymentTypeCode)
+            };
+            
+            DataTable dt = SqlGetDt(qry, paramArray);
+            //int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
+            int HeaderCount = dt.Rows.Count;
+            if (HeaderCount > 0) return true;
+            else return false;
         }
     }
 }

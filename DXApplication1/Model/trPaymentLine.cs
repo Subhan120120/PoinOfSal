@@ -10,6 +10,7 @@ namespace DXApplication1.Model
     {
         public string PaymentLineID { get; set; }
         public string PaymentHeaderID { get; set; }
-        public string PaymentTypeCode { get; set; }
+        public int PaymentTypeCode { get; set; }
+        public decimal Payment { get; set; }
     }
 }

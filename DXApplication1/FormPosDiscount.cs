@@ -9,7 +9,6 @@ namespace DXApplication1
     public partial class FormPosDiscount : XtraForm
     {
         decimal Amount = 0; // Amount come from parent form
-        public decimal NetAmount = 0;
         public decimal PosDiscount = 0; // PosDiscount come from parent form
 
         public FormPosDiscount(decimal PosDiscount, decimal Amount)
@@ -25,19 +24,16 @@ namespace DXApplication1
             AcceptButton = simpleButtonOk;
             CancelButton = simpleButtonCancel;
 
-            NetAmount = Amount - PosDiscount;
-
-            textEditDiscountRate.EditValue = PosDiscount / Amount * 100;
-            textEditNetAmount.EditValue = NetAmount;
+            textEditDiscountRate.EditValue = Math.Round(PosDiscount / Amount * 100, 2);
+            textEditNetAmount.EditValue = Amount - PosDiscount;
         }
 
         private void textEditDiscountRate_EditValueChanged(object sender, EventArgs e)
         {
             PosDiscount = Convert.ToDecimal(textEditDiscountRate.EditValue) * Amount / 100;
-            NetAmount = Amount - PosDiscount;
 
             textEditNetAmount.EditValueChanged -= new EventHandler(textEditNetAmount_EditValueChanged);
-            textEditNetAmount.EditValue = NetAmount;
+            textEditNetAmount.EditValue = Amount - PosDiscount;
             textEditNetAmount.EditValueChanged += new EventHandler(textEditNetAmount_EditValueChanged);
 
             textEditDiscountRate.DoValidate();
@@ -45,11 +41,10 @@ namespace DXApplication1
 
         private void textEditNetAmount_EditValueChanged(object sender, EventArgs e)
         {
-            NetAmount = Convert.ToDecimal(textEditNetAmount.EditValue);
-            PosDiscount = Amount - NetAmount;
+            PosDiscount = Amount - Convert.ToDecimal(textEditNetAmount.EditValue);
 
             textEditDiscountRate.EditValueChanged -= new EventHandler(textEditDiscountRate_EditValueChanged);
-            textEditDiscountRate.EditValue = PosDiscount / Amount * 100;
+            textEditDiscountRate.EditValue = Math.Round(PosDiscount / Amount * 100, 2);
             textEditDiscountRate.EditValueChanged += new EventHandler(textEditDiscountRate_EditValueChanged);
 
             textEditNetAmount.DoValidate();

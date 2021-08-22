@@ -76,7 +76,6 @@ namespace DXApplication1
             decimal restAmount = SummaryNetAmount - (Convert.ToDecimal(textEditCashless.EditValue) + Convert.ToDecimal(textEditBonus.EditValue));
             if (restAmount >= 0)
                 textEditCash.EditValue = restAmount;
-
         }
 
         private void textEditCashless_EditValueChanged(object sender, EventArgs e)
@@ -130,37 +129,75 @@ namespace DXApplication1
 
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
-            decimal change = Convert.ToDecimal(textEditCash.EditValue) + Convert.ToDecimal(textEditCashless.EditValue) + Convert.ToDecimal(textEditBonus.EditValue) - SummaryNetAmount;
-            decimal cash = Convert.ToDecimal(textEditCash.EditValue);
+            decimal cashLarge = Convert.ToDecimal(textEditCash.EditValue);
+            decimal cashless = Convert.ToDecimal(textEditCashless.EditValue);
+            decimal bonus = Convert.ToDecimal(textEditBonus.EditValue);
+            string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trPaymentHeader");
 
-            string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
-
-            trPaymentHeader trPayment = new trPaymentHeader()
+            if ((cashLarge + cashless + bonus) >= SummaryNetAmount)
             {
-                PaymentHeaderID = PaymentHeaderID,
-                DocumentNumber = NewDocNum,
-                InvoiceHeaderID = InvoiceHeaderID
-            };
-
-            int result = sqlMethods.InsertPaymentHeader(trPayment);
-
-            trPaymentLine trPaymentLine = new trPaymentLine()
-            {
-                PaymentLineID = Guid.NewGuid().ToString(),
-                PaymentHeaderID = PaymentHeaderID,
-                PaymentTypeCode = PaymentType.ToString()
-            };
-
-            int result2 = sqlMethods.InsertPaymentLine(trPaymentLine);
-
-            if (change > 0)
-            {
-                using (FormChange formChange = new FormChange(cash, change))
+                decimal cash = SummaryNetAmount - Convert.ToDecimal(textEditCashless.EditValue) - Convert.ToDecimal(textEditBonus.EditValue);
+                if (!sqlMethods.PaymentHeaderExist(InvoiceHeaderID))
                 {
-                    formChange.ShowDialog(this);
+                    trPaymentHeader trPayment = new trPaymentHeader()
+                    {
+                        PaymentHeaderID = PaymentHeaderID,
+                        DocumentNumber = NewDocNum,
+                        InvoiceHeaderID = InvoiceHeaderID
+                    };
+                    int result = sqlMethods.InsertPaymentHeader(trPayment);
+
+                    if (cash > 0)
+                    {
+                        trPaymentLine trPaymentLine = new trPaymentLine()
+                        {
+                            PaymentLineID = Guid.NewGuid().ToString(),
+                            PaymentHeaderID = PaymentHeaderID,
+                            Payment = cash,
+                            PaymentTypeCode = 1
+                        };
+                        int result2 = sqlMethods.InsertPaymentLine(trPaymentLine);
+                    }
+
+                    if (cashless > 0)
+                    {
+                        trPaymentLine trPaymentLine = new trPaymentLine()
+                        {
+                            PaymentLineID = Guid.NewGuid().ToString(),
+                            PaymentHeaderID = PaymentHeaderID,
+                            Payment = cashless,
+                            PaymentTypeCode = 2
+                        };
+                        int result2 = sqlMethods.InsertPaymentLine(trPaymentLine);
+
+                    }
+
+                    if (bonus > 0)
+                    {
+                        trPaymentLine trPaymentLine = new trPaymentLine()
+                        {
+                            PaymentLineID = Guid.NewGuid().ToString(),
+                            PaymentHeaderID = PaymentHeaderID,
+                            Payment = bonus,
+                            PaymentTypeCode = 3
+                        };
+                        int result2 = sqlMethods.InsertPaymentLine(trPaymentLine);
+                    }
                 }
+
+                decimal change = Convert.ToDecimal(textEditCash.EditValue) + Convert.ToDecimal(textEditCashless.EditValue) + Convert.ToDecimal(textEditBonus.EditValue) - SummaryNetAmount;
+
+                if (change > 0)
+                {
+                    using (FormChange formChange = new FormChange(cashLarge, change))
+                    {
+                        formChange.ShowDialog(this);
+                    }
+                }
+                DialogResult = DialogResult.OK;
             }
-            DialogResult = DialogResult.OK;
+            else
+                MessageBox.Show("Ödəmə ödənilməli olan məbləğdən azdır");
         }
     }
 }
