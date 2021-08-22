@@ -31,3 +31,15 @@
 
 //gridView1.Appearance.HideSelectionRow.Assign(gridView1.Appearance.FocusedRow); 
 
+
+//private void textEditNetAmount_Validating(object sender, CancelEventArgs e)
+//{
+//    Validate_BetweenMinAndMaxRule(sender as BaseEdit, 0, Amount);
+//}
+//private void Validate_BetweenMinAndMaxRule(BaseEdit control, decimal min, decimal max)
+//{
+//    decimal val = Convert.ToDecimal(control.EditValue.ToString());
+//    if ((val < min)) dxErrorProvider1.SetError(control, "Endirim ədədi " + (min).ToString() + " dan böyük olmalıdır ", ErrorType.Critical);
+//    else if (val > max) dxErrorProvider1.SetError(control, "Endirim ədədi " + (max).ToString() + " dən kiçik olmalıdır ", ErrorType.Critical);
+//    else dxErrorProvider1.SetError(control, "");
+//}

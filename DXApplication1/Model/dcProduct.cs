@@ -11,7 +11,7 @@ namespace DXApplication1.Model
         public string ProductCode { get; set; }
         public string ProductDescription { get; set; }
         public string Barcode { get; set; }
-        public float PosDiscountRate { get; set; }
-        public float RetailPrice { get; set; }
+        public decimal PosDiscount { get; set; }
+        public decimal RetailPrice { get; set; }
     }
 }

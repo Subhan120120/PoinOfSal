@@ -81,6 +81,8 @@ namespace DXApplication1
             this.layoutControlItemComma = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemEnter = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.labelControlMessage = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlItemMessage = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDiscountRate.Properties)).BeginInit();
@@ -105,10 +107,12 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMessage)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.labelControlMessage);
             this.layoutControl1.Controls.Add(this.simpleButtonNum7);
             this.layoutControl1.Controls.Add(this.textEditDiscountRate);
             this.layoutControl1.Controls.Add(this.textEditNetAmount);
@@ -180,6 +184,7 @@ namespace DXApplication1
             this.textEditNetAmount.Size = new System.Drawing.Size(281, 32);
             this.textEditNetAmount.StyleController = this.layoutControl1;
             this.textEditNetAmount.TabIndex = 6;
+            this.textEditNetAmount.InvalidValue += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.textEditNetAmount_InvalidValue);
             this.textEditNetAmount.EditValueChanged += new System.EventHandler(this.textEditNetAmount_EditValueChanged);
             this.textEditNetAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textEditNetAmount_Validating);
             // 
@@ -410,7 +415,8 @@ namespace DXApplication1
             this.layoutControlItemNum3,
             this.layoutControlItemNum0,
             this.layoutControlItemComma,
-            this.layoutControlItemEnter});
+            this.layoutControlItemEnter,
+            this.layoutControlItemMessage});
             this.Root.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.Root.Name = "Root";
             columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
@@ -682,6 +688,27 @@ namespace DXApplication1
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // labelControlMessage
+            // 
+            this.labelControlMessage.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControlMessage.Appearance.Options.UseForeColor = true;
+            this.labelControlMessage.Location = new System.Drawing.Point(12, 338);
+            this.labelControlMessage.Name = "labelControlMessage";
+            this.labelControlMessage.Size = new System.Drawing.Size(152, 13);
+            this.labelControlMessage.StyleController = this.layoutControl1;
+            this.labelControlMessage.TabIndex = 22;
+            // 
+            // layoutControlItemMessage
+            // 
+            this.layoutControlItemMessage.Control = this.labelControlMessage;
+            this.layoutControlItemMessage.Location = new System.Drawing.Point(0, 326);
+            this.layoutControlItemMessage.Name = "layoutControlItemMessage";
+            this.layoutControlItemMessage.OptionsTableLayoutItem.ColumnSpan = 2;
+            this.layoutControlItemMessage.OptionsTableLayoutItem.RowIndex = 6;
+            this.layoutControlItemMessage.Size = new System.Drawing.Size(156, 58);
+            this.layoutControlItemMessage.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemMessage.TextVisible = false;
+            // 
             // FormPosDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,6 +743,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMessage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -761,5 +789,7 @@ namespace DXApplication1
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemComma;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemEnter;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraEditors.LabelControl labelControlMessage;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemMessage;
     }
 }

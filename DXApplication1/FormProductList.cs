@@ -24,7 +24,6 @@ namespace DXApplication1
         }
 
         public dcProduct dcProduct { get; set; }
-        public string ProductCode { get; set; }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -40,7 +39,7 @@ namespace DXApplication1
                     ProductCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProductCode"]).ToString(),
                     Barcode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Barcode"]).ToString(),
                     ProductDescription = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProductDescription"]).ToString(),
-                    RetailPrice = float.Parse(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["RetailPrice"]).ToString())
+                    RetailPrice = Convert.ToDecimal(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["RetailPrice"]))
                 };
                 DialogResult = DialogResult.OK;
             }

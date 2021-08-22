@@ -36,16 +36,7 @@ namespace DXApplication1
 
         private void FormPos_Load(object sender, EventArgs e)
         {
-        }
-        public Control FindFocusedControl(Control control)
-        {
-            ContainerControl container = control as ContainerControl;
-            while (container != null)
-            {
-                control = container.ActiveControl;
-                container = control as ContainerControl;
-            }
-            return control;
+
         }
 
         private void gridView1_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)
@@ -53,27 +44,27 @@ namespace DXApplication1
             GridView view = sender as GridView;
             if (view == null) return;
             string Barcode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Barcode"]);
-            string PosDiscountRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscountRate"]);
+            string PosDiscount = view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscount"]);
             string Amount = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Amount"]);
             string NetAmount = view.GetRowCellDisplayText(e.RowHandle, view.Columns["NetAmount"]);
             string VatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
 
-            e.PreviewText = GetPreviewText(Barcode, PosDiscountRate, Amount, NetAmount, VatRate);
+            e.PreviewText = GetPreviewText(Barcode, PosDiscount, Amount, NetAmount, VatRate);
         }
 
-        private static string GetPreviewText(string Barcode, string PosDiscountRate, string Amount, string NetAmount, string VatRate)
+        private static string GetPreviewText(string Barcode, string PosDiscount, string Amount, string NetAmount, string VatRate)
         {
-            decimal DiscountAmount = 0;
+            decimal PosDiscountRate = 0;
             if (Amount != string.Empty && NetAmount != string.Empty)
-                DiscountAmount = Math.Round(Convert.ToDecimal(Amount) - Convert.ToDecimal(NetAmount), 2);
+                PosDiscountRate = Math.Round(Convert.ToDecimal(PosDiscount) / Convert.ToDecimal(Amount) * 100, 2);
 
             string previewText = "ƏDV: " + VatRate + "%\n";
 
             if (Barcode != string.Empty)
                 previewText += "Barkod: " + Barcode + "\n";
 
-            if (PosDiscountRate != "0")
-                previewText += "Pos Endirimi: [" + PosDiscountRate + "%] = " + DiscountAmount.ToString() + "\n";
+            if (PosDiscountRate > 0)
+                previewText += "Pos Endirimi: [" + PosDiscountRate + "%] = " + PosDiscount + "\n";
             return previewText;
         }
 
@@ -90,7 +81,6 @@ namespace DXApplication1
                     }
 
                     dcProduct dcProduct = formProductList.dcProduct;
-
                     int result = sqlMethods.InsertLine(dcProduct, invoiceHeaderID);
 
                     if (result > 0)
@@ -148,14 +138,21 @@ namespace DXApplication1
 
             if (gridView1.FocusedRowHandle >= 0) //if product selected
             {
-                decimal PosDiscountRate = Math.Round(Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "PosDiscountRate").ToString()), 2);
-                decimal Amount = Math.Round(Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Amount").ToString()), 2);
-                using (FormPosDiscount formPosDiscount = new FormPosDiscount(PosDiscountRate, Amount))
+                decimal PosDiscount = Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "PosDiscount"));
+                decimal Amount = Convert.ToDecimal(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Amount"));
+                using (FormPosDiscount formPosDiscount = new FormPosDiscount(PosDiscount, Amount))
                 {
                     if (formPosDiscount.ShowDialog(this) == DialogResult.OK)
                     {
                         object invoiceLineId = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "InvoiceLineId");
-                        int result = sqlMethods.UpdatePosDiscount(formPosDiscount, invoiceLineId);
+
+                        trInvoiceLine trInvoiceLine = new trInvoiceLine()
+                        {
+                            InvoiceLineId = invoiceLineId.ToString(),
+                            NetAmount = formPosDiscount.NetAmount,
+                            PosDiscount = formPosDiscount.PosDiscount
+                        };
+                        int result = sqlMethods.UpdatePosDiscount(trInvoiceLine);
 
                         if (result >= 0)
                         {
@@ -177,28 +174,15 @@ namespace DXApplication1
 
             switch (key)
             {
-                case "0":
-                case "1":
-                case "2":
-                case "3":
-                case "4":
-                case "5":
-                case "6":
-                case "7":
-                case "8":
-                case "9":
-                case ",":
-                case "*":
-                    SendKeys.Send(key);
-                    break;
                 case "←":
                     SendKeys.Send("{BACKSPACE}");
                     break;
                 case "C":
-                    textEditBarcode.EditValue = "";
+                    SendKeys.Send("^A");
+                    SendKeys.Send("{BACKSPACE}");
                     break;
                 default:
-
+                    SendKeys.Send(key);
                     break;
             }
         }
@@ -256,11 +240,6 @@ namespace DXApplication1
         {
             Object summaryValue = gridView1.Columns["NetAmount"].SummaryItem.SummaryValue;
             MessageBox.Show(summaryValue.ToString());
-
-            //Control control = FindFocusedControl(this);
-
-            //MessageBox.Show(control.GetType().ToString());
-            //MessageBox.Show(control.Parent.GetType().ToString());
         }
 
         private void gridControl1_MouseUp(object sender, MouseEventArgs e)
@@ -268,13 +247,34 @@ namespace DXApplication1
             textEditBarcode.Focus();
         }
 
-        private void simpleButtonCash_Click(object sender, EventArgs e)
+        private void simpleButtonPayment_Click(object sender, EventArgs e)
         {
-            using (FormPayment formPayment = new FormPayment())
+
+            int paymentType = 0;
+
+            SimpleButton simpleButton = sender as SimpleButton;
+            switch (simpleButton.Name)
+            {
+                case "simpleButtonCash":
+                    paymentType = 1;
+                    break;
+                case "simpleButtonCashless":
+                    paymentType = 2;
+                    break;
+                case "simpleButtonCustomerBonus":
+                    paymentType = 3;
+                    break;
+
+                default:
+                    break;
+            }
+
+            decimal summaryNetAmount = Convert.ToDecimal(gridView1.Columns["NetAmount"].SummaryItem.SummaryValue);
+            using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderID))
             {
                 if (formPayment.ShowDialog(this) == DialogResult.OK)
                 {
-                    
+
                 }
             }
         }

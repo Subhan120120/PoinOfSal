@@ -242,7 +242,7 @@
         QmCC
 </value>
   </data>
-  <data name="simpleButtonVisa.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="simpleButtonCashless.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         YQAAD2EBqD+naQAABXZJREFUWEfFl3tQVFUcx4/j9G9/NTnIKzdARJG1acV1gX2AssuyPJc3u6CxvN+w
@@ -323,7 +323,7 @@
         FHy3K1cpKI+0jg6X0z8nMmrD/ycA/7rJdxPvHfyQ8d7BDxfg/gkjQbOYFFODggAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="simpleButtonBonus.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="simpleButtonCustomerBonus.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABZ0RVh0VGl0
         bGUAUGVvcGxlO0Fzc2lnbjtNZR/FY3oAAAoVSURBVFhHxZZ5OFZpH8dPMy2MaRkyMoZUkzwNWbM8tmyJ
