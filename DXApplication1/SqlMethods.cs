@@ -2,12 +2,8 @@
 using DevExpress.DataAccess.Sql;
 using DXApplication1.Model;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DXApplication1
@@ -191,7 +187,7 @@ namespace DXApplication1
             return SqlExec(qry, paramArray);
         }
 
-        public int UpdateCurrAccCode(string currAccCode, object invoiceHeaderId)
+        public int UpdateCurrAccCode(string currAccCode, string invoiceHeaderId)
         {
             string qry = "UPDATE [dbo].[trInvoiceHeader] set CurrAccCode = @CurrAccCode where InvoiceHeaderId = @InvoiceHeaderId";
 
@@ -261,12 +257,25 @@ namespace DXApplication1
                 new SqlParameter("@InvoiceHeaderID", invoiceHeaderID),
                 new SqlParameter("@PaymentTypeCode", paymentTypeCode)
             };
-            
+
             DataTable dt = SqlGetDt(qry, paramArray);
             //int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
             int HeaderCount = dt.Rows.Count;
             if (HeaderCount > 0) return true;
             else return false;
         }
+
+        public int UpdateIsCompleted(string invoiceHeaderId)
+        {
+            string qry = "UPDATE trInvoiceHeader SET IsCompleted = 1 WHERE InvoiceHeaderID = @InvoiceHeaderID";
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId)
+            };
+
+            return SqlExec(qry, paramArray);
+        }
+
     }
 }

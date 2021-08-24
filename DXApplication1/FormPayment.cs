@@ -186,7 +186,6 @@ namespace DXApplication1
                 }
 
                 decimal change = Convert.ToDecimal(textEditCash.EditValue) + Convert.ToDecimal(textEditCashless.EditValue) + Convert.ToDecimal(textEditBonus.EditValue) - SummaryNetAmount;
-
                 if (change > 0)
                 {
                     using (FormChange formChange = new FormChange(cashLarge, change))

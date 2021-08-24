@@ -81,6 +81,9 @@ namespace DXApplication1
             this.textEditChange.Properties.Appearance.Options.UseFont = true;
             this.textEditChange.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditChange.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.textEditChange.Properties.Mask.EditMask = "n2";
+            this.textEditChange.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textEditChange.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textEditChange.Size = new System.Drawing.Size(183, 70);
             this.textEditChange.StyleController = this.layoutControl1;
             this.textEditChange.TabIndex = 5;

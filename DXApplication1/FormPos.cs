@@ -17,25 +17,20 @@ namespace DXApplication1
             InitializeComponent();
             simpleButtonCustomerAdd.BorderStyle = BorderStyles.UltraFlat;
             simpleButton3.BorderStyle = BorderStyles.UltraFlat;
-            simpleButton4.BorderStyle = BorderStyles.UltraFlat;
-            simpleButton5.BorderStyle = BorderStyles.UltraFlat;
-            //simpleButton6.BorderStyle = BorderStyles.UltraFlat;
-            //simpleButton7.BorderStyle = BorderStyles.UltraFlat;
-            //simpleButton8.BorderStyle = BorderStyles.UltraFlat; 
-            //simpleButton9.BorderStyle = BorderStyles.UltraFlat; 
-            //simpleButton10.BorderStyle = BorderStyles.UltraFlat; 
-            //simpleButtonSalesPerson.BorderStyle = BorderStyles.UltraFlat; 
-            //simpleButtonDiscount.BorderStyle = BorderStyles.UltraFlat; 
-            //simpleButtonDeleteLine.BorderStyle = BorderStyles.UltraFlat; 
-            //simpleButtonCancelInvoice.BorderStyle = BorderStyles.UltraFlat; 
-            //simpleButtonProductSearch.BorderStyle = BorderStyles.UltraFlat; 
-            //AcceptButton = simpleButtonEnter;
+            simpleButtonCustomerEdit.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButtonSalesPerson.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButtonDiscount.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButtonDeleteLine.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButtonCancelInvoice.BorderStyle = BorderStyles.UltraFlat;
+            //simpleButtonProductSearch.BorderStyle = BorderStyles.UltraFlat;
 
+            AcceptButton = simpleButtonEnter;
             ActiveControl = textEditBarcode;
         }
 
         private void FormPos_Load(object sender, EventArgs e)
         {
+
 
         }
 
@@ -210,36 +205,7 @@ namespace DXApplication1
                 else
                     MessageBox.Show("Barkod Tapılmadı", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void simpleButtonCustomerAdd_Click(object sender, EventArgs e)
-        {
-            using (FormCustomer formCustomer = new FormCustomer(new dcCurrAcc()))
-            {
-                if (formCustomer.ShowDialog(this) == DialogResult.OK)
-                {
-                    if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
-                    {
-                        string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
-                        sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
-                    }
-                    int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderID);
-
-                    if (result >= 0)
-                    {
-                        textEditBonCardNum.EditValue = formCustomer.dcCurrAcc.BonusCardNum;
-                        textEditCustomerName.EditValue = formCustomer.dcCurrAcc.FirstName + " " + formCustomer.dcCurrAcc.LastName;
-                        textEditCustomerAddress.EditValue = formCustomer.dcCurrAcc.Address;
-                        textEditCustomerPhoneNum.EditValue = formCustomer.dcCurrAcc.PhoneNum;
-                    }
-                }
-            }
-        }
-
-        private void simpleButton5_Click(object sender, EventArgs e)
-        {
-            Object summaryValue = gridView1.Columns["NetAmount"].SummaryItem.SummaryValue;
-            MessageBox.Show(summaryValue.ToString());
+            ActiveControl = textEditBarcode;
         }
 
         private void gridControl1_MouseUp(object sender, MouseEventArgs e)
@@ -249,32 +215,77 @@ namespace DXApplication1
 
         private void simpleButtonPayment_Click(object sender, EventArgs e)
         {
-
-            int paymentType = 0;
-
-            SimpleButton simpleButton = sender as SimpleButton;
-            switch (simpleButton.Name)
-            {
-                case "simpleButtonCash":
-                    paymentType = 1;
-                    break;
-                case "simpleButtonCashless":
-                    paymentType = 2;
-                    break;
-                case "simpleButtonCustomerBonus":
-                    paymentType = 3;
-                    break;
-
-                default:
-                    break;
-            }
-
             decimal summaryNetAmount = Convert.ToDecimal(gridView1.Columns["NetAmount"].SummaryItem.SummaryValue);
-            using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderID))
-            {
-                if (formPayment.ShowDialog(this) == DialogResult.OK)
-                {
 
+            if (summaryNetAmount > 0)
+            {
+                int paymentType = 0;
+
+                SimpleButton simpleButton = sender as SimpleButton;
+                switch (simpleButton.Name)
+                {
+                    case "simpleButtonCash":
+                        paymentType = 1;
+                        break;
+                    case "simpleButtonCashless":
+                        paymentType = 2;
+                        break;
+                    case "simpleButtonCustomerBonus":
+                        paymentType = 3;
+                        break;
+                    default:
+                        break;
+                }
+
+                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderID))
+                {
+                    if (formPayment.ShowDialog(this) == DialogResult.OK)
+                    {
+                        sqlMethods.UpdateIsCompleted(invoiceHeaderID);
+
+                        invoiceHeaderID = Guid.NewGuid().ToString();
+
+                        gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
+                        gridControl1.DataMember = "customQuery1";
+                    }
+                }
+            }
+            else MessageBox.Show("Ödəmə 0a bərabərdir");
+        }
+
+        private void simpleButtonCustomer_Click(object sender, EventArgs e)
+        {
+            SimpleButton simpleButton = sender as SimpleButton;
+            dcCurrAcc dcCurrAcc = new dcCurrAcc()
+            {
+                CurrAccCode = textEditCustomerCode.Text,
+                //BirthDate = textEditCustomerBirthdate.Text,
+                Address = textEditBonCardNum.Text,
+                BonusCardNum = textEditBonCardNum.Text,
+                PhoneNum = textEditCustomerPhoneNum.Text
+            };
+
+            using (FormCustomer formCustomer = new FormCustomer(dcCurrAcc))
+            {
+                if (formCustomer.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (simpleButton.Name == "simpleButtonCustomerAdd")
+                    {
+                        if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                        {
+                            string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
+                            sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
+                        }
+                        int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderID);
+
+                        if (result >= 0)
+                        {
+                            textEditBonCardNum.EditValue = formCustomer.dcCurrAcc.BonusCardNum;
+                            textEditCustomerName.EditValue = formCustomer.dcCurrAcc.FirstName + " " + formCustomer.dcCurrAcc.LastName;
+                            textEditCustomerAddress.EditValue = formCustomer.dcCurrAcc.Address;
+                            textEditCustomerPhoneNum.EditValue = formCustomer.dcCurrAcc.PhoneNum;
+                        }
+                    }
                 }
             }
         }

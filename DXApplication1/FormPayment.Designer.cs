@@ -184,7 +184,6 @@ namespace DXApplication1
             this.textEditCash.Properties.Appearance.Options.UseFont = true;
             this.textEditCash.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditCash.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.textEditCash.Properties.Mask.EditMask = "n2";
             this.textEditCash.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.textEditCash.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textEditCash.Size = new System.Drawing.Size(122, 32);
@@ -202,7 +201,6 @@ namespace DXApplication1
             this.textEditCashless.Properties.Appearance.Options.UseFont = true;
             this.textEditCashless.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditCashless.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.textEditCashless.Properties.Mask.EditMask = "n2";
             this.textEditCashless.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.textEditCashless.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textEditCashless.Size = new System.Drawing.Size(122, 32);
@@ -220,7 +218,6 @@ namespace DXApplication1
             this.textEditBonus.Properties.Appearance.Options.UseFont = true;
             this.textEditBonus.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditBonus.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.textEditBonus.Properties.Mask.EditMask = "n2";
             this.textEditBonus.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.textEditBonus.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textEditBonus.Size = new System.Drawing.Size(123, 32);
