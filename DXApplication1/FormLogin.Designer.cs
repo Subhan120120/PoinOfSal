@@ -31,23 +31,23 @@ namespace DXApplication1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.LoginlayoutControl1ConvertedLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.simpleButton2item = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton1item = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.simpleButton1item = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton2item = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.LoginlayoutControl1ConvertedLayout)).BeginInit();
             this.LoginlayoutControl1ConvertedLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleButton2item)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleButton1item)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleButton1item)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleButton2item)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,20 +63,7 @@ namespace DXApplication1
             this.simpleButton1.StyleController = this.LoginlayoutControl1ConvertedLayout;
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Arxa Ofis";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(12, 60);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(184, 196);
-            this.simpleButton2.StyleController = this.LoginlayoutControl1ConvertedLayout;
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Satış";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // LoginlayoutControl1ConvertedLayout
             // 
@@ -92,6 +79,36 @@ namespace DXApplication1
             this.LoginlayoutControl1ConvertedLayout.Size = new System.Drawing.Size(396, 268);
             this.LoginlayoutControl1ConvertedLayout.TabIndex = 2;
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(12, 60);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(184, 196);
+            this.simpleButton2.StyleController = this.LoginlayoutControl1ConvertedLayout;
+            this.simpleButton2.TabIndex = 1;
+            this.simpleButton2.Text = "Satış";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(59, 12);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(325, 20);
+            this.textEdit1.StyleController = this.LoginlayoutControl1ConvertedLayout;
+            this.textEdit1.TabIndex = 4;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(59, 36);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(325, 20);
+            this.textEdit2.StyleController = this.LoginlayoutControl1ConvertedLayout;
+            this.textEdit2.TabIndex = 5;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -105,17 +122,6 @@ namespace DXApplication1
             this.layoutControlGroup1.Size = new System.Drawing.Size(396, 268);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // simpleButton2item
-            // 
-            this.simpleButton2item.Control = this.simpleButton2;
-            this.simpleButton2item.Location = new System.Drawing.Point(0, 48);
-            this.simpleButton2item.MinSize = new System.Drawing.Size(78, 26);
-            this.simpleButton2item.Name = "simpleButton2item";
-            this.simpleButton2item.Size = new System.Drawing.Size(188, 200);
-            this.simpleButton2item.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.simpleButton2item.TextSize = new System.Drawing.Size(0, 0);
-            this.simpleButton2item.TextVisible = false;
-            // 
             // simpleButton1item
             // 
             this.simpleButton1item.Control = this.simpleButton1;
@@ -127,13 +133,16 @@ namespace DXApplication1
             this.simpleButton1item.TextSize = new System.Drawing.Size(0, 0);
             this.simpleButton1item.TextVisible = false;
             // 
-            // textEdit1
+            // simpleButton2item
             // 
-            this.textEdit1.Location = new System.Drawing.Point(68, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(316, 20);
-            this.textEdit1.StyleController = this.LoginlayoutControl1ConvertedLayout;
-            this.textEdit1.TabIndex = 4;
+            this.simpleButton2item.Control = this.simpleButton2;
+            this.simpleButton2item.Location = new System.Drawing.Point(0, 48);
+            this.simpleButton2item.MinSize = new System.Drawing.Size(78, 26);
+            this.simpleButton2item.Name = "simpleButton2item";
+            this.simpleButton2item.Size = new System.Drawing.Size(188, 200);
+            this.simpleButton2item.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.simpleButton2item.TextSize = new System.Drawing.Size(0, 0);
+            this.simpleButton2item.TextVisible = false;
             // 
             // layoutControlItem1
             // 
@@ -144,14 +153,6 @@ namespace DXApplication1
             this.layoutControlItem1.Text = "İstifadəçi";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(44, 13);
             // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(68, 36);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(316, 20);
-            this.textEdit2.StyleController = this.LoginlayoutControl1ConvertedLayout;
-            this.textEdit2.TabIndex = 5;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.textEdit2;
@@ -161,22 +162,22 @@ namespace DXApplication1
             this.layoutControlItem2.Text = "Şifrə";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(44, 13);
             // 
-            // Login
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 268);
             this.Controls.Add(this.LoginlayoutControl1ConvertedLayout);
-            this.Name = "Login";
+            this.Name = "FormLogin";
             this.Text = "XtraForm1";
             ((System.ComponentModel.ISupportInitialize)(this.LoginlayoutControl1ConvertedLayout)).EndInit();
             this.LoginlayoutControl1ConvertedLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleButton2item)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleButton1item)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleButton1item)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleButton2item)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 

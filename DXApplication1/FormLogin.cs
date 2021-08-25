@@ -12,8 +12,7 @@ using System.Windows.Forms;
 namespace DXApplication1
 {
     public partial class FormLogin : XtraForm
-    {
-        FormPos formPos;
+    {        
         public FormLogin()
         {
             InitializeComponent();
@@ -21,8 +20,15 @@ namespace DXApplication1
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            formPos = new FormPos();
+            FormPos formPos = new FormPos();
             formPos.Show();
+            this.Hide();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            FormERP formERP = new FormERP();
+            formERP.Show();
             this.Hide();
         }
     }

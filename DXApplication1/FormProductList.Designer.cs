@@ -30,7 +30,7 @@ namespace DXApplication1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductList));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
@@ -67,10 +67,10 @@ namespace DXApplication1
             // 
             this.sqlDataSource1.ConnectionName = "DXApplication1.Properties.Settings.subConnString";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery2.Name = "dcProduct";
-            customSqlQuery2.Sql = "select *\r\n  from \"dbo\".\"dcProduct\" \"dcProduct\"";
+            customSqlQuery1.Name = "dcProduct";
+            customSqlQuery1.Sql = "select *\r\n  from \"dbo\".\"dcProduct\" \"dcProduct\"";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery2});
+            customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gridView1
