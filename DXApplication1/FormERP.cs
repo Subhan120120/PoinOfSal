@@ -16,15 +16,21 @@ namespace DXApplication1
     public partial class FormERP : RibbonForm
     {
         FormInvoice formInvoice;
+        FormTransfer formTransfer;
         AdornerUIManager adornerUIManager1;
-        IList<AdornerElement> adorners;
+        IList<AdornerElement> adorners1;
 
         public FormERP()
         {
             InitializeComponent();
-            adorners = new List<AdornerElement>();
+            adorners1 = new List<AdornerElement>();
             formInvoice = new FormInvoice();
             formInvoice.MdiParent = this;
+            adornerUIManager1 = new AdornerUIManager(this.components);
+
+            adorners1 = new List<AdornerElement>();
+            formTransfer = new FormTransfer();
+            formTransfer.MdiParent = this;
             adornerUIManager1 = new AdornerUIManager(this.components);
         }
 
@@ -40,7 +46,7 @@ namespace DXApplication1
                 if (badge.TargetElement is RibbonPage)
                     clone.TargetElement = ribbon.MergedPages.GetPageByName((badge.TargetElement as RibbonPage).Name);
                 adornerUIManager1.Elements.Add(clone);
-                adorners.Add(clone);
+                adorners1.Add(clone);
             }
             adornerUIManager1.EndUpdate();
         }
@@ -48,13 +54,36 @@ namespace DXApplication1
         private void RibbonControl1_UnMerge(object sender, RibbonMergeEventArgs e)
         {
             adornerUIManager1.BeginUpdate();
-            foreach (AdornerElement badge in adorners)
+            foreach (AdornerElement badge in adorners1)
             {
                 adornerUIManager1.Elements.Remove(badge);
                 badge.Dispose();
             }
-            adorners.Clear();
+            adorners1.Clear();
             adornerUIManager1.EndUpdate();
+        }
+
+
+        private void accordionControlElement2_Click_1(object sender, EventArgs e)
+        {
+            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
+            if (formInvoice != null)
+            {
+                formInvoice.BringToFront();
+                formInvoice.Activate();
+            }
+            else
+            {
+                formInvoice = new FormInvoice();
+                formInvoice.MdiParent = this;
+                formInvoice.Show();
+                ribbon.SelectedPage = ribbon.MergedPages[0];
+            }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CloseOpenChildForms();
         }
 
         private void CloseOpenChildForms()
@@ -68,27 +97,31 @@ namespace DXApplication1
             }
         }
 
-        private void accordionControlElement2_Click_1(object sender, EventArgs e)
+        private void aCEshipment_Click(object sender, EventArgs e)
         {
-            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
-            if (formInvoice != null)
+            FormTransfer formTransfer = Application.OpenForms["FormTransfer"] as FormTransfer;
+            if (formTransfer != null)
             {
-                formInvoice.WindowState = FormWindowState.Normal;
-                formInvoice.BringToFront();
-                formInvoice.Activate();
+                formTransfer.BringToFront();
+                formTransfer.Activate();
             }
             else
             {
-                formInvoice = new FormInvoice();
-                formInvoice.MdiParent = this;
-                formInvoice.Show();
+                formTransfer = new FormTransfer();
+                formTransfer.MdiParent = this;
+                formTransfer.Show();
                 ribbon.SelectedPage = ribbon.MergedPages[0];
             }
         }
-        
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+
+        private void FormERP_MdiChildActivate(object sender, EventArgs e)
         {
-            CloseOpenChildForms();
+            try
+            {
+                ribbon.SelectedPage = ribbon.MergedPages[0];
+            }
+            catch (Exception) { }
+
         }
     }
 }

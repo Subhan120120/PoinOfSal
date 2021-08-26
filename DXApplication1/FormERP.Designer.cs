@@ -34,15 +34,17 @@ namespace DXApplication1
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
+            this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCEInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCEshipment = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             this.SuspendLayout();
@@ -69,8 +71,6 @@ namespace DXApplication1
             this.ribbon.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem1);
             this.ribbon.Size = new System.Drawing.Size(821, 158);
             this.ribbon.StatusBar = this.ribbonStatusBar;
-            this.ribbon.Merge += new DevExpress.XtraBars.Ribbon.RibbonMergeEventHandler(this.RibbonControl1_Merge);
-            this.ribbon.UnMerge += new DevExpress.XtraBars.Ribbon.RibbonMergeEventHandler(this.RibbonControl1_UnMerge);
             // 
             // skinRibbonGalleryBarItem1
             // 
@@ -82,6 +82,27 @@ namespace DXApplication1
             // 
             this.skinPaletteDropDownButtonItem1.Id = 3;
             this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
+            // 
+            // barMdiChildrenListItem1
+            // 
+            this.barMdiChildrenListItem1.Caption = "Aktiv Pencereler";
+            this.barMdiChildrenListItem1.Id = 4;
+            this.barMdiChildrenListItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barMdiChildrenListItem1.ImageOptions.SvgImage")));
+            this.barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Pəncərələri Bağla";
+            this.barButtonItem2.Id = 9;
+            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "barButtonItem3";
+            this.barButtonItem3.Id = 10;
+            this.barButtonItem3.Name = "barButtonItem3";
             // 
             // ribbonPage1
             // 
@@ -122,40 +143,36 @@ namespace DXApplication1
             // accordionControlElement1
             // 
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aCEInvoice,
+            this.aCEshipment,
             this.accordionControlElement2});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "Element1";
             // 
+            // aCEInvoice
+            // 
+            this.aCEInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCEInvoice.ImageOptions.SvgImage")));
+            this.aCEInvoice.Name = "aCEInvoice";
+            this.aCEInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCEInvoice.Text = "Alış Fakturası";
+            this.aCEInvoice.Click += new System.EventHandler(this.accordionControlElement2_Click_1);
+            // 
+            // aCEshipment
+            // 
+            this.aCEshipment.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCEshipment.ImageOptions.SvgImage")));
+            this.aCEshipment.Name = "aCEshipment";
+            this.aCEshipment.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCEshipment.Text = "Transfer Qəbzi";
+            this.aCEshipment.Click += new System.EventHandler(this.aCEshipment_Click);
+            // 
             // accordionControlElement2
             // 
             this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement2.Text = "Alış Fakturası";
-            this.accordionControlElement2.Click += new System.EventHandler(this.accordionControlElement2_Click_1);
-            // 
-            // barMdiChildrenListItem1
-            // 
-            this.barMdiChildrenListItem1.Caption = "Aktiv Pencereler";
-            this.barMdiChildrenListItem1.Id = 4;
-            this.barMdiChildrenListItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barMdiChildrenListItem1.ImageOptions.SvgImage")));
-            this.barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Pəncərələri Bağla";
-            this.barButtonItem2.Id = 9;
-            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 10;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.accordionControlElement2.Text = "Transferi Təsdiqlə";
             // 
             // FormERP
             // 
@@ -170,6 +187,7 @@ namespace DXApplication1
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "ERP";
+            this.MdiChildActivate += new System.EventHandler(this.FormERP_MdiChildActivate);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             this.ResumeLayout(false);
@@ -185,11 +203,13 @@ namespace DXApplication1
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCEInvoice;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
         private DevExpress.XtraBars.BarMdiChildrenListItem barMdiChildrenListItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCEshipment;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
     }
 }
