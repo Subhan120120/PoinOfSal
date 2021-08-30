@@ -21,15 +21,17 @@ namespace DXApplication1
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             FormPos formPos = new FormPos();
-            formPos.Show();
-            this.Hide();
+            Hide();
+            formPos.ShowDialog(); 
+            Close();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             FormERP formERP = new FormERP();
-            formERP.Show();
-            this.Hide();
+            Hide();
+            formERP.ShowDialog();
+            Close();
         }
     }
 }

@@ -30,8 +30,6 @@ namespace DXApplication1
 
         private void FormPos_Load(object sender, EventArgs e)
         {
-
-
         }
 
         private void gridView1_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)
@@ -81,7 +79,7 @@ namespace DXApplication1
                     if (result > 0)
                     {
                         gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
-                        gridControl1.DataMember = "customQuery1";
+                        ////gridControl1.DataMember = "customQuery1";
                         gridView1.MoveLast();
                     }
                     else
@@ -198,7 +196,7 @@ namespace DXApplication1
                 if (result > 0)
                 {
                     gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
-                    gridControl1.DataMember = "customQuery1";
+                    //gridControl1.DataMember = "customQuery1";
                     gridView1.MoveLast();
                     textEditBarcode.EditValue = string.Empty;
                 }
@@ -246,7 +244,7 @@ namespace DXApplication1
                         invoiceHeaderID = Guid.NewGuid().ToString();
 
                         gridControl1.DataSource = sqlMethods.BindToData(invoiceHeaderID);
-                        gridControl1.DataMember = "customQuery1";
+                        //gridControl1.DataMember = "customQuery1";
                     }
                 }
             }
@@ -288,6 +286,16 @@ namespace DXApplication1
                     }
                 }
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            navigationFrame1.SelectedPage = navigationPage2;
+        }
+
+        private void simpleButton11_Click(object sender, EventArgs e)
+        {
+            navigationFrame1.SelectedPage = navigationPage1;
         }
     }
 }
