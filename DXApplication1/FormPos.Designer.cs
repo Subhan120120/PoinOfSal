@@ -63,14 +63,14 @@ namespace DXApplication1
             this.layoutControlPOS = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Price = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Barcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Amount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.VatRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnNetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnBarcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnPosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButtonNum4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonNum5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonNum1 = new DevExpress.XtraEditors.SimpleButton();
@@ -87,7 +87,7 @@ namespace DXApplication1
             this.simpleButtonEnter = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonProductSearch = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonNum7 = new DevExpress.XtraEditors.SimpleButton();
-            this.imageComboBoxEdit1 = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imageComboBoxEditBarcode = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.textEditBarcode = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonDiscount = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonCashless = new DevExpress.XtraEditors.SimpleButton();
@@ -105,6 +105,7 @@ namespace DXApplication1
             this.simpleButtonSalesPerson = new DevExpress.XtraEditors.SimpleButton();
             this.textEditCustomerBirthdate = new DevExpress.XtraEditors.TextEdit();
             this.textEditCustomerCode = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButtonPageReturn = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroupBarcode = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemStar = new DevExpress.XtraLayout.LayoutControlItem();
@@ -132,6 +133,7 @@ namespace DXApplication1
             this.layoutControlItemCancelInvoice = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemDeleteLine = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemSalesPerson = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroupCustomer = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemCustomerTel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCustomerAddress = new DevExpress.XtraLayout.LayoutControlItem();
@@ -147,15 +149,6 @@ namespace DXApplication1
             this.layoutControlItemCashless = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.colProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBarcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDiscountCampaign = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPosDiscountRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLineId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -163,7 +156,7 @@ namespace DXApplication1
             this.layoutControlPOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEditBarcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditBarcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerPhoneNum.Properties)).BeginInit();
@@ -198,6 +191,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancelInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemDeleteLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSalesPerson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerAddress)).BeginInit();
@@ -237,7 +231,7 @@ namespace DXApplication1
             this.layoutControlPOS.Controls.Add(this.simpleButtonEnter);
             this.layoutControlPOS.Controls.Add(this.simpleButtonProductSearch);
             this.layoutControlPOS.Controls.Add(this.simpleButtonNum7);
-            this.layoutControlPOS.Controls.Add(this.imageComboBoxEdit1);
+            this.layoutControlPOS.Controls.Add(this.imageComboBoxEditBarcode);
             this.layoutControlPOS.Controls.Add(this.textEditBarcode);
             this.layoutControlPOS.Controls.Add(this.simpleButtonDiscount);
             this.layoutControlPOS.Controls.Add(this.simpleButtonCashless);
@@ -255,6 +249,7 @@ namespace DXApplication1
             this.layoutControlPOS.Controls.Add(this.simpleButtonSalesPerson);
             this.layoutControlPOS.Controls.Add(this.textEditCustomerBirthdate);
             this.layoutControlPOS.Controls.Add(this.textEditCustomerCode);
+            this.layoutControlPOS.Controls.Add(this.simpleButtonPageReturn);
             this.layoutControlPOS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControlPOS.Location = new System.Drawing.Point(0, 0);
             this.layoutControlPOS.Name = "layoutControlPOS";
@@ -284,14 +279,14 @@ namespace DXApplication1
             this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
             this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.ProductDescription,
-            this.Qty,
-            this.Price,
-            this.NetAmount,
-            this.Barcode,
-            this.PosDiscount,
-            this.Amount,
-            this.VatRate});
+            this.columnProductDescription,
+            this.columnQty,
+            this.columnPrice,
+            this.columnNetAmount,
+            this.columnBarcode,
+            this.columnPosDiscount,
+            this.columnAmount,
+            this.columnVatRate});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -304,69 +299,69 @@ namespace DXApplication1
             this.gridView1.PreviewLineCount = 5;
             this.gridView1.CalcPreviewText += new DevExpress.XtraGrid.Views.Grid.CalcPreviewTextEventHandler(this.gridView1_CalcPreviewText);
             // 
-            // ProductDescription
+            // columnProductDescription
             // 
-            this.ProductDescription.Caption = "Məhsul";
-            this.ProductDescription.FieldName = "ProductDescription";
-            this.ProductDescription.Name = "ProductDescription";
-            this.ProductDescription.Visible = true;
-            this.ProductDescription.VisibleIndex = 0;
-            this.ProductDescription.Width = 181;
+            this.columnProductDescription.Caption = "Məhsul";
+            this.columnProductDescription.FieldName = "ProductDescription";
+            this.columnProductDescription.Name = "columnProductDescription";
+            this.columnProductDescription.Visible = true;
+            this.columnProductDescription.VisibleIndex = 0;
+            this.columnProductDescription.Width = 181;
             // 
-            // Qty
+            // columnQty
             // 
-            this.Qty.Caption = "Say";
-            this.Qty.FieldName = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.Visible = true;
-            this.Qty.VisibleIndex = 1;
-            this.Qty.Width = 28;
+            this.columnQty.Caption = "Say";
+            this.columnQty.FieldName = "Qty";
+            this.columnQty.Name = "columnQty";
+            this.columnQty.Visible = true;
+            this.columnQty.VisibleIndex = 1;
+            this.columnQty.Width = 28;
             // 
-            // Price
+            // columnPrice
             // 
-            this.Price.Caption = "Qiymət";
-            this.Price.FieldName = "Price";
-            this.Price.Name = "Price";
-            this.Price.Visible = true;
-            this.Price.VisibleIndex = 2;
-            this.Price.Width = 42;
+            this.columnPrice.Caption = "Qiymət";
+            this.columnPrice.FieldName = "Price";
+            this.columnPrice.Name = "columnPrice";
+            this.columnPrice.Visible = true;
+            this.columnPrice.VisibleIndex = 2;
+            this.columnPrice.Width = 42;
             // 
-            // NetAmount
+            // columnNetAmount
             // 
-            this.NetAmount.Caption = "Net Tutar";
-            this.NetAmount.DisplayFormat.FormatString = "{0:0.##}";
-            this.NetAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.NetAmount.FieldName = "NetAmount";
-            this.NetAmount.Name = "NetAmount";
-            this.NetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.columnNetAmount.Caption = "Net Tutar";
+            this.columnNetAmount.DisplayFormat.FormatString = "{0:0.##}";
+            this.columnNetAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.columnNetAmount.FieldName = "NetAmount";
+            this.columnNetAmount.Name = "columnNetAmount";
+            this.columnNetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetAmount", "{0:0.##}")});
-            this.NetAmount.Visible = true;
-            this.NetAmount.VisibleIndex = 3;
-            this.NetAmount.Width = 38;
+            this.columnNetAmount.Visible = true;
+            this.columnNetAmount.VisibleIndex = 3;
+            this.columnNetAmount.Width = 38;
             // 
-            // Barcode
+            // columnBarcode
             // 
-            this.Barcode.Caption = "Barkod";
-            this.Barcode.FieldName = "Barcode";
-            this.Barcode.Name = "Barcode";
+            this.columnBarcode.Caption = "Barkod";
+            this.columnBarcode.FieldName = "Barcode";
+            this.columnBarcode.Name = "columnBarcode";
             // 
-            // PosDiscount
+            // columnPosDiscount
             // 
-            this.PosDiscount.Caption = "Endirim Faizi";
-            this.PosDiscount.FieldName = "PosDiscount";
-            this.PosDiscount.Name = "PosDiscount";
+            this.columnPosDiscount.Caption = "Endirim Faizi";
+            this.columnPosDiscount.FieldName = "PosDiscount";
+            this.columnPosDiscount.Name = "columnPosDiscount";
             // 
-            // Amount
+            // columnAmount
             // 
-            this.Amount.Caption = "Tutar";
-            this.Amount.FieldName = "Amount";
-            this.Amount.Name = "Amount";
+            this.columnAmount.Caption = "Tutar";
+            this.columnAmount.FieldName = "Amount";
+            this.columnAmount.Name = "columnAmount";
             // 
-            // VatRate
+            // columnVatRate
             // 
-            this.VatRate.Caption = "ƏDV";
-            this.VatRate.FieldName = "VatRate";
-            this.VatRate.Name = "VatRate";
+            this.columnVatRate.Caption = "ƏDV";
+            this.columnVatRate.FieldName = "VatRate";
+            this.columnVatRate.Name = "columnVatRate";
             // 
             // simpleButtonNum4
             // 
@@ -593,26 +588,26 @@ namespace DXApplication1
             this.simpleButtonNum7.Text = "7";
             this.simpleButtonNum7.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // imageComboBoxEdit1
+            // imageComboBoxEditBarcode
             // 
-            this.imageComboBoxEdit1.Location = new System.Drawing.Point(391, 45);
-            this.imageComboBoxEdit1.Name = "imageComboBoxEdit1";
-            this.imageComboBoxEdit1.Properties.AllowFocused = false;
-            this.imageComboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.imageComboBoxEdit1.Properties.Appearance.Options.UseFont = true;
-            this.imageComboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.imageComboBoxEditBarcode.Location = new System.Drawing.Point(391, 55);
+            this.imageComboBoxEditBarcode.Name = "imageComboBoxEditBarcode";
+            this.imageComboBoxEditBarcode.Properties.AllowFocused = false;
+            this.imageComboBoxEditBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.imageComboBoxEditBarcode.Properties.Appearance.Options.UseFont = true;
+            this.imageComboBoxEditBarcode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.imageComboBoxEdit1.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far;
-            this.imageComboBoxEdit1.Properties.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imageComboBoxEdit1.Properties.ContextImageOptions.Image")));
-            this.imageComboBoxEdit1.Properties.ContextImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("imageComboBoxEdit1.Properties.ContextImageOptions.SvgImage")));
-            this.imageComboBoxEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.imageComboBoxEdit1.Size = new System.Drawing.Size(74, 36);
-            this.imageComboBoxEdit1.StyleController = this.layoutControlPOS;
-            this.imageComboBoxEdit1.TabIndex = 23;
+            this.imageComboBoxEditBarcode.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far;
+            this.imageComboBoxEditBarcode.Properties.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imageComboBoxEditBarcode.Properties.ContextImageOptions.Image")));
+            this.imageComboBoxEditBarcode.Properties.ContextImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("imageComboBoxEditBarcode.Properties.ContextImageOptions.SvgImage")));
+            this.imageComboBoxEditBarcode.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.imageComboBoxEditBarcode.Size = new System.Drawing.Size(74, 36);
+            this.imageComboBoxEditBarcode.StyleController = this.layoutControlPOS;
+            this.imageComboBoxEditBarcode.TabIndex = 23;
             // 
             // textEditBarcode
             // 
-            this.textEditBarcode.Location = new System.Drawing.Point(469, 45);
+            this.textEditBarcode.Location = new System.Drawing.Point(469, 56);
             this.textEditBarcode.Name = "textEditBarcode";
             this.textEditBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 17F);
             this.textEditBarcode.Properties.Appearance.Options.UseFont = true;
@@ -885,6 +880,18 @@ namespace DXApplication1
             this.textEditCustomerCode.StyleController = this.layoutControlPOS;
             this.textEditCustomerCode.TabIndex = 42;
             // 
+            // simpleButtonPageReturn
+            // 
+            this.simpleButtonPageReturn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonPageReturn.ImageOptions.Image")));
+            this.simpleButtonPageReturn.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.simpleButtonPageReturn.Location = new System.Drawing.Point(909, 406);
+            this.simpleButtonPageReturn.Name = "simpleButtonPageReturn";
+            this.simpleButtonPageReturn.Size = new System.Drawing.Size(87, 73);
+            this.simpleButtonPageReturn.StyleController = this.layoutControlPOS;
+            this.simpleButtonPageReturn.TabIndex = 43;
+            this.simpleButtonPageReturn.Text = "simpleButton1";
+            this.simpleButtonPageReturn.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -902,6 +909,8 @@ namespace DXApplication1
             // 
             // layoutControlGroupBarcode
             // 
+            this.layoutControlGroupBarcode.AppearanceGroup.Options.UseTextOptions = true;
+            this.layoutControlGroupBarcode.AppearanceGroup.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlGroupBarcode.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemStar,
             this.layoutControlItemComma,
@@ -1149,6 +1158,7 @@ namespace DXApplication1
             // 
             // layoutControlItemTextBox
             // 
+            this.layoutControlItemTextBox.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
             this.layoutControlItemTextBox.Control = this.textEditBarcode;
             this.layoutControlItemTextBox.Location = new System.Drawing.Point(78, 0);
             this.layoutControlItemTextBox.MinSize = new System.Drawing.Size(40, 24);
@@ -1162,7 +1172,8 @@ namespace DXApplication1
             // 
             // layoutControlItemComboBox
             // 
-            this.layoutControlItemComboBox.Control = this.imageComboBoxEdit1;
+            this.layoutControlItemComboBox.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControlItemComboBox.Control = this.imageComboBoxEditBarcode;
             this.layoutControlItemComboBox.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemComboBox.MinSize = new System.Drawing.Size(40, 24);
             this.layoutControlItemComboBox.Name = "layoutControlItemComboBox";
@@ -1173,12 +1184,15 @@ namespace DXApplication1
             // 
             // layoutControlGroupInvoice
             // 
+            this.layoutControlGroupInvoice.AppearanceGroup.Options.UseTextOptions = true;
+            this.layoutControlGroupInvoice.AppearanceGroup.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.layoutControlGroupInvoice.CustomizationFormText = "Satış";
             this.layoutControlGroupInvoice.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemGridView});
             this.layoutControlGroupInvoice.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupInvoice.Name = "layoutControlGroupInvoice";
             this.layoutControlGroupInvoice.Size = new System.Drawing.Size(367, 695);
-            this.layoutControlGroupInvoice.Text = "Faktura";
+            this.layoutControlGroupInvoice.Text = "Satış";
             // 
             // layoutControlItemGridView
             // 
@@ -1191,12 +1205,15 @@ namespace DXApplication1
             // 
             // layoutControlGroupFunction
             // 
+            this.layoutControlGroupFunction.AppearanceGroup.Options.UseTextOptions = true;
+            this.layoutControlGroupFunction.AppearanceGroup.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlGroupFunction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemProductSearch,
             this.layoutControlItemDiscount,
             this.layoutControlItemCancelInvoice,
             this.layoutControlItemDeleteLine,
-            this.layoutControlItemSalesPerson});
+            this.layoutControlItemSalesPerson,
+            this.layoutControlItem1});
             this.layoutControlGroupFunction.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroupFunction.Location = new System.Drawing.Point(703, 207);
             this.layoutControlGroupFunction.Name = "layoutControlGroupFunction";
@@ -1288,8 +1305,23 @@ namespace DXApplication1
             this.layoutControlItemSalesPerson.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemSalesPerson.TextVisible = false;
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.simpleButtonPageReturn;
+            this.layoutControlItem1.Location = new System.Drawing.Point(182, 154);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem1.OptionsTableLayoutItem.RowIndex = 2;
+            this.layoutControlItem1.Size = new System.Drawing.Size(91, 77);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // layoutControlGroupCustomer
             // 
+            this.layoutControlGroupCustomer.AppearanceGroup.Options.UseTextOptions = true;
+            this.layoutControlGroupCustomer.AppearanceGroup.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlGroupCustomer.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemCustomerTel,
             this.layoutControlItemCustomerAddress,
@@ -1512,73 +1544,11 @@ namespace DXApplication1
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.Options.UseTextOptions = true;
+            this.layoutControlGroup1.AppearanceGroup.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlGroup1.Location = new System.Drawing.Point(367, 353);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(336, 342);
-            // 
-            // colProductDescription
-            // 
-            this.colProductDescription.FieldName = "ProductDescription";
-            this.colProductDescription.Name = "colProductDescription";
-            this.colProductDescription.Visible = true;
-            this.colProductDescription.VisibleIndex = 0;
-            this.colProductDescription.Width = 190;
-            // 
-            // colProductCode
-            // 
-            this.colProductCode.Caption = "Məhsul";
-            this.colProductCode.FieldName = "ProductCode";
-            this.colProductCode.Name = "colProductCode";
-            this.colProductCode.Width = 178;
-            // 
-            // colQty
-            // 
-            this.colQty.Caption = "Say";
-            this.colQty.FieldName = "Qty";
-            this.colQty.Name = "colQty";
-            this.colQty.Visible = true;
-            this.colQty.VisibleIndex = 1;
-            this.colQty.Width = 26;
-            // 
-            // colPrice
-            // 
-            this.colPrice.Caption = "Qiymət";
-            this.colPrice.FieldName = "Price";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 2;
-            this.colPrice.Width = 43;
-            // 
-            // colAmount
-            // 
-            this.colAmount.Caption = "Tutar";
-            this.colAmount.FieldName = "Amount";
-            this.colAmount.Name = "colAmount";
-            this.colAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Amount", "{0:0.##}")});
-            this.colAmount.Visible = true;
-            this.colAmount.VisibleIndex = 3;
-            this.colAmount.Width = 43;
-            // 
-            // colBarcode
-            // 
-            this.colBarcode.FieldName = "Barcode";
-            this.colBarcode.Name = "colBarcode";
-            // 
-            // colDiscountCampaign
-            // 
-            this.colDiscountCampaign.FieldName = "DiscountCampaign";
-            this.colDiscountCampaign.Name = "colDiscountCampaign";
-            // 
-            // colPosDiscountRate
-            // 
-            this.colPosDiscountRate.FieldName = "PosDiscountRate";
-            this.colPosDiscountRate.Name = "colPosDiscountRate";
-            // 
-            // colLineId
-            // 
-            this.colLineId.FieldName = "LineId";
-            this.colLineId.Name = "colLineId";
             // 
             // navigationFrame1
             // 
@@ -1621,7 +1591,7 @@ namespace DXApplication1
             this.layoutControlPOS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEditBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerPhoneNum.Properties)).EndInit();
@@ -1656,6 +1626,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancelInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemDeleteLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSalesPerson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerAddress)).EndInit();
@@ -1721,20 +1692,12 @@ namespace DXApplication1
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupCustomer;
         private DevExpress.XtraEditors.SimpleButton simpleButtonNum7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum7;
-        private DevExpress.XtraEditors.ImageComboBoxEdit imageComboBoxEdit1;
+        private DevExpress.XtraEditors.ImageComboBoxEdit imageComboBoxEditBarcode;
         private DevExpress.XtraEditors.TextEdit textEditBarcode;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemComboBox;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemTextBox;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn colAmount;
         private DevExpress.XtraEditors.SimpleButton simpleButtonDiscount;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemDiscount;
-        private DevExpress.XtraGrid.Columns.GridColumn colQty;
-        private DevExpress.XtraGrid.Columns.GridColumn colBarcode;
-        private DevExpress.XtraGrid.Columns.GridColumn colDiscountCampaign;
-        private DevExpress.XtraGrid.Columns.GridColumn colPosDiscountRate;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductDescription;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCashless;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupPayment;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCashless;
@@ -1746,18 +1709,16 @@ namespace DXApplication1
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCancelInvoice;
         private DevExpress.XtraEditors.SimpleButton simpleButtonDeleteLine;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemDeleteLine;
-        private DevExpress.XtraGrid.Columns.GridColumn colLineId;
-        private DevExpress.XtraGrid.Columns.GridColumn ProductDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn Qty;
-        private DevExpress.XtraGrid.Columns.GridColumn Price;
-        private DevExpress.XtraGrid.Columns.GridColumn NetAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn Barcode;
-        private DevExpress.XtraGrid.Columns.GridColumn PosDiscount;
-        private DevExpress.XtraGrid.Columns.GridColumn Amount;
-        private DevExpress.XtraGrid.Columns.GridColumn VatRate;
+        private DevExpress.XtraGrid.Columns.GridColumn columnProductDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn columnQty;
+        private DevExpress.XtraGrid.Columns.GridColumn columnPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn columnNetAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn columnBarcode;
+        private DevExpress.XtraGrid.Columns.GridColumn columnPosDiscount;
+        private DevExpress.XtraGrid.Columns.GridColumn columnAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn columnVatRate;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCustomerAdd;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerAdd;
@@ -1779,6 +1740,9 @@ namespace DXApplication1
         private DevExpress.XtraEditors.TextEdit textEditCustomerCode;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerBirthdate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerCode;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonPageReturn;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
     }
 }
 

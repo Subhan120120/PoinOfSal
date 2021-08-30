@@ -10,7 +10,7 @@ namespace DXApplication1
 {
     public class SqlMethods
     {
-        public string subConnString = Properties.Settings.Default.subConnString;
+        private string subConnString = Properties.Settings.Default.subConnString;
         private SqlParameter[] paramArray = new SqlParameter[] { };
 
         public int SqlExec(string query, SqlParameter[] sqlParameters)
@@ -45,7 +45,7 @@ namespace DXApplication1
             }
         }
 
-        public SqlDataSource BindToData(string invoiceHeaderID)
+        public SqlDataSource BindToDataCopy(string invoiceHeaderID)
         {
             CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
 
@@ -58,8 +58,16 @@ namespace DXApplication1
 
             ds.Queries.Add(query);
             ds.Fill();
-
             return ds;
+        }
+
+        public DataTable BindToData(string invoiceHeaderID)
+        {
+            string qry = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
+                "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
+                "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+
+            return SqlGetDt(qry, new SqlParameter[] { });
         }
 
         public int InsertLine(dcProduct dcProduct, string invoiceHeaderID)
