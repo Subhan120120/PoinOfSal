@@ -25,7 +25,6 @@ namespace DXApplication1
             ucSale.Dock = DockStyle.Fill;
             AcceptButton = ucSale.simpleButtonEnter;
             navigationPageSale.Controls.Add(ucSale);
-            officeNavigationBar1.NavigationClient = navigationFrame1;
         }
 
         private void officeNavigationBar1_ItemClick(object sender, DevExpress.XtraBars.Navigation.NavigationBarItemEventArgs e)
