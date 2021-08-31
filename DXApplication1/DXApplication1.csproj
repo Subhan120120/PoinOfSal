@@ -48,6 +48,7 @@
     <Reference Include="DevExpress.Printing.v20.1.Core" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -79,12 +80,6 @@
     </Compile>
     <Compile Include="FormCustomer.Designer.cs">
       <DependentUpon>FormCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPos.Designer.cs">
-      <DependentUpon>FormPos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPosDiscount.cs">
       <SubType>Form</SubType>
@@ -138,6 +133,18 @@
     <Compile Include="FormInvoice.Designer.cs">
       <DependentUpon>FormInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPOS.Designer.cs">
+      <DependentUpon>FormPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcSale.Designer.cs">
+      <DependentUpon>UcSale.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,9 +153,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInvoice.resx">
       <DependentUpon>FormInvoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPos.resx">
-      <DependentUpon>FormPos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPosDiscount.resx">
       <DependentUpon>FormPosDiscount.cs</DependentUpon>
@@ -179,6 +183,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormERP.resx">
       <DependentUpon>FormERP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPOS.resx">
+      <DependentUpon>FormPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcSale.resx">
+      <DependentUpon>UcSale.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">

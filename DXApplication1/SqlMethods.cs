@@ -45,7 +45,7 @@ namespace DXApplication1
             }
         }
 
-        public SqlDataSource BindToDataCopy(string invoiceHeaderID)
+        public SqlDataSource BindToData(string invoiceHeaderID)
         {
             CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
 
@@ -61,7 +61,7 @@ namespace DXApplication1
             return ds;
         }
 
-        public DataTable BindToData(string invoiceHeaderID)
+        public DataTable SelectInvoiceLine(string invoiceHeaderID)
         {
             string qry = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
                 "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +

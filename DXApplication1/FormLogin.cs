@@ -20,9 +20,9 @@ namespace DXApplication1
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            FormPos formPos = new FormPos();
+            FormPOS formPos = new FormPOS();
             Hide();
-            formPos.ShowDialog(); 
+            formPos.ShowDialog();
             Close();
         }
 
