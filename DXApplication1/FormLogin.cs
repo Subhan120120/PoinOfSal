@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace DXApplication1
         public FormLogin()
         {
             InitializeComponent();
+            System.Threading.Thread.Sleep(1000);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

@@ -115,6 +115,12 @@
     <Compile Include="FormERP.Designer.cs">
       <DependentUpon>FormERP.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlMethods.cs" />
     <Compile Include="FormPayment.cs">
       <SubType>Form</SubType>
@@ -145,6 +151,12 @@
     </Compile>
     <Compile Include="UcSale.Designer.cs">
       <DependentUpon>UcSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcReturn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcReturn.Designer.cs">
+      <DependentUpon>UcReturn.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
@@ -188,8 +200,14 @@
     <EmbeddedResource Include="FormPOS.resx">
       <DependentUpon>FormPOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UcSale.resx">
       <DependentUpon>UcSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcReturn.resx">
+      <DependentUpon>UcReturn.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -228,6 +246,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\registration_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\startup.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

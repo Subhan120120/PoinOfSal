@@ -45,41 +45,27 @@ namespace DXApplication1
             }
         }
 
-        public SqlDataSource BindToDataCopy(string invoiceHeaderID)
+
+        public DataTable SelectInvoiceHeader()
         {
-            CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
-
-            SqlDataSource ds = new SqlDataSource(connectionParameters);
-            CustomSqlQuery query = new CustomSqlQuery();
-            query.Name = "customQuery1";
-            query.Sql = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
-                "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
-                "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
-
-            ds.Queries.Add(query);
-            ds.Fill();
-            return ds;
+            string qry = "select * from trInvoiceHeader where IsCompleted = 1 order by CreatedDate "; // burdaki kolonlari dizaynda da elave et
+            return SqlGetDt(qry, paramArray);
         }
 
         public DataTable SelectInvoiceLine(string invoiceHeaderID)
         {
             string qry = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
                 "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
-                "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+                "where InvoiceHeaderID = @InvoiceHeaderID order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
 
-            return SqlGetDt(qry, new SqlParameter[] { });
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderID", invoiceHeaderID)
+            };
+            return SqlGetDt(qry, paramArray);
         }
 
-        public DataTable BindToData(string invoiceHeaderID)
-        { 
-            string qry = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
-                "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
-                "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate";
-
-            return SqlGetDt(qry, new SqlParameter[] { });
-        }
-
-            public int InsertLine(dcProduct dcProduct, string invoiceHeaderID)
+        public int InsertLine(dcProduct dcProduct, string invoiceHeaderID)
         {
             string qry = "Insert into trInvoiceLine([InvoiceLineId],[InvoiceHeaderID],[ProductCode],[Price],[Amount],[PosDiscount],[NetAmount]) " +
                 "select @InvoiceLineId,@InvoiceHeaderID,[ProductCode],[RetailPrice],[RetailPrice],[PosDiscount],[RetailPrice]-[PosDiscount] from dcProduct ";
@@ -294,5 +280,18 @@ namespace DXApplication1
             return SqlExec(qry, paramArray);
         }
 
+        public DataTable SelectPaymentLine(string invoiceHeaderID)
+        {
+            string qry = "select paymentTypeDescription, Payment from trPaymentLine " +
+                "join trPaymentHeader on trPaymentHeader.PaymentHeaderID = trPaymentLine.PaymentHeaderID " +
+                "join dcPaymentType on trPaymentLine.PaymentTypeCode = dcPaymentType.PaymentTypeCode " +
+                "where InvoiceHeaderID = @InvoiceHeaderID"; // burdaki kolonlari dizaynda da elave et
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderID", invoiceHeaderID)
+            };
+            return SqlGetDt(qry, paramArray);
+        }
     }
 }

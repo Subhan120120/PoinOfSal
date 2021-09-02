@@ -30,26 +30,27 @@ namespace DXApplication1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DXApplication1.SplashScreen1), true, true);
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.LoginlayoutControl1ConvertedLayout = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEditRemindMe = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.simpleButton1item = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleButton2item = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.checkEditRemindMe = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.LoginlayoutControl1ConvertedLayout)).BeginInit();
             this.LoginlayoutControl1ConvertedLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditRemindMe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleButton1item)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleButton2item)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditRemindMe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -98,31 +99,6 @@ namespace DXApplication1
             this.simpleButton2.Text = "Satış";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(59, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(187, 20);
-            this.textEdit1.StyleController = this.LoginlayoutControl1ConvertedLayout;
-            this.textEdit1.TabIndex = 4;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(59, 36);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(187, 20);
-            this.textEdit2.StyleController = this.LoginlayoutControl1ConvertedLayout;
-            this.textEdit2.TabIndex = 5;
-            // 
-            // checkEditRemindMe
-            // 
-            this.checkEditRemindMe.Location = new System.Drawing.Point(12, 60);
-            this.checkEditRemindMe.Name = "checkEditRemindMe";
-            this.checkEditRemindMe.Properties.Caption = "meni xatırla";
-            this.checkEditRemindMe.Size = new System.Drawing.Size(234, 20);
-            this.checkEditRemindMe.StyleController = this.LoginlayoutControl1ConvertedLayout;
-            this.checkEditRemindMe.TabIndex = 6;
-            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -158,6 +134,35 @@ namespace DXApplication1
             this.simpleButton2item.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleButton2item.TextSize = new System.Drawing.Size(0, 0);
             this.simpleButton2item.TextVisible = false;
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(59, 12);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(187, 20);
+            this.textEdit1.StyleController = this.LoginlayoutControl1ConvertedLayout;
+            this.textEdit1.TabIndex = 4;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(59, 36);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(187, 20);
+            this.textEdit2.StyleController = this.LoginlayoutControl1ConvertedLayout;
+            this.textEdit2.TabIndex = 5;
+            // 
+            // checkEditRemindMe
+            // 
+            this.checkEditRemindMe.Location = new System.Drawing.Point(12, 60);
+            this.checkEditRemindMe.Name = "checkEditRemindMe";
+            this.checkEditRemindMe.Properties.Caption = "meni xatırla";
+            this.checkEditRemindMe.Size = new System.Drawing.Size(234, 20);
+            this.checkEditRemindMe.StyleController = this.LoginlayoutControl1ConvertedLayout;
+            this.checkEditRemindMe.TabIndex = 6;
             // 
             // layoutControlItem1
             // 
@@ -197,12 +202,12 @@ namespace DXApplication1
             this.Text = "Giriş";
             ((System.ComponentModel.ISupportInitialize)(this.LoginlayoutControl1ConvertedLayout)).EndInit();
             this.LoginlayoutControl1ConvertedLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditRemindMe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleButton1item)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleButton2item)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditRemindMe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();

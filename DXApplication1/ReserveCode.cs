@@ -43,3 +43,20 @@
 //    else if (val > max) dxErrorProvider1.SetError(control, "Endirim ədədi " + (max).ToString() + " dən kiçik olmalıdır ", ErrorType.Critical);
 //    else dxErrorProvider1.SetError(control, "");
 //}
+
+
+//public SqlDataSource BindToDataCopy(string invoiceHeaderID)
+//{
+//    CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
+
+//    SqlDataSource ds = new SqlDataSource(connectionParameters);
+//    CustomSqlQuery query = new CustomSqlQuery();
+//    query.Name = "customQuery1";
+//    query.Sql = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
+//        "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
+//        "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+
+//    ds.Queries.Add(query);
+//    ds.Fill();
+//    return ds;
+//}

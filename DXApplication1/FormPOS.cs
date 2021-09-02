@@ -74,8 +74,12 @@ namespace DXApplication1
         {
             UcSale ucSale = new UcSale();
             ucSale.Dock = DockStyle.Fill;
-            AcceptButton = ucSale.simpleButtonEnter;
             navigationPageSale.Controls.Add(ucSale);
+            AcceptButton = ucSale.simpleButtonEnter;
+
+            UcReturn ucReturn = new UcReturn();
+            ucReturn.Dock = DockStyle.Fill;
+            navigationPageReturn.Controls.Add(ucReturn);
         }
 
         private void officeNavigationBar1_ItemClick(object sender, DevExpress.XtraBars.Navigation.NavigationBarItemEventArgs e)
