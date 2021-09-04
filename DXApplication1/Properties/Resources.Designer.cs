@@ -113,6 +113,16 @@ namespace DXApplication1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap startup550x363_png {
+            get {
+                object obj = ResourceManager.GetObject("startup550x363.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Untitled_32x32x {
             get {
                 object obj = ResourceManager.GetObject("Untitled-32x32x", resourceCulture);

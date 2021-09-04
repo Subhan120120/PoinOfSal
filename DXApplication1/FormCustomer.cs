@@ -24,11 +24,11 @@ namespace DXApplication1
 
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
-            string newNum = sqlMethods.GetNextNumber("CurrAccCode", "dcCurrAcc");            
+            string newNum = sqlMethods.GetNextDocNum("CA", "CurrAccCode", "dcCurrAcc");            
 
             dcCurrAcc = new dcCurrAcc()
             {
-                CurrAccCode = "C-2-" + newNum,
+                CurrAccCode = newNum,
                 CurrAccType = 2,
                 Address = memoEditAddress.EditValue is null ? "" : memoEditAddress.EditValue.ToString(),
                 BonusCardNum = textEditBonusCard.EditValue is null ? "" : textEditBonusCard.EditValue.ToString(),

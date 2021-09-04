@@ -132,7 +132,7 @@ namespace DXApplication1
             decimal cashLarge = Convert.ToDecimal(textEditCash.EditValue);
             decimal cashless = Convert.ToDecimal(textEditCashless.EditValue);
             decimal bonus = Convert.ToDecimal(textEditBonus.EditValue);
-            string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trPaymentHeader");
+            string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "trPaymentHeader");
 
             if ((cashLarge + cashless + bonus) >= SummaryNetAmount)
             {

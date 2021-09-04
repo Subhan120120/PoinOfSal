@@ -887,6 +887,7 @@ namespace DXApplication1
             // layoutControlGroupBarcode
             // 
             this.layoutControlGroupBarcode.CustomizationFormText = "Barcode";
+            this.layoutControlGroupBarcode.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroupBarcode.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemStar,
             this.layoutControlItemComma,
@@ -1195,6 +1196,7 @@ namespace DXApplication1
             // layoutControlGroupInvoice
             // 
             this.layoutControlGroupInvoice.CustomizationFormText = "Satış";
+            this.layoutControlGroupInvoice.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroupInvoice.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemGridView});
             this.layoutControlGroupInvoice.Location = new System.Drawing.Point(0, 0);
@@ -1216,6 +1218,7 @@ namespace DXApplication1
             // layoutControlGroupFunction
             // 
             this.layoutControlGroupFunction.CustomizationFormText = "Əməliyat";
+            this.layoutControlGroupFunction.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroupFunction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemProductSearch,
             this.layoutControlItemDiscount,
@@ -1326,6 +1329,7 @@ namespace DXApplication1
             // layoutControlGroupCustomer
             // 
             this.layoutControlGroupCustomer.CustomizationFormText = "Müştəri";
+            this.layoutControlGroupCustomer.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroupCustomer.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemCustomerTel,
             this.layoutControlItemCustomerAddress,
@@ -1501,6 +1505,7 @@ namespace DXApplication1
             // layoutControlGroupPayment
             // 
             this.layoutControlGroupPayment.CustomizationFormText = "Ödəmə";
+            this.layoutControlGroupPayment.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroupPayment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemCash,
             this.layoutControlItemCashless,
@@ -1572,6 +1577,7 @@ namespace DXApplication1
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.CustomizationFormText = "layoutControlGroup1";
+            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup2.Location = new System.Drawing.Point(412, 381);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(318, 291);

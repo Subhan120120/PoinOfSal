@@ -17,7 +17,7 @@ namespace DXApplication1
         public FormLogin()
         {
             InitializeComponent();
-            System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(7000);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

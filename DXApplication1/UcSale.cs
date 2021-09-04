@@ -58,19 +58,18 @@ namespace DXApplication1
             {
                 if (formProductList.ShowDialog(this) == DialogResult.OK)
                 {
-                    if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                    if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
-                        sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
+                        string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
+                        sqlMethods.InsertInvoiceHeader(invoiceHeaderID, NewDocNum);
                     }
 
                     dcProduct dcProduct = formProductList.dcProduct;
-                    int result = sqlMethods.InsertLine(dcProduct, invoiceHeaderID);
+                    int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderID);
 
                     if (result > 0)
                     {
                         gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
-                        ////gridControl1.DataMember = "customQuery1";
                         gridView11.MoveLast();
                     }
                     else
@@ -103,7 +102,7 @@ namespace DXApplication1
                 if (dialogResult == DialogResult.Yes)
                 {
                     object invoiceLineId = gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "InvoiceLineId");
-                    int result = sqlMethods.DeleteLine(invoiceLineId);
+                    int result = sqlMethods.DeleteInvoiceLine(invoiceLineId);
 
                     if (result >= 0)
                     {
@@ -177,12 +176,12 @@ namespace DXApplication1
             {
                 dcProduct dcProduct = new dcProduct { Barcode = textEditBarcode.EditValue.ToString() };
 
-                if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
                 {
-                    string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
-                    sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
+                    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
+                    sqlMethods.InsertInvoiceHeader(invoiceHeaderID, NewDocNum);
                 }
-                int result = sqlMethods.InsertLine(dcProduct, invoiceHeaderID);
+                int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderID);
 
                 if (result > 0)
                 {
@@ -260,10 +259,10 @@ namespace DXApplication1
                 {
                     if (simpleButton.Name == "simpleButtonCustomerAdd")
                     {
-                        if (!sqlMethods.HeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                        if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
                         {
-                            string NewDocNum = sqlMethods.GetNextNumber("DocumentNumber", "trInvoiceHeader");
-                            sqlMethods.InsertHeader(invoiceHeaderID, NewDocNum);
+                            string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
+                            sqlMethods.InsertInvoiceHeader(invoiceHeaderID, NewDocNum);
                         }
                         int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderID);
 

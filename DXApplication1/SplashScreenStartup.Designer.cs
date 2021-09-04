@@ -1,7 +1,7 @@
 ﻿
 namespace DXApplication1
 {
-    partial class SplashScreen1
+    partial class SplashScreenStartup
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace DXApplication1
         /// </summary>
 		private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreen1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreenStartup));
             this.labelCopyright = new DevExpress.XtraEditors.LabelControl();
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.progressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
@@ -45,7 +45,7 @@ namespace DXApplication1
             this.labelCopyright.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelCopyright.Appearance.Options.UseForeColor = true;
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelCopyright.Location = new System.Drawing.Point(260, 341);
+            this.labelCopyright.Location = new System.Drawing.Point(242, 273);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(188, 13);
             this.labelCopyright.TabIndex = 6;
@@ -55,7 +55,7 @@ namespace DXApplication1
             // 
             this.labelStatus.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelStatus.Appearance.Options.UseForeColor = true;
-            this.labelStatus.Location = new System.Drawing.Point(196, 305);
+            this.labelStatus.Location = new System.Drawing.Point(109, 237);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(50, 13);
@@ -67,15 +67,15 @@ namespace DXApplication1
             this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarControl.EditValue = 0;
-            this.progressBarControl.Location = new System.Drawing.Point(196, 322);
+            this.progressBarControl.Location = new System.Drawing.Point(109, 254);
             this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Size = new System.Drawing.Size(314, 13);
+            this.progressBarControl.Size = new System.Drawing.Size(321, 13);
             this.progressBarControl.TabIndex = 5;
             // 
             // peLogo
             // 
             this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
-            this.peLogo.Location = new System.Drawing.Point(162, 141);
+            this.peLogo.Location = new System.Drawing.Point(124, 96);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
             this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -92,7 +92,7 @@ namespace DXApplication1
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(275, 184);
+            this.labelControl1.Location = new System.Drawing.Point(253, 133);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(117, 81);
             this.labelControl1.TabIndex = 9;
@@ -104,7 +104,7 @@ namespace DXApplication1
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(332, 151);
+            this.labelControl2.Location = new System.Drawing.Point(311, 102);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(72, 48);
             this.labelControl2.TabIndex = 9;
@@ -115,7 +115,7 @@ namespace DXApplication1
             this.AllowControlsInImageMode = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 469);
+            this.ClientSize = new System.Drawing.Size(550, 363);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.peLogo);
@@ -125,7 +125,7 @@ namespace DXApplication1
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SplashScreen1";
             this.ShowMode = DevExpress.XtraSplashScreen.ShowMode.Image;
-            this.SplashImageOptions.Image = global::DXApplication1.Properties.Resources.startup;
+            this.SplashImageOptions.Image = global::DXApplication1.Properties.Resources.startup550x363_png;
             this.Text = "SplashScreen1";
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).EndInit();

@@ -65,7 +65,7 @@ namespace DXApplication1
             return SqlGetDt(qry, paramArray);
         }
 
-        public int InsertLine(dcProduct dcProduct, string invoiceHeaderID)
+        public int InsertInvoiceLine(dcProduct dcProduct, string invoiceHeaderID)
         {
             string qry = "Insert into trInvoiceLine([InvoiceLineId],[InvoiceHeaderID],[ProductCode],[Price],[Amount],[PosDiscount],[NetAmount]) " +
                 "select @InvoiceLineId,@InvoiceHeaderID,[ProductCode],[RetailPrice],[RetailPrice],[PosDiscount],[RetailPrice]-[PosDiscount] from dcProduct ";
@@ -88,7 +88,22 @@ namespace DXApplication1
             return SqlExec(qry, paramArray);
         }
 
-        public bool HeaderExist(string invoiceHeaderID)
+        public int InsertInvoiceLine(trInvoiceLine trInvoiceLine)
+        {
+            string qry = "Insert into trInvoiceLine(InvoiceLineId,InvoiceHeaderID,RelatedLineId,ProductCode,Price,Amount,PosDiscount,NetAmount) " +
+                "select @InvoiceLineId,@InvoiceHeaderID,InvoiceLineId,ProductCode, Price*(-1), Amount*(-1), PosDiscount*(-1), NetAmount*(-1) from trInvoiceLine where InvoiceLineId = @RelatedLineId ";
+
+            SqlParameter[] paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceLineId", trInvoiceLine.InvoiceLineId),
+                new SqlParameter("@InvoiceHeaderID", trInvoiceLine.InvoiceHeaderID),
+                new SqlParameter("@RelatedLineId", trInvoiceLine.RelatedLineId),
+            };
+
+            return SqlExec(qry, paramArray);
+        }
+
+        public bool InvoiceHeaderExist(string invoiceHeaderID)
         {
             string qry = "SELECT TOP 1 InvoiceHeaderID FROM [trInvoiceHeader] WHERE ([InvoiceHeaderID] = @InvoiceHeaderID)";
             paramArray = new SqlParameter[]
@@ -103,11 +118,12 @@ namespace DXApplication1
             else return false;
         }
 
-        public string GetNextNumber(string columnName, string tableName)
+        public string GetNextDocNum(string processCode, string columnName, string tableName)
         {
-            string qry = "dbo.GetNextNum @ColumnName = @ColumnName, @TableName = @TableName";
+            string qry = "dbo.GetNextDocNum @ProcessCode = @ProcessCode, @ColumnName = @ColumnName, @TableName = @TableName";
             paramArray = new SqlParameter[]
              {
+                new SqlParameter("@ProcessCode", processCode),
                 new SqlParameter("@ColumnName", columnName),
                 new SqlParameter("@TableName", tableName)
              };
@@ -116,7 +132,7 @@ namespace DXApplication1
 
             return dt.Rows[0][0].ToString(); ;
         }
-        public void InsertHeader(string invoiceHeaderID, string newDocNum)
+        public void InsertInvoiceHeader(string invoiceHeaderID, string newDocNum)
         {
             string qry = "INSERT INTO [dbo].[trInvoiceHeader] ([InvoiceHeaderID],[ProcessCode],[DocumentNumber]) " +
                                         "VALUES (@InvoiceHeaderID,@ProcessCode,@DocumentNumber)";
@@ -124,8 +140,8 @@ namespace DXApplication1
             paramArray = new SqlParameter[]
             {
                 new SqlParameter("@InvoiceHeaderID", invoiceHeaderID),
-                new SqlParameter("@ProcessCode", "R"),
-                new SqlParameter("@DocumentNumber", "R-1-" + newDocNum)
+                new SqlParameter("@ProcessCode", "RS"),
+                new SqlParameter("@DocumentNumber", newDocNum)
             };
 
             SqlExec(qry, paramArray);
@@ -144,7 +160,7 @@ namespace DXApplication1
             return SqlExec(qry, paramArray);
         }
 
-        public int DeleteLine(object invoiceLineId)
+        public int DeleteInvoiceLine(object invoiceLineId)
         {
             string qry = "DELETE FROM [dbo].[trInvoiceLine] where InvoiceLineId = @InvoiceLineId";
 
@@ -213,7 +229,7 @@ namespace DXApplication1
             {
                 new SqlParameter("@PaymentHeaderID", trPayment.PaymentHeaderID),
                 new SqlParameter("@InvoiceHeaderID", trPayment.InvoiceHeaderID),
-                new SqlParameter("@DocumentNumber", "P-1-" + trPayment.DocumentNumber),
+                new SqlParameter("@DocumentNumber", trPayment.DocumentNumber),
                 new SqlParameter("@CurrAccCode", "C-0-0")
             };
 

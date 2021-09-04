@@ -10,6 +10,7 @@ namespace DXApplication1.Model
     {
         public string InvoiceLineId { get; set; }
         public string InvoiceHeaderID { get; set; }
+        public string RelatedLineId { get; set; }
         public string ProductCode { get; set; }
         public decimal Price { get; set; }
         public decimal Amount { get; set; }

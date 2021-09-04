@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace DXApplication1
 {
-    public partial class SplashScreen1 : SplashScreen
+    public partial class SplashScreenStartup : SplashScreen
     {
-        public SplashScreen1()
+        public SplashScreenStartup()
         {
             InitializeComponent();
             //this.labelCopyright.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();

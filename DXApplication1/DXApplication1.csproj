@@ -115,11 +115,11 @@
     <Compile Include="FormERP.Designer.cs">
       <DependentUpon>FormERP.cs</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen1.cs">
+    <Compile Include="SplashScreenStartup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashScreen1.Designer.cs">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    <Compile Include="SplashScreenStartup.Designer.cs">
+      <DependentUpon>SplashScreenStartup.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlMethods.cs" />
     <Compile Include="FormPayment.cs">
@@ -200,8 +200,8 @@
     <EmbeddedResource Include="FormPOS.resx">
       <DependentUpon>FormPOS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    <EmbeddedResource Include="SplashScreenStartup.resx">
+      <DependentUpon>SplashScreenStartup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcSale.resx">
       <DependentUpon>UcSale.cs</DependentUpon>
@@ -249,6 +249,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\startup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\startup550x363.png.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
