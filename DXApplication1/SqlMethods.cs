@@ -286,7 +286,7 @@ namespace DXApplication1
         //    else return false;
         //}
 
-        public int UpdateIsCompleted(string invoiceHeaderId)
+        public int UpdateInvoiceIsCompleted(string invoiceHeaderId)
         {
             string qry = "UPDATE trInvoiceHeader SET IsCompleted = 1 WHERE InvoiceHeaderID = @InvoiceHeaderID";
 
@@ -310,6 +310,19 @@ namespace DXApplication1
                 new SqlParameter("@InvoiceHeaderID", invoiceHeaderID)
             };
             return SqlGetDt(qry, paramArray);
+        }
+
+        public int UpdateInvoiceLineQty(object invoiceLineId, int qty)
+        {
+            string qry = "UPDATE trInvoiceLine set Qty = @Qty, Amount = @Qty*Price,  NetAmount = (@Qty*Price)-(@Qty*PosDiscount/Qty), PosDiscount = @Qty*PosDiscount/Qty  where InvoiceLineId = @InvoiceLineId";
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceLineId", invoiceLineId),
+                new SqlParameter("@Qty", qty)
+            };
+
+            return SqlExec(qry, paramArray);
         }
     }
 }

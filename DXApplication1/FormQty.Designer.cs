@@ -671,6 +671,7 @@ namespace DXApplication1
             this.ClientSize = new System.Drawing.Size(347, 410);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FormQty";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormQty";
             this.Load += new System.EventHandler(this.FormQty_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

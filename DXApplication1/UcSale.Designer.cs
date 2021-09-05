@@ -488,7 +488,6 @@ namespace DXApplication1
             // gridControl11
             // 
             this.gridControl11.DataMember = "trInvoiceLine";
-            this.gridControl11.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.gridControl11.Location = new System.Drawing.Point(24, 45);
             this.gridControl11.MainView = this.gridView11;
             this.gridControl11.Name = "gridControl11";
@@ -501,9 +500,11 @@ namespace DXApplication1
             // 
             // gridView11
             // 
+            this.gridView11.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridView11.Appearance.FooterPanel.Options.UseFont = true;
             this.gridView11.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(221)))), ((int)(((byte)(245)))));
             this.gridView11.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.gridView11.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridView11.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridView11.Appearance.Row.Options.UseFont = true;
             this.gridView11.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.columnProductDescription,
@@ -531,9 +532,11 @@ namespace DXApplication1
             this.columnProductDescription.Caption = "Məhsul";
             this.columnProductDescription.FieldName = "ProductDescription";
             this.columnProductDescription.Name = "columnProductDescription";
+            this.columnProductDescription.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "ProductDescription", "Toplam:")});
             this.columnProductDescription.Visible = true;
             this.columnProductDescription.VisibleIndex = 0;
-            this.columnProductDescription.Width = 181;
+            this.columnProductDescription.Width = 230;
             // 
             // columnQty
             // 
@@ -542,7 +545,7 @@ namespace DXApplication1
             this.columnQty.Name = "columnQty";
             this.columnQty.Visible = true;
             this.columnQty.VisibleIndex = 1;
-            this.columnQty.Width = 28;
+            this.columnQty.Width = 39;
             // 
             // columnPrice
             // 
@@ -551,7 +554,7 @@ namespace DXApplication1
             this.columnPrice.Name = "columnPrice";
             this.columnPrice.Visible = true;
             this.columnPrice.VisibleIndex = 2;
-            this.columnPrice.Width = 42;
+            this.columnPrice.Width = 43;
             // 
             // columnNetAmount
             // 
@@ -564,7 +567,7 @@ namespace DXApplication1
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetAmount", "{0:0.##}")});
             this.columnNetAmount.Visible = true;
             this.columnNetAmount.VisibleIndex = 3;
-            this.columnNetAmount.Width = 38;
+            this.columnNetAmount.Width = 70;
             // 
             // columnBarcode
             // 

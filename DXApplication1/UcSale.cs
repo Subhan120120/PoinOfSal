@@ -240,7 +240,7 @@ namespace DXApplication1
                 {
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {
-                        sqlMethods.UpdateIsCompleted(invoiceHeaderID);
+                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderID);
 
                         invoiceHeaderID = Guid.NewGuid().ToString();
 
@@ -296,13 +296,16 @@ namespace DXApplication1
 
         private void gridControl11_DoubleClick(object sender, EventArgs e)
         {
+            object invoiceLineId = gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "InvoiceLineId");
             if (gridView11.FocusedColumn == columnQty)
             {
                 using (FormQty formQty = new FormQty())
                 {
                     if (formQty.ShowDialog(this) == DialogResult.OK)
-                    { 
-                    
+                    {
+                        sqlMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
+                        gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridView11.MoveLast();
                     }
                 }
             }

@@ -19,6 +19,8 @@ namespace DXApplication1
         public FormQty()
         {
             InitializeComponent();
+            AcceptButton = simpleButtonOk;
+            CancelButton = simpleButtonCancel;
         }
 
         public FormQty(int maxQty)
