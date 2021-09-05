@@ -61,7 +61,13 @@ namespace DXApplication1
                     if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
                     {
                         string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
-                        sqlMethods.InsertInvoiceHeader(invoiceHeaderID, NewDocNum);
+
+                        trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                        {
+                            InvoiceHeaderID = invoiceHeaderID,
+                            DocumentNumber = NewDocNum
+                        };
+                        sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                     }
 
                     dcProduct dcProduct = formProductList.dcProduct;
@@ -179,7 +185,12 @@ namespace DXApplication1
                 if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
                 {
                     string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
-                    sqlMethods.InsertInvoiceHeader(invoiceHeaderID, NewDocNum);
+                    trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                    {
+                        InvoiceHeaderID = invoiceHeaderID,
+                        DocumentNumber = NewDocNum,
+                    };
+                    sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                 }
                 int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderID);
 
@@ -262,7 +273,12 @@ namespace DXApplication1
                         if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
                         {
                             string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
-                            sqlMethods.InsertInvoiceHeader(invoiceHeaderID, NewDocNum);
+                            trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                            {
+                                InvoiceHeaderID = invoiceHeaderID,
+                                DocumentNumber = NewDocNum,
+                            };
+                            sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                         }
                         int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderID);
 
@@ -273,6 +289,20 @@ namespace DXApplication1
                             textEditCustomerAddress.EditValue = formCustomer.dcCurrAcc.Address;
                             textEditCustomerPhoneNum.EditValue = formCustomer.dcCurrAcc.PhoneNum;
                         }
+                    }
+                }
+            }
+        }
+
+        private void gridControl11_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridView11.FocusedColumn == columnQty)
+            {
+                using (FormQty formQty = new FormQty())
+                {
+                    if (formQty.ShowDialog(this) == DialogResult.OK)
+                    { 
+                    
                     }
                 }
             }

@@ -30,33 +30,56 @@ namespace DXApplication1
             gridControl3.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderID.ToString());
         }
 
-        private void repoItemButtonEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void repoButtonReturnLine_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             ButtonEdit editor = (ButtonEdit)sender;
             int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
             if (buttonIndex == 0)
             {
                 object invoiceLineID = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "InvoiceLineId");
-                if (!sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderID)) //if invoiceHeader doesnt exist
-                {
-                    string NewDocNum = sqlMethods.GetNextDocNum("RS","DocumentNumber", "trInvoiceHeader");
-                    sqlMethods.InsertInvoiceHeader(returnInvoiceHeaderID, NewDocNum);
-                }
+                object qty = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "Qty");
+                object returnedQty = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ReturnQty");
+                int maxReturn = Convert.ToInt32(qty) + Convert.ToInt32(returnedQty);
 
-                trInvoiceLine trInvoiceLine = new trInvoiceLine() {
-                    InvoiceLineId = Guid.NewGuid().ToString(),
-                    InvoiceHeaderID = returnInvoiceHeaderID,
-                    RelatedLineId = invoiceLineID.ToString()
-                };
-                int result = sqlMethods.InsertInvoiceLine(trInvoiceLine);
-
-                if (result > 0)
+                if (maxReturn > 0)
                 {
-                    gridControl2.DataSource = sqlMethods.SelectInvoiceLine(returnInvoiceHeaderID);
-                    gridView2.MoveLast();
+                    using (FormQty formQty = new FormQty(maxReturn))
+                    {
+                        if (formQty.ShowDialog(this) == DialogResult.OK)
+                        {
+                            if (!sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderID)) //if invoiceHeader doesnt exist
+                            {
+                                string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
+                                trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                                {
+                                    InvoiceHeaderID = returnInvoiceHeaderID,
+                                    DocumentNumber = NewDocNum,
+                                    IsReturn = true                                    
+                                };
+                                sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+                            }
+
+                            trInvoiceLine trInvoiceLine = new trInvoiceLine()
+                            {
+                                InvoiceLineId = Guid.NewGuid().ToString(),
+                                InvoiceHeaderID = returnInvoiceHeaderID,
+                                RelatedLineId = invoiceLineID.ToString(),
+                                Qty = formQty.qty
+
+                            };
+                            int result = sqlMethods.InsertInvoiceLine(trInvoiceLine);
+
+                            if (result > 0)
+                            {
+                                gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+                            }
+                            else
+                                MessageBox.Show("Məhsul əlavə edilə bilmədi");
+                        }
+                    }
                 }
                 else
-                    MessageBox.Show("Məhsul əlavə edilə bilmədi");
+                    MessageBox.Show("Geri qaytarıla bilecek miqdar yoxdur");
             }
         }
 

@@ -11,6 +11,7 @@
     <RootNamespace>DXApplication1</RootNamespace>
     <AssemblyName>DXApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -94,6 +95,12 @@
     <Compile Include="FormProductList.Designer.cs">
       <DependentUpon>FormProductList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQty.Designer.cs">
+      <DependentUpon>FormQty.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +110,7 @@
     <Compile Include="Model\dcCurrAcc.cs" />
     <Compile Include="Model\dcPaymentType.cs" />
     <Compile Include="Model\dcProduct.cs" />
+    <Compile Include="Model\trInvoiceHeader.cs" />
     <Compile Include="Model\trInvoiceLine.cs" />
     <Compile Include="Model\trPaymentHeader.cs" />
     <Compile Include="Model\trPaymentLine.cs" />
@@ -176,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQty.resx">
+      <DependentUpon>FormQty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>

@@ -12,6 +12,7 @@ namespace DXApplication1.Model
         public string InvoiceHeaderID { get; set; }
         public string RelatedLineId { get; set; }
         public string ProductCode { get; set; }
+        public int Qty { get; set; }
         public decimal Price { get; set; }
         public decimal Amount { get; set; }
         public decimal PosDiscount { get; set; }

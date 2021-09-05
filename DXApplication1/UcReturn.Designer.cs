@@ -51,8 +51,9 @@ namespace DXApplication1
             this.colLineDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalespersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colReturnQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colReturn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repoItemButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repoButtonReturnLine = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInvoiceHeaderID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,6 +66,8 @@ namespace DXApplication1
             this.colIsPrinted = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStoreCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedUserName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroupPayment = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -72,10 +75,8 @@ namespace DXApplication1
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroupInvoiceHeader = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -83,7 +84,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repoItemButtonEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoButtonReturnLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -93,8 +94,8 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,7 +138,7 @@ namespace DXApplication1
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repoItemButtonEdit});
+            this.repoButtonReturnLine});
             this.gridControl2.Size = new System.Drawing.Size(770, 313);
             this.gridControl2.TabIndex = 5;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -157,6 +158,7 @@ namespace DXApplication1
             this.colLineDescription,
             this.colSalespersonCode,
             this.colVatRate,
+            this.colReturnQty,
             this.colReturn});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
@@ -249,24 +251,34 @@ namespace DXApplication1
             this.colVatRate.Visible = true;
             this.colVatRate.VisibleIndex = 9;
             // 
+            // colReturnQty
+            // 
+            this.colReturnQty.Caption = "Geri Qaytarılan Mikdar";
+            this.colReturnQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colReturnQty.FieldName = "ReturnQty";
+            this.colReturnQty.Name = "colReturnQty";
+            this.colReturnQty.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.colReturnQty.Visible = true;
+            this.colReturnQty.VisibleIndex = 10;
+            // 
             // colReturn
             // 
             this.colReturn.Caption = "Geri Qaytar";
-            this.colReturn.ColumnEdit = this.repoItemButtonEdit;
+            this.colReturn.ColumnEdit = this.repoButtonReturnLine;
             this.colReturn.Name = "colReturn";
             this.colReturn.Visible = true;
-            this.colReturn.VisibleIndex = 10;
+            this.colReturn.VisibleIndex = 11;
             // 
-            // repoItemButtonEdit
+            // repoButtonReturnLine
             // 
-            this.repoItemButtonEdit.AutoHeight = false;
+            this.repoButtonReturnLine.AutoHeight = false;
             editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
             editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
-            this.repoItemButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repoButtonReturnLine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repoItemButtonEdit.Name = "repoItemButtonEdit";
-            this.repoItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repoItemButtonEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoItemButtonEdit_ButtonClick);
+            this.repoButtonReturnLine.Name = "repoButtonReturnLine";
+            this.repoButtonReturnLine.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repoButtonReturnLine.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoButtonReturnLine_ButtonClick);
             // 
             // gridControl1
             // 
@@ -381,6 +393,29 @@ namespace DXApplication1
             this.colCreatedUserName.VisibleIndex = 8;
             this.colCreatedUserName.Width = 145;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(942, 571);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(74, 76);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 7;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(1020, 571);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(74, 76);
+            this.simpleButton2.StyleController = this.layoutControl1;
+            this.simpleButton2.TabIndex = 8;
+            this.simpleButton2.Text = "simpleButton2";
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -450,17 +485,16 @@ namespace DXApplication1
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // simpleButton1
+            // layoutControlItem5
             // 
-            this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(942, 571);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(74, 76);
-            this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "simpleButton1";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.layoutControlItem5.Control = this.simpleButton2;
+            this.layoutControlItem5.Location = new System.Drawing.Point(1008, 559);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(78, 80);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem4
             // 
@@ -472,28 +506,6 @@ namespace DXApplication1
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(1020, 571);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(74, 76);
-            this.simpleButton2.StyleController = this.layoutControl1;
-            this.simpleButton2.TabIndex = 8;
-            this.simpleButton2.Text = "simpleButton2";
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.simpleButton2;
-            this.layoutControlItem5.Location = new System.Drawing.Point(1008, 559);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(78, 80);
-            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -517,7 +529,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repoItemButtonEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoButtonReturnLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -527,8 +539,8 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
@@ -572,11 +584,12 @@ namespace DXApplication1
         private DevExpress.XtraGrid.Columns.GridColumn colSalespersonCode;
         private DevExpress.XtraGrid.Columns.GridColumn colVatRate;
         private DevExpress.XtraGrid.Columns.GridColumn colReturn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoItemButtonEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoButtonReturnLine;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn colReturnQty;
     }
 }

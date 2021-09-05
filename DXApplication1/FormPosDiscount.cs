@@ -63,8 +63,8 @@ namespace DXApplication1
         private void textEditDiscountRate_InvalidValue(object sender, InvalidValueExceptionEventArgs e)
         {
             e.ExceptionMode = ExceptionMode.DisplayError;
-            e.WindowCaption = "Diqqət";
-            e.ErrorText = "Dəyər 0 ilə 100 arasında olmalıdır";
+            //e.WindowCaption = "Diqqət";
+            //e.ErrorText = "Dəyər 0 ilə 100 arasında olmalıdır";
         }
 
         private void textEditNetAmount_Validating(object sender, CancelEventArgs e)
@@ -88,6 +88,11 @@ namespace DXApplication1
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void simpleButtonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
 
         private void simpleButtonNum_Click(object sender, EventArgs e)

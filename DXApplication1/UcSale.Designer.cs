@@ -243,6 +243,7 @@ namespace DXApplication1
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1189, 400, 650, 400);
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(1142, 692);
             this.layoutControl1.TabIndex = 0;
@@ -495,6 +496,7 @@ namespace DXApplication1
             this.gridControl11.TabIndex = 4;
             this.gridControl11.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
+            this.gridControl11.DoubleClick += new System.EventHandler(this.gridControl11_DoubleClick);
             this.gridControl11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControl11_MouseUp);
             // 
             // gridView11

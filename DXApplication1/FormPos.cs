@@ -1,15 +1,8 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.ToolbarForm;
-using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DXApplication1
@@ -20,13 +13,13 @@ namespace DXApplication1
         {
             InitializeComponent();
 
-            foreach (NavigationPageBase page in navigationFrame1.Pages) //create formToolbarItem for NavigationFrame Pages
+            foreach (NavigationPage page in navigationFrame1.Pages) //create formToolbarItem for NavigationFrame Pages
             {
                 BarCheckItem newBarItem = new BarCheckItem(toolbarFormManager1, false);
 
                 newBarItem.ItemClick += (s, e) =>
                 {
-                    navigationFrame1.SelectedPage = (NavigationPage)page;
+                    navigationFrame1.SelectedPage = page;
 
                     BarCheckItem clickedBarItem = e.Item as BarCheckItem;
                     foreach (BarItem control in toolbarFormManager1.Items)
@@ -58,7 +51,7 @@ namespace DXApplication1
                 };
 
                 bool IsActiv = false;
-                if (navigationFrame1.SelectedPage == (NavigationPage)page)
+                if (navigationFrame1.SelectedPage == page)
                     IsActiv = true;
                 newBarItem.Checked = IsActiv;
 
@@ -80,12 +73,6 @@ namespace DXApplication1
             UcReturn ucReturn = new UcReturn();
             ucReturn.Dock = DockStyle.Fill;
             navigationPageReturn.Controls.Add(ucReturn);
-        }
-
-        private void officeNavigationBar1_ItemClick(object sender, DevExpress.XtraBars.Navigation.NavigationBarItemEventArgs e)
-        {
-            if (e.Item.Name == "navigationBarItemExit")
-                this.Close();
         }
     }
 }
