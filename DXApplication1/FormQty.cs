@@ -25,10 +25,13 @@ namespace DXApplication1
 
         public FormQty(int maxQty)
         {
+            InitializeComponent();
             this.maxQty = maxQty;
+            AcceptButton = simpleButtonOk;
+            CancelButton = simpleButtonCancel;
         }
 
-            private void FormQty_Load(object sender, EventArgs e)
+        private void FormQty_Load(object sender, EventArgs e)
         {
             textEditQty.EditValue = maxQty;
         }
@@ -70,7 +73,5 @@ namespace DXApplication1
         {
             DialogResult = DialogResult.Cancel;
         }
-
-        
     }
 }

@@ -141,7 +141,7 @@ namespace DXApplication1
                             NetAmount = Amount - formPosDiscount.PosDiscount,
                             PosDiscount = formPosDiscount.PosDiscount
                         };
-                        int result = sqlMethods.UpdatePosDiscount(trInvoiceLine);
+                        int result = sqlMethods.UpdateInvoicePosDiscount(trInvoiceLine);
 
                         if (result >= 0)
                         {

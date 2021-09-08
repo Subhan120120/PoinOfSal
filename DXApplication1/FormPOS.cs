@@ -9,6 +9,7 @@ namespace DXApplication1
 {
     public partial class FormPOS : ToolbarForm
     {
+
         public FormPOS()
         {
             InitializeComponent();
@@ -47,7 +48,6 @@ namespace DXApplication1
                         clickedBarItem.ItemAppearance.Normal.Options.UseFont = false;
                         clickedBarItem.ItemAppearance.Normal.Options.UseForeColor = false;
                     }
-
                 };
 
                 bool IsActiv = false;

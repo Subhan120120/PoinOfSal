@@ -45,15 +45,34 @@ namespace DXApplication1
             }
         }
 
+        public string GetNextDocNum(string processCode, string columnName, string tableName)
+        {
+            string qry = "dbo.GetNextDocNum @ProcessCode = @ProcessCode, @ColumnName = @ColumnName, @TableName = @TableName";
+            paramArray = new SqlParameter[]
+             {
+                new SqlParameter("@ProcessCode", processCode),
+                new SqlParameter("@ColumnName", columnName),
+                new SqlParameter("@TableName", tableName)
+             };
+
+            DataTable dt = SqlGetDt(qry, paramArray);
+
+            return dt.Rows[0][0].ToString(); ;
+        }
+
         public DataTable SelectInvoiceHeader()
         {
+            SqlParameter[] paramArray2 = new SqlParameter[] { };
             string qry = "select * from trInvoiceHeader where IsCompleted = 1 order by CreatedDate "; // burdaki kolonlari dizaynda da elave et
-            return SqlGetDt(qry, paramArray);
+            return SqlGetDt(qry, paramArray2);
         }
 
         public DataTable SelectInvoiceLine(string invoiceHeaderID)
         {
-            string qry = "select trInvoiceLine.*, ProductDescription, Barcode, ReturnQty = ISNULL((select sum(Qty) from trInvoiceLine returnLine where returnLine.RelatedLineId = trInvoiceLine.InvoiceLineId),0) from trInvoiceLine " +
+            string qry = "select trInvoiceLine.*, ProductDescription, Barcode" +
+                ", ReturnQty = ISNULL((select sum(Qty) from trInvoiceLine returnLine where returnLine.RelatedLineId = trInvoiceLine.InvoiceLineId),0) " +
+                ", RemainingQty = Qty + ISNULL((select sum(Qty) from trInvoiceLine returnLine where returnLine.RelatedLineId = trInvoiceLine.InvoiceLineId),0) " +
+                "from trInvoiceLine " +
                 "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
                 "where InvoiceHeaderID = @InvoiceHeaderID order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
 
@@ -90,7 +109,7 @@ namespace DXApplication1
         public int InsertInvoiceLine(trInvoiceLine trInvoiceLine)
         {
             string qry = "Insert into trInvoiceLine(InvoiceLineId,InvoiceHeaderID,RelatedLineId,ProductCode,Qty,Price,Amount,PosDiscount,NetAmount) " +
-                "select @InvoiceLineId,@InvoiceHeaderID,InvoiceLineId, ProductCode, @Qty*(-1), Price, Amount*(-1), PosDiscount*(-1), NetAmount*(-1) from trInvoiceLine where InvoiceLineId = @RelatedLineId ";
+                "select @InvoiceLineId, @InvoiceHeaderID, InvoiceLineId, ProductCode, @Qty, Price, @Qty*Amount/Qty, @Qty*PosDiscount/Qty, @Qty*NetAmount/Qty from trInvoiceLine where InvoiceLineId = @RelatedLineId ";
 
             SqlParameter[] paramArray = new SqlParameter[]
             {
@@ -101,6 +120,20 @@ namespace DXApplication1
             };
 
             return SqlExec(qry, paramArray);
+        }
+
+        public bool InvoiceLineExist(string invoicecHeaderId, object relatedLineId)
+        {
+            string qry = "SELECT TOP 1 1 FROM trInvoiceLine WHERE RelatedLineId = @RelatedLineId AND InvoiceHeaderID = @InvoicecHeaderId";
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoicecHeaderId", invoicecHeaderId),
+                new SqlParameter("@RelatedLineId", relatedLineId),
+            };
+            DataTable dt = SqlGetDt(qry, paramArray);
+            int HeaderCount = dt.Rows.Count;
+            if (HeaderCount > 0) return true;
+            else return false;
         }
 
         public bool InvoiceHeaderExist(string invoiceHeaderID)
@@ -118,20 +151,7 @@ namespace DXApplication1
             else return false;
         }
 
-        public string GetNextDocNum(string processCode, string columnName, string tableName)
-        {
-            string qry = "dbo.GetNextDocNum @ProcessCode = @ProcessCode, @ColumnName = @ColumnName, @TableName = @TableName";
-            paramArray = new SqlParameter[]
-             {
-                new SqlParameter("@ProcessCode", processCode),
-                new SqlParameter("@ColumnName", columnName),
-                new SqlParameter("@TableName", tableName)
-             };
 
-            DataTable dt = SqlGetDt(qry, paramArray);
-
-            return dt.Rows[0][0].ToString(); ;
-        }
 
         public void InsertInvoiceHeader(trInvoiceHeader trInvoiceHeader)
         {
@@ -174,7 +194,47 @@ namespace DXApplication1
             return SqlExec(qry, paramArray);
         }
 
-        public int UpdatePosDiscount(trInvoiceLine trInvoiceLine)
+        public int UpdateInvoiceIsCompleted(string invoiceHeaderId)
+        {
+            string qry = "UPDATE trInvoiceHeader SET IsCompleted = 1 WHERE InvoiceHeaderID = @InvoiceHeaderID";
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId)
+            };
+
+            return SqlExec(qry, paramArray);
+        }
+
+        public int UpdateInvoiceLineQty(object invoiceLineId, int qty)
+        {
+            string qry = "UPDATE trInvoiceLine set Qty = @Qty, Amount = @Qty*Price,  NetAmount = (@Qty*Price)-(@Qty*PosDiscount/Qty), PosDiscount = @Qty*PosDiscount/Qty  where InvoiceLineId = @InvoiceLineId";
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceLineId", invoiceLineId),
+                new SqlParameter("@Qty", qty)
+            };
+
+            return SqlExec(qry, paramArray);
+        }
+
+        public int UpdateInvoiceLineQty(object invoiceHeaderId, object relatedLineId, int qty)
+        {
+            string qry = "UPDATE trInvoiceLine set Qty = @Qty, Amount = @Qty*Price,  NetAmount = (@Qty*Price)-(@Qty*PosDiscount/Qty), PosDiscount = @Qty*PosDiscount/Qty  " +
+                "WHERE InvoiceHeaderId = @InvoiceHeaderId AND RelatedLineId = @RelatedLineId";
+
+            paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId),
+                new SqlParameter("@RelatedLineId", relatedLineId),
+                new SqlParameter("@Qty", (qty * (-1)))
+            };
+
+            return SqlExec(qry, paramArray);
+        }
+
+        public int UpdateInvoicePosDiscount(trInvoiceLine trInvoiceLine)
         {
             string qry = "UPDATE [dbo].[trInvoiceLine] set [PosDiscount] = @PosDiscount, [NetAmount] = @NetAmount where InvoiceLineId = @InvoiceLineId";
 
@@ -253,6 +313,7 @@ namespace DXApplication1
 
             return SqlExec(qry, paramArray);
         }
+
         public bool PaymentHeaderExist(string invoiceHeaderID)
         {
             string qry = "SELECT TOP 1 PaymentHeaderID FROM [trPaymentHeader] WHERE ([InvoiceHeaderID] = @InvoiceHeaderID)";
@@ -267,37 +328,6 @@ namespace DXApplication1
             else return false;
         }
 
-        //public bool PaymentLineExist(string invoiceHeaderID, int paymentTypeCode)
-        //{
-        //    string qry = "select TOP 1 PaymentLineID from [trPaymentLine] " +
-        //        "left join[trPaymentHeader] on[trPaymentHeader].[PaymentHeaderID] = [trPaymentLine].[PaymentHeaderID] " +
-        //        "WHERE [InvoiceHeaderID] = @InvoiceHeaderID AND [PaymentTypeCode] = @PaymentTypeCode ";
-
-        //    paramArray = new SqlParameter[]
-        //    {
-        //        new SqlParameter("@InvoiceHeaderID", invoiceHeaderID),
-        //        new SqlParameter("@PaymentTypeCode", paymentTypeCode)
-        //    };
-
-        //    DataTable dt = SqlGetDt(qry, paramArray);
-        //    //int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
-        //    int HeaderCount = dt.Rows.Count;
-        //    if (HeaderCount > 0) return true;
-        //    else return false;
-        //}
-
-        public int UpdateInvoiceIsCompleted(string invoiceHeaderId)
-        {
-            string qry = "UPDATE trInvoiceHeader SET IsCompleted = 1 WHERE InvoiceHeaderID = @InvoiceHeaderID";
-
-            paramArray = new SqlParameter[]
-            {
-                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId)
-            };
-
-            return SqlExec(qry, paramArray);
-        }
-
         public DataTable SelectPaymentLine(string invoiceHeaderID)
         {
             string qry = "select paymentTypeDescription, Payment from trPaymentLine " +
@@ -310,19 +340,6 @@ namespace DXApplication1
                 new SqlParameter("@InvoiceHeaderID", invoiceHeaderID)
             };
             return SqlGetDt(qry, paramArray);
-        }
-
-        public int UpdateInvoiceLineQty(object invoiceLineId, int qty)
-        {
-            string qry = "UPDATE trInvoiceLine set Qty = @Qty, Amount = @Qty*Price,  NetAmount = (@Qty*Price)-(@Qty*PosDiscount/Qty), PosDiscount = @Qty*PosDiscount/Qty  where InvoiceLineId = @InvoiceLineId";
-
-            paramArray = new SqlParameter[]
-            {
-                new SqlParameter("@InvoiceLineId", invoiceLineId),
-                new SqlParameter("@Qty", qty)
-            };
-
-            return SqlExec(qry, paramArray);
         }
     }
 }

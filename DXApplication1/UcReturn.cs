@@ -10,13 +10,14 @@ namespace DXApplication1
         public string returnInvoiceHeaderID;
         public object invoiceHeaderID;
         public object invoiceLineID;
+        public decimal returnNetAmount;
         SqlMethods sqlMethods = new SqlMethods();
         public UcReturn()
         {
             InitializeComponent();
         }
 
-        private void UcReturn_Load(object sender, EventArgs e)
+        private void UcReturn_VisibleChanged(object sender, EventArgs e)
         {
             gridControl1.DataSource = sqlMethods.SelectInvoiceHeader();
         }
@@ -37,9 +38,7 @@ namespace DXApplication1
             if (buttonIndex == 0)
             {
                 object invoiceLineID = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "InvoiceLineId");
-                object qty = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "Qty");
-                object returnedQty = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ReturnQty");
-                int maxReturn = Convert.ToInt32(qty) + Convert.ToInt32(returnedQty);
+                int maxReturn = Convert.ToInt32(gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "RemainingQty"));
 
                 if (maxReturn > 0)
                 {
@@ -54,27 +53,29 @@ namespace DXApplication1
                                 {
                                     InvoiceHeaderID = returnInvoiceHeaderID,
                                     DocumentNumber = NewDocNum,
-                                    IsReturn = true                                    
+                                    IsReturn = true
                                 };
                                 sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                             }
 
-                            trInvoiceLine trInvoiceLine = new trInvoiceLine()
+                            if (!sqlMethods.InvoiceLineExist(returnInvoiceHeaderID, invoiceLineID))
                             {
-                                InvoiceLineId = Guid.NewGuid().ToString(),
-                                InvoiceHeaderID = returnInvoiceHeaderID,
-                                RelatedLineId = invoiceLineID.ToString(),
-                                Qty = formQty.qty
-
-                            };
-                            int result = sqlMethods.InsertInvoiceLine(trInvoiceLine);
-
-                            if (result > 0)
-                            {
-                                gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+                                trInvoiceLine trInvoiceLine = new trInvoiceLine()
+                                {
+                                    InvoiceLineId = Guid.NewGuid().ToString(),
+                                    InvoiceHeaderID = returnInvoiceHeaderID,
+                                    RelatedLineId = invoiceLineID.ToString(),
+                                    Qty = (formQty.qty * (-1))
+                                };
+                                sqlMethods.InsertInvoiceLine(trInvoiceLine);
                             }
                             else
-                                MessageBox.Show("Məhsul əlavə edilə bilmədi");
+                                sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderID, invoiceLineID, formQty.qty * (-1));
+
+                            gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+                            returnNetAmount = Convert.ToDecimal(sqlMethods.SelectInvoiceLine(returnInvoiceHeaderID).Compute("Sum(NetAmount)", string.Empty));
+                            MessageBox.Show(returnNetAmount.ToString());
+
                         }
                     }
                 }
@@ -83,7 +84,7 @@ namespace DXApplication1
             }
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void simpleButtonPayment_Click(object sender, EventArgs e)
         {
             decimal summaryNetAmount = Convert.ToDecimal(gridView1.Columns["NetAmount"].SummaryItem.SummaryValue);
 
@@ -107,17 +108,17 @@ namespace DXApplication1
                         break;
                 }
 
-                //using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderID))
-                //{
-                //    if (formPayment.ShowDialog(this) == DialogResult.OK)
-                //    {
-                //        sqlMethods.UpdateIsCompleted(invoiceHeaderID);
+                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderID.ToString()))
+                {
+                    if (formPayment.ShowDialog(this) == DialogResult.OK)
+                    {
+                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderID.ToString());
 
-                //        invoiceHeaderID = Guid.NewGuid().ToString();
+                        invoiceHeaderID = Guid.NewGuid().ToString();
 
-                //        gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);                        
-                //    }
-                //}
+                        gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+                    }
+                }
             }
             else MessageBox.Show("Ödəmə 0a bərabərdir");
         }
