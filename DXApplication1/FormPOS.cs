@@ -73,6 +73,7 @@ namespace DXApplication1
             UcReturn ucReturn = new UcReturn();
             ucReturn.Dock = DockStyle.Fill;
             navigationPageReturn.Controls.Add(ucReturn);
+
         }
     }
 }

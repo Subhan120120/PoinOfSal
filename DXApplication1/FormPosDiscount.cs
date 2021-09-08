@@ -60,11 +60,12 @@ namespace DXApplication1
             else if (val > 100)
                 e.Cancel = true;
         }
+
         private void textEditDiscountRate_InvalidValue(object sender, InvalidValueExceptionEventArgs e)
         {
             e.ExceptionMode = ExceptionMode.DisplayError;
-            //e.WindowCaption = "Diqqət";
-            //e.ErrorText = "Dəyər 0 ilə 100 arasında olmalıdır";
+            e.WindowCaption = "Diqqət";
+            e.ErrorText = "Dəyər 0 ilə 100 arasında olmalıdır";
         }
 
         private void textEditNetAmount_Validating(object sender, CancelEventArgs e)

@@ -228,7 +228,7 @@ namespace DXApplication1
             {
                 new SqlParameter("@InvoiceHeaderId", invoiceHeaderId),
                 new SqlParameter("@RelatedLineId", relatedLineId),
-                new SqlParameter("@Qty", (qty * (-1)))
+                new SqlParameter("@Qty", qty)
             };
 
             return SqlExec(qry, paramArray);

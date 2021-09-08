@@ -36,10 +36,10 @@ namespace DXApplication1
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlPaymentLine = new DevExpress.XtraGrid.GridControl();
+            this.gridViewPaymentLine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlInvoiceLine = new DevExpress.XtraGrid.GridControl();
+            this.gridViewInvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,8 +55,8 @@ namespace DXApplication1
             this.colVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colReturn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repoButtonReturnLine = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlInvoiceHeader = new DevExpress.XtraGrid.GridControl();
+            this.gridViewInvoiceHeader = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInvoiceHeaderID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocumentNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocumentDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,37 +74,37 @@ namespace DXApplication1
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroupInvoiceHeader = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroupPayment = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroupPayment = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPaymentLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPaymentLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoButtonReturnLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceHeader)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gridControl3);
-            this.layoutControl1.Controls.Add(this.gridControl2);
-            this.layoutControl1.Controls.Add(this.gridControl1);
+            this.layoutControl1.Controls.Add(this.gridControlPaymentLine);
+            this.layoutControl1.Controls.Add(this.gridControlInvoiceLine);
+            this.layoutControl1.Controls.Add(this.gridControlInvoiceHeader);
             this.layoutControl1.Controls.Add(this.simpleButtonPayment);
             this.layoutControl1.Controls.Add(this.simpleButton2);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -115,39 +115,39 @@ namespace DXApplication1
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // gridControl3
+            // gridControlPaymentLine
             // 
-            this.gridControl3.Location = new System.Drawing.Point(783, 351);
-            this.gridControl3.MainView = this.gridView3;
-            this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(299, 216);
-            this.gridControl3.TabIndex = 6;
-            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
+            this.gridControlPaymentLine.Location = new System.Drawing.Point(783, 351);
+            this.gridControlPaymentLine.MainView = this.gridViewPaymentLine;
+            this.gridControlPaymentLine.Name = "gridControlPaymentLine";
+            this.gridControlPaymentLine.Size = new System.Drawing.Size(299, 216);
+            this.gridControlPaymentLine.TabIndex = 6;
+            this.gridControlPaymentLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewPaymentLine});
             // 
-            // gridView3
+            // gridViewPaymentLine
             // 
-            this.gridView3.GridControl = this.gridControl3;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsBehavior.Editable = false;
-            this.gridView3.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
+            this.gridViewPaymentLine.GridControl = this.gridControlPaymentLine;
+            this.gridViewPaymentLine.Name = "gridViewPaymentLine";
+            this.gridViewPaymentLine.OptionsBehavior.Editable = false;
+            this.gridViewPaymentLine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewPaymentLine.OptionsView.ShowGroupPanel = false;
             // 
-            // gridControl2
+            // gridControlInvoiceLine
             // 
-            this.gridControl2.Location = new System.Drawing.Point(24, 351);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gridControlInvoiceLine.Location = new System.Drawing.Point(24, 351);
+            this.gridControlInvoiceLine.MainView = this.gridViewInvoiceLine;
+            this.gridControlInvoiceLine.Name = "gridControlInvoiceLine";
+            this.gridControlInvoiceLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repoButtonReturnLine});
-            this.gridControl2.Size = new System.Drawing.Size(731, 284);
-            this.gridControl2.TabIndex = 5;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gridControlInvoiceLine.Size = new System.Drawing.Size(731, 284);
+            this.gridControlInvoiceLine.TabIndex = 5;
+            this.gridControlInvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewInvoiceLine});
             // 
-            // gridView2
+            // gridViewInvoiceLine
             // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewInvoiceLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colInvoiceLineId,
             this.colProductCode,
             this.colQty,
@@ -162,10 +162,10 @@ namespace DXApplication1
             this.colSalespersonCode,
             this.colVatRate,
             this.colReturn});
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridViewInvoiceLine.GridControl = this.gridControlInvoiceLine;
+            this.gridViewInvoiceLine.Name = "gridViewInvoiceLine";
+            this.gridViewInvoiceLine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewInvoiceLine.OptionsView.ShowGroupPanel = false;
             // 
             // colInvoiceLineId
             // 
@@ -290,19 +290,19 @@ namespace DXApplication1
             this.repoButtonReturnLine.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repoButtonReturnLine.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoButtonReturnLine_ButtonClick);
             // 
-            // gridControl1
+            // gridControlInvoiceHeader
             // 
-            this.gridControl1.Location = new System.Drawing.Point(24, 45);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1058, 257);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridControlInvoiceHeader.Location = new System.Drawing.Point(24, 45);
+            this.gridControlInvoiceHeader.MainView = this.gridViewInvoiceHeader;
+            this.gridControlInvoiceHeader.Name = "gridControlInvoiceHeader";
+            this.gridControlInvoiceHeader.Size = new System.Drawing.Size(1058, 257);
+            this.gridControlInvoiceHeader.TabIndex = 1;
+            this.gridControlInvoiceHeader.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewInvoiceHeader});
             // 
-            // gridView1
+            // gridViewInvoiceHeader
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewInvoiceHeader.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colInvoiceHeaderID,
             this.colDocumentNumber,
             this.colDocumentDate,
@@ -313,13 +313,13 @@ namespace DXApplication1
             this.colIsPrinted,
             this.colStoreCode,
             this.colCreatedUserName});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView1.OptionsView.ShowAutoFilterRow = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            this.gridViewInvoiceHeader.GridControl = this.gridControlInvoiceHeader;
+            this.gridViewInvoiceHeader.Name = "gridViewInvoiceHeader";
+            this.gridViewInvoiceHeader.OptionsBehavior.Editable = false;
+            this.gridViewInvoiceHeader.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewInvoiceHeader.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewInvoiceHeader.OptionsView.ShowGroupPanel = false;
+            this.gridViewInvoiceHeader.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // colInvoiceHeaderID
             // 
@@ -452,7 +452,7 @@ namespace DXApplication1
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.gridControl2;
+            this.layoutControlItem3.Control = this.gridControlInvoiceLine;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(735, 288);
@@ -470,30 +470,12 @@ namespace DXApplication1
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.gridControl1;
+            this.layoutControlItem2.Control = this.gridControlInvoiceHeader;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(1062, 261);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlGroupPayment
-            // 
-            this.layoutControlGroupPayment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroupPayment.Location = new System.Drawing.Point(759, 306);
-            this.layoutControlGroupPayment.Name = "layoutControlGroupPayment";
-            this.layoutControlGroupPayment.Size = new System.Drawing.Size(327, 265);
-            this.layoutControlGroupPayment.Text = "Ödəmə";
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gridControl3;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(303, 220);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem5
             // 
@@ -525,6 +507,24 @@ namespace DXApplication1
             this.emptySpaceItem1.Size = new System.Drawing.Size(157, 68);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlGroupPayment
+            // 
+            this.layoutControlGroupPayment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroupPayment.Location = new System.Drawing.Point(759, 306);
+            this.layoutControlGroupPayment.Name = "layoutControlGroupPayment";
+            this.layoutControlGroupPayment.Size = new System.Drawing.Size(327, 265);
+            this.layoutControlGroupPayment.Text = "Ödəmə";
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gridControlPaymentLine;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(303, 220);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // UcReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,23 +535,23 @@ namespace DXApplication1
             this.VisibleChanged += new System.EventHandler(this.UcReturn_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPaymentLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPaymentLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoButtonReturnLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceHeader)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,11 +560,11 @@ namespace DXApplication1
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl gridControlInvoiceHeader;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewInvoiceHeader;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.GridControl gridControlInvoiceLine;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewInvoiceLine;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraGrid.Columns.GridColumn colInvoiceHeaderID;
         private DevExpress.XtraGrid.Columns.GridColumn colDocumentNumber;
@@ -576,8 +576,8 @@ namespace DXApplication1
         private DevExpress.XtraGrid.Columns.GridColumn colIsPrinted;
         private DevExpress.XtraGrid.Columns.GridColumn colStoreCode;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedUserName;
-        private DevExpress.XtraGrid.GridControl gridControl3;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.GridControl gridControlPaymentLine;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPaymentLine;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupPayment;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupInvoiceLine;

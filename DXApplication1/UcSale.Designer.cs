@@ -78,7 +78,7 @@ namespace DXApplication1
             this.simpleButtonBackSpace = new DevExpress.XtraEditors.SimpleButton();
             this.textEditBarcode = new DevExpress.XtraEditors.TextEdit();
             this.imageComboBoxEditBarcode = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.gridControl11 = new DevExpress.XtraGrid.GridControl();
+            this.gridControlSale = new DevExpress.XtraGrid.GridControl();
             this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.columnProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnQty = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -151,7 +151,7 @@ namespace DXApplication1
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditBarcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEditBarcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlSale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerPhoneNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerAddress.Properties)).BeginInit();
@@ -222,7 +222,7 @@ namespace DXApplication1
             this.layoutControl1.Controls.Add(this.simpleButtonBackSpace);
             this.layoutControl1.Controls.Add(this.textEditBarcode);
             this.layoutControl1.Controls.Add(this.imageComboBoxEditBarcode);
-            this.layoutControl1.Controls.Add(this.gridControl11);
+            this.layoutControl1.Controls.Add(this.gridControlSale);
             this.layoutControl1.Controls.Add(this.simpleButtonProductSearch);
             this.layoutControl1.Controls.Add(this.simpleButtonDiscount);
             this.layoutControl1.Controls.Add(this.simpleButtonCancelInvoice);
@@ -485,18 +485,18 @@ namespace DXApplication1
             this.imageComboBoxEditBarcode.StyleController = this.layoutControl1;
             this.imageComboBoxEditBarcode.TabIndex = 23;
             // 
-            // gridControl11
+            // gridControlSale
             // 
-            this.gridControl11.DataMember = "trInvoiceLine";
-            this.gridControl11.Location = new System.Drawing.Point(24, 45);
-            this.gridControl11.MainView = this.gridView11;
-            this.gridControl11.Name = "gridControl11";
-            this.gridControl11.Size = new System.Drawing.Size(384, 623);
-            this.gridControl11.TabIndex = 4;
-            this.gridControl11.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControlSale.DataMember = "trInvoiceLine";
+            this.gridControlSale.Location = new System.Drawing.Point(24, 45);
+            this.gridControlSale.MainView = this.gridView11;
+            this.gridControlSale.Name = "gridControlSale";
+            this.gridControlSale.Size = new System.Drawing.Size(384, 623);
+            this.gridControlSale.TabIndex = 4;
+            this.gridControlSale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
-            this.gridControl11.DoubleClick += new System.EventHandler(this.gridControl11_DoubleClick);
-            this.gridControl11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControl11_MouseUp);
+            this.gridControlSale.DoubleClick += new System.EventHandler(this.gridControl11_DoubleClick);
+            this.gridControlSale.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControl11_MouseUp);
             // 
             // gridView11
             // 
@@ -515,7 +515,7 @@ namespace DXApplication1
             this.columnPosDiscount,
             this.columnAmount,
             this.columnVatRate});
-            this.gridView11.GridControl = this.gridControl11;
+            this.gridView11.GridControl = this.gridControlSale;
             this.gridView11.Name = "gridView11";
             this.gridView11.OptionsBehavior.Editable = false;
             this.gridView11.OptionsView.AutoCalcPreviewLineCount = true;
@@ -1211,7 +1211,7 @@ namespace DXApplication1
             // 
             // layoutControlItemGridView
             // 
-            this.layoutControlItemGridView.Control = this.gridControl11;
+            this.layoutControlItemGridView.Control = this.gridControlSale;
             this.layoutControlItemGridView.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItemGridView.CustomizationFormText = "layoutControlItemGridView";
             this.layoutControlItemGridView.Location = new System.Drawing.Point(0, 0);
@@ -1599,7 +1599,7 @@ namespace DXApplication1
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEditBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEditBarcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlSale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerPhoneNum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerAddress.Properties)).EndInit();
@@ -1674,7 +1674,7 @@ namespace DXApplication1
         private DevExpress.XtraEditors.SimpleButton simpleButtonBackSpace;
         private DevExpress.XtraEditors.TextEdit textEditBarcode;
         private DevExpress.XtraEditors.ImageComboBoxEdit imageComboBoxEditBarcode;
-        private DevExpress.XtraGrid.GridControl gridControl11;
+        private DevExpress.XtraGrid.GridControl gridControlSale;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView11;
         private DevExpress.XtraGrid.Columns.GridColumn columnProductDescription;
         private DevExpress.XtraGrid.Columns.GridColumn columnQty;

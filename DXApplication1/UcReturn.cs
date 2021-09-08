@@ -19,16 +19,16 @@ namespace DXApplication1
 
         private void UcReturn_VisibleChanged(object sender, EventArgs e)
         {
-            gridControl1.DataSource = sqlMethods.SelectInvoiceHeader();
+            gridControlInvoiceHeader.DataSource = sqlMethods.SelectInvoiceHeader();
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            invoiceHeaderID = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "InvoiceHeaderID");
-            invoiceLineID = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "invoiceLineID");
+            invoiceHeaderID = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceHeaderID");
+            invoiceLineID = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "invoiceLineID");
             returnInvoiceHeaderID = Guid.NewGuid().ToString();
-            gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
-            gridControl3.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderID.ToString());
+            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+            gridControlPaymentLine.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderID.ToString());
         }
 
         private void repoButtonReturnLine_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -37,8 +37,8 @@ namespace DXApplication1
             int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
             if (buttonIndex == 0)
             {
-                object invoiceLineID = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "InvoiceLineId");
-                int maxReturn = Convert.ToInt32(gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "RemainingQty"));
+                object invoiceLineID = gridViewInvoiceLine.GetRowCellValue(gridViewInvoiceLine.FocusedRowHandle, "InvoiceLineId");
+                int maxReturn = Convert.ToInt32(gridViewInvoiceLine.GetRowCellValue(gridViewInvoiceLine.FocusedRowHandle, "RemainingQty"));
 
                 if (maxReturn > 0)
                 {
@@ -72,10 +72,9 @@ namespace DXApplication1
                             else
                                 sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderID, invoiceLineID, formQty.qty * (-1));
 
-                            gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+                            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
                             returnNetAmount = Convert.ToDecimal(sqlMethods.SelectInvoiceLine(returnInvoiceHeaderID).Compute("Sum(NetAmount)", string.Empty));
                             MessageBox.Show(returnNetAmount.ToString());
-
                         }
                     }
                 }
@@ -86,7 +85,7 @@ namespace DXApplication1
 
         private void simpleButtonPayment_Click(object sender, EventArgs e)
         {
-            decimal summaryNetAmount = Convert.ToDecimal(gridView1.Columns["NetAmount"].SummaryItem.SummaryValue);
+            decimal summaryNetAmount = Convert.ToDecimal(gridViewInvoiceHeader.Columns["NetAmount"].SummaryItem.SummaryValue);
 
             if (summaryNetAmount > 0)
             {
@@ -116,7 +115,7 @@ namespace DXApplication1
 
                         invoiceHeaderID = Guid.NewGuid().ToString();
 
-                        gridControl2.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+                        gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
                     }
                 }
             }

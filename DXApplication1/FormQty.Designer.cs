@@ -41,7 +41,6 @@ namespace DXApplication1
             DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.labelControlMessage = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonNum7 = new DevExpress.XtraEditors.SimpleButton();
             this.textEditQty = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonOk = new DevExpress.XtraEditors.SimpleButton();
@@ -61,7 +60,7 @@ namespace DXApplication1
             this.simpleButtonEnter = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemNum7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemTxtBxPercent = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemTxtBxQty = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemOk = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemNum8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
@@ -77,13 +76,14 @@ namespace DXApplication1
             this.layoutControlItemNum0 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemComma = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemEnter = new DevExpress.XtraLayout.LayoutControlItem();
+            this.labelMessage = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItemMessage = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxPercent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
@@ -104,7 +104,7 @@ namespace DXApplication1
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.labelControlMessage);
+            this.layoutControl1.Controls.Add(this.labelMessage);
             this.layoutControl1.Controls.Add(this.simpleButtonNum7);
             this.layoutControl1.Controls.Add(this.textEditQty);
             this.layoutControl1.Controls.Add(this.simpleButtonOk);
@@ -130,16 +130,6 @@ namespace DXApplication1
             this.layoutControl1.Size = new System.Drawing.Size(347, 410);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // labelControlMessage
-            // 
-            this.labelControlMessage.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControlMessage.Appearance.Options.UseForeColor = true;
-            this.labelControlMessage.Location = new System.Drawing.Point(12, 334);
-            this.labelControlMessage.Name = "labelControlMessage";
-            this.labelControlMessage.Size = new System.Drawing.Size(159, 13);
-            this.labelControlMessage.StyleController = this.layoutControl1;
-            this.labelControlMessage.TabIndex = 22;
             // 
             // simpleButtonNum7
             // 
@@ -168,7 +158,9 @@ namespace DXApplication1
             this.textEditQty.Size = new System.Drawing.Size(288, 32);
             this.textEditQty.StyleController = this.layoutControl1;
             this.textEditQty.TabIndex = 5;
+            this.textEditQty.InvalidValue += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.textEditQty_InvalidValue);
             this.textEditQty.EditValueChanged += new System.EventHandler(this.textEditQty_EditValueChanged);
+            this.textEditQty.Validating += new System.ComponentModel.CancelEventHandler(this.textEditQty_Validating);
             // 
             // simpleButtonOk
             // 
@@ -382,7 +374,7 @@ namespace DXApplication1
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItemNum7,
-            this.layoutControlItemTxtBxPercent,
+            this.layoutControlItemTxtBxQty,
             this.layoutControlItemOk,
             this.layoutControlItemNum8,
             this.layoutControlItemCancel,
@@ -448,16 +440,16 @@ namespace DXApplication1
             this.layoutControlItemNum7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemNum7.TextVisible = false;
             // 
-            // layoutControlItemTxtBxPercent
+            // layoutControlItemTxtBxQty
             // 
-            this.layoutControlItemTxtBxPercent.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControlItemTxtBxPercent.Control = this.textEditQty;
-            this.layoutControlItemTxtBxPercent.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemTxtBxPercent.Name = "layoutControlItemTxtBxPercent";
-            this.layoutControlItemTxtBxPercent.OptionsTableLayoutItem.ColumnSpan = 4;
-            this.layoutControlItemTxtBxPercent.Size = new System.Drawing.Size(327, 58);
-            this.layoutControlItemTxtBxPercent.Text = "Miqdar";
-            this.layoutControlItemTxtBxPercent.TextSize = new System.Drawing.Size(32, 13);
+            this.layoutControlItemTxtBxQty.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControlItemTxtBxQty.Control = this.textEditQty;
+            this.layoutControlItemTxtBxQty.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItemTxtBxQty.Name = "layoutControlItemTxtBxQty";
+            this.layoutControlItemTxtBxQty.OptionsTableLayoutItem.ColumnSpan = 4;
+            this.layoutControlItemTxtBxQty.Size = new System.Drawing.Size(327, 58);
+            this.layoutControlItemTxtBxQty.Text = "Miqdar";
+            this.layoutControlItemTxtBxQty.TextSize = new System.Drawing.Size(32, 13);
             // 
             // layoutControlItemOk
             // 
@@ -653,9 +645,20 @@ namespace DXApplication1
             this.layoutControlItemEnter.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemEnter.TextVisible = false;
             // 
+            // labelMessage
+            // 
+            this.labelMessage.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelMessage.Appearance.Options.UseForeColor = true;
+            this.labelMessage.Location = new System.Drawing.Point(12, 359);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(159, 13);
+            this.labelMessage.StyleController = this.layoutControl1;
+            this.labelMessage.TabIndex = 22;
+            // 
             // layoutControlItemMessage
             // 
-            this.layoutControlItemMessage.Control = this.labelControlMessage;
+            this.layoutControlItemMessage.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControlItemMessage.Control = this.labelMessage;
             this.layoutControlItemMessage.Location = new System.Drawing.Point(0, 322);
             this.layoutControlItemMessage.Name = "layoutControlItemMessage";
             this.layoutControlItemMessage.OptionsTableLayoutItem.ColumnSpan = 2;
@@ -679,7 +682,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.textEditQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxPercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTxtBxQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
@@ -703,7 +706,6 @@ namespace DXApplication1
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.LabelControl labelControlMessage;
         private DevExpress.XtraEditors.SimpleButton simpleButtonNum7;
         private DevExpress.XtraEditors.TextEdit textEditQty;
         private DevExpress.XtraEditors.SimpleButton simpleButtonOk;
@@ -723,7 +725,7 @@ namespace DXApplication1
         private DevExpress.XtraEditors.SimpleButton simpleButtonEnter;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemTxtBxPercent;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemTxtBxQty;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemOk;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCancel;
@@ -739,6 +741,7 @@ namespace DXApplication1
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum0;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemComma;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemEnter;
+        private DevExpress.XtraEditors.LabelControl labelMessage;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemMessage;
     }
 }

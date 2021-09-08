@@ -75,7 +75,7 @@ namespace DXApplication1
 
                     if (result > 0)
                     {
-                        gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
                         gridView11.MoveLast();
                     }
                     else
@@ -93,7 +93,7 @@ namespace DXApplication1
 
                 if (result >= 0)
                 {
-                    gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
                     invoiceHeaderID = Guid.NewGuid().ToString();
                 }
             }
@@ -112,7 +112,7 @@ namespace DXApplication1
 
                     if (result >= 0)
                     {
-                        gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
                         gridView11.MoveLast();
                     }
                 }
@@ -145,7 +145,7 @@ namespace DXApplication1
 
                         if (result >= 0)
                         {
-                            gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                            gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
                             gridView11.MoveLast();
                         }
                     }
@@ -196,7 +196,7 @@ namespace DXApplication1
 
                 if (result > 0)
                 {
-                    gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
                     //gridControl11.DataMember = "customQuery1";
                     gridView11.MoveLast();
                     textEditBarcode.EditValue = string.Empty;
@@ -244,7 +244,7 @@ namespace DXApplication1
 
                         invoiceHeaderID = Guid.NewGuid().ToString();
 
-                        gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
                         //gridControl11.DataMember = "customQuery1";
                     }
                 }
@@ -304,7 +304,7 @@ namespace DXApplication1
                     if (formQty.ShowDialog(this) == DialogResult.OK)
                     {
                         sqlMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
-                        gridControl11.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
                         gridView11.MoveLast();
                     }
                 }
