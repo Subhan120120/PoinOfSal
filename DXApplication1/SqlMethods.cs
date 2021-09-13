@@ -1,6 +1,4 @@
-﻿using DevExpress.DataAccess.ConnectionParameters;
-using DevExpress.DataAccess.Sql;
-using DXApplication1.Model;
+﻿using DXApplication1.Model;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -145,7 +143,6 @@ namespace DXApplication1
             };
             DataTable dt = SqlGetDt(qry, paramArray);
 
-            //int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
             int HeaderCount = dt.Rows.Count;
             if (HeaderCount > 0) return true;
             else return false;
@@ -322,7 +319,6 @@ namespace DXApplication1
                 new SqlParameter("@InvoiceHeaderID", invoiceHeaderID)
             };
             DataTable dt = SqlGetDt(qry, paramArray);
-            //int HeaderCount = dt.Select("InvoiceHeaderID = '" + invoiceHeaderID + "'").Length;
             int HeaderCount = dt.Rows.Count;
             if (HeaderCount > 0) return true;
             else return false;

@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="FormChange.cs">
       <SubType>Form</SubType>
     </Compile>

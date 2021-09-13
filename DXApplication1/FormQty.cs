@@ -1,13 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DXApplication1
@@ -78,7 +72,7 @@ namespace DXApplication1
         {
             TextEdit textEdit = sender as TextEdit;
             decimal val = Convert.ToDecimal(textEdit.EditValue);
-            if (val < 0)
+            if (val <= 0)
                 e.Cancel = true;
             else if (val > maxQty && maxQty != 0)
                 e.Cancel = true;

@@ -60,3 +60,11 @@
 //    ds.Fill();
 //    return ds;
 //}
+
+//private void textEditCash_Validating(object sender, CancelEventArgs e)
+//{
+//    TextEdit textEdit = sender as TextEdit;
+//    decimal val = Convert.ToDecimal(textEdit.EditValue);
+//    if (val < 0)
+//        e.Cancel = true;
+//}

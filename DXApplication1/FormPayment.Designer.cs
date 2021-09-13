@@ -30,14 +30,14 @@ namespace DXApplication1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPayment));
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition4 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition4 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition9 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition10 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition11 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition12 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition9 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition10 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition11 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition12 = new DevExpress.XtraLayout.RowDefinition();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.textEditCash = new DevExpress.XtraEditors.TextEdit();
             this.textEditCashless = new DevExpress.XtraEditors.TextEdit();
@@ -64,21 +64,16 @@ namespace DXApplication1
             this.simpleButtonC = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonBackSpace = new DevExpress.XtraEditors.SimpleButton();
             this.textEditCurrency = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.simpleButtonUpdateBonus = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItemOk = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroupCash = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemCash = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemUpdateCash = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCurrency = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemUpdateCash = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroupCashless = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemCashless = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemBank = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemUpdateCashless = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroupCustomerBonus = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemCustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCusBonus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroupBarcode = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemNum7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemNum9 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -95,8 +90,13 @@ namespace DXApplication1
             this.layoutControlItemComma = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemEnter = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemC = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonUpdateBonus = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlGroupCustomerBonus = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItemCustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemCusBonus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemOk = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCash.Properties)).BeginInit();
@@ -106,20 +106,14 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.textEditBank.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCurrency.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemUpdateCash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCurrency)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemUpdateCash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCashless)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCashless)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemUpdateCashless)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomerBonus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCusBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupBarcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum9)).BeginInit();
@@ -136,7 +130,13 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomerBonus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCusBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -223,6 +223,9 @@ namespace DXApplication1
             this.textEditBonus.Size = new System.Drawing.Size(123, 32);
             this.textEditBonus.StyleController = this.layoutControl1;
             this.textEditBonus.TabIndex = 6;
+            this.textEditBonus.InvalidValue += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.textEditBonus_InvalidValue);
+            this.textEditBonus.EditValueChanged += new System.EventHandler(this.textEditBonus_EditValueChanged);
+            this.textEditBonus.Validating += new System.ComponentModel.CancelEventHandler(this.textEditBonus_Validating);
             // 
             // textEditCustomerBonus
             // 
@@ -521,6 +524,18 @@ namespace DXApplication1
             this.textEditCurrency.StyleController = this.layoutControl1;
             this.textEditCurrency.TabIndex = 23;
             // 
+            // simpleButtonUpdateBonus
+            // 
+            this.simpleButtonUpdateBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonUpdateBonus.ImageOptions.Image")));
+            this.simpleButtonUpdateBonus.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButtonUpdateBonus.Location = new System.Drawing.Point(220, 279);
+            this.simpleButtonUpdateBonus.Name = "simpleButtonUpdateBonus";
+            this.simpleButtonUpdateBonus.Size = new System.Drawing.Size(30, 32);
+            this.simpleButtonUpdateBonus.StyleController = this.layoutControl1;
+            this.simpleButtonUpdateBonus.TabIndex = 24;
+            this.simpleButtonUpdateBonus.Text = "simpleButton1";
+            this.simpleButtonUpdateBonus.Click += new System.EventHandler(this.simpleButtonUpdateBonus_Click);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -536,36 +551,6 @@ namespace DXApplication1
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(612, 435);
             this.Root.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 351);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(436, 64);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItemOk
-            // 
-            this.layoutControlItemOk.Control = this.simpleButtonOk;
-            this.layoutControlItemOk.Location = new System.Drawing.Point(436, 351);
-            this.layoutControlItemOk.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemOk.Name = "layoutControlItemOk";
-            this.layoutControlItemOk.Size = new System.Drawing.Size(78, 64);
-            this.layoutControlItemOk.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemOk.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemOk.TextVisible = false;
-            // 
-            // layoutControlItemCancel
-            // 
-            this.layoutControlItemCancel.Control = this.simpleButtonCancel;
-            this.layoutControlItemCancel.Location = new System.Drawing.Point(514, 351);
-            this.layoutControlItemCancel.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemCancel.Name = "layoutControlItemCancel";
-            this.layoutControlItemCancel.Size = new System.Drawing.Size(78, 64);
-            this.layoutControlItemCancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCancel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCancel.TextVisible = false;
             // 
             // layoutControlGroupCash
             // 
@@ -589,6 +574,15 @@ namespace DXApplication1
             this.layoutControlItemCash.Text = "Nağd";
             this.layoutControlItemCash.TextSize = new System.Drawing.Size(66, 32);
             // 
+            // layoutControlItemCurrency
+            // 
+            this.layoutControlItemCurrency.Control = this.textEditCurrency;
+            this.layoutControlItemCurrency.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItemCurrency.Name = "layoutControlItemCurrency";
+            this.layoutControlItemCurrency.Size = new System.Drawing.Size(230, 36);
+            this.layoutControlItemCurrency.Text = "Valyuta";
+            this.layoutControlItemCurrency.TextSize = new System.Drawing.Size(66, 13);
+            // 
             // layoutControlItemUpdateCash
             // 
             this.layoutControlItemUpdateCash.Control = this.simpleButtonUpdateCash;
@@ -599,15 +593,6 @@ namespace DXApplication1
             this.layoutControlItemUpdateCash.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItemUpdateCash.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemUpdateCash.TextVisible = false;
-            // 
-            // layoutControlItemCurrency
-            // 
-            this.layoutControlItemCurrency.Control = this.textEditCurrency;
-            this.layoutControlItemCurrency.Location = new System.Drawing.Point(0, 36);
-            this.layoutControlItemCurrency.Name = "layoutControlItemCurrency";
-            this.layoutControlItemCurrency.Size = new System.Drawing.Size(230, 36);
-            this.layoutControlItemCurrency.Text = "Valyuta";
-            this.layoutControlItemCurrency.TextSize = new System.Drawing.Size(66, 13);
             // 
             // layoutControlGroupCashless
             // 
@@ -651,37 +636,6 @@ namespace DXApplication1
             this.layoutControlItemUpdateCashless.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemUpdateCashless.TextVisible = false;
             // 
-            // layoutControlGroupCustomerBonus
-            // 
-            this.layoutControlGroupCustomerBonus.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.layoutControlGroupCustomerBonus.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemCustomerBonus,
-            this.layoutControlItemCusBonus,
-            this.layoutControlItem1});
-            this.layoutControlGroupCustomerBonus.Location = new System.Drawing.Point(0, 234);
-            this.layoutControlGroupCustomerBonus.Name = "layoutControlGroupCustomerBonus";
-            this.layoutControlGroupCustomerBonus.Size = new System.Drawing.Size(254, 117);
-            this.layoutControlGroupCustomerBonus.Text = "Bonus";
-            // 
-            // layoutControlItemCustomerBonus
-            // 
-            this.layoutControlItemCustomerBonus.Control = this.textEditBonus;
-            this.layoutControlItemCustomerBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItemCustomerBonus.ImageOptions.Image")));
-            this.layoutControlItemCustomerBonus.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemCustomerBonus.Name = "layoutControlItemCustomerBonus";
-            this.layoutControlItemCustomerBonus.Size = new System.Drawing.Size(196, 36);
-            this.layoutControlItemCustomerBonus.Text = "Bonus";
-            this.layoutControlItemCustomerBonus.TextSize = new System.Drawing.Size(66, 32);
-            // 
-            // layoutControlItemCusBonus
-            // 
-            this.layoutControlItemCusBonus.Control = this.textEditCustomerBonus;
-            this.layoutControlItemCusBonus.Location = new System.Drawing.Point(0, 36);
-            this.layoutControlItemCusBonus.Name = "layoutControlItemCusBonus";
-            this.layoutControlItemCusBonus.Size = new System.Drawing.Size(230, 36);
-            this.layoutControlItemCusBonus.Text = "Puan";
-            this.layoutControlItemCusBonus.TextSize = new System.Drawing.Size(66, 13);
-            // 
             // layoutControlGroupBarcode
             // 
             this.layoutControlGroupBarcode.CustomizationFormText = "Barcode";
@@ -705,32 +659,32 @@ namespace DXApplication1
             this.layoutControlGroupBarcode.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroupBarcode.Location = new System.Drawing.Point(254, 0);
             this.layoutControlGroupBarcode.Name = "layoutControlGroupBarcode";
-            columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition1.Width = 25D;
-            columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition2.Width = 25D;
-            columnDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition3.Width = 25D;
-            columnDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition4.Width = 25D;
+            columnDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition9.Width = 25D;
+            columnDefinition10.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition10.Width = 25D;
+            columnDefinition11.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition11.Width = 25D;
+            columnDefinition12.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition12.Width = 25D;
             this.layoutControlGroupBarcode.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition1,
-            columnDefinition2,
-            columnDefinition3,
-            columnDefinition4});
-            rowDefinition1.Height = 25D;
-            rowDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition2.Height = 25D;
-            rowDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition3.Height = 25D;
-            rowDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition4.Height = 25D;
-            rowDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition9,
+            columnDefinition10,
+            columnDefinition11,
+            columnDefinition12});
+            rowDefinition9.Height = 25D;
+            rowDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition10.Height = 25D;
+            rowDefinition10.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition11.Height = 25D;
+            rowDefinition11.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition12.Height = 25D;
+            rowDefinition12.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroupBarcode.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition1,
-            rowDefinition2,
-            rowDefinition3,
-            rowDefinition4});
+            rowDefinition9,
+            rowDefinition10,
+            rowDefinition11,
+            rowDefinition12});
             this.layoutControlGroupBarcode.Size = new System.Drawing.Size(338, 351);
             this.layoutControlGroupBarcode.Text = "Barcode";
             // 
@@ -952,16 +906,36 @@ namespace DXApplication1
             this.layoutControlItemC.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemC.TextVisible = false;
             // 
-            // simpleButtonUpdateBonus
+            // layoutControlGroupCustomerBonus
             // 
-            this.simpleButtonUpdateBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButtonUpdateBonus.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonUpdateBonus.Location = new System.Drawing.Point(220, 279);
-            this.simpleButtonUpdateBonus.Name = "simpleButtonUpdateBonus";
-            this.simpleButtonUpdateBonus.Size = new System.Drawing.Size(30, 32);
-            this.simpleButtonUpdateBonus.StyleController = this.layoutControl1;
-            this.simpleButtonUpdateBonus.TabIndex = 24;
-            this.simpleButtonUpdateBonus.Text = "simpleButton1";
+            this.layoutControlGroupCustomerBonus.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.layoutControlGroupCustomerBonus.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItemCustomerBonus,
+            this.layoutControlItemCusBonus,
+            this.layoutControlItem1});
+            this.layoutControlGroupCustomerBonus.Location = new System.Drawing.Point(0, 234);
+            this.layoutControlGroupCustomerBonus.Name = "layoutControlGroupCustomerBonus";
+            this.layoutControlGroupCustomerBonus.Size = new System.Drawing.Size(254, 117);
+            this.layoutControlGroupCustomerBonus.Text = "Bonus";
+            // 
+            // layoutControlItemCustomerBonus
+            // 
+            this.layoutControlItemCustomerBonus.Control = this.textEditBonus;
+            this.layoutControlItemCustomerBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItemCustomerBonus.ImageOptions.Image")));
+            this.layoutControlItemCustomerBonus.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItemCustomerBonus.Name = "layoutControlItemCustomerBonus";
+            this.layoutControlItemCustomerBonus.Size = new System.Drawing.Size(196, 36);
+            this.layoutControlItemCustomerBonus.Text = "Bonus";
+            this.layoutControlItemCustomerBonus.TextSize = new System.Drawing.Size(66, 32);
+            // 
+            // layoutControlItemCusBonus
+            // 
+            this.layoutControlItemCusBonus.Control = this.textEditCustomerBonus;
+            this.layoutControlItemCusBonus.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItemCusBonus.Name = "layoutControlItemCusBonus";
+            this.layoutControlItemCusBonus.Size = new System.Drawing.Size(230, 36);
+            this.layoutControlItemCusBonus.Text = "Puan";
+            this.layoutControlItemCusBonus.TextSize = new System.Drawing.Size(66, 13);
             // 
             // layoutControlItem1
             // 
@@ -973,6 +947,36 @@ namespace DXApplication1
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItemCancel
+            // 
+            this.layoutControlItemCancel.Control = this.simpleButtonCancel;
+            this.layoutControlItemCancel.Location = new System.Drawing.Point(514, 351);
+            this.layoutControlItemCancel.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItemCancel.Name = "layoutControlItemCancel";
+            this.layoutControlItemCancel.Size = new System.Drawing.Size(78, 64);
+            this.layoutControlItemCancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemCancel.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemCancel.TextVisible = false;
+            // 
+            // layoutControlItemOk
+            // 
+            this.layoutControlItemOk.Control = this.simpleButtonOk;
+            this.layoutControlItemOk.Location = new System.Drawing.Point(436, 351);
+            this.layoutControlItemOk.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItemOk.Name = "layoutControlItemOk";
+            this.layoutControlItemOk.Size = new System.Drawing.Size(78, 64);
+            this.layoutControlItemOk.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemOk.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemOk.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 351);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(436, 64);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // FormPayment
             // 
@@ -993,20 +997,14 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.textEditBank.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCurrency.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemUpdateCash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCurrency)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemUpdateCash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCashless)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCashless)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBank)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemUpdateCashless)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomerBonus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCusBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupBarcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum9)).EndInit();
@@ -1023,7 +1021,13 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomerBonus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCusBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

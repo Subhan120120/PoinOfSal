@@ -2,6 +2,9 @@
 using System;
 using DXApplication1.Model;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraEditors.Controls;
+using System.Data;
 
 namespace DXApplication1
 {
@@ -10,8 +13,8 @@ namespace DXApplication1
         public string returnInvoiceHeaderID;
         public object invoiceHeaderID;
         public object invoiceLineID;
-        public decimal returnNetAmount;
         SqlMethods sqlMethods = new SqlMethods();
+
         public UcReturn()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace DXApplication1
             gridControlInvoiceHeader.DataSource = sqlMethods.SelectInvoiceHeader();
         }
 
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             invoiceHeaderID = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceHeaderID");
             invoiceLineID = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "invoiceLineID");
@@ -31,7 +34,7 @@ namespace DXApplication1
             gridControlPaymentLine.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderID.ToString());
         }
 
-        private void repoButtonReturnLine_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void repoButtonReturnLine_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             ButtonEdit editor = (ButtonEdit)sender;
             int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
@@ -73,8 +76,6 @@ namespace DXApplication1
                                 sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderID, invoiceLineID, formQty.qty * (-1));
 
                             gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
-                            returnNetAmount = Convert.ToDecimal(sqlMethods.SelectInvoiceLine(returnInvoiceHeaderID).Compute("Sum(NetAmount)", string.Empty));
-                            MessageBox.Show(returnNetAmount.ToString());
                         }
                     }
                 }
@@ -85,9 +86,9 @@ namespace DXApplication1
 
         private void simpleButtonPayment_Click(object sender, EventArgs e)
         {
-            decimal summaryNetAmount = Convert.ToDecimal(gridViewInvoiceHeader.Columns["NetAmount"].SummaryItem.SummaryValue);
+            decimal summaryNetAmount = Convert.ToDecimal(sqlMethods.SelectInvoiceLine(returnInvoiceHeaderID).Compute("Sum(NetAmount)", string.Empty));
 
-            if (summaryNetAmount > 0)
+            if (summaryNetAmount < 0)
             {
                 int paymentType = 0;
 
@@ -107,15 +108,12 @@ namespace DXApplication1
                         break;
                 }
 
-                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderID.ToString()))
+                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, returnInvoiceHeaderID))
                 {
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {
+                        returnInvoiceHeaderID = Guid.NewGuid().ToString();
                         sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderID.ToString());
-
-                        invoiceHeaderID = Guid.NewGuid().ToString();
-
-                        gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
                     }
                 }
             }

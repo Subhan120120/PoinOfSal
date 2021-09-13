@@ -8,5 +8,7 @@ namespace DXApplication1.Model
 {
     class dcPaymentType
     {
+        public int PaymentTypeCode { get; set; }
+        public string PaymentTypeDescription { get; set; }
     }
 }

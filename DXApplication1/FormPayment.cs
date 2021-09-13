@@ -2,13 +2,8 @@
 using DevExpress.XtraEditors.Controls;
 using DXApplication1.Model;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DXApplication1
@@ -20,13 +15,19 @@ namespace DXApplication1
         public int PaymentType { get; set; }
         public decimal SummaryNetAmount { get; set; }
 
-        SqlMethods sqlMethods = new SqlMethods();
+        private bool isNegativ = false;
+        private decimal cashLarge = 0;
+        private decimal cashless = 0;
+        private decimal bonus = 0;
 
         public FormPayment(int PaymentType, decimal SummaryNetAmount, string InvoiceHeaderID)
         {
             InitializeComponent();
             AcceptButton = simpleButtonOk;
             CancelButton = simpleButtonCancel;
+
+            if (SummaryNetAmount < 0)
+                isNegativ = true;
             this.PaymentType = PaymentType;
             this.SummaryNetAmount = SummaryNetAmount;
             this.InvoiceHeaderID = InvoiceHeaderID;
@@ -37,31 +38,38 @@ namespace DXApplication1
             switch (PaymentType)
             {
                 case 1:
-                    textEditCash.EditValue = SummaryNetAmount;
+                    textEditCash.EditValue = Math.Abs(SummaryNetAmount);
                     break;
                 case 2:
-                    textEditCashless.EditValue = SummaryNetAmount;
+                    textEditCashless.EditValue = Math.Abs(SummaryNetAmount);
                     break;
                 case 3:
-                    textEditBonus.EditValue = SummaryNetAmount;
+                    textEditBonus.EditValue = Math.Abs(SummaryNetAmount);
                     break;
                 default:
+                    textEditCash.EditValue = Math.Abs(SummaryNetAmount);
                     break;
             }
         }
 
-
         private void textEditCash_EditValueChanged(object sender, EventArgs e)
         {
             textEditCash.DoValidate();
+            decimal txtCash = Convert.ToDecimal(textEditCash.EditValue);
+            cashLarge = isNegativ ? txtCash * (-1) : txtCash;
         }
 
         private void textEditCash_Validating(object sender, CancelEventArgs e)
         {
-            TextEdit textEdit = sender as TextEdit;
-            decimal val = Convert.ToDecimal(textEdit.EditValue);
-            if (val < 0)
+            if (isNegativ)
+            {
+                if (cashLarge > 0)
+                    e.Cancel = true;
+            }
+            else if (cashLarge < 0)
                 e.Cancel = true;
+
+
         }
 
         private void textEditCash_InvalidValue(object sender, InvalidValueExceptionEventArgs e)
@@ -73,7 +81,7 @@ namespace DXApplication1
 
         private void simpleButtonUpdateCash_Click(object sender, EventArgs e)
         {
-            decimal restAmount = SummaryNetAmount - (Convert.ToDecimal(textEditCashless.EditValue) + Convert.ToDecimal(textEditBonus.EditValue));
+            decimal restAmount = SummaryNetAmount - cashless + bonus;
             if (restAmount >= 0)
                 textEditCash.EditValue = restAmount;
         }
@@ -81,15 +89,18 @@ namespace DXApplication1
         private void textEditCashless_EditValueChanged(object sender, EventArgs e)
         {
             textEditCashless.DoValidate();
+            decimal txtCashless = Convert.ToDecimal(textEditCashless.EditValue);
+            cashless = isNegativ ? txtCashless * (-1) : txtCashless;
         }
 
         private void textEditCashless_Validating(object sender, CancelEventArgs e)
         {
-            TextEdit textEdit = sender as TextEdit;
-            decimal val = Convert.ToDecimal(textEdit.EditValue);
-            if (val < 0)
-                e.Cancel = true;
-            else if (val > SummaryNetAmount)
+            //if (cashless < 0)
+            //    e.Cancel = true;
+            //else if (cashless > SummaryNetAmount)
+            //    e.Cancel = true;
+
+            if (!cashless.Between(0, SummaryNetAmount, false))
                 e.Cancel = true;
 
         }
@@ -100,17 +111,49 @@ namespace DXApplication1
             e.WindowCaption = "Diqqət";
             e.ErrorText = "Dəyər ödenilmeli məbləğdən " + SummaryNetAmount + "dan çox olmamalıdır";
         }
+
         private void simpleButtonUpdateCashless_Click(object sender, EventArgs e)
         {
-            decimal restAmount = SummaryNetAmount - (Convert.ToDecimal(textEditCash.EditValue) + Convert.ToDecimal(textEditBonus.EditValue));
+            decimal restAmount = SummaryNetAmount - cashLarge + bonus;
             if (restAmount >= 0)
                 textEditCashless.EditValue = restAmount;
         }
 
+        private void textEditBonus_EditValueChanged(object sender, EventArgs e)
+        {
+            textEditBonus.DoValidate();
+            decimal txtBonus = Convert.ToDecimal(textEditBonus.EditValue);
+            bonus = isNegativ ? txtBonus * (-1) : txtBonus;
+        }
+
+        private void textEditBonus_Validating(object sender, CancelEventArgs e)
+        {
+            //if (bonus < 0)
+            //    e.Cancel = true;
+            //else if (bonus > SummaryNetAmount)
+            //    e.Cancel = true;
+
+            if (!cashless.Between(0, SummaryNetAmount, false))
+                e.Cancel = true;
+        }
+
+        private void textEditBonus_InvalidValue(object sender, InvalidValueExceptionEventArgs e)
+        {
+            e.ExceptionMode = ExceptionMode.DisplayError;
+            e.WindowCaption = "Diqqət";
+            e.ErrorText = "Dəyər ödenilmeli məbləğdən " + SummaryNetAmount + "dan çox olmamalıdır";
+        }
+
+        private void simpleButtonUpdateBonus_Click(object sender, EventArgs e)
+        {
+            decimal restAmount = SummaryNetAmount - cashLarge + cashless;
+            if (restAmount >= 0)
+                textEditBonus.EditValue = restAmount;
+        }
+
         private void simpleButtonNum_Click(object sender, EventArgs e)
         {
-            SimpleButton simpleButton = sender as SimpleButton;
-            string key = simpleButton.Text;
+            string key = (sender as SimpleButton).Text;
 
             switch (key)
             {
@@ -121,6 +164,9 @@ namespace DXApplication1
                     SendKeys.Send("^A");
                     SendKeys.Send("{BACKSPACE}");
                     break;
+                case "↵":
+                    simpleButtonOk.PerformClick();
+                    break;
                 default:
                     SendKeys.Send(key);
                     break;
@@ -129,14 +175,12 @@ namespace DXApplication1
 
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
-            decimal cashLarge = Convert.ToDecimal(textEditCash.EditValue);
-            decimal cashless = Convert.ToDecimal(textEditCashless.EditValue);
-            decimal bonus = Convert.ToDecimal(textEditBonus.EditValue);
+            SqlMethods sqlMethods = new SqlMethods();
             string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "trPaymentHeader");
 
             if ((cashLarge + cashless + bonus) >= SummaryNetAmount)
             {
-                decimal cash = SummaryNetAmount - Convert.ToDecimal(textEditCashless.EditValue) - Convert.ToDecimal(textEditBonus.EditValue);
+                decimal cash = SummaryNetAmount - cashless - bonus;
                 if (!sqlMethods.PaymentHeaderExist(InvoiceHeaderID))
                 {
                     trPaymentHeader trPayment = new trPaymentHeader()
@@ -145,9 +189,9 @@ namespace DXApplication1
                         DocumentNumber = NewDocNum,
                         InvoiceHeaderID = InvoiceHeaderID
                     };
-                    int result = sqlMethods.InsertPaymentHeader(trPayment);
+                    sqlMethods.InsertPaymentHeader(trPayment);
 
-                    if (cash > 0)
+                    if (cash != 0)
                     {
                         trPaymentLine trPaymentLine = new trPaymentLine()
                         {
@@ -156,10 +200,10 @@ namespace DXApplication1
                             Payment = cash,
                             PaymentTypeCode = 1
                         };
-                        int result2 = sqlMethods.InsertPaymentLine(trPaymentLine);
+                        sqlMethods.InsertPaymentLine(trPaymentLine);
                     }
 
-                    if (cashless > 0)
+                    if (cashless != 0)
                     {
                         trPaymentLine trPaymentLine = new trPaymentLine()
                         {
@@ -168,11 +212,10 @@ namespace DXApplication1
                             Payment = cashless,
                             PaymentTypeCode = 2
                         };
-                        int result2 = sqlMethods.InsertPaymentLine(trPaymentLine);
-
+                        sqlMethods.InsertPaymentLine(trPaymentLine);
                     }
 
-                    if (bonus > 0)
+                    if (bonus != 0)
                     {
                         trPaymentLine trPaymentLine = new trPaymentLine()
                         {
@@ -181,11 +224,11 @@ namespace DXApplication1
                             Payment = bonus,
                             PaymentTypeCode = 3
                         };
-                        int result2 = sqlMethods.InsertPaymentLine(trPaymentLine);
+                        sqlMethods.InsertPaymentLine(trPaymentLine);
                     }
                 }
 
-                decimal change = Convert.ToDecimal(textEditCash.EditValue) + Convert.ToDecimal(textEditCashless.EditValue) + Convert.ToDecimal(textEditBonus.EditValue) - SummaryNetAmount;
+                decimal change = cash + cashless + bonus - SummaryNetAmount;
                 if (change > 0)
                 {
                     using (FormChange formChange = new FormChange(cashLarge, change))
