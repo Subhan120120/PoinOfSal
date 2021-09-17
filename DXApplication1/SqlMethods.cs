@@ -60,9 +60,9 @@ namespace DXApplication1
 
         public DataTable SelectInvoiceHeader()
         {
-            SqlParameter[] paramArray2 = new SqlParameter[] { };
+            //SqlParameter[] paramArray2 = new SqlParameter[] { };
             string qry = "select * from trInvoiceHeader where IsCompleted = 1 order by CreatedDate "; // burdaki kolonlari dizaynda da elave et
-            return SqlGetDt(qry, paramArray2);
+            return SqlGetDt(qry, paramArray);
         }
 
         public DataTable SelectInvoiceLine(string invoiceHeaderID)
@@ -335,6 +335,30 @@ namespace DXApplication1
             {
                 new SqlParameter("@InvoiceHeaderID", invoiceHeaderID)
             };
+            return SqlGetDt(qry, paramArray);
+        }
+
+        public DataTable SelectCurrAcc()
+        {
+            string qry = "select * from dcCurrAcc where dcCurrAcc.IsDisabled = 0 order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+            return SqlGetDt(qry, paramArray);
+        }
+
+        public DataTable SelectOffice()
+        {
+            string qry = "select * from dcOffice where dcOffice.IsDisabled = 0 order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+            return SqlGetDt(qry, paramArray);
+        }
+
+        public DataTable SelectStore()
+        {
+            string qry = "select * from dcStore where dcStore.IsDisabled = 0 order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+            return SqlGetDt(qry, paramArray);
+        }
+
+        public DataTable SelectWarehouse()
+        {
+            string qry = "select * from dcWarehouse where dcWarehouse.IsDisabled = 0 order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
             return SqlGetDt(qry, paramArray);
         }
     }

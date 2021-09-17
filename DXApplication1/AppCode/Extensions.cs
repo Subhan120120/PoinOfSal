@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,16 @@ namespace DXApplication1
             return inclusive
                 ? lower <= num && num <= upper
                 : lower < num && num < upper;
+        }
+
+        public static void InvisibleColumns(this LookUpEdit lookUpEdit, int[] array)
+        {
+            lookUpEdit.Properties.PopulateColumns();
+
+            foreach (int item in array)
+            {
+                lookUpEdit.Properties.Columns[item].Visible = false;
+            }
         }
     }
 }
