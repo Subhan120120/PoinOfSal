@@ -10,8 +10,8 @@ namespace DXApplication1
 {
     public partial class UcReturn : XtraUserControl
     {
-        public string returnInvoiceHeaderID;
-        public object invoiceHeaderID;
+        public string returnInvoiceHeaderId;
+        public object invoiceHeaderId;
         public object invoiceLineID;
         SqlMethods sqlMethods = new SqlMethods();
 
@@ -27,11 +27,11 @@ namespace DXApplication1
 
         private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-            invoiceHeaderID = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceHeaderID");
+            invoiceHeaderId = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceHeaderId");
             invoiceLineID = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "invoiceLineID");
-            returnInvoiceHeaderID = Guid.NewGuid().ToString();
-            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
-            gridControlPaymentLine.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderID.ToString());
+            returnInvoiceHeaderId = Guid.NewGuid().ToString();
+            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId.ToString());
+            gridControlPaymentLine.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderId.ToString());
         }
 
         private void repoButtonReturnLine_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -49,33 +49,33 @@ namespace DXApplication1
                     {
                         if (formQty.ShowDialog(this) == DialogResult.OK)
                         {
-                            if (!sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderID)) //if invoiceHeader doesnt exist
+                            if (!sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderId)) //if invoiceHeader doesnt exist
                             {
                                 string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
                                 trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
                                 {
-                                    InvoiceHeaderID = returnInvoiceHeaderID,
+                                    InvoiceHeaderId = returnInvoiceHeaderId,
                                     DocumentNumber = NewDocNum,
                                     IsReturn = true
                                 };
                                 sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                             }
 
-                            if (!sqlMethods.InvoiceLineExist(returnInvoiceHeaderID, invoiceLineID))
+                            if (!sqlMethods.InvoiceLineExist(returnInvoiceHeaderId, invoiceLineID))
                             {
                                 trInvoiceLine trInvoiceLine = new trInvoiceLine()
                                 {
                                     InvoiceLineId = Guid.NewGuid().ToString(),
-                                    InvoiceHeaderID = returnInvoiceHeaderID,
+                                    InvoiceHeaderId = returnInvoiceHeaderId,
                                     RelatedLineId = invoiceLineID.ToString(),
                                     Qty = (formQty.qty * (-1))
                                 };
                                 sqlMethods.InsertInvoiceLine(trInvoiceLine);
                             }
                             else
-                                sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderID, invoiceLineID, formQty.qty * (-1));
+                                sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderId, invoiceLineID, formQty.qty * (-1));
 
-                            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID.ToString());
+                            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId.ToString());
                         }
                     }
                 }
@@ -86,7 +86,7 @@ namespace DXApplication1
 
         private void simpleButtonPayment_Click(object sender, EventArgs e)
         {
-            decimal summaryNetAmount = Convert.ToDecimal(sqlMethods.SelectInvoiceLine(returnInvoiceHeaderID).Compute("Sum(NetAmount)", string.Empty));
+            decimal summaryNetAmount = Convert.ToDecimal(sqlMethods.SelectInvoiceLine(returnInvoiceHeaderId).Compute("Sum(NetAmount)", string.Empty));
 
             if (summaryNetAmount < 0)
             {
@@ -108,12 +108,12 @@ namespace DXApplication1
                         break;
                 }
 
-                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, returnInvoiceHeaderID))
+                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, returnInvoiceHeaderId))
                 {
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {
-                        returnInvoiceHeaderID = Guid.NewGuid().ToString();
-                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderID.ToString());
+                        returnInvoiceHeaderId = Guid.NewGuid().ToString();
+                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId.ToString());
                     }
                 }
             }

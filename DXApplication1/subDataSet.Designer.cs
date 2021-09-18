@@ -281,7 +281,7 @@ namespace DXApplication1 {
             
             private global::System.Data.DataColumn columnInvoiceLineId;
             
-            private global::System.Data.DataColumn columnInvoiceHeaderID;
+            private global::System.Data.DataColumn columnInvoiceHeaderId;
             
             private global::System.Data.DataColumn columnRelatedLineId;
             
@@ -360,9 +360,9 @@ namespace DXApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InvoiceHeaderIDColumn {
+            public global::System.Data.DataColumn InvoiceHeaderIdColumn {
                 get {
-                    return this.columnInvoiceHeaderID;
+                    return this.columnInvoiceHeaderId;
                 }
             }
             
@@ -541,7 +541,7 @@ namespace DXApplication1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public trInvoiceLineRow AddtrInvoiceLineRow(
                         System.Guid InvoiceLineId, 
-                        System.Guid InvoiceHeaderID, 
+                        System.Guid InvoiceHeaderId, 
                         System.Guid RelatedLineId, 
                         string ProductCode, 
                         int Qty, 
@@ -562,7 +562,7 @@ namespace DXApplication1 {
                 trInvoiceLineRow rowtrInvoiceLineRow = ((trInvoiceLineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         InvoiceLineId,
-                        InvoiceHeaderID,
+                        InvoiceHeaderId,
                         RelatedLineId,
                         ProductCode,
                         Qty,
@@ -610,7 +610,7 @@ namespace DXApplication1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnInvoiceLineId = base.Columns["InvoiceLineId"];
-                this.columnInvoiceHeaderID = base.Columns["InvoiceHeaderID"];
+                this.columnInvoiceHeaderId = base.Columns["InvoiceHeaderId"];
                 this.columnRelatedLineId = base.Columns["RelatedLineId"];
                 this.columnProductCode = base.Columns["ProductCode"];
                 this.columnQty = base.Columns["Qty"];
@@ -635,8 +635,8 @@ namespace DXApplication1 {
             private void InitClass() {
                 this.columnInvoiceLineId = new global::System.Data.DataColumn("InvoiceLineId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInvoiceLineId);
-                this.columnInvoiceHeaderID = new global::System.Data.DataColumn("InvoiceHeaderID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceHeaderID);
+                this.columnInvoiceHeaderId = new global::System.Data.DataColumn("InvoiceHeaderId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoiceHeaderId);
                 this.columnRelatedLineId = new global::System.Data.DataColumn("RelatedLineId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRelatedLineId);
                 this.columnProductCode = new global::System.Data.DataColumn("ProductCode", typeof(string), null, global::System.Data.MappingType.Element);
@@ -675,7 +675,7 @@ namespace DXApplication1 {
                                 this.columnInvoiceLineId}, true));
                 this.columnInvoiceLineId.AllowDBNull = false;
                 this.columnInvoiceLineId.Unique = true;
-                this.columnInvoiceHeaderID.AllowDBNull = false;
+                this.columnInvoiceHeaderId.AllowDBNull = false;
                 this.columnProductCode.MaxLength = 150;
                 this.columnLineDescription.MaxLength = 2147483647;
                 this.columnSalespersonCode.MaxLength = 50;
@@ -835,12 +835,12 @@ namespace DXApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.Guid InvoiceHeaderID {
+            public System.Guid InvoiceHeaderId {
                 get {
-                    return ((global::System.Guid)(this[this.tabletrInvoiceLine.InvoiceHeaderIDColumn]));
+                    return ((global::System.Guid)(this[this.tabletrInvoiceLine.InvoiceHeaderIdColumn]));
                 }
                 set {
-                    this[this.tabletrInvoiceLine.InvoiceHeaderIDColumn] = value;
+                    this[this.tabletrInvoiceLine.InvoiceHeaderIdColumn] = value;
                 }
             }
             
@@ -1481,7 +1481,7 @@ namespace DXApplication1.subDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "trInvoiceLine";
             tableMapping.ColumnMappings.Add("InvoiceLineId", "InvoiceLineId");
-            tableMapping.ColumnMappings.Add("InvoiceHeaderID", "InvoiceHeaderID");
+            tableMapping.ColumnMappings.Add("InvoiceHeaderId", "InvoiceHeaderId");
             tableMapping.ColumnMappings.Add("RelatedLineId", "RelatedLineId");
             tableMapping.ColumnMappings.Add("ProductCode", "ProductCode");
             tableMapping.ColumnMappings.Add("Qty", "Qty");
@@ -1503,7 +1503,7 @@ namespace DXApplication1.subDataSetTableAdapters {
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[trInvoiceLine] WHERE (([InvoiceLineId] = @Original_InvoiceLine" +
-                "Id) AND ([InvoiceHeaderID] = @Original_InvoiceHeaderID) AND ((@IsNull_RelatedLin" +
+                "Id) AND ([InvoiceHeaderId] = @Original_InvoiceHeaderId) AND ((@IsNull_RelatedLin" +
                 "eId = 1 AND [RelatedLineId] IS NULL) OR ([RelatedLineId] = @Original_RelatedLine" +
                 "Id)) AND ((@IsNull_ProductCode = 1 AND [ProductCode] IS NULL) OR ([ProductCode] " +
                 "= @Original_ProductCode)) AND ((@IsNull_Qty = 1 AND [Qty] IS NULL) OR ([Qty] = @" +
@@ -1527,7 +1527,7 @@ namespace DXApplication1.subDataSetTableAdapters {
                 "dDate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceHeaderID", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RelatedLineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1562,11 +1562,11 @@ namespace DXApplication1.subDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[trInvoiceLine] ([InvoiceLineId], [InvoiceHeaderID], [RelatedLineId], [ProductCode], [Qty], [Price], [Amount], [PosDiscount], [DiscountCampaign], [NetAmount], [VatRate], [LineDescription], [SalespersonCode], [CurrencyCode], [ExchangeRate], [CreatedUserName], [CreatedDate], [LastUpdatedUserName], [LastUpdatedDate]) VALUES (@InvoiceLineId, @InvoiceHeaderID, @RelatedLineId, @ProductCode, @Qty, @Price, @Amount, @PosDiscount, @DiscountCampaign, @NetAmount, @VatRate, @LineDescription, @SalespersonCode, @CurrencyCode, @ExchangeRate, @CreatedUserName, @CreatedDate, @LastUpdatedUserName, @LastUpdatedDate);
-SELECT InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM trInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[trInvoiceLine] ([InvoiceLineId], [InvoiceHeaderId], [RelatedLineId], [ProductCode], [Qty], [Price], [Amount], [PosDiscount], [DiscountCampaign], [NetAmount], [VatRate], [LineDescription], [SalespersonCode], [CurrencyCode], [ExchangeRate], [CreatedUserName], [CreatedDate], [LastUpdatedUserName], [LastUpdatedDate]) VALUES (@InvoiceLineId, @InvoiceHeaderId, @RelatedLineId, @ProductCode, @Qty, @Price, @Amount, @PosDiscount, @DiscountCampaign, @NetAmount, @VatRate, @LineDescription, @SalespersonCode, @CurrencyCode, @ExchangeRate, @CreatedUserName, @CreatedDate, @LastUpdatedUserName, @LastUpdatedDate);
+SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM trInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderID", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelatedLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1587,15 +1587,15 @@ SELECT InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, A
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[trInvoiceLine] SET [InvoiceLineId] = @InvoiceLineId, [InvoiceHeader" +
-                "ID] = @InvoiceHeaderID, [RelatedLineId] = @RelatedLineId, [ProductCode] = @Produ" +
+                "Id] = @InvoiceHeaderId, [RelatedLineId] = @RelatedLineId, [ProductCode] = @Produ" +
                 "ctCode, [Qty] = @Qty, [Price] = @Price, [Amount] = @Amount, [PosDiscount] = @Pos" +
                 "Discount, [DiscountCampaign] = @DiscountCampaign, [NetAmount] = @NetAmount, [Vat" +
                 "Rate] = @VatRate, [LineDescription] = @LineDescription, [SalespersonCode] = @Sal" +
                 "espersonCode, [CurrencyCode] = @CurrencyCode, [ExchangeRate] = @ExchangeRate, [C" +
                 "reatedUserName] = @CreatedUserName, [CreatedDate] = @CreatedDate, [LastUpdatedUs" +
                 "erName] = @LastUpdatedUserName, [LastUpdatedDate] = @LastUpdatedDate WHERE (([In" +
-                "voiceLineId] = @Original_InvoiceLineId) AND ([InvoiceHeaderID] = @Original_Invoi" +
-                "ceHeaderID) AND ((@IsNull_RelatedLineId = 1 AND [RelatedLineId] IS NULL) OR ([Re" +
+                "voiceLineId] = @Original_InvoiceLineId) AND ([InvoiceHeaderId] = @Original_Invoi" +
+                "ceHeaderId) AND ((@IsNull_RelatedLineId = 1 AND [RelatedLineId] IS NULL) OR ([Re" +
                 "latedLineId] = @Original_RelatedLineId)) AND ((@IsNull_ProductCode = 1 AND [Prod" +
                 "uctCode] IS NULL) OR ([ProductCode] = @Original_ProductCode)) AND ((@IsNull_Qty " +
                 "= 1 AND [Qty] IS NULL) OR ([Qty] = @Original_Qty)) AND ((@IsNull_Price = 1 AND [" +
@@ -1616,13 +1616,13 @@ SELECT InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, A
                 "tUpdatedUserName] IS NULL) OR ([LastUpdatedUserName] = @Original_LastUpdatedUser" +
                 "Name)) AND ((@IsNull_LastUpdatedDate = 1 AND [LastUpdatedDate] IS NULL) OR ([Las" +
                 "tUpdatedDate] = @Original_LastUpdatedDate)));\r\nSELECT InvoiceLineId, InvoiceHead" +
-                "erID, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampa" +
+                "erId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampa" +
                 "ign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, Exchang" +
                 "eRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM t" +
                 "rInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderID", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelatedLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1641,7 +1641,7 @@ SELECT InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, A
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastUpdatedUserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedUserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceHeaderID", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RelatedLineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1689,14 +1689,14 @@ SELECT InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, A
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.trInvoiceLine";
+            this._commandCollection[0].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.trInvoiceLine";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.trInvoiceLine
-WHERE InvoiceHeaderID = @InvoiceHeaderID";
+            this._commandCollection[1].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.trInvoiceLine
+WHERE InvoiceHeaderId = @InvoiceHeaderId";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderID", global::System.Data.SqlDbType.UniqueIdentifier, 16, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 16, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1727,9 +1727,9 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(subDataSet.trInvoiceLineDataTable dataTable, System.Guid InvoiceHeaderID) {
+        public virtual int FillBy(subDataSet.trInvoiceLineDataTable dataTable, System.Guid InvoiceHeaderId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderID));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1741,9 +1741,9 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual subDataSet.trInvoiceLineDataTable GetDataBy(System.Guid InvoiceHeaderID) {
+        public virtual subDataSet.trInvoiceLineDataTable GetDataBy(System.Guid InvoiceHeaderId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderID));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderId));
             subDataSet.trInvoiceLineDataTable dataTable = new subDataSet.trInvoiceLineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1784,7 +1784,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
                     System.Guid Original_InvoiceLineId, 
-                    System.Guid Original_InvoiceHeaderID, 
+                    System.Guid Original_InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> Original_RelatedLineId, 
                     string Original_ProductCode, 
                     global::System.Nullable<int> Original_Qty, 
@@ -1802,7 +1802,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
                     string Original_LastUpdatedUserName, 
                     global::System.Nullable<global::System.DateTime> Original_LastUpdatedDate) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(Original_InvoiceLineId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.Guid)(Original_InvoiceHeaderID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.Guid)(Original_InvoiceHeaderId));
             if ((Original_RelatedLineId.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((System.Guid)(Original_RelatedLineId.Value));
@@ -1953,7 +1953,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
                     System.Guid InvoiceLineId, 
-                    System.Guid InvoiceHeaderID, 
+                    System.Guid InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> RelatedLineId, 
                     string ProductCode, 
                     global::System.Nullable<int> Qty, 
@@ -1972,7 +1972,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
                     string LastUpdatedUserName, 
                     global::System.Nullable<global::System.DateTime> LastUpdatedDate) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(InvoiceLineId));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.Guid)(InvoiceHeaderID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.Guid)(InvoiceHeaderId));
             if ((RelatedLineId.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((System.Guid)(RelatedLineId.Value));
             }
@@ -2097,7 +2097,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     System.Guid InvoiceLineId, 
-                    System.Guid InvoiceHeaderID, 
+                    System.Guid InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> RelatedLineId, 
                     string ProductCode, 
                     global::System.Nullable<int> Qty, 
@@ -2116,7 +2116,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
                     string LastUpdatedUserName, 
                     global::System.Nullable<global::System.DateTime> LastUpdatedDate, 
                     System.Guid Original_InvoiceLineId, 
-                    System.Guid Original_InvoiceHeaderID, 
+                    System.Guid Original_InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> Original_RelatedLineId, 
                     string Original_ProductCode, 
                     global::System.Nullable<int> Original_Qty, 
@@ -2134,7 +2134,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
                     string Original_LastUpdatedUserName, 
                     global::System.Nullable<global::System.DateTime> Original_LastUpdatedDate) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(InvoiceLineId));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.Guid)(InvoiceHeaderID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.Guid)(InvoiceHeaderId));
             if ((RelatedLineId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((System.Guid)(RelatedLineId.Value));
             }
@@ -2238,7 +2238,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[19].Value = ((System.Guid)(Original_InvoiceLineId));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((System.Guid)(Original_InvoiceHeaderID));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((System.Guid)(Original_InvoiceHeaderId));
             if ((Original_RelatedLineId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((System.Guid)(Original_RelatedLineId.Value));
@@ -2388,7 +2388,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    System.Guid InvoiceHeaderID, 
+                    System.Guid InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> RelatedLineId, 
                     string ProductCode, 
                     global::System.Nullable<int> Qty, 
@@ -2407,7 +2407,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
                     string LastUpdatedUserName, 
                     global::System.Nullable<global::System.DateTime> LastUpdatedDate, 
                     System.Guid Original_InvoiceLineId, 
-                    System.Guid Original_InvoiceHeaderID, 
+                    System.Guid Original_InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> Original_RelatedLineId, 
                     string Original_ProductCode, 
                     global::System.Nullable<int> Original_Qty, 
@@ -2424,7 +2424,7 @@ WHERE InvoiceHeaderID = @InvoiceHeaderID";
                     global::System.Nullable<global::System.DateTime> Original_CreatedDate, 
                     string Original_LastUpdatedUserName, 
                     global::System.Nullable<global::System.DateTime> Original_LastUpdatedDate) {
-            return this.Update(Original_InvoiceLineId, InvoiceHeaderID, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate, Original_InvoiceLineId, Original_InvoiceHeaderID, Original_RelatedLineId, Original_ProductCode, Original_Qty, Original_Price, Original_Amount, Original_PosDiscount, Original_DiscountCampaign, Original_NetAmount, Original_VatRate, Original_SalespersonCode, Original_CurrencyCode, Original_ExchangeRate, Original_CreatedUserName, Original_CreatedDate, Original_LastUpdatedUserName, Original_LastUpdatedDate);
+            return this.Update(Original_InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate, Original_InvoiceLineId, Original_InvoiceHeaderId, Original_RelatedLineId, Original_ProductCode, Original_Qty, Original_Price, Original_Amount, Original_PosDiscount, Original_DiscountCampaign, Original_NetAmount, Original_VatRate, Original_SalespersonCode, Original_CurrencyCode, Original_ExchangeRate, Original_CreatedUserName, Original_CreatedDate, Original_LastUpdatedUserName, Original_LastUpdatedDate);
         }
     }
     

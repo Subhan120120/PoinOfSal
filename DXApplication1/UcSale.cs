@@ -9,7 +9,7 @@ namespace DXApplication1
 {
     public partial class UcSale : XtraUserControl
     {
-        public string invoiceHeaderID = Guid.NewGuid().ToString();
+        public string invoiceHeaderId = Guid.NewGuid().ToString();
         SqlMethods sqlMethods = new SqlMethods();
 
         public UcSale()
@@ -58,24 +58,24 @@ namespace DXApplication1
             {
                 if (formProductList.ShowDialog(this) == DialogResult.OK)
                 {
-                    if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                    if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                     {
                         string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
 
                         trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
                         {
-                            InvoiceHeaderID = invoiceHeaderID,
+                            InvoiceHeaderId = invoiceHeaderId,
                             DocumentNumber = NewDocNum
                         };
                         sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                     }
 
                     dcProduct dcProduct = formProductList.dcProduct;
-                    int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderID);
+                    int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderId);
 
                     if (result > 0)
                     {
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                         gridView11.MoveLast();
                     }
                     else
@@ -89,12 +89,12 @@ namespace DXApplication1
             DialogResult dialogResult = MessageBox.Show("Silmək istədiyinizə əminmisiniz?", "Diqqət", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                int result = sqlMethods.DeleteInvoice(invoiceHeaderID);
+                int result = sqlMethods.DeleteInvoice(invoiceHeaderId);
 
                 if (result >= 0)
                 {
-                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
-                    invoiceHeaderID = Guid.NewGuid().ToString();
+                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
+                    invoiceHeaderId = Guid.NewGuid().ToString();
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace DXApplication1
 
                     if (result >= 0)
                     {
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                         gridView11.MoveLast();
                     }
                 }
@@ -145,7 +145,7 @@ namespace DXApplication1
 
                         if (result >= 0)
                         {
-                            gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                            gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                             gridView11.MoveLast();
                         }
                     }
@@ -182,21 +182,21 @@ namespace DXApplication1
             {
                 dcProduct dcProduct = new dcProduct { Barcode = textEditBarcode.EditValue.ToString() };
 
-                if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                 {
                     string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
                     trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
                     {
-                        InvoiceHeaderID = invoiceHeaderID,
+                        InvoiceHeaderId = invoiceHeaderId,
                         DocumentNumber = NewDocNum,
                     };
                     sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                 }
-                int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderID);
+                int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderId);
 
                 if (result > 0)
                 {
-                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                     //gridControl11.DataMember = "customQuery1";
                     gridView11.MoveLast();
                     textEditBarcode.EditValue = string.Empty;
@@ -236,15 +236,15 @@ namespace DXApplication1
                         break;
                 }
 
-                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderID))
+                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, invoiceHeaderId))
                 {
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {
-                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderID);
+                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
 
-                        invoiceHeaderID = Guid.NewGuid().ToString();
+                        invoiceHeaderId = Guid.NewGuid().ToString();
 
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                         //gridControl11.DataMember = "customQuery1";
                     }
                 }
@@ -270,17 +270,17 @@ namespace DXApplication1
                 {
                     if (simpleButton.Name == "simpleButtonCustomerAdd")
                     {
-                        if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderID)) //if invoiceHeader doesnt exist
+                        if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                         {
                             string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
                             trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
                             {
-                                InvoiceHeaderID = invoiceHeaderID,
+                                InvoiceHeaderId = invoiceHeaderId,
                                 DocumentNumber = NewDocNum,
                             };
                             sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
                         }
-                        int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderID);
+                        int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderId);
 
                         if (result >= 0)
                         {
@@ -304,7 +304,7 @@ namespace DXApplication1
                     if (formQty.ShowDialog(this) == DialogResult.OK)
                     {
                         sqlMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderID);
+                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                         gridView11.MoveLast();
                     }
                 }

@@ -45,7 +45,7 @@
 //}
 
 
-//public SqlDataSource BindToDataCopy(string invoiceHeaderID)
+//public SqlDataSource BindToDataCopy(string invoiceHeaderId)
 //{
 //    CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
 
@@ -54,7 +54,7 @@
 //    query.Name = "customQuery1";
 //    query.Sql = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
 //        "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
-//        "where InvoiceHeaderID = '" + invoiceHeaderID + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+//        "where InvoiceHeaderId = '" + invoiceHeaderId + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
 
 //    ds.Queries.Add(query);
 //    ds.Fill();

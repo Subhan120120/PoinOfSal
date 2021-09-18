@@ -8,7 +8,7 @@ namespace DXApplication1.Model
 {
     public class trInvoiceHeader
     {
-        public string InvoiceHeaderID { get; set; }
+        public string InvoiceHeaderId { get; set; }
         public string RelatedInvoiceId { get; set; }
         public string ProcessCode { get; set; }
         public string DocumentNumber { get; set; }

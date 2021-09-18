@@ -11,7 +11,7 @@ namespace DXApplication1
     public partial class FormPayment : XtraForm
     {
         public string PaymentHeaderID = Guid.NewGuid().ToString();
-        public string InvoiceHeaderID { get; set; }
+        public string InvoiceHeaderId { get; set; }
         public int PaymentType { get; set; }
         public decimal SummaryNetAmount { get; set; }
 
@@ -20,7 +20,7 @@ namespace DXApplication1
         private decimal cashless = 0;
         private decimal bonus = 0;
 
-        public FormPayment(int PaymentType, decimal SummaryNetAmount, string InvoiceHeaderID)
+        public FormPayment(int PaymentType, decimal SummaryNetAmount, string InvoiceHeaderId)
         {
             InitializeComponent();
             AcceptButton = simpleButtonOk;
@@ -30,7 +30,7 @@ namespace DXApplication1
                 isNegativ = true;
             this.PaymentType = PaymentType;
             this.SummaryNetAmount = SummaryNetAmount;
-            this.InvoiceHeaderID = InvoiceHeaderID;
+            this.InvoiceHeaderId = InvoiceHeaderId;
         }
 
         private void FormPayment_Load(object sender, EventArgs e)
@@ -181,13 +181,13 @@ namespace DXApplication1
             if ((cashLarge + cashless + bonus) >= SummaryNetAmount)
             {
                 decimal cash = SummaryNetAmount - cashless - bonus;
-                if (!sqlMethods.PaymentHeaderExist(InvoiceHeaderID))
+                if (!sqlMethods.PaymentHeaderExist(InvoiceHeaderId))
                 {
                     trPaymentHeader trPayment = new trPaymentHeader()
                     {
                         PaymentHeaderID = PaymentHeaderID,
                         DocumentNumber = NewDocNum,
-                        InvoiceHeaderID = InvoiceHeaderID
+                        InvoiceHeaderId = InvoiceHeaderId
                     };
                     sqlMethods.InsertPaymentHeader(trPayment);
 

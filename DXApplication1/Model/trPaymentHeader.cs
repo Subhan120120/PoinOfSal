@@ -9,7 +9,7 @@ namespace DXApplication1.Model
     public class trPaymentHeader
     {
         public string PaymentHeaderID { get; set; }
-        public string InvoiceHeaderID { get; set; }
+        public string InvoiceHeaderId { get; set; }
         public string DocumentNumber { get; set; }
         public string InvoiceNumber { get; set; }
         public string CurrAccCode { get; set; }        

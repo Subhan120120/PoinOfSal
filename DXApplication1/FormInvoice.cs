@@ -6,6 +6,8 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Windows.Forms;
+using DXApplication1.Model;
+
 namespace DXApplication1
 {
     public partial class FormInvoice : RibbonForm
@@ -35,8 +37,9 @@ namespace DXApplication1
 
         private void FormInvoice_Load(object sender, EventArgs e)
         {
-            invoiceHeaderId = "4179201c-652a-4e9d-a8c8-b2ded2b5ce99";
-            trInvoiceLineTableAdapter.FillBy(this.subDataSet.trInvoiceLine, Guid.Parse(invoiceHeaderId));
+            invoiceHeaderId = "da40f3b8-3b70-41b4-a2ee-71f81af11383";
+            trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, Guid.Parse(invoiceHeaderId));
+
             textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice();
             textEditStoreCode.Properties.DataSource = sqlMethods.SelectStore();
             textEditWarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouse();
@@ -70,7 +73,52 @@ namespace DXApplication1
 
         private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            gridView1.SetRowCellValue(e.RowHandle, "InvoiceHeaderID", invoiceHeaderId);
+            //if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
+            //{
+            //    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
+            //    trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+            //    {
+            //        InvoiceHeaderId = invoiceHeaderId,
+            //        DocumentNumber = NewDocNum,
+            //    };
+            //    sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+            //}
+
+            gridView1.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
+            gridView1.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
+        }
+
+        private void gridView1_CellValueChanging(object sender, CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "Qty")
+            {
+                object objPrice = gridView1.GetRowCellValue(e.RowHandle, "Price");
+                object objPosDiscount = gridView1.GetRowCellValue(e.RowHandle, "PosDiscount");
+                decimal Price = objPrice == DBNull.Value ? 0 : Convert.ToDecimal(objPrice);
+                decimal PosDiscount = objPosDiscount == DBNull.Value ? 0 : Convert.ToDecimal(objPosDiscount);
+                gridView1.SetRowCellValue(e.RowHandle, "Amount", Convert.ToDecimal(e.Value) * Price);
+                gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Convert.ToDecimal(e.Value) * Price - PosDiscount);
+            }
+
+            if (e.Column.FieldName == "Price")
+            {
+                object objQty = gridView1.GetRowCellValue(e.RowHandle, "Qty");
+                object objPosDiscount = gridView1.GetRowCellValue(e.RowHandle, "PosDiscount");
+                decimal Qty = objQty == DBNull.Value ? 0 : Convert.ToDecimal(objQty);
+                decimal PosDiscount = objPosDiscount == DBNull.Value ? 0 : Convert.ToDecimal(objPosDiscount);
+                gridView1.SetRowCellValue(e.RowHandle, "Amount", Convert.ToDecimal(e.Value) * Qty);
+                gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Convert.ToDecimal(e.Value) - PosDiscount);
+            }
+
+            if (e.Column.FieldName == "PosDiscount")
+            {
+                object objQty = gridView1.GetRowCellValue(e.RowHandle, "Qty");
+                object objPrice = gridView1.GetRowCellValue(e.RowHandle, "Price");
+                decimal Qty = objQty == DBNull.Value ? 0 : Convert.ToDecimal(objQty);
+                decimal Price = objPrice == DBNull.Value ? 0 : Convert.ToDecimal(objPrice);
+                gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - Convert.ToDecimal(e.Value));
+            }
+
         }
     }
 }

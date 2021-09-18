@@ -9,7 +9,7 @@ namespace DXApplication1.Model
     public class trInvoiceLine
     {
         public string InvoiceLineId { get; set; }
-        public string InvoiceHeaderID { get; set; }
+        public string InvoiceHeaderId { get; set; }
         public string RelatedLineId { get; set; }
         public string ProductCode { get; set; }
         public int Qty { get; set; }

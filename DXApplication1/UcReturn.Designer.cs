@@ -57,7 +57,7 @@ namespace DXApplication1
             this.repoButtonReturnLine = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControlInvoiceHeader = new DevExpress.XtraGrid.GridControl();
             this.gridViewInvoiceHeader = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colInvoiceHeaderID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocumentNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocumentDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocumentTime = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -303,7 +303,7 @@ namespace DXApplication1
             // gridViewInvoiceHeader
             // 
             this.gridViewInvoiceHeader.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colInvoiceHeaderID,
+            this.colInvoiceHeaderId,
             this.colDocumentNumber,
             this.colDocumentDate,
             this.colDocumentTime,
@@ -321,11 +321,11 @@ namespace DXApplication1
             this.gridViewInvoiceHeader.OptionsView.ShowGroupPanel = false;
             this.gridViewInvoiceHeader.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
-            // colInvoiceHeaderID
+            // colInvoiceHeaderId
             // 
-            this.colInvoiceHeaderID.Caption = "gridColumn1";
-            this.colInvoiceHeaderID.FieldName = "InvoiceHeaderID";
-            this.colInvoiceHeaderID.Name = "colInvoiceHeaderID";
+            this.colInvoiceHeaderId.Caption = "gridColumn1";
+            this.colInvoiceHeaderId.FieldName = "InvoiceHeaderId";
+            this.colInvoiceHeaderId.Name = "colInvoiceHeaderId";
             // 
             // colDocumentNumber
             // 
@@ -566,7 +566,7 @@ namespace DXApplication1
         private DevExpress.XtraGrid.GridControl gridControlInvoiceLine;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewInvoiceLine;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceHeaderID;
+        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceHeaderId;
         private DevExpress.XtraGrid.Columns.GridColumn colDocumentNumber;
         private DevExpress.XtraGrid.Columns.GridColumn colDocumentDate;
         private DevExpress.XtraGrid.Columns.GridColumn colDocumentTime;

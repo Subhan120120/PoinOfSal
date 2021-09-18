@@ -46,8 +46,15 @@ namespace DXApplication1
             this.trInvoiceLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.subDataSet = new DXApplication1.subDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnInvoiceHeaderID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLineDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.buttonEditDocNum = new DevExpress.XtraEditors.ButtonEdit();
             this.checkEditIsReturn = new DevExpress.XtraEditors.CheckEdit();
             this.dateEditDocumentDate = new DevExpress.XtraEditors.DateEdit();
@@ -122,7 +129,7 @@ namespace DXApplication1
             this.mainRibbonPage});
             this.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.mainRibbonControl.Size = new System.Drawing.Size(944, 158);
+            this.mainRibbonControl.Size = new System.Drawing.Size(903, 158);
             this.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // bbiSave
@@ -191,7 +198,7 @@ namespace DXApplication1
             // 
             // textEditWarehouseCode
             // 
-            this.textEditWarehouseCode.Location = new System.Drawing.Point(570, 84);
+            this.textEditWarehouseCode.Location = new System.Drawing.Point(550, 84);
             this.textEditWarehouseCode.MenuManager = this.mainRibbonControl;
             this.textEditWarehouseCode.Name = "textEditWarehouseCode";
             this.textEditWarehouseCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -203,7 +210,7 @@ namespace DXApplication1
             this.textEditWarehouseCode.Properties.NullText = "";
             this.textEditWarehouseCode.Properties.ShowHeader = false;
             this.textEditWarehouseCode.Properties.ValueMember = "WarehouseCode";
-            this.textEditWarehouseCode.Size = new System.Drawing.Size(362, 20);
+            this.textEditWarehouseCode.Size = new System.Drawing.Size(341, 20);
             this.textEditWarehouseCode.StyleController = this.layoutControl1;
             this.textEditWarehouseCode.TabIndex = 10;
             // 
@@ -225,7 +232,7 @@ namespace DXApplication1
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1172, 348, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(944, 369);
+            this.layoutControl1.Size = new System.Drawing.Size(903, 423);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -236,7 +243,7 @@ namespace DXApplication1
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.mainRibbonControl;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(920, 225);
+            this.gridControl1.Size = new System.Drawing.Size(879, 279);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -254,8 +261,15 @@ namespace DXApplication1
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnInvoiceLineId,
-            this.gridColumnInvoiceHeaderID});
+            this.colInvoiceLineId,
+            this.colInvoiceHeaderId,
+            this.colProductCode,
+            this.colQty,
+            this.colPrice,
+            this.colAmount,
+            this.colPosDiscount,
+            this.colNetAmount,
+            this.colLineDescription});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -263,23 +277,77 @@ namespace DXApplication1
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
             // 
-            // gridColumnInvoiceLineId
+            // colInvoiceLineId
             // 
-            this.gridColumnInvoiceLineId.Caption = "InvoiceLineId";
-            this.gridColumnInvoiceLineId.FieldName = "InvoiceLineId";
-            this.gridColumnInvoiceLineId.Name = "gridColumnInvoiceLineId";
-            this.gridColumnInvoiceLineId.OptionsEditForm.StartNewRow = true;
-            this.gridColumnInvoiceLineId.Visible = true;
-            this.gridColumnInvoiceLineId.VisibleIndex = 0;
+            this.colInvoiceLineId.Caption = "InvoiceLineId";
+            this.colInvoiceLineId.FieldName = "InvoiceLineId";
+            this.colInvoiceLineId.Name = "colInvoiceLineId";
+            this.colInvoiceLineId.OptionsEditForm.StartNewRow = true;
             // 
-            // gridColumnInvoiceHeaderID
+            // colInvoiceHeaderId
             // 
-            this.gridColumnInvoiceHeaderID.Caption = "InvoiceHeaderID";
-            this.gridColumnInvoiceHeaderID.FieldName = "InvoiceHeaderID";
-            this.gridColumnInvoiceHeaderID.Name = "gridColumnInvoiceHeaderID";
-            this.gridColumnInvoiceHeaderID.Visible = true;
-            this.gridColumnInvoiceHeaderID.VisibleIndex = 1;
+            this.colInvoiceHeaderId.Caption = "InvoiceHeaderId";
+            this.colInvoiceHeaderId.FieldName = "InvoiceHeaderId";
+            this.colInvoiceHeaderId.Name = "colInvoiceHeaderId";
+            // 
+            // colProductCode
+            // 
+            this.colProductCode.Caption = "Məhsul";
+            this.colProductCode.FieldName = "ProductCode";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.Visible = true;
+            this.colProductCode.VisibleIndex = 0;
+            // 
+            // colQty
+            // 
+            this.colQty.Caption = "Say";
+            this.colQty.FieldName = "Qty";
+            this.colQty.Name = "colQty";
+            this.colQty.Visible = true;
+            this.colQty.VisibleIndex = 1;
+            // 
+            // colPrice
+            // 
+            this.colPrice.Caption = "Qiymət";
+            this.colPrice.FieldName = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.Visible = true;
+            this.colPrice.VisibleIndex = 2;
+            // 
+            // colAmount
+            // 
+            this.colAmount.Caption = "Tutar";
+            this.colAmount.FieldName = "Amount";
+            this.colAmount.Name = "colAmount";
+            this.colAmount.OptionsColumn.AllowEdit = false;
+            this.colAmount.Visible = true;
+            this.colAmount.VisibleIndex = 3;
+            // 
+            // colPosDiscount
+            // 
+            this.colPosDiscount.Caption = "Endirim";
+            this.colPosDiscount.FieldName = "PosDiscount";
+            this.colPosDiscount.Name = "colPosDiscount";
+            this.colPosDiscount.Visible = true;
+            this.colPosDiscount.VisibleIndex = 4;
+            // 
+            // colNetAmount
+            // 
+            this.colNetAmount.Caption = "Net Tutar";
+            this.colNetAmount.FieldName = "NetAmount";
+            this.colNetAmount.Name = "colNetAmount";
+            this.colNetAmount.Visible = true;
+            this.colNetAmount.VisibleIndex = 5;
+            // 
+            // colLineDescription
+            // 
+            this.colLineDescription.Caption = "Qeyd";
+            this.colLineDescription.FieldName = "LineDescription";
+            this.colLineDescription.Name = "colLineDescription";
+            this.colLineDescription.Visible = true;
+            this.colLineDescription.VisibleIndex = 6;
             // 
             // buttonEditDocNum
             // 
@@ -288,7 +356,7 @@ namespace DXApplication1
             this.buttonEditDocNum.Name = "buttonEditDocNum";
             this.buttonEditDocNum.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditDocNum.Size = new System.Drawing.Size(326, 20);
+            this.buttonEditDocNum.Size = new System.Drawing.Size(306, 20);
             this.buttonEditDocNum.StyleController = this.layoutControl1;
             this.buttonEditDocNum.TabIndex = 4;
             this.buttonEditDocNum.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditDocNum_ButtonClick);
@@ -299,7 +367,7 @@ namespace DXApplication1
             this.checkEditIsReturn.MenuManager = this.mainRibbonControl;
             this.checkEditIsReturn.Name = "checkEditIsReturn";
             this.checkEditIsReturn.Properties.Caption = "Geri Qaytarma";
-            this.checkEditIsReturn.Size = new System.Drawing.Size(440, 20);
+            this.checkEditIsReturn.Size = new System.Drawing.Size(420, 20);
             this.checkEditIsReturn.StyleController = this.layoutControl1;
             this.checkEditIsReturn.TabIndex = 5;
             // 
@@ -313,7 +381,7 @@ namespace DXApplication1
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditDocumentDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditDocumentDate.Size = new System.Drawing.Size(326, 20);
+            this.dateEditDocumentDate.Size = new System.Drawing.Size(306, 20);
             this.dateEditDocumentDate.StyleController = this.layoutControl1;
             this.dateEditDocumentDate.TabIndex = 6;
             // 
@@ -328,7 +396,7 @@ namespace DXApplication1
             this.dateEditDocumentTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.dateEditDocumentTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.dateEditDocumentTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.dateEditDocumentTime.Size = new System.Drawing.Size(326, 20);
+            this.dateEditDocumentTime.Size = new System.Drawing.Size(306, 20);
             this.dateEditDocumentTime.StyleController = this.layoutControl1;
             this.dateEditDocumentTime.TabIndex = 7;
             // 
@@ -337,34 +405,34 @@ namespace DXApplication1
             this.textEditInvoiceCustomNum.Location = new System.Drawing.Point(126, 60);
             this.textEditInvoiceCustomNum.MenuManager = this.mainRibbonControl;
             this.textEditInvoiceCustomNum.Name = "textEditInvoiceCustomNum";
-            this.textEditInvoiceCustomNum.Size = new System.Drawing.Size(326, 20);
+            this.textEditInvoiceCustomNum.Size = new System.Drawing.Size(306, 20);
             this.textEditInvoiceCustomNum.StyleController = this.layoutControl1;
             this.textEditInvoiceCustomNum.TabIndex = 11;
             // 
             // buttonEditCurrAccCode
             // 
-            this.buttonEditCurrAccCode.Location = new System.Drawing.Point(570, 12);
+            this.buttonEditCurrAccCode.Location = new System.Drawing.Point(550, 12);
             this.buttonEditCurrAccCode.MenuManager = this.mainRibbonControl;
             this.buttonEditCurrAccCode.Name = "buttonEditCurrAccCode";
             this.buttonEditCurrAccCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditCurrAccCode.Size = new System.Drawing.Size(362, 20);
+            this.buttonEditCurrAccCode.Size = new System.Drawing.Size(341, 20);
             this.buttonEditCurrAccCode.StyleController = this.layoutControl1;
             this.buttonEditCurrAccCode.TabIndex = 14;
             this.buttonEditCurrAccCode.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditCurrAccCode_ButtonClick);
             // 
             // textEditInvoiceDesc
             // 
-            this.textEditInvoiceDesc.Location = new System.Drawing.Point(570, 108);
+            this.textEditInvoiceDesc.Location = new System.Drawing.Point(550, 108);
             this.textEditInvoiceDesc.MenuManager = this.mainRibbonControl;
             this.textEditInvoiceDesc.Name = "textEditInvoiceDesc";
-            this.textEditInvoiceDesc.Size = new System.Drawing.Size(362, 20);
+            this.textEditInvoiceDesc.Size = new System.Drawing.Size(341, 20);
             this.textEditInvoiceDesc.StyleController = this.layoutControl1;
             this.textEditInvoiceDesc.TabIndex = 13;
             // 
             // textEditOfficeCode
             // 
-            this.textEditOfficeCode.Location = new System.Drawing.Point(570, 36);
+            this.textEditOfficeCode.Location = new System.Drawing.Point(550, 36);
             this.textEditOfficeCode.MenuManager = this.mainRibbonControl;
             this.textEditOfficeCode.Name = "textEditOfficeCode";
             this.textEditOfficeCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -376,13 +444,13 @@ namespace DXApplication1
             this.textEditOfficeCode.Properties.NullText = "";
             this.textEditOfficeCode.Properties.ShowHeader = false;
             this.textEditOfficeCode.Properties.ValueMember = "OfficeCode";
-            this.textEditOfficeCode.Size = new System.Drawing.Size(362, 20);
+            this.textEditOfficeCode.Size = new System.Drawing.Size(341, 20);
             this.textEditOfficeCode.StyleController = this.layoutControl1;
             this.textEditOfficeCode.TabIndex = 8;
             // 
             // textEditStoreCode
             // 
-            this.textEditStoreCode.Location = new System.Drawing.Point(570, 60);
+            this.textEditStoreCode.Location = new System.Drawing.Point(550, 60);
             this.textEditStoreCode.MenuManager = this.mainRibbonControl;
             this.textEditStoreCode.Name = "textEditStoreCode";
             this.textEditStoreCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -394,7 +462,7 @@ namespace DXApplication1
             this.textEditStoreCode.Properties.NullText = "";
             this.textEditStoreCode.Properties.ShowHeader = false;
             this.textEditStoreCode.Properties.ValueMember = "StoreCode";
-            this.textEditStoreCode.Size = new System.Drawing.Size(362, 20);
+            this.textEditStoreCode.Size = new System.Drawing.Size(341, 20);
             this.textEditStoreCode.StyleController = this.layoutControl1;
             this.textEditStoreCode.TabIndex = 9;
             // 
@@ -415,7 +483,7 @@ namespace DXApplication1
             this.lCICustomDocNum,
             this.lCIIsReturn});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(944, 369);
+            this.Root.Size = new System.Drawing.Size(903, 423);
             this.Root.TextVisible = false;
             // 
             // lCIDocumentDate
@@ -423,7 +491,7 @@ namespace DXApplication1
             this.lCIDocumentDate.Control = this.dateEditDocumentDate;
             this.lCIDocumentDate.Location = new System.Drawing.Point(0, 72);
             this.lCIDocumentDate.Name = "lCIDocumentDate";
-            this.lCIDocumentDate.Size = new System.Drawing.Size(444, 24);
+            this.lCIDocumentDate.Size = new System.Drawing.Size(424, 24);
             this.lCIDocumentDate.Text = "Faktura Tarixi";
             this.lCIDocumentDate.TextSize = new System.Drawing.Size(111, 13);
             // 
@@ -432,7 +500,7 @@ namespace DXApplication1
             this.lCIInvoiceTime.Control = this.dateEditDocumentTime;
             this.lCIInvoiceTime.Location = new System.Drawing.Point(0, 96);
             this.lCIInvoiceTime.Name = "lCIInvoiceTime";
-            this.lCIInvoiceTime.Size = new System.Drawing.Size(444, 24);
+            this.lCIInvoiceTime.Size = new System.Drawing.Size(424, 24);
             this.lCIInvoiceTime.Text = "Faktura Vaxtı";
             this.lCIInvoiceTime.TextSize = new System.Drawing.Size(111, 13);
             // 
@@ -441,52 +509,52 @@ namespace DXApplication1
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(924, 229);
+            this.layoutControlItem1.Size = new System.Drawing.Size(883, 283);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // lCIOfficeCode
             // 
             this.lCIOfficeCode.Control = this.textEditOfficeCode;
-            this.lCIOfficeCode.Location = new System.Drawing.Point(444, 24);
+            this.lCIOfficeCode.Location = new System.Drawing.Point(424, 24);
             this.lCIOfficeCode.Name = "lCIOfficeCode";
-            this.lCIOfficeCode.Size = new System.Drawing.Size(480, 24);
+            this.lCIOfficeCode.Size = new System.Drawing.Size(459, 24);
             this.lCIOfficeCode.Text = "Ofis Kodu";
             this.lCIOfficeCode.TextSize = new System.Drawing.Size(111, 13);
             // 
             // lCIStoreCode
             // 
             this.lCIStoreCode.Control = this.textEditStoreCode;
-            this.lCIStoreCode.Location = new System.Drawing.Point(444, 48);
+            this.lCIStoreCode.Location = new System.Drawing.Point(424, 48);
             this.lCIStoreCode.Name = "lCIStoreCode";
-            this.lCIStoreCode.Size = new System.Drawing.Size(480, 24);
+            this.lCIStoreCode.Size = new System.Drawing.Size(459, 24);
             this.lCIStoreCode.Text = "Mağaza Kodu";
             this.lCIStoreCode.TextSize = new System.Drawing.Size(111, 13);
             // 
             // lCIWarehouseCode
             // 
             this.lCIWarehouseCode.Control = this.textEditWarehouseCode;
-            this.lCIWarehouseCode.Location = new System.Drawing.Point(444, 72);
+            this.lCIWarehouseCode.Location = new System.Drawing.Point(424, 72);
             this.lCIWarehouseCode.Name = "lCIWarehouseCode";
-            this.lCIWarehouseCode.Size = new System.Drawing.Size(480, 24);
+            this.lCIWarehouseCode.Size = new System.Drawing.Size(459, 24);
             this.lCIWarehouseCode.Text = "Depo Kodu";
             this.lCIWarehouseCode.TextSize = new System.Drawing.Size(111, 13);
             // 
             // lCICurrAccCode
             // 
             this.lCICurrAccCode.Control = this.buttonEditCurrAccCode;
-            this.lCICurrAccCode.Location = new System.Drawing.Point(444, 0);
+            this.lCICurrAccCode.Location = new System.Drawing.Point(424, 0);
             this.lCICurrAccCode.Name = "lCICurrAccCode";
-            this.lCICurrAccCode.Size = new System.Drawing.Size(480, 24);
+            this.lCICurrAccCode.Size = new System.Drawing.Size(459, 24);
             this.lCICurrAccCode.Text = "Tədarikçi";
             this.lCICurrAccCode.TextSize = new System.Drawing.Size(111, 13);
             // 
             // lCIInvoiceDescription
             // 
             this.lCIInvoiceDescription.Control = this.textEditInvoiceDesc;
-            this.lCIInvoiceDescription.Location = new System.Drawing.Point(444, 96);
+            this.lCIInvoiceDescription.Location = new System.Drawing.Point(424, 96);
             this.lCIInvoiceDescription.Name = "lCIInvoiceDescription";
-            this.lCIInvoiceDescription.Size = new System.Drawing.Size(480, 24);
+            this.lCIInvoiceDescription.Size = new System.Drawing.Size(459, 24);
             this.lCIInvoiceDescription.Text = "Açıqlama";
             this.lCIInvoiceDescription.TextSize = new System.Drawing.Size(111, 13);
             // 
@@ -495,7 +563,7 @@ namespace DXApplication1
             this.lCIInvoice.Control = this.buttonEditDocNum;
             this.lCIInvoice.Location = new System.Drawing.Point(0, 0);
             this.lCIInvoice.Name = "lCIInvoice";
-            this.lCIInvoice.Size = new System.Drawing.Size(444, 24);
+            this.lCIInvoice.Size = new System.Drawing.Size(424, 24);
             this.lCIInvoice.Text = "Faktura";
             this.lCIInvoice.TextSize = new System.Drawing.Size(111, 13);
             // 
@@ -504,7 +572,7 @@ namespace DXApplication1
             this.lCICustomDocNum.Control = this.textEditInvoiceCustomNum;
             this.lCICustomDocNum.Location = new System.Drawing.Point(0, 48);
             this.lCICustomDocNum.Name = "lCICustomDocNum";
-            this.lCICustomDocNum.Size = new System.Drawing.Size(444, 24);
+            this.lCICustomDocNum.Size = new System.Drawing.Size(424, 24);
             this.lCICustomDocNum.Text = "Xüsusi Faktura Nömrəsi";
             this.lCICustomDocNum.TextSize = new System.Drawing.Size(111, 13);
             // 
@@ -513,7 +581,7 @@ namespace DXApplication1
             this.lCIIsReturn.Control = this.checkEditIsReturn;
             this.lCIIsReturn.Location = new System.Drawing.Point(0, 24);
             this.lCIIsReturn.Name = "lCIIsReturn";
-            this.lCIIsReturn.Size = new System.Drawing.Size(444, 24);
+            this.lCIIsReturn.Size = new System.Drawing.Size(424, 24);
             this.lCIIsReturn.TextSize = new System.Drawing.Size(0, 0);
             this.lCIIsReturn.TextVisible = false;
             // 
@@ -526,7 +594,7 @@ namespace DXApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(944, 527);
+            this.ClientSize = new System.Drawing.Size(903, 581);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.mainRibbonControl);
             this.Name = "FormInvoice";
@@ -585,8 +653,8 @@ namespace DXApplication1
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnInvoiceLineId;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnInvoiceHeaderID;
+        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceLineId;
+        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceHeaderId;
         private DevExpress.XtraEditors.ButtonEdit buttonEditDocNum;
         private DevExpress.XtraEditors.CheckEdit checkEditIsReturn;
         private DevExpress.XtraEditors.DateEdit dateEditDocumentDate;
@@ -611,5 +679,12 @@ namespace DXApplication1
         private subDataSet subDataSet;
         private System.Windows.Forms.BindingSource trInvoiceLineBindingSource;
         private subDataSetTableAdapters.trInvoiceLineTableAdapter trInvoiceLineTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colQty;
+        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn colPosDiscount;
+        private DevExpress.XtraGrid.Columns.GridColumn colNetAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn colLineDescription;
     }
 }
