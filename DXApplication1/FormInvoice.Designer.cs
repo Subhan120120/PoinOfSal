@@ -40,8 +40,11 @@ namespace DXApplication1
             this.mainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.mainRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.textEditWarehouseCode = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.trInvoiceLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subDataSet = new DXApplication1.subDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumnInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnInvoiceHeaderID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,7 +57,6 @@ namespace DXApplication1
             this.textEditInvoiceDesc = new DevExpress.XtraEditors.MemoEdit();
             this.textEditOfficeCode = new DevExpress.XtraEditors.LookUpEdit();
             this.textEditStoreCode = new DevExpress.XtraEditors.LookUpEdit();
-            this.textEditWarehouseCode = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCIDocumentDate = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCIInvoiceTime = new DevExpress.XtraLayout.LayoutControlItem();
@@ -67,11 +69,15 @@ namespace DXApplication1
             this.lCIInvoice = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCICustomDocNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCIIsReturn = new DevExpress.XtraLayout.LayoutControlItem();
+            this.trInvoiceLineTableAdapter = new DXApplication1.subDataSetTableAdapters.trInvoiceLineTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditWarehouseCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEditDocNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditIsReturn.Properties)).BeginInit();
@@ -83,7 +89,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.textEditInvoiceDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditOfficeCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditStoreCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditWarehouseCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCIDocumentDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCIInvoiceTime)).BeginInit();
@@ -184,6 +189,24 @@ namespace DXApplication1
             this.mainRibbonPageGroup.Name = "mainRibbonPageGroup";
             this.mainRibbonPageGroup.Text = "Tasks";
             // 
+            // textEditWarehouseCode
+            // 
+            this.textEditWarehouseCode.Location = new System.Drawing.Point(570, 84);
+            this.textEditWarehouseCode.MenuManager = this.mainRibbonControl;
+            this.textEditWarehouseCode.Name = "textEditWarehouseCode";
+            this.textEditWarehouseCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textEditWarehouseCode.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("WarehouseCode", "Depo Kodu"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("WarehouseDesc", "Depo Adı")});
+            this.textEditWarehouseCode.Properties.DisplayMember = "WarehouseDesc";
+            this.textEditWarehouseCode.Properties.NullText = "";
+            this.textEditWarehouseCode.Properties.ShowHeader = false;
+            this.textEditWarehouseCode.Properties.ValueMember = "WarehouseCode";
+            this.textEditWarehouseCode.Size = new System.Drawing.Size(362, 20);
+            this.textEditWarehouseCode.StyleController = this.layoutControl1;
+            this.textEditWarehouseCode.TabIndex = 10;
+            // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.gridControl1);
@@ -208,6 +231,7 @@ namespace DXApplication1
             // 
             // gridControl1
             // 
+            this.gridControl1.DataSource = this.trInvoiceLineBindingSource;
             this.gridControl1.Location = new System.Drawing.Point(12, 132);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.mainRibbonControl;
@@ -216,6 +240,16 @@ namespace DXApplication1
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // trInvoiceLineBindingSource
+            // 
+            this.trInvoiceLineBindingSource.DataMember = "trInvoiceLine";
+            this.trInvoiceLineBindingSource.DataSource = this.subDataSet;
+            // 
+            // subDataSet
+            // 
+            this.subDataSet.DataSetName = "subDataSet";
+            this.subDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -228,10 +262,11 @@ namespace DXApplication1
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // gridColumnInvoiceLineId
             // 
-            this.gridColumnInvoiceLineId.Caption = "gridColumn1";
+            this.gridColumnInvoiceLineId.Caption = "InvoiceLineId";
             this.gridColumnInvoiceLineId.FieldName = "InvoiceLineId";
             this.gridColumnInvoiceLineId.Name = "gridColumnInvoiceLineId";
             this.gridColumnInvoiceLineId.OptionsEditForm.StartNewRow = true;
@@ -240,7 +275,7 @@ namespace DXApplication1
             // 
             // gridColumnInvoiceHeaderID
             // 
-            this.gridColumnInvoiceHeaderID.Caption = "gridColumn2";
+            this.gridColumnInvoiceHeaderID.Caption = "InvoiceHeaderID";
             this.gridColumnInvoiceHeaderID.FieldName = "InvoiceHeaderID";
             this.gridColumnInvoiceHeaderID.Name = "gridColumnInvoiceHeaderID";
             this.gridColumnInvoiceHeaderID.Visible = true;
@@ -363,24 +398,6 @@ namespace DXApplication1
             this.textEditStoreCode.StyleController = this.layoutControl1;
             this.textEditStoreCode.TabIndex = 9;
             // 
-            // textEditWarehouseCode
-            // 
-            this.textEditWarehouseCode.Location = new System.Drawing.Point(570, 84);
-            this.textEditWarehouseCode.MenuManager = this.mainRibbonControl;
-            this.textEditWarehouseCode.Name = "textEditWarehouseCode";
-            this.textEditWarehouseCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEditWarehouseCode.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("WarehouseCode", "Depo Kodu"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("WarehouseDesc", "Depo Adı")});
-            this.textEditWarehouseCode.Properties.DisplayMember = "WarehouseDesc";
-            this.textEditWarehouseCode.Properties.NullText = "";
-            this.textEditWarehouseCode.Properties.ShowHeader = false;
-            this.textEditWarehouseCode.Properties.ValueMember = "WarehouseCode";
-            this.textEditWarehouseCode.Size = new System.Drawing.Size(362, 20);
-            this.textEditWarehouseCode.StyleController = this.layoutControl1;
-            this.textEditWarehouseCode.TabIndex = 10;
-            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -500,6 +517,10 @@ namespace DXApplication1
             this.lCIIsReturn.TextSize = new System.Drawing.Size(0, 0);
             this.lCIIsReturn.TextVisible = false;
             // 
+            // trInvoiceLineTableAdapter
+            // 
+            this.trInvoiceLineTableAdapter.ClearBeforeFill = true;
+            // 
             // FormInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,9 +536,12 @@ namespace DXApplication1
             this.Load += new System.EventHandler(this.FormInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditWarehouseCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEditDocNum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditIsReturn.Properties)).EndInit();
@@ -529,7 +553,6 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.textEditInvoiceDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditOfficeCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditStoreCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditWarehouseCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCIDocumentDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCIInvoiceTime)).EndInit();
@@ -558,32 +581,35 @@ namespace DXApplication1
         private DevExpress.XtraBars.BarButtonItem bbiDelete;
         private DevExpress.XtraBars.BarButtonItem bbiClose;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.LookUpEdit textEditWarehouseCode;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnInvoiceLineId;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnInvoiceHeaderID;
         private DevExpress.XtraEditors.ButtonEdit buttonEditDocNum;
         private DevExpress.XtraEditors.CheckEdit checkEditIsReturn;
         private DevExpress.XtraEditors.DateEdit dateEditDocumentDate;
         private DevExpress.XtraEditors.TimeEdit dateEditDocumentTime;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.LayoutControlItem lCIInvoice;
-        private DevExpress.XtraLayout.LayoutControlItem lCIIsReturn;
-        private DevExpress.XtraLayout.LayoutControlItem lCIDocumentDate;
-        private DevExpress.XtraLayout.LayoutControlItem lCIInvoiceTime;
         private DevExpress.XtraEditors.TextEdit textEditInvoiceCustomNum;
-        private DevExpress.XtraLayout.LayoutControlItem lCIOfficeCode;
-        private DevExpress.XtraLayout.LayoutControlItem lCIStoreCode;
-        private DevExpress.XtraLayout.LayoutControlItem lCIWarehouseCode;
-        private DevExpress.XtraLayout.LayoutControlItem lCICustomDocNum;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.ButtonEdit buttonEditCurrAccCode;
         private DevExpress.XtraEditors.MemoEdit textEditInvoiceDesc;
         private DevExpress.XtraEditors.LookUpEdit textEditOfficeCode;
         private DevExpress.XtraEditors.LookUpEdit textEditStoreCode;
-        private DevExpress.XtraEditors.LookUpEdit textEditWarehouseCode;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem lCIDocumentDate;
+        private DevExpress.XtraLayout.LayoutControlItem lCIInvoiceTime;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem lCIOfficeCode;
+        private DevExpress.XtraLayout.LayoutControlItem lCIStoreCode;
+        private DevExpress.XtraLayout.LayoutControlItem lCIWarehouseCode;
         private DevExpress.XtraLayout.LayoutControlItem lCICurrAccCode;
         private DevExpress.XtraLayout.LayoutControlItem lCIInvoiceDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnInvoiceLineId;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnInvoiceHeaderID;
+        private DevExpress.XtraLayout.LayoutControlItem lCIInvoice;
+        private DevExpress.XtraLayout.LayoutControlItem lCICustomDocNum;
+        private DevExpress.XtraLayout.LayoutControlItem lCIIsReturn;
+        private subDataSet subDataSet;
+        private System.Windows.Forms.BindingSource trInvoiceLineBindingSource;
+        private subDataSetTableAdapters.trInvoiceLineTableAdapter trInvoiceLineTableAdapter;
     }
 }

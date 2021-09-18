@@ -155,6 +155,11 @@
     <Compile Include="FormPOS.Designer.cs">
       <DependentUpon>FormPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="subDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>subDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UcSale.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +245,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="subDataSet.xsc">
+      <DependentUpon>subDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="subDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>subDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="subDataSet.xss">
+      <DependentUpon>subDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\credit_cards32x32.png" />
@@ -273,6 +289,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\startup550x363.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

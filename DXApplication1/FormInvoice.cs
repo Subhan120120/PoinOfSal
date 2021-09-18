@@ -3,6 +3,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Windows.Forms;
 namespace DXApplication1
@@ -34,9 +35,11 @@ namespace DXApplication1
 
         private void FormInvoice_Load(object sender, EventArgs e)
         {
-            textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice(); 
+            invoiceHeaderId = "4179201c-652a-4e9d-a8c8-b2ded2b5ce99";
+            trInvoiceLineTableAdapter.FillBy(this.subDataSet.trInvoiceLine, Guid.Parse(invoiceHeaderId));
+            textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice();
             textEditStoreCode.Properties.DataSource = sqlMethods.SelectStore();
-            textEditWarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouse(); 
+            textEditWarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouse();
         }
 
         private void buttonEditDocNum_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -60,9 +63,14 @@ namespace DXApplication1
             }
         }
 
-        private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-            MessageBox.Show("gridView1_InitNewRow");
+            trInvoiceLineTableAdapter.Adapter.Update(subDataSet);
+        }
+
+        private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            gridView1.SetRowCellValue(e.RowHandle, "InvoiceHeaderID", invoiceHeaderId);
         }
     }
 }
