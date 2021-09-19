@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,19 @@ namespace DXApplication1
             {
                 lookUpEdit.Properties.Columns[item].Visible = false;
             }
+        }
+
+        public static bool IsNumeric(this object expression)
+        {
+            if (expression == null)
+                return false;
+
+            double number;
+            return Double.TryParse(Convert.ToString(expression
+                                                    , CultureInfo.InvariantCulture)
+                                  , NumberStyles.Any
+                                  , NumberFormatInfo.InvariantInfo
+                                  , out number);
         }
     }
 }

@@ -7,6 +7,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Windows.Forms;
 using DXApplication1.Model;
+using DevExpress.XtraEditors;
 
 namespace DXApplication1
 {
@@ -90,35 +91,57 @@ namespace DXApplication1
 
         private void gridView1_CellValueChanging(object sender, CellValueChangedEventArgs e)
         {
-            if (e.Column.FieldName == "Qty")
-            {
-                object objPrice = gridView1.GetRowCellValue(e.RowHandle, "Price");
-                object objPosDiscount = gridView1.GetRowCellValue(e.RowHandle, "PosDiscount");
-                decimal Price = objPrice == DBNull.Value ? 0 : Convert.ToDecimal(objPrice);
-                decimal PosDiscount = objPosDiscount == DBNull.Value ? 0 : Convert.ToDecimal(objPosDiscount);
-                gridView1.SetRowCellValue(e.RowHandle, "Amount", Convert.ToDecimal(e.Value) * Price);
-                gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Convert.ToDecimal(e.Value) * Price - PosDiscount);
-            }
+            object objPrice = gridView1.GetRowCellValue(e.RowHandle, "Price");
+            object objQty = gridView1.GetRowCellValue(e.RowHandle, "Qty");
+            object objPosDiscount = gridView1.GetRowCellValue(e.RowHandle, "PosDiscount");
 
             if (e.Column.FieldName == "Price")
-            {
-                object objQty = gridView1.GetRowCellValue(e.RowHandle, "Qty");
-                object objPosDiscount = gridView1.GetRowCellValue(e.RowHandle, "PosDiscount");
-                decimal Qty = objQty == DBNull.Value ? 0 : Convert.ToDecimal(objQty);
-                decimal PosDiscount = objPosDiscount == DBNull.Value ? 0 : Convert.ToDecimal(objPosDiscount);
-                gridView1.SetRowCellValue(e.RowHandle, "Amount", Convert.ToDecimal(e.Value) * Qty);
-                gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Convert.ToDecimal(e.Value) - PosDiscount);
-            }
-
+                objPrice = e.Value; 
+            if (e.Column.FieldName == "Qty")
+                objQty = e.Value;
             if (e.Column.FieldName == "PosDiscount")
-            {
-                object objQty = gridView1.GetRowCellValue(e.RowHandle, "Qty");
-                object objPrice = gridView1.GetRowCellValue(e.RowHandle, "Price");
-                decimal Qty = objQty == DBNull.Value ? 0 : Convert.ToDecimal(objQty);
-                decimal Price = objPrice == DBNull.Value ? 0 : Convert.ToDecimal(objPrice);
-                gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - Convert.ToDecimal(e.Value));
-            }
+                objPosDiscount = e.Value;
 
+            decimal Price = objPrice.IsNumeric() ? Convert.ToDecimal(objPrice) : 0;
+            decimal Qty = objQty.IsNumeric() ? Convert.ToDecimal(objQty) : 0;
+            decimal PosDiscount = objPosDiscount.IsNumeric() ? Convert.ToDecimal(objPosDiscount) : 0;
+
+            gridView1.SetRowCellValue(e.RowHandle, "Amount", Qty * Price);
+            gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - PosDiscount);
+        }
+
+        private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            //GridView view = sender as GridView;
+            //decimal val = Convert.ToDecimal(view.GetRowCellValue(e.RowHandle, colQty));
+            //if (val < 10)
+            //{
+            //    e.ErrorText = "Error absh verdi";
+            //    e.Valid = false;
+            //    view.SetColumnError(colQty, "The value must be greater than Units On Order");
+            //}
+        }
+
+        private void repoItemButtonEditProductCode_ButtonPressed(object sender, ButtonPressedEventArgs e)
+        {
+            ButtonEdit editor = (ButtonEdit)sender;
+            int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
+            if (buttonIndex == 0)
+            {
+                using (FormProductList form = new FormProductList())
+                {
+                    if (form.ShowDialog(this) == DialogResult.OK)
+                    {
+                        editor.EditValue = form.dcProduct.ProductCode;
+                    }
+                }
+            }
+        }
+
+        private void gridView1_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            //e.ExceptionMode = ExceptionMode.DisplayError;
+            //e.ErrorText = "Error occured";
         }
     }
 }

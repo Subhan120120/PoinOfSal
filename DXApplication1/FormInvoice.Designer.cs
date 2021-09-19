@@ -49,6 +49,7 @@ namespace DXApplication1
             this.colInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repoItemButtonEditProductCode = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -86,6 +87,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoItemButtonEditProductCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEditDocNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditIsReturn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDocumentDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -243,6 +245,8 @@ namespace DXApplication1
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.mainRibbonControl;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repoItemButtonEditProductCode});
             this.gridControl1.Size = new System.Drawing.Size(879, 279);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -278,6 +282,8 @@ namespace DXApplication1
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
+            this.gridView1.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView1_InvalidRowException);
+            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             // 
             // colInvoiceLineId
             // 
@@ -295,10 +301,19 @@ namespace DXApplication1
             // colProductCode
             // 
             this.colProductCode.Caption = "Məhsul";
+            this.colProductCode.ColumnEdit = this.repoItemButtonEditProductCode;
             this.colProductCode.FieldName = "ProductCode";
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.Visible = true;
             this.colProductCode.VisibleIndex = 0;
+            // 
+            // repoItemButtonEditProductCode
+            // 
+            this.repoItemButtonEditProductCode.AutoHeight = false;
+            this.repoItemButtonEditProductCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repoItemButtonEditProductCode.Name = "repoItemButtonEditProductCode";
+            this.repoItemButtonEditProductCode.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoItemButtonEditProductCode_ButtonPressed);
             // 
             // colQty
             // 
@@ -611,6 +626,7 @@ namespace DXApplication1
             ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoItemButtonEditProductCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEditDocNum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditIsReturn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDocumentDate.Properties.CalendarTimeProperties)).EndInit();
@@ -686,5 +702,6 @@ namespace DXApplication1
         private DevExpress.XtraGrid.Columns.GridColumn colPosDiscount;
         private DevExpress.XtraGrid.Columns.GridColumn colNetAmount;
         private DevExpress.XtraGrid.Columns.GridColumn colLineDescription;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoItemButtonEditProductCode;
     }
 }
