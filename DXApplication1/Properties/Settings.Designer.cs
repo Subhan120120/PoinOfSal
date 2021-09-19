@@ -26,8 +26,8 @@ namespace DXApplication1.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-DD8RVOA\\SUBSQL;Initial Catalog=sub;Persist Security Info=True" +
-            ";User ID=sa;Password=sql123_")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-DD8RVOA\\SUBSQL;Initial Catalog=suba;Persist Security Info=Tru" +
+            "e;User ID=sa;Password=sql123_")]
         public string subConnString {
             get {
                 return ((string)(this["subConnString"]));

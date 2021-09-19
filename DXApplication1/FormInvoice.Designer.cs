@@ -140,7 +140,6 @@ namespace DXApplication1
             this.bbiSave.Id = 2;
             this.bbiSave.ImageOptions.ImageUri.Uri = "Save";
             this.bbiSave.Name = "bbiSave";
-            this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiSaveAndClose
             // 
@@ -280,10 +279,10 @@ namespace DXApplication1
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
             this.gridView1.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView1_InvalidRowException);
             this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
+            this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             // 
             // colInvoiceLineId
             // 
@@ -291,12 +290,16 @@ namespace DXApplication1
             this.colInvoiceLineId.FieldName = "InvoiceLineId";
             this.colInvoiceLineId.Name = "colInvoiceLineId";
             this.colInvoiceLineId.OptionsEditForm.StartNewRow = true;
+            this.colInvoiceLineId.Visible = true;
+            this.colInvoiceLineId.VisibleIndex = 7;
             // 
             // colInvoiceHeaderId
             // 
             this.colInvoiceHeaderId.Caption = "InvoiceHeaderId";
             this.colInvoiceHeaderId.FieldName = "InvoiceHeaderId";
             this.colInvoiceHeaderId.Name = "colInvoiceHeaderId";
+            this.colInvoiceHeaderId.Visible = true;
+            this.colInvoiceHeaderId.VisibleIndex = 8;
             // 
             // colProductCode
             // 
@@ -374,7 +377,7 @@ namespace DXApplication1
             this.buttonEditDocNum.Size = new System.Drawing.Size(306, 20);
             this.buttonEditDocNum.StyleController = this.layoutControl1;
             this.buttonEditDocNum.TabIndex = 4;
-            this.buttonEditDocNum.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditDocNum_ButtonClick);
+            this.buttonEditDocNum.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditDocNum_ButtonPressed);
             // 
             // checkEditIsReturn
             // 

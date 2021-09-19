@@ -157,7 +157,7 @@ namespace DXApplication1
             this.aCEInvoice.Name = "aCEInvoice";
             this.aCEInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aCEInvoice.Text = "Alış Fakturası";
-            this.aCEInvoice.Click += new System.EventHandler(this.accordionControlElement2_Click_1);
+            this.aCEInvoice.Click += new System.EventHandler(this.accordionControlElement2_Click);
             // 
             // aCEshipment
             // 

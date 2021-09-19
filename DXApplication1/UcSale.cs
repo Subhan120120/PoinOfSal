@@ -65,6 +65,7 @@ namespace DXApplication1
                         trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
                         {
                             InvoiceHeaderId = invoiceHeaderId,
+                            ProcessCode = "RS",
                             DocumentNumber = NewDocNum
                         };
                         sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
@@ -188,6 +189,7 @@ namespace DXApplication1
                     trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
                     {
                         InvoiceHeaderId = invoiceHeaderId,
+                        ProcessCode = "RS",
                         DocumentNumber = NewDocNum,
                     };
                     sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
@@ -276,6 +278,7 @@ namespace DXApplication1
                             trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
                             {
                                 InvoiceHeaderId = invoiceHeaderId,
+                                ProcessCode = "RS",
                                 DocumentNumber = NewDocNum,
                             };
                             sqlMethods.InsertInvoiceHeader(trInvoiceHeader);

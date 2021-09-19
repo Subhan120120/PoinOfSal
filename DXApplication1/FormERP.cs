@@ -63,8 +63,7 @@ namespace DXApplication1
             adornerUIManager1.EndUpdate();
         }
 
-
-        private void accordionControlElement2_Click_1(object sender, EventArgs e)
+        private void accordionControlElement2_Click(object sender, EventArgs e)
         {
             FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
             if (formInvoice != null)

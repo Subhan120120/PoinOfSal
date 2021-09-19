@@ -61,7 +61,7 @@ namespace DXApplication1
         public DataTable SelectInvoiceHeader()
         {
             SqlParameter[] paramArray2 = new SqlParameter[] { };
-            string qry = "select * from trInvoiceHeader where IsCompleted = 1 order by CreatedDate "; // burdaki kolonlari dizaynda da elave et
+            string qry = "select * from trInvoiceHeader order by CreatedDate "; // burdaki kolonlari dizaynda da elave et
             return SqlGetDt(qry, paramArray2);
         }
 
@@ -152,15 +152,23 @@ namespace DXApplication1
 
         public void InsertInvoiceHeader(trInvoiceHeader trInvoiceHeader)
         {
-            string qry = "INSERT INTO trInvoiceHeader (InvoiceHeaderId, ProcessCode, DocumentNumber, IsReturn) " +
-                "VALUES (@InvoiceHeaderId,@ProcessCode,@DocumentNumber, @IsReturn)";
+            string qry = "INSERT INTO trInvoiceHeader (InvoiceHeaderId, ProcessCode, DocumentNumber, IsReturn, CustomsDocumentNumber, DocumentDate, DocumentTime, CurrAccCode, OfficeCode, StoreCode, WarehouseCode, Description) " +
+                "VALUES (@InvoiceHeaderId, @ProcessCode, @DocumentNumber, @IsReturn, @CustomsDocumentNumber, @DocumentDate, @DocumentTime, @CurrAccCode, @OfficeCode, @StoreCode, @WarehouseCode, @Description)";
 
             paramArray = new SqlParameter[]
             {
                 new SqlParameter("@InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId),
-                new SqlParameter("@ProcessCode", "RS"),
+                new SqlParameter("@ProcessCode", trInvoiceHeader.ProcessCode),
                 new SqlParameter("@DocumentNumber", trInvoiceHeader.DocumentNumber),
-                new SqlParameter("@IsReturn", trInvoiceHeader.IsReturn)
+                new SqlParameter("@IsReturn", trInvoiceHeader.IsReturn),
+                new SqlParameter("@CustomsDocumentNumber", trInvoiceHeader.CustomsDocumentNumber),
+                new SqlParameter("@DocumentDate", trInvoiceHeader.DocumentDate),
+                new SqlParameter("@DocumentTime", trInvoiceHeader.DocumentTime),
+                new SqlParameter("@CurrAccCode", trInvoiceHeader.CurrAccCode),
+                new SqlParameter("@OfficeCode", trInvoiceHeader.OfficeCode),
+                new SqlParameter("@StoreCode", trInvoiceHeader.StoreCode),
+                new SqlParameter("@WarehouseCode", trInvoiceHeader.WarehouseCode),
+                new SqlParameter("@Description", trInvoiceHeader.Description)
             };
 
             SqlExec(qry, paramArray);

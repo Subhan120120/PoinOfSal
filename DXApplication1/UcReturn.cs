@@ -56,6 +56,7 @@ namespace DXApplication1
                                 {
                                     InvoiceHeaderId = returnInvoiceHeaderId,
                                     DocumentNumber = NewDocNum,
+                                    ProcessCode = "RS",
                                     IsReturn = true
                                 };
                                 sqlMethods.InsertInvoiceHeader(trInvoiceHeader);

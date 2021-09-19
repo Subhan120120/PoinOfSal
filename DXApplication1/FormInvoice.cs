@@ -1,13 +1,12 @@
 ﻿using DevExpress.Utils.VisualEffects;
-using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using DXApplication1.Model;
 using System;
 using System.Windows.Forms;
-using DXApplication1.Model;
-using DevExpress.XtraEditors;
 
 namespace DXApplication1
 {
@@ -17,7 +16,7 @@ namespace DXApplication1
         Badge badge2;
         AdornerUIManager adornerUIManager1;
 
-        public string invoiceHeaderId = Guid.NewGuid().ToString();
+        public string invoiceHeaderId;
 
         SqlMethods sqlMethods = new SqlMethods();
 
@@ -38,7 +37,7 @@ namespace DXApplication1
 
         private void FormInvoice_Load(object sender, EventArgs e)
         {
-            invoiceHeaderId = "da40f3b8-3b70-41b4-a2ee-71f81af11383";
+            invoiceHeaderId = Guid.NewGuid().ToString();
             trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, Guid.Parse(invoiceHeaderId));
 
             textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice();
@@ -46,14 +45,26 @@ namespace DXApplication1
             textEditWarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouse();
         }
 
-        private void buttonEditDocNum_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private void buttonEditDocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
+            using (FormInvoiceHeaderList form = new FormInvoiceHeaderList())
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    buttonEditDocNum.EditValue = form.trInvoiceHeader.DocumentNumber;
+                    checkEditIsReturn.EditValue = form.trInvoiceHeader.IsReturn;
+                    textEditInvoiceCustomNum.EditValue = form.trInvoiceHeader.CustomsDocumentNumber;
+                    dateEditDocumentDate.EditValue = form.trInvoiceHeader.DocumentDate;
+                    dateEditDocumentTime.EditValue = form.trInvoiceHeader.DocumentTime;
+                    buttonEditCurrAccCode.EditValue = form.trInvoiceHeader.CurrAccCode;
+                    textEditOfficeCode.EditValue = form.trInvoiceHeader.OfficeCode;
+                    textEditStoreCode.EditValue = form.trInvoiceHeader.StoreCode;
+                    textEditWarehouseCode.EditValue = form.trInvoiceHeader.WarehouseCode;
+                    textEditInvoiceDesc.EditValue = form.trInvoiceHeader.Description;
 
-        }
-
-        private void bbiSave_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
+                    trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, Guid.Parse(form.trInvoiceHeader.InvoiceHeaderId));
+                }
+            }
         }
 
         private void buttonEditCurrAccCode_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -67,23 +78,28 @@ namespace DXApplication1
             }
         }
 
-        private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
-        {
-            trInvoiceLineTableAdapter.Adapter.Update(subDataSet);
-        }
-
         private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            //if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
-            //{
-            //    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
-            //    trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
-            //    {
-            //        InvoiceHeaderId = invoiceHeaderId,
-            //        DocumentNumber = NewDocNum,
-            //    };
-            //    sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
-            //}
+            if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
+            {
+                string NewDocNum = sqlMethods.GetNextDocNum("RP", "DocumentNumber", "trInvoiceHeader");
+                trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                {
+                    InvoiceHeaderId = invoiceHeaderId,
+                    ProcessCode = "RP",
+                    DocumentNumber = NewDocNum,
+                    IsReturn = Convert.ToBoolean(checkEditIsReturn.EditValue),
+                    CustomsDocumentNumber = textEditInvoiceCustomNum.EditValue.ToString(),
+                    DocumentDate = Convert.ToDateTime(dateEditDocumentDate.EditValue),
+                    DocumentTime = (TimeSpan)dateEditDocumentTime.EditValue,
+                    CurrAccCode = buttonEditCurrAccCode.EditValue.ToString(),
+                    OfficeCode = textEditOfficeCode.EditValue.ToString(),
+                    StoreCode = textEditStoreCode.EditValue.ToString(),
+                    WarehouseCode = textEditWarehouseCode.EditValue.ToString(),
+                    Description = textEditInvoiceDesc.EditValue.ToString(),
+                };
+                sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+            }
 
             gridView1.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
             gridView1.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
@@ -112,14 +128,14 @@ namespace DXApplication1
 
         private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
         {
-            //GridView view = sender as GridView;
-            //decimal val = Convert.ToDecimal(view.GetRowCellValue(e.RowHandle, colQty));
-            //if (val < 10)
-            //{
-            //    e.ErrorText = "Error absh verdi";
-            //    e.Valid = false;
-            //    view.SetColumnError(colQty, "The value must be greater than Units On Order");
-            //}
+            GridView view = sender as GridView;
+            decimal val = Convert.ToDecimal(view.GetRowCellValue(e.RowHandle, colQty));
+            if (val < 10)
+            {
+                //e.ErrorText = "Error absh verdi";
+                e.Valid = false;
+                view.SetColumnError(colQty, "Deyer 10dan az ola bilmez");
+            }
         }
 
         private void repoItemButtonEditProductCode_ButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -140,8 +156,13 @@ namespace DXApplication1
 
         private void gridView1_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
-            //e.ExceptionMode = ExceptionMode.DisplayError;
-            //e.ErrorText = "Error occured";
+            e.ExceptionMode = ExceptionMode.DisplayError;
+            e.ErrorText = "Deyer 10dan az ola bilmez";
         }
+
+        private void gridView1_RowUpdated(object sender, RowObjectEventArgs e)
+        {
+            trInvoiceLineTableAdapter.Adapter.Update(subDataSet);
+        }        
     }
 }
