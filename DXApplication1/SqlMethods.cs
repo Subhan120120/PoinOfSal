@@ -1,10 +1,10 @@
-﻿using DXApplication1.Model;
+﻿using PointOfSale.Model;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public class SqlMethods
     {

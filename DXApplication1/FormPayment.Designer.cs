@@ -1,5 +1,5 @@
 ﻿
-namespace DXApplication1
+namespace PointOfSale
 {
     partial class FormPayment
     {
@@ -567,7 +567,7 @@ namespace DXApplication1
             // layoutControlItemCash
             // 
             this.layoutControlItemCash.Control = this.textEditCash;
-            this.layoutControlItemCash.ImageOptions.Image = global::DXApplication1.Properties.Resources.Untitled_32x32x;
+            this.layoutControlItemCash.ImageOptions.Image = global::PointOfSale.Properties.Resources.Untitled_32x32x;
             this.layoutControlItemCash.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemCash.Name = "layoutControlItemCash";
             this.layoutControlItemCash.Size = new System.Drawing.Size(195, 36);
@@ -609,7 +609,7 @@ namespace DXApplication1
             // layoutControlItemCashless
             // 
             this.layoutControlItemCashless.Control = this.textEditCashless;
-            this.layoutControlItemCashless.ImageOptions.Image = global::DXApplication1.Properties.Resources.CreditCard_32x32;
+            this.layoutControlItemCashless.ImageOptions.Image = global::PointOfSale.Properties.Resources.CreditCard_32x32;
             this.layoutControlItemCashless.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemCashless.Name = "layoutControlItemCashless";
             this.layoutControlItemCashless.Size = new System.Drawing.Size(195, 36);

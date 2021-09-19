@@ -1,5 +1,5 @@
 ﻿
-namespace DXApplication1
+namespace PointOfSale
 {
     partial class SplashScreenStartup
     {
@@ -125,7 +125,7 @@ namespace DXApplication1
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SplashScreen1";
             this.ShowMode = DevExpress.XtraSplashScreen.ShowMode.Image;
-            this.SplashImageOptions.Image = global::DXApplication1.Properties.Resources.startup550x363_png;
+            this.SplashImageOptions.Image = global::PointOfSale.Properties.Resources.startup550x363_png;
             this.Text = "SplashScreen1";
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).EndInit();

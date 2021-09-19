@@ -1,9 +1,9 @@
 ﻿using DevExpress.XtraEditors;
-using DXApplication1.Model;
+using PointOfSale.Model;
 using System;
 using System.Windows.Forms;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public partial class FormCustomer : XtraForm
     {

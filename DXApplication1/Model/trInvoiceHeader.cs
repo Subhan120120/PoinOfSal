@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DXApplication1.Model
+namespace PointOfSale.Model
 {
     public class trInvoiceHeader
     {

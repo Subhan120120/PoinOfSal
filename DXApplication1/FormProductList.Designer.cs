@@ -1,5 +1,5 @@
 ﻿
-namespace DXApplication1
+namespace PointOfSale
 {
     partial class FormProductList
     {
@@ -65,7 +65,7 @@ namespace DXApplication1
             // 
             // sqlDataSource1
             // 
-            this.sqlDataSource1.ConnectionName = "DXApplication1.Properties.Settings.subConnString";
+            this.sqlDataSource1.ConnectionName = "PointOfSale.Properties.Settings.subConnString";
             this.sqlDataSource1.Name = "sqlDataSource1";
             customSqlQuery1.Name = "dcProduct";
             customSqlQuery1.Sql = "select *\r\n  from \"dbo\".\"dcProduct\" \"dcProduct\"";

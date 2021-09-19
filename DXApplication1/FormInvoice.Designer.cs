@@ -1,5 +1,5 @@
 ﻿
-namespace DXApplication1
+namespace PointOfSale
 {
     partial class FormInvoice
     {
@@ -44,7 +44,7 @@ namespace DXApplication1
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.trInvoiceLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.subDataSet = new DXApplication1.subDataSet();
+            this.subDataSet = new PointOfSale.subDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,7 +77,7 @@ namespace DXApplication1
             this.lCIInvoice = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCICustomDocNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCIIsReturn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.trInvoiceLineTableAdapter = new DXApplication1.subDataSetTableAdapters.trInvoiceLineTableAdapter();
+            this.trInvoiceLineTableAdapter = new PointOfSale.subDataSetTableAdapters.trInvoiceLineTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditWarehouseCode.Properties)).BeginInit();

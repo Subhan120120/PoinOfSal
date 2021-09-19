@@ -6,7 +6,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.ToolbarForm;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     partial class FormPOS
     {
@@ -46,9 +46,9 @@ namespace DXApplication1
             this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
             this.barCheckItem2 = new DevExpress.XtraBars.BarCheckItem();
             this.navigationPageReturn = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.ucReturn = new DXApplication1.UcReturn();
+            this.ucReturn = new PointOfSale.UcReturn();
             this.navigationPageSale = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.ucSale = new DXApplication1.UcSale();
+            this.ucSale = new PointOfSale.UcSale();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();

@@ -4,11 +4,11 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using DXApplication1.Model;
+using PointOfSale.Model;
 using System;
 using System.Windows.Forms;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public partial class FormInvoice : RibbonForm
     {

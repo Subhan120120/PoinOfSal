@@ -2,10 +2,10 @@
 using System;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
-using DXApplication1.Model;
+using PointOfSale.Model;
 using System.Windows.Forms;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public partial class UcSale : XtraUserControl
     {

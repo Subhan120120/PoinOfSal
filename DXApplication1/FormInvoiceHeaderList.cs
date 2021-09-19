@@ -1,11 +1,11 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using DXApplication1.Model;
+using PointOfSale.Model;
 using System;
 using System.Windows.Forms;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public partial class FormInvoiceHeaderList : DevExpress.XtraEditors.XtraForm
     {

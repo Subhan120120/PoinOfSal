@@ -1,12 +1,12 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using DXApplication1.Model;
+using PointOfSale.Model;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.Controls;
 using System.Data;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public partial class UcReturn : XtraUserControl
     {

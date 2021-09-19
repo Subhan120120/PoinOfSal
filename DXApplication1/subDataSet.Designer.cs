@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace DXApplication1 {
+namespace PointOfSale {
     
     
     /// <summary>
@@ -1356,7 +1356,7 @@ namespace DXApplication1 {
         }
     }
 }
-namespace DXApplication1.subDataSetTableAdapters {
+namespace PointOfSale.subDataSetTableAdapters {
     
     
     /// <summary>
@@ -1680,7 +1680,7 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DXApplication1.Properties.Settings.Default.subConnString;
+            this._connection.ConnectionString = global::PointOfSale.Properties.Settings.Default.subConnString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

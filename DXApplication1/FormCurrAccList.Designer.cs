@@ -1,5 +1,5 @@
 ﻿
-namespace DXApplication1
+namespace PointOfSale
 {
     partial class FormCurrAccList
     {

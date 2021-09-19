@@ -1,12 +1,12 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DXApplication1.Model;
+using PointOfSale.Model;
 using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public partial class FormPayment : XtraForm
     {

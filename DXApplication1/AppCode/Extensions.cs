@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public static class Extensions
     {

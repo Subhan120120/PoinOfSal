@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="subConnString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="subConnString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DXApplication1.Properties.Settings.GlobalReference.Default.subConnString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="subConnString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="subConnString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PointOfSale.Properties.Settings.GlobalReference.Default.subConnString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="trInvoiceLineTableAdapter" GeneratorDataComponentClassName="trInvoiceLineTableAdapter" Name="trInvoiceLine" UserDataComponentName="trInvoiceLineTableAdapter">
@@ -190,7 +190,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId</CommandText>
   <xs:element name="subDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="subDataSet" msprop:Generator_UserDSName="subDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="trInvoiceLine" msprop:Generator_TableClassName="trInvoiceLineDataTable" msprop:Generator_TableVarName="tabletrInvoiceLine" msprop:Generator_RowChangedName="trInvoiceLineRowChanged" msprop:Generator_TablePropName="trInvoiceLine" msprop:Generator_RowDeletingName="trInvoiceLineRowDeleting" msprop:Generator_RowChangingName="trInvoiceLineRowChanging" msprop:Generator_RowEvHandlerName="trInvoiceLineRowChangeEventHandler" msprop:Generator_RowDeletedName="trInvoiceLineRowDeleted" msprop:Generator_RowClassName="trInvoiceLineRow" msprop:Generator_UserTableName="trInvoiceLine" msprop:Generator_RowEvArgName="trInvoiceLineRowChangeEvent">
+        <xs:element name="trInvoiceLine" msprop:Generator_TableClassName="trInvoiceLineDataTable" msprop:Generator_TableVarName="tabletrInvoiceLine" msprop:Generator_TablePropName="trInvoiceLine" msprop:Generator_RowDeletingName="trInvoiceLineRowDeleting" msprop:Generator_RowChangingName="trInvoiceLineRowChanging" msprop:Generator_RowEvHandlerName="trInvoiceLineRowChangeEventHandler" msprop:Generator_RowDeletedName="trInvoiceLineRowDeleted" msprop:Generator_UserTableName="trInvoiceLine" msprop:Generator_RowChangedName="trInvoiceLineRowChanged" msprop:Generator_RowEvArgName="trInvoiceLineRowChangeEvent" msprop:Generator_RowClassName="trInvoiceLineRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InvoiceLineId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnInvoiceLineId" msprop:Generator_ColumnPropNameInRow="InvoiceLineId" msprop:Generator_ColumnPropNameInTable="InvoiceLineIdColumn" msprop:Generator_UserColumnName="InvoiceLineId" type="xs:string" />
