@@ -5,7 +5,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace DXApplication1
+namespace PointOfSale
 {
     public partial class FormPOS : ToolbarForm
     {

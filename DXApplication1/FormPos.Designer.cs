@@ -1,10 +1,8 @@
 ﻿
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.ToolbarForm;
+using System.ComponentModel;
 
 namespace PointOfSale
 {
