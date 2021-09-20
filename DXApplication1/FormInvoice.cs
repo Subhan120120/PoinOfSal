@@ -4,7 +4,6 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using PointOfSale.Model;
 using System;
 using System.Windows.Forms;
 
@@ -16,7 +15,7 @@ namespace PointOfSale
         Badge badge2;
         AdornerUIManager adornerUIManager1;
 
-        public string invoiceHeaderId;
+        public Guid invoiceHeaderId;
 
         SqlMethods sqlMethods = new SqlMethods();
 
@@ -37,8 +36,8 @@ namespace PointOfSale
 
         private void FormInvoice_Load(object sender, EventArgs e)
         {
-            invoiceHeaderId = Guid.NewGuid().ToString();
-            trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, Guid.Parse(invoiceHeaderId));
+            invoiceHeaderId = Guid.NewGuid();
+            trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, invoiceHeaderId);
 
             textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice();
             textEditStoreCode.Properties.DataSource = sqlMethods.SelectStore();
@@ -62,7 +61,7 @@ namespace PointOfSale
                     textEditWarehouseCode.EditValue = form.trInvoiceHeader.WarehouseCode;
                     textEditInvoiceDesc.EditValue = form.trInvoiceHeader.Description;
 
-                    trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, Guid.Parse(form.trInvoiceHeader.InvoiceHeaderId));
+                    trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, form.trInvoiceHeader.InvoiceHeaderId);
                 }
             }
         }
@@ -112,7 +111,7 @@ namespace PointOfSale
             object objPosDiscount = gridView1.GetRowCellValue(e.RowHandle, "PosDiscount");
 
             if (e.Column.FieldName == "Price")
-                objPrice = e.Value; 
+                objPrice = e.Value;
             if (e.Column.FieldName == "Qty")
                 objQty = e.Value;
             if (e.Column.FieldName == "PosDiscount")
@@ -163,6 +162,6 @@ namespace PointOfSale
         private void gridView1_RowUpdated(object sender, RowObjectEventArgs e)
         {
             trInvoiceLineTableAdapter.Adapter.Update(subDataSet);
-        }        
+        }
     }
 }

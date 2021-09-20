@@ -1,6 +1,6 @@
-﻿using PointOfSale.Model;
-using System;
+﻿using System;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -65,7 +65,7 @@ namespace PointOfSale
             return SqlGetDt(qry, paramArray2);
         }
 
-        public DataTable SelectInvoiceLine(string invoiceHeaderId)
+        public DataTable SelectInvoiceLine(Guid invoiceHeaderId)
         {
             string qry = "select trInvoiceLine.*, ProductDescription, Barcode" +
                 ", ReturnQty = ISNULL((select sum(Qty) from trInvoiceLine returnLine where returnLine.RelatedLineId = trInvoiceLine.InvoiceLineId),0) " +
@@ -81,7 +81,7 @@ namespace PointOfSale
             return SqlGetDt(qry, paramArray);
         }
 
-        public int InsertInvoiceLine(dcProduct dcProduct, string invoiceHeaderId)
+        public int InsertInvoiceLine(dcProduct dcProduct, Guid invoiceHeaderId)
         {
             string qry = "Insert into trInvoiceLine([InvoiceLineId],[InvoiceHeaderId],[ProductCode],[Price],[Amount],[PosDiscount],[NetAmount]) " +
                 "select @InvoiceLineId,@InvoiceHeaderId,[ProductCode],[RetailPrice],[RetailPrice],[PosDiscount],[RetailPrice]-[PosDiscount] from dcProduct ";
@@ -120,7 +120,7 @@ namespace PointOfSale
             return SqlExec(qry, paramArray);
         }
 
-        public bool InvoiceLineExist(string invoicecHeaderId, object relatedLineId)
+        public bool InvoiceLineExist(Guid invoicecHeaderId, object relatedLineId)
         {
             string qry = "SELECT TOP 1 1 FROM trInvoiceLine WHERE RelatedLineId = @RelatedLineId AND InvoiceHeaderId = @InvoicecHeaderId";
             paramArray = new SqlParameter[]
@@ -134,7 +134,7 @@ namespace PointOfSale
             else return false;
         }
 
-        public bool InvoiceHeaderExist(string invoiceHeaderId)
+        public bool InvoiceHeaderExist(Guid invoiceHeaderId)
         {
             string qry = "SELECT TOP 1 InvoiceHeaderId FROM [trInvoiceHeader] WHERE ([InvoiceHeaderId] = @InvoiceHeaderId)";
             paramArray = new SqlParameter[]
@@ -152,29 +152,48 @@ namespace PointOfSale
 
         public void InsertInvoiceHeader(trInvoiceHeader trInvoiceHeader)
         {
-            string qry = "INSERT INTO trInvoiceHeader (InvoiceHeaderId, ProcessCode, DocumentNumber, IsReturn, CustomsDocumentNumber, DocumentDate, DocumentTime, CurrAccCode, OfficeCode, StoreCode, WarehouseCode, Description) " +
-                "VALUES (@InvoiceHeaderId, @ProcessCode, @DocumentNumber, @IsReturn, @CustomsDocumentNumber, @DocumentDate, @DocumentTime, @CurrAccCode, @OfficeCode, @StoreCode, @WarehouseCode, @Description)";
+            dbContext db = new dbContext();
+            //string qry = "INSERT INTO trInvoiceHeader (InvoiceHeaderId, ProcessCode, DocumentNumber, IsReturn, CustomsDocumentNumber, DocumentDate, DocumentTime, CurrAccCode, OfficeCode, StoreCode, WarehouseCode, Description) " +
+            //    "VALUES (@InvoiceHeaderId, @ProcessCode, @DocumentNumber, @IsReturn, @CustomsDocumentNumber, @DocumentDate, @DocumentTime, @CurrAccCode, @OfficeCode, @StoreCode, @WarehouseCode, @Description)";
 
-            paramArray = new SqlParameter[]
+            //paramArray = new SqlParameter[]
+            //{
+            //    new SqlParameter("@InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId.ValueOrNull()),
+            //    new SqlParameter("@ProcessCode", trInvoiceHeader.ProcessCode.ValueOrNull()),
+            //    new SqlParameter("@DocumentNumber", trInvoiceHeader.DocumentNumber.ValueOrNull()),
+            //    new SqlParameter("@IsReturn", trInvoiceHeader.IsReturn),
+            //    new SqlParameter("@CustomsDocumentNumber", trInvoiceHeader.CustomsDocumentNumber.ValueOrNull()),
+            //    new SqlParameter("@DocumentDate", trInvoiceHeader.DocumentDate.ValueOrNull()),
+            //    new SqlParameter("@DocumentTime", trInvoiceHeader.DocumentTime.ValueOrNull()),
+            //    new SqlParameter("@CurrAccCode", trInvoiceHeader.CurrAccCode.ValueOrNull()),
+            //    new SqlParameter("@OfficeCode", trInvoiceHeader.OfficeCode.ValueOrNull()),
+            //    new SqlParameter("@StoreCode", trInvoiceHeader.StoreCode.ValueOrNull()),
+            //    new SqlParameter("@WarehouseCode", trInvoiceHeader.WarehouseCode.ValueOrNull()),
+            //    new SqlParameter("@Description", trInvoiceHeader.Description.ValueOrNull())
+            //};
+
+            //SqlExec(qry, paramArray);
+
+            db.trInvoiceHeaders.Add(trInvoiceHeader);
+            try
             {
-                new SqlParameter("@InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId.ValueOrNull()),
-                new SqlParameter("@ProcessCode", trInvoiceHeader.ProcessCode.ValueOrNull()),
-                new SqlParameter("@DocumentNumber", trInvoiceHeader.DocumentNumber.ValueOrNull()),
-                new SqlParameter("@IsReturn", trInvoiceHeader.IsReturn),
-                new SqlParameter("@CustomsDocumentNumber", trInvoiceHeader.CustomsDocumentNumber.ValueOrNull()),
-                new SqlParameter("@DocumentDate", trInvoiceHeader.DocumentDate.ValueOrNull()),
-                new SqlParameter("@DocumentTime", trInvoiceHeader.DocumentTime.ValueOrNull()),
-                new SqlParameter("@CurrAccCode", trInvoiceHeader.CurrAccCode.ValueOrNull()),
-                new SqlParameter("@OfficeCode", trInvoiceHeader.OfficeCode.ValueOrNull()),
-                new SqlParameter("@StoreCode", trInvoiceHeader.StoreCode.ValueOrNull()),
-                new SqlParameter("@WarehouseCode", trInvoiceHeader.WarehouseCode.ValueOrNull()),
-                new SqlParameter("@Description", trInvoiceHeader.Description.ValueOrNull())
-            };
-
-            SqlExec(qry, paramArray);
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        MessageBox.Show("Entity of type: " + eve.Entry.Entity.GetType().Name + " \nstate: " + eve.Entry.State + " \nhas the following validation errors:" +
+                            "\nProperty: " + ve.PropertyName + ", \nError: " + ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
 
-        public int DeleteInvoice(string invoiceHeaderId)
+        public int DeleteInvoice(Guid invoiceHeaderId)
         {
             string qry = "DELETE FROM [dbo].[trInvoiceLine] where InvoiceHeaderId = @InvoiceHeaderId; " +
                 "DELETE FROM [dbo].[trInvoiceHeader] where InvoiceHeaderId = @InvoiceHeaderId";
@@ -199,7 +218,7 @@ namespace PointOfSale
             return SqlExec(qry, paramArray);
         }
 
-        public int UpdateInvoiceIsCompleted(string invoiceHeaderId)
+        public int UpdateInvoiceIsCompleted(Guid invoiceHeaderId)
         {
             string qry = "UPDATE trInvoiceHeader SET IsCompleted = 1 WHERE InvoiceHeaderId = @InvoiceHeaderId";
 
@@ -273,7 +292,7 @@ namespace PointOfSale
             return SqlExec(qry, paramArray);
         }
 
-        public int UpdateCurrAccCode(string currAccCode, string invoiceHeaderId)
+        public int UpdateCurrAccCode(string currAccCode, Guid invoiceHeaderId)
         {
             string qry = "UPDATE [dbo].[trInvoiceHeader] set CurrAccCode = @CurrAccCode where InvoiceHeaderId = @InvoiceHeaderId";
 
@@ -295,7 +314,7 @@ namespace PointOfSale
             paramArray = new SqlParameter[]
             {
                 new SqlParameter("@PaymentHeaderID", trPayment.PaymentHeaderID),
-                new SqlParameter("@InvoiceHeaderId", trPayment.InvoiceHeaderId),
+                new SqlParameter("@InvoiceHeaderId", trPayment.InvoiceHeaderID),
                 new SqlParameter("@DocumentNumber", trPayment.DocumentNumber),
                 new SqlParameter("@CurrAccCode", "C-0-0")
             };
@@ -319,7 +338,7 @@ namespace PointOfSale
             return SqlExec(qry, paramArray);
         }
 
-        public bool PaymentHeaderExist(string invoiceHeaderId)
+        public bool PaymentHeaderExist(Guid invoiceHeaderId)
         {
             string qry = "SELECT TOP 1 PaymentHeaderID FROM [trPaymentHeader] WHERE ([InvoiceHeaderId] = @InvoiceHeaderId)";
             paramArray = new SqlParameter[]
@@ -332,7 +351,7 @@ namespace PointOfSale
             else return false;
         }
 
-        public DataTable SelectPaymentLine(string invoiceHeaderId)
+        public DataTable SelectPaymentLine(Guid invoiceHeaderId)
         {
             string qry = "select paymentTypeDescription, Payment from trPaymentLine " +
                 "join trPaymentHeader on trPaymentHeader.PaymentHeaderID = trPaymentLine.PaymentHeaderID " +

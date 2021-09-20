@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using PointOfSale.Model;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.Controls;
@@ -10,9 +9,9 @@ namespace PointOfSale
 {
     public partial class UcReturn : XtraUserControl
     {
-        public string returnInvoiceHeaderId;
-        public object invoiceHeaderId;
-        public object invoiceLineID;
+        public Guid returnInvoiceHeaderId;
+        public Guid invoiceHeaderId;
+        public Guid invoiceLineID;
         SqlMethods sqlMethods = new SqlMethods();
 
         public UcReturn()
@@ -27,11 +26,11 @@ namespace PointOfSale
 
         private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-            invoiceHeaderId = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceHeaderId");
-            invoiceLineID = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "invoiceLineID");
-            returnInvoiceHeaderId = Guid.NewGuid().ToString();
-            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId.ToString());
-            gridControlPaymentLine.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderId.ToString());
+            invoiceHeaderId = (Guid)gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceHeaderId");
+            invoiceLineID = (Guid)gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "invoiceLineID");
+            returnInvoiceHeaderId = Guid.NewGuid();
+            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
+            gridControlPaymentLine.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderId);
         }
 
         private void repoButtonReturnLine_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -66,9 +65,9 @@ namespace PointOfSale
                             {
                                 trInvoiceLine trInvoiceLine = new trInvoiceLine()
                                 {
-                                    InvoiceLineId = Guid.NewGuid().ToString(),
+                                    InvoiceLineId = Guid.NewGuid(),
                                     InvoiceHeaderId = returnInvoiceHeaderId,
-                                    RelatedLineId = invoiceLineID.ToString(),
+                                    RelatedLineId = (Guid)invoiceLineID,
                                     Qty = (formQty.qty * (-1))
                                 };
                                 sqlMethods.InsertInvoiceLine(trInvoiceLine);
@@ -76,7 +75,7 @@ namespace PointOfSale
                             else
                                 sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderId, invoiceLineID, formQty.qty * (-1));
 
-                            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId.ToString());
+                            gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                         }
                     }
                 }
@@ -113,8 +112,8 @@ namespace PointOfSale
                 {
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {
-                        returnInvoiceHeaderId = Guid.NewGuid().ToString();
-                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId.ToString());
+                        returnInvoiceHeaderId = Guid.NewGuid();
+                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
                     }
                 }
             }

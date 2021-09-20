@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraEditors;
-using PointOfSale.Model;
 using System;
 using System.Windows.Forms;
 
@@ -22,7 +21,7 @@ namespace PointOfSale
             dcCurrAcc = new dcCurrAcc()
             {
                 CurrAccCode = newNum,
-                CurrAccType = 2,
+                CurrAccTypeCode = 2,
                 Address = memoEditAddress.EditValue is null ? "" : memoEditAddress.EditValue.ToString(),
                 BonusCardNum = textEditBonusCard.EditValue is null ? "" : textEditBonusCard.EditValue.ToString(),
                 FirstName = textEditFirstName.EditValue is null ? "" : textEditFirstName.EditValue.ToString(),

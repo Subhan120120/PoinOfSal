@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using PointOfSale.Model;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -10,8 +9,8 @@ namespace PointOfSale
 {
     public partial class FormPayment : XtraForm
     {
-        public string PaymentHeaderID = Guid.NewGuid().ToString();
-        public string InvoiceHeaderId { get; set; }
+        public Guid PaymentHeaderID = Guid.NewGuid();
+        public Guid InvoiceHeaderId { get; set; }
         public int PaymentType { get; set; }
         public decimal SummaryNetAmount { get; set; }
 
@@ -20,7 +19,7 @@ namespace PointOfSale
         private decimal cashless = 0;
         private decimal bonus = 0;
 
-        public FormPayment(int PaymentType, decimal SummaryNetAmount, string InvoiceHeaderId)
+        public FormPayment(int PaymentType, decimal SummaryNetAmount, Guid InvoiceHeaderId)
         {
             InitializeComponent();
             AcceptButton = simpleButtonOk;
@@ -187,7 +186,7 @@ namespace PointOfSale
                     {
                         PaymentHeaderID = PaymentHeaderID,
                         DocumentNumber = NewDocNum,
-                        InvoiceHeaderId = InvoiceHeaderId
+                        InvoiceHeaderID = InvoiceHeaderId
                     };
                     sqlMethods.InsertPaymentHeader(trPayment);
 
@@ -195,7 +194,7 @@ namespace PointOfSale
                     {
                         trPaymentLine trPaymentLine = new trPaymentLine()
                         {
-                            PaymentLineID = Guid.NewGuid().ToString(),
+                            PaymentLineID = Guid.NewGuid(),
                             PaymentHeaderID = PaymentHeaderID,
                             Payment = cash,
                             PaymentTypeCode = 1
@@ -207,7 +206,7 @@ namespace PointOfSale
                     {
                         trPaymentLine trPaymentLine = new trPaymentLine()
                         {
-                            PaymentLineID = Guid.NewGuid().ToString(),
+                            PaymentLineID = Guid.NewGuid(),
                             PaymentHeaderID = PaymentHeaderID,
                             Payment = cashless,
                             PaymentTypeCode = 2
@@ -219,7 +218,7 @@ namespace PointOfSale
                     {
                         trPaymentLine trPaymentLine = new trPaymentLine()
                         {
-                            PaymentLineID = Guid.NewGuid().ToString(),
+                            PaymentLineID = Guid.NewGuid(),
                             PaymentHeaderID = PaymentHeaderID,
                             Payment = bonus,
                             PaymentTypeCode = 3

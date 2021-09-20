@@ -1,13 +1,13 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using PointOfSale.Model;
 using System;
 using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class FormInvoiceHeaderList : DevExpress.XtraEditors.XtraForm
+    public partial class FormInvoiceHeaderList : XtraForm
     {
         public FormInvoiceHeaderList()
         {
@@ -28,7 +28,7 @@ namespace PointOfSale
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
                 trInvoiceHeader = new trInvoiceHeader()
                 {
-                    InvoiceHeaderId = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["InvoiceHeaderId"]).ToString(),
+                    InvoiceHeaderId = (Guid)view.GetRowCellValue(view.FocusedRowHandle, view.Columns["InvoiceHeaderId"]),
                     ProcessCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProcessCode"]).ToString(),
                     DocumentNumber = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["DocumentNumber"]).ToString(),
                     IsReturn = Convert.ToBoolean(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["IsReturn"])),

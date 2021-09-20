@@ -2,7 +2,6 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using PointOfSale.Model;
 using System;
 using System.Data;
 using System.Windows.Forms;

@@ -2,14 +2,13 @@
 using System;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
-using PointOfSale.Model;
 using System.Windows.Forms;
 
 namespace PointOfSale
 {
     public partial class UcSale : XtraUserControl
     {
-        public string invoiceHeaderId = Guid.NewGuid().ToString();
+        public Guid invoiceHeaderId = Guid.NewGuid();
         SqlMethods sqlMethods = new SqlMethods();
 
         public UcSale()
@@ -95,7 +94,7 @@ namespace PointOfSale
                 if (result >= 0)
                 {
                     gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
-                    invoiceHeaderId = Guid.NewGuid().ToString();
+                    invoiceHeaderId = Guid.NewGuid();
                 }
             }
         }
@@ -138,7 +137,7 @@ namespace PointOfSale
 
                         trInvoiceLine trInvoiceLine = new trInvoiceLine()
                         {
-                            InvoiceLineId = invoiceLineId.ToString(),
+                            InvoiceLineId = (Guid)invoiceLineId,
                             NetAmount = Amount - formPosDiscount.PosDiscount,
                             PosDiscount = formPosDiscount.PosDiscount
                         };
@@ -244,7 +243,7 @@ namespace PointOfSale
                     {
                         sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
 
-                        invoiceHeaderId = Guid.NewGuid().ToString();
+                        invoiceHeaderId = Guid.NewGuid();
 
                         gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
                         //gridControl11.DataMember = "customQuery1";
