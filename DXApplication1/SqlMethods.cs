@@ -157,18 +157,18 @@ namespace PointOfSale
 
             paramArray = new SqlParameter[]
             {
-                new SqlParameter("@InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId),
-                new SqlParameter("@ProcessCode", trInvoiceHeader.ProcessCode),
-                new SqlParameter("@DocumentNumber", trInvoiceHeader.DocumentNumber),
+                new SqlParameter("@InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId.ValueOrNull()),
+                new SqlParameter("@ProcessCode", trInvoiceHeader.ProcessCode.ValueOrNull()),
+                new SqlParameter("@DocumentNumber", trInvoiceHeader.DocumentNumber.ValueOrNull()),
                 new SqlParameter("@IsReturn", trInvoiceHeader.IsReturn),
-                new SqlParameter("@CustomsDocumentNumber", trInvoiceHeader.CustomsDocumentNumber),
-                new SqlParameter("@DocumentDate", trInvoiceHeader.DocumentDate),
-                new SqlParameter("@DocumentTime", trInvoiceHeader.DocumentTime),
-                new SqlParameter("@CurrAccCode", trInvoiceHeader.CurrAccCode),
-                new SqlParameter("@OfficeCode", trInvoiceHeader.OfficeCode),
-                new SqlParameter("@StoreCode", trInvoiceHeader.StoreCode),
-                new SqlParameter("@WarehouseCode", trInvoiceHeader.WarehouseCode),
-                new SqlParameter("@Description", trInvoiceHeader.Description)
+                new SqlParameter("@CustomsDocumentNumber", trInvoiceHeader.CustomsDocumentNumber.ValueOrNull()),
+                new SqlParameter("@DocumentDate", trInvoiceHeader.DocumentDate.ValueOrNull()),
+                new SqlParameter("@DocumentTime", trInvoiceHeader.DocumentTime.ValueOrNull()),
+                new SqlParameter("@CurrAccCode", trInvoiceHeader.CurrAccCode.ValueOrNull()),
+                new SqlParameter("@OfficeCode", trInvoiceHeader.OfficeCode.ValueOrNull()),
+                new SqlParameter("@StoreCode", trInvoiceHeader.StoreCode.ValueOrNull()),
+                new SqlParameter("@WarehouseCode", trInvoiceHeader.WarehouseCode.ValueOrNull()),
+                new SqlParameter("@Description", trInvoiceHeader.Description.ValueOrNull())
             };
 
             SqlExec(qry, paramArray);

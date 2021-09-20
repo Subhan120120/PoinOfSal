@@ -1,15 +1,34 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PointOfSale
 {
     public static class Extensions
     {
+        public static object ValueOrNull(this object value)
+        {
+            if (value != null)
+            {
+                if (value.GetType() == DateTime.Now.GetType())
+                {
+                    if (Convert.ToDateTime(value) == DateTime.MinValue)
+                    {
+                        return DBNull.Value;
+                    }
+                }
+                else
+                {
+                    string str = value.ToString();
+                    str = str.Trim();
+                    if (String.IsNullOrEmpty(str) || str.Length == 0)
+                        return DBNull.Value;
+                }
+            }
+            else
+                return DBNull.Value;
+            return value;
+        }
+
         public static bool Between(this decimal num, decimal lower, decimal upper, bool inclusive = false)
         {
             if (lower > upper) // boyuk ve kicik reqemlerin yerlerinin deyisdirilmesi ucun
@@ -23,24 +42,13 @@ namespace PointOfSale
                 : lower < num && num < upper;
         }
 
-        public static void InvisibleColumns(this LookUpEdit lookUpEdit, int[] array)
+        public static bool IsNumeric(this object value)
         {
-            lookUpEdit.Properties.PopulateColumns();
-
-            foreach (int item in array)
-            {
-                lookUpEdit.Properties.Columns[item].Visible = false;
-            }
-        }
-
-        public static bool IsNumeric(this object expression)
-        {
-            if (expression == null)
+            if (value == null)
                 return false;
 
             double number;
-            return Double.TryParse(Convert.ToString(expression
-                                                    , CultureInfo.InvariantCulture)
+            return Double.TryParse(Convert.ToString(value, CultureInfo.InvariantCulture)
                                   , NumberStyles.Any
                                   , NumberFormatInfo.InvariantInfo
                                   , out number);

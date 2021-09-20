@@ -128,14 +128,14 @@ namespace PointOfSale
 
         private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
         {
-            GridView view = sender as GridView;
-            decimal val = Convert.ToDecimal(view.GetRowCellValue(e.RowHandle, colQty));
-            if (val < 10)
-            {
-                //e.ErrorText = "Error absh verdi";
-                e.Valid = false;
-                view.SetColumnError(colQty, "Deyer 10dan az ola bilmez");
-            }
+            //GridView view = sender as GridView;
+            //decimal val = Convert.ToDecimal(view.GetRowCellValue(e.RowHandle, colQty));
+            //if (val < 10)
+            //{
+            //    //e.ErrorText = "Error absh verdi";
+            //    e.Valid = false;
+            //    view.SetColumnError(colQty, "Deyer 10dan az ola bilmez");
+            //}
         }
 
         private void repoItemButtonEditProductCode_ButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -156,8 +156,8 @@ namespace PointOfSale
 
         private void gridView1_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
-            e.ExceptionMode = ExceptionMode.DisplayError;
-            e.ErrorText = "Deyer 10dan az ola bilmez";
+            //e.ExceptionMode = ExceptionMode.DisplayError;
+            //e.ErrorText = "Deyer 10dan az ola bilmez";
         }
 
         private void gridView1_RowUpdated(object sender, RowObjectEventArgs e)

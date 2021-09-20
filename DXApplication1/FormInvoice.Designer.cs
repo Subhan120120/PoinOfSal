@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace PointOfSale
 {
     partial class FormInvoice
@@ -391,7 +393,7 @@ namespace PointOfSale
             // 
             // dateEditDocumentDate
             // 
-            this.dateEditDocumentDate.EditValue = "17.09.2021";
+            this.dateEditDocumentDate.EditValue = new System.DateTime(2021, 9, 20, 9, 43, 19, 29);
             this.dateEditDocumentDate.Location = new System.Drawing.Point(126, 84);
             this.dateEditDocumentDate.MenuManager = this.mainRibbonControl;
             this.dateEditDocumentDate.Name = "dateEditDocumentDate";
@@ -405,7 +407,7 @@ namespace PointOfSale
             // 
             // dateEditDocumentTime
             // 
-            this.dateEditDocumentTime.EditValue = "19:03:08";
+            this.dateEditDocumentTime.EditValue = new System.DateTime(2021, 9, 20, 9, 43, 19, 34);
             this.dateEditDocumentTime.Location = new System.Drawing.Point(126, 108);
             this.dateEditDocumentTime.MenuManager = this.mainRibbonControl;
             this.dateEditDocumentTime.Name = "dateEditDocumentTime";
@@ -434,6 +436,8 @@ namespace PointOfSale
             this.buttonEditCurrAccCode.Name = "buttonEditCurrAccCode";
             this.buttonEditCurrAccCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEditCurrAccCode.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)(((DevExpress.XtraEditors.ShowNullValuePromptOptions.EmptyValue | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused) 
+            | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.buttonEditCurrAccCode.Size = new System.Drawing.Size(341, 20);
             this.buttonEditCurrAccCode.StyleController = this.layoutControl1;
             this.buttonEditCurrAccCode.TabIndex = 14;
