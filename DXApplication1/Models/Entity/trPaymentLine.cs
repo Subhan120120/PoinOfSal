@@ -1,19 +1,19 @@
-namespace PointOfSale
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("trPaymentLine")]
-    public partial class trPaymentLine
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
+{
+    public partial class TrPaymentLine
     {
         [Key]
-        public Guid PaymentLineID { get; set; }
-
-        public Guid PaymentHeaderID { get; set; }
-
+        public Guid PaymentLineId { get; set; }
+        public Guid PaymentHeaderId { get; set; }
         public byte PaymentTypeCode { get; set; }
 
         [Column(TypeName = "money")]
@@ -26,21 +26,21 @@ namespace PointOfSale
         [Required]
         [StringLength(10)]
         public string CurrencyCode { get; set; }
-
         public double ExchangeRate { get; set; }
-
-        public byte? BankID { get; set; }
+        public byte? BankId { get; set; }
 
         [Required]
         [StringLength(20)]
         public string CreatedUserName { get; set; }
 
+        [Column(TypeName = "datetime")]
         public DateTime CreatedDate { get; set; }
 
         [Required]
         [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 
+        [Column(TypeName = "datetime")]
         public DateTime LastUpdatedDate { get; set; }
     }
 }

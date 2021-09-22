@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using PointOfSale.Models;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        public trInvoiceHeader trInvoiceHeader { get; set; }
+        public TrInvoiceHeader TrInvoiceHeader { get; set; }
         SqlMethods sqlMethods = new SqlMethods();
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -26,7 +27,7 @@ namespace PointOfSale
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                trInvoiceHeader = new trInvoiceHeader()
+                TrInvoiceHeader = new TrInvoiceHeader()
                 {
                     InvoiceHeaderId = (Guid)view.GetRowCellValue(view.FocusedRowHandle, view.Columns["InvoiceHeaderId"]),
                     ProcessCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProcessCode"]).ToString(),

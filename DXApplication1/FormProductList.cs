@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using PointOfSale.Models;
 using System;
 using System.Windows.Forms;
 
@@ -9,13 +10,14 @@ namespace PointOfSale
 {
     public partial class FormProductList : XtraForm
     {
+        SqlMethods sqlMethods = new SqlMethods();
         public FormProductList()
         {
             InitializeComponent();
-            sqlDataSource1.FillAsync();
+            gridControl1.DataSource = sqlMethods.SelectProducts();
         }
 
-        public dcProduct dcProduct { get; set; }
+        public DcProduct DcProduct { get; set; }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -26,7 +28,7 @@ namespace PointOfSale
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                dcProduct = new dcProduct()
+                DcProduct = new DcProduct()
                 {
                     ProductCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProductCode"]).ToString(),
                     Barcode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Barcode"]).ToString(),

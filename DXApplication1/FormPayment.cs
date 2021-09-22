@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using PointOfSale.Models;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace PointOfSale
 {
     public partial class FormPayment : XtraForm
     {
-        public Guid PaymentHeaderID = Guid.NewGuid();
+        public Guid PaymentHeaderId = Guid.NewGuid();
         public Guid InvoiceHeaderId { get; set; }
         public int PaymentType { get; set; }
         public decimal SummaryNetAmount { get; set; }
@@ -175,55 +176,55 @@ namespace PointOfSale
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
             SqlMethods sqlMethods = new SqlMethods();
-            string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "trPaymentHeader");
+            string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeader");
 
             if ((cashLarge + cashless + bonus) >= SummaryNetAmount)
             {
                 decimal cash = SummaryNetAmount - cashless - bonus;
                 if (!sqlMethods.PaymentHeaderExist(InvoiceHeaderId))
                 {
-                    trPaymentHeader trPayment = new trPaymentHeader()
+                    TrPaymentHeader trPayment = new TrPaymentHeader()
                     {
-                        PaymentHeaderID = PaymentHeaderID,
+                        PaymentHeaderId = PaymentHeaderId,
                         DocumentNumber = NewDocNum,
-                        InvoiceHeaderID = InvoiceHeaderId
+                        InvoiceHeaderId = InvoiceHeaderId
                     };
                     sqlMethods.InsertPaymentHeader(trPayment);
 
                     if (cash != 0)
                     {
-                        trPaymentLine trPaymentLine = new trPaymentLine()
+                        TrPaymentLine TrPaymentLine = new TrPaymentLine()
                         {
-                            PaymentLineID = Guid.NewGuid(),
-                            PaymentHeaderID = PaymentHeaderID,
+                            PaymentLineId = Guid.NewGuid(),
+                            PaymentHeaderId = PaymentHeaderId,
                             Payment = cash,
                             PaymentTypeCode = 1
                         };
-                        sqlMethods.InsertPaymentLine(trPaymentLine);
+                        sqlMethods.InsertPaymentLine(TrPaymentLine);
                     }
 
                     if (cashless != 0)
                     {
-                        trPaymentLine trPaymentLine = new trPaymentLine()
+                        TrPaymentLine TrPaymentLine = new TrPaymentLine()
                         {
-                            PaymentLineID = Guid.NewGuid(),
-                            PaymentHeaderID = PaymentHeaderID,
+                            PaymentLineId = Guid.NewGuid(),
+                            PaymentHeaderId = PaymentHeaderId,
                             Payment = cashless,
                             PaymentTypeCode = 2
                         };
-                        sqlMethods.InsertPaymentLine(trPaymentLine);
+                        sqlMethods.InsertPaymentLine(TrPaymentLine);
                     }
 
                     if (bonus != 0)
                     {
-                        trPaymentLine trPaymentLine = new trPaymentLine()
+                        TrPaymentLine TrPaymentLine = new TrPaymentLine()
                         {
-                            PaymentLineID = Guid.NewGuid(),
-                            PaymentHeaderID = PaymentHeaderID,
+                            PaymentLineId = Guid.NewGuid(),
+                            PaymentHeaderId = PaymentHeaderId,
                             Payment = bonus,
                             PaymentTypeCode = 3
                         };
-                        sqlMethods.InsertPaymentLine(trPaymentLine);
+                        sqlMethods.InsertPaymentLine(TrPaymentLine);
                     }
                 }
 

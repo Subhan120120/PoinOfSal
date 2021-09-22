@@ -52,8 +52,8 @@
 //    SqlDataSource ds = new SqlDataSource(connectionParameters);
 //    CustomSqlQuery query = new CustomSqlQuery();
 //    query.Name = "customQuery1";
-//    query.Sql = "select trInvoiceLine.*, ProductDescription, Barcode from trInvoiceLine " +
-//        "left join dcProduct on trInvoiceLine.ProductCode = dcProduct.ProductCode " +
+//    query.Sql = "select TrInvoiceLine.*, ProductDescription, Barcode from TrInvoiceLine " +
+//        "left join DcProduct on TrInvoiceLine.ProductCode = DcProduct.ProductCode " +
 //        "where InvoiceHeaderId = '" + invoiceHeaderId + "' order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
 
 //    ds.Queries.Add(query);

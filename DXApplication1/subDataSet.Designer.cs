@@ -24,7 +24,7 @@ namespace PointOfSale {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class subDataSet : global::System.Data.DataSet {
         
-        private trInvoiceLineDataTable tabletrInvoiceLine;
+        private TrInvoiceLineDataTable tableTrInvoiceLine;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace PointOfSale {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["trInvoiceLine"] != null)) {
-                    base.Tables.Add(new trInvoiceLineDataTable(ds.Tables["trInvoiceLine"]));
+                if ((ds.Tables["TrInvoiceLine"] != null)) {
+                    base.Tables.Add(new TrInvoiceLineDataTable(ds.Tables["TrInvoiceLine"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace PointOfSale {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public trInvoiceLineDataTable trInvoiceLine {
+        public TrInvoiceLineDataTable TrInvoiceLine {
             get {
-                return this.tabletrInvoiceLine;
+                return this.tableTrInvoiceLine;
             }
         }
         
@@ -152,8 +152,8 @@ namespace PointOfSale {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["trInvoiceLine"] != null)) {
-                    base.Tables.Add(new trInvoiceLineDataTable(ds.Tables["trInvoiceLine"]));
+                if ((ds.Tables["TrInvoiceLine"] != null)) {
+                    base.Tables.Add(new TrInvoiceLineDataTable(ds.Tables["TrInvoiceLine"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace PointOfSale {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletrInvoiceLine = ((trInvoiceLineDataTable)(base.Tables["trInvoiceLine"]));
+            this.tableTrInvoiceLine = ((TrInvoiceLineDataTable)(base.Tables["TrInvoiceLine"]));
             if ((initTable == true)) {
-                if ((this.tabletrInvoiceLine != null)) {
-                    this.tabletrInvoiceLine.InitVars();
+                if ((this.tableTrInvoiceLine != null)) {
+                    this.tableTrInvoiceLine.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace PointOfSale {
             this.Namespace = "http://tempuri.org/subDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletrInvoiceLine = new trInvoiceLineDataTable();
-            base.Tables.Add(this.tabletrInvoiceLine);
+            this.tableTrInvoiceLine = new TrInvoiceLineDataTable();
+            base.Tables.Add(this.tableTrInvoiceLine);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializetrInvoiceLine() {
+        private bool ShouldSerializeTrInvoiceLine() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace PointOfSale {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void trInvoiceLineRowChangeEventHandler(object sender, trInvoiceLineRowChangeEvent e);
+        public delegate void TrInvoiceLineRowChangeEventHandler(object sender, TrInvoiceLineRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class trInvoiceLineDataTable : global::System.Data.TypedTableBase<trInvoiceLineRow> {
+        public partial class TrInvoiceLineDataTable : global::System.Data.TypedTableBase<TrInvoiceLineRow> {
             
             private global::System.Data.DataColumn columnInvoiceLineId;
             
@@ -319,8 +319,8 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public trInvoiceLineDataTable() {
-                this.TableName = "trInvoiceLine";
+            public TrInvoiceLineDataTable() {
+                this.TableName = "TrInvoiceLine";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -328,7 +328,7 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal trInvoiceLineDataTable(global::System.Data.DataTable table) {
+            internal TrInvoiceLineDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -345,7 +345,7 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected trInvoiceLineDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected TrInvoiceLineDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -513,33 +513,33 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public trInvoiceLineRow this[int index] {
+            public TrInvoiceLineRow this[int index] {
                 get {
-                    return ((trInvoiceLineRow)(this.Rows[index]));
+                    return ((TrInvoiceLineRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event trInvoiceLineRowChangeEventHandler trInvoiceLineRowChanging;
+            public event TrInvoiceLineRowChangeEventHandler TrInvoiceLineRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event trInvoiceLineRowChangeEventHandler trInvoiceLineRowChanged;
+            public event TrInvoiceLineRowChangeEventHandler TrInvoiceLineRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event trInvoiceLineRowChangeEventHandler trInvoiceLineRowDeleting;
+            public event TrInvoiceLineRowChangeEventHandler TrInvoiceLineRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event trInvoiceLineRowChangeEventHandler trInvoiceLineRowDeleted;
+            public event TrInvoiceLineRowChangeEventHandler TrInvoiceLineRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddtrInvoiceLineRow(trInvoiceLineRow row) {
+            public void AddTrInvoiceLineRow(TrInvoiceLineRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public trInvoiceLineRow AddtrInvoiceLineRow(
+            public TrInvoiceLineRow AddTrInvoiceLineRow(
                         System.Guid InvoiceLineId, 
                         System.Guid InvoiceHeaderId, 
                         System.Guid RelatedLineId, 
@@ -559,7 +559,7 @@ namespace PointOfSale {
                         System.DateTime CreatedDate, 
                         string LastUpdatedUserName, 
                         System.DateTime LastUpdatedDate) {
-                trInvoiceLineRow rowtrInvoiceLineRow = ((trInvoiceLineRow)(this.NewRow()));
+                TrInvoiceLineRow rowTrInvoiceLineRow = ((TrInvoiceLineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         InvoiceLineId,
                         InvoiceHeaderId,
@@ -580,22 +580,22 @@ namespace PointOfSale {
                         CreatedDate,
                         LastUpdatedUserName,
                         LastUpdatedDate};
-                rowtrInvoiceLineRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtrInvoiceLineRow);
-                return rowtrInvoiceLineRow;
+                rowTrInvoiceLineRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTrInvoiceLineRow);
+                return rowTrInvoiceLineRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public trInvoiceLineRow FindByInvoiceLineId(System.Guid InvoiceLineId) {
-                return ((trInvoiceLineRow)(this.Rows.Find(new object[] {
+            public TrInvoiceLineRow FindByInvoiceLineId(System.Guid InvoiceLineId) {
+                return ((TrInvoiceLineRow)(this.Rows.Find(new object[] {
                             InvoiceLineId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                trInvoiceLineDataTable cln = ((trInvoiceLineDataTable)(base.Clone()));
+                TrInvoiceLineDataTable cln = ((TrInvoiceLineDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -603,7 +603,7 @@ namespace PointOfSale {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new trInvoiceLineDataTable();
+                return new TrInvoiceLineDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -686,28 +686,28 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public trInvoiceLineRow NewtrInvoiceLineRow() {
-                return ((trInvoiceLineRow)(this.NewRow()));
+            public TrInvoiceLineRow NewTrInvoiceLineRow() {
+                return ((TrInvoiceLineRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new trInvoiceLineRow(builder);
+                return new TrInvoiceLineRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(trInvoiceLineRow);
+                return typeof(TrInvoiceLineRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.trInvoiceLineRowChanged != null)) {
-                    this.trInvoiceLineRowChanged(this, new trInvoiceLineRowChangeEvent(((trInvoiceLineRow)(e.Row)), e.Action));
+                if ((this.TrInvoiceLineRowChanged != null)) {
+                    this.TrInvoiceLineRowChanged(this, new TrInvoiceLineRowChangeEvent(((TrInvoiceLineRow)(e.Row)), e.Action));
                 }
             }
             
@@ -715,8 +715,8 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.trInvoiceLineRowChanging != null)) {
-                    this.trInvoiceLineRowChanging(this, new trInvoiceLineRowChangeEvent(((trInvoiceLineRow)(e.Row)), e.Action));
+                if ((this.TrInvoiceLineRowChanging != null)) {
+                    this.TrInvoiceLineRowChanging(this, new TrInvoiceLineRowChangeEvent(((TrInvoiceLineRow)(e.Row)), e.Action));
                 }
             }
             
@@ -724,8 +724,8 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.trInvoiceLineRowDeleted != null)) {
-                    this.trInvoiceLineRowDeleted(this, new trInvoiceLineRowChangeEvent(((trInvoiceLineRow)(e.Row)), e.Action));
+                if ((this.TrInvoiceLineRowDeleted != null)) {
+                    this.TrInvoiceLineRowDeleted(this, new TrInvoiceLineRowChangeEvent(((TrInvoiceLineRow)(e.Row)), e.Action));
                 }
             }
             
@@ -733,14 +733,14 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.trInvoiceLineRowDeleting != null)) {
-                    this.trInvoiceLineRowDeleting(this, new trInvoiceLineRowChangeEvent(((trInvoiceLineRow)(e.Row)), e.Action));
+                if ((this.TrInvoiceLineRowDeleting != null)) {
+                    this.TrInvoiceLineRowDeleting(this, new TrInvoiceLineRowChangeEvent(((TrInvoiceLineRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovetrInvoiceLineRow(trInvoiceLineRow row) {
+            public void RemoveTrInvoiceLineRow(TrInvoiceLineRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -767,7 +767,7 @@ namespace PointOfSale {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "trInvoiceLineDataTable";
+                attribute2.FixedValue = "TrInvoiceLineDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -811,25 +811,25 @@ namespace PointOfSale {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class trInvoiceLineRow : global::System.Data.DataRow {
+        public partial class TrInvoiceLineRow : global::System.Data.DataRow {
             
-            private trInvoiceLineDataTable tabletrInvoiceLine;
+            private TrInvoiceLineDataTable tableTrInvoiceLine;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal trInvoiceLineRow(global::System.Data.DataRowBuilder rb) : 
+            internal TrInvoiceLineRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletrInvoiceLine = ((trInvoiceLineDataTable)(this.Table));
+                this.tableTrInvoiceLine = ((TrInvoiceLineDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.Guid InvoiceLineId {
                 get {
-                    return ((global::System.Guid)(this[this.tabletrInvoiceLine.InvoiceLineIdColumn]));
+                    return ((global::System.Guid)(this[this.tableTrInvoiceLine.InvoiceLineIdColumn]));
                 }
                 set {
-                    this[this.tabletrInvoiceLine.InvoiceLineIdColumn] = value;
+                    this[this.tableTrInvoiceLine.InvoiceLineIdColumn] = value;
                 }
             }
             
@@ -837,10 +837,10 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.Guid InvoiceHeaderId {
                 get {
-                    return ((global::System.Guid)(this[this.tabletrInvoiceLine.InvoiceHeaderIdColumn]));
+                    return ((global::System.Guid)(this[this.tableTrInvoiceLine.InvoiceHeaderIdColumn]));
                 }
                 set {
-                    this[this.tabletrInvoiceLine.InvoiceHeaderIdColumn] = value;
+                    this[this.tableTrInvoiceLine.InvoiceHeaderIdColumn] = value;
                 }
             }
             
@@ -849,14 +849,14 @@ namespace PointOfSale {
             public System.Guid RelatedLineId {
                 get {
                     try {
-                        return ((global::System.Guid)(this[this.tabletrInvoiceLine.RelatedLineIdColumn]));
+                        return ((global::System.Guid)(this[this.tableTrInvoiceLine.RelatedLineIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RelatedLineId\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'RelatedLineId\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.RelatedLineIdColumn] = value;
+                    this[this.tableTrInvoiceLine.RelatedLineIdColumn] = value;
                 }
             }
             
@@ -865,14 +865,14 @@ namespace PointOfSale {
             public string ProductCode {
                 get {
                     try {
-                        return ((string)(this[this.tabletrInvoiceLine.ProductCodeColumn]));
+                        return ((string)(this[this.tableTrInvoiceLine.ProductCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductCode\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductCode\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.ProductCodeColumn] = value;
+                    this[this.tableTrInvoiceLine.ProductCodeColumn] = value;
                 }
             }
             
@@ -881,14 +881,14 @@ namespace PointOfSale {
             public int Qty {
                 get {
                     try {
-                        return ((int)(this[this.tabletrInvoiceLine.QtyColumn]));
+                        return ((int)(this[this.tableTrInvoiceLine.QtyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Qty\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Qty\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.QtyColumn] = value;
+                    this[this.tableTrInvoiceLine.QtyColumn] = value;
                 }
             }
             
@@ -897,14 +897,14 @@ namespace PointOfSale {
             public double Price {
                 get {
                     try {
-                        return ((double)(this[this.tabletrInvoiceLine.PriceColumn]));
+                        return ((double)(this[this.tableTrInvoiceLine.PriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.PriceColumn] = value;
+                    this[this.tableTrInvoiceLine.PriceColumn] = value;
                 }
             }
             
@@ -913,14 +913,14 @@ namespace PointOfSale {
             public decimal Amount {
                 get {
                     try {
-                        return ((decimal)(this[this.tabletrInvoiceLine.AmountColumn]));
+                        return ((decimal)(this[this.tableTrInvoiceLine.AmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.AmountColumn] = value;
+                    this[this.tableTrInvoiceLine.AmountColumn] = value;
                 }
             }
             
@@ -929,14 +929,14 @@ namespace PointOfSale {
             public double PosDiscount {
                 get {
                     try {
-                        return ((double)(this[this.tabletrInvoiceLine.PosDiscountColumn]));
+                        return ((double)(this[this.tableTrInvoiceLine.PosDiscountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PosDiscount\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PosDiscount\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.PosDiscountColumn] = value;
+                    this[this.tableTrInvoiceLine.PosDiscountColumn] = value;
                 }
             }
             
@@ -945,14 +945,14 @@ namespace PointOfSale {
             public double DiscountCampaign {
                 get {
                     try {
-                        return ((double)(this[this.tabletrInvoiceLine.DiscountCampaignColumn]));
+                        return ((double)(this[this.tableTrInvoiceLine.DiscountCampaignColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DiscountCampaign\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DiscountCampaign\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.DiscountCampaignColumn] = value;
+                    this[this.tableTrInvoiceLine.DiscountCampaignColumn] = value;
                 }
             }
             
@@ -961,14 +961,14 @@ namespace PointOfSale {
             public decimal NetAmount {
                 get {
                     try {
-                        return ((decimal)(this[this.tabletrInvoiceLine.NetAmountColumn]));
+                        return ((decimal)(this[this.tableTrInvoiceLine.NetAmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NetAmount\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NetAmount\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.NetAmountColumn] = value;
+                    this[this.tableTrInvoiceLine.NetAmountColumn] = value;
                 }
             }
             
@@ -977,14 +977,14 @@ namespace PointOfSale {
             public float VatRate {
                 get {
                     try {
-                        return ((float)(this[this.tabletrInvoiceLine.VatRateColumn]));
+                        return ((float)(this[this.tableTrInvoiceLine.VatRateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'VatRate\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'VatRate\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.VatRateColumn] = value;
+                    this[this.tableTrInvoiceLine.VatRateColumn] = value;
                 }
             }
             
@@ -993,14 +993,14 @@ namespace PointOfSale {
             public string LineDescription {
                 get {
                     try {
-                        return ((string)(this[this.tabletrInvoiceLine.LineDescriptionColumn]));
+                        return ((string)(this[this.tableTrInvoiceLine.LineDescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LineDescription\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LineDescription\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.LineDescriptionColumn] = value;
+                    this[this.tableTrInvoiceLine.LineDescriptionColumn] = value;
                 }
             }
             
@@ -1009,14 +1009,14 @@ namespace PointOfSale {
             public string SalespersonCode {
                 get {
                     try {
-                        return ((string)(this[this.tabletrInvoiceLine.SalespersonCodeColumn]));
+                        return ((string)(this[this.tableTrInvoiceLine.SalespersonCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SalespersonCode\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SalespersonCode\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.SalespersonCodeColumn] = value;
+                    this[this.tableTrInvoiceLine.SalespersonCodeColumn] = value;
                 }
             }
             
@@ -1025,14 +1025,14 @@ namespace PointOfSale {
             public string CurrencyCode {
                 get {
                     try {
-                        return ((string)(this[this.tabletrInvoiceLine.CurrencyCodeColumn]));
+                        return ((string)(this[this.tableTrInvoiceLine.CurrencyCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CurrencyCode\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CurrencyCode\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.CurrencyCodeColumn] = value;
+                    this[this.tableTrInvoiceLine.CurrencyCodeColumn] = value;
                 }
             }
             
@@ -1041,14 +1041,14 @@ namespace PointOfSale {
             public double ExchangeRate {
                 get {
                     try {
-                        return ((double)(this[this.tabletrInvoiceLine.ExchangeRateColumn]));
+                        return ((double)(this[this.tableTrInvoiceLine.ExchangeRateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ExchangeRate\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ExchangeRate\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.ExchangeRateColumn] = value;
+                    this[this.tableTrInvoiceLine.ExchangeRateColumn] = value;
                 }
             }
             
@@ -1057,14 +1057,14 @@ namespace PointOfSale {
             public string CreatedUserName {
                 get {
                     try {
-                        return ((string)(this[this.tabletrInvoiceLine.CreatedUserNameColumn]));
+                        return ((string)(this[this.tableTrInvoiceLine.CreatedUserNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedUserName\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedUserName\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.CreatedUserNameColumn] = value;
+                    this[this.tableTrInvoiceLine.CreatedUserNameColumn] = value;
                 }
             }
             
@@ -1073,14 +1073,14 @@ namespace PointOfSale {
             public System.DateTime CreatedDate {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tabletrInvoiceLine.CreatedDateColumn]));
+                        return ((global::System.DateTime)(this[this.tableTrInvoiceLine.CreatedDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.CreatedDateColumn] = value;
+                    this[this.tableTrInvoiceLine.CreatedDateColumn] = value;
                 }
             }
             
@@ -1089,14 +1089,14 @@ namespace PointOfSale {
             public string LastUpdatedUserName {
                 get {
                     try {
-                        return ((string)(this[this.tabletrInvoiceLine.LastUpdatedUserNameColumn]));
+                        return ((string)(this[this.tableTrInvoiceLine.LastUpdatedUserNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedUserName\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedUserName\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.LastUpdatedUserNameColumn] = value;
+                    this[this.tableTrInvoiceLine.LastUpdatedUserNameColumn] = value;
                 }
             }
             
@@ -1105,219 +1105,219 @@ namespace PointOfSale {
             public System.DateTime LastUpdatedDate {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tabletrInvoiceLine.LastUpdatedDateColumn]));
+                        return ((global::System.DateTime)(this[this.tableTrInvoiceLine.LastUpdatedDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedDate\' in table \'trInvoiceLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedDate\' in table \'TrInvoiceLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletrInvoiceLine.LastUpdatedDateColumn] = value;
+                    this[this.tableTrInvoiceLine.LastUpdatedDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRelatedLineIdNull() {
-                return this.IsNull(this.tabletrInvoiceLine.RelatedLineIdColumn);
+                return this.IsNull(this.tableTrInvoiceLine.RelatedLineIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRelatedLineIdNull() {
-                this[this.tabletrInvoiceLine.RelatedLineIdColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.RelatedLineIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsProductCodeNull() {
-                return this.IsNull(this.tabletrInvoiceLine.ProductCodeColumn);
+                return this.IsNull(this.tableTrInvoiceLine.ProductCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetProductCodeNull() {
-                this[this.tabletrInvoiceLine.ProductCodeColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.ProductCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsQtyNull() {
-                return this.IsNull(this.tabletrInvoiceLine.QtyColumn);
+                return this.IsNull(this.tableTrInvoiceLine.QtyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetQtyNull() {
-                this[this.tabletrInvoiceLine.QtyColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.QtyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPriceNull() {
-                return this.IsNull(this.tabletrInvoiceLine.PriceColumn);
+                return this.IsNull(this.tableTrInvoiceLine.PriceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPriceNull() {
-                this[this.tabletrInvoiceLine.PriceColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.PriceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAmountNull() {
-                return this.IsNull(this.tabletrInvoiceLine.AmountColumn);
+                return this.IsNull(this.tableTrInvoiceLine.AmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAmountNull() {
-                this[this.tabletrInvoiceLine.AmountColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.AmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPosDiscountNull() {
-                return this.IsNull(this.tabletrInvoiceLine.PosDiscountColumn);
+                return this.IsNull(this.tableTrInvoiceLine.PosDiscountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPosDiscountNull() {
-                this[this.tabletrInvoiceLine.PosDiscountColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.PosDiscountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDiscountCampaignNull() {
-                return this.IsNull(this.tabletrInvoiceLine.DiscountCampaignColumn);
+                return this.IsNull(this.tableTrInvoiceLine.DiscountCampaignColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDiscountCampaignNull() {
-                this[this.tabletrInvoiceLine.DiscountCampaignColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.DiscountCampaignColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNetAmountNull() {
-                return this.IsNull(this.tabletrInvoiceLine.NetAmountColumn);
+                return this.IsNull(this.tableTrInvoiceLine.NetAmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNetAmountNull() {
-                this[this.tabletrInvoiceLine.NetAmountColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.NetAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsVatRateNull() {
-                return this.IsNull(this.tabletrInvoiceLine.VatRateColumn);
+                return this.IsNull(this.tableTrInvoiceLine.VatRateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetVatRateNull() {
-                this[this.tabletrInvoiceLine.VatRateColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.VatRateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsLineDescriptionNull() {
-                return this.IsNull(this.tabletrInvoiceLine.LineDescriptionColumn);
+                return this.IsNull(this.tableTrInvoiceLine.LineDescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetLineDescriptionNull() {
-                this[this.tabletrInvoiceLine.LineDescriptionColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.LineDescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSalespersonCodeNull() {
-                return this.IsNull(this.tabletrInvoiceLine.SalespersonCodeColumn);
+                return this.IsNull(this.tableTrInvoiceLine.SalespersonCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSalespersonCodeNull() {
-                this[this.tabletrInvoiceLine.SalespersonCodeColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.SalespersonCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCurrencyCodeNull() {
-                return this.IsNull(this.tabletrInvoiceLine.CurrencyCodeColumn);
+                return this.IsNull(this.tableTrInvoiceLine.CurrencyCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCurrencyCodeNull() {
-                this[this.tabletrInvoiceLine.CurrencyCodeColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.CurrencyCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsExchangeRateNull() {
-                return this.IsNull(this.tabletrInvoiceLine.ExchangeRateColumn);
+                return this.IsNull(this.tableTrInvoiceLine.ExchangeRateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetExchangeRateNull() {
-                this[this.tabletrInvoiceLine.ExchangeRateColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.ExchangeRateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCreatedUserNameNull() {
-                return this.IsNull(this.tabletrInvoiceLine.CreatedUserNameColumn);
+                return this.IsNull(this.tableTrInvoiceLine.CreatedUserNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCreatedUserNameNull() {
-                this[this.tabletrInvoiceLine.CreatedUserNameColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.CreatedUserNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCreatedDateNull() {
-                return this.IsNull(this.tabletrInvoiceLine.CreatedDateColumn);
+                return this.IsNull(this.tableTrInvoiceLine.CreatedDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCreatedDateNull() {
-                this[this.tabletrInvoiceLine.CreatedDateColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.CreatedDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsLastUpdatedUserNameNull() {
-                return this.IsNull(this.tabletrInvoiceLine.LastUpdatedUserNameColumn);
+                return this.IsNull(this.tableTrInvoiceLine.LastUpdatedUserNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetLastUpdatedUserNameNull() {
-                this[this.tabletrInvoiceLine.LastUpdatedUserNameColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.LastUpdatedUserNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsLastUpdatedDateNull() {
-                return this.IsNull(this.tabletrInvoiceLine.LastUpdatedDateColumn);
+                return this.IsNull(this.tableTrInvoiceLine.LastUpdatedDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetLastUpdatedDateNull() {
-                this[this.tabletrInvoiceLine.LastUpdatedDateColumn] = global::System.Convert.DBNull;
+                this[this.tableTrInvoiceLine.LastUpdatedDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1325,22 +1325,22 @@ namespace PointOfSale {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class trInvoiceLineRowChangeEvent : global::System.EventArgs {
+        public class TrInvoiceLineRowChangeEvent : global::System.EventArgs {
             
-            private trInvoiceLineRow eventRow;
+            private TrInvoiceLineRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public trInvoiceLineRowChangeEvent(trInvoiceLineRow row, global::System.Data.DataRowAction action) {
+            public TrInvoiceLineRowChangeEvent(TrInvoiceLineRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public trInvoiceLineRow Row {
+            public TrInvoiceLineRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1368,7 +1368,7 @@ namespace PointOfSale.subDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class trInvoiceLineTableAdapter : global::System.ComponentModel.Component {
+    public partial class TrInvoiceLineTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1382,7 +1382,7 @@ namespace PointOfSale.subDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public trInvoiceLineTableAdapter() {
+        public TrInvoiceLineTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1479,7 +1479,7 @@ namespace PointOfSale.subDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "trInvoiceLine";
+            tableMapping.DataSetTable = "TrInvoiceLine";
             tableMapping.ColumnMappings.Add("InvoiceLineId", "InvoiceLineId");
             tableMapping.ColumnMappings.Add("InvoiceHeaderId", "InvoiceHeaderId");
             tableMapping.ColumnMappings.Add("RelatedLineId", "RelatedLineId");
@@ -1502,7 +1502,7 @@ namespace PointOfSale.subDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[trInvoiceLine] WHERE (([InvoiceLineId] = @Original_InvoiceLine" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TrInvoiceLine] WHERE (([InvoiceLineId] = @Original_InvoiceLine" +
                 "Id) AND ([InvoiceHeaderId] = @Original_InvoiceHeaderId) AND ((@IsNull_RelatedLin" +
                 "eId = 1 AND [RelatedLineId] IS NULL) OR ([RelatedLineId] = @Original_RelatedLine" +
                 "Id)) AND ((@IsNull_ProductCode = 1 AND [ProductCode] IS NULL) OR ([ProductCode] " +
@@ -1562,8 +1562,8 @@ namespace PointOfSale.subDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[trInvoiceLine] ([InvoiceLineId], [InvoiceHeaderId], [RelatedLineId], [ProductCode], [Qty], [Price], [Amount], [PosDiscount], [DiscountCampaign], [NetAmount], [VatRate], [LineDescription], [SalespersonCode], [CurrencyCode], [ExchangeRate], [CreatedUserName], [CreatedDate], [LastUpdatedUserName], [LastUpdatedDate]) VALUES (@InvoiceLineId, @InvoiceHeaderId, @RelatedLineId, @ProductCode, @Qty, @Price, @Amount, @PosDiscount, @DiscountCampaign, @NetAmount, @VatRate, @LineDescription, @SalespersonCode, @CurrencyCode, @ExchangeRate, @CreatedUserName, @CreatedDate, @LastUpdatedUserName, @LastUpdatedDate);
-SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM trInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TrInvoiceLine] ([InvoiceLineId], [InvoiceHeaderId], [RelatedLineId], [ProductCode], [Qty], [Price], [Amount], [PosDiscount], [DiscountCampaign], [NetAmount], [VatRate], [LineDescription], [SalespersonCode], [CurrencyCode], [ExchangeRate], [CreatedUserName], [CreatedDate], [LastUpdatedUserName], [LastUpdatedDate]) VALUES (@InvoiceLineId, @InvoiceHeaderId, @RelatedLineId, @ProductCode, @Qty, @Price, @Amount, @PosDiscount, @DiscountCampaign, @NetAmount, @VatRate, @LineDescription, @SalespersonCode, @CurrencyCode, @ExchangeRate, @CreatedUserName, @CreatedDate, @LastUpdatedUserName, @LastUpdatedDate);
+SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM TrInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1586,7 +1586,7 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[trInvoiceLine] SET [InvoiceLineId] = @InvoiceLineId, [InvoiceHeader" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TrInvoiceLine] SET [InvoiceLineId] = @InvoiceLineId, [InvoiceHeader" +
                 "Id] = @InvoiceHeaderId, [RelatedLineId] = @RelatedLineId, [ProductCode] = @Produ" +
                 "ctCode, [Qty] = @Qty, [Price] = @Price, [Amount] = @Amount, [PosDiscount] = @Pos" +
                 "Discount, [DiscountCampaign] = @DiscountCampaign, [NetAmount] = @NetAmount, [Vat" +
@@ -1618,7 +1618,7 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
                 "tUpdatedDate] = @Original_LastUpdatedDate)));\r\nSELECT InvoiceLineId, InvoiceHead" +
                 "erId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampa" +
                 "ign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, Exchang" +
-                "eRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM t" +
+                "eRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM T" +
                 "rInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1689,11 +1689,11 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.trInvoiceLine";
+            this._commandCollection[0].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.TrInvoiceLine";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.trInvoiceLine
+            this._commandCollection[1].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.TrInvoiceLine
 WHERE InvoiceHeaderId = @InvoiceHeaderId";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 16, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1703,7 +1703,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(subDataSet.trInvoiceLineDataTable dataTable) {
+        public virtual int Fill(subDataSet.TrInvoiceLineDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1716,9 +1716,9 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual subDataSet.trInvoiceLineDataTable GetData() {
+        public virtual subDataSet.TrInvoiceLineDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            subDataSet.trInvoiceLineDataTable dataTable = new subDataSet.trInvoiceLineDataTable();
+            subDataSet.TrInvoiceLineDataTable dataTable = new subDataSet.TrInvoiceLineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1727,7 +1727,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(subDataSet.trInvoiceLineDataTable dataTable, System.Guid InvoiceHeaderId) {
+        public virtual int FillBy(subDataSet.TrInvoiceLineDataTable dataTable, System.Guid InvoiceHeaderId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderId));
             if ((this.ClearBeforeFill == true)) {
@@ -1741,10 +1741,10 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual subDataSet.trInvoiceLineDataTable GetDataBy(System.Guid InvoiceHeaderId) {
+        public virtual subDataSet.TrInvoiceLineDataTable GetDataBy(System.Guid InvoiceHeaderId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderId));
-            subDataSet.trInvoiceLineDataTable dataTable = new subDataSet.trInvoiceLineDataTable();
+            subDataSet.TrInvoiceLineDataTable dataTable = new subDataSet.TrInvoiceLineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1752,7 +1752,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(subDataSet.trInvoiceLineDataTable dataTable) {
+        public virtual int Update(subDataSet.TrInvoiceLineDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1760,7 +1760,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(subDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "trInvoiceLine");
+            return this.Adapter.Update(dataSet, "TrInvoiceLine");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2440,7 +2440,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         
         private UpdateOrderOption _updateOrder;
         
-        private trInvoiceLineTableAdapter _trInvoiceLineTableAdapter;
+        private TrInvoiceLineTableAdapter _trInvoiceLineTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -2462,7 +2462,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public trInvoiceLineTableAdapter trInvoiceLineTableAdapter {
+        public TrInvoiceLineTableAdapter TrInvoiceLineTableAdapter {
             get {
                 return this._trInvoiceLineTableAdapter;
             }
@@ -2522,7 +2522,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         private int UpdateUpdatedRows(subDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._trInvoiceLineTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.trInvoiceLine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                global::System.Data.DataRow[] updatedRows = dataSet.TrInvoiceLine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
@@ -2541,7 +2541,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         private int UpdateInsertedRows(subDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._trInvoiceLineTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.trInvoiceLine.Select(null, null, global::System.Data.DataViewRowState.Added);
+                global::System.Data.DataRow[] addedRows = dataSet.TrInvoiceLine.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._trInvoiceLineTableAdapter.Update(addedRows));
@@ -2559,7 +2559,7 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         private int UpdateDeletedRows(subDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._trInvoiceLineTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.trInvoiceLine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                global::System.Data.DataRow[] deletedRows = dataSet.TrInvoiceLine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._trInvoiceLineTableAdapter.Update(deletedRows));

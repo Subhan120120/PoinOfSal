@@ -1,25 +1,28 @@
-namespace PointOfSale
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("dcCurrAcc")]
-    public partial class dcCurrAcc
+    //[Index(nameof(CurrAccTypeCode))]
+    [Table("DcCurrAcc")]
+    public partial class DcCurrAcc
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public dcCurrAcc()
+        public DcCurrAcc()
         {
-            trInvoiceHeaders = new HashSet<trInvoiceHeader>();
+            TrInvoiceHeader = new HashSet<TrInvoiceHeader>();
         }
-
-        public byte CurrAccTypeCode { get; set; }
 
         [Key]
         [StringLength(30)]
         public string CurrAccCode { get; set; }
+        public byte CurrAccTypeCode { get; set; }
+
 
         public byte CompanyCode { get; set; }
 
@@ -39,10 +42,6 @@ namespace PointOfSale
         [StringLength(60)]
         public string FatherName { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        [StringLength(182)]
-        public string FullName { get; set; }
-
         [Required]
         [StringLength(20)]
         public string IdentityNum { get; set; }
@@ -50,7 +49,7 @@ namespace PointOfSale
         [Required]
         [StringLength(20)]
         public string TaxNum { get; set; }
-
+        
         [Required]
         [StringLength(5)]
         public string DataLanguageCode { get; set; }
@@ -58,28 +57,26 @@ namespace PointOfSale
         [Column(TypeName = "money")]
         public decimal CreditLimit { get; set; }
 
-        public bool IsVIP { get; set; }
-
+        [Column("IsVIP")]
+        public bool IsVip { get; set; }
         public byte CustomerTypeCode { get; set; }
-
         public byte VendorTypeCode { get; set; }
-
         public double CustomerPosDiscountRate { get; set; }
-
         public bool IsDisabled { get; set; }
 
         [Required]
         [StringLength(20)]
         public string CreatedUserName { get; set; }
 
+        [Column(TypeName="datetime")]
         public DateTime CreatedDate { get; set; }
 
         [Required]
         [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 
+        [Column(TypeName = "datetime")]
         public DateTime LastUpdatedDate { get; set; }
-
         public Guid RowGuid { get; set; }
 
         [StringLength(50)]
@@ -93,9 +90,7 @@ namespace PointOfSale
 
         public DateTime? BirthDate { get; set; }
 
-        public virtual dcCurrAccType dcCurrAccType { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trInvoiceHeader> trInvoiceHeaders { get; set; }
+        public virtual DcCurrAccType CurrAccTypeCodeNavigation { get; set; }
+        public virtual ICollection<TrInvoiceHeader> TrInvoiceHeader { get; set; }
     }
 }

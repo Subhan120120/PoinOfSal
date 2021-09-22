@@ -45,7 +45,7 @@ namespace PointOfSale
             this.textEditWarehouseCode = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.trInvoiceLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TrInvoiceLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.subDataSet = new PointOfSale.subDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,14 +79,14 @@ namespace PointOfSale
             this.lCIInvoice = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCICustomDocNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCIIsReturn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.trInvoiceLineTableAdapter = new PointOfSale.subDataSetTableAdapters.trInvoiceLineTableAdapter();
+            this.TrInvoiceLineTableAdapter = new PointOfSale.subDataSetTableAdapters.TrInvoiceLineTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditWarehouseCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrInvoiceLineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoItemButtonEditProductCode)).BeginInit();
@@ -241,7 +241,7 @@ namespace PointOfSale
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.trInvoiceLineBindingSource;
+            this.gridControl1.DataSource = this.TrInvoiceLineBindingSource;
             this.gridControl1.Location = new System.Drawing.Point(12, 132);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.mainRibbonControl;
@@ -253,10 +253,10 @@ namespace PointOfSale
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // trInvoiceLineBindingSource
+            // TrInvoiceLineBindingSource
             // 
-            this.trInvoiceLineBindingSource.DataMember = "trInvoiceLine";
-            this.trInvoiceLineBindingSource.DataSource = this.subDataSet;
+            this.TrInvoiceLineBindingSource.DataMember = "TrInvoiceLine";
+            this.TrInvoiceLineBindingSource.DataSource = this.subDataSet;
             // 
             // subDataSet
             // 
@@ -607,9 +607,9 @@ namespace PointOfSale
             this.lCIIsReturn.TextSize = new System.Drawing.Size(0, 0);
             this.lCIIsReturn.TextVisible = false;
             // 
-            // trInvoiceLineTableAdapter
+            // TrInvoiceLineTableAdapter
             // 
-            this.trInvoiceLineTableAdapter.ClearBeforeFill = true;
+            this.TrInvoiceLineTableAdapter.ClearBeforeFill = true;
             // 
             // FormInvoice
             // 
@@ -630,7 +630,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrInvoiceLineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoItemButtonEditProductCode)).EndInit();
@@ -700,8 +700,8 @@ namespace PointOfSale
         private DevExpress.XtraLayout.LayoutControlItem lCICustomDocNum;
         private DevExpress.XtraLayout.LayoutControlItem lCIIsReturn;
         private subDataSet subDataSet;
-        private System.Windows.Forms.BindingSource trInvoiceLineBindingSource;
-        private subDataSetTableAdapters.trInvoiceLineTableAdapter trInvoiceLineTableAdapter;
+        private System.Windows.Forms.BindingSource TrInvoiceLineBindingSource;
+        private subDataSetTableAdapters.TrInvoiceLineTableAdapter TrInvoiceLineTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
         private DevExpress.XtraGrid.Columns.GridColumn colQty;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;

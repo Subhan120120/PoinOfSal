@@ -1,23 +1,24 @@
-namespace PointOfSale
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("trInvoiceHeader")]
-    public partial class trInvoiceHeader
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
+{
+    [Table("TrInvoiceHeader")]
+    public partial class TrInvoiceHeader
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public trInvoiceHeader()
+        public TrInvoiceHeader()
         {
-            trInvoiceLines = new HashSet<trInvoiceLine>();
+            TrInvoiceLine = new HashSet<TrInvoiceLine>();
         }
 
         [Key]
         public Guid InvoiceHeaderId { get; set; }
-
         public Guid? RelatedInvoiceId { get; set; }
 
         [Required]
@@ -27,23 +28,25 @@ namespace PointOfSale
         [Required]
         [StringLength(30)]
         public string DocumentNumber { get; set; }
-
         public bool IsReturn { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? DocumentDate { get; set; }
+        public DateTime DocumentDate { get; set; }
 
+        [Column(TypeName = "time(0)")]
         public TimeSpan DocumentTime { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime OperationDate { get; set; }
 
+        [Column(TypeName = "time(0)")]
         public TimeSpan OperationTime { get; set; }
 
         [Required]
-        [StringLength(2000)]
+        [StringLength(200)]
         public string Description { get; set; }
 
+        [Required]
         [StringLength(30)]
         public string CurrAccCode { get; set; }
 
@@ -59,7 +62,7 @@ namespace PointOfSale
         public string StoreCode { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(30)]
         public string WarehouseCode { get; set; }
 
         [StringLength(30)]
@@ -67,35 +70,30 @@ namespace PointOfSale
 
         [Required]
         [StringLength(30)]
-        public string POSTerminalId { get; set; }
-
+        public string PosTerminalId { get; set; }
         public bool IsSuspended { get; set; }
-
         public bool IsCompleted { get; set; }
-
         public bool IsPrinted { get; set; }
-
         public bool IsLocked { get; set; }
-
         public byte FiscalPrintedState { get; set; }
-
         public bool IsSalesViaInternet { get; set; }
 
         [Required]
         [StringLength(20)]
         public string CreatedUserName { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime CreatedDate { get; set; }
 
         [Required]
         [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime LastUpdatedDate { get; set; }
 
-        public virtual dcCurrAcc dcCurrAcc { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trInvoiceLine> trInvoiceLines { get; set; }
+        public virtual DcCurrAcc CurrAccCodeNavigation { get; set; }
+        public virtual ICollection<TrInvoiceLine> TrInvoiceLine { get; set; }
     }
 }

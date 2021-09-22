@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using PointOfSale.Models;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -11,7 +12,7 @@ namespace PointOfSale
     public partial class FormCurrAccList : XtraForm
     {
         SqlMethods sqlMethods = new SqlMethods();
-        public dcCurrAcc dcCurrAcc { get; set; }
+        public DcCurrAcc DcCurrAcc { get; set; }
 
         public FormCurrAccList()
         {
@@ -32,7 +33,7 @@ namespace PointOfSale
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                dcCurrAcc = new dcCurrAcc()
+                DcCurrAcc = new DcCurrAcc()
                 {
                     CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString()
                 };

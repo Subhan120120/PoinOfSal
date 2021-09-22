@@ -1,26 +1,25 @@
-namespace PointOfSale
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("trPaymentHeader")]
-    public partial class trPaymentHeader
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
+{
+    public partial class TrPaymentHeader
     {
         [Key]
-        public Guid PaymentHeaderID { get; set; }
-
-        public Guid? InvoiceHeaderID { get; set; }
-
-        [Required]
-        [StringLength(30)]
+        public Guid PaymentHeaderId { get; set; }
+        public Guid? InvoiceHeaderId { get; set; }
         public string DocumentNumber { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime DocumentDate { get; set; }
 
+        [Column(TypeName = "time(0)")]
         public TimeSpan DocumentTime { get; set; }
 
         [Required]
@@ -34,8 +33,6 @@ namespace PointOfSale
         [Required]
         [StringLength(200)]
         public string Description { get; set; }
-
-        [Column(TypeName = "numeric")]
         public decimal CompanyCode { get; set; }
 
         [Required]
@@ -45,29 +42,27 @@ namespace PointOfSale
         [Required]
         [StringLength(30)]
         public string StoreCode { get; set; }
-
-        public short POSTerminalID { get; set; }
+        public short PosterminalId { get; set; }
 
         [Required]
         [StringLength(10)]
         public string CurrencyCode { get; set; }
-
         public double ExchangeRate { get; set; }
-
         public bool IsCompleted { get; set; }
-
         public bool IsLocked { get; set; }
 
         [Required]
         [StringLength(20)]
         public string CreatedUserName { get; set; }
 
+        [Column(TypeName = "datetime")]
         public DateTime CreatedDate { get; set; }
 
         [Required]
         [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 
+        [Column(TypeName = "datetime")]
         public DateTime LastUpdatedDate { get; set; }
     }
 }

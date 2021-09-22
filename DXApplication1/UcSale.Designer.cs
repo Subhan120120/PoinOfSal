@@ -487,7 +487,7 @@ namespace PointOfSale
             // 
             // gridControlSale
             // 
-            this.gridControlSale.DataMember = "trInvoiceLine";
+            this.gridControlSale.DataMember = "TrInvoiceLine";
             this.gridControlSale.Location = new System.Drawing.Point(24, 45);
             this.gridControlSale.MainView = this.gridView11;
             this.gridControlSale.Name = "gridControlSale";

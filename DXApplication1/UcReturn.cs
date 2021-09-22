@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.Controls;
+using PointOfSale.Models;
 using System.Data;
 
 namespace PointOfSale
@@ -50,27 +51,27 @@ namespace PointOfSale
                         {
                             if (!sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderId)) //if invoiceHeader doesnt exist
                             {
-                                string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
-                                trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                                string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
+                                TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                                 {
                                     InvoiceHeaderId = returnInvoiceHeaderId,
                                     DocumentNumber = NewDocNum,
                                     ProcessCode = "RS",
                                     IsReturn = true
                                 };
-                                sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+                                sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
                             }
 
                             if (!sqlMethods.InvoiceLineExist(returnInvoiceHeaderId, invoiceLineID))
                             {
-                                trInvoiceLine trInvoiceLine = new trInvoiceLine()
+                                TrInvoiceLine TrInvoiceLine = new TrInvoiceLine()
                                 {
                                     InvoiceLineId = Guid.NewGuid(),
                                     InvoiceHeaderId = returnInvoiceHeaderId,
                                     RelatedLineId = (Guid)invoiceLineID,
                                     Qty = (formQty.qty * (-1))
                                 };
-                                sqlMethods.InsertInvoiceLine(trInvoiceLine);
+                                sqlMethods.InsertInvoiceLine(TrInvoiceLine);
                             }
                             else
                                 sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderId, invoiceLineID, formQty.qty * (-1));

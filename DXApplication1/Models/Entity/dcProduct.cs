@@ -1,29 +1,30 @@
-namespace PointOfSale
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("dcProduct")]
-    public partial class dcProduct
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
+{
+    [Table("DcProduct")]
+    public partial class DcProduct
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public dcProduct()
+        public DcProduct()
         {
-            trInvoiceLines = new HashSet<trInvoiceLine>();
+            TrInvoiceLine = new HashSet<TrInvoiceLine>();
         }
 
         [Key]
-        [StringLength(150)]
+        [StringLength(30)]
         public string ProductCode { get; set; }
 
         [StringLength(50)]
         public string Barcode { get; set; }
 
         public byte? ProductTypeCode { get; set; }
-
         public bool? UsePos { get; set; }
 
         [StringLength(50)]
@@ -31,29 +32,19 @@ namespace PointOfSale
 
         [StringLength(50)]
         public string PromotionCode2 { get; set; }
-
         public double? TaxRate { get; set; }
-
         public double? PosDiscount { get; set; }
-
         public bool? IsDisabled { get; set; }
-
         public double? RetailPrice { get; set; }
-
         public double? PurchasePrice { get; set; }
-
         public double? WholesalePrice { get; set; }
-
         public bool? IsBlocked { get; set; }
-
         public bool? UseInternet { get; set; }
 
         [StringLength(150)]
         public string ProductDescription { get; set; }
 
-        public virtual dcProductType dcProductType { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trInvoiceLine> trInvoiceLines { get; set; }
+        public virtual DcProductType ProductTypeCodeNavigation { get; set; }
+        public virtual ICollection<TrInvoiceLine> TrInvoiceLine { get; set; }
     }
 }

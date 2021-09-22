@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using PointOfSale.Models;
 using System;
 using System.Windows.Forms;
 
@@ -37,7 +38,7 @@ namespace PointOfSale
         private void FormInvoice_Load(object sender, EventArgs e)
         {
             invoiceHeaderId = Guid.NewGuid();
-            trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, invoiceHeaderId);
+            TrInvoiceLineTableAdapter.FillBy(subDataSet.TrInvoiceLine, invoiceHeaderId);
 
             textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice();
             textEditStoreCode.Properties.DataSource = sqlMethods.SelectStore();
@@ -50,18 +51,18 @@ namespace PointOfSale
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
-                    buttonEditDocNum.EditValue = form.trInvoiceHeader.DocumentNumber;
-                    checkEditIsReturn.EditValue = form.trInvoiceHeader.IsReturn;
-                    textEditInvoiceCustomNum.EditValue = form.trInvoiceHeader.CustomsDocumentNumber;
-                    dateEditDocumentDate.EditValue = form.trInvoiceHeader.DocumentDate;
-                    dateEditDocumentTime.EditValue = form.trInvoiceHeader.DocumentTime;
-                    buttonEditCurrAccCode.EditValue = form.trInvoiceHeader.CurrAccCode;
-                    textEditOfficeCode.EditValue = form.trInvoiceHeader.OfficeCode;
-                    textEditStoreCode.EditValue = form.trInvoiceHeader.StoreCode;
-                    textEditWarehouseCode.EditValue = form.trInvoiceHeader.WarehouseCode;
-                    textEditInvoiceDesc.EditValue = form.trInvoiceHeader.Description;
+                    buttonEditDocNum.EditValue = form.TrInvoiceHeader.DocumentNumber;
+                    checkEditIsReturn.EditValue = form.TrInvoiceHeader.IsReturn;
+                    textEditInvoiceCustomNum.EditValue = form.TrInvoiceHeader.CustomsDocumentNumber;
+                    dateEditDocumentDate.EditValue = form.TrInvoiceHeader.DocumentDate;
+                    dateEditDocumentTime.EditValue = form.TrInvoiceHeader.DocumentTime;
+                    buttonEditCurrAccCode.EditValue = form.TrInvoiceHeader.CurrAccCode;
+                    textEditOfficeCode.EditValue = form.TrInvoiceHeader.OfficeCode;
+                    textEditStoreCode.EditValue = form.TrInvoiceHeader.StoreCode;
+                    textEditWarehouseCode.EditValue = form.TrInvoiceHeader.WarehouseCode;
+                    textEditInvoiceDesc.EditValue = form.TrInvoiceHeader.Description;
 
-                    trInvoiceLineTableAdapter.FillBy(subDataSet.trInvoiceLine, form.trInvoiceHeader.InvoiceHeaderId);
+                    TrInvoiceLineTableAdapter.FillBy(subDataSet.TrInvoiceLine, form.TrInvoiceHeader.InvoiceHeaderId);
                 }
             }
         }
@@ -72,7 +73,7 @@ namespace PointOfSale
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
-                    buttonEditCurrAccCode.EditValue = form.dcCurrAcc.CurrAccCode;
+                    buttonEditCurrAccCode.EditValue = form.DcCurrAcc.CurrAccCode;
                 }
             }
         }
@@ -81,8 +82,8 @@ namespace PointOfSale
         {
             if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
             {
-                string NewDocNum = sqlMethods.GetNextDocNum("RP", "DocumentNumber", "trInvoiceHeader");
-                trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                string NewDocNum = sqlMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeader");
+                TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                 {
                     InvoiceHeaderId = invoiceHeaderId,
                     ProcessCode = "RP",
@@ -97,7 +98,7 @@ namespace PointOfSale
                     WarehouseCode = textEditWarehouseCode.EditValue.ToString(),
                     Description = textEditInvoiceDesc.EditValue.ToString(),
                 };
-                sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+                sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
             }
 
             gridView1.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
@@ -147,7 +148,7 @@ namespace PointOfSale
                 {
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
-                        editor.EditValue = form.dcProduct.ProductCode;
+                        editor.EditValue = form.DcProduct.ProductCode;
                     }
                 }
             }
@@ -161,7 +162,7 @@ namespace PointOfSale
 
         private void gridView1_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            trInvoiceLineTableAdapter.Adapter.Update(subDataSet);
+            TrInvoiceLineTableAdapter.Adapter.Update(subDataSet);
         }
     }
 }

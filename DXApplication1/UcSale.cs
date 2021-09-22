@@ -2,6 +2,7 @@
 using System;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
+using PointOfSale.Models;
 using System.Windows.Forms;
 
 namespace PointOfSale
@@ -59,19 +60,19 @@ namespace PointOfSale
                 {
                     if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
+                        string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
 
-                        trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                        TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                         {
                             InvoiceHeaderId = invoiceHeaderId,
                             ProcessCode = "RS",
                             DocumentNumber = NewDocNum
                         };
-                        sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+                        sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }
 
-                    dcProduct dcProduct = formProductList.dcProduct;
-                    int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderId);
+                    DcProduct DcProduct = formProductList.DcProduct;
+                    int result = sqlMethods.InsertInvoiceLine(DcProduct, invoiceHeaderId);
 
                     if (result > 0)
                     {
@@ -135,13 +136,13 @@ namespace PointOfSale
                     {
                         object invoiceLineId = gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "InvoiceLineId");
 
-                        trInvoiceLine trInvoiceLine = new trInvoiceLine()
+                        TrInvoiceLine TrInvoiceLine = new TrInvoiceLine()
                         {
                             InvoiceLineId = (Guid)invoiceLineId,
                             NetAmount = Amount - formPosDiscount.PosDiscount,
                             PosDiscount = formPosDiscount.PosDiscount
                         };
-                        int result = sqlMethods.UpdateInvoicePosDiscount(trInvoiceLine);
+                        int result = sqlMethods.UpdateInvoicePosDiscount(TrInvoiceLine);
 
                         if (result >= 0)
                         {
@@ -180,20 +181,20 @@ namespace PointOfSale
         {
             if (textEditBarcode.EditValue != null)
             {
-                dcProduct dcProduct = new dcProduct { Barcode = textEditBarcode.EditValue.ToString() };
+                DcProduct DcProduct = new DcProduct { Barcode = textEditBarcode.EditValue.ToString() };
 
                 if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                 {
-                    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
-                    trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
+                    TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                     {
                         InvoiceHeaderId = invoiceHeaderId,
                         ProcessCode = "RS",
                         DocumentNumber = NewDocNum,
                     };
-                    sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+                    sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
                 }
-                int result = sqlMethods.InsertInvoiceLine(dcProduct, invoiceHeaderId);
+                int result = sqlMethods.InsertInvoiceLine(DcProduct, invoiceHeaderId);
 
                 if (result > 0)
                 {
@@ -256,7 +257,7 @@ namespace PointOfSale
         private void simpleButtonCustomer_Click(object sender, EventArgs e)
         {
             SimpleButton simpleButton = sender as SimpleButton;
-            dcCurrAcc dcCurrAcc = new dcCurrAcc()
+            DcCurrAcc DcCurrAcc = new DcCurrAcc()
             {
                 CurrAccCode = textEditCustomerCode.Text,
                 //BirthDate = textEditCustomerBirthdate.Text,
@@ -265,7 +266,7 @@ namespace PointOfSale
                 PhoneNum = textEditCustomerPhoneNum.Text
             };
 
-            using (FormCustomer formCustomer = new FormCustomer(dcCurrAcc))
+            using (FormCustomer formCustomer = new FormCustomer(DcCurrAcc))
             {
                 if (formCustomer.ShowDialog(this) == DialogResult.OK)
                 {
@@ -273,23 +274,23 @@ namespace PointOfSale
                     {
                         if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                         {
-                            string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "trInvoiceHeader");
-                            trInvoiceHeader trInvoiceHeader = new trInvoiceHeader()
+                            string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
+                            TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                             {
                                 InvoiceHeaderId = invoiceHeaderId,
                                 ProcessCode = "RS",
                                 DocumentNumber = NewDocNum,
                             };
-                            sqlMethods.InsertInvoiceHeader(trInvoiceHeader);
+                            sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
                         }
-                        int result = sqlMethods.UpdateCurrAccCode(formCustomer.dcCurrAcc.CurrAccCode, invoiceHeaderId);
+                        int result = sqlMethods.UpdateCurrAccCode(formCustomer.DcCurrAcc.CurrAccCode, invoiceHeaderId);
 
                         if (result >= 0)
                         {
-                            textEditBonCardNum.EditValue = formCustomer.dcCurrAcc.BonusCardNum;
-                            textEditCustomerName.EditValue = formCustomer.dcCurrAcc.FirstName + " " + formCustomer.dcCurrAcc.LastName;
-                            textEditCustomerAddress.EditValue = formCustomer.dcCurrAcc.Address;
-                            textEditCustomerPhoneNum.EditValue = formCustomer.dcCurrAcc.PhoneNum;
+                            textEditBonCardNum.EditValue = formCustomer.DcCurrAcc.BonusCardNum;
+                            textEditCustomerName.EditValue = formCustomer.DcCurrAcc.FirstName + " " + formCustomer.DcCurrAcc.LastName;
+                            textEditCustomerAddress.EditValue = formCustomer.DcCurrAcc.Address;
+                            textEditCustomerPhoneNum.EditValue = formCustomer.DcCurrAcc.PhoneNum;
                         }
                     }
                 }

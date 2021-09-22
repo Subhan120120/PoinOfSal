@@ -1,13 +1,16 @@
-namespace PointOfSale
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("dcPaymentType")]
-    public partial class dcPaymentType
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
+{
+    [Table("DcPaymentType")]
+    public partial class DcPaymentType
     {
         [Key]
         public byte PaymentTypeCode { get; set; }

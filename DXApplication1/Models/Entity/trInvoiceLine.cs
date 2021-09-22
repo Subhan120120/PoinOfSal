@@ -1,26 +1,24 @@
-namespace PointOfSale
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("trInvoiceLine")]
-    public partial class trInvoiceLine
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
+{
+    public partial class TrInvoiceLine
     {
         [Key]
         public Guid InvoiceLineId { get; set; }
-
         public Guid InvoiceHeaderId { get; set; }
-
         public Guid? RelatedLineId { get; set; }
 
-        [StringLength(150)]
+        [StringLength(30)]
         public string ProductCode { get; set; }
-
         public int? Qty { get; set; }
-
         public double? Price { get; set; }
 
         [Column(TypeName = "money")]
@@ -34,31 +32,31 @@ namespace PointOfSale
 
         [Column(TypeName = "money")]
         public decimal? NetAmount { get; set; }
-
         public float? VatRate { get; set; }
-
         public string LineDescription { get; set; }
 
         [StringLength(50)]
         public string SalespersonCode { get; set; }
-
+        
         [StringLength(10)]
         public string CurrencyCode { get; set; }
-
         public double? ExchangeRate { get; set; }
 
-        [StringLength(50)]
+        [Required]
+        [StringLength(20)]
         public string CreatedUserName { get; set; }
 
-        public DateTime? CreatedDate { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime CreatedDate { get; set; }
 
-        [StringLength(50)]
+        [Required]
+        [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 
-        public DateTime? LastUpdatedDate { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime LastUpdatedDate { get; set; }
 
-        public virtual dcProduct dcProduct { get; set; }
-
-        public virtual trInvoiceHeader trInvoiceHeader { get; set; }
+        public virtual TrInvoiceHeader InvoiceHeader { get; set; }
+        public virtual DcProduct ProductCodeNavigation { get; set; }
     }
 }

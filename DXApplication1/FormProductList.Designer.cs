@@ -30,10 +30,7 @@ namespace PointOfSale
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductList));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBarcode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,8 +49,7 @@ namespace PointOfSale
             // 
             // gridControl1
             // 
-            this.gridControl1.DataMember = "dcProduct";
-            this.gridControl1.DataSource = this.sqlDataSource1;
+            this.gridControl1.DataMember = "DcProduct";
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
@@ -62,16 +58,6 @@ namespace PointOfSale
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "PointOfSale.Properties.Settings.subConnString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "dcProduct";
-            customSqlQuery1.Sql = "select *\r\n  from \"dbo\".\"dcProduct\" \"dcProduct\"";
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gridView1
             // 
@@ -194,7 +180,6 @@ namespace PointOfSale
 
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
         private DevExpress.XtraGrid.Columns.GridColumn colBarcode;
         private DevExpress.XtraGrid.Columns.GridColumn colProductTypeCode;

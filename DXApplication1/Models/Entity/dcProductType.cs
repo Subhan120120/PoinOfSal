@@ -1,18 +1,20 @@
-namespace PointOfSale
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("dcProductType")]
-    public partial class dcProductType
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PointOfSale.Models
+{
+    [Table("DcProductType")]
+    public partial class DcProductType
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public dcProductType()
+        public DcProductType()
         {
-            dcProducts = new HashSet<dcProduct>();
+            DcProduct = new HashSet<DcProduct>();
         }
 
         [Key]
@@ -21,7 +23,6 @@ namespace PointOfSale
         [StringLength(50)]
         public string ProductTypeDesc { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<dcProduct> dcProducts { get; set; }
+        public virtual ICollection<DcProduct> DcProduct { get; set; }
     }
 }
