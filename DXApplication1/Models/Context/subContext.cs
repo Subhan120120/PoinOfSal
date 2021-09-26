@@ -208,8 +208,8 @@ namespace PointOfSale.Models
             });
 
             modelBuilder.Entity<DcProduct>().HasData(
-                new DcProduct { ProductCode = "test01", ProductDescription = "Papaq", Barcode = "123456", RetailPrice = 4.5 },
-                new DcProduct { ProductCode = "test02", ProductDescription = "Salvar", Barcode = "2000000000013", RetailPrice = 2.5 }
+                new DcProduct { ProductTypeCode = 1, ProductCode = "test01", ProductDescription = "Papaq", Barcode = "123456", RetailPrice = 4.5 },
+                new DcProduct { ProductTypeCode = 1, ProductCode = "test02", ProductDescription = "Salvar", Barcode = "2000000000013", RetailPrice = 2.5 }
             );
 
             modelBuilder.Entity<DcProductType>(entity =>

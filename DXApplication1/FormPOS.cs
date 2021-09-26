@@ -12,13 +12,15 @@ namespace PointOfSale
         public FormPOS()
         {
             InitializeComponent();
+
             UcSale ucSale = new UcSale();
             ucSale.Dock = DockStyle.Fill;
-            this.navigationPageSale.Controls.Add(ucSale);
+            navigationPageSale.Controls.Add(ucSale);
 
             UcReturn ucReturn = new UcReturn();
             ucReturn.Dock = DockStyle.Fill;
-            this.navigationPageReturn.Controls.Add(ucReturn);
+            navigationPageReturn.Controls.Add(ucReturn);
+
         }
 
         private void FormPOS_Load(object sender, EventArgs e)
