@@ -293,10 +293,6 @@ namespace PointOfSale {
             
             private global::System.Data.DataColumn columnAmount;
             
-            private global::System.Data.DataColumn columnPosDiscount;
-            
-            private global::System.Data.DataColumn columnDiscountCampaign;
-            
             private global::System.Data.DataColumn columnNetAmount;
             
             private global::System.Data.DataColumn columnVatRate;
@@ -316,6 +312,10 @@ namespace PointOfSale {
             private global::System.Data.DataColumn columnLastUpdatedUserName;
             
             private global::System.Data.DataColumn columnLastUpdatedDate;
+            
+            private global::System.Data.DataColumn columnPosDiscount;
+            
+            private global::System.Data.DataColumn columnDiscountCampaign;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -408,22 +408,6 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PosDiscountColumn {
-                get {
-                    return this.columnPosDiscount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DiscountCampaignColumn {
-                get {
-                    return this.columnDiscountCampaign;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn NetAmountColumn {
                 get {
                     return this.columnNetAmount;
@@ -504,6 +488,22 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PosDiscountColumn {
+                get {
+                    return this.columnPosDiscount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DiscountCampaignColumn {
+                get {
+                    return this.columnDiscountCampaign;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -547,8 +547,6 @@ namespace PointOfSale {
                         int Qty, 
                         double Price, 
                         decimal Amount, 
-                        double PosDiscount, 
-                        double DiscountCampaign, 
                         decimal NetAmount, 
                         float VatRate, 
                         string LineDescription, 
@@ -558,7 +556,9 @@ namespace PointOfSale {
                         string CreatedUserName, 
                         System.DateTime CreatedDate, 
                         string LastUpdatedUserName, 
-                        System.DateTime LastUpdatedDate) {
+                        System.DateTime LastUpdatedDate, 
+                        decimal PosDiscount, 
+                        decimal DiscountCampaign) {
                 TrInvoiceLineRow rowTrInvoiceLineRow = ((TrInvoiceLineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         InvoiceLineId,
@@ -568,8 +568,6 @@ namespace PointOfSale {
                         Qty,
                         Price,
                         Amount,
-                        PosDiscount,
-                        DiscountCampaign,
                         NetAmount,
                         VatRate,
                         LineDescription,
@@ -579,7 +577,9 @@ namespace PointOfSale {
                         CreatedUserName,
                         CreatedDate,
                         LastUpdatedUserName,
-                        LastUpdatedDate};
+                        LastUpdatedDate,
+                        PosDiscount,
+                        DiscountCampaign};
                 rowTrInvoiceLineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTrInvoiceLineRow);
                 return rowTrInvoiceLineRow;
@@ -616,8 +616,6 @@ namespace PointOfSale {
                 this.columnQty = base.Columns["Qty"];
                 this.columnPrice = base.Columns["Price"];
                 this.columnAmount = base.Columns["Amount"];
-                this.columnPosDiscount = base.Columns["PosDiscount"];
-                this.columnDiscountCampaign = base.Columns["DiscountCampaign"];
                 this.columnNetAmount = base.Columns["NetAmount"];
                 this.columnVatRate = base.Columns["VatRate"];
                 this.columnLineDescription = base.Columns["LineDescription"];
@@ -628,6 +626,8 @@ namespace PointOfSale {
                 this.columnCreatedDate = base.Columns["CreatedDate"];
                 this.columnLastUpdatedUserName = base.Columns["LastUpdatedUserName"];
                 this.columnLastUpdatedDate = base.Columns["LastUpdatedDate"];
+                this.columnPosDiscount = base.Columns["PosDiscount"];
+                this.columnDiscountCampaign = base.Columns["DiscountCampaign"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -647,10 +647,6 @@ namespace PointOfSale {
                 base.Columns.Add(this.columnPrice);
                 this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount);
-                this.columnPosDiscount = new global::System.Data.DataColumn("PosDiscount", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPosDiscount);
-                this.columnDiscountCampaign = new global::System.Data.DataColumn("DiscountCampaign", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDiscountCampaign);
                 this.columnNetAmount = new global::System.Data.DataColumn("NetAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNetAmount);
                 this.columnVatRate = new global::System.Data.DataColumn("VatRate", typeof(float), null, global::System.Data.MappingType.Element);
@@ -671,17 +667,33 @@ namespace PointOfSale {
                 base.Columns.Add(this.columnLastUpdatedUserName);
                 this.columnLastUpdatedDate = new global::System.Data.DataColumn("LastUpdatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLastUpdatedDate);
+                this.columnPosDiscount = new global::System.Data.DataColumn("PosDiscount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPosDiscount);
+                this.columnDiscountCampaign = new global::System.Data.DataColumn("DiscountCampaign", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiscountCampaign);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnInvoiceLineId}, true));
                 this.columnInvoiceLineId.AllowDBNull = false;
                 this.columnInvoiceLineId.Unique = true;
                 this.columnInvoiceHeaderId.AllowDBNull = false;
                 this.columnProductCode.MaxLength = 150;
+                this.columnQty.AllowDBNull = false;
+                this.columnPrice.AllowDBNull = false;
+                this.columnAmount.AllowDBNull = false;
+                this.columnNetAmount.AllowDBNull = false;
+                this.columnVatRate.AllowDBNull = false;
                 this.columnLineDescription.MaxLength = 2147483647;
                 this.columnSalespersonCode.MaxLength = 50;
                 this.columnCurrencyCode.MaxLength = 10;
+                this.columnExchangeRate.AllowDBNull = false;
+                this.columnCreatedUserName.AllowDBNull = false;
                 this.columnCreatedUserName.MaxLength = 50;
+                this.columnCreatedDate.AllowDBNull = false;
+                this.columnLastUpdatedUserName.AllowDBNull = false;
                 this.columnLastUpdatedUserName.MaxLength = 50;
+                this.columnLastUpdatedDate.AllowDBNull = false;
+                this.columnPosDiscount.AllowDBNull = false;
+                this.columnDiscountCampaign.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -880,12 +892,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Qty {
                 get {
-                    try {
-                        return ((int)(this[this.tableTrInvoiceLine.QtyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Qty\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTrInvoiceLine.QtyColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.QtyColumn] = value;
@@ -896,12 +903,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public double Price {
                 get {
-                    try {
-                        return ((double)(this[this.tableTrInvoiceLine.PriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((double)(this[this.tableTrInvoiceLine.PriceColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.PriceColumn] = value;
@@ -912,12 +914,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal Amount {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableTrInvoiceLine.AmountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableTrInvoiceLine.AmountColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.AmountColumn] = value;
@@ -926,46 +923,9 @@ namespace PointOfSale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double PosDiscount {
-                get {
-                    try {
-                        return ((double)(this[this.tableTrInvoiceLine.PosDiscountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PosDiscount\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTrInvoiceLine.PosDiscountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double DiscountCampaign {
-                get {
-                    try {
-                        return ((double)(this[this.tableTrInvoiceLine.DiscountCampaignColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DiscountCampaign\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTrInvoiceLine.DiscountCampaignColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal NetAmount {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableTrInvoiceLine.NetAmountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NetAmount\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableTrInvoiceLine.NetAmountColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.NetAmountColumn] = value;
@@ -976,12 +936,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public float VatRate {
                 get {
-                    try {
-                        return ((float)(this[this.tableTrInvoiceLine.VatRateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'VatRate\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((float)(this[this.tableTrInvoiceLine.VatRateColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.VatRateColumn] = value;
@@ -1040,12 +995,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public double ExchangeRate {
                 get {
-                    try {
-                        return ((double)(this[this.tableTrInvoiceLine.ExchangeRateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ExchangeRate\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((double)(this[this.tableTrInvoiceLine.ExchangeRateColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.ExchangeRateColumn] = value;
@@ -1056,12 +1006,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string CreatedUserName {
                 get {
-                    try {
-                        return ((string)(this[this.tableTrInvoiceLine.CreatedUserNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedUserName\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTrInvoiceLine.CreatedUserNameColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.CreatedUserNameColumn] = value;
@@ -1072,12 +1017,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime CreatedDate {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableTrInvoiceLine.CreatedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableTrInvoiceLine.CreatedDateColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.CreatedDateColumn] = value;
@@ -1088,12 +1028,7 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string LastUpdatedUserName {
                 get {
-                    try {
-                        return ((string)(this[this.tableTrInvoiceLine.LastUpdatedUserNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedUserName\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTrInvoiceLine.LastUpdatedUserNameColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.LastUpdatedUserNameColumn] = value;
@@ -1104,15 +1039,32 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime LastUpdatedDate {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableTrInvoiceLine.LastUpdatedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastUpdatedDate\' in table \'TrInvoiceLine\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableTrInvoiceLine.LastUpdatedDateColumn]));
                 }
                 set {
                     this[this.tableTrInvoiceLine.LastUpdatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal PosDiscount {
+                get {
+                    return ((decimal)(this[this.tableTrInvoiceLine.PosDiscountColumn]));
+                }
+                set {
+                    this[this.tableTrInvoiceLine.PosDiscountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal DiscountCampaign {
+                get {
+                    return ((decimal)(this[this.tableTrInvoiceLine.DiscountCampaignColumn]));
+                }
+                set {
+                    this[this.tableTrInvoiceLine.DiscountCampaignColumn] = value;
                 }
             }
             
@@ -1138,90 +1090,6 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetProductCodeNull() {
                 this[this.tableTrInvoiceLine.ProductCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsQtyNull() {
-                return this.IsNull(this.tableTrInvoiceLine.QtyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetQtyNull() {
-                this[this.tableTrInvoiceLine.QtyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPriceNull() {
-                return this.IsNull(this.tableTrInvoiceLine.PriceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPriceNull() {
-                this[this.tableTrInvoiceLine.PriceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAmountNull() {
-                return this.IsNull(this.tableTrInvoiceLine.AmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAmountNull() {
-                this[this.tableTrInvoiceLine.AmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPosDiscountNull() {
-                return this.IsNull(this.tableTrInvoiceLine.PosDiscountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPosDiscountNull() {
-                this[this.tableTrInvoiceLine.PosDiscountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDiscountCampaignNull() {
-                return this.IsNull(this.tableTrInvoiceLine.DiscountCampaignColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDiscountCampaignNull() {
-                this[this.tableTrInvoiceLine.DiscountCampaignColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNetAmountNull() {
-                return this.IsNull(this.tableTrInvoiceLine.NetAmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNetAmountNull() {
-                this[this.tableTrInvoiceLine.NetAmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsVatRateNull() {
-                return this.IsNull(this.tableTrInvoiceLine.VatRateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetVatRateNull() {
-                this[this.tableTrInvoiceLine.VatRateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1258,66 +1126,6 @@ namespace PointOfSale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCurrencyCodeNull() {
                 this[this.tableTrInvoiceLine.CurrencyCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsExchangeRateNull() {
-                return this.IsNull(this.tableTrInvoiceLine.ExchangeRateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetExchangeRateNull() {
-                this[this.tableTrInvoiceLine.ExchangeRateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCreatedUserNameNull() {
-                return this.IsNull(this.tableTrInvoiceLine.CreatedUserNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCreatedUserNameNull() {
-                this[this.tableTrInvoiceLine.CreatedUserNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCreatedDateNull() {
-                return this.IsNull(this.tableTrInvoiceLine.CreatedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCreatedDateNull() {
-                this[this.tableTrInvoiceLine.CreatedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsLastUpdatedUserNameNull() {
-                return this.IsNull(this.tableTrInvoiceLine.LastUpdatedUserNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetLastUpdatedUserNameNull() {
-                this[this.tableTrInvoiceLine.LastUpdatedUserNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsLastUpdatedDateNull() {
-                return this.IsNull(this.tableTrInvoiceLine.LastUpdatedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetLastUpdatedDateNull() {
-                this[this.tableTrInvoiceLine.LastUpdatedDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1487,8 +1295,6 @@ namespace PointOfSale.subDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Qty", "Qty");
             tableMapping.ColumnMappings.Add("Price", "Price");
             tableMapping.ColumnMappings.Add("Amount", "Amount");
-            tableMapping.ColumnMappings.Add("PosDiscount", "PosDiscount");
-            tableMapping.ColumnMappings.Add("DiscountCampaign", "DiscountCampaign");
             tableMapping.ColumnMappings.Add("NetAmount", "NetAmount");
             tableMapping.ColumnMappings.Add("VatRate", "VatRate");
             tableMapping.ColumnMappings.Add("LineDescription", "LineDescription");
@@ -1499,71 +1305,17 @@ namespace PointOfSale.subDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("CreatedDate", "CreatedDate");
             tableMapping.ColumnMappings.Add("LastUpdatedUserName", "LastUpdatedUserName");
             tableMapping.ColumnMappings.Add("LastUpdatedDate", "LastUpdatedDate");
+            tableMapping.ColumnMappings.Add("PosDiscount", "PosDiscount");
+            tableMapping.ColumnMappings.Add("DiscountCampaign", "DiscountCampaign");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TrInvoiceLine] WHERE (([InvoiceLineId] = @Original_InvoiceLine" +
-                "Id) AND ([InvoiceHeaderId] = @Original_InvoiceHeaderId) AND ((@IsNull_RelatedLin" +
-                "eId = 1 AND [RelatedLineId] IS NULL) OR ([RelatedLineId] = @Original_RelatedLine" +
-                "Id)) AND ((@IsNull_ProductCode = 1 AND [ProductCode] IS NULL) OR ([ProductCode] " +
-                "= @Original_ProductCode)) AND ((@IsNull_Qty = 1 AND [Qty] IS NULL) OR ([Qty] = @" +
-                "Original_Qty)) AND ((@IsNull_Price = 1 AND [Price] IS NULL) OR ([Price] = @Origi" +
-                "nal_Price)) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Origi" +
-                "nal_Amount)) AND ((@IsNull_PosDiscount = 1 AND [PosDiscount] IS NULL) OR ([PosDi" +
-                "scount] = @Original_PosDiscount)) AND ((@IsNull_DiscountCampaign = 1 AND [Discou" +
-                "ntCampaign] IS NULL) OR ([DiscountCampaign] = @Original_DiscountCampaign)) AND (" +
-                "(@IsNull_NetAmount = 1 AND [NetAmount] IS NULL) OR ([NetAmount] = @Original_NetA" +
-                "mount)) AND ((@IsNull_VatRate = 1 AND [VatRate] IS NULL) OR ([VatRate] = @Origin" +
-                "al_VatRate)) AND ((@IsNull_SalespersonCode = 1 AND [SalespersonCode] IS NULL) OR" +
-                " ([SalespersonCode] = @Original_SalespersonCode)) AND ((@IsNull_CurrencyCode = 1" +
-                " AND [CurrencyCode] IS NULL) OR ([CurrencyCode] = @Original_CurrencyCode)) AND (" +
-                "(@IsNull_ExchangeRate = 1 AND [ExchangeRate] IS NULL) OR ([ExchangeRate] = @Orig" +
-                "inal_ExchangeRate)) AND ((@IsNull_CreatedUserName = 1 AND [CreatedUserName] IS N" +
-                "ULL) OR ([CreatedUserName] = @Original_CreatedUserName)) AND ((@IsNull_CreatedDa" +
-                "te = 1 AND [CreatedDate] IS NULL) OR ([CreatedDate] = @Original_CreatedDate)) AN" +
-                "D ((@IsNull_LastUpdatedUserName = 1 AND [LastUpdatedUserName] IS NULL) OR ([Last" +
-                "UpdatedUserName] = @Original_LastUpdatedUserName)) AND ((@IsNull_LastUpdatedDate" +
-                " = 1 AND [LastUpdatedDate] IS NULL) OR ([LastUpdatedDate] = @Original_LastUpdate" +
-                "dDate)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [TrInvoiceLines] WHERE (([InvoiceLineId] = @Original_InvoiceLineId))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RelatedLineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PosDiscount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PosDiscount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DiscountCampaign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DiscountCampaign", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NetAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NetAmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NetAmount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NetAmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VatRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VatRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VatRate", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VatRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SalespersonCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SalespersonCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SalespersonCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SalespersonCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CurrencyCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CurrencyCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CurrencyCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CurrencyCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ExchangeRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExchangeRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExchangeRate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExchangeRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreatedUserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedUserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedUserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedUserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreatedDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastUpdatedUserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedUserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdatedUserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedUserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastUpdatedDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TrInvoiceLine] ([InvoiceLineId], [InvoiceHeaderId], [RelatedLineId], [ProductCode], [Qty], [Price], [Amount], [PosDiscount], [DiscountCampaign], [NetAmount], [VatRate], [LineDescription], [SalespersonCode], [CurrencyCode], [ExchangeRate], [CreatedUserName], [CreatedDate], [LastUpdatedUserName], [LastUpdatedDate]) VALUES (@InvoiceLineId, @InvoiceHeaderId, @RelatedLineId, @ProductCode, @Qty, @Price, @Amount, @PosDiscount, @DiscountCampaign, @NetAmount, @VatRate, @LineDescription, @SalespersonCode, @CurrencyCode, @ExchangeRate, @CreatedUserName, @CreatedDate, @LastUpdatedUserName, @LastUpdatedDate);
-SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM TrInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [TrInvoiceLines] ([InvoiceLineId], [InvoiceHeaderId], [RelatedLineId], [ProductCode], [Qty], [Price], [Amount], [PosDiscount], [DiscountCampaign], [NetAmount], [VatRate], [LineDescription], [SalespersonCode], [CurrencyCode], [ExchangeRate], [CreatedUserName], [CreatedDate], [LastUpdatedUserName], [LastUpdatedDate]) VALUES (@InvoiceLineId, @InvoiceHeaderId, @RelatedLineId, @ProductCode, @Qty, @Price, @Amount, @PosDiscount, @DiscountCampaign, @NetAmount, @VatRate, @LineDescription, @SalespersonCode, @CurrencyCode, @ExchangeRate, @CreatedUserName, @CreatedDate, @LastUpdatedUserName, @LastUpdatedDate)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1572,8 +1324,8 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PosDiscount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DiscountCampaign", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PosDiscount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DiscountCampaign", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NetAmount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NetAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VatRate", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VatRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LineDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LineDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1586,40 +1338,7 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TrInvoiceLine] SET [InvoiceLineId] = @InvoiceLineId, [InvoiceHeader" +
-                "Id] = @InvoiceHeaderId, [RelatedLineId] = @RelatedLineId, [ProductCode] = @Produ" +
-                "ctCode, [Qty] = @Qty, [Price] = @Price, [Amount] = @Amount, [PosDiscount] = @Pos" +
-                "Discount, [DiscountCampaign] = @DiscountCampaign, [NetAmount] = @NetAmount, [Vat" +
-                "Rate] = @VatRate, [LineDescription] = @LineDescription, [SalespersonCode] = @Sal" +
-                "espersonCode, [CurrencyCode] = @CurrencyCode, [ExchangeRate] = @ExchangeRate, [C" +
-                "reatedUserName] = @CreatedUserName, [CreatedDate] = @CreatedDate, [LastUpdatedUs" +
-                "erName] = @LastUpdatedUserName, [LastUpdatedDate] = @LastUpdatedDate WHERE (([In" +
-                "voiceLineId] = @Original_InvoiceLineId) AND ([InvoiceHeaderId] = @Original_Invoi" +
-                "ceHeaderId) AND ((@IsNull_RelatedLineId = 1 AND [RelatedLineId] IS NULL) OR ([Re" +
-                "latedLineId] = @Original_RelatedLineId)) AND ((@IsNull_ProductCode = 1 AND [Prod" +
-                "uctCode] IS NULL) OR ([ProductCode] = @Original_ProductCode)) AND ((@IsNull_Qty " +
-                "= 1 AND [Qty] IS NULL) OR ([Qty] = @Original_Qty)) AND ((@IsNull_Price = 1 AND [" +
-                "Price] IS NULL) OR ([Price] = @Original_Price)) AND ((@IsNull_Amount = 1 AND [Am" +
-                "ount] IS NULL) OR ([Amount] = @Original_Amount)) AND ((@IsNull_PosDiscount = 1 A" +
-                "ND [PosDiscount] IS NULL) OR ([PosDiscount] = @Original_PosDiscount)) AND ((@IsN" +
-                "ull_DiscountCampaign = 1 AND [DiscountCampaign] IS NULL) OR ([DiscountCampaign] " +
-                "= @Original_DiscountCampaign)) AND ((@IsNull_NetAmount = 1 AND [NetAmount] IS NU" +
-                "LL) OR ([NetAmount] = @Original_NetAmount)) AND ((@IsNull_VatRate = 1 AND [VatRa" +
-                "te] IS NULL) OR ([VatRate] = @Original_VatRate)) AND ((@IsNull_SalespersonCode =" +
-                " 1 AND [SalespersonCode] IS NULL) OR ([SalespersonCode] = @Original_SalespersonC" +
-                "ode)) AND ((@IsNull_CurrencyCode = 1 AND [CurrencyCode] IS NULL) OR ([CurrencyCo" +
-                "de] = @Original_CurrencyCode)) AND ((@IsNull_ExchangeRate = 1 AND [ExchangeRate]" +
-                " IS NULL) OR ([ExchangeRate] = @Original_ExchangeRate)) AND ((@IsNull_CreatedUse" +
-                "rName = 1 AND [CreatedUserName] IS NULL) OR ([CreatedUserName] = @Original_Creat" +
-                "edUserName)) AND ((@IsNull_CreatedDate = 1 AND [CreatedDate] IS NULL) OR ([Creat" +
-                "edDate] = @Original_CreatedDate)) AND ((@IsNull_LastUpdatedUserName = 1 AND [Las" +
-                "tUpdatedUserName] IS NULL) OR ([LastUpdatedUserName] = @Original_LastUpdatedUser" +
-                "Name)) AND ((@IsNull_LastUpdatedDate = 1 AND [LastUpdatedDate] IS NULL) OR ([Las" +
-                "tUpdatedDate] = @Original_LastUpdatedDate)));\r\nSELECT InvoiceLineId, InvoiceHead" +
-                "erId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampa" +
-                "ign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, Exchang" +
-                "eRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM T" +
-                "rInvoiceLine WHERE (InvoiceLineId = @InvoiceLineId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [TrInvoiceLines] SET [InvoiceLineId] = @InvoiceLineId, [InvoiceHeaderId] = @InvoiceHeaderId, [RelatedLineId] = @RelatedLineId, [ProductCode] = @ProductCode, [Qty] = @Qty, [Price] = @Price, [Amount] = @Amount, [PosDiscount] = @PosDiscount, [DiscountCampaign] = @DiscountCampaign, [NetAmount] = @NetAmount, [VatRate] = @VatRate, [LineDescription] = @LineDescription, [SalespersonCode] = @SalespersonCode, [CurrencyCode] = @CurrencyCode, [ExchangeRate] = @ExchangeRate, [CreatedUserName] = @CreatedUserName, [CreatedDate] = @CreatedDate, [LastUpdatedUserName] = @LastUpdatedUserName, [LastUpdatedDate] = @LastUpdatedDate WHERE (([InvoiceLineId] = @Original_InvoiceLineId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1628,8 +1347,8 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PosDiscount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DiscountCampaign", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PosDiscount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DiscountCampaign", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NetAmount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NetAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VatRate", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VatRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LineDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LineDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1641,39 +1360,6 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastUpdatedUserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedUserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RelatedLineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedLineId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedLineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PosDiscount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PosDiscount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PosDiscount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DiscountCampaign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DiscountCampaign", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiscountCampaign", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NetAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NetAmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NetAmount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NetAmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VatRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VatRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VatRate", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VatRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SalespersonCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SalespersonCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SalespersonCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SalespersonCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CurrencyCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CurrencyCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CurrencyCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CurrencyCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ExchangeRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExchangeRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExchangeRate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExchangeRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreatedUserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedUserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedUserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedUserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreatedDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastUpdatedUserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedUserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdatedUserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedUserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastUpdatedDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdatedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdatedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1686,49 +1372,23 @@ SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, A
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.TrInvoiceLine";
+            this._commandCollection[0].CommandText = @"SELECT       InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, 
+                         CreatedDate, LastUpdatedUserName, LastUpdatedDate
+FROM            TrInvoiceLines
+WHERE        (InvoiceHeaderId = @InvoiceHeaderId)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate FROM dbo.TrInvoiceLine
-WHERE InvoiceHeaderId = @InvoiceHeaderId";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 16, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceHeaderId", global::System.Data.SqlDbType.UniqueIdentifier, 16, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceHeaderId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(subDataSet.TrInvoiceLineDataTable dataTable) {
+        public virtual int Fill(subDataSet.TrInvoiceLineDataTable dataTable, System.Guid InvoiceHeaderId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual subDataSet.TrInvoiceLineDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            subDataSet.TrInvoiceLineDataTable dataTable = new subDataSet.TrInvoiceLineDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(subDataSet.TrInvoiceLineDataTable dataTable, System.Guid InvoiceHeaderId) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1740,9 +1400,9 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual subDataSet.TrInvoiceLineDataTable GetDataBy(System.Guid InvoiceHeaderId) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual subDataSet.TrInvoiceLineDataTable GetData(System.Guid InvoiceHeaderId) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(InvoiceHeaderId));
             subDataSet.TrInvoiceLineDataTable dataTable = new subDataSet.TrInvoiceLineDataTable();
             this.Adapter.Fill(dataTable);
@@ -1782,155 +1442,8 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    System.Guid Original_InvoiceLineId, 
-                    System.Guid Original_InvoiceHeaderId, 
-                    global::System.Nullable<global::System.Guid> Original_RelatedLineId, 
-                    string Original_ProductCode, 
-                    global::System.Nullable<int> Original_Qty, 
-                    global::System.Nullable<double> Original_Price, 
-                    global::System.Nullable<decimal> Original_Amount, 
-                    global::System.Nullable<double> Original_PosDiscount, 
-                    global::System.Nullable<double> Original_DiscountCampaign, 
-                    global::System.Nullable<decimal> Original_NetAmount, 
-                    global::System.Nullable<float> Original_VatRate, 
-                    string Original_SalespersonCode, 
-                    string Original_CurrencyCode, 
-                    global::System.Nullable<double> Original_ExchangeRate, 
-                    string Original_CreatedUserName, 
-                    global::System.Nullable<global::System.DateTime> Original_CreatedDate, 
-                    string Original_LastUpdatedUserName, 
-                    global::System.Nullable<global::System.DateTime> Original_LastUpdatedDate) {
+        public virtual int Delete(System.Guid Original_InvoiceLineId) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(Original_InvoiceLineId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.Guid)(Original_InvoiceHeaderId));
-            if ((Original_RelatedLineId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((System.Guid)(Original_RelatedLineId.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ProductCode == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_ProductCode));
-            }
-            if ((Original_Qty.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Qty.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Price.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(Original_Price.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Amount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_Amount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_PosDiscount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((double)(Original_PosDiscount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Original_DiscountCampaign.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((double)(Original_DiscountCampaign.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_NetAmount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((decimal)(Original_NetAmount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Original_VatRate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((float)(Original_VatRate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_SalespersonCode == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_SalespersonCode));
-            }
-            if ((Original_CurrencyCode == null)) {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_CurrencyCode));
-            }
-            if ((Original_ExchangeRate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((double)(Original_ExchangeRate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CreatedUserName == null)) {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((string)(Original_CreatedUserName));
-            }
-            if ((Original_CreatedDate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((System.DateTime)(Original_CreatedDate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((Original_LastUpdatedUserName == null)) {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_LastUpdatedUserName));
-            }
-            if ((Original_LastUpdatedDate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((System.DateTime)(Original_LastUpdatedDate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1956,21 +1469,21 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
                     System.Guid InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> RelatedLineId, 
                     string ProductCode, 
-                    global::System.Nullable<int> Qty, 
-                    global::System.Nullable<double> Price, 
-                    global::System.Nullable<decimal> Amount, 
-                    global::System.Nullable<double> PosDiscount, 
-                    global::System.Nullable<double> DiscountCampaign, 
-                    global::System.Nullable<decimal> NetAmount, 
-                    global::System.Nullable<float> VatRate, 
+                    int Qty, 
+                    double Price, 
+                    decimal Amount, 
+                    decimal PosDiscount, 
+                    decimal DiscountCampaign, 
+                    decimal NetAmount, 
+                    float VatRate, 
                     string LineDescription, 
                     string SalespersonCode, 
                     string CurrencyCode, 
-                    global::System.Nullable<double> ExchangeRate, 
+                    double ExchangeRate, 
                     string CreatedUserName, 
-                    global::System.Nullable<global::System.DateTime> CreatedDate, 
+                    System.DateTime CreatedDate, 
                     string LastUpdatedUserName, 
-                    global::System.Nullable<global::System.DateTime> LastUpdatedDate) {
+                    System.DateTime LastUpdatedDate) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(InvoiceLineId));
             this.Adapter.InsertCommand.Parameters[1].Value = ((System.Guid)(InvoiceHeaderId));
             if ((RelatedLineId.HasValue == true)) {
@@ -1985,48 +1498,13 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ProductCode));
             }
-            if ((Qty.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Qty.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Price.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(Price.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Amount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Amount.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((PosDiscount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((double)(PosDiscount.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((DiscountCampaign.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((double)(DiscountCampaign.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((NetAmount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(NetAmount.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((VatRate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((float)(VatRate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Qty));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((double)(Price));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Amount));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(PosDiscount));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(DiscountCampaign));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(NetAmount));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((float)(VatRate));
             if ((LineDescription == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
@@ -2045,36 +1523,21 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
             else {
                 this.Adapter.InsertCommand.Parameters[13].Value = ((string)(CurrencyCode));
             }
-            if ((ExchangeRate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((double)(ExchangeRate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[14].Value = ((double)(ExchangeRate));
             if ((CreatedUserName == null)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("CreatedUserName");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = ((string)(CreatedUserName));
             }
-            if ((CreatedDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((System.DateTime)(CreatedDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[16].Value = ((System.DateTime)(CreatedDate));
             if ((LastUpdatedUserName == null)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("LastUpdatedUserName");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[17].Value = ((string)(LastUpdatedUserName));
             }
-            if ((LastUpdatedDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(LastUpdatedDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(LastUpdatedDate));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2100,39 +1563,22 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
                     System.Guid InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> RelatedLineId, 
                     string ProductCode, 
-                    global::System.Nullable<int> Qty, 
-                    global::System.Nullable<double> Price, 
-                    global::System.Nullable<decimal> Amount, 
-                    global::System.Nullable<double> PosDiscount, 
-                    global::System.Nullable<double> DiscountCampaign, 
-                    global::System.Nullable<decimal> NetAmount, 
-                    global::System.Nullable<float> VatRate, 
+                    int Qty, 
+                    double Price, 
+                    decimal Amount, 
+                    decimal PosDiscount, 
+                    decimal DiscountCampaign, 
+                    decimal NetAmount, 
+                    float VatRate, 
                     string LineDescription, 
                     string SalespersonCode, 
                     string CurrencyCode, 
-                    global::System.Nullable<double> ExchangeRate, 
+                    double ExchangeRate, 
                     string CreatedUserName, 
-                    global::System.Nullable<global::System.DateTime> CreatedDate, 
+                    System.DateTime CreatedDate, 
                     string LastUpdatedUserName, 
-                    global::System.Nullable<global::System.DateTime> LastUpdatedDate, 
-                    System.Guid Original_InvoiceLineId, 
-                    System.Guid Original_InvoiceHeaderId, 
-                    global::System.Nullable<global::System.Guid> Original_RelatedLineId, 
-                    string Original_ProductCode, 
-                    global::System.Nullable<int> Original_Qty, 
-                    global::System.Nullable<double> Original_Price, 
-                    global::System.Nullable<decimal> Original_Amount, 
-                    global::System.Nullable<double> Original_PosDiscount, 
-                    global::System.Nullable<double> Original_DiscountCampaign, 
-                    global::System.Nullable<decimal> Original_NetAmount, 
-                    global::System.Nullable<float> Original_VatRate, 
-                    string Original_SalespersonCode, 
-                    string Original_CurrencyCode, 
-                    global::System.Nullable<double> Original_ExchangeRate, 
-                    string Original_CreatedUserName, 
-                    global::System.Nullable<global::System.DateTime> Original_CreatedDate, 
-                    string Original_LastUpdatedUserName, 
-                    global::System.Nullable<global::System.DateTime> Original_LastUpdatedDate) {
+                    System.DateTime LastUpdatedDate, 
+                    System.Guid Original_InvoiceLineId) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(InvoiceLineId));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((System.Guid)(InvoiceHeaderId));
             if ((RelatedLineId.HasValue == true)) {
@@ -2147,48 +1593,13 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ProductCode));
             }
-            if ((Qty.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Qty.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(Price.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Amount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((PosDiscount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(PosDiscount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((DiscountCampaign.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(DiscountCampaign.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((NetAmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(NetAmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((VatRate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((float)(VatRate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Qty));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(Price));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Amount));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(PosDiscount));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(DiscountCampaign));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(NetAmount));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((float)(VatRate));
             if ((LineDescription == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
@@ -2207,166 +1618,22 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(CurrencyCode));
             }
-            if ((ExchangeRate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((double)(ExchangeRate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((double)(ExchangeRate));
             if ((CreatedUserName == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("CreatedUserName");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(CreatedUserName));
             }
-            if ((CreatedDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(CreatedDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(CreatedDate));
             if ((LastUpdatedUserName == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("LastUpdatedUserName");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(LastUpdatedUserName));
             }
-            if ((LastUpdatedDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(LastUpdatedDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(LastUpdatedDate));
             this.Adapter.UpdateCommand.Parameters[19].Value = ((System.Guid)(Original_InvoiceLineId));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((System.Guid)(Original_InvoiceHeaderId));
-            if ((Original_RelatedLineId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.Guid)(Original_RelatedLineId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ProductCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_ProductCode));
-            }
-            if ((Original_Qty.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_Qty.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((double)(Original_Price.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_Amount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            if ((Original_PosDiscount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((double)(Original_PosDiscount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Original_DiscountCampaign.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((double)(Original_DiscountCampaign.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            if ((Original_NetAmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((decimal)(Original_NetAmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            if ((Original_VatRate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((float)(Original_VatRate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            if ((Original_SalespersonCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_SalespersonCode));
-            }
-            if ((Original_CurrencyCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_CurrencyCode));
-            }
-            if ((Original_ExchangeRate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((double)(Original_ExchangeRate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CreatedUserName == null)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_CreatedUserName));
-            }
-            if ((Original_CreatedDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((System.DateTime)(Original_CreatedDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
-            }
-            if ((Original_LastUpdatedUserName == null)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_LastUpdatedUserName));
-            }
-            if ((Original_LastUpdatedDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((System.DateTime)(Original_LastUpdatedDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2391,40 +1658,23 @@ WHERE InvoiceHeaderId = @InvoiceHeaderId";
                     System.Guid InvoiceHeaderId, 
                     global::System.Nullable<global::System.Guid> RelatedLineId, 
                     string ProductCode, 
-                    global::System.Nullable<int> Qty, 
-                    global::System.Nullable<double> Price, 
-                    global::System.Nullable<decimal> Amount, 
-                    global::System.Nullable<double> PosDiscount, 
-                    global::System.Nullable<double> DiscountCampaign, 
-                    global::System.Nullable<decimal> NetAmount, 
-                    global::System.Nullable<float> VatRate, 
+                    int Qty, 
+                    double Price, 
+                    decimal Amount, 
+                    decimal PosDiscount, 
+                    decimal DiscountCampaign, 
+                    decimal NetAmount, 
+                    float VatRate, 
                     string LineDescription, 
                     string SalespersonCode, 
                     string CurrencyCode, 
-                    global::System.Nullable<double> ExchangeRate, 
+                    double ExchangeRate, 
                     string CreatedUserName, 
-                    global::System.Nullable<global::System.DateTime> CreatedDate, 
+                    System.DateTime CreatedDate, 
                     string LastUpdatedUserName, 
-                    global::System.Nullable<global::System.DateTime> LastUpdatedDate, 
-                    System.Guid Original_InvoiceLineId, 
-                    System.Guid Original_InvoiceHeaderId, 
-                    global::System.Nullable<global::System.Guid> Original_RelatedLineId, 
-                    string Original_ProductCode, 
-                    global::System.Nullable<int> Original_Qty, 
-                    global::System.Nullable<double> Original_Price, 
-                    global::System.Nullable<decimal> Original_Amount, 
-                    global::System.Nullable<double> Original_PosDiscount, 
-                    global::System.Nullable<double> Original_DiscountCampaign, 
-                    global::System.Nullable<decimal> Original_NetAmount, 
-                    global::System.Nullable<float> Original_VatRate, 
-                    string Original_SalespersonCode, 
-                    string Original_CurrencyCode, 
-                    global::System.Nullable<double> Original_ExchangeRate, 
-                    string Original_CreatedUserName, 
-                    global::System.Nullable<global::System.DateTime> Original_CreatedDate, 
-                    string Original_LastUpdatedUserName, 
-                    global::System.Nullable<global::System.DateTime> Original_LastUpdatedDate) {
-            return this.Update(Original_InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate, Original_InvoiceLineId, Original_InvoiceHeaderId, Original_RelatedLineId, Original_ProductCode, Original_Qty, Original_Price, Original_Amount, Original_PosDiscount, Original_DiscountCampaign, Original_NetAmount, Original_VatRate, Original_SalespersonCode, Original_CurrencyCode, Original_ExchangeRate, Original_CreatedUserName, Original_CreatedDate, Original_LastUpdatedUserName, Original_LastUpdatedDate);
+                    System.DateTime LastUpdatedDate, 
+                    System.Guid Original_InvoiceLineId) {
+            return this.Update(Original_InvoiceLineId, InvoiceHeaderId, RelatedLineId, ProductCode, Qty, Price, Amount, PosDiscount, DiscountCampaign, NetAmount, VatRate, LineDescription, SalespersonCode, CurrencyCode, ExchangeRate, CreatedUserName, CreatedDate, LastUpdatedUserName, LastUpdatedDate, Original_InvoiceLineId);
         }
     }
     

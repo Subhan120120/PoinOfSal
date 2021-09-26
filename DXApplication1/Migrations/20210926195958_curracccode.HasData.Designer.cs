@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20210926195958_curracccode.HasData")]
+    partial class curracccodeHasData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -294,28 +296,6 @@ namespace PointOfSale.Migrations
                     b.HasKey("OfficeCode");
 
                     b.ToTable("DcOffices");
-
-                    b.HasData(
-                        new
-                        {
-                            OfficeCode = "OFS01",
-                            CompanyCode = 0m,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfficeDesc = "Bakıxanov Ofisi",
-                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            OfficeCode = "OFS02",
-                            CompanyCode = 0m,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfficeDesc = "Elmlər Ofisi",
-                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
-                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcPaymentType", b =>
@@ -560,28 +540,6 @@ namespace PointOfSale.Migrations
                     b.HasKey("StoreCode");
 
                     b.ToTable("DcStores");
-
-                    b.HasData(
-                        new
-                        {
-                            StoreCode = "mgz-01",
-                            CompanyCode = 0m,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
-                            StoreDesc = "Bakıxanov"
-                        },
-                        new
-                        {
-                            StoreCode = "mgz-02",
-                            CompanyCode = 0m,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
-                            StoreDesc = "Elmlər"
-                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcTerminal", b =>
@@ -710,38 +668,6 @@ namespace PointOfSale.Migrations
                     b.HasKey("WarehouseCode");
 
                     b.ToTable("DcWarehouses");
-
-                    b.HasData(
-                        new
-                        {
-                            WarehouseCode = "depo-01",
-                            ControlStockLevel = false,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsDefault = false,
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PermitNegativeStock = false,
-                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
-                            WarehouseDesc = "Bakıxanov deposu",
-                            WarehouseTypeCode = (byte)0,
-                            WarnNegativeStock = false,
-                            WarnStockLevelRate = false
-                        },
-                        new
-                        {
-                            WarehouseCode = "depo-02",
-                            ControlStockLevel = false,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsDefault = false,
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PermitNegativeStock = false,
-                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
-                            WarehouseDesc = "Elmlər deposu",
-                            WarehouseTypeCode = (byte)0,
-                            WarnNegativeStock = false,
-                            WarnStockLevelRate = false
-                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.MigrationHistory", b =>

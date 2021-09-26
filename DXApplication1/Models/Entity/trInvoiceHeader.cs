@@ -45,10 +45,11 @@ namespace PointOfSale.Models
         [StringLength(200)]
         public string Description { get; set; }
 
+#nullable enable
         [StringLength(30)]
         [ForeignKey("DcCurrAcc")]
-        public string CurrAccCode { get; set; }
-
+        public string? CurrAccCode { get; set; }
+#nullable disable
         [Required]
         [StringLength(10)]
         public string OfficeCode { get; set; }

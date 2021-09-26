@@ -38,7 +38,7 @@ namespace PointOfSale
         private void FormInvoice_Load(object sender, EventArgs e)
         {
             invoiceHeaderId = Guid.NewGuid();
-            TrInvoiceLineTableAdapter.FillBy(subDataSet.TrInvoiceLine, invoiceHeaderId);
+            TrInvoiceLineTableAdapter.Fill(subDataSet.TrInvoiceLine, invoiceHeaderId);
 
             textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice();
             textEditStoreCode.Properties.DataSource = sqlMethods.SelectStore();
@@ -62,7 +62,7 @@ namespace PointOfSale
                     textEditWarehouseCode.EditValue = form.TrInvoiceHeader.WarehouseCode;
                     textEditInvoiceDesc.EditValue = form.TrInvoiceHeader.Description;
 
-                    TrInvoiceLineTableAdapter.FillBy(subDataSet.TrInvoiceLine, form.TrInvoiceHeader.InvoiceHeaderId);
+                    TrInvoiceLineTableAdapter.Fill(subDataSet.TrInvoiceLine, form.TrInvoiceHeader.InvoiceHeaderId);
                 }
             }
         }
@@ -128,6 +128,7 @@ namespace PointOfSale
 
         private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
         {
+            #region Comment
             //GridView view = sender as GridView;
             //decimal val = Convert.ToDecimal(view.GetRowCellValue(e.RowHandle, colQty));
             //if (val < 10)
@@ -135,7 +136,8 @@ namespace PointOfSale
             //    //e.ErrorText = "Error absh verdi";
             //    e.Valid = false;
             //    view.SetColumnError(colQty, "Deyer 10dan az ola bilmez");
-            //}
+            //} 
+            #endregion
         }
 
         private void repoItemButtonEditProductCode_ButtonPressed(object sender, ButtonPressedEventArgs e)

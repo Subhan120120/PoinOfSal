@@ -4,7 +4,7 @@ using System.ComponentModel;
 //using System.Data.Entity;
 //using System.Data.Entity.Core.Objects;
 //using System.Data.Entity.Infrastructure;
-using System.Data.Entity.ModelConfiguration.Conventions;
+//using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -64,12 +64,6 @@ namespace PointOfSale.Models
                 entity.Property(e => e.BonusCardNum)
                     .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.CreatedDate)
-                    .HasDefaultValueSql("getdate()");
-
-                entity.Property(e => e.CreatedUserName)
-                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
-
                 entity.Property(e => e.CreditLimit)
                     .HasDefaultValueSql("0");
 
@@ -91,12 +85,6 @@ namespace PointOfSale.Models
                 entity.Property(e => e.LastName)
                     .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.LastUpdatedDate)
-                    .HasDefaultValueSql("getdate()");
-
-                entity.Property(e => e.LastUpdatedUserName)
-                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
-
                 entity.Property(e => e.OfficeCode)
                     .HasDefaultValueSql("space(0)");
 
@@ -105,13 +93,36 @@ namespace PointOfSale.Models
 
                 entity.Property(e => e.TaxNum)
                     .HasDefaultValueSql("space(0)");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
+
+            modelBuilder.Entity<DcCurrAcc>().HasData(
+                new DcCurrAcc { CurrAccCode = "CA-1", FirstName = "Sübhan", LastName = "Hüseynzadə", PhoneNum = "0519678909", CurrAccTypeCode = 1 },
+                new DcCurrAcc { CurrAccCode = "CA-2", FirstName = "Orxan", LastName = "Hüseynzadə", PhoneNum = "0773628800", CurrAccTypeCode = 2 });
 
             modelBuilder.Entity<DcCurrAccType>(entity =>
             {
                 entity.Property(e => e.CurrAccTypeDescription)
                     .HasDefaultValueSql("space(0)");
             });
+
+            modelBuilder.Entity<DcCurrAccType>().HasData(
+
+                new DcCurrAccType { CurrAccTypeCode = 1, CurrAccTypeDescription = "Müştəri" },
+                new DcCurrAccType { CurrAccTypeCode = 2, CurrAccTypeDescription = "Tədarikçi" },
+                new DcCurrAccType { CurrAccTypeCode = 3, CurrAccTypeDescription = "Personal" }
+                );
 
             modelBuilder.Entity<DcOffice>(entity =>
             {
@@ -130,6 +141,10 @@ namespace PointOfSale.Models
                 entity.Property(e => e.OfficeDesc)
                     .HasDefaultValueSql("space(0)");
             });
+
+            modelBuilder.Entity<DcOffice>().HasData(
+                new DcOffice { OfficeCode = "OFS01", OfficeDesc = "Bakıxanov Ofisi" },
+                new DcOffice { OfficeCode = "OFS02", OfficeDesc = "Elmlər Ofisi" });
 
             modelBuilder.Entity<DcPaymentType>(entity =>
             {
@@ -167,8 +182,8 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("0");
 
                 entity.Property(e => e.PosDiscount)
-                    .HasDefaultValueSql("0");           
-                
+                    .HasDefaultValueSql("0");
+
                 entity.Property(e => e.PromotionCode)
                     .HasDefaultValueSql("space(0)");
 
@@ -176,8 +191,8 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.UsePos)
-                    .HasDefaultValueSql("0");               
-                
+                    .HasDefaultValueSql("0");
+
                 entity.Property(e => e.UseInternet)
                     .HasDefaultValueSql("0");
 
@@ -185,8 +200,8 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("0");
 
                 entity.Property(e => e.IsDisabled)
-                    .HasDefaultValueSql("0");                
-                
+                    .HasDefaultValueSql("0");
+
                 entity.Property(e => e.IsBlocked)
                     .HasDefaultValueSql("0");
 
@@ -223,6 +238,10 @@ namespace PointOfSale.Models
                 entity.Property(e => e.StoreDesc)
                     .HasDefaultValueSql("space(0)");
             });
+
+            modelBuilder.Entity<DcStore>().HasData(
+                new DcStore { StoreCode = "mgz-01", StoreDesc = "Bakıxanov" },
+                new DcStore { StoreCode = "mgz-02", StoreDesc = "Elmlər" });
 
             modelBuilder.Entity<DcTerminal>(entity =>
             {
@@ -265,6 +284,10 @@ namespace PointOfSale.Models
                 entity.Property(e => e.WarehouseDesc)
                     .HasDefaultValueSql("space(0)");
             });
+
+            modelBuilder.Entity<DcWarehouse>().HasData(
+                new DcWarehouse { WarehouseCode = "depo-01", WarehouseDesc = "Bakıxanov deposu" },
+                new DcWarehouse { WarehouseCode = "depo-02", WarehouseDesc = "Elmlər deposu" });
 
             modelBuilder.Entity<MigrationHistory>(entity =>
             {

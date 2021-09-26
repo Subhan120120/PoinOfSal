@@ -100,26 +100,6 @@ namespace PointOfSale
 
         public int InsertInvoiceLine(DcProduct dcProduct, Guid invoiceHeaderId)
         {
-            //string qry = "Insert into TrInvoiceLine([InvoiceLineId],[InvoiceHeaderId],[ProductCode],[Price],[Amount],[PosDiscount],[NetAmount]) " +
-            //    "select @InvoiceLineId,@InvoiceHeaderId,[ProductCode],[RetailPrice],[RetailPrice],[PosDiscount],[RetailPrice]-[PosDiscount] from DcProduct ";
-
-            //SqlParameter[] paramArray = new SqlParameter[]
-            //{
-            //    new SqlParameter("@InvoiceLineId", Guid.NewGuid()),
-            //    new SqlParameter("@InvoiceHeaderId", invoiceHeaderId),
-            //    new SqlParameter("@Barcode", DcProduct.Barcode)
-            //};
-
-            //if (!string.IsNullOrEmpty(DcProduct.Barcode))
-            //    qry += "where [Barcode] = @Barcode";
-            //else
-            //{
-            //    qry += "where [ProductCode] = @ProductCode";
-            //    paramArray[2] = new SqlParameter("@ProductCode", DcProduct.ProductCode);
-            //}
-
-            //return SqlExec(qry, paramArray);
-
             using (subContext db = new subContext())
             {
                 IQueryable<DcProduct> dcProducts = db.DcProducts.AsQueryable();
@@ -317,17 +297,6 @@ namespace PointOfSale
 
         public List<TrPaymentLine> SelectPaymentLine(Guid invoiceHeaderId)
         {
-            //string qry = "select paymentTypeDescription, Payment from TrPaymentLine " +
-            //    "join TrPaymentHeader on TrPaymentHeader.PaymentHeaderId = TrPaymentLine.PaymentHeaderId " +
-            //    "join DcPaymentType on TrPaymentLine.PaymentTypeCode = DcPaymentType.PaymentTypeCode " +
-            //    "where InvoiceHeaderId = @InvoiceHeaderId"; // burdaki kolonlari dizaynda da elave et
-
-            //paramArray = new SqlParameter[]
-            //{
-            //    new SqlParameter("@InvoiceHeaderId", invoiceHeaderId)
-            //};
-            //return SqlGetDt(qry, paramArray);
-
             using (subContext db = new subContext())
             {
                 return db.TrPaymentLines.Include(x => x.TrPaymentHeader)

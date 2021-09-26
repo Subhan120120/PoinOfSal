@@ -31,6 +31,13 @@ namespace PointOfSale
         {
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCurrAccCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCurrAccTypeCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOfficeCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdentityNum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhoneNum = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -48,11 +55,75 @@ namespace PointOfSale
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCurrAccCode,
+            this.colCurrAccTypeCode,
+            this.colOfficeCode,
+            this.colFirstName,
+            this.colLastName,
+            this.colIdentityNum,
+            this.colPhoneNum});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            // 
+            // colCurrAccCode
+            // 
+            this.colCurrAccCode.Caption = "Tədarikçi";
+            this.colCurrAccCode.FieldName = "CurrAccCode";
+            this.colCurrAccCode.Name = "colCurrAccCode";
+            this.colCurrAccCode.Visible = true;
+            this.colCurrAccCode.VisibleIndex = 0;
+            // 
+            // colCurrAccTypeCode
+            // 
+            this.colCurrAccTypeCode.Caption = "Tədarikçi Tipi";
+            this.colCurrAccTypeCode.FieldName = "CurrAccTypeCode";
+            this.colCurrAccTypeCode.Name = "colCurrAccTypeCode";
+            this.colCurrAccTypeCode.Visible = true;
+            this.colCurrAccTypeCode.VisibleIndex = 1;
+            // 
+            // colOfficeCode
+            // 
+            this.colOfficeCode.Caption = "Ofis Kodu";
+            this.colOfficeCode.FieldName = "OfficeCode";
+            this.colOfficeCode.Name = "colOfficeCode";
+            this.colOfficeCode.Visible = true;
+            this.colOfficeCode.VisibleIndex = 2;
+            // 
+            // colFirstName
+            // 
+            this.colFirstName.Caption = "Adı";
+            this.colFirstName.FieldName = "FirstName";
+            this.colFirstName.Name = "colFirstName";
+            this.colFirstName.Visible = true;
+            this.colFirstName.VisibleIndex = 3;
+            // 
+            // colLastName
+            // 
+            this.colLastName.Caption = "Soyadı";
+            this.colLastName.FieldName = "LastName";
+            this.colLastName.Name = "colLastName";
+            this.colLastName.Visible = true;
+            this.colLastName.VisibleIndex = 4;
+            // 
+            // colIdentityNum
+            // 
+            this.colIdentityNum.Caption = "Ş.V. Nömrəsi";
+            this.colIdentityNum.FieldName = "IdentityNum";
+            this.colIdentityNum.Name = "colIdentityNum";
+            this.colIdentityNum.Visible = true;
+            this.colIdentityNum.VisibleIndex = 5;
+            // 
+            // colPhoneNum
+            // 
+            this.colPhoneNum.Caption = "Telefon";
+            this.colPhoneNum.FieldName = "PhoneNum";
+            this.colPhoneNum.Name = "colPhoneNum";
+            this.colPhoneNum.Visible = true;
+            this.colPhoneNum.VisibleIndex = 6;
             // 
             // FormCurrAccList
             // 
@@ -73,5 +144,12 @@ namespace PointOfSale
 
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCurrAccCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colCurrAccTypeCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colOfficeCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastName;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdentityNum;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhoneNum;
     }
 }

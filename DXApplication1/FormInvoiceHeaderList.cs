@@ -27,6 +27,10 @@ namespace PointOfSale
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
+
+                object currAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]);
+                string currAcc = currAccCode == null ? null : currAccCode.ToString();
+
                 TrInvoiceHeader = new TrInvoiceHeader()
                 {
                     InvoiceHeaderId = (Guid)view.GetRowCellValue(view.FocusedRowHandle, view.Columns["InvoiceHeaderId"]),
@@ -36,7 +40,7 @@ namespace PointOfSale
                     CustomsDocumentNumber = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CustomsDocumentNumber"]).ToString(),
                     DocumentDate = Convert.ToDateTime(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["DocumentDate"])),
                     DocumentTime = (TimeSpan)(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["DocumentTime"])),
-                    CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString(),
+                    CurrAccCode = currAcc,
                     OfficeCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["OfficeCode"]).ToString(),
                     StoreCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["StoreCode"]).ToString(),
                     WarehouseCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["WarehouseCode"]).ToString(),
