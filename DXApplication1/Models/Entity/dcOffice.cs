@@ -9,7 +9,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    [Table("DcOffice")]
     public partial class DcOffice
     {
         [Key]

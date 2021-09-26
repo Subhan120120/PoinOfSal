@@ -71,6 +71,12 @@
     <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraWizard.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -246,132 +252,100 @@
     <Compile Include="FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921074624_initial.cs" />
-    <Compile Include="Migrations\20210921074624_initial.designer.cs">
-      <DependentUpon>20210921074624_initial.cs</DependentUpon>
+    <Compile Include="Migrations\20210925083001_initial.cs" />
+    <Compile Include="Migrations\20210925083001_initial.designer.cs">
+      <DependentUpon>20210925083001_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921075337_test.cs" />
-    <Compile Include="Migrations\20210921075337_test.designer.cs">
-      <DependentUpon>20210921075337_test.cs</DependentUpon>
+    <Compile Include="Migrations\20210925083126_test1.cs" />
+    <Compile Include="Migrations\20210925083126_test1.designer.cs">
+      <DependentUpon>20210925083126_test1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921075537_test2.cs" />
-    <Compile Include="Migrations\20210921075537_test2.designer.cs">
-      <DependentUpon>20210921075537_test2.cs</DependentUpon>
+    <Compile Include="Migrations\20210925114541_test2.cs" />
+    <Compile Include="Migrations\20210925114541_test2.designer.cs">
+      <DependentUpon>20210925114541_test2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921080311_test3.cs" />
-    <Compile Include="Migrations\20210921080311_test3.designer.cs">
-      <DependentUpon>20210921080311_test3.cs</DependentUpon>
+    <Compile Include="Migrations\20210925114652_test3.cs" />
+    <Compile Include="Migrations\20210925114652_test3.designer.cs">
+      <DependentUpon>20210925114652_test3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921092135_test4.cs" />
-    <Compile Include="Migrations\20210921092135_test4.designer.cs">
-      <DependentUpon>20210921092135_test4.cs</DependentUpon>
+    <Compile Include="Migrations\20210925161253_test4.cs" />
+    <Compile Include="Migrations\20210925161253_test4.designer.cs">
+      <DependentUpon>20210925161253_test4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921092335_test5.cs" />
-    <Compile Include="Migrations\20210921092335_test5.designer.cs">
-      <DependentUpon>20210921092335_test5.cs</DependentUpon>
+    <Compile Include="Migrations\20210925163250_test5.cs" />
+    <Compile Include="Migrations\20210925163250_test5.designer.cs">
+      <DependentUpon>20210925163250_test5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921092558_test6.cs" />
-    <Compile Include="Migrations\20210921092558_test6.designer.cs">
-      <DependentUpon>20210921092558_test6.cs</DependentUpon>
+    <Compile Include="Migrations\20210925163348_test6.cs" />
+    <Compile Include="Migrations\20210925163348_test6.designer.cs">
+      <DependentUpon>20210925163348_test6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921093330_test7.cs" />
-    <Compile Include="Migrations\20210921093330_test7.designer.cs">
-      <DependentUpon>20210921093330_test7.cs</DependentUpon>
+    <Compile Include="Migrations\20210925163421_test7.cs" />
+    <Compile Include="Migrations\20210925163421_test7.designer.cs">
+      <DependentUpon>20210925163421_test7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921093414_test8.cs" />
-    <Compile Include="Migrations\20210921093414_test8.designer.cs">
-      <DependentUpon>20210921093414_test8.cs</DependentUpon>
+    <Compile Include="Migrations\20210925163449_test8.cs" />
+    <Compile Include="Migrations\20210925163449_test8.designer.cs">
+      <DependentUpon>20210925163449_test8.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921093545_test9.cs" />
-    <Compile Include="Migrations\20210921093545_test9.designer.cs">
-      <DependentUpon>20210921093545_test9.cs</DependentUpon>
+    <Compile Include="Migrations\20210925163541_test9.cs" />
+    <Compile Include="Migrations\20210925163541_test9.designer.cs">
+      <DependentUpon>20210925163541_test9.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921094543_test10.cs" />
-    <Compile Include="Migrations\20210921094543_test10.designer.cs">
-      <DependentUpon>20210921094543_test10.cs</DependentUpon>
+    <Compile Include="Migrations\20210925173933_test10.cs" />
+    <Compile Include="Migrations\20210925173933_test10.designer.cs">
+      <DependentUpon>20210925173933_test10.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921094758_test11.cs" />
-    <Compile Include="Migrations\20210921094758_test11.designer.cs">
-      <DependentUpon>20210921094758_test11.cs</DependentUpon>
+    <Compile Include="Migrations\20210925175023_test11.cs" />
+    <Compile Include="Migrations\20210925175023_test11.designer.cs">
+      <DependentUpon>20210925175023_test11.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921100333_test12.cs" />
-    <Compile Include="Migrations\20210921100333_test12.designer.cs">
-      <DependentUpon>20210921100333_test12.cs</DependentUpon>
+    <Compile Include="Migrations\20210925175126_test12.cs" />
+    <Compile Include="Migrations\20210925175126_test12.designer.cs">
+      <DependentUpon>20210925175126_test12.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921104721_test13.cs" />
-    <Compile Include="Migrations\20210921104721_test13.designer.cs">
-      <DependentUpon>20210921104721_test13.cs</DependentUpon>
+    <Compile Include="Migrations\20210925181154_test13.cs" />
+    <Compile Include="Migrations\20210925181154_test13.designer.cs">
+      <DependentUpon>20210925181154_test13.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921104840_test15.cs" />
-    <Compile Include="Migrations\20210921104840_test15.designer.cs">
-      <DependentUpon>20210921104840_test15.cs</DependentUpon>
+    <Compile Include="Migrations\20210925202857_test14.cs" />
+    <Compile Include="Migrations\20210925202857_test14.designer.cs">
+      <DependentUpon>20210925202857_test14.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921105013_test16.cs" />
-    <Compile Include="Migrations\20210921105013_test16.designer.cs">
-      <DependentUpon>20210921105013_test16.cs</DependentUpon>
+    <Compile Include="Migrations\20210925203010_test15.cs" />
+    <Compile Include="Migrations\20210925203010_test15.designer.cs">
+      <DependentUpon>20210925203010_test15.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921122645_test17.cs" />
-    <Compile Include="Migrations\20210921122645_test17.designer.cs">
-      <DependentUpon>20210921122645_test17.cs</DependentUpon>
+    <Compile Include="Migrations\20210925204008_test16.cs" />
+    <Compile Include="Migrations\20210925204008_test16.designer.cs">
+      <DependentUpon>20210925204008_test16.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921130834_test18.cs" />
-    <Compile Include="Migrations\20210921130834_test18.designer.cs">
-      <DependentUpon>20210921130834_test18.cs</DependentUpon>
+    <Compile Include="Migrations\20210925204311_test17.cs" />
+    <Compile Include="Migrations\20210925204311_test17.designer.cs">
+      <DependentUpon>20210925204311_test17.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921131243_test19.cs" />
-    <Compile Include="Migrations\20210921131243_test19.designer.cs">
-      <DependentUpon>20210921131243_test19.cs</DependentUpon>
+    <Compile Include="Migrations\20210925204435_test18.cs" />
+    <Compile Include="Migrations\20210925204435_test18.designer.cs">
+      <DependentUpon>20210925204435_test18.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921171828_test21.cs" />
-    <Compile Include="Migrations\20210921171828_test21.designer.cs">
-      <DependentUpon>20210921171828_test21.cs</DependentUpon>
+    <Compile Include="Migrations\20210925204845_test19.cs" />
+    <Compile Include="Migrations\20210925204845_test19.designer.cs">
+      <DependentUpon>20210925204845_test19.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921172804_test22.cs" />
-    <Compile Include="Migrations\20210921172804_test22.designer.cs">
-      <DependentUpon>20210921172804_test22.cs</DependentUpon>
+    <Compile Include="Migrations\20210925211140_test20.cs" />
+    <Compile Include="Migrations\20210925211140_test20.designer.cs">
+      <DependentUpon>20210925211140_test20.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921203612_test23.cs" />
-    <Compile Include="Migrations\20210921203612_test23.designer.cs">
-      <DependentUpon>20210921203612_test23.cs</DependentUpon>
+    <Compile Include="Migrations\20210925212829_test21.cs" />
+    <Compile Include="Migrations\20210925212829_test21.designer.cs">
+      <DependentUpon>20210925212829_test21.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210921211014_test24.cs" />
-    <Compile Include="Migrations\20210921211014_test24.designer.cs">
-      <DependentUpon>20210921211014_test24.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922110537_test25.cs" />
-    <Compile Include="Migrations\20210922110537_test25.designer.cs">
-      <DependentUpon>20210922110537_test25.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922114153_test26.cs" />
-    <Compile Include="Migrations\20210922114153_test26.designer.cs">
-      <DependentUpon>20210922114153_test26.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922123144_test27.cs" />
-    <Compile Include="Migrations\20210922123144_test27.designer.cs">
-      <DependentUpon>20210922123144_test27.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922123335_test28.cs" />
-    <Compile Include="Migrations\20210922123335_test28.designer.cs">
-      <DependentUpon>20210922123335_test28.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922124610_test29.cs" />
-    <Compile Include="Migrations\20210922124610_test29.designer.cs">
-      <DependentUpon>20210922124610_test29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922124823_test30.cs" />
-    <Compile Include="Migrations\20210922124823_test30.designer.cs">
-      <DependentUpon>20210922124823_test30.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922125410_test31.cs" />
-    <Compile Include="Migrations\20210922125410_test31.designer.cs">
-      <DependentUpon>20210922125410_test31.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20210922125643_test32.cs" />
-    <Compile Include="Migrations\20210922125643_test32.designer.cs">
-      <DependentUpon>20210922125643_test32.cs</DependentUpon>
+    <Compile Include="Migrations\20210926070206_test22.cs" />
+    <Compile Include="Migrations\20210926070206_test22.designer.cs">
+      <DependentUpon>20210926070206_test22.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
-    <Compile Include="Models\Entity\DcCurrAcc.cs" />
+    <Compile Include="Models\Entity\DcCurrAccs.cs" />
     <Compile Include="Models\Entity\DcCurrAccType.cs" />
     <Compile Include="Models\Entity\DcOffice.cs" />
     <Compile Include="Models\Entity\DcPaymentType.cs" />
@@ -586,6 +560,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

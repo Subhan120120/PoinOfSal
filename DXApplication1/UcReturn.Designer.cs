@@ -29,15 +29,18 @@ namespace PointOfSale
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcReturn));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlPaymentLine = new DevExpress.XtraGrid.GridControl();
             this.gridViewPaymentLine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPaymentHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPaymentTypeDesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPayment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlInvoiceLine = new DevExpress.XtraGrid.GridControl();
             this.gridViewInvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,11 +130,37 @@ namespace PointOfSale
             // 
             // gridViewPaymentLine
             // 
+            this.gridViewPaymentLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colPaymentHeaderId,
+            this.colPaymentTypeDesc,
+            this.colPayment});
             this.gridViewPaymentLine.GridControl = this.gridControlPaymentLine;
             this.gridViewPaymentLine.Name = "gridViewPaymentLine";
             this.gridViewPaymentLine.OptionsBehavior.Editable = false;
             this.gridViewPaymentLine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridViewPaymentLine.OptionsView.ShowGroupPanel = false;
+            // 
+            // colPaymentHeaderId
+            // 
+            this.colPaymentHeaderId.Caption = "PaymentHeaderId";
+            this.colPaymentHeaderId.FieldName = "PaymentHeaderId";
+            this.colPaymentHeaderId.Name = "colPaymentHeaderId";
+            // 
+            // colPaymentTypeDesc
+            // 
+            this.colPaymentTypeDesc.Caption = "Ödəmə Tipi";
+            this.colPaymentTypeDesc.FieldName = "DcPaymentType.PaymentTypeDesc";
+            this.colPaymentTypeDesc.Name = "colPaymentTypeDesc";
+            this.colPaymentTypeDesc.Visible = true;
+            this.colPaymentTypeDesc.VisibleIndex = 0;
+            // 
+            // colPayment
+            // 
+            this.colPayment.Caption = "Ödəmə";
+            this.colPayment.FieldName = "Payment";
+            this.colPayment.Name = "colPayment";
+            this.colPayment.Visible = true;
+            this.colPayment.VisibleIndex = 1;
             // 
             // gridControlInvoiceLine
             // 
@@ -282,10 +311,10 @@ namespace PointOfSale
             // repoButtonReturnLine
             // 
             this.repoButtonReturnLine.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(16, 16);
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
             this.repoButtonReturnLine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repoButtonReturnLine.Name = "repoButtonReturnLine";
             this.repoButtonReturnLine.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repoButtonReturnLine.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoButtonReturnLine_ButtonClick);
@@ -602,5 +631,8 @@ namespace PointOfSale
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Columns.GridColumn colReturnQty;
         private DevExpress.XtraGrid.Columns.GridColumn colRemainingQty;
+        private DevExpress.XtraGrid.Columns.GridColumn colPaymentHeaderId;
+        private DevExpress.XtraGrid.Columns.GridColumn colPaymentTypeDesc;
+        private DevExpress.XtraGrid.Columns.GridColumn colPayment;
     }
 }

@@ -9,12 +9,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    [Table("DcProductType")]
     public partial class DcProductType
     {
         public DcProductType()
         {
-            DcProduct = new HashSet<DcProduct>();
+            DcProducts = new HashSet<DcProduct>();
         }
 
         [Key]
@@ -23,6 +22,7 @@ namespace PointOfSale.Models
         [StringLength(50)]
         public string ProductTypeDesc { get; set; }
 
-        public virtual ICollection<DcProduct> DcProduct { get; set; }
+        public virtual ICollection<DcProduct> DcProducts { get; set; }
+
     }
 }

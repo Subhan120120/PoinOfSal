@@ -10,19 +10,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PointOfSale.Models
 {
     //[Index(nameof(CurrAccTypeCode))]
-    [Table("DcCurrAcc")]
     public partial class DcCurrAcc
     {
         public DcCurrAcc()
         {
-            TrInvoiceHeader = new HashSet<TrInvoiceHeader>();
+            TrInvoiceHeaders = new HashSet<TrInvoiceHeader>();
         }
 
         [Key]
         [StringLength(30)]
         public string CurrAccCode { get; set; }
-        public byte CurrAccTypeCode { get; set; }
 
+        [ForeignKey("DcCurrAccType")]
+        public byte CurrAccTypeCode { get; set; }
 
         public byte CompanyCode { get; set; }
 
@@ -90,7 +90,7 @@ namespace PointOfSale.Models
 
         public DateTime? BirthDate { get; set; }
 
-        public virtual DcCurrAccType CurrAccTypeCodeNavigation { get; set; }
-        public virtual ICollection<TrInvoiceHeader> TrInvoiceHeader { get; set; }
+        public virtual DcCurrAccType DcCurrAccType { get; set; }
+        public virtual ICollection<TrInvoiceHeader> TrInvoiceHeaders { get; set; }
     }
 }

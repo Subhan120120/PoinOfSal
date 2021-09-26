@@ -13,6 +13,8 @@ namespace PointOfSale.Models
     {
         [Key]
         public Guid PaymentHeaderId { get; set; }
+
+        [ForeignKey("TrInvoiceHeader")]
         public Guid? InvoiceHeaderId { get; set; }
         public string DocumentNumber { get; set; }
 
@@ -64,5 +66,9 @@ namespace PointOfSale.Models
 
         [Column(TypeName = "datetime")]
         public DateTime LastUpdatedDate { get; set; }
+
+
+        public virtual ICollection<TrPaymentLine> TrPaymentLines { get; set; }
+        public virtual TrInvoiceHeader TrInvoiceHeader { get; set; }
     }
 }

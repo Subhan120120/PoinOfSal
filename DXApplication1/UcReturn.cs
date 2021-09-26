@@ -28,7 +28,8 @@ namespace PointOfSale
         private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             invoiceHeaderId = (Guid)gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceHeaderId");
-            invoiceLineID = (Guid)gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "invoiceLineID");
+            //object obj = gridViewInvoiceHeader.GetRowCellValue(gridViewInvoiceHeader.FocusedRowHandle, "InvoiceLineId");
+            //invoiceLineID = (Guid)obj;
             returnInvoiceHeaderId = Guid.NewGuid();
             gridControlInvoiceLine.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
             gridControlPaymentLine.DataSource = sqlMethods.SelectPaymentLine(invoiceHeaderId);
@@ -51,7 +52,7 @@ namespace PointOfSale
                         {
                             if (!sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderId)) //if invoiceHeader doesnt exist
                             {
-                                string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
+                                string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                                 TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                                 {
                                     InvoiceHeaderId = returnInvoiceHeaderId,

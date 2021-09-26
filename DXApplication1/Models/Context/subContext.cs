@@ -1,7 +1,11 @@
-﻿using System;
-using System.Data.SqlTypes;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.ComponentModel;
+//using System.Data.Entity;
+//using System.Data.Entity.Core.Objects;
+//using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -16,24 +20,25 @@ namespace PointOfSale.Models
         public subContext(DbContextOptions<subContext> options)
             : base(options) { }
 
-        public virtual DbSet<DcCurrAcc> DcCurrAcc { get; set; }
-        public virtual DbSet<DcCurrAccType> DcCurrAccType { get; set; }
-        public virtual DbSet<DcOffice> DcOffice { get; set; }
-        public virtual DbSet<DcPaymentType> DcPaymentType { get; set; }
-        public virtual DbSet<DcProcess> DcProcess { get; set; }
-        public virtual DbSet<DcProduct> DcProduct { get; set; }
-        public virtual DbSet<DcProductType> DcProductType { get; set; }
-        public virtual DbSet<DcStore> DcStore { get; set; }
-        public virtual DbSet<DcTerminal> DcTerminal { get; set; }
-        public virtual DbSet<DcWarehouse> DcWarehouse { get; set; }
-        public virtual DbSet<MigrationHistory> MigrationHistory { get; set; }
-        public virtual DbSet<Sysdiagrams> Sysdiagrams { get; set; }
-        public virtual DbSet<TrInvoiceHeader> TrInvoiceHeader { get; set; }
-        public virtual DbSet<TrInvoiceLine> TrInvoiceLine { get; set; }
-        public virtual DbSet<TrPaymentHeader> TrPaymentHeader { get; set; }
-        public virtual DbSet<TrPaymentLine> TrPaymentLine { get; set; }
-        public virtual DbSet<TrShipmentHeader> TrShipmentHeader { get; set; }
-        public virtual DbSet<TrShipmentLine> TrShipmentLine { get; set; }
+        public DbSet<DcCurrAcc> DcCurrAccs { get; set; }
+        public DbSet<DcCurrAccType> DcCurrAccTypes { get; set; }
+        public DbSet<DcOffice> DcOffices { get; set; }
+        public DbSet<DcPaymentType> DcPaymentTypes { get; set; }
+        public DbSet<DcProcess> DcProcesses { get; set; }
+        public DbSet<DcProduct> DcProducts { get; set; }
+        public DbSet<DcProductType> DcProductTypes { get; set; }
+        public DbSet<DcStore> DcStores { get; set; }
+        public DbSet<DcTerminal> DcTerminals { get; set; }
+        public DbSet<DcWarehouse> DcWarehouses { get; set; }
+        public DbSet<MigrationHistory> MigrationHistory { get; set; }
+        public DbSet<Sysdiagrams> Sysdiagrams { get; set; }
+        public DbSet<TrInvoiceHeader> TrInvoiceHeaders { get; set; }
+        public DbSet<TrInvoiceLine> TrInvoiceLines { get; set; }
+        public DbSet<TrPaymentHeader> TrPaymentHeaders { get; set; }
+        public DbSet<TrPaymentLine> TrPaymentLines { get; set; }
+        public DbSet<TrShipmentHeader> TrShipmentHeaders { get; set; }
+        public DbSet<TrShipmentLine> TrShipmentLines { get; set; }
+        //public DbSet<ReturnFromProc> returnFromProc { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -128,9 +133,13 @@ namespace PointOfSale.Models
 
             modelBuilder.Entity<DcPaymentType>(entity =>
             {
-                entity.Property(e => e.PaymentTypeDescription)
+                entity.Property(e => e.PaymentTypeDesc)
                     .HasDefaultValueSql("space(0)");
             });
+
+            modelBuilder.Entity<DcPaymentType>().HasData(
+                new DcPaymentType { PaymentTypeCode = 1, PaymentTypeDesc = "Nağd" },
+                new DcPaymentType { PaymentTypeCode = 2, PaymentTypeDesc = "Visa" });
 
             modelBuilder.Entity<DcProcess>(entity =>
             {
@@ -148,18 +157,54 @@ namespace PointOfSale.Models
                 entity.Property(e => e.ProductDescription)
                     .HasDefaultValueSql("space(0)");
 
+                entity.Property(e => e.RetailPrice)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.PurchasePrice)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.WholesalePrice)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.PosDiscount)
+                    .HasDefaultValueSql("0");           
+                
                 entity.Property(e => e.PromotionCode)
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.PromotionCode2)
                     .HasDefaultValueSql("space(0)");
+
+                entity.Property(e => e.UsePos)
+                    .HasDefaultValueSql("0");               
+                
+                entity.Property(e => e.UseInternet)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.TaxRate)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.IsDisabled)
+                    .HasDefaultValueSql("0");                
+                
+                entity.Property(e => e.IsBlocked)
+                    .HasDefaultValueSql("0");
+
             });
+
+            modelBuilder.Entity<DcProduct>().HasData(
+                new DcProduct { ProductCode = "test01", ProductDescription = "Papaq", Barcode = "123456", RetailPrice = 4.5 },
+                new DcProduct { ProductCode = "test02", ProductDescription = "Salvar", Barcode = "2000000000013", RetailPrice = 2.5 }
+            );
 
             modelBuilder.Entity<DcProductType>(entity =>
             {
                 entity.Property(e => e.ProductTypeDesc)
                     .HasDefaultValueSql("space(0)");
             });
+
+            modelBuilder.Entity<DcProductType>().HasData(
+                new DcProductType { ProductTypeCode = 1, ProductTypeDesc = "Məhsul" });
 
             modelBuilder.Entity<DcStore>(entity =>
             {
@@ -265,14 +310,8 @@ namespace PointOfSale.Models
                 entity.HasIndex(e => e.CurrAccCode)
                     .HasName("IX_CurrAccCode");
 
-                entity.Property(e => e.CreatedDate)
-                    .HasDefaultValueSql("getdate()");
-
-                entity.Property(e => e.CreatedUserName)
-                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
-
-                entity.Property(e => e.CurrAccCode)
-                    .HasDefaultValueSql("space(0)");
+                entity.Property(e => e.InvoiceHeaderId)
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.CustomsDocumentNumber)
                     .HasDefaultValueSql("space(0)");
@@ -286,14 +325,11 @@ namespace PointOfSale.Models
                 entity.Property(e => e.DocumentNumber)
                     .HasDefaultValueSql("space(0)");
 
+                entity.Property(e => e.IsReturn)
+                    .HasDefaultValueSql("0");
+
                 entity.Property(e => e.DocumentTime)
                     .HasDefaultValueSql("'00:00:00'");
-
-                entity.Property(e => e.LastUpdatedDate)
-                    .HasDefaultValueSql("getdate()");
-
-                entity.Property(e => e.LastUpdatedUserName)
-                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
 
                 entity.Property(e => e.OfficeCode)
                     .HasDefaultValueSql("space(0)");
@@ -315,10 +351,43 @@ namespace PointOfSale.Models
 
                 entity.Property(e => e.WarehouseCode)
                     .HasDefaultValueSql("space(0)");
+
+                entity.Property(e => e.IsSuspended)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.IsCompleted)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.IsPrinted)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.IsLocked)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.FiscalPrintedState)
+                    .HasDefaultValueSql("space(0)");
+
+                entity.Property(e => e.IsSalesViaInternet)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
 
             modelBuilder.Entity<TrInvoiceLine>(entity =>
             {
+                entity.Property(e => e.InvoiceLineId)
+                    .ValueGeneratedNever();
+
                 entity.HasIndex(e => e.InvoiceHeaderId)
                     .HasName("IX_InvoiceHeaderId");
 
@@ -334,13 +403,25 @@ namespace PointOfSale.Models
                 entity.Property(e => e.DiscountCampaign)
                     .HasDefaultValueSql("0");
 
+                entity.Property(e => e.Amount)
+                    .HasDefaultValueSql("0");
+
                 entity.Property(e => e.NetAmount)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.Price)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.VatRate)
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.ExchangeRate)
                     .HasDefaultValueSql("0");
 
                 entity.Property(e => e.PosDiscount)
                     .HasDefaultValueSql("0");
 
-                entity.Property(e => e.ProductCode)
+                entity.Property(e => e.LineDescription)
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.SalespersonCode)
@@ -416,7 +497,10 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.Payment)
-                    .HasDefaultValue(0);
+                    .HasDefaultValueSql("0");
+
+                entity.Property(e => e.ExchangeRate)
+                    .HasDefaultValueSql("0");
 
                 entity.Property(e => e.CreatedDate)
                     .HasDefaultValueSql("getdate()");
@@ -433,9 +517,6 @@ namespace PointOfSale.Models
 
             modelBuilder.Entity<TrShipmentHeader>(entity =>
             {
-                entity.Property(e => e.CurrAccCode)
-                    .HasDefaultValueSql("space(0)");
-
                 entity.Property(e => e.CustomsDocumentNumber)
                     .HasDefaultValueSql("space(0)");
 
@@ -532,6 +613,8 @@ namespace PointOfSale.Models
                 entity.Property(e => e.LastUpdatedUserName)
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
+
+            //modelBuilder.Entity<ReturnFromProc>().HasNoKey().ToView(null);
 
             OnModelCreatingPartial(modelBuilder);
         }

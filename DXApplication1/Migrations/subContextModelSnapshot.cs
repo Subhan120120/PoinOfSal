@@ -65,9 +65,6 @@ namespace PointOfSale.Migrations
                     b.Property<byte>("CurrAccTypeCode")
                         .HasColumnType("tinyint");
 
-                    b.Property<byte?>("CurrAccTypeCodeNavigationCurrAccTypeCode")
-                        .HasColumnType("tinyint");
-
                     b.Property<double>("CustomerPosDiscountRate")
                         .HasColumnType("float");
 
@@ -161,9 +158,7 @@ namespace PointOfSale.Migrations
                     b.HasIndex("CurrAccTypeCode")
                         .HasName("IX_CurrAccTypeCode");
 
-                    b.HasIndex("CurrAccTypeCodeNavigationCurrAccTypeCode");
-
-                    b.ToTable("DcCurrAcc");
+                    b.ToTable("DcCurrAccs");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcCurrAccType", b =>
@@ -186,7 +181,7 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("CurrAccTypeCode");
 
-                    b.ToTable("DcCurrAccType");
+                    b.ToTable("DcCurrAccTypes");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcOffice", b =>
@@ -237,7 +232,7 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("OfficeCode");
 
-                    b.ToTable("DcOffice");
+                    b.ToTable("DcOffices");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcPaymentType", b =>
@@ -245,7 +240,7 @@ namespace PointOfSale.Migrations
                     b.Property<byte>("PaymentTypeCode")
                         .HasColumnType("tinyint");
 
-                    b.Property<string>("PaymentTypeDescription")
+                    b.Property<string>("PaymentTypeDesc")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
                         .HasDefaultValueSql("space(0)")
@@ -253,7 +248,19 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("PaymentTypeCode");
 
-                    b.ToTable("DcPaymentType");
+                    b.ToTable("DcPaymentTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            PaymentTypeCode = (byte)1,
+                            PaymentTypeDesc = "Nağd"
+                        },
+                        new
+                        {
+                            PaymentTypeCode = (byte)2,
+                            PaymentTypeDesc = "Visa"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProcess", b =>
@@ -273,7 +280,7 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("ProcessCode");
 
-                    b.ToTable("DcProcess");
+                    b.ToTable("DcProcesses");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProduct", b =>
@@ -283,30 +290,35 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("Barcode")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
-                    b.Property<bool?>("IsBlocked")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsBlocked")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<bool?>("IsDisabled")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsDisabled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("PosDiscount")
-                        .HasColumnType("float");
+                    b.Property<double>("PosDiscount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<string>("ProductDescription")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(150)")
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(150);
 
-                    b.Property<byte?>("ProductTypeCode")
-                        .HasColumnType("tinyint");
-
-                    b.Property<byte?>("ProductTypeCodeNavigationProductTypeCode")
+                    b.Property<byte>("ProductTypeCode")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("PromotionCode")
@@ -321,32 +333,76 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
-                    b.Property<double?>("PurchasePrice")
-                        .HasColumnType("float");
+                    b.Property<double>("PurchasePrice")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("RetailPrice")
-                        .HasColumnType("float");
+                    b.Property<double>("RetailPrice")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("TaxRate")
-                        .HasColumnType("float");
+                    b.Property<double>("TaxRate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<bool?>("UseInternet")
-                        .HasColumnType("bit");
+                    b.Property<bool>("UseInternet")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<bool?>("UsePos")
-                        .HasColumnType("bit");
+                    b.Property<bool>("UsePos")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("WholesalePrice")
-                        .HasColumnType("float");
+                    b.Property<double>("WholesalePrice")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.HasKey("ProductCode");
 
                     b.HasIndex("ProductTypeCode")
                         .HasName("IX_ProductTypeCode");
 
-                    b.HasIndex("ProductTypeCodeNavigationProductTypeCode");
+                    b.ToTable("DcProducts");
 
-                    b.ToTable("DcProduct");
+                    b.HasData(
+                        new
+                        {
+                            ProductCode = "test01",
+                            Barcode = "123456",
+                            IsBlocked = false,
+                            IsDisabled = false,
+                            PosDiscount = 0.0,
+                            ProductDescription = "Papaq",
+                            ProductTypeCode = (byte)0,
+                            PurchasePrice = 0.0,
+                            RetailPrice = 4.5,
+                            TaxRate = 0.0,
+                            UseInternet = false,
+                            UsePos = false,
+                            WholesalePrice = 0.0
+                        },
+                        new
+                        {
+                            ProductCode = "test02",
+                            Barcode = "2000000000013",
+                            IsBlocked = false,
+                            IsDisabled = false,
+                            PosDiscount = 0.0,
+                            ProductDescription = "Salvar",
+                            ProductTypeCode = (byte)0,
+                            PurchasePrice = 0.0,
+                            RetailPrice = 2.5,
+                            TaxRate = 0.0,
+                            UseInternet = false,
+                            UsePos = false,
+                            WholesalePrice = 0.0
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProductType", b =>
@@ -362,7 +418,14 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("ProductTypeCode");
 
-                    b.ToTable("DcProductType");
+                    b.ToTable("DcProductTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductTypeCode = (byte)1,
+                            ProductTypeDesc = "Məhsul"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcStore", b =>
@@ -413,7 +476,7 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("StoreCode");
 
-                    b.ToTable("DcStore");
+                    b.ToTable("DcStores");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcTerminal", b =>
@@ -461,7 +524,7 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("TerminalCode");
 
-                    b.ToTable("DcTerminal");
+                    b.ToTable("DcTerminals");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcWarehouse", b =>
@@ -541,7 +604,7 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("WarehouseCode");
 
-                    b.ToTable("DcWarehouse");
+                    b.ToTable("DcWarehouses");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.MigrationHistory", b =>
@@ -604,16 +667,11 @@ namespace PointOfSale.Migrations
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
                 {
                     b.Property<Guid>("InvoiceHeaderId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CompanyCode")
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
@@ -624,16 +682,11 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(20);
 
                     b.Property<string>("CurrAccCode")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("CurrAccCodeNavigationCurrAccCode")
-                        .HasColumnType("nvarchar(30)");
-
                     b.Property<string>("CustomsDocumentNumber")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
                         .HasDefaultValueSql("space(0)")
@@ -664,29 +717,43 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("'00:00:00'");
 
                     b.Property<byte>("FiscalPrintedState")
-                        .HasColumnType("tinyint");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsLocked")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsPrinted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsReturn")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsSalesViaInternet")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsSuspended")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<DateTime>("LastUpdatedDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
@@ -749,19 +816,18 @@ namespace PointOfSale.Migrations
                     b.HasIndex("CurrAccCode")
                         .HasName("IX_CurrAccCode");
 
-                    b.HasIndex("CurrAccCodeNavigationCurrAccCode");
-
-                    b.ToTable("TrInvoiceHeader");
+                    b.ToTable("TrInvoiceHeaders");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceLine", b =>
                 {
                     b.Property<Guid>("InvoiceLineId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal?>("Amount")
-                        .HasColumnType("money");
+                    b.Property<decimal>("Amount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("money")
+                        .HasDefaultValueSql("0");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
@@ -781,13 +847,15 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
-                    b.Property<decimal?>("DiscountCampaign")
+                    b.Property<decimal>("DiscountCampaign")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("money")
                         .HasDefaultValueSql("0");
 
-                    b.Property<double?>("ExchangeRate")
-                        .HasColumnType("float");
+                    b.Property<double>("ExchangeRate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<Guid>("InvoiceHeaderId")
                         .HasColumnType("uniqueidentifier");
@@ -805,20 +873,24 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(20);
 
                     b.Property<string>("LineDescription")
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValueSql("space(0)");
 
-                    b.Property<decimal?>("NetAmount")
+                    b.Property<decimal>("NetAmount")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("money")
                         .HasDefaultValueSql("0");
 
-                    b.Property<decimal?>("PosDiscount")
+                    b.Property<decimal>("PosDiscount")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("money")
                         .HasDefaultValueSql("0");
 
-                    b.Property<double?>("Price")
-                        .HasColumnType("float");
+                    b.Property<double>("Price")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<string>("ProductCode")
                         .ValueGeneratedOnAdd()
@@ -826,10 +898,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("ProductCodeNavigationProductCode")
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<int?>("Qty")
+                    b.Property<int>("Qty")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValueSql("1");
@@ -843,8 +912,10 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
-                    b.Property<float?>("VatRate")
-                        .HasColumnType("real");
+                    b.Property<float>("VatRate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("real")
+                        .HasDefaultValueSql("0");
 
                     b.HasKey("InvoiceLineId");
 
@@ -854,9 +925,7 @@ namespace PointOfSale.Migrations
                     b.HasIndex("ProductCode")
                         .HasName("IX_ProductCode");
 
-                    b.HasIndex("ProductCodeNavigationProductCode");
-
-                    b.ToTable("TrInvoiceLine");
+                    b.ToTable("TrInvoiceLines");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrPaymentHeader", b =>
@@ -970,7 +1039,9 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("PaymentHeaderId");
 
-                    b.ToTable("TrPaymentHeader");
+                    b.HasIndex("InvoiceHeaderId");
+
+                    b.ToTable("TrPaymentHeaders");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrPaymentLine", b =>
@@ -1002,7 +1073,9 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(10);
 
                     b.Property<double>("ExchangeRate")
-                        .HasColumnType("float");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<DateTime>("LastUpdatedDate")
                         .ValueGeneratedOnAdd()
@@ -1026,7 +1099,7 @@ namespace PointOfSale.Migrations
                     b.Property<decimal>("Payment")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("money")
-                        .HasDefaultValue(0m);
+                        .HasDefaultValueSql("0");
 
                     b.Property<Guid>("PaymentHeaderId")
                         .HasColumnType("uniqueidentifier");
@@ -1036,7 +1109,11 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("PaymentLineId");
 
-                    b.ToTable("TrPaymentLine");
+                    b.HasIndex("PaymentHeaderId");
+
+                    b.HasIndex("PaymentTypeCode");
+
+                    b.ToTable("TrPaymentLines");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrShipmentHeader", b =>
@@ -1063,9 +1140,7 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("CurrAccCode")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
@@ -1185,7 +1260,7 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("ShipmentHeaderId");
 
-                    b.ToTable("TrShipmentHeader");
+                    b.ToTable("TrShipmentHeaders");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrShipmentLine", b =>
@@ -1287,47 +1362,73 @@ namespace PointOfSale.Migrations
                     b.HasIndex("ShipmentHeaderId")
                         .HasName("IX_ShipmentHeaderID");
 
-                    b.ToTable("TrShipmentLine");
+                    b.ToTable("TrShipmentLines");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcCurrAcc", b =>
                 {
-                    b.HasOne("PointOfSale.Models.DcCurrAccType", "CurrAccTypeCodeNavigation")
-                        .WithMany("DcCurrAcc")
-                        .HasForeignKey("CurrAccTypeCodeNavigationCurrAccTypeCode");
+                    b.HasOne("PointOfSale.Models.DcCurrAccType", "DcCurrAccType")
+                        .WithMany("DcCurrAccs")
+                        .HasForeignKey("CurrAccTypeCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProduct", b =>
                 {
-                    b.HasOne("PointOfSale.Models.DcProductType", "ProductTypeCodeNavigation")
-                        .WithMany("DcProduct")
-                        .HasForeignKey("ProductTypeCodeNavigationProductTypeCode");
+                    b.HasOne("PointOfSale.Models.DcProductType", "DcProductType")
+                        .WithMany("DcProducts")
+                        .HasForeignKey("ProductTypeCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
                 {
-                    b.HasOne("PointOfSale.Models.DcCurrAcc", "CurrAccCodeNavigation")
-                        .WithMany("TrInvoiceHeader")
-                        .HasForeignKey("CurrAccCodeNavigationCurrAccCode");
+                    b.HasOne("PointOfSale.Models.DcCurrAcc", "DcCurrAcc")
+                        .WithMany("TrInvoiceHeaders")
+                        .HasForeignKey("CurrAccCode");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceLine", b =>
                 {
-                    b.HasOne("PointOfSale.Models.TrInvoiceHeader", "InvoiceHeader")
-                        .WithMany("TrInvoiceLine")
+                    b.HasOne("PointOfSale.Models.TrInvoiceHeader", "TrInvoiceHeader")
+                        .WithMany("TrInvoiceLines")
                         .HasForeignKey("InvoiceHeaderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PointOfSale.Models.DcProduct", "ProductCodeNavigation")
-                        .WithMany("TrInvoiceLine")
-                        .HasForeignKey("ProductCodeNavigationProductCode");
+                    b.HasOne("PointOfSale.Models.DcProduct", "DcProduct")
+                        .WithMany("TrInvoiceLines")
+                        .HasForeignKey("ProductCode");
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.TrPaymentHeader", b =>
+                {
+                    b.HasOne("PointOfSale.Models.TrInvoiceHeader", "TrInvoiceHeader")
+                        .WithMany("TrPaymentHeaders")
+                        .HasForeignKey("InvoiceHeaderId");
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.TrPaymentLine", b =>
+                {
+                    b.HasOne("PointOfSale.Models.TrPaymentHeader", "TrPaymentHeader")
+                        .WithMany("TrPaymentLines")
+                        .HasForeignKey("PaymentHeaderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PointOfSale.Models.DcPaymentType", "DcPaymentType")
+                        .WithMany("TrPaymentLines")
+                        .HasForeignKey("PaymentTypeCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrShipmentLine", b =>
                 {
-                    b.HasOne("PointOfSale.Models.TrShipmentHeader", "ShipmentHeader")
-                        .WithMany("TrShipmentLine")
+                    b.HasOne("PointOfSale.Models.TrShipmentHeader", "TrShipmentHeader")
+                        .WithMany("TrShipmentLines")
                         .HasForeignKey("ShipmentHeaderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

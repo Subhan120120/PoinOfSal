@@ -13,6 +13,8 @@ namespace PointOfSale.Models
     {
         [Key]
         public Guid ShipmentLineId { get; set; }
+
+        [ForeignKey("TrShipmentHeader")]
         public Guid ShipmentHeaderId { get; set; }
         public int SortOrder { get; set; }
         public byte ItemTypeCode { get; set; }
@@ -61,6 +63,6 @@ namespace PointOfSale.Models
         public DateTime LastUpdatedDate { get; set; }
 
 
-        public virtual TrShipmentHeader ShipmentHeader { get; set; }
+        public virtual TrShipmentHeader TrShipmentHeader { get; set; }
     }
 }

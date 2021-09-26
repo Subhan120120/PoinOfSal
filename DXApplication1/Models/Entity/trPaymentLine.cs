@@ -13,9 +13,14 @@ namespace PointOfSale.Models
     {
         [Key]
         public Guid PaymentLineId { get; set; }
+
+        [ForeignKey("TrPaymentHeader")]
         public Guid PaymentHeaderId { get; set; }
+
+        [ForeignKey("DcPaymentType")]
         public byte PaymentTypeCode { get; set; }
 
+        [Required]
         [Column(TypeName = "money")]
         public decimal Payment { get; set; }
 
@@ -26,13 +31,17 @@ namespace PointOfSale.Models
         [Required]
         [StringLength(10)]
         public string CurrencyCode { get; set; }
+
+        [Required]
         public double ExchangeRate { get; set; }
+
         public byte? BankId { get; set; }
 
         [Required]
         [StringLength(20)]
         public string CreatedUserName { get; set; }
 
+        [Required]
         [Column(TypeName = "datetime")]
         public DateTime CreatedDate { get; set; }
 
@@ -40,7 +49,12 @@ namespace PointOfSale.Models
         [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 
+        [Required]
         [Column(TypeName = "datetime")]
         public DateTime LastUpdatedDate { get; set; }
+
+
+        public virtual TrPaymentHeader TrPaymentHeader { get; set; }
+        public virtual DcPaymentType DcPaymentType { get; set; }
     }
 }

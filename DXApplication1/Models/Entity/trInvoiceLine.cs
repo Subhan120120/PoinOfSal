@@ -13,26 +13,38 @@ namespace PointOfSale.Models
     {
         [Key]
         public Guid InvoiceLineId { get; set; }
+
+        [ForeignKey("TrInvoiceHeader")]
         public Guid InvoiceHeaderId { get; set; }
+
         public Guid? RelatedLineId { get; set; }
 
         [StringLength(30)]
+        [ForeignKey("DcProduct")] 
         public string ProductCode { get; set; }
-        public int? Qty { get; set; }
-        public double? Price { get; set; }
+
+        [Required]
+        public int Qty { get; set; }
+
+        [Required]
+        public double Price { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? Amount { get; set; }
+        public decimal Amount { get; set; }
+
+        [Required]
+        [Column(TypeName = "money")]
+        public decimal PosDiscount { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? PosDiscount { get; set; }
+        public decimal DiscountCampaign { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? DiscountCampaign { get; set; }
+        public decimal NetAmount { get; set; }
 
-        [Column(TypeName = "money")]
-        public decimal? NetAmount { get; set; }
-        public float? VatRate { get; set; }
+
+        public float VatRate { get; set; }
+
         public string LineDescription { get; set; }
 
         [StringLength(50)]
@@ -40,7 +52,8 @@ namespace PointOfSale.Models
         
         [StringLength(10)]
         public string CurrencyCode { get; set; }
-        public double? ExchangeRate { get; set; }
+
+        public double ExchangeRate { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -56,7 +69,7 @@ namespace PointOfSale.Models
         [Column(TypeName = "datetime")]
         public DateTime LastUpdatedDate { get; set; }
 
-        public virtual TrInvoiceHeader InvoiceHeader { get; set; }
-        public virtual DcProduct ProductCodeNavigation { get; set; }
+        public virtual TrInvoiceHeader TrInvoiceHeader { get; set; }
+        public virtual DcProduct DcProduct { get; set; }
     }
 }

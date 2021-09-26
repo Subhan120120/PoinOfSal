@@ -9,12 +9,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    [Table("DcCurrAccType")]
     public partial class DcCurrAccType
     {
         public DcCurrAccType()
         {
-            DcCurrAcc = new HashSet<DcCurrAcc>();
+            DcCurrAccs = new HashSet<DcCurrAcc>();
         }
 
         [Key]
@@ -26,6 +25,6 @@ namespace PointOfSale.Models
         public bool IsDisabled { get; set; }
         public Guid RowGuid { get; set; }
 
-        public virtual ICollection<DcCurrAcc> DcCurrAcc { get; set; }
+        public virtual ICollection<DcCurrAcc> DcCurrAccs { get; set; }
     }
 }

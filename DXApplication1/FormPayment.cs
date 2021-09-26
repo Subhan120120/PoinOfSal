@@ -176,7 +176,7 @@ namespace PointOfSale
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
             SqlMethods sqlMethods = new SqlMethods();
-            string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeader");
+            string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
 
             if ((cashLarge + cashless + bonus) >= SummaryNetAmount)
             {

@@ -17,7 +17,7 @@ namespace PointOfSale
 
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
-            string newNum = sqlMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAcc");            
+            string newNum = sqlMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");            
 
             DcCurrAcc = new DcCurrAcc()
             {

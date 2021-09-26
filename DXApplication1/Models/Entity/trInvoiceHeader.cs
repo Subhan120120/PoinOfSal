@@ -5,16 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
-// #nullable disable
+//#nullable disable
 
 namespace PointOfSale.Models
 {
-    [Table("TrInvoiceHeader")]
     public partial class TrInvoiceHeader
     {
         public TrInvoiceHeader()
         {
-            TrInvoiceLine = new HashSet<TrInvoiceLine>();
+            TrInvoiceLines = new HashSet<TrInvoiceLine>();
         }
 
         [Key]
@@ -46,12 +45,9 @@ namespace PointOfSale.Models
         [StringLength(200)]
         public string Description { get; set; }
 
-        [Required]
         [StringLength(30)]
+        [ForeignKey("DcCurrAcc")]
         public string CurrAccCode { get; set; }
-
-        [StringLength(10)]
-        public string CompanyCode { get; set; }
 
         [Required]
         [StringLength(10)]
@@ -65,6 +61,7 @@ namespace PointOfSale.Models
         [StringLength(30)]
         public string WarehouseCode { get; set; }
 
+        [Required]
         [StringLength(30)]
         public string CustomsDocumentNumber { get; set; }
 
@@ -82,18 +79,19 @@ namespace PointOfSale.Models
         [StringLength(20)]
         public string CreatedUserName { get; set; }
 
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime CreatedDate { get; set; }
 
         [Required]
         [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime LastUpdatedDate { get; set; }
 
 
-        public virtual DcCurrAcc CurrAccCodeNavigation { get; set; }
-        public virtual ICollection<TrInvoiceLine> TrInvoiceLine { get; set; }
+        public virtual DcCurrAcc DcCurrAcc { get; set; }
+        public virtual ICollection<TrInvoiceLine> TrInvoiceLines { get; set; }
+        public virtual ICollection<TrPaymentHeader> TrPaymentHeaders { get; set; }
     }
 }

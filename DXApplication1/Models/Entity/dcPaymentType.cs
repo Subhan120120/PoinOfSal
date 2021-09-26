@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,13 +10,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    [Table("DcPaymentType")]
     public partial class DcPaymentType
     {
         [Key]
         public byte PaymentTypeCode { get; set; }
 
         [StringLength(100)]
-        public string PaymentTypeDescription { get; set; }
+        public string PaymentTypeDesc { get; set; }
+
+        public virtual ICollection<TrPaymentLine> TrPaymentLines { get; set; }
     }
 }

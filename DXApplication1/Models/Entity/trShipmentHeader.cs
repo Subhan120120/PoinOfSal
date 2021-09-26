@@ -13,7 +13,7 @@ namespace PointOfSale.Models
     {
         public TrShipmentHeader()
         {
-            TrShipmentLine = new HashSet<TrShipmentLine>();
+            TrShipmentLines = new HashSet<TrShipmentLine>();
         }
 
         [Key]
@@ -92,6 +92,6 @@ namespace PointOfSale.Models
         public DateTime LastUpdatedDate { get; set; }
 
 
-        public virtual ICollection<TrShipmentLine> TrShipmentLine { get; set; }
+        public virtual ICollection<TrShipmentLine> TrShipmentLines { get; set; }
     }
 }

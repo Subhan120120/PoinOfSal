@@ -28,19 +28,20 @@ namespace PointOfSale
             GridView view = sender as GridView;
             if (view == null) return;
             string Barcode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Barcode"]);
-            string PosDiscount = view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscount"]);
-            string Amount = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Amount"]);
-            string NetAmount = view.GetRowCellDisplayText(e.RowHandle, view.Columns["NetAmount"]);
-            string VatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
+            decimal PosDiscount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscount"]));
+            decimal Amount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["Amount"]));
+            decimal NetAmount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["NetAmount"]));
+            string asdasd = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
+            float VatRate = float.Parse(asdasd);
 
             e.PreviewText = GetPreviewText(Barcode, PosDiscount, Amount, NetAmount, VatRate);
         }
 
-        private static string GetPreviewText(string Barcode, string PosDiscount, string Amount, string NetAmount, string VatRate)
+        private static string GetPreviewText(string Barcode, decimal PosDiscount, decimal Amount, decimal NetAmount, float VatRate)
         {
             decimal PosDiscountRate = 0;
-            if (Amount != string.Empty && NetAmount != string.Empty)
-                PosDiscountRate = Math.Round(Convert.ToDecimal(PosDiscount) / Convert.ToDecimal(Amount) * 100, 2);
+            if (Amount != 0 && NetAmount != 0)
+                PosDiscountRate = Math.Round(PosDiscount / Amount * 100, 2);
 
             string previewText = "ƏDV: " + VatRate + "%\n";
 
@@ -60,7 +61,7 @@ namespace PointOfSale
                 {
                     if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
+                        string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
 
                         TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                         {
@@ -185,7 +186,7 @@ namespace PointOfSale
 
                 if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                 {
-                    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
+                    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                     TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                     {
                         InvoiceHeaderId = invoiceHeaderId,
@@ -274,7 +275,7 @@ namespace PointOfSale
                     {
                         if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                         {
-                            string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeader");
+                            string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                             TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                             {
                                 InvoiceHeaderId = invoiceHeaderId,

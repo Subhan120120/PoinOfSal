@@ -10,14 +10,14 @@ namespace PointOfSale
 {
     public partial class FormProductList : XtraForm
     {
+        public DcProduct DcProduct { get; set; }
         SqlMethods sqlMethods = new SqlMethods();
+
         public FormProductList()
         {
             InitializeComponent();
             gridControl1.DataSource = sqlMethods.SelectProducts();
         }
-
-        public DcProduct DcProduct { get; set; }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {

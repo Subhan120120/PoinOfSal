@@ -82,7 +82,7 @@ namespace PointOfSale
         {
             if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
             {
-                string NewDocNum = sqlMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeader");
+                string NewDocNum = sqlMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
                 TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                 {
                     InvoiceHeaderId = invoiceHeaderId,
