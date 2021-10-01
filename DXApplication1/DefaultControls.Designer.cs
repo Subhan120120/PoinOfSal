@@ -48,6 +48,7 @@ namespace PointOfSale
             // 
             // gridView1
             // 
+
             this.gridView1.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridView1.Appearance.FooterPanel.Options.UseFont = true;
             this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -55,6 +56,7 @@ namespace PointOfSale
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.BestFitColumns();
             this.gridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;

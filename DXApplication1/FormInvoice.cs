@@ -29,8 +29,8 @@ namespace PointOfSale
             badge2 = new Badge();
             adornerUIManager1.Elements.Add(badge1);
             adornerUIManager1.Elements.Add(badge2);
-            badge1.TargetElement = bbiSave;
-            badge2.TargetElement = mainRibbonPage;
+            badge1.TargetElement = bBI_Save;
+            badge2.TargetElement = RibbonPage_Invoice;
         }
 
         public AdornerElement[] Badges { get { return new AdornerElement[] { badge1, badge2 }; } }
@@ -40,9 +40,9 @@ namespace PointOfSale
             invoiceHeaderId = Guid.NewGuid();
             TrInvoiceLineTableAdapter.Fill(subDataSet.TrInvoiceLine, invoiceHeaderId);
 
-            textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffices();
-            textEditStoreCode.Properties.DataSource = sqlMethods.SelectStores();
-            textEditWarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouses();
+            lookUpEdit_OfficeCode.Properties.DataSource = sqlMethods.SelectOffices();
+            lookUpEdit_StoreCode.Properties.DataSource = sqlMethods.SelectStores();
+            lookUpEdit_WarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouses();
         }
 
         private void buttonEditDocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -51,16 +51,16 @@ namespace PointOfSale
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
-                    buttonEditDocNum.EditValue = form.TrInvoiceHeader.DocumentNumber;
-                    checkEditIsReturn.EditValue = form.TrInvoiceHeader.IsReturn;
-                    textEditInvoiceCustomNum.EditValue = form.TrInvoiceHeader.CustomsDocumentNumber;
-                    dateEditDocumentDate.EditValue = form.TrInvoiceHeader.DocumentDate;
-                    dateEditDocumentTime.EditValue = form.TrInvoiceHeader.DocumentTime;
-                    buttonEditCurrAccCode.EditValue = form.TrInvoiceHeader.CurrAccCode;
-                    textEditOfficeCode.EditValue = form.TrInvoiceHeader.OfficeCode;
-                    textEditStoreCode.EditValue = form.TrInvoiceHeader.StoreCode;
-                    textEditWarehouseCode.EditValue = form.TrInvoiceHeader.WarehouseCode;
-                    textEditInvoiceDesc.EditValue = form.TrInvoiceHeader.Description;
+                    btnEdit_DocNum.EditValue = form.TrInvoiceHeader.DocumentNumber;
+                    checkEdit_IsReturn.EditValue = form.TrInvoiceHeader.IsReturn;
+                    txtEdit_InvoiceCustomNum.EditValue = form.TrInvoiceHeader.CustomsDocumentNumber;
+                    dateEdit_DocDate.EditValue = form.TrInvoiceHeader.DocumentDate;
+                    dateEdit_DocTime.EditValue = form.TrInvoiceHeader.DocumentTime;
+                    btnEdit_CurrAccCode.EditValue = form.TrInvoiceHeader.CurrAccCode;
+                    lookUpEdit_OfficeCode.EditValue = form.TrInvoiceHeader.OfficeCode;
+                    lookUpEdit_StoreCode.EditValue = form.TrInvoiceHeader.StoreCode;
+                    lookUpEdit_WarehouseCode.EditValue = form.TrInvoiceHeader.WarehouseCode;
+                    memoEdit_InvoiceDesc.EditValue = form.TrInvoiceHeader.Description;
 
                     TrInvoiceLineTableAdapter.Fill(subDataSet.TrInvoiceLine, form.TrInvoiceHeader.InvoiceHeaderId);
                 }
@@ -73,7 +73,7 @@ namespace PointOfSale
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
-                    buttonEditCurrAccCode.EditValue = form.DcCurrAcc.CurrAccCode;
+                    btnEdit_CurrAccCode.EditValue = form.DcCurrAcc.CurrAccCode;
                 }
             }
         }
@@ -88,28 +88,28 @@ namespace PointOfSale
                     InvoiceHeaderId = invoiceHeaderId,
                     ProcessCode = "RP",
                     DocumentNumber = NewDocNum,
-                    IsReturn = Convert.ToBoolean(checkEditIsReturn.EditValue),
-                    CustomsDocumentNumber = textEditInvoiceCustomNum.EditValue.ToString(),
-                    DocumentDate = Convert.ToDateTime(dateEditDocumentDate.EditValue),
-                    DocumentTime = (TimeSpan)dateEditDocumentTime.EditValue,
-                    CurrAccCode = buttonEditCurrAccCode.EditValue.ToString(),
-                    OfficeCode = textEditOfficeCode.EditValue.ToString(),
-                    StoreCode = textEditStoreCode.EditValue.ToString(),
-                    WarehouseCode = textEditWarehouseCode.EditValue.ToString(),
-                    Description = textEditInvoiceDesc.EditValue.ToString(),
+                    IsReturn = Convert.ToBoolean(checkEdit_IsReturn.EditValue),
+                    CustomsDocumentNumber = txtEdit_InvoiceCustomNum.EditValue.ToString(),
+                    DocumentDate = Convert.ToDateTime(dateEdit_DocDate.EditValue),
+                    DocumentTime = (TimeSpan)dateEdit_DocTime.EditValue,
+                    CurrAccCode = btnEdit_CurrAccCode.EditValue.ToString(),
+                    OfficeCode = lookUpEdit_OfficeCode.EditValue.ToString(),
+                    StoreCode = lookUpEdit_StoreCode.EditValue.ToString(),
+                    WarehouseCode = lookUpEdit_WarehouseCode.EditValue.ToString(),
+                    Description = memoEdit_InvoiceDesc.EditValue.ToString(),
                 };
                 sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
             }
 
-            gridView1.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
-            gridView1.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
+            gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
+            gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
         }
 
         private void gridView1_CellValueChanging(object sender, CellValueChangedEventArgs e)
         {
-            object objPrice = gridView1.GetRowCellValue(e.RowHandle, "Price");
-            object objQty = gridView1.GetRowCellValue(e.RowHandle, "Qty");
-            object objPosDiscount = gridView1.GetRowCellValue(e.RowHandle, "PosDiscount");
+            object objPrice = gV_InvoiceLine.GetRowCellValue(e.RowHandle, "Price");
+            object objQty = gV_InvoiceLine.GetRowCellValue(e.RowHandle, "Qty");
+            object objPosDiscount = gV_InvoiceLine.GetRowCellValue(e.RowHandle, "PosDiscount");
 
             if (e.Column.FieldName == "Price")
                 objPrice = e.Value;
@@ -122,8 +122,8 @@ namespace PointOfSale
             decimal Qty = objQty.IsNumeric() ? Convert.ToDecimal(objQty) : 0;
             decimal PosDiscount = objPosDiscount.IsNumeric() ? Convert.ToDecimal(objPosDiscount) : 0;
 
-            gridView1.SetRowCellValue(e.RowHandle, "Amount", Qty * Price);
-            gridView1.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - PosDiscount);
+            gV_InvoiceLine.SetRowCellValue(e.RowHandle, "Amount", Qty * Price);
+            gV_InvoiceLine.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - PosDiscount);
         }
 
         private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)

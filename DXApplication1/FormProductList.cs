@@ -16,7 +16,11 @@ namespace PointOfSale
         public FormProductList()
         {
             InitializeComponent();
-            gridControl1.DataSource = sqlMethods.SelectProducts();
+
+            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            this.gV_ProductList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
+
+            gC_ProductList.DataSource = sqlMethods.SelectProducts();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

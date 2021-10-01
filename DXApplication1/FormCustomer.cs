@@ -23,12 +23,12 @@ namespace PointOfSale
             {
                 CurrAccCode = newNum,
                 CurrAccTypeCode = 2,
-                Address = memoEditAddress.EditValue is null ? "" : memoEditAddress.EditValue.ToString(),
-                BonusCardNum = textEditBonusCard.EditValue is null ? "" : textEditBonusCard.EditValue.ToString(),
-                FirstName = textEditFirstName.EditValue is null ? "" : textEditFirstName.EditValue.ToString(),
-                LastName = textEditLastName.EditValue is null ? "" : textEditLastName.EditValue.ToString(),
-                BirthDate = textEditBirthDate.EditValue is null ? null : Convert.ToDateTime(textEditBirthDate.EditValue),
-                PhoneNum = textEditPhoneNum.EditValue is null ? "" : textEditPhoneNum.EditValue.ToString()
+                Address = memoEdit_Address.EditValue is null ? "" : memoEdit_Address.EditValue.ToString(),
+                BonusCardNum = txtEdit_BonusCard.EditValue is null ? "" : txtEdit_BonusCard.EditValue.ToString(),
+                FirstName = txtEdit_FirstName.EditValue is null ? "" : txtEdit_FirstName.EditValue.ToString(),
+                LastName = txtEdit_LastName.EditValue is null ? "" : txtEdit_LastName.EditValue.ToString(),
+                BirthDate = txtEdit_BirthDate.EditValue is null ? null : Convert.ToDateTime(txtEdit_BirthDate.EditValue),
+                PhoneNum = txtEdit_PhoneNum.EditValue is null ? "" : txtEdit_PhoneNum.EditValue.ToString()
             };
 
             int result = sqlMethods.InsertCustomer(DcCurrAcc);

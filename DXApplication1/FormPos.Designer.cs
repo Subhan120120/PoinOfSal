@@ -45,14 +45,9 @@ namespace PointOfSale
             this.barCheckItem2 = new DevExpress.XtraBars.BarCheckItem();
             this.navigationPageReturn = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPageSale = new DevExpress.XtraBars.Navigation.NavigationPage();
-            //this.ucReturn = new PointOfSale.UcReturn();
-            //this.ucSale = new PointOfSale.UcSale();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
-            this.navigationPageReturn.SuspendLayout();
-            this.navigationPageSale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.SuspendLayout();
@@ -130,60 +125,33 @@ namespace PointOfSale
             this.barCheckItem2.Name = "barCheckItem2";
             this.barCheckItem2.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem2_CheckedChanged);
             this.barCheckItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem2_ItemClick);
-                        // 
+            // 
             // navigationPageReturn
             // 
             this.navigationPageReturn.ControlName = "GeriQaytarma";
-            //this.navigationPageReturn.Controls.Add(this.ucReturn);
             this.navigationPageReturn.Name = "navigationPageReturn";
             this.navigationPageReturn.Size = new System.Drawing.Size(1242, 618);
-            // 
-            // ucReturn
-            // 
-            //this.ucReturn.Dock = System.Windows.Forms.DockStyle.Fill;
-            //this.ucReturn.Location = new System.Drawing.Point(0, 0);
-            //this.ucReturn.Name = "ucReturn";
-            //this.ucReturn.Size = new System.Drawing.Size(1242, 618);
-            //this.ucReturn.TabIndex = 0;
             // 
             // navigationPageSale
             // 
             this.navigationPageSale.ControlName = "Satış";
-            //this.navigationPageSale.Controls.Add(this.ucSale);
             this.navigationPageSale.Name = "navigationPageSale";
             this.navigationPageSale.Size = new System.Drawing.Size(1242, 618);
-            // 
-            // ucSale
-            // 
-            //this.ucSale.Dock = System.Windows.Forms.DockStyle.Fill;
-            //this.ucSale.Location = new System.Drawing.Point(0, 0);
-            //this.ucSale.Name = "ucSale";
-            //this.ucSale.Size = new System.Drawing.Size(1242, 618);
-            //this.ucSale.TabIndex = 0;
             // 
             // navigationFrame1
             // 
             this.navigationFrame1.Controls.Add(this.navigationPageSale);
             this.navigationFrame1.Controls.Add(this.navigationPageReturn);
-            this.navigationFrame1.Controls.Add(this.navigationPage1);
             this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame1.Location = new System.Drawing.Point(0, 31);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPageSale,
-            this.navigationPageReturn,
-            this.navigationPage1});
+            this.navigationPageReturn});
             this.navigationFrame1.SelectedPage = this.navigationPageSale;
             this.navigationFrame1.Size = new System.Drawing.Size(1242, 618);
             this.navigationFrame1.TabIndex = 0;
             this.navigationFrame1.Text = "navigationFrame1";
-            // 
-            // navigationPage1
-            // 
-            this.navigationPage1.ControlName = "3cu page";
-            this.navigationPage1.ControlTypeName = "";
-            this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(1242, 618);
             // 
             // FormPOS
             // 
@@ -201,8 +169,6 @@ namespace PointOfSale
             this.Load += new System.EventHandler(this.FormPOS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
-            this.navigationPageReturn.ResumeLayout(false);
-            this.navigationPageSale.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
             this.navigationFrame1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -216,7 +182,6 @@ namespace PointOfSale
         private NavigationFrame navigationFrame1;
         private NavigationPage navigationPageSale;
         private NavigationPage navigationPageReturn;
-        private NavigationPage navigationPage1;
         private BarDockControl barDockControlTop;
         private BarDockControl barDockControlBottom;
         private BarDockControl barDockControlLeft;

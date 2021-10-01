@@ -31,129 +31,126 @@ namespace PointOfSale
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBarcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProductTypeCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUsePos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPromotionCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPromotionCode2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTaxRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsDisabled = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPosDiscountRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRetailPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gC_ProductList = new DevExpress.XtraGrid.GridControl();
+            this.gV_ProductList = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_ProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Barcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_ProductTypeCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_UsePos = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_PromotionCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_PromotionCode2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_TaxRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_IsDisabled = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_PosDiscountRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RetailPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_ProductList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_ProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
             // 
-            this.gridControl1.DataMember = "DcProduct";
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(674, 415);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gC_ProductList.DataMember = "DcProduct";
+            this.gC_ProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gC_ProductList.Location = new System.Drawing.Point(0, 0);
+            this.gC_ProductList.MainView = this.gV_ProductList;
+            this.gC_ProductList.Name = "gridControl1";
+            this.gC_ProductList.Size = new System.Drawing.Size(865, 415);
+            this.gC_ProductList.TabIndex = 0;
+            this.gC_ProductList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gV_ProductList});
             // 
             // gridView1
             // 
-            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            this.gridView1.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colProductCode,
-            this.colBarcode,
-            this.colProductTypeCode,
-            this.colUsePos,
-            this.colPromotionCode,
-            this.colPromotionCode2,
-            this.colTaxRate,
-            this.colIsDisabled,
-            this.colPosDiscountRate,
-            this.colRetailPrice,
+            this.gV_ProductList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_ProductCode,
+            this.col_Barcode,
+            this.col_ProductTypeCode,
+            this.col_UsePos,
+            this.col_PromotionCode,
+            this.col_PromotionCode2,
+            this.col_TaxRate,
+            this.col_IsDisabled,
+            this.col_PosDiscountRate,
+            this.col_RetailPrice,
             this.colProductDescription});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            this.gV_ProductList.GridControl = this.gC_ProductList;
+            this.gV_ProductList.Name = "gridView1";
+            this.gV_ProductList.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // colProductCode
             // 
-            this.colProductCode.FieldName = "ProductCode";
-            this.colProductCode.Name = "colProductCode";
-            this.colProductCode.Visible = true;
-            this.colProductCode.VisibleIndex = 0;
-            this.colProductCode.Width = 82;
+            this.col_ProductCode.FieldName = "ProductCode";
+            this.col_ProductCode.Name = "colProductCode";
+            this.col_ProductCode.Visible = true;
+            this.col_ProductCode.VisibleIndex = 0;
+            this.col_ProductCode.Width = 82;
             // 
             // colBarcode
             // 
-            this.colBarcode.FieldName = "Barcode";
-            this.colBarcode.Name = "colBarcode";
-            this.colBarcode.Visible = true;
-            this.colBarcode.VisibleIndex = 2;
-            this.colBarcode.Width = 56;
+            this.col_Barcode.FieldName = "Barcode";
+            this.col_Barcode.Name = "colBarcode";
+            this.col_Barcode.Visible = true;
+            this.col_Barcode.VisibleIndex = 2;
+            this.col_Barcode.Width = 56;
             // 
             // colProductTypeCode
             // 
-            this.colProductTypeCode.FieldName = "ProductTypeCode";
-            this.colProductTypeCode.Name = "colProductTypeCode";
-            this.colProductTypeCode.Width = 93;
+            this.col_ProductTypeCode.FieldName = "ProductTypeCode";
+            this.col_ProductTypeCode.Name = "colProductTypeCode";
+            this.col_ProductTypeCode.Width = 93;
             // 
             // colUsePos
             // 
-            this.colUsePos.FieldName = "UsePos";
-            this.colUsePos.Name = "colUsePos";
-            this.colUsePos.Width = 50;
+            this.col_UsePos.FieldName = "UsePos";
+            this.col_UsePos.Name = "colUsePos";
+            this.col_UsePos.Width = 50;
             // 
             // colPromotionCode
             // 
-            this.colPromotionCode.FieldName = "PromotionCode";
-            this.colPromotionCode.Name = "colPromotionCode";
-            this.colPromotionCode.Visible = true;
-            this.colPromotionCode.VisibleIndex = 5;
-            this.colPromotionCode.Width = 50;
+            this.col_PromotionCode.FieldName = "PromotionCode";
+            this.col_PromotionCode.Name = "colPromotionCode";
+            this.col_PromotionCode.Visible = true;
+            this.col_PromotionCode.VisibleIndex = 5;
+            this.col_PromotionCode.Width = 50;
             // 
             // colPromotionCode2
             // 
-            this.colPromotionCode2.FieldName = "PromotionCode2";
-            this.colPromotionCode2.Name = "colPromotionCode2";
-            this.colPromotionCode2.Visible = true;
-            this.colPromotionCode2.VisibleIndex = 6;
-            this.colPromotionCode2.Width = 50;
+            this.col_PromotionCode2.FieldName = "PromotionCode2";
+            this.col_PromotionCode2.Name = "colPromotionCode2";
+            this.col_PromotionCode2.Visible = true;
+            this.col_PromotionCode2.VisibleIndex = 6;
+            this.col_PromotionCode2.Width = 50;
             // 
             // colTaxRate
             // 
-            this.colTaxRate.FieldName = "TaxRate";
-            this.colTaxRate.Name = "colTaxRate";
-            this.colTaxRate.Visible = true;
-            this.colTaxRate.VisibleIndex = 7;
-            this.colTaxRate.Width = 50;
+            this.col_TaxRate.FieldName = "TaxRate";
+            this.col_TaxRate.Name = "colTaxRate";
+            this.col_TaxRate.Visible = true;
+            this.col_TaxRate.VisibleIndex = 7;
+            this.col_TaxRate.Width = 50;
             // 
             // colIsDisabled
             // 
-            this.colIsDisabled.FieldName = "IsDisabled";
-            this.colIsDisabled.Name = "colIsDisabled";
-            this.colIsDisabled.Width = 50;
+            this.col_IsDisabled.FieldName = "IsDisabled";
+            this.col_IsDisabled.Name = "colIsDisabled";
+            this.col_IsDisabled.Width = 50;
             // 
             // colPosDiscountRate
             // 
-            this.colPosDiscountRate.FieldName = "PosDiscountRate";
-            this.colPosDiscountRate.Name = "colPosDiscountRate";
-            this.colPosDiscountRate.Visible = true;
-            this.colPosDiscountRate.VisibleIndex = 4;
-            this.colPosDiscountRate.Width = 53;
+            this.col_PosDiscountRate.FieldName = "PosDiscountRate";
+            this.col_PosDiscountRate.Name = "colPosDiscountRate";
+            this.col_PosDiscountRate.Visible = true;
+            this.col_PosDiscountRate.VisibleIndex = 4;
+            this.col_PosDiscountRate.Width = 53;
             // 
             // colRetailPrice
             // 
-            this.colRetailPrice.FieldName = "RetailPrice";
-            this.colRetailPrice.Name = "colRetailPrice";
-            this.colRetailPrice.Visible = true;
-            this.colRetailPrice.VisibleIndex = 3;
-            this.colRetailPrice.Width = 54;
+            this.col_RetailPrice.FieldName = "RetailPrice";
+            this.col_RetailPrice.Name = "colRetailPrice";
+            this.col_RetailPrice.Visible = true;
+            this.col_RetailPrice.VisibleIndex = 3;
+            this.col_RetailPrice.Width = 54;
             // 
             // colProductDescription
             // 
@@ -166,31 +163,31 @@ namespace PointOfSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 415);
-            this.Controls.Add(this.gridControl1);
+            this.ClientSize = new System.Drawing.Size(865, 415);
+            this.Controls.Add(this.gC_ProductList);
             this.Name = "FormProductList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormProductList";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_ProductList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_ProductList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colBarcode;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductTypeCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colUsePos;
-        private DevExpress.XtraGrid.Columns.GridColumn colPromotionCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colPromotionCode2;
-        private DevExpress.XtraGrid.Columns.GridColumn colTaxRate;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsDisabled;
-        private DevExpress.XtraGrid.Columns.GridColumn colPosDiscountRate;
-        private DevExpress.XtraGrid.Columns.GridColumn colRetailPrice;
+        private DevExpress.XtraGrid.GridControl gC_ProductList;
+        private DevExpress.XtraGrid.Views.Grid.GridView gV_ProductList;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ProductCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Barcode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ProductTypeCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_UsePos;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PromotionCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PromotionCode2;
+        private DevExpress.XtraGrid.Columns.GridColumn col_TaxRate;
+        private DevExpress.XtraGrid.Columns.GridColumn col_IsDisabled;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PosDiscountRate;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RetailPrice;
         private DevExpress.XtraGrid.Columns.GridColumn colProductDescription;
     }
 }

@@ -17,7 +17,8 @@ namespace PointOfSale
         public FormCurrAccList()
         {
             InitializeComponent();
-
+            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            gV_CurrAccList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
         }
 
         private void FormCurrAccList_Load(object sender, EventArgs e)

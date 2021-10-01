@@ -31,202 +31,201 @@ namespace PointOfSale
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colDocumentNumber = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsReturn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocumentDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocumentTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCurrAccCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOfficeCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStoreCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colWarehouseCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCustomsDocumentNumber = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedUserName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colInvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProcessCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.gC_InvoiceHeaderList = new DevExpress.XtraGrid.GridControl();
+            this.gV_InvoiceHeaderList = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_DocNum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_IsReturn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_DocDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_DocTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Desc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_CurrAccCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_OfficeCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_StoreCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_WarehouseCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_CustomsDocNum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_CreatedUserName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_CreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_InvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_ProcessCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceHeaderList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceHeaderList)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // gC_InvoiceHeaderList
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(838, 418);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gC_InvoiceHeaderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gC_InvoiceHeaderList.Location = new System.Drawing.Point(0, 0);
+            this.gC_InvoiceHeaderList.MainView = this.gV_InvoiceHeaderList;
+            this.gC_InvoiceHeaderList.Name = "gC_InvoiceHeaderList";
+            this.gC_InvoiceHeaderList.Size = new System.Drawing.Size(838, 418);
+            this.gC_InvoiceHeaderList.TabIndex = 0;
+            this.gC_InvoiceHeaderList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gV_InvoiceHeaderList});
             // 
-            // gridView1
+            // gV_InvoiceHeaderList
             // 
-            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            this.gridView1.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDocumentNumber,
-            this.colIsReturn,
-            this.colDocumentDate,
-            this.colDocumentTime,
-            this.colDescription,
-            this.colCurrAccCode,
-            this.colOfficeCode,
-            this.colStoreCode,
-            this.colWarehouseCode,
-            this.colCustomsDocumentNumber,
-            this.colCreatedUserName,
-            this.colCreatedDate,
-            this.colInvoiceHeaderId,
-            this.colProcessCode});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            this.gV_InvoiceHeaderList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_DocNum,
+            this.col_IsReturn,
+            this.col_DocDate,
+            this.col_DocTime,
+            this.col_Desc,
+            this.col_CurrAccCode,
+            this.col_OfficeCode,
+            this.col_StoreCode,
+            this.col_WarehouseCode,
+            this.col_CustomsDocNum,
+            this.col_CreatedUserName,
+            this.col_CreatedDate,
+            this.col_InvoiceHeaderId,
+            this.col_ProcessCode});
+            this.gV_InvoiceHeaderList.GridControl = this.gC_InvoiceHeaderList;
+            this.gV_InvoiceHeaderList.Name = "gV_InvoiceHeaderList";
+            this.gV_InvoiceHeaderList.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
-            // colDocumentNumber
+            // col_DocNum
             // 
-            this.colDocumentNumber.Caption = "Faktura Nömrəsi";
-            this.colDocumentNumber.FieldName = "DocumentNumber";
-            this.colDocumentNumber.Name = "colDocumentNumber";
-            this.colDocumentNumber.Visible = true;
-            this.colDocumentNumber.VisibleIndex = 0;
+            this.col_DocNum.Caption = "Faktura Nömrəsi";
+            this.col_DocNum.FieldName = "DocumentNumber";
+            this.col_DocNum.Name = "col_DocNum";
+            this.col_DocNum.Visible = true;
+            this.col_DocNum.VisibleIndex = 0;
             // 
-            // colIsReturn
+            // col_IsReturn
             // 
-            this.colIsReturn.Caption = "Geri Qaytarma";
-            this.colIsReturn.FieldName = "IsReturn";
-            this.colIsReturn.Name = "colIsReturn";
-            this.colIsReturn.Visible = true;
-            this.colIsReturn.VisibleIndex = 1;
+            this.col_IsReturn.Caption = "Geri Qaytarma";
+            this.col_IsReturn.FieldName = "IsReturn";
+            this.col_IsReturn.Name = "col_IsReturn";
+            this.col_IsReturn.Visible = true;
+            this.col_IsReturn.VisibleIndex = 1;
             // 
-            // colDocumentDate
+            // col_DocDate
             // 
-            this.colDocumentDate.Caption = "Tarix";
-            this.colDocumentDate.FieldName = "DocumentDate";
-            this.colDocumentDate.Name = "colDocumentDate";
-            this.colDocumentDate.Visible = true;
-            this.colDocumentDate.VisibleIndex = 2;
+            this.col_DocDate.Caption = "Tarix";
+            this.col_DocDate.FieldName = "DocumentDate";
+            this.col_DocDate.Name = "col_DocDate";
+            this.col_DocDate.Visible = true;
+            this.col_DocDate.VisibleIndex = 2;
             // 
-            // colDocumentTime
+            // col_DocTime
             // 
-            this.colDocumentTime.Caption = "Saat";
-            this.colDocumentTime.FieldName = "DocumentTime";
-            this.colDocumentTime.Name = "colDocumentTime";
-            this.colDocumentTime.Visible = true;
-            this.colDocumentTime.VisibleIndex = 3;
+            this.col_DocTime.Caption = "Saat";
+            this.col_DocTime.FieldName = "DocumentTime";
+            this.col_DocTime.Name = "col_DocTime";
+            this.col_DocTime.Visible = true;
+            this.col_DocTime.VisibleIndex = 3;
             // 
-            // colDescription
+            // col_Desc
             // 
-            this.colDescription.Caption = "Açıqlama";
-            this.colDescription.FieldName = "Description";
-            this.colDescription.Name = "colDescription";
-            this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 4;
+            this.col_Desc.Caption = "Açıqlama";
+            this.col_Desc.FieldName = "Description";
+            this.col_Desc.Name = "col_Desc";
+            this.col_Desc.Visible = true;
+            this.col_Desc.VisibleIndex = 4;
             // 
-            // colCurrAccCode
+            // col_CurrAccCode
             // 
-            this.colCurrAccCode.Caption = "Tədarikçi";
-            this.colCurrAccCode.FieldName = "CurrAccCode";
-            this.colCurrAccCode.Name = "colCurrAccCode";
-            this.colCurrAccCode.Visible = true;
-            this.colCurrAccCode.VisibleIndex = 5;
+            this.col_CurrAccCode.Caption = "Tədarikçi";
+            this.col_CurrAccCode.FieldName = "CurrAccCode";
+            this.col_CurrAccCode.Name = "col_CurrAccCode";
+            this.col_CurrAccCode.Visible = true;
+            this.col_CurrAccCode.VisibleIndex = 5;
             // 
-            // colOfficeCode
+            // col_OfficeCode
             // 
-            this.colOfficeCode.Caption = "Ofis Kodu";
-            this.colOfficeCode.FieldName = "OfficeCode";
-            this.colOfficeCode.Name = "colOfficeCode";
-            this.colOfficeCode.Visible = true;
-            this.colOfficeCode.VisibleIndex = 7;
+            this.col_OfficeCode.Caption = "Ofis Kodu";
+            this.col_OfficeCode.FieldName = "OfficeCode";
+            this.col_OfficeCode.Name = "col_OfficeCode";
+            this.col_OfficeCode.Visible = true;
+            this.col_OfficeCode.VisibleIndex = 7;
             // 
-            // colStoreCode
+            // col_StoreCode
             // 
-            this.colStoreCode.Caption = "Mağaza Kodu";
-            this.colStoreCode.FieldName = "StoreCode";
-            this.colStoreCode.Name = "colStoreCode";
-            this.colStoreCode.Visible = true;
-            this.colStoreCode.VisibleIndex = 6;
+            this.col_StoreCode.Caption = "Mağaza Kodu";
+            this.col_StoreCode.FieldName = "StoreCode";
+            this.col_StoreCode.Name = "col_StoreCode";
+            this.col_StoreCode.Visible = true;
+            this.col_StoreCode.VisibleIndex = 6;
             // 
-            // colWarehouseCode
+            // col_WarehouseCode
             // 
-            this.colWarehouseCode.Caption = "Depo Kodu";
-            this.colWarehouseCode.FieldName = "WarehouseCode";
-            this.colWarehouseCode.Name = "colWarehouseCode";
-            this.colWarehouseCode.Visible = true;
-            this.colWarehouseCode.VisibleIndex = 8;
+            this.col_WarehouseCode.Caption = "Depo Kodu";
+            this.col_WarehouseCode.FieldName = "WarehouseCode";
+            this.col_WarehouseCode.Name = "col_WarehouseCode";
+            this.col_WarehouseCode.Visible = true;
+            this.col_WarehouseCode.VisibleIndex = 8;
             // 
-            // colCustomsDocumentNumber
+            // col_CustomsDocNum
             // 
-            this.colCustomsDocumentNumber.Caption = "Xüsusi Sənəd Nömrəsi";
-            this.colCustomsDocumentNumber.FieldName = "CustomsDocumentNumber";
-            this.colCustomsDocumentNumber.Name = "colCustomsDocumentNumber";
-            this.colCustomsDocumentNumber.Visible = true;
-            this.colCustomsDocumentNumber.VisibleIndex = 9;
+            this.col_CustomsDocNum.Caption = "Xüsusi Sənəd Nömrəsi";
+            this.col_CustomsDocNum.FieldName = "CustomsDocumentNumber";
+            this.col_CustomsDocNum.Name = "col_CustomsDocNum";
+            this.col_CustomsDocNum.Visible = true;
+            this.col_CustomsDocNum.VisibleIndex = 9;
             // 
-            // colCreatedUserName
+            // col_CreatedUserName
             // 
-            this.colCreatedUserName.Caption = "Tərtib Edən İstifadəçi";
-            this.colCreatedUserName.FieldName = "CreatedUserName";
-            this.colCreatedUserName.Name = "colCreatedUserName";
-            this.colCreatedUserName.Visible = true;
-            this.colCreatedUserName.VisibleIndex = 10;
+            this.col_CreatedUserName.Caption = "Tərtib Edən İstifadəçi";
+            this.col_CreatedUserName.FieldName = "CreatedUserName";
+            this.col_CreatedUserName.Name = "col_CreatedUserName";
+            this.col_CreatedUserName.Visible = true;
+            this.col_CreatedUserName.VisibleIndex = 10;
             // 
-            // colCreatedDate
+            // col_CreatedDate
             // 
-            this.colCreatedDate.Caption = "Yaradılma Tarixi";
-            this.colCreatedDate.FieldName = "CreatedDate";
-            this.colCreatedDate.Name = "colCreatedDate";
-            this.colCreatedDate.Visible = true;
-            this.colCreatedDate.VisibleIndex = 11;
+            this.col_CreatedDate.Caption = "Yaradılma Tarixi";
+            this.col_CreatedDate.FieldName = "CreatedDate";
+            this.col_CreatedDate.Name = "col_CreatedDate";
+            this.col_CreatedDate.Visible = true;
+            this.col_CreatedDate.VisibleIndex = 11;
             // 
-            // colInvoiceHeaderId
+            // col_InvoiceHeaderId
             // 
-            this.colInvoiceHeaderId.Caption = "InvoiceHeaderId";
-            this.colInvoiceHeaderId.FieldName = "InvoiceHeaderId";
-            this.colInvoiceHeaderId.Name = "colInvoiceHeaderId";
+            this.col_InvoiceHeaderId.Caption = "InvoiceHeaderId";
+            this.col_InvoiceHeaderId.FieldName = "InvoiceHeaderId";
+            this.col_InvoiceHeaderId.Name = "col_InvoiceHeaderId";
             // 
-            // colProcessCode
+            // col_ProcessCode
             // 
-            this.colProcessCode.Caption = "ProcessCode";
-            this.colProcessCode.FieldName = "ProcessCode";
-            this.colProcessCode.Name = "colProcessCode";
-            this.colProcessCode.Visible = true;
-            this.colProcessCode.VisibleIndex = 12;
+            this.col_ProcessCode.Caption = "ProcessCode";
+            this.col_ProcessCode.FieldName = "ProcessCode";
+            this.col_ProcessCode.Name = "col_ProcessCode";
+            this.col_ProcessCode.Visible = true;
+            this.col_ProcessCode.VisibleIndex = 12;
             // 
             // FormInvoiceHeaderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 418);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.gC_InvoiceHeaderList);
             this.Name = "FormInvoiceHeaderList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormInvoiceHeaderList";
             this.Load += new System.EventHandler(this.FormInvoiceHeaderList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceHeaderList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceHeaderList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocumentNumber;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsReturn;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocumentDate;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocumentTime;
-        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn colCurrAccCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colOfficeCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colStoreCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colWarehouseCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colCustomsDocumentNumber;
-        private DevExpress.XtraGrid.Columns.GridColumn colCreatedUserName;
-        private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
-        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceHeaderId;
-        private DevExpress.XtraGrid.Columns.GridColumn colProcessCode;
+        private DevExpress.XtraGrid.GridControl gC_InvoiceHeaderList;
+        private DevExpress.XtraGrid.Views.Grid.GridView gV_InvoiceHeaderList;
+        private DevExpress.XtraGrid.Columns.GridColumn col_DocNum;
+        private DevExpress.XtraGrid.Columns.GridColumn col_IsReturn;
+        private DevExpress.XtraGrid.Columns.GridColumn col_DocDate;
+        private DevExpress.XtraGrid.Columns.GridColumn col_DocTime;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Desc;
+        private DevExpress.XtraGrid.Columns.GridColumn col_CurrAccCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_OfficeCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_StoreCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_WarehouseCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_CustomsDocNum;
+        private DevExpress.XtraGrid.Columns.GridColumn col_CreatedUserName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_CreatedDate;
+        private DevExpress.XtraGrid.Columns.GridColumn col_InvoiceHeaderId;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ProcessCode;
     }
 }

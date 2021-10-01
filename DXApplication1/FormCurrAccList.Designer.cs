@@ -57,8 +57,6 @@ namespace PointOfSale
             // 
             // gV_CurrAccList
             // 
-            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            this.gV_CurrAccList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
             this.gV_CurrAccList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.col_CurrAccCode,
             this.col_CurrAccTypeCode,

@@ -13,6 +13,8 @@ namespace PointOfSale
         public FormInvoiceHeaderList()
         {
             InitializeComponent();
+            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            this.gV_InvoiceHeaderList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
         }
 
         public TrInvoiceHeader TrInvoiceHeader { get; set; }
@@ -20,10 +22,7 @@ namespace PointOfSale
 
         private void FormInvoiceHeaderList_Load(object sender, EventArgs e)
         {
-            OptionsLayoutGrid options = new OptionsLayoutGrid() { StoreAppearance = true };
-            gridView1.RestoreLayoutFromXml(@"D:\GvLayout.xml", options);
-
-            gridControl1.DataSource = sqlMethods.SelectInvoiceHeaders();
+            gC_InvoiceHeaderList.DataSource = sqlMethods.SelectInvoiceHeaders();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

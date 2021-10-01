@@ -21,8 +21,8 @@ namespace PointOfSale
 
         private void FormPosDiscount_Load(object sender, EventArgs e)
         {
-            AcceptButton = simpleButtonOk;
-            CancelButton = simpleButtonCancel;
+            AcceptButton = btn_Ok;
+            CancelButton = btn_Cancel;
 
             textEditDiscountRate.EditValue = Math.Round(PosDiscount / Amount * 100, 2);
             textEditNetAmount.EditValue = Amount - PosDiscount;

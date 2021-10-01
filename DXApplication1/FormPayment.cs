@@ -23,8 +23,8 @@ namespace PointOfSale
         public FormPayment(int PaymentType, decimal SummaryNetAmount, Guid InvoiceHeaderId)
         {
             InitializeComponent();
-            AcceptButton = simpleButtonOk;
-            CancelButton = simpleButtonCancel;
+            AcceptButton = btn_Ok;
+            CancelButton = btn_Cancel;
 
             if (SummaryNetAmount < 0)
                 isNegativ = true;
@@ -38,24 +38,24 @@ namespace PointOfSale
             switch (PaymentType)
             {
                 case 1:
-                    textEditCash.EditValue = Math.Abs(SummaryNetAmount);
+                    txt_EditCash.EditValue = Math.Abs(SummaryNetAmount);
                     break;
                 case 2:
-                    textEditCashless.EditValue = Math.Abs(SummaryNetAmount);
+                    txtEdit_Cashless.EditValue = Math.Abs(SummaryNetAmount);
                     break;
                 case 3:
-                    textEditBonus.EditValue = Math.Abs(SummaryNetAmount);
+                    txtEdit_Bonus.EditValue = Math.Abs(SummaryNetAmount);
                     break;
                 default:
-                    textEditCash.EditValue = Math.Abs(SummaryNetAmount);
+                    txt_EditCash.EditValue = Math.Abs(SummaryNetAmount);
                     break;
             }
         }
 
         private void textEditCash_EditValueChanged(object sender, EventArgs e)
         {
-            textEditCash.DoValidate();
-            decimal txtCash = Convert.ToDecimal(textEditCash.EditValue);
+            txt_EditCash.DoValidate();
+            decimal txtCash = Convert.ToDecimal(txt_EditCash.EditValue);
             cashLarge = isNegativ ? txtCash * (-1) : txtCash;
         }
 
@@ -83,13 +83,13 @@ namespace PointOfSale
         {
             decimal restAmount = SummaryNetAmount - cashless + bonus;
             if (restAmount >= 0)
-                textEditCash.EditValue = restAmount;
+                txt_EditCash.EditValue = restAmount;
         }
 
         private void textEditCashless_EditValueChanged(object sender, EventArgs e)
         {
-            textEditCashless.DoValidate();
-            decimal txtCashless = Convert.ToDecimal(textEditCashless.EditValue);
+            txtEdit_Cashless.DoValidate();
+            decimal txtCashless = Convert.ToDecimal(txtEdit_Cashless.EditValue);
             cashless = isNegativ ? txtCashless * (-1) : txtCashless;
         }
 
@@ -116,13 +116,13 @@ namespace PointOfSale
         {
             decimal restAmount = SummaryNetAmount - cashLarge + bonus;
             if (restAmount >= 0)
-                textEditCashless.EditValue = restAmount;
+                txtEdit_Cashless.EditValue = restAmount;
         }
 
         private void textEditBonus_EditValueChanged(object sender, EventArgs e)
         {
-            textEditBonus.DoValidate();
-            decimal txtBonus = Convert.ToDecimal(textEditBonus.EditValue);
+            txtEdit_Bonus.DoValidate();
+            decimal txtBonus = Convert.ToDecimal(txtEdit_Bonus.EditValue);
             bonus = isNegativ ? txtBonus * (-1) : txtBonus;
         }
 
@@ -148,7 +148,7 @@ namespace PointOfSale
         {
             decimal restAmount = SummaryNetAmount - cashLarge + cashless;
             if (restAmount >= 0)
-                textEditBonus.EditValue = restAmount;
+                txtEdit_Bonus.EditValue = restAmount;
         }
 
         private void simpleButtonNum_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace PointOfSale
                     SendKeys.Send("{BACKSPACE}");
                     break;
                 case "↵":
-                    simpleButtonOk.PerformClick();
+                    btn_Ok.PerformClick();
                     break;
                 default:
                     SendKeys.Send(key);

@@ -30,212 +30,212 @@ namespace PointOfSale
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomer));
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEditBonusCard = new DevExpress.XtraEditors.TextEdit();
-            this.textEditFirstName = new DevExpress.XtraEditors.TextEdit();
-            this.textEditLastName = new DevExpress.XtraEditors.TextEdit();
-            this.memoEditAddress = new DevExpress.XtraEditors.MemoEdit();
-            this.simpleButtonOk = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.textEditPhoneNum = new DevExpress.XtraEditors.TextEdit();
-            this.textEditBirthDate = new DevExpress.XtraEditors.DateEdit();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemCardNum = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemAddress = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemOk = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lC_Root = new DevExpress.XtraLayout.LayoutControl();
+            this.txtEdit_BonusCard = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_FirstName = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_LastName = new DevExpress.XtraEditors.TextEdit();
+            this.memoEdit_Address = new DevExpress.XtraEditors.MemoEdit();
+            this.btn_Ok = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
+            this.txtEdit_PhoneNum = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_BirthDate = new DevExpress.XtraEditors.DateEdit();
+            this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_CardNum = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Name = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Address = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Ok = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Cancel = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItemBirthdate = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemPhoneNum = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemLastname = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBonusCard.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditFirstName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLastName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditAddress.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPhoneNum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBirthDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBirthDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCardNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemAddress)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
+            this.lCI_Birthdate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_PhoneNum = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Lastname = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).BeginInit();
+            this.lC_Root.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BonusCard.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_FirstName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_LastName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Address.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_PhoneNum.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BirthDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BirthDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CardNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Name)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Address)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Ok)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBirthdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPhoneNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLastname)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Birthdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_PhoneNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Lastname)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // lC_Root
             // 
-            this.layoutControl1.Controls.Add(this.textEditBonusCard);
-            this.layoutControl1.Controls.Add(this.textEditFirstName);
-            this.layoutControl1.Controls.Add(this.textEditLastName);
-            this.layoutControl1.Controls.Add(this.memoEditAddress);
-            this.layoutControl1.Controls.Add(this.simpleButtonOk);
-            this.layoutControl1.Controls.Add(this.simpleButtonCancel);
-            this.layoutControl1.Controls.Add(this.textEditPhoneNum);
-            this.layoutControl1.Controls.Add(this.textEditBirthDate);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(876, 166, 650, 400);
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(344, 303);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.lC_Root.Controls.Add(this.txtEdit_BonusCard);
+            this.lC_Root.Controls.Add(this.txtEdit_FirstName);
+            this.lC_Root.Controls.Add(this.txtEdit_LastName);
+            this.lC_Root.Controls.Add(this.memoEdit_Address);
+            this.lC_Root.Controls.Add(this.btn_Ok);
+            this.lC_Root.Controls.Add(this.btn_Cancel);
+            this.lC_Root.Controls.Add(this.txtEdit_PhoneNum);
+            this.lC_Root.Controls.Add(this.txtEdit_BirthDate);
+            this.lC_Root.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lC_Root.Location = new System.Drawing.Point(0, 0);
+            this.lC_Root.Name = "lC_Root";
+            this.lC_Root.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(876, 166, 650, 400);
+            this.lC_Root.Root = this.lCG_Root;
+            this.lC_Root.Size = new System.Drawing.Size(344, 303);
+            this.lC_Root.TabIndex = 0;
+            this.lC_Root.Text = "layoutControl1";
             // 
-            // textEditBonusCard
+            // txtEdit_BonusCard
             // 
-            this.textEditBonusCard.Location = new System.Drawing.Point(77, 12);
-            this.textEditBonusCard.Name = "textEditBonusCard";
-            this.textEditBonusCard.Size = new System.Drawing.Size(255, 20);
-            this.textEditBonusCard.StyleController = this.layoutControl1;
-            this.textEditBonusCard.TabIndex = 4;
+            this.txtEdit_BonusCard.Location = new System.Drawing.Point(77, 12);
+            this.txtEdit_BonusCard.Name = "txtEdit_BonusCard";
+            this.txtEdit_BonusCard.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_BonusCard.StyleController = this.lC_Root;
+            this.txtEdit_BonusCard.TabIndex = 4;
             // 
-            // textEditFirstName
+            // txtEdit_FirstName
             // 
-            this.textEditFirstName.Location = new System.Drawing.Point(77, 36);
-            this.textEditFirstName.Name = "textEditFirstName";
-            this.textEditFirstName.Size = new System.Drawing.Size(255, 20);
-            this.textEditFirstName.StyleController = this.layoutControl1;
-            this.textEditFirstName.TabIndex = 5;
+            this.txtEdit_FirstName.Location = new System.Drawing.Point(77, 36);
+            this.txtEdit_FirstName.Name = "txtEdit_FirstName";
+            this.txtEdit_FirstName.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_FirstName.StyleController = this.lC_Root;
+            this.txtEdit_FirstName.TabIndex = 5;
             // 
-            // textEditLastName
+            // txtEdit_LastName
             // 
-            this.textEditLastName.Location = new System.Drawing.Point(77, 60);
-            this.textEditLastName.Name = "textEditLastName";
-            this.textEditLastName.Size = new System.Drawing.Size(255, 20);
-            this.textEditLastName.StyleController = this.layoutControl1;
-            this.textEditLastName.TabIndex = 6;
+            this.txtEdit_LastName.Location = new System.Drawing.Point(77, 60);
+            this.txtEdit_LastName.Name = "txtEdit_LastName";
+            this.txtEdit_LastName.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_LastName.StyleController = this.lC_Root;
+            this.txtEdit_LastName.TabIndex = 6;
             // 
-            // memoEditAddress
+            // memoEdit_Address
             // 
-            this.memoEditAddress.Location = new System.Drawing.Point(77, 132);
-            this.memoEditAddress.Name = "memoEditAddress";
-            this.memoEditAddress.Size = new System.Drawing.Size(255, 88);
-            this.memoEditAddress.StyleController = this.layoutControl1;
-            this.memoEditAddress.TabIndex = 8;
+            this.memoEdit_Address.Location = new System.Drawing.Point(77, 132);
+            this.memoEdit_Address.Name = "memoEdit_Address";
+            this.memoEdit_Address.Size = new System.Drawing.Size(255, 88);
+            this.memoEdit_Address.StyleController = this.lC_Root;
+            this.memoEdit_Address.TabIndex = 8;
             // 
-            // simpleButtonOk
+            // btn_Ok
             // 
-            this.simpleButtonOk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOk.ImageOptions.Image")));
-            this.simpleButtonOk.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonOk.Location = new System.Drawing.Point(180, 224);
-            this.simpleButtonOk.Name = "simpleButtonOk";
-            this.simpleButtonOk.Size = new System.Drawing.Size(74, 67);
-            this.simpleButtonOk.StyleController = this.layoutControl1;
-            this.simpleButtonOk.TabIndex = 9;
-            this.simpleButtonOk.Text = "simpleButton1";
-            this.simpleButtonOk.Click += new System.EventHandler(this.simpleButtonOk_Click);
+            this.btn_Ok.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOk.ImageOptions.Image")));
+            this.btn_Ok.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Ok.Location = new System.Drawing.Point(180, 224);
+            this.btn_Ok.Name = "btn_Ok";
+            this.btn_Ok.Size = new System.Drawing.Size(74, 67);
+            this.btn_Ok.StyleController = this.lC_Root;
+            this.btn_Ok.TabIndex = 9;
+            this.btn_Ok.Text = "simpleButton1";
+            this.btn_Ok.Click += new System.EventHandler(this.simpleButtonOk_Click);
             // 
-            // simpleButtonCancel
+            // btn_Cancel
             // 
-            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
-            this.simpleButtonCancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonCancel.Location = new System.Drawing.Point(258, 224);
-            this.simpleButtonCancel.Name = "simpleButtonCancel";
-            this.simpleButtonCancel.Size = new System.Drawing.Size(74, 67);
-            this.simpleButtonCancel.StyleController = this.layoutControl1;
-            this.simpleButtonCancel.TabIndex = 10;
-            this.simpleButtonCancel.Text = "simpleButton2";
+            this.btn_Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
+            this.btn_Cancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Cancel.Location = new System.Drawing.Point(258, 224);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(74, 67);
+            this.btn_Cancel.StyleController = this.lC_Root;
+            this.btn_Cancel.TabIndex = 10;
+            this.btn_Cancel.Text = "simpleButton2";
             // 
-            // textEditPhoneNum
+            // txtEdit_PhoneNum
             // 
-            this.textEditPhoneNum.Location = new System.Drawing.Point(77, 108);
-            this.textEditPhoneNum.Name = "textEditPhoneNum";
-            this.textEditPhoneNum.Size = new System.Drawing.Size(255, 20);
-            this.textEditPhoneNum.StyleController = this.layoutControl1;
-            this.textEditPhoneNum.TabIndex = 12;
+            this.txtEdit_PhoneNum.Location = new System.Drawing.Point(77, 108);
+            this.txtEdit_PhoneNum.Name = "txtEdit_PhoneNum";
+            this.txtEdit_PhoneNum.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_PhoneNum.StyleController = this.lC_Root;
+            this.txtEdit_PhoneNum.TabIndex = 12;
             // 
-            // textEditBirthDate
+            // txtEdit_BirthDate
             // 
-            this.textEditBirthDate.EditValue = null;
-            this.textEditBirthDate.Location = new System.Drawing.Point(77, 84);
-            this.textEditBirthDate.Name = "textEditBirthDate";
-            this.textEditBirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtEdit_BirthDate.EditValue = null;
+            this.txtEdit_BirthDate.Location = new System.Drawing.Point(77, 84);
+            this.txtEdit_BirthDate.Name = "txtEdit_BirthDate";
+            this.txtEdit_BirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEditBirthDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtEdit_BirthDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEditBirthDate.Properties.DisplayFormat.FormatString = "";
-            this.textEditBirthDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditBirthDate.Properties.EditFormat.FormatString = "";
-            this.textEditBirthDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEditBirthDate.Properties.Mask.EditMask = "";
-            this.textEditBirthDate.Size = new System.Drawing.Size(255, 20);
-            this.textEditBirthDate.StyleController = this.layoutControl1;
-            this.textEditBirthDate.TabIndex = 11;
+            this.txtEdit_BirthDate.Properties.DisplayFormat.FormatString = "";
+            this.txtEdit_BirthDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtEdit_BirthDate.Properties.EditFormat.FormatString = "";
+            this.txtEdit_BirthDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtEdit_BirthDate.Properties.Mask.EditMask = "";
+            this.txtEdit_BirthDate.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_BirthDate.StyleController = this.lC_Root;
+            this.txtEdit_BirthDate.TabIndex = 11;
             // 
-            // Root
+            // lCG_Root
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemCardNum,
-            this.layoutControlItemName,
-            this.layoutControlItemAddress,
-            this.layoutControlItemOk,
-            this.layoutControlItemCancel,
+            this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lCG_Root.GroupBordersVisible = false;
+            this.lCG_Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_CardNum,
+            this.lCI_Name,
+            this.lCI_Address,
+            this.lCI_Ok,
+            this.lCI_Cancel,
             this.emptySpaceItem1,
-            this.layoutControlItemBirthdate,
-            this.layoutControlItemPhoneNum,
-            this.layoutControlItemLastname});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(344, 303);
-            this.Root.TextVisible = false;
+            this.lCI_Birthdate,
+            this.lCI_PhoneNum,
+            this.lCI_Lastname});
+            this.lCG_Root.Name = "lCG_Root";
+            this.lCG_Root.Size = new System.Drawing.Size(344, 303);
+            this.lCG_Root.TextVisible = false;
             // 
-            // layoutControlItemCardNum
+            // lCI_CardNum
             // 
-            this.layoutControlItemCardNum.Control = this.textEditBonusCard;
-            this.layoutControlItemCardNum.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemCardNum.Name = "layoutControlItemCardNum";
-            this.layoutControlItemCardNum.Size = new System.Drawing.Size(324, 24);
-            this.layoutControlItemCardNum.Text = "Müştəri Kartı";
-            this.layoutControlItemCardNum.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_CardNum.Control = this.txtEdit_BonusCard;
+            this.lCI_CardNum.Location = new System.Drawing.Point(0, 0);
+            this.lCI_CardNum.Name = "lCI_CardNum";
+            this.lCI_CardNum.Size = new System.Drawing.Size(324, 24);
+            this.lCI_CardNum.Text = "Müştəri Kartı";
+            this.lCI_CardNum.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemName
+            // lCI_Name
             // 
-            this.layoutControlItemName.Control = this.textEditFirstName;
-            this.layoutControlItemName.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItemName.Name = "layoutControlItemName";
-            this.layoutControlItemName.Size = new System.Drawing.Size(324, 24);
-            this.layoutControlItemName.Text = "Adı";
-            this.layoutControlItemName.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_Name.Control = this.txtEdit_FirstName;
+            this.lCI_Name.Location = new System.Drawing.Point(0, 24);
+            this.lCI_Name.Name = "lCI_Name";
+            this.lCI_Name.Size = new System.Drawing.Size(324, 24);
+            this.lCI_Name.Text = "Adı";
+            this.lCI_Name.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemAddress
+            // lCI_Address
             // 
-            this.layoutControlItemAddress.Control = this.memoEditAddress;
-            this.layoutControlItemAddress.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItemAddress.Name = "layoutControlItemAddress";
-            this.layoutControlItemAddress.Size = new System.Drawing.Size(324, 92);
-            this.layoutControlItemAddress.Text = "Adres";
-            this.layoutControlItemAddress.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_Address.Control = this.memoEdit_Address;
+            this.lCI_Address.Location = new System.Drawing.Point(0, 120);
+            this.lCI_Address.Name = "lCI_Address";
+            this.lCI_Address.Size = new System.Drawing.Size(324, 92);
+            this.lCI_Address.Text = "Adres";
+            this.lCI_Address.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemOk
+            // lCI_Ok
             // 
-            this.layoutControlItemOk.Control = this.simpleButtonOk;
-            this.layoutControlItemOk.Location = new System.Drawing.Point(168, 212);
-            this.layoutControlItemOk.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemOk.Name = "layoutControlItemOk";
-            this.layoutControlItemOk.Size = new System.Drawing.Size(78, 71);
-            this.layoutControlItemOk.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemOk.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemOk.TextVisible = false;
+            this.lCI_Ok.Control = this.btn_Ok;
+            this.lCI_Ok.Location = new System.Drawing.Point(168, 212);
+            this.lCI_Ok.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Ok.Name = "lCI_Ok";
+            this.lCI_Ok.Size = new System.Drawing.Size(78, 71);
+            this.lCI_Ok.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Ok.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Ok.TextVisible = false;
             // 
-            // layoutControlItemCancel
+            // lCI_Cancel
             // 
-            this.layoutControlItemCancel.Control = this.simpleButtonCancel;
-            this.layoutControlItemCancel.Location = new System.Drawing.Point(246, 212);
-            this.layoutControlItemCancel.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemCancel.Name = "layoutControlItemCancel";
-            this.layoutControlItemCancel.Size = new System.Drawing.Size(78, 71);
-            this.layoutControlItemCancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCancel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCancel.TextVisible = false;
+            this.lCI_Cancel.Control = this.btn_Cancel;
+            this.lCI_Cancel.Location = new System.Drawing.Point(246, 212);
+            this.lCI_Cancel.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Cancel.Name = "lCI_Cancel";
+            this.lCI_Cancel.Size = new System.Drawing.Size(78, 71);
+            this.lCI_Cancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Cancel.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Cancel.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -245,85 +245,85 @@ namespace PointOfSale
             this.emptySpaceItem1.Size = new System.Drawing.Size(168, 71);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItemBirthdate
+            // lCI_Birthdate
             // 
-            this.layoutControlItemBirthdate.Control = this.textEditBirthDate;
-            this.layoutControlItemBirthdate.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItemBirthdate.Name = "layoutControlItemBirthdate";
-            this.layoutControlItemBirthdate.Size = new System.Drawing.Size(324, 24);
-            this.layoutControlItemBirthdate.Text = "Doğum Tarixi";
-            this.layoutControlItemBirthdate.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_Birthdate.Control = this.txtEdit_BirthDate;
+            this.lCI_Birthdate.Location = new System.Drawing.Point(0, 72);
+            this.lCI_Birthdate.Name = "lCI_Birthdate";
+            this.lCI_Birthdate.Size = new System.Drawing.Size(324, 24);
+            this.lCI_Birthdate.Text = "Doğum Tarixi";
+            this.lCI_Birthdate.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemPhoneNum
+            // lCI_PhoneNum
             // 
-            this.layoutControlItemPhoneNum.Control = this.textEditPhoneNum;
-            this.layoutControlItemPhoneNum.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItemPhoneNum.Name = "layoutControlItemPhoneNum";
-            this.layoutControlItemPhoneNum.Size = new System.Drawing.Size(324, 24);
-            this.layoutControlItemPhoneNum.Text = "Telefon";
-            this.layoutControlItemPhoneNum.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_PhoneNum.Control = this.txtEdit_PhoneNum;
+            this.lCI_PhoneNum.Location = new System.Drawing.Point(0, 96);
+            this.lCI_PhoneNum.Name = "lCI_PhoneNum";
+            this.lCI_PhoneNum.Size = new System.Drawing.Size(324, 24);
+            this.lCI_PhoneNum.Text = "Telefon";
+            this.lCI_PhoneNum.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemLastname
+            // lCI_Lastname
             // 
-            this.layoutControlItemLastname.Control = this.textEditLastName;
-            this.layoutControlItemLastname.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItemLastname.Name = "layoutControlItemLastname";
-            this.layoutControlItemLastname.Size = new System.Drawing.Size(324, 24);
-            this.layoutControlItemLastname.Text = "Soyadı";
-            this.layoutControlItemLastname.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_Lastname.Control = this.txtEdit_LastName;
+            this.lCI_Lastname.Location = new System.Drawing.Point(0, 48);
+            this.lCI_Lastname.Name = "lCI_Lastname";
+            this.lCI_Lastname.Size = new System.Drawing.Size(324, 24);
+            this.lCI_Lastname.Text = "Soyadı";
+            this.lCI_Lastname.TextSize = new System.Drawing.Size(62, 13);
             // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 303);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.lC_Root);
             this.Name = "FormCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCustomerAdd";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBonusCard.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditFirstName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLastName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditAddress.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPhoneNum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBirthDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBirthDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCardNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemAddress)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemOk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).EndInit();
+            this.lC_Root.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BonusCard.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_FirstName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_LastName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Address.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_PhoneNum.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BirthDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BirthDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CardNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Name)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Address)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Ok)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBirthdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPhoneNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLastname)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Birthdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_PhoneNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Lastname)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit textEditBonusCard;
-        private DevExpress.XtraEditors.TextEdit textEditFirstName;
-        private DevExpress.XtraEditors.TextEdit textEditLastName;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCardNum;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemName;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemLastname;
-        private DevExpress.XtraEditors.MemoEdit memoEditAddress;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonOk;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCancel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemAddress;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemOk;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCancel;
+        private DevExpress.XtraLayout.LayoutControl lC_Root;
+        private DevExpress.XtraEditors.TextEdit txtEdit_BonusCard;
+        private DevExpress.XtraEditors.TextEdit txtEdit_FirstName;
+        private DevExpress.XtraEditors.TextEdit txtEdit_LastName;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Root;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CardNum;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Name;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Lastname;
+        private DevExpress.XtraEditors.MemoEdit memoEdit_Address;
+        private DevExpress.XtraEditors.SimpleButton btn_Ok;
+        private DevExpress.XtraEditors.SimpleButton btn_Cancel;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Address;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Ok;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Cancel;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemBirthdate;
-        private DevExpress.XtraEditors.TextEdit textEditPhoneNum;
-        private DevExpress.XtraEditors.DateEdit textEditBirthDate;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemPhoneNum;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Birthdate;
+        private DevExpress.XtraEditors.TextEdit txtEdit_PhoneNum;
+        private DevExpress.XtraEditors.DateEdit txtEdit_BirthDate;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_PhoneNum;
     }
 }

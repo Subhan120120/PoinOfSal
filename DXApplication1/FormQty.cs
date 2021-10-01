@@ -14,8 +14,8 @@ namespace PointOfSale
         public FormQty()
         {
             InitializeComponent();
-            AcceptButton = simpleButtonOk;
-            CancelButton = simpleButtonCancel;
+            AcceptButton = btn_Ok;
+            CancelButton = btn_Cancel;
         }
 
         public FormQty(int maxQty)
@@ -26,13 +26,13 @@ namespace PointOfSale
 
         private void FormQty_Load(object sender, EventArgs e)
         {
-            textEditQty.EditValue = maxQty;
+            txtEdit_Qty.EditValue = maxQty;
         }
 
         private void textEditQty_EditValueChanged(object sender, EventArgs e)
         {
-            qty = Convert.ToInt32(textEditQty.EditValue);
-            textEditQty.DoValidate();
+            qty = Convert.ToInt32(txtEdit_Qty.EditValue);
+            txtEdit_Qty.DoValidate();
         }
 
         private void simpleButtonNum_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace PointOfSale
                     SendKeys.Send("{BACKSPACE}");
                     break;
                 case "↵":
-                    simpleButtonOk.PerformClick();
+                    btn_Ok.PerformClick();
                     break;
                 default:
                     SendKeys.Send(key);
@@ -77,7 +77,7 @@ namespace PointOfSale
             else if (val > maxQty && maxQty != 0)
                 e.Cancel = true;
             else
-                labelMessage.Text = "";
+                label_Message.Text = "";
         }
 
         private void textEditQty_InvalidValue(object sender, InvalidValueExceptionEventArgs e)
@@ -85,7 +85,7 @@ namespace PointOfSale
             e.ExceptionMode = ExceptionMode.DisplayError;
             e.WindowCaption = "Diqqət";
             e.ErrorText = "Dəyər 0 ilə "+ maxQty.ToString() + " arasında olmalıdır";
-            labelMessage.Text = e.ErrorText;
+            label_Message.Text = e.ErrorText;
         }
     }
 }

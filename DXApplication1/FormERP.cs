@@ -44,7 +44,7 @@ namespace PointOfSale
                 if (badge.TargetElement is BarItem)
                     clone.TargetElement = badge.TargetElement;
                 if (badge.TargetElement is RibbonPage)
-                    clone.TargetElement = ribbon.MergedPages.GetPageByName((badge.TargetElement as RibbonPage).Name);
+                    clone.TargetElement = ribbonControl.MergedPages.GetPageByName((badge.TargetElement as RibbonPage).Name);
                 adornerUIManager1.Elements.Add(clone);
                 adorners1.Add(clone);
             }
@@ -76,7 +76,7 @@ namespace PointOfSale
                 formInvoice = new FormInvoice();
                 formInvoice.MdiParent = this;
                 formInvoice.Show();
-                ribbon.SelectedPage = ribbon.MergedPages[0];
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }
 
@@ -109,7 +109,7 @@ namespace PointOfSale
                 formTransfer = new FormTransfer();
                 formTransfer.MdiParent = this;
                 formTransfer.Show();
-                ribbon.SelectedPage = ribbon.MergedPages[0];
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }
 
@@ -117,9 +117,14 @@ namespace PointOfSale
         {
             try
             {
-                ribbon.SelectedPage = ribbon.MergedPages[0];
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
             catch (Exception) { }
+
+        }
+
+        private void accordionControlElement2_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
