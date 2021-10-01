@@ -12,11 +12,18 @@ namespace PointOfSale
         public FormPOS()
         {
             InitializeComponent();
+            UcSale ucSale = new UcSale();
+            ucSale.Dock = DockStyle.Fill;
+            this.navigationPageSale.Controls.Add(ucSale);
+
+            UcReturn ucReturn = new UcReturn();
+            ucReturn.Dock = DockStyle.Fill;
+            this.navigationPageReturn.Controls.Add(ucReturn);
         }
 
         private void FormPOS_Load(object sender, EventArgs e)
         {
-            AcceptButton = ucSale.simpleButtonEnter;
+            //AcceptButton = ucSale.simpleButtonEnter;
         }
 
         private void barCheckItem1_CheckedChanged(object sender, ItemClickEventArgs e)

@@ -73,7 +73,7 @@ namespace PointOfSale
             }
         }
 
-        public List<TrInvoiceHeader> SelectInvoiceHeader()
+        public List<TrInvoiceHeader> SelectInvoiceHeaders()
         {
             using (subContext db = new subContext())
             {
@@ -81,7 +81,15 @@ namespace PointOfSale
             }
         }
 
-        public DataTable SelectInvoiceLine(Guid invoiceHeaderId)
+        public TrInvoiceLine SelectInvoiceLine(Guid invoiceLineId)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.TrInvoiceLines.FirstOrDefault(x => x.InvoiceLineId == invoiceLineId);
+            }
+        }
+
+        public DataTable SelectInvoiceLines(Guid invoiceHeaderId)
         {
             string qry = "select TrInvoiceLines.*, ProductDescription, Barcode" +
                 ", ReturnQty = ISNULL((select sum(Qty) from TrInvoiceLines returnLine where returnLine.RelatedLineId = TrInvoiceLines.InvoiceLineId),0) " +
@@ -141,12 +149,12 @@ namespace PointOfSale
             }
         }
 
-        public bool InvoiceLineExist(Guid invoicecHeaderId, object relatedLineId)
+        public bool InvoiceLineExist(Guid invoicecHeaderId, Guid relatedLineId)
         {
             using (subContext db = new subContext())
             {
-                return db.TrInvoiceLines.Where(x => x.InvoiceLineId == invoicecHeaderId)
-                                        .Any(x => x.RelatedLineId == invoicecHeaderId);
+                return db.TrInvoiceLines.Where(x => x.InvoiceHeaderId == invoicecHeaderId)
+                                        .Any(x => x.RelatedLineId == relatedLineId);
             }
         }
 
@@ -295,7 +303,7 @@ namespace PointOfSale
             }
         }
 
-        public List<TrPaymentLine> SelectPaymentLine(Guid invoiceHeaderId)
+        public List<TrPaymentLine> SelectPaymentLines(Guid invoiceHeaderId)
         {
             using (subContext db = new subContext())
             {
@@ -307,7 +315,7 @@ namespace PointOfSale
             }
         }
 
-        public List<DcCurrAcc> SelectCurrAcc()
+        public List<DcCurrAcc> SelectCurrAccs()
         {
             using (subContext db = new subContext())
             {
@@ -317,7 +325,7 @@ namespace PointOfSale
             }
         }
 
-        public List<DcOffice> SelectOffice()
+        public List<DcOffice> SelectOffices()
         {
             using (subContext db = new subContext())
             {
@@ -327,7 +335,7 @@ namespace PointOfSale
             }
         }
 
-        public List<DcStore> SelectStore()
+        public List<DcStore> SelectStores()
         {
             using (subContext db = new subContext())
             {
@@ -337,7 +345,7 @@ namespace PointOfSale
             }
         }
 
-        public List<DcWarehouse> SelectWarehouse()
+        public List<DcWarehouse> SelectWarehouses()
         {
             using (subContext db = new subContext())
             {

@@ -20,16 +20,16 @@ namespace PointOfSale
             InitializeComponent();
             this.Cash = Cash;
             this.Change = Change;
-            AcceptButton = simpleButtonOk;
+            AcceptButton = btn_Ok;
         }
 
         private void FormChange_Load(object sender, EventArgs e)
         {
-            textEditCash.EditValue = Cash;
-            textEditChange.EditValue = Change;
+            txtEdit_Cash.EditValue = Cash;
+            txtEdit_Change.EditValue = Change;
         }
 
-        private void simpleButtonOk_Click(object sender, EventArgs e)
+        private void btn_Ok_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
         }

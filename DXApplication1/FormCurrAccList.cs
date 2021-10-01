@@ -17,14 +17,15 @@ namespace PointOfSale
         public FormCurrAccList()
         {
             InitializeComponent();
+
         }
 
         private void FormCurrAccList_Load(object sender, EventArgs e)
         {
-            gridControl1.DataSource = sqlMethods.SelectCurrAcc();
+            gC_CurrAccList.DataSource = sqlMethods.SelectCurrAccs();
         }
 
-        private void gridView1_DoubleClick(object sender, EventArgs e)
+        private void gV_CurrAccList_DoubleClick(object sender, EventArgs e)
         {
             DXMouseEventArgs ea = e as DXMouseEventArgs;
             GridView view = sender as GridView;

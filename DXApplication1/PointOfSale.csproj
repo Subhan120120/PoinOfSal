@@ -207,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\Extensions.cs" />
+    <Compile Include="AppCode\Methods.cs" />
     <Compile Include="FormChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,6 +433,12 @@
     <Compile Include="FormCurrAccList.Designer.cs">
       <DependentUpon>FormCurrAccList.cs</DependentUpon>
     </Compile>
+    <Compile Include="DefaultControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefaultControls.Designer.cs">
+      <DependentUpon>DefaultControls.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -491,6 +498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UcReturn.resx">
       <DependentUpon>UcReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultControls.resx">
+      <DependentUpon>DefaultControls.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

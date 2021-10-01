@@ -29,610 +29,665 @@ namespace PointOfSale
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcReturn));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gridControlPaymentLine = new DevExpress.XtraGrid.GridControl();
-            this.gridViewPaymentLine = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colPaymentHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPaymentTypeDesc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPayment = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControlInvoiceLine = new DevExpress.XtraGrid.GridControl();
-            this.gridViewInvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colInvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colReturnQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRemainingQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDiscountCampaign = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLineDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSalespersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colReturn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repoButtonReturnLine = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridControlInvoiceHeader = new DevExpress.XtraGrid.GridControl();
-            this.gridViewInvoiceHeader = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colInvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocumentNumber = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocumentDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocumentTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCurrAccCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsSuspended = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsSalesViaInternet = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsPrinted = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStoreCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedUserName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.simpleButtonPayment = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroupInvoiceLine = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroupInvoiceHeader = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroupPayment = new DevExpress.XtraLayout.LayoutControlGroup();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.lC_Root = new DevExpress.XtraLayout.LayoutControl();
+            this.gC_ReturnInvoiceLine = new DevExpress.XtraGrid.GridControl();
+            this.gV_ReturnInvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_RInvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RRelatedLineId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RPosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RNetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RCurrencyCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gC_PaymentLine = new DevExpress.XtraGrid.GridControl();
+            this.gV_PaymentLine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_PaymentHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_PaymentTypeDesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Payment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gC_InvoiceLine = new DevExpress.XtraGrid.GridControl();
+            this.gV_InvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_InvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_ProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_ReturnQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RemainingQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Price = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Amount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_PosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_DiscountCampaign = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_NetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_LineDesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_SalespersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_VatRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Return = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repoBtn_ReturnLine = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btn_Payment = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEdit_InvoiceHeader = new DevExpress.XtraEditors.ButtonEdit();
+            this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCG_InvoiceHeader = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_InvoiceHeader = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Cancel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Cash = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpace_1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lCG_ReturnInvoiceLine = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPaymentLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewPaymentLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repoButtonReturnLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceHeader)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceHeader)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceHeader)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).BeginInit();
+            this.lCG_InvoiceLine = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_InvoiceLine = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCG_Payment = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_Payment = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).BeginInit();
+            this.lC_Root.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_ReturnInvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_ReturnInvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_PaymentLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_PaymentLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoBtn_ReturnLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit_InvoiceHeader.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_InvoiceHeader)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_InvoiceHeader)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpace_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_ReturnInvoiceLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_InvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_InvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Payment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Payment)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.gridControlPaymentLine);
-            this.layoutControl1.Controls.Add(this.gridControlInvoiceLine);
-            this.layoutControl1.Controls.Add(this.gridControlInvoiceHeader);
-            this.layoutControl1.Controls.Add(this.simpleButtonPayment);
-            this.layoutControl1.Controls.Add(this.simpleButton2);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1106, 659);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // gridControlPaymentLine
-            // 
-            this.gridControlPaymentLine.Location = new System.Drawing.Point(783, 351);
-            this.gridControlPaymentLine.MainView = this.gridViewPaymentLine;
-            this.gridControlPaymentLine.Name = "gridControlPaymentLine";
-            this.gridControlPaymentLine.Size = new System.Drawing.Size(299, 216);
-            this.gridControlPaymentLine.TabIndex = 6;
-            this.gridControlPaymentLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewPaymentLine});
-            // 
-            // gridViewPaymentLine
-            // 
-            this.gridViewPaymentLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colPaymentHeaderId,
-            this.colPaymentTypeDesc,
-            this.colPayment});
-            this.gridViewPaymentLine.GridControl = this.gridControlPaymentLine;
-            this.gridViewPaymentLine.Name = "gridViewPaymentLine";
-            this.gridViewPaymentLine.OptionsBehavior.Editable = false;
-            this.gridViewPaymentLine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridViewPaymentLine.OptionsView.ShowGroupPanel = false;
-            // 
-            // colPaymentHeaderId
-            // 
-            this.colPaymentHeaderId.Caption = "PaymentHeaderId";
-            this.colPaymentHeaderId.FieldName = "PaymentHeaderId";
-            this.colPaymentHeaderId.Name = "colPaymentHeaderId";
-            // 
-            // colPaymentTypeDesc
-            // 
-            this.colPaymentTypeDesc.Caption = "Ödəmə Tipi";
-            this.colPaymentTypeDesc.FieldName = "DcPaymentType.PaymentTypeDesc";
-            this.colPaymentTypeDesc.Name = "colPaymentTypeDesc";
-            this.colPaymentTypeDesc.Visible = true;
-            this.colPaymentTypeDesc.VisibleIndex = 0;
-            // 
-            // colPayment
-            // 
-            this.colPayment.Caption = "Ödəmə";
-            this.colPayment.FieldName = "Payment";
-            this.colPayment.Name = "colPayment";
-            this.colPayment.Visible = true;
-            this.colPayment.VisibleIndex = 1;
-            // 
-            // gridControlInvoiceLine
-            // 
-            this.gridControlInvoiceLine.Location = new System.Drawing.Point(24, 351);
-            this.gridControlInvoiceLine.MainView = this.gridViewInvoiceLine;
-            this.gridControlInvoiceLine.Name = "gridControlInvoiceLine";
-            this.gridControlInvoiceLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repoButtonReturnLine});
-            this.gridControlInvoiceLine.Size = new System.Drawing.Size(731, 284);
-            this.gridControlInvoiceLine.TabIndex = 5;
-            this.gridControlInvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewInvoiceLine});
-            // 
-            // gridViewInvoiceLine
-            // 
-            this.gridViewInvoiceLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colInvoiceLineId,
-            this.colProductCode,
-            this.colQty,
-            this.colReturnQty,
-            this.colRemainingQty,
-            this.colPrice,
-            this.colAmount,
-            this.colPosDiscount,
-            this.colDiscountCampaign,
-            this.colNetAmount,
-            this.colLineDescription,
-            this.colSalespersonCode,
-            this.colVatRate,
-            this.colReturn});
-            this.gridViewInvoiceLine.GridControl = this.gridControlInvoiceLine;
-            this.gridViewInvoiceLine.Name = "gridViewInvoiceLine";
-            this.gridViewInvoiceLine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridViewInvoiceLine.OptionsView.ShowGroupPanel = false;
-            // 
-            // colInvoiceLineId
-            // 
-            this.colInvoiceLineId.Caption = "Sətir Kodu";
-            this.colInvoiceLineId.FieldName = "InvoiceLineId";
-            this.colInvoiceLineId.Name = "colInvoiceLineId";
-            // 
-            // colProductCode
-            // 
-            this.colProductCode.Caption = "Məhsul Kodu";
-            this.colProductCode.FieldName = "ProductCode";
-            this.colProductCode.Name = "colProductCode";
-            this.colProductCode.Visible = true;
-            this.colProductCode.VisibleIndex = 0;
-            // 
-            // colQty
-            // 
-            this.colQty.Caption = "Say";
-            this.colQty.FieldName = "Qty";
-            this.colQty.Name = "colQty";
-            this.colQty.Visible = true;
-            this.colQty.VisibleIndex = 1;
-            // 
-            // colReturnQty
-            // 
-            this.colReturnQty.Caption = "Geri Qaytarılan Mikdar";
-            this.colReturnQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colReturnQty.FieldName = "ReturnQty";
-            this.colReturnQty.Name = "colReturnQty";
-            this.colReturnQty.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            this.colReturnQty.Visible = true;
-            this.colReturnQty.VisibleIndex = 2;
-            // 
-            // colRemainingQty
-            // 
-            this.colRemainingQty.Caption = "Qalan Miqdar";
-            this.colRemainingQty.FieldName = "RemainingQty";
-            this.colRemainingQty.Name = "colRemainingQty";
-            this.colRemainingQty.Visible = true;
-            this.colRemainingQty.VisibleIndex = 12;
-            // 
-            // colPrice
-            // 
-            this.colPrice.Caption = "Qiymət";
-            this.colPrice.FieldName = "Price";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 3;
-            // 
-            // colAmount
-            // 
-            this.colAmount.Caption = "Tutar";
-            this.colAmount.FieldName = "Amount";
-            this.colAmount.Name = "colAmount";
-            this.colAmount.Visible = true;
-            this.colAmount.VisibleIndex = 4;
-            // 
-            // colPosDiscount
-            // 
-            this.colPosDiscount.Caption = "Pos Endirimi";
-            this.colPosDiscount.FieldName = "PosDiscount";
-            this.colPosDiscount.Name = "colPosDiscount";
-            this.colPosDiscount.Visible = true;
-            this.colPosDiscount.VisibleIndex = 5;
-            // 
-            // colDiscountCampaign
-            // 
-            this.colDiscountCampaign.Caption = "Endirim Kampaniyası";
-            this.colDiscountCampaign.FieldName = "DiscountCampaign";
-            this.colDiscountCampaign.Name = "colDiscountCampaign";
-            this.colDiscountCampaign.Visible = true;
-            this.colDiscountCampaign.VisibleIndex = 6;
-            // 
-            // colNetAmount
-            // 
-            this.colNetAmount.Caption = "Net Tutar";
-            this.colNetAmount.FieldName = "NetAmount";
-            this.colNetAmount.Name = "colNetAmount";
-            this.colNetAmount.Visible = true;
-            this.colNetAmount.VisibleIndex = 7;
-            // 
-            // colLineDescription
-            // 
-            this.colLineDescription.Caption = "Sətir Açıqlaması";
-            this.colLineDescription.FieldName = "LineDescription";
-            this.colLineDescription.Name = "colLineDescription";
-            this.colLineDescription.Visible = true;
-            this.colLineDescription.VisibleIndex = 8;
-            // 
-            // colSalespersonCode
-            // 
-            this.colSalespersonCode.Caption = "Satıcı";
-            this.colSalespersonCode.FieldName = "SalespersonCode";
-            this.colSalespersonCode.Name = "colSalespersonCode";
-            this.colSalespersonCode.Visible = true;
-            this.colSalespersonCode.VisibleIndex = 9;
-            // 
-            // colVatRate
-            // 
-            this.colVatRate.Caption = "ƏDV";
-            this.colVatRate.FieldName = "VatRate";
-            this.colVatRate.Name = "colVatRate";
-            this.colVatRate.Visible = true;
-            this.colVatRate.VisibleIndex = 10;
-            // 
-            // colReturn
-            // 
-            this.colReturn.Caption = "Geri Qaytar";
-            this.colReturn.ColumnEdit = this.repoButtonReturnLine;
-            this.colReturn.Name = "colReturn";
-            this.colReturn.Visible = true;
-            this.colReturn.VisibleIndex = 11;
-            // 
-            // repoButtonReturnLine
-            // 
-            this.repoButtonReturnLine.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
-            this.repoButtonReturnLine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repoButtonReturnLine.Name = "repoButtonReturnLine";
-            this.repoButtonReturnLine.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repoButtonReturnLine.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoButtonReturnLine_ButtonClick);
-            // 
-            // gridControlInvoiceHeader
-            // 
-            this.gridControlInvoiceHeader.Location = new System.Drawing.Point(24, 45);
-            this.gridControlInvoiceHeader.MainView = this.gridViewInvoiceHeader;
-            this.gridControlInvoiceHeader.Name = "gridControlInvoiceHeader";
-            this.gridControlInvoiceHeader.Size = new System.Drawing.Size(1058, 257);
-            this.gridControlInvoiceHeader.TabIndex = 1;
-            this.gridControlInvoiceHeader.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewInvoiceHeader});
-            // 
-            // gridViewInvoiceHeader
-            // 
-            this.gridViewInvoiceHeader.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colInvoiceHeaderId,
-            this.colDocumentNumber,
-            this.colDocumentDate,
-            this.colDocumentTime,
-            this.colCurrAccCode,
-            this.colIsSuspended,
-            this.colIsSalesViaInternet,
-            this.colIsPrinted,
-            this.colStoreCode,
-            this.colCreatedUserName});
-            this.gridViewInvoiceHeader.GridControl = this.gridControlInvoiceHeader;
-            this.gridViewInvoiceHeader.Name = "gridViewInvoiceHeader";
-            this.gridViewInvoiceHeader.OptionsBehavior.Editable = false;
-            this.gridViewInvoiceHeader.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridViewInvoiceHeader.OptionsView.ShowAutoFilterRow = true;
-            this.gridViewInvoiceHeader.OptionsView.ShowGroupPanel = false;
-            this.gridViewInvoiceHeader.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
-            // 
-            // colInvoiceHeaderId
-            // 
-            this.colInvoiceHeaderId.Caption = "gridColumn1";
-            this.colInvoiceHeaderId.FieldName = "InvoiceHeaderId";
-            this.colInvoiceHeaderId.Name = "colInvoiceHeaderId";
-            // 
-            // colDocumentNumber
-            // 
-            this.colDocumentNumber.Caption = "Faktura Nömrəsi";
-            this.colDocumentNumber.FieldName = "DocumentNumber";
-            this.colDocumentNumber.Name = "colDocumentNumber";
-            this.colDocumentNumber.Visible = true;
-            this.colDocumentNumber.VisibleIndex = 0;
-            this.colDocumentNumber.Width = 88;
-            // 
-            // colDocumentDate
-            // 
-            this.colDocumentDate.Caption = "Faktura Tarixi";
-            this.colDocumentDate.FieldName = "DocumentDate";
-            this.colDocumentDate.Name = "colDocumentDate";
-            this.colDocumentDate.Visible = true;
-            this.colDocumentDate.VisibleIndex = 1;
-            this.colDocumentDate.Width = 76;
-            // 
-            // colDocumentTime
-            // 
-            this.colDocumentTime.Caption = "Faktura Saatı";
-            this.colDocumentTime.FieldName = "DocumentTime";
-            this.colDocumentTime.Name = "colDocumentTime";
-            this.colDocumentTime.Visible = true;
-            this.colDocumentTime.VisibleIndex = 2;
-            // 
-            // colCurrAccCode
-            // 
-            this.colCurrAccCode.Caption = "Müştəri Kodu";
-            this.colCurrAccCode.FieldName = "CurrAccCode";
-            this.colCurrAccCode.Name = "colCurrAccCode";
-            this.colCurrAccCode.Visible = true;
-            this.colCurrAccCode.VisibleIndex = 3;
-            // 
-            // colIsSuspended
-            // 
-            this.colIsSuspended.Caption = "Səbətdədir";
-            this.colIsSuspended.FieldName = "IsSuspended";
-            this.colIsSuspended.Name = "colIsSuspended";
-            this.colIsSuspended.Visible = true;
-            this.colIsSuspended.VisibleIndex = 4;
-            // 
-            // colIsSalesViaInternet
-            // 
-            this.colIsSalesViaInternet.Caption = "İnternet Üzərindən Satış";
-            this.colIsSalesViaInternet.FieldName = "IsSalesViaInternet";
-            this.colIsSalesViaInternet.Name = "colIsSalesViaInternet";
-            this.colIsSalesViaInternet.Visible = true;
-            this.colIsSalesViaInternet.VisibleIndex = 5;
-            this.colIsSalesViaInternet.Width = 127;
-            // 
-            // colIsPrinted
-            // 
-            this.colIsPrinted.Caption = "Çap Edilib";
-            this.colIsPrinted.FieldName = "IsPrinted";
-            this.colIsPrinted.Name = "colIsPrinted";
-            this.colIsPrinted.Visible = true;
-            this.colIsPrinted.VisibleIndex = 6;
-            // 
-            // colStoreCode
-            // 
-            this.colStoreCode.Caption = "Mağaza Kodu";
-            this.colStoreCode.FieldName = "StoreCode";
-            this.colStoreCode.Name = "colStoreCode";
-            this.colStoreCode.Visible = true;
-            this.colStoreCode.VisibleIndex = 7;
-            // 
-            // colCreatedUserName
-            // 
-            this.colCreatedUserName.Caption = "Fakturanı Yaradan İstifadəçi";
-            this.colCreatedUserName.FieldName = "CreatedUserName";
-            this.colCreatedUserName.Name = "colCreatedUserName";
-            this.colCreatedUserName.Visible = true;
-            this.colCreatedUserName.VisibleIndex = 8;
-            this.colCreatedUserName.Width = 145;
-            // 
-            // simpleButtonPayment
-            // 
-            this.simpleButtonPayment.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonPayment.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonPayment.ImageOptions.SvgImage")));
-            this.simpleButtonPayment.Location = new System.Drawing.Point(928, 583);
-            this.simpleButtonPayment.Name = "simpleButtonPayment";
-            this.simpleButtonPayment.Size = new System.Drawing.Size(74, 64);
-            this.simpleButtonPayment.StyleController = this.layoutControl1;
-            this.simpleButtonPayment.TabIndex = 7;
-            this.simpleButtonPayment.Text = "simpleButton1";
-            this.simpleButtonPayment.Click += new System.EventHandler(this.simpleButtonPayment_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(1006, 583);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(88, 64);
-            this.simpleButton2.StyleController = this.layoutControl1;
-            this.simpleButton2.TabIndex = 8;
-            this.simpleButton2.Text = "simpleButton2";
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroupInvoiceLine,
-            this.layoutControlGroupInvoiceHeader,
-            this.layoutControlItem5,
-            this.layoutControlItem4,
-            this.emptySpaceItem1,
-            this.layoutControlGroupPayment});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1106, 659);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlGroupInvoiceLine
-            // 
-            this.layoutControlGroupInvoiceLine.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3});
-            this.layoutControlGroupInvoiceLine.Location = new System.Drawing.Point(0, 306);
-            this.layoutControlGroupInvoiceLine.Name = "layoutControlGroupInvoiceLine";
-            this.layoutControlGroupInvoiceLine.Size = new System.Drawing.Size(759, 333);
-            this.layoutControlGroupInvoiceLine.Text = "Məhsul";
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.gridControlInvoiceLine;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(735, 288);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlGroupInvoiceHeader
-            // 
-            this.layoutControlGroupInvoiceHeader.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2});
-            this.layoutControlGroupInvoiceHeader.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroupInvoiceHeader.Name = "layoutControlGroupInvoiceHeader";
-            this.layoutControlGroupInvoiceHeader.Size = new System.Drawing.Size(1086, 306);
-            this.layoutControlGroupInvoiceHeader.Text = "Faktura";
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.gridControlInvoiceHeader;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1062, 261);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.simpleButton2;
-            this.layoutControlItem5.Location = new System.Drawing.Point(994, 571);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(92, 68);
-            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.simpleButtonPayment;
-            this.layoutControlItem4.Location = new System.Drawing.Point(916, 571);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(78, 68);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(759, 571);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(157, 68);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlGroupPayment
-            // 
-            this.layoutControlGroupPayment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            // lC_Root
+            // 
+            this.lC_Root.Controls.Add(this.gC_ReturnInvoiceLine);
+            this.lC_Root.Controls.Add(this.gC_PaymentLine);
+            this.lC_Root.Controls.Add(this.gC_InvoiceLine);
+            this.lC_Root.Controls.Add(this.btn_Payment);
+            this.lC_Root.Controls.Add(this.btn_Cancel);
+            this.lC_Root.Controls.Add(this.btnEdit_InvoiceHeader);
+            this.lC_Root.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lC_Root.Location = new System.Drawing.Point(0, 0);
+            this.lC_Root.Name = "lC_Root";
+            this.lC_Root.Root = this.lCG_Root;
+            this.lC_Root.Size = new System.Drawing.Size(1106, 659);
+            this.lC_Root.TabIndex = 0;
+            this.lC_Root.Text = "layoutControl1";
+            // 
+            // gC_ReturnInvoiceLine
+            // 
+            this.gC_ReturnInvoiceLine.Location = new System.Drawing.Point(24, 45);
+            this.gC_ReturnInvoiceLine.MainView = this.gV_ReturnInvoiceLine;
+            this.gC_ReturnInvoiceLine.Name = "gC_ReturnInvoiceLine";
+            this.gC_ReturnInvoiceLine.Size = new System.Drawing.Size(345, 376);
+            this.gC_ReturnInvoiceLine.TabIndex = 10;
+            this.gC_ReturnInvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gV_ReturnInvoiceLine});
+            // 
+            // gV_ReturnInvoiceLine
+            // 
+            this.gV_ReturnInvoiceLine.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_ReturnInvoiceLine.Appearance.FooterPanel.Options.UseFont = true;
+            this.gV_ReturnInvoiceLine.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_ReturnInvoiceLine.Appearance.Row.Options.UseFont = true;
+            this.gV_ReturnInvoiceLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_RInvoiceHeaderId,
+            this.col_RRelatedLineId,
+            this.col_RProductCode,
+            this.col_RQty,
+            this.col_RPrice,
+            this.col_RAmount,
+            this.col_RPosDiscount,
+            this.col_RNetAmount,
+            this.col_RVatRate,
+            this.col_RCurrencyCode});
+            this.gV_ReturnInvoiceLine.GridControl = this.gC_ReturnInvoiceLine;
+            this.gV_ReturnInvoiceLine.Name = "gV_ReturnInvoiceLine";
+            this.gV_ReturnInvoiceLine.OptionsBehavior.Editable = false;
+            this.gV_ReturnInvoiceLine.OptionsView.AutoCalcPreviewLineCount = true;
+            this.gV_ReturnInvoiceLine.OptionsView.ShowFooter = true;
+            this.gV_ReturnInvoiceLine.OptionsView.ShowGroupPanel = false;
+            this.gV_ReturnInvoiceLine.OptionsView.ShowIndicator = false;
+            this.gV_ReturnInvoiceLine.OptionsView.ShowPreview = true;
+            this.gV_ReturnInvoiceLine.PreviewIndent = 10;
+            this.gV_ReturnInvoiceLine.CalcPreviewText += new DevExpress.XtraGrid.Views.Grid.CalcPreviewTextEventHandler(this.gV_ReturnInvoiceLine_CalcPreviewText);
+            // 
+            // col_RInvoiceHeaderId
+            // 
+            this.col_RInvoiceHeaderId.Caption = "InvoiceHeaderId";
+            this.col_RInvoiceHeaderId.FieldName = "InvoiceHeaderId";
+            this.col_RInvoiceHeaderId.Name = "col_RInvoiceHeaderId";
+            // 
+            // col_RRelatedLineId
+            // 
+            this.col_RRelatedLineId.Caption = "RelatedLineId";
+            this.col_RRelatedLineId.FieldName = "RelatedLineId";
+            this.col_RRelatedLineId.Name = "col_RRelatedLineId";
+            // 
+            // col_RProductCode
+            // 
+            this.col_RProductCode.Caption = "Məhsul";
+            this.col_RProductCode.FieldName = "ProductCode";
+            this.col_RProductCode.Name = "col_RProductCode";
+            this.col_RProductCode.Visible = true;
+            this.col_RProductCode.VisibleIndex = 0;
+            // 
+            // col_RQty
+            // 
+            this.col_RQty.Caption = "Say";
+            this.col_RQty.FieldName = "Qty";
+            this.col_RQty.Name = "col_RQty";
+            this.col_RQty.Visible = true;
+            this.col_RQty.VisibleIndex = 1;
+            // 
+            // col_RPrice
+            // 
+            this.col_RPrice.Caption = "Qiymət";
+            this.col_RPrice.FieldName = "Price";
+            this.col_RPrice.Name = "col_RPrice";
+            this.col_RPrice.Visible = true;
+            this.col_RPrice.VisibleIndex = 2;
+            // 
+            // col_RAmount
+            // 
+            this.col_RAmount.Caption = "Tutar";
+            this.col_RAmount.FieldName = "Amount";
+            this.col_RAmount.Name = "col_RAmount";
+            // 
+            // col_RPosDiscount
+            // 
+            this.col_RPosDiscount.Caption = "Endirim";
+            this.col_RPosDiscount.FieldName = "PosDiscount";
+            this.col_RPosDiscount.Name = "col_RPosDiscount";
+            // 
+            // col_RNetAmount
+            // 
+            this.col_RNetAmount.Caption = "Net Tutar";
+            this.col_RNetAmount.FieldName = "NetAmount";
+            this.col_RNetAmount.Name = "col_RNetAmount";
+            this.col_RNetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetAmount", "{0:0.##}")});
+            this.col_RNetAmount.Visible = true;
+            this.col_RNetAmount.VisibleIndex = 3;
+            // 
+            // col_RVatRate
+            // 
+            this.col_RVatRate.Caption = "ƏDV";
+            this.col_RVatRate.FieldName = "VatRate";
+            this.col_RVatRate.Name = "col_RVatRate";
+            // 
+            // col_RCurrencyCode
+            // 
+            this.col_RCurrencyCode.Caption = "gridColumn1";
+            this.col_RCurrencyCode.Name = "col_RCurrencyCode";
+            // 
+            // gC_PaymentLine
+            // 
+            this.gC_PaymentLine.Location = new System.Drawing.Point(24, 470);
+            this.gC_PaymentLine.MainView = this.gV_PaymentLine;
+            this.gC_PaymentLine.Name = "gC_PaymentLine";
+            this.gC_PaymentLine.Size = new System.Drawing.Size(345, 165);
+            this.gC_PaymentLine.TabIndex = 6;
+            this.gC_PaymentLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gV_PaymentLine});
+            // 
+            // gV_PaymentLine
+            // 
+            this.gV_PaymentLine.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_PaymentLine.Appearance.FooterPanel.Options.UseFont = true;
+            this.gV_PaymentLine.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_PaymentLine.Appearance.Row.Options.UseFont = true;
+            this.gV_PaymentLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_PaymentHeaderId,
+            this.col_PaymentTypeDesc,
+            this.col_Payment});
+            this.gV_PaymentLine.GridControl = this.gC_PaymentLine;
+            this.gV_PaymentLine.Name = "gV_PaymentLine";
+            this.gV_PaymentLine.OptionsBehavior.Editable = false;
+            this.gV_PaymentLine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gV_PaymentLine.OptionsView.ShowGroupPanel = false;
+            this.gV_PaymentLine.OptionsView.ShowIndicator = false;
+            // 
+            // col_PaymentHeaderId
+            // 
+            this.col_PaymentHeaderId.Caption = "PaymentHeaderId";
+            this.col_PaymentHeaderId.FieldName = "PaymentHeaderId";
+            this.col_PaymentHeaderId.Name = "col_PaymentHeaderId";
+            // 
+            // col_PaymentTypeDesc
+            // 
+            this.col_PaymentTypeDesc.Caption = "Ödəmə Tipi";
+            this.col_PaymentTypeDesc.FieldName = "DcPaymentType.PaymentTypeDesc";
+            this.col_PaymentTypeDesc.Name = "col_PaymentTypeDesc";
+            this.col_PaymentTypeDesc.Visible = true;
+            this.col_PaymentTypeDesc.VisibleIndex = 0;
+            // 
+            // col_Payment
+            // 
+            this.col_Payment.Caption = "Ödəmə";
+            this.col_Payment.FieldName = "Payment";
+            this.col_Payment.Name = "col_Payment";
+            this.col_Payment.Visible = true;
+            this.col_Payment.VisibleIndex = 1;
+            // 
+            // gC_InvoiceLine
+            // 
+            this.gC_InvoiceLine.Location = new System.Drawing.Point(397, 120);
+            this.gC_InvoiceLine.MainView = this.gV_InvoiceLine;
+            this.gC_InvoiceLine.Name = "gC_InvoiceLine";
+            this.gC_InvoiceLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repoBtn_ReturnLine});
+            this.gC_InvoiceLine.Size = new System.Drawing.Size(685, 444);
+            this.gC_InvoiceLine.TabIndex = 5;
+            this.gC_InvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gV_InvoiceLine});
+            // 
+            // gV_InvoiceLine
+            // 
+            this.gV_InvoiceLine.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_InvoiceLine.Appearance.FooterPanel.Options.UseFont = true;
+            this.gV_InvoiceLine.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_InvoiceLine.Appearance.Row.Options.UseFont = true;
+            this.gV_InvoiceLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_InvoiceLineId,
+            this.col_ProductCode,
+            this.col_Qty,
+            this.col_ReturnQty,
+            this.col_RemainingQty,
+            this.col_Price,
+            this.col_Amount,
+            this.col_PosDiscount,
+            this.col_DiscountCampaign,
+            this.col_NetAmount,
+            this.col_LineDesc,
+            this.col_SalespersonCode,
+            this.col_VatRate,
+            this.col_Return});
+            this.gV_InvoiceLine.GridControl = this.gC_InvoiceLine;
+            this.gV_InvoiceLine.Name = "gV_InvoiceLine";
+            this.gV_InvoiceLine.OptionsView.AutoCalcPreviewLineCount = true;
+            this.gV_InvoiceLine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gV_InvoiceLine.OptionsView.ShowGroupPanel = false;
+            this.gV_InvoiceLine.OptionsView.ShowIndicator = false;
+            this.gV_InvoiceLine.OptionsView.ShowPreview = true;
+            this.gV_InvoiceLine.PreviewIndent = 10;
+            this.gV_InvoiceLine.CalcPreviewText += new DevExpress.XtraGrid.Views.Grid.CalcPreviewTextEventHandler(this.gV_ReturnInvoiceLine_CalcPreviewText);
+            // 
+            // col_InvoiceLineId
+            // 
+            this.col_InvoiceLineId.Caption = "Sətir Kodu";
+            this.col_InvoiceLineId.FieldName = "InvoiceLineId";
+            this.col_InvoiceLineId.Name = "col_InvoiceLineId";
+            this.col_InvoiceLineId.OptionsColumn.AllowEdit = false;
+            // 
+            // col_ProductCode
+            // 
+            this.col_ProductCode.Caption = "Məhsul Kodu";
+            this.col_ProductCode.FieldName = "ProductCode";
+            this.col_ProductCode.Name = "col_ProductCode";
+            this.col_ProductCode.OptionsColumn.AllowEdit = false;
+            this.col_ProductCode.Visible = true;
+            this.col_ProductCode.VisibleIndex = 0;
+            // 
+            // col_Qty
+            // 
+            this.col_Qty.Caption = "Say";
+            this.col_Qty.FieldName = "Qty";
+            this.col_Qty.Name = "col_Qty";
+            this.col_Qty.OptionsColumn.AllowEdit = false;
+            this.col_Qty.Visible = true;
+            this.col_Qty.VisibleIndex = 1;
+            // 
+            // col_ReturnQty
+            // 
+            this.col_ReturnQty.Caption = "Geri Qaytarılan Mikdar";
+            this.col_ReturnQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_ReturnQty.FieldName = "ReturnQty";
+            this.col_ReturnQty.Name = "col_ReturnQty";
+            this.col_ReturnQty.OptionsColumn.AllowEdit = false;
+            this.col_ReturnQty.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.col_ReturnQty.Visible = true;
+            this.col_ReturnQty.VisibleIndex = 2;
+            // 
+            // col_RemainingQty
+            // 
+            this.col_RemainingQty.Caption = "Qalan Miqdar";
+            this.col_RemainingQty.FieldName = "RemainingQty";
+            this.col_RemainingQty.Name = "col_RemainingQty";
+            this.col_RemainingQty.OptionsColumn.AllowEdit = false;
+            this.col_RemainingQty.Visible = true;
+            this.col_RemainingQty.VisibleIndex = 6;
+            // 
+            // col_Price
+            // 
+            this.col_Price.Caption = "Qiymət";
+            this.col_Price.FieldName = "Price";
+            this.col_Price.Name = "col_Price";
+            this.col_Price.OptionsColumn.AllowEdit = false;
+            this.col_Price.Visible = true;
+            this.col_Price.VisibleIndex = 3;
+            // 
+            // col_Amount
+            // 
+            this.col_Amount.Caption = "Tutar";
+            this.col_Amount.FieldName = "Amount";
+            this.col_Amount.Name = "col_Amount";
+            this.col_Amount.OptionsColumn.AllowEdit = false;
+            // 
+            // col_PosDiscount
+            // 
+            this.col_PosDiscount.Caption = "Pos Endirimi";
+            this.col_PosDiscount.FieldName = "PosDiscount";
+            this.col_PosDiscount.Name = "col_PosDiscount";
+            this.col_PosDiscount.OptionsColumn.AllowEdit = false;
+            // 
+            // col_DiscountCampaign
+            // 
+            this.col_DiscountCampaign.Caption = "Endirim Kampaniyası";
+            this.col_DiscountCampaign.FieldName = "DiscountCampaign";
+            this.col_DiscountCampaign.Name = "col_DiscountCampaign";
+            this.col_DiscountCampaign.OptionsColumn.AllowEdit = false;
+            // 
+            // col_NetAmount
+            // 
+            this.col_NetAmount.Caption = "Net Tutar";
+            this.col_NetAmount.FieldName = "NetAmount";
+            this.col_NetAmount.Name = "col_NetAmount";
+            this.col_NetAmount.OptionsColumn.AllowEdit = false;
+            this.col_NetAmount.Visible = true;
+            this.col_NetAmount.VisibleIndex = 4;
+            // 
+            // col_LineDesc
+            // 
+            this.col_LineDesc.Caption = "Sətir Açıqlaması";
+            this.col_LineDesc.FieldName = "LineDescription";
+            this.col_LineDesc.Name = "col_LineDesc";
+            this.col_LineDesc.OptionsColumn.AllowEdit = false;
+            // 
+            // col_SalespersonCode
+            // 
+            this.col_SalespersonCode.Caption = "Satıcı";
+            this.col_SalespersonCode.FieldName = "SalespersonCode";
+            this.col_SalespersonCode.Name = "col_SalespersonCode";
+            this.col_SalespersonCode.OptionsColumn.AllowEdit = false;
+            // 
+            // col_VatRate
+            // 
+            this.col_VatRate.Caption = "ƏDV";
+            this.col_VatRate.FieldName = "VatRate";
+            this.col_VatRate.Name = "col_VatRate";
+            this.col_VatRate.OptionsColumn.AllowEdit = false;
+            // 
+            // col_Return
+            // 
+            this.col_Return.Caption = "Geri Qaytar";
+            this.col_Return.ColumnEdit = this.repoBtn_ReturnLine;
+            this.col_Return.FieldName = "Return";
+            this.col_Return.Name = "col_Return";
+            this.col_Return.Visible = true;
+            this.col_Return.VisibleIndex = 5;
+            this.col_Return.Width = 40;
+            // 
+            // repoBtn_ReturnLine
+            // 
+            this.repoBtn_ReturnLine.AutoHeight = false;
+            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.repoBtn_ReturnLine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repoBtn_ReturnLine.Name = "repoBtn_ReturnLine";
+            this.repoBtn_ReturnLine.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repoBtn_ReturnLine.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repobtn_ReturnLine_ButtonClick);
+            // 
+            // btn_Payment
+            // 
+            this.btn_Payment.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Payment.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Payment.ImageOptions.SvgImage")));
+            this.btn_Payment.Location = new System.Drawing.Point(914, 580);
+            this.btn_Payment.Name = "btn_Payment";
+            this.btn_Payment.Size = new System.Drawing.Size(74, 67);
+            this.btn_Payment.StyleController = this.lC_Root;
+            this.btn_Payment.TabIndex = 7;
+            this.btn_Payment.Text = "simpleButton1";
+            this.btn_Payment.Click += new System.EventHandler(this.btn_Payment_Click);
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Cancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Cancel.ImageOptions.SvgImage")));
+            this.btn_Cancel.Location = new System.Drawing.Point(992, 580);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(102, 67);
+            this.btn_Cancel.StyleController = this.lC_Root;
+            this.btn_Cancel.TabIndex = 8;
+            this.btn_Cancel.Text = "simpleButton2";
+            // 
+            // btnEdit_InvoiceHeader
+            // 
+            this.btnEdit_InvoiceHeader.Location = new System.Drawing.Point(437, 45);
+            this.btnEdit_InvoiceHeader.Name = "btnEdit_InvoiceHeader";
+            this.btnEdit_InvoiceHeader.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnEdit_InvoiceHeader.Properties.Appearance.Options.UseFont = true;
+            this.btnEdit_InvoiceHeader.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnEdit_InvoiceHeader.Size = new System.Drawing.Size(645, 26);
+            this.btnEdit_InvoiceHeader.StyleController = this.lC_Root;
+            this.btnEdit_InvoiceHeader.TabIndex = 9;
+            this.btnEdit_InvoiceHeader.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEdit_InvoiceHeader_ButtonClick);
+            // 
+            // lCG_Root
+            // 
+            this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lCG_Root.GroupBordersVisible = false;
+            this.lCG_Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCG_InvoiceHeader,
+            this.lCI_Cancel,
+            this.lCI_Cash,
+            this.emptySpace_1,
+            this.lCG_ReturnInvoiceLine,
+            this.lCG_InvoiceLine,
+            this.lCG_Payment});
+            this.lCG_Root.Name = "lCG_Root";
+            this.lCG_Root.Size = new System.Drawing.Size(1106, 659);
+            this.lCG_Root.TextVisible = false;
+            // 
+            // lCG_InvoiceHeader
+            // 
+            this.lCG_InvoiceHeader.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_InvoiceHeader});
+            this.lCG_InvoiceHeader.Location = new System.Drawing.Point(373, 0);
+            this.lCG_InvoiceHeader.Name = "lCG_InvoiceHeader";
+            this.lCG_InvoiceHeader.Size = new System.Drawing.Size(713, 75);
+            this.lCG_InvoiceHeader.Text = "Faktura";
+            // 
+            // lCI_InvoiceHeader
+            // 
+            this.lCI_InvoiceHeader.Control = this.btnEdit_InvoiceHeader;
+            this.lCI_InvoiceHeader.Location = new System.Drawing.Point(0, 0);
+            this.lCI_InvoiceHeader.Name = "lCI_InvoiceHeader";
+            this.lCI_InvoiceHeader.Size = new System.Drawing.Size(689, 30);
+            this.lCI_InvoiceHeader.Text = "Faktura";
+            this.lCI_InvoiceHeader.TextSize = new System.Drawing.Size(37, 13);
+            // 
+            // lCI_Cancel
+            // 
+            this.lCI_Cancel.Control = this.btn_Cancel;
+            this.lCI_Cancel.Location = new System.Drawing.Point(980, 568);
+            this.lCI_Cancel.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Cancel.Name = "lCI_Cancel";
+            this.lCI_Cancel.Size = new System.Drawing.Size(106, 71);
+            this.lCI_Cancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Cancel.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Cancel.TextVisible = false;
+            // 
+            // lCI_Cash
+            // 
+            this.lCI_Cash.Control = this.btn_Payment;
+            this.lCI_Cash.Location = new System.Drawing.Point(902, 568);
+            this.lCI_Cash.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Cash.Name = "lCI_Cash";
+            this.lCI_Cash.Size = new System.Drawing.Size(78, 71);
+            this.lCI_Cash.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Cash.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Cash.TextVisible = false;
+            // 
+            // emptySpace_1
+            // 
+            this.emptySpace_1.AllowHotTrack = false;
+            this.emptySpace_1.Location = new System.Drawing.Point(373, 567);
+            this.emptySpace_1.Name = "emptySpace_1";
+            this.emptySpace_1.Size = new System.Drawing.Size(529, 72);
+            this.emptySpace_1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lCG_ReturnInvoiceLine
+            // 
+            this.lCG_ReturnInvoiceLine.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutControlGroupPayment.Location = new System.Drawing.Point(759, 306);
-            this.layoutControlGroupPayment.Name = "layoutControlGroupPayment";
-            this.layoutControlGroupPayment.Size = new System.Drawing.Size(327, 265);
-            this.layoutControlGroupPayment.Text = "Ödəmə";
+            this.lCG_ReturnInvoiceLine.Location = new System.Drawing.Point(0, 0);
+            this.lCG_ReturnInvoiceLine.Name = "lCG_ReturnInvoiceLine";
+            this.lCG_ReturnInvoiceLine.Size = new System.Drawing.Size(373, 425);
+            this.lCG_ReturnInvoiceLine.Text = "Geri Qaytarma";
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.gridControlPaymentLine;
+            this.layoutControlItem1.Control = this.gC_ReturnInvoiceLine;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(303, 220);
+            this.layoutControlItem1.Size = new System.Drawing.Size(349, 380);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // lCG_InvoiceLine
+            // 
+            this.lCG_InvoiceLine.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_InvoiceLine});
+            this.lCG_InvoiceLine.Location = new System.Drawing.Point(373, 75);
+            this.lCG_InvoiceLine.Name = "lCG_InvoiceLine";
+            this.lCG_InvoiceLine.Size = new System.Drawing.Size(713, 493);
+            this.lCG_InvoiceLine.Text = "Məhsul";
+            // 
+            // lCI_InvoiceLine
+            // 
+            this.lCI_InvoiceLine.Control = this.gC_InvoiceLine;
+            this.lCI_InvoiceLine.Location = new System.Drawing.Point(0, 0);
+            this.lCI_InvoiceLine.Name = "lCI_InvoiceLine";
+            this.lCI_InvoiceLine.Size = new System.Drawing.Size(689, 448);
+            this.lCI_InvoiceLine.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_InvoiceLine.TextVisible = false;
+            // 
+            // lCG_Payment
+            // 
+            this.lCG_Payment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_Payment});
+            this.lCG_Payment.Location = new System.Drawing.Point(0, 425);
+            this.lCG_Payment.Name = "lCG_Payment";
+            this.lCG_Payment.Size = new System.Drawing.Size(373, 214);
+            this.lCG_Payment.Text = "Ödəmə";
+            // 
+            // lCI_Payment
+            // 
+            this.lCI_Payment.Control = this.gC_PaymentLine;
+            this.lCI_Payment.Location = new System.Drawing.Point(0, 0);
+            this.lCI_Payment.Name = "lCI_Payment";
+            this.lCI_Payment.Size = new System.Drawing.Size(349, 169);
+            this.lCI_Payment.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Payment.TextVisible = false;
             // 
             // UcReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.lC_Root);
             this.Name = "UcReturn";
             this.Size = new System.Drawing.Size(1106, 659);
-            this.VisibleChanged += new System.EventHandler(this.UcReturn_VisibleChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPaymentLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewPaymentLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repoButtonReturnLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlInvoiceHeader)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewInvoiceHeader)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoiceHeader)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).EndInit();
+            this.lC_Root.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gC_ReturnInvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_ReturnInvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_PaymentLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_PaymentLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoBtn_ReturnLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit_InvoiceHeader.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_InvoiceHeader)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_InvoiceHeader)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpace_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_ReturnInvoiceLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_InvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_InvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Payment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Payment)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraGrid.GridControl gridControlInvoiceHeader;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewInvoiceHeader;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraGrid.GridControl gridControlInvoiceLine;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewInvoiceLine;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceHeaderId;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocumentNumber;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocumentDate;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocumentTime;
-        private DevExpress.XtraGrid.Columns.GridColumn colCurrAccCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsSuspended;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsSalesViaInternet;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsPrinted;
-        private DevExpress.XtraGrid.Columns.GridColumn colStoreCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colCreatedUserName;
-        private DevExpress.XtraGrid.GridControl gridControlPaymentLine;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPaymentLine;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupPayment;
+        private DevExpress.XtraLayout.LayoutControl lC_Root;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Root;
+        private DevExpress.XtraGrid.GridControl gC_InvoiceLine;
+        private DevExpress.XtraGrid.Views.Grid.GridView gV_InvoiceLine;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_InvoiceLine;
+        private DevExpress.XtraGrid.GridControl gC_PaymentLine;
+        private DevExpress.XtraGrid.Views.Grid.GridView gV_PaymentLine;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Payment;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Payment;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_InvoiceLine;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_InvoiceHeader;
+        private DevExpress.XtraGrid.Columns.GridColumn col_InvoiceLineId;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ProductCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Qty;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Price;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Amount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PosDiscount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_DiscountCampaign;
+        private DevExpress.XtraGrid.Columns.GridColumn col_NetAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_LineDesc;
+        private DevExpress.XtraGrid.Columns.GridColumn col_SalespersonCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_VatRate;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Return;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoBtn_ReturnLine;
+        private DevExpress.XtraEditors.SimpleButton btn_Payment;
+        private DevExpress.XtraEditors.SimpleButton btn_Cancel;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Cancel;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Cash;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpace_1;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ReturnQty;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RemainingQty;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PaymentHeaderId;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PaymentTypeDesc;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Payment;
+        private DevExpress.XtraEditors.ButtonEdit btnEdit_InvoiceHeader;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_InvoiceHeader;
+        private DevExpress.XtraGrid.GridControl gC_ReturnInvoiceLine;
+        private DevExpress.XtraGrid.Views.Grid.GridView gV_ReturnInvoiceLine;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_ReturnInvoiceLine;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupInvoiceLine;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupInvoiceHeader;
-        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceLineId;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colQty;
-        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn colAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn colPosDiscount;
-        private DevExpress.XtraGrid.Columns.GridColumn colDiscountCampaign;
-        private DevExpress.XtraGrid.Columns.GridColumn colNetAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn colLineDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn colSalespersonCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colVatRate;
-        private DevExpress.XtraGrid.Columns.GridColumn colReturn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoButtonReturnLine;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonPayment;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraGrid.Columns.GridColumn colReturnQty;
-        private DevExpress.XtraGrid.Columns.GridColumn colRemainingQty;
-        private DevExpress.XtraGrid.Columns.GridColumn colPaymentHeaderId;
-        private DevExpress.XtraGrid.Columns.GridColumn colPaymentTypeDesc;
-        private DevExpress.XtraGrid.Columns.GridColumn colPayment;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RInvoiceHeaderId;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RRelatedLineId;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RProductCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RQty;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RPosDiscount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RNetAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RVatRate;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RCurrencyCode;
     }
 }

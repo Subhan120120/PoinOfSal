@@ -24,7 +24,7 @@ namespace PointOfSale
             DXMouseEventArgs ea = e as DXMouseEventArgs;
             GridView view = sender as GridView;
             GridHitInfo info = view.CalcHitInfo(ea.Location);
-            if (info.InRow || info.InRowCell)
+            if ((info.InRow || info.InRowCell) && view.FocusedRowHandle >= 0)
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();

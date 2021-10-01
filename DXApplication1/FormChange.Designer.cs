@@ -30,149 +30,149 @@ namespace PointOfSale
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChange));
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEditCash = new DevExpress.XtraEditors.TextEdit();
-            this.textEditChange = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonOk = new DevExpress.XtraEditors.SimpleButton();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemCash = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemChange = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCash.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditChange.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemChange)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.lC_Root = new DevExpress.XtraLayout.LayoutControl();
+            this.txtEdit_Cash = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_Change = new DevExpress.XtraEditors.TextEdit();
+            this.btn_Ok = new DevExpress.XtraEditors.SimpleButton();
+            this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_Cash = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Change = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Ok = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).BeginInit();
+            this.lC_Root.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Cash.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Change.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Change)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Ok)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // lC_Root
             // 
-            this.layoutControl1.Controls.Add(this.textEditCash);
-            this.layoutControl1.Controls.Add(this.textEditChange);
-            this.layoutControl1.Controls.Add(this.simpleButtonOk);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(288, 214);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.lC_Root.Controls.Add(this.txtEdit_Cash);
+            this.lC_Root.Controls.Add(this.txtEdit_Change);
+            this.lC_Root.Controls.Add(this.btn_Ok);
+            this.lC_Root.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lC_Root.Location = new System.Drawing.Point(0, 0);
+            this.lC_Root.Name = "lC_Root";
+            this.lC_Root.Root = this.lCG_Root;
+            this.lC_Root.Size = new System.Drawing.Size(288, 214);
+            this.lC_Root.TabIndex = 0;
+            this.lC_Root.Text = "layoutControl1";
             // 
-            // textEditCash
+            // txtEdit_Cash
             // 
-            this.textEditCash.Location = new System.Drawing.Point(93, 12);
-            this.textEditCash.Name = "textEditCash";
-            this.textEditCash.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.textEditCash.Properties.Appearance.Options.UseFont = true;
-            this.textEditCash.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEditCash.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.textEditCash.Size = new System.Drawing.Size(183, 22);
-            this.textEditCash.StyleController = this.layoutControl1;
-            this.textEditCash.TabIndex = 4;
+            this.txtEdit_Cash.Location = new System.Drawing.Point(93, 12);
+            this.txtEdit_Cash.Name = "txtEdit_Cash";
+            this.txtEdit_Cash.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtEdit_Cash.Properties.Appearance.Options.UseFont = true;
+            this.txtEdit_Cash.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtEdit_Cash.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.txtEdit_Cash.Size = new System.Drawing.Size(183, 22);
+            this.txtEdit_Cash.StyleController = this.lC_Root;
+            this.txtEdit_Cash.TabIndex = 4;
             // 
-            // textEditChange
+            // txtEdit_Change
             // 
-            this.textEditChange.Location = new System.Drawing.Point(93, 38);
-            this.textEditChange.Name = "textEditChange";
-            this.textEditChange.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 40F);
-            this.textEditChange.Properties.Appearance.Options.UseFont = true;
-            this.textEditChange.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEditChange.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.textEditChange.Properties.Mask.EditMask = "n2";
-            this.textEditChange.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditChange.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.textEditChange.Size = new System.Drawing.Size(183, 70);
-            this.textEditChange.StyleController = this.layoutControl1;
-            this.textEditChange.TabIndex = 5;
+            this.txtEdit_Change.Location = new System.Drawing.Point(93, 38);
+            this.txtEdit_Change.Name = "txtEdit_Change";
+            this.txtEdit_Change.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 40F);
+            this.txtEdit_Change.Properties.Appearance.Options.UseFont = true;
+            this.txtEdit_Change.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtEdit_Change.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.txtEdit_Change.Properties.Mask.EditMask = "n2";
+            this.txtEdit_Change.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtEdit_Change.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtEdit_Change.Size = new System.Drawing.Size(183, 70);
+            this.txtEdit_Change.StyleController = this.lC_Root;
+            this.txtEdit_Change.TabIndex = 5;
             // 
-            // simpleButtonOk
+            // btn_Ok
             // 
-            this.simpleButtonOk.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonOk.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonOk.ImageOptions.SvgImage")));
-            this.simpleButtonOk.Location = new System.Drawing.Point(12, 112);
-            this.simpleButtonOk.Name = "simpleButtonOk";
-            this.simpleButtonOk.Size = new System.Drawing.Size(264, 90);
-            this.simpleButtonOk.StyleController = this.layoutControl1;
-            this.simpleButtonOk.TabIndex = 6;
-            this.simpleButtonOk.Text = "simpleButton1";
-            this.simpleButtonOk.Click += new System.EventHandler(this.simpleButtonOk_Click);
+            this.btn_Ok.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Ok.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonOk.ImageOptions.SvgImage")));
+            this.btn_Ok.Location = new System.Drawing.Point(12, 112);
+            this.btn_Ok.Name = "btn_Ok";
+            this.btn_Ok.Size = new System.Drawing.Size(264, 90);
+            this.btn_Ok.StyleController = this.lC_Root;
+            this.btn_Ok.TabIndex = 6;
+            this.btn_Ok.Text = "simpleButton1";
+            this.btn_Ok.Click += new System.EventHandler(this.btn_Ok_Click);
             // 
-            // Root
+            // lCG_Root
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemCash,
-            this.layoutControlItemChange,
-            this.layoutControlItem2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(288, 214);
-            this.Root.TextVisible = false;
+            this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lCG_Root.GroupBordersVisible = false;
+            this.lCG_Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_Cash,
+            this.lCI_Change,
+            this.lCI_Ok});
+            this.lCG_Root.Name = "lCG_Root";
+            this.lCG_Root.Size = new System.Drawing.Size(288, 214);
+            this.lCG_Root.TextVisible = false;
             // 
-            // layoutControlItemCash
+            // lCI_Cash
             // 
-            this.layoutControlItemCash.Control = this.textEditCash;
-            this.layoutControlItemCash.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemCash.Name = "layoutControlItemCash";
-            this.layoutControlItemCash.Size = new System.Drawing.Size(268, 26);
-            this.layoutControlItemCash.Text = "Nağd ödəmə";
-            this.layoutControlItemCash.TextSize = new System.Drawing.Size(78, 13);
+            this.lCI_Cash.Control = this.txtEdit_Cash;
+            this.lCI_Cash.Location = new System.Drawing.Point(0, 0);
+            this.lCI_Cash.Name = "lCI_Cash";
+            this.lCI_Cash.Size = new System.Drawing.Size(268, 26);
+            this.lCI_Cash.Text = "Nağd ödəmə";
+            this.lCI_Cash.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // layoutControlItemChange
+            // lCI_Change
             // 
-            this.layoutControlItemChange.Control = this.textEditChange;
-            this.layoutControlItemChange.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("layoutControlItemChange.ImageOptions.SvgImage")));
-            this.layoutControlItemChange.Location = new System.Drawing.Point(0, 26);
-            this.layoutControlItemChange.Name = "layoutControlItemChange";
-            this.layoutControlItemChange.Size = new System.Drawing.Size(268, 74);
-            this.layoutControlItemChange.Text = "Pul qalığı";
-            this.layoutControlItemChange.TextSize = new System.Drawing.Size(78, 32);
+            this.lCI_Change.Control = this.txtEdit_Change;
+            this.lCI_Change.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("layoutControlItemChange.ImageOptions.SvgImage")));
+            this.lCI_Change.Location = new System.Drawing.Point(0, 26);
+            this.lCI_Change.Name = "lCI_Change";
+            this.lCI_Change.Size = new System.Drawing.Size(268, 74);
+            this.lCI_Change.Text = "Pul qalığı";
+            this.lCI_Change.TextSize = new System.Drawing.Size(78, 32);
             // 
-            // layoutControlItem2
+            // lCI_Ok
             // 
-            this.layoutControlItem2.Control = this.simpleButtonOk;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 100);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(268, 94);
-            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.lCI_Ok.Control = this.btn_Ok;
+            this.lCI_Ok.Location = new System.Drawing.Point(0, 100);
+            this.lCI_Ok.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Ok.Name = "lCI_Ok";
+            this.lCI_Ok.Size = new System.Drawing.Size(268, 94);
+            this.lCI_Ok.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Ok.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Ok.TextVisible = false;
             // 
             // FormChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 214);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.lC_Root);
             this.Name = "FormChange";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormChange";
             this.Load += new System.EventHandler(this.FormChange_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCash.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditChange.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemChange)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).EndInit();
+            this.lC_Root.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Cash.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Change.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Change)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Ok)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraEditors.TextEdit textEditCash;
-        private DevExpress.XtraEditors.TextEdit textEditChange;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCash;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemChange;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonOk;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControl lC_Root;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Root;
+        private DevExpress.XtraEditors.TextEdit txtEdit_Cash;
+        private DevExpress.XtraEditors.TextEdit txtEdit_Change;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Cash;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Change;
+        private DevExpress.XtraEditors.SimpleButton btn_Ok;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Ok;
     }
 }

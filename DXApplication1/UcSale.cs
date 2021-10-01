@@ -15,18 +15,29 @@ namespace PointOfSale
         public UcSale()
         {
             InitializeComponent();
-            simpleButtonCustomerAdd.BorderStyle = BorderStyles.UltraFlat;
-            simpleButton3.BorderStyle = BorderStyles.UltraFlat;
-            simpleButtonCustomerEdit.BorderStyle = BorderStyles.UltraFlat;
+            btn_CustomerAdd.BorderStyle = BorderStyles.UltraFlat;
+            btn_CustomerSearch.BorderStyle = BorderStyles.UltraFlat;
+            btn_CustomerEdit.BorderStyle = BorderStyles.UltraFlat;
 
             //AcceptButton = simpleButtonEnter;
-            ActiveControl = textEditBarcode;
+            ActiveControl = txtEdit_Barcode;
         }
 
-        private void gridView11_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)
+        private void UcSale_Load(object sender, EventArgs e)
+        {
+            this.ParentForm.FormClosing += new FormClosingEventHandler(ParentForm_FormClosing); // Handle Parent Form Closing event
+        }
+        void ParentForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (sqlMethods.InvoiceHeaderExist(invoiceHeaderId))
+                sqlMethods.DeleteInvoice(invoiceHeaderId);                // delete incomplete invoice
+        }
+
+        private void gV_InvoiceLine_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)
         {
             GridView view = sender as GridView;
             if (view == null) return;
+
             string Barcode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Barcode"]);
             decimal PosDiscount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscount"]));
             decimal Amount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["Amount"]));
@@ -34,26 +45,10 @@ namespace PointOfSale
             string asdasd = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
             float VatRate = float.Parse(asdasd);
 
-            e.PreviewText = GetPreviewText(Barcode, PosDiscount, Amount, NetAmount, VatRate);
+            e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, Barcode);
         }
 
-        private static string GetPreviewText(string Barcode, decimal PosDiscount, decimal Amount, decimal NetAmount, float VatRate)
-        {
-            decimal PosDiscountRate = 0;
-            if (Amount != 0 && NetAmount != 0)
-                PosDiscountRate = Math.Round(PosDiscount / Amount * 100, 2);
-
-            string previewText = "ƏDV: " + VatRate + "%\n";
-
-            if (Barcode != string.Empty)
-                previewText += "Barkod: " + Barcode + "\n";
-
-            if (PosDiscountRate > 0)
-                previewText += "Pos Endirimi: [" + PosDiscountRate + "%] = " + PosDiscount + "\n";
-            return previewText;
-        }
-
-        private void simpleButtonProductSearch_Click(object sender, EventArgs e)
+        private void btn_ProductSearch_Click(object sender, EventArgs e)
         {
             using (FormProductList formProductList = new FormProductList())
             {
@@ -77,8 +72,8 @@ namespace PointOfSale
 
                     if (result > 0)
                     {
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
-                        gridView11.MoveLast();
+                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gV_InvoiceLine.MoveLast();
                     }
                     else
                         MessageBox.Show("Məhsul əlavə edilə bilmədi");
@@ -86,7 +81,7 @@ namespace PointOfSale
             }
         }
 
-        private void simpleButtonCancelInvoice_Click(object sender, EventArgs e)
+        private void btn_CancelInvoice_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Silmək istədiyinizə əminmisiniz?", "Diqqət", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -95,47 +90,47 @@ namespace PointOfSale
 
                 if (result >= 0)
                 {
-                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
+                    gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                     invoiceHeaderId = Guid.NewGuid();
                 }
             }
         }
 
 
-        private void simpleButtonDeleteLine_Click(object sender, EventArgs e)
+        private void btn_DeleteLine_Click(object sender, EventArgs e)
         {
-            if (gridView11.RowCount > 1)
+            if (gV_InvoiceLine.RowCount > 1)
             {
                 DialogResult dialogResult = MessageBox.Show("Silmək istədiyinizə əminmisiniz?", "Diqqət", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    object invoiceLineId = gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "InvoiceLineId");
+                    object invoiceLineId = gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "InvoiceLineId");
                     int result = sqlMethods.DeleteInvoiceLine(invoiceLineId);
 
                     if (result >= 0)
                     {
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
-                        gridView11.MoveLast();
+                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gV_InvoiceLine.MoveLast();
                     }
                 }
             }
-            else if (gridView11.RowCount == 1)
+            else if (gV_InvoiceLine.RowCount == 1)
                 MessageBox.Show("Son Sətri Silmək Olmur.\nSilmək üçün çeki ləğv etməlisiniz!", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
-        private void simpleButtonDiscount_Click(object sender, EventArgs e)
+        private void btn_Discount_Click(object sender, EventArgs e)
         {
 
-            if (gridView11.FocusedRowHandle >= 0) //if product selected
+            if (gV_InvoiceLine.FocusedRowHandle >= 0) //if product selected
             {
-                decimal PosDiscount = Convert.ToDecimal(gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "PosDiscount"));
-                decimal Amount = Convert.ToDecimal(gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "Amount"));
+                decimal PosDiscount = Convert.ToDecimal(gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "PosDiscount"));
+                decimal Amount = Convert.ToDecimal(gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "Amount"));
                 using (FormPosDiscount formPosDiscount = new FormPosDiscount(PosDiscount, Amount))
                 {
                     if (formPosDiscount.ShowDialog(this) == DialogResult.OK)
                     {
-                        object invoiceLineId = gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "InvoiceLineId");
+                        object invoiceLineId = gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "InvoiceLineId");
 
                         TrInvoiceLine TrInvoiceLine = new TrInvoiceLine()
                         {
@@ -147,8 +142,8 @@ namespace PointOfSale
 
                         if (result >= 0)
                         {
-                            gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
-                            gridView11.MoveLast();
+                            gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                            gV_InvoiceLine.MoveLast();
                         }
                     }
                 }
@@ -158,7 +153,7 @@ namespace PointOfSale
         }
 
 
-        private void simpleButtonNum_Click(object sender, EventArgs e)
+        private void btn_Num_Click(object sender, EventArgs e)
         {
             SimpleButton simpleButton = sender as SimpleButton;
             string key = simpleButton.Text;
@@ -178,11 +173,11 @@ namespace PointOfSale
             }
         }
 
-        private void simpleButtonEnter_Click(object sender, EventArgs e)
+        private void btn_Enter_Click(object sender, EventArgs e)
         {
-            if (textEditBarcode.EditValue != null)
+            if (txtEdit_Barcode.EditValue != null)
             {
-                DcProduct DcProduct = new DcProduct { Barcode = textEditBarcode.EditValue.ToString() };
+                DcProduct DcProduct = new DcProduct { Barcode = txtEdit_Barcode.EditValue.ToString() };
 
                 if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                 {
@@ -199,25 +194,25 @@ namespace PointOfSale
 
                 if (result > 0)
                 {
-                    gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
+                    gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                     //gridControl11.DataMember = "customQuery1";
-                    gridView11.MoveLast();
-                    textEditBarcode.EditValue = string.Empty;
+                    gV_InvoiceLine.MoveLast();
+                    txtEdit_Barcode.EditValue = string.Empty;
                 }
                 else
                     MessageBox.Show("Barkod Tapılmadı", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            ActiveControl = textEditBarcode;
+            ActiveControl = txtEdit_Barcode;
         }
 
-        private void gridControl11_MouseUp(object sender, MouseEventArgs e)
+        private void gC_Sale_MouseUp(object sender, MouseEventArgs e)
         {
-            textEditBarcode.Focus();
+            txtEdit_Barcode.Focus();
         }
 
-        private void simpleButtonPayment_Click(object sender, EventArgs e)
+        private void btn_Payment_Click(object sender, EventArgs e)
         {
-            decimal summaryNetAmount = Convert.ToDecimal(gridView11.Columns["NetAmount"].SummaryItem.SummaryValue);
+            decimal summaryNetAmount = Convert.ToDecimal(gV_InvoiceLine.Columns["NetAmount"].SummaryItem.SummaryValue);
 
             if (summaryNetAmount > 0)
             {
@@ -247,7 +242,7 @@ namespace PointOfSale
 
                         invoiceHeaderId = Guid.NewGuid();
 
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
+                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                         //gridControl11.DataMember = "customQuery1";
                     }
                 }
@@ -255,16 +250,16 @@ namespace PointOfSale
             else MessageBox.Show("Ödəmə 0a bərabərdir");
         }
 
-        private void simpleButtonCustomer_Click(object sender, EventArgs e)
+        private void btn_Customer_Click(object sender, EventArgs e)
         {
             SimpleButton simpleButton = sender as SimpleButton;
             DcCurrAcc DcCurrAcc = new DcCurrAcc()
             {
-                CurrAccCode = textEditCustomerCode.Text,
+                CurrAccCode = txtEdit_CustomerCode.Text,
                 //BirthDate = textEditCustomerBirthdate.Text,
-                Address = textEditBonCardNum.Text,
-                BonusCardNum = textEditBonCardNum.Text,
-                PhoneNum = textEditCustomerPhoneNum.Text
+                Address = txtEdit_BonCardNum.Text,
+                BonusCardNum = txtEdit_BonCardNum.Text,
+                PhoneNum = txtEdit_CustomerPhoneNum.Text
             };
 
             using (FormCustomer formCustomer = new FormCustomer(DcCurrAcc))
@@ -288,28 +283,28 @@ namespace PointOfSale
 
                         if (result >= 0)
                         {
-                            textEditBonCardNum.EditValue = formCustomer.DcCurrAcc.BonusCardNum;
-                            textEditCustomerName.EditValue = formCustomer.DcCurrAcc.FirstName + " " + formCustomer.DcCurrAcc.LastName;
-                            textEditCustomerAddress.EditValue = formCustomer.DcCurrAcc.Address;
-                            textEditCustomerPhoneNum.EditValue = formCustomer.DcCurrAcc.PhoneNum;
+                            txtEdit_BonCardNum.EditValue = formCustomer.DcCurrAcc.BonusCardNum;
+                            txtEdit_CustomerName.EditValue = formCustomer.DcCurrAcc.FirstName + " " + formCustomer.DcCurrAcc.LastName;
+                            txtEdit_CustomerAddress.EditValue = formCustomer.DcCurrAcc.Address;
+                            txtEdit_CustomerPhoneNum.EditValue = formCustomer.DcCurrAcc.PhoneNum;
                         }
                     }
                 }
             }
         }
 
-        private void gridControl11_DoubleClick(object sender, EventArgs e)
+        private void gC_Sale_DoubleClick(object sender, EventArgs e)
         {
-            object invoiceLineId = gridView11.GetRowCellValue(gridView11.FocusedRowHandle, "InvoiceLineId");
-            if (gridView11.FocusedColumn == columnQty)
+            object invoiceLineId = gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "InvoiceLineId");
+            if (gV_InvoiceLine.FocusedColumn == col_Qty)
             {
                 using (FormQty formQty = new FormQty())
                 {
                     if (formQty.ShowDialog(this) == DialogResult.OK)
                     {
                         sqlMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
-                        gridControlSale.DataSource = sqlMethods.SelectInvoiceLine(invoiceHeaderId);
-                        gridView11.MoveLast();
+                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gV_InvoiceLine.MoveLast();
                     }
                 }
             }

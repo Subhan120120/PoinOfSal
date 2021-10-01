@@ -60,860 +60,859 @@ namespace PointOfSale
             DevExpress.XtraLayout.ColumnDefinition columnDefinition13 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition14 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition16 = new DevExpress.XtraLayout.RowDefinition();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButtonStar = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonComma = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum0 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum6 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum8 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum9 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonNum7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonEnter = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonC = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonBackSpace = new DevExpress.XtraEditors.SimpleButton();
-            this.textEditBarcode = new DevExpress.XtraEditors.TextEdit();
-            this.imageComboBoxEditBarcode = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.gridControlSale = new DevExpress.XtraGrid.GridControl();
-            this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.columnProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.columnQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.columnPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.columnNetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.columnBarcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.columnPosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.columnAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.columnVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.simpleButtonProductSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonDiscount = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonCancelInvoice = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonDeleteLine = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonSalesPerson = new DevExpress.XtraEditors.SimpleButton();
-            this.textEditCustomerPhoneNum = new DevExpress.XtraEditors.TextEdit();
-            this.textEditCustomerAddress = new DevExpress.XtraEditors.TextEdit();
-            this.textEditCustomerName = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonCustomerEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonCustomerAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.textEditBonCardNum = new DevExpress.XtraEditors.TextEdit();
-            this.textEditCustomerBirthdate = new DevExpress.XtraEditors.TextEdit();
-            this.textEditCustomerCode = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonCash = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonCashless = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonCustomerBonus = new DevExpress.XtraEditors.SimpleButton();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroupBarcode = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemStar = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemComma = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum0 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemNum7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemEnter = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemC = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemBackSpace = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemTextBox = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemComboBox = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroupInvoice = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemGridView = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroupFunction = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemProductSearch = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemDiscount = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCancelInvoice = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemDeleteLine = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemSalesPerson = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroupCustomer = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemCustomerTel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerAddress = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerSearch = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerAdd = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemBonCardNum = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerBirthdate = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerCode = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroupPayment = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemCash = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCashless = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lC_InvoiceLine = new DevExpress.XtraLayout.LayoutControl();
+            this.btn_Star = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Comma = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num0 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num5 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num6 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num8 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num9 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num7 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Enter = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_C = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_BackSpace = new DevExpress.XtraEditors.SimpleButton();
+            this.txtEdit_Barcode = new DevExpress.XtraEditors.TextEdit();
+            this.imageComboEdit_Barcode = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.gC_Sale = new DevExpress.XtraGrid.GridControl();
+            this.gV_InvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_ProductDesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Price = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_NetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Barcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_PosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Amount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_VatRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_ProductSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Discount = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_CancelInvoice = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_DeleteLine = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_SalesPerson = new DevExpress.XtraEditors.SimpleButton();
+            this.txtEdit_CustomerPhoneNum = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_CustomerAddress = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_CustomerName = new DevExpress.XtraEditors.TextEdit();
+            this.btn_CustomerSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_CustomerEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_CustomerAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.txtEdit_BonCardNum = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_CustomerBirthdate = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdit_CustomerCode = new DevExpress.XtraEditors.TextEdit();
+            this.btn_Cash = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Cashless = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_CustomerBonus = new DevExpress.XtraEditors.SimpleButton();
+            this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCG_Barcode = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_Star = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Comma = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num0 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Enter = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_C = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_BackSpace = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_ItemTextBox = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_ComboBox = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCG_Invoice = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_GridView = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCG_Function = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_ProductSearch = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Discount = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CancelInvoice = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_DeleteLine = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_SalesPerson = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCG_Customer = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_CustomerTel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerAddress = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerSearch = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerAdd = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_BonusCardNum = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerBirthdate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerCode = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCG_Payment = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lCI_Cash = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Cashless = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_CustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBarcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEditBarcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerPhoneNum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerAddress.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBonCardNum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerBirthdate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupBarcode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum0)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBackSpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComboBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupFunction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemProductSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemDiscount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancelInvoice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemDeleteLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSalesPerson)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerTel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerAddress)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBonCardNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBirthdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCashless)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lC_InvoiceLine)).BeginInit();
+            this.lC_InvoiceLine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Barcode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageComboEdit_Barcode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_Sale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerPhoneNum.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BonCardNum.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerBirthdate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Barcode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Star)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Comma)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Enter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_C)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_BackSpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_ItemTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_ComboBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Invoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_GridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Function)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_ProductSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Discount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CancelInvoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_DeleteLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_SalesPerson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Customer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerTel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerAddress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_BonusCardNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBirthdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Payment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cashless)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // lC_InvoiceLine
             // 
-            this.layoutControl1.Controls.Add(this.simpleButtonStar);
-            this.layoutControl1.Controls.Add(this.simpleButtonComma);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum0);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum1);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum2);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum3);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum4);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum5);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum6);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum8);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum9);
-            this.layoutControl1.Controls.Add(this.simpleButtonNum7);
-            this.layoutControl1.Controls.Add(this.simpleButtonEnter);
-            this.layoutControl1.Controls.Add(this.simpleButtonC);
-            this.layoutControl1.Controls.Add(this.simpleButtonBackSpace);
-            this.layoutControl1.Controls.Add(this.textEditBarcode);
-            this.layoutControl1.Controls.Add(this.imageComboBoxEditBarcode);
-            this.layoutControl1.Controls.Add(this.gridControlSale);
-            this.layoutControl1.Controls.Add(this.simpleButtonProductSearch);
-            this.layoutControl1.Controls.Add(this.simpleButtonDiscount);
-            this.layoutControl1.Controls.Add(this.simpleButtonCancelInvoice);
-            this.layoutControl1.Controls.Add(this.simpleButtonDeleteLine);
-            this.layoutControl1.Controls.Add(this.simpleButtonSalesPerson);
-            this.layoutControl1.Controls.Add(this.textEditCustomerPhoneNum);
-            this.layoutControl1.Controls.Add(this.textEditCustomerAddress);
-            this.layoutControl1.Controls.Add(this.textEditCustomerName);
-            this.layoutControl1.Controls.Add(this.simpleButton3);
-            this.layoutControl1.Controls.Add(this.simpleButtonCustomerEdit);
-            this.layoutControl1.Controls.Add(this.simpleButtonCustomerAdd);
-            this.layoutControl1.Controls.Add(this.textEditBonCardNum);
-            this.layoutControl1.Controls.Add(this.textEditCustomerBirthdate);
-            this.layoutControl1.Controls.Add(this.textEditCustomerCode);
-            this.layoutControl1.Controls.Add(this.simpleButtonCash);
-            this.layoutControl1.Controls.Add(this.simpleButtonCashless);
-            this.layoutControl1.Controls.Add(this.simpleButtonCustomerBonus);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1189, 400, 650, 400);
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1142, 692);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.lC_InvoiceLine.Controls.Add(this.btn_Star);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Comma);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num0);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num1);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num2);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num3);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num4);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num5);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num6);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num8);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num9);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Num7);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Enter);
+            this.lC_InvoiceLine.Controls.Add(this.btn_C);
+            this.lC_InvoiceLine.Controls.Add(this.btn_BackSpace);
+            this.lC_InvoiceLine.Controls.Add(this.txtEdit_Barcode);
+            this.lC_InvoiceLine.Controls.Add(this.imageComboEdit_Barcode);
+            this.lC_InvoiceLine.Controls.Add(this.gC_Sale);
+            this.lC_InvoiceLine.Controls.Add(this.btn_ProductSearch);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Discount);
+            this.lC_InvoiceLine.Controls.Add(this.btn_CancelInvoice);
+            this.lC_InvoiceLine.Controls.Add(this.btn_DeleteLine);
+            this.lC_InvoiceLine.Controls.Add(this.btn_SalesPerson);
+            this.lC_InvoiceLine.Controls.Add(this.txtEdit_CustomerPhoneNum);
+            this.lC_InvoiceLine.Controls.Add(this.txtEdit_CustomerAddress);
+            this.lC_InvoiceLine.Controls.Add(this.txtEdit_CustomerName);
+            this.lC_InvoiceLine.Controls.Add(this.btn_CustomerSearch);
+            this.lC_InvoiceLine.Controls.Add(this.btn_CustomerEdit);
+            this.lC_InvoiceLine.Controls.Add(this.btn_CustomerAdd);
+            this.lC_InvoiceLine.Controls.Add(this.txtEdit_BonCardNum);
+            this.lC_InvoiceLine.Controls.Add(this.txtEdit_CustomerBirthdate);
+            this.lC_InvoiceLine.Controls.Add(this.txtEdit_CustomerCode);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Cash);
+            this.lC_InvoiceLine.Controls.Add(this.btn_Cashless);
+            this.lC_InvoiceLine.Controls.Add(this.btn_CustomerBonus);
+            this.lC_InvoiceLine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lC_InvoiceLine.Location = new System.Drawing.Point(0, 0);
+            this.lC_InvoiceLine.Name = "lC_InvoiceLine";
+            this.lC_InvoiceLine.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1189, 400, 650, 400);
+            this.lC_InvoiceLine.Root = this.lCG_Root;
+            this.lC_InvoiceLine.Size = new System.Drawing.Size(1142, 692);
+            this.lC_InvoiceLine.TabIndex = 0;
+            this.lC_InvoiceLine.Text = "layoutControl1";
             // 
-            // simpleButtonStar
+            // btn_Star
             // 
-            this.simpleButtonStar.AllowFocus = false;
-            this.simpleButtonStar.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonStar.Appearance.Options.UseFont = true;
-            this.simpleButtonStar.Location = new System.Drawing.Point(436, 313);
-            this.simpleButtonStar.Name = "simpleButtonStar";
-            this.simpleButtonStar.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonStar.Size = new System.Drawing.Size(69, 64);
-            this.simpleButtonStar.StyleController = this.layoutControl1;
-            this.simpleButtonStar.TabIndex = 14;
-            this.simpleButtonStar.Text = "*";
-            this.simpleButtonStar.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Star.AllowFocus = false;
+            this.btn_Star.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Star.Appearance.Options.UseFont = true;
+            this.btn_Star.Location = new System.Drawing.Point(436, 313);
+            this.btn_Star.Name = "btn_Star";
+            this.btn_Star.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Star.Size = new System.Drawing.Size(69, 64);
+            this.btn_Star.StyleController = this.lC_InvoiceLine;
+            this.btn_Star.TabIndex = 14;
+            this.btn_Star.Text = "*";
+            this.btn_Star.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonComma
+            // btn_Comma
             // 
-            this.simpleButtonComma.AllowFocus = false;
-            this.simpleButtonComma.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonComma.Appearance.Options.UseFont = true;
-            this.simpleButtonComma.Location = new System.Drawing.Point(582, 313);
-            this.simpleButtonComma.Name = "simpleButtonComma";
-            this.simpleButtonComma.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonComma.Size = new System.Drawing.Size(69, 64);
-            this.simpleButtonComma.StyleController = this.layoutControl1;
-            this.simpleButtonComma.TabIndex = 15;
-            this.simpleButtonComma.Text = ",";
-            this.simpleButtonComma.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Comma.AllowFocus = false;
+            this.btn_Comma.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Comma.Appearance.Options.UseFont = true;
+            this.btn_Comma.Location = new System.Drawing.Point(582, 313);
+            this.btn_Comma.Name = "btn_Comma";
+            this.btn_Comma.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Comma.Size = new System.Drawing.Size(69, 64);
+            this.btn_Comma.StyleController = this.lC_InvoiceLine;
+            this.btn_Comma.TabIndex = 15;
+            this.btn_Comma.Text = ",";
+            this.btn_Comma.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum0
+            // btn_Num0
             // 
-            this.simpleButtonNum0.AllowFocus = false;
-            this.simpleButtonNum0.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum0.Appearance.Options.UseFont = true;
-            this.simpleButtonNum0.Location = new System.Drawing.Point(509, 313);
-            this.simpleButtonNum0.Name = "simpleButtonNum0";
-            this.simpleButtonNum0.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum0.Size = new System.Drawing.Size(69, 64);
-            this.simpleButtonNum0.StyleController = this.layoutControl1;
-            this.simpleButtonNum0.TabIndex = 13;
-            this.simpleButtonNum0.Text = "0";
-            this.simpleButtonNum0.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num0.AllowFocus = false;
+            this.btn_Num0.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num0.Appearance.Options.UseFont = true;
+            this.btn_Num0.Location = new System.Drawing.Point(509, 313);
+            this.btn_Num0.Name = "btn_Num0";
+            this.btn_Num0.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num0.Size = new System.Drawing.Size(69, 64);
+            this.btn_Num0.StyleController = this.lC_InvoiceLine;
+            this.btn_Num0.TabIndex = 13;
+            this.btn_Num0.Text = "0";
+            this.btn_Num0.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum1
+            // btn_Num1
             // 
-            this.simpleButtonNum1.AllowFocus = false;
-            this.simpleButtonNum1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum1.Appearance.Options.UseFont = true;
-            this.simpleButtonNum1.Location = new System.Drawing.Point(436, 246);
-            this.simpleButtonNum1.Name = "simpleButtonNum1";
-            this.simpleButtonNum1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum1.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum1.StyleController = this.layoutControl1;
-            this.simpleButtonNum1.TabIndex = 6;
-            this.simpleButtonNum1.Text = "1";
-            this.simpleButtonNum1.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num1.AllowFocus = false;
+            this.btn_Num1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num1.Appearance.Options.UseFont = true;
+            this.btn_Num1.Location = new System.Drawing.Point(436, 246);
+            this.btn_Num1.Name = "btn_Num1";
+            this.btn_Num1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num1.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num1.StyleController = this.lC_InvoiceLine;
+            this.btn_Num1.TabIndex = 6;
+            this.btn_Num1.Text = "1";
+            this.btn_Num1.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum2
+            // btn_Num2
             // 
-            this.simpleButtonNum2.AllowFocus = false;
-            this.simpleButtonNum2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum2.Appearance.Options.UseFont = true;
-            this.simpleButtonNum2.Location = new System.Drawing.Point(509, 246);
-            this.simpleButtonNum2.Name = "simpleButtonNum2";
-            this.simpleButtonNum2.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum2.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum2.StyleController = this.layoutControl1;
-            this.simpleButtonNum2.TabIndex = 7;
-            this.simpleButtonNum2.Text = "2";
-            this.simpleButtonNum2.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num2.AllowFocus = false;
+            this.btn_Num2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num2.Appearance.Options.UseFont = true;
+            this.btn_Num2.Location = new System.Drawing.Point(509, 246);
+            this.btn_Num2.Name = "btn_Num2";
+            this.btn_Num2.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num2.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num2.StyleController = this.lC_InvoiceLine;
+            this.btn_Num2.TabIndex = 7;
+            this.btn_Num2.Text = "2";
+            this.btn_Num2.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum3
+            // btn_Num3
             // 
-            this.simpleButtonNum3.AllowFocus = false;
-            this.simpleButtonNum3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum3.Appearance.Options.UseFont = true;
-            this.simpleButtonNum3.Location = new System.Drawing.Point(582, 246);
-            this.simpleButtonNum3.Name = "simpleButtonNum3";
-            this.simpleButtonNum3.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum3.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum3.StyleController = this.layoutControl1;
-            this.simpleButtonNum3.TabIndex = 8;
-            this.simpleButtonNum3.Text = "3";
-            this.simpleButtonNum3.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num3.AllowFocus = false;
+            this.btn_Num3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num3.Appearance.Options.UseFont = true;
+            this.btn_Num3.Location = new System.Drawing.Point(582, 246);
+            this.btn_Num3.Name = "btn_Num3";
+            this.btn_Num3.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num3.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num3.StyleController = this.lC_InvoiceLine;
+            this.btn_Num3.TabIndex = 8;
+            this.btn_Num3.Text = "3";
+            this.btn_Num3.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum4
+            // btn_Num4
             // 
-            this.simpleButtonNum4.AllowFocus = false;
-            this.simpleButtonNum4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum4.Appearance.Options.UseFont = true;
-            this.simpleButtonNum4.Location = new System.Drawing.Point(436, 179);
-            this.simpleButtonNum4.Name = "simpleButtonNum4";
-            this.simpleButtonNum4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum4.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum4.StyleController = this.layoutControl1;
-            this.simpleButtonNum4.TabIndex = 5;
-            this.simpleButtonNum4.Text = "4";
-            this.simpleButtonNum4.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num4.AllowFocus = false;
+            this.btn_Num4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num4.Appearance.Options.UseFont = true;
+            this.btn_Num4.Location = new System.Drawing.Point(436, 179);
+            this.btn_Num4.Name = "btn_Num4";
+            this.btn_Num4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num4.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num4.StyleController = this.lC_InvoiceLine;
+            this.btn_Num4.TabIndex = 5;
+            this.btn_Num4.Text = "4";
+            this.btn_Num4.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum5
+            // btn_Num5
             // 
-            this.simpleButtonNum5.AllowFocus = false;
-            this.simpleButtonNum5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum5.Appearance.Options.UseFont = true;
-            this.simpleButtonNum5.Location = new System.Drawing.Point(509, 179);
-            this.simpleButtonNum5.Name = "simpleButtonNum5";
-            this.simpleButtonNum5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum5.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum5.StyleController = this.layoutControl1;
-            this.simpleButtonNum5.TabIndex = 5;
-            this.simpleButtonNum5.Text = "5";
-            this.simpleButtonNum5.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num5.AllowFocus = false;
+            this.btn_Num5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num5.Appearance.Options.UseFont = true;
+            this.btn_Num5.Location = new System.Drawing.Point(509, 179);
+            this.btn_Num5.Name = "btn_Num5";
+            this.btn_Num5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num5.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num5.StyleController = this.lC_InvoiceLine;
+            this.btn_Num5.TabIndex = 5;
+            this.btn_Num5.Text = "5";
+            this.btn_Num5.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum6
+            // btn_Num6
             // 
-            this.simpleButtonNum6.AllowFocus = false;
-            this.simpleButtonNum6.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum6.Appearance.Options.UseFont = true;
-            this.simpleButtonNum6.Location = new System.Drawing.Point(582, 179);
-            this.simpleButtonNum6.Name = "simpleButtonNum6";
-            this.simpleButtonNum6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum6.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum6.StyleController = this.layoutControl1;
-            this.simpleButtonNum6.TabIndex = 9;
-            this.simpleButtonNum6.Text = "6";
-            this.simpleButtonNum6.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num6.AllowFocus = false;
+            this.btn_Num6.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num6.Appearance.Options.UseFont = true;
+            this.btn_Num6.Location = new System.Drawing.Point(582, 179);
+            this.btn_Num6.Name = "btn_Num6";
+            this.btn_Num6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num6.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num6.StyleController = this.lC_InvoiceLine;
+            this.btn_Num6.TabIndex = 9;
+            this.btn_Num6.Text = "6";
+            this.btn_Num6.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum8
+            // btn_Num8
             // 
-            this.simpleButtonNum8.AllowFocus = false;
-            this.simpleButtonNum8.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum8.Appearance.Options.UseFont = true;
-            this.simpleButtonNum8.Location = new System.Drawing.Point(509, 112);
-            this.simpleButtonNum8.Name = "simpleButtonNum8";
-            this.simpleButtonNum8.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum8.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum8.StyleController = this.layoutControl1;
-            this.simpleButtonNum8.TabIndex = 10;
-            this.simpleButtonNum8.Text = "8";
-            this.simpleButtonNum8.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num8.AllowFocus = false;
+            this.btn_Num8.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num8.Appearance.Options.UseFont = true;
+            this.btn_Num8.Location = new System.Drawing.Point(509, 112);
+            this.btn_Num8.Name = "btn_Num8";
+            this.btn_Num8.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num8.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num8.StyleController = this.lC_InvoiceLine;
+            this.btn_Num8.TabIndex = 10;
+            this.btn_Num8.Text = "8";
+            this.btn_Num8.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum9
+            // btn_Num9
             // 
-            this.simpleButtonNum9.AllowFocus = false;
-            this.simpleButtonNum9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum9.Appearance.Options.UseFont = true;
-            this.simpleButtonNum9.Location = new System.Drawing.Point(582, 112);
-            this.simpleButtonNum9.Name = "simpleButtonNum9";
-            this.simpleButtonNum9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum9.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum9.StyleController = this.layoutControl1;
-            this.simpleButtonNum9.TabIndex = 12;
-            this.simpleButtonNum9.Text = "9";
-            this.simpleButtonNum9.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num9.AllowFocus = false;
+            this.btn_Num9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num9.Appearance.Options.UseFont = true;
+            this.btn_Num9.Location = new System.Drawing.Point(582, 112);
+            this.btn_Num9.Name = "btn_Num9";
+            this.btn_Num9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num9.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num9.StyleController = this.lC_InvoiceLine;
+            this.btn_Num9.TabIndex = 12;
+            this.btn_Num9.Text = "9";
+            this.btn_Num9.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonNum7
+            // btn_Num7
             // 
-            this.simpleButtonNum7.AllowFocus = false;
-            this.simpleButtonNum7.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonNum7.Appearance.Options.UseFont = true;
-            this.simpleButtonNum7.Location = new System.Drawing.Point(436, 112);
-            this.simpleButtonNum7.Name = "simpleButtonNum7";
-            this.simpleButtonNum7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonNum7.Size = new System.Drawing.Size(69, 63);
-            this.simpleButtonNum7.StyleController = this.layoutControl1;
-            this.simpleButtonNum7.TabIndex = 22;
-            this.simpleButtonNum7.Text = "7";
-            this.simpleButtonNum7.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_Num7.AllowFocus = false;
+            this.btn_Num7.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num7.Appearance.Options.UseFont = true;
+            this.btn_Num7.Location = new System.Drawing.Point(436, 112);
+            this.btn_Num7.Name = "btn_Num7";
+            this.btn_Num7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num7.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num7.StyleController = this.lC_InvoiceLine;
+            this.btn_Num7.TabIndex = 22;
+            this.btn_Num7.Text = "7";
+            this.btn_Num7.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonEnter
+            // btn_Enter
             // 
-            this.simpleButtonEnter.Appearance.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.simpleButtonEnter.Appearance.Options.UseFont = true;
-            this.simpleButtonEnter.Location = new System.Drawing.Point(655, 246);
-            this.simpleButtonEnter.Name = "simpleButtonEnter";
-            this.simpleButtonEnter.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonEnter.Size = new System.Drawing.Size(71, 131);
-            this.simpleButtonEnter.StyleController = this.layoutControl1;
-            this.simpleButtonEnter.TabIndex = 18;
-            this.simpleButtonEnter.Text = "↵";
-            this.simpleButtonEnter.Click += new System.EventHandler(this.simpleButtonEnter_Click);
+            this.btn_Enter.Appearance.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.btn_Enter.Appearance.Options.UseFont = true;
+            this.btn_Enter.Location = new System.Drawing.Point(655, 246);
+            this.btn_Enter.Name = "btn_Enter";
+            this.btn_Enter.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Enter.Size = new System.Drawing.Size(71, 131);
+            this.btn_Enter.StyleController = this.lC_InvoiceLine;
+            this.btn_Enter.TabIndex = 18;
+            this.btn_Enter.Text = "↵";
+            this.btn_Enter.Click += new System.EventHandler(this.btn_Enter_Click);
             // 
-            // simpleButtonC
+            // btn_C
             // 
-            this.simpleButtonC.AllowFocus = false;
-            this.simpleButtonC.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.simpleButtonC.Appearance.Options.UseFont = true;
-            this.simpleButtonC.Location = new System.Drawing.Point(655, 179);
-            this.simpleButtonC.Name = "simpleButtonC";
-            this.simpleButtonC.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonC.Size = new System.Drawing.Size(71, 63);
-            this.simpleButtonC.StyleController = this.layoutControl1;
-            this.simpleButtonC.TabIndex = 17;
-            this.simpleButtonC.Text = "C";
-            this.simpleButtonC.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_C.AllowFocus = false;
+            this.btn_C.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_C.Appearance.Options.UseFont = true;
+            this.btn_C.Location = new System.Drawing.Point(655, 179);
+            this.btn_C.Name = "btn_C";
+            this.btn_C.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_C.Size = new System.Drawing.Size(71, 63);
+            this.btn_C.StyleController = this.lC_InvoiceLine;
+            this.btn_C.TabIndex = 17;
+            this.btn_C.Text = "C";
+            this.btn_C.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // simpleButtonBackSpace
+            // btn_BackSpace
             // 
-            this.simpleButtonBackSpace.AllowFocus = false;
-            this.simpleButtonBackSpace.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButtonBackSpace.Appearance.Options.UseFont = true;
-            this.simpleButtonBackSpace.Location = new System.Drawing.Point(655, 112);
-            this.simpleButtonBackSpace.Name = "simpleButtonBackSpace";
-            this.simpleButtonBackSpace.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonBackSpace.Size = new System.Drawing.Size(71, 63);
-            this.simpleButtonBackSpace.StyleController = this.layoutControl1;
-            this.simpleButtonBackSpace.TabIndex = 16;
-            this.simpleButtonBackSpace.Text = "←";
-            this.simpleButtonBackSpace.Click += new System.EventHandler(this.simpleButtonNum_Click);
+            this.btn_BackSpace.AllowFocus = false;
+            this.btn_BackSpace.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_BackSpace.Appearance.Options.UseFont = true;
+            this.btn_BackSpace.Location = new System.Drawing.Point(655, 112);
+            this.btn_BackSpace.Name = "btn_BackSpace";
+            this.btn_BackSpace.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_BackSpace.Size = new System.Drawing.Size(71, 63);
+            this.btn_BackSpace.StyleController = this.lC_InvoiceLine;
+            this.btn_BackSpace.TabIndex = 16;
+            this.btn_BackSpace.Text = "←";
+            this.btn_BackSpace.Click += new System.EventHandler(this.btn_Num_Click);
             // 
-            // textEditBarcode
+            // txtEdit_Barcode
             // 
-            this.textEditBarcode.Location = new System.Drawing.Point(509, 45);
-            this.textEditBarcode.Name = "textEditBarcode";
-            this.textEditBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 17F);
-            this.textEditBarcode.Properties.Appearance.Options.UseFont = true;
-            this.textEditBarcode.Size = new System.Drawing.Size(217, 34);
-            this.textEditBarcode.StyleController = this.layoutControl1;
-            this.textEditBarcode.TabIndex = 24;
+            this.txtEdit_Barcode.Location = new System.Drawing.Point(509, 45);
+            this.txtEdit_Barcode.Name = "txtEdit_Barcode";
+            this.txtEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 17F);
+            this.txtEdit_Barcode.Properties.Appearance.Options.UseFont = true;
+            this.txtEdit_Barcode.Size = new System.Drawing.Size(217, 34);
+            this.txtEdit_Barcode.StyleController = this.lC_InvoiceLine;
+            this.txtEdit_Barcode.TabIndex = 24;
             // 
-            // imageComboBoxEditBarcode
+            // imageComboEdit_Barcode
             // 
-            this.imageComboBoxEditBarcode.Location = new System.Drawing.Point(436, 45);
-            this.imageComboBoxEditBarcode.Name = "imageComboBoxEditBarcode";
-            this.imageComboBoxEditBarcode.Properties.AllowFocused = false;
-            this.imageComboBoxEditBarcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.imageComboBoxEditBarcode.Properties.Appearance.Options.UseFont = true;
-            this.imageComboBoxEditBarcode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.imageComboEdit_Barcode.Location = new System.Drawing.Point(436, 45);
+            this.imageComboEdit_Barcode.Name = "imageComboEdit_Barcode";
+            this.imageComboEdit_Barcode.Properties.AllowFocused = false;
+            this.imageComboEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.imageComboEdit_Barcode.Properties.Appearance.Options.UseFont = true;
+            this.imageComboEdit_Barcode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.imageComboBoxEditBarcode.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far;
-            this.imageComboBoxEditBarcode.Properties.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imageComboBoxEditBarcode.Properties.ContextImageOptions.Image")));
-            this.imageComboBoxEditBarcode.Properties.ContextImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("imageComboBoxEditBarcode.Properties.ContextImageOptions.SvgImage")));
-            this.imageComboBoxEditBarcode.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.imageComboBoxEditBarcode.Size = new System.Drawing.Size(69, 36);
-            this.imageComboBoxEditBarcode.StyleController = this.layoutControl1;
-            this.imageComboBoxEditBarcode.TabIndex = 23;
+            this.imageComboEdit_Barcode.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far;
+            this.imageComboEdit_Barcode.Properties.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imageComboEdit_Barcode.Properties.ContextImageOptions.Image")));
+            this.imageComboEdit_Barcode.Properties.ContextImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("imageComboEdit_Barcode.Properties.ContextImageOptions.SvgImage")));
+            this.imageComboEdit_Barcode.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.imageComboEdit_Barcode.Size = new System.Drawing.Size(69, 36);
+            this.imageComboEdit_Barcode.StyleController = this.lC_InvoiceLine;
+            this.imageComboEdit_Barcode.TabIndex = 23;
             // 
-            // gridControlSale
+            // gC_Sale
             // 
-            this.gridControlSale.DataMember = "TrInvoiceLine";
-            this.gridControlSale.Location = new System.Drawing.Point(24, 45);
-            this.gridControlSale.MainView = this.gridView11;
-            this.gridControlSale.Name = "gridControlSale";
-            this.gridControlSale.Size = new System.Drawing.Size(384, 623);
-            this.gridControlSale.TabIndex = 4;
-            this.gridControlSale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView11});
-            this.gridControlSale.DoubleClick += new System.EventHandler(this.gridControl11_DoubleClick);
-            this.gridControlSale.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControl11_MouseUp);
+            this.gC_Sale.DataMember = "TrInvoiceLine";
+            this.gC_Sale.Location = new System.Drawing.Point(24, 45);
+            this.gC_Sale.MainView = this.gV_InvoiceLine;
+            this.gC_Sale.Name = "gC_Sale";
+            this.gC_Sale.Size = new System.Drawing.Size(384, 623);
+            this.gC_Sale.TabIndex = 4;
+            this.gC_Sale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gV_InvoiceLine});
+            this.gC_Sale.DoubleClick += new System.EventHandler(this.gC_Sale_DoubleClick);
+            this.gC_Sale.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gC_Sale_MouseUp);
             // 
-            // gridView11
+            // gV_InvoiceLine
             // 
-            this.gridView11.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gridView11.Appearance.FooterPanel.Options.UseFont = true;
-            this.gridView11.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(221)))), ((int)(((byte)(245)))));
-            this.gridView11.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.gridView11.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gridView11.Appearance.Row.Options.UseFont = true;
-            this.gridView11.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.columnProductDescription,
-            this.columnQty,
-            this.columnPrice,
-            this.columnNetAmount,
-            this.columnBarcode,
-            this.columnPosDiscount,
-            this.columnAmount,
-            this.columnVatRate});
-            this.gridView11.GridControl = this.gridControlSale;
-            this.gridView11.Name = "gridView11";
-            this.gridView11.OptionsBehavior.Editable = false;
-            this.gridView11.OptionsView.AutoCalcPreviewLineCount = true;
-            this.gridView11.OptionsView.ShowFooter = true;
-            this.gridView11.OptionsView.ShowGroupPanel = false;
-            this.gridView11.OptionsView.ShowIndicator = false;
-            this.gridView11.OptionsView.ShowPreview = true;
-            this.gridView11.PreviewIndent = 10;
-            this.gridView11.PreviewLineCount = 5;
-            this.gridView11.CalcPreviewText += new DevExpress.XtraGrid.Views.Grid.CalcPreviewTextEventHandler(this.gridView11_CalcPreviewText);
+            this.gV_InvoiceLine.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_InvoiceLine.Appearance.FooterPanel.Options.UseFont = true;
+            this.gV_InvoiceLine.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gV_InvoiceLine.Appearance.Row.Options.UseFont = true;
+            this.gV_InvoiceLine.OptionsView.ShowGroupPanel = false;
+            this.gV_InvoiceLine.OptionsView.ShowIndicator = false;
+            this.gV_InvoiceLine.OptionsBehavior.Editable = false;
+
+            this.gV_InvoiceLine.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(221)))), ((int)(((byte)(245)))));
+            this.gV_InvoiceLine.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gV_InvoiceLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_ProductDesc,
+            this.col_Qty,
+            this.col_Price,
+            this.col_NetAmount,
+            this.col_Barcode,
+            this.col_PosDiscount,
+            this.col_Amount,
+            this.col_VatRate});
+            this.gV_InvoiceLine.GridControl = this.gC_Sale;
+            this.gV_InvoiceLine.Name = "gV_InvoiceLine";
+            this.gV_InvoiceLine.OptionsView.ShowFooter = true;
+            this.gV_InvoiceLine.OptionsView.AutoCalcPreviewLineCount = true;
+            this.gV_InvoiceLine.OptionsView.ShowPreview = true;
+            this.gV_InvoiceLine.PreviewIndent = 10;
+            this.gV_InvoiceLine.CalcPreviewText += new DevExpress.XtraGrid.Views.Grid.CalcPreviewTextEventHandler(this.gV_InvoiceLine_CalcPreviewText);
             // 
-            // columnProductDescription
+            // col_ProductDesc
             // 
-            this.columnProductDescription.Caption = "Məhsul";
-            this.columnProductDescription.FieldName = "ProductDescription";
-            this.columnProductDescription.Name = "columnProductDescription";
-            this.columnProductDescription.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.col_ProductDesc.Caption = "Məhsul";
+            this.col_ProductDesc.FieldName = "ProductDescription";
+            this.col_ProductDesc.Name = "col_ProductDesc";
+            this.col_ProductDesc.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "ProductDescription", "Toplam:")});
-            this.columnProductDescription.Visible = true;
-            this.columnProductDescription.VisibleIndex = 0;
-            this.columnProductDescription.Width = 230;
+            this.col_ProductDesc.Visible = true;
+            this.col_ProductDesc.VisibleIndex = 0;
+            this.col_ProductDesc.Width = 230;
             // 
-            // columnQty
+            // col_Qty
             // 
-            this.columnQty.Caption = "Say";
-            this.columnQty.FieldName = "Qty";
-            this.columnQty.Name = "columnQty";
-            this.columnQty.Visible = true;
-            this.columnQty.VisibleIndex = 1;
-            this.columnQty.Width = 39;
+            this.col_Qty.Caption = "Say";
+            this.col_Qty.FieldName = "Qty";
+            this.col_Qty.Name = "col_Qty";
+            this.col_Qty.Visible = true;
+            this.col_Qty.VisibleIndex = 1;
+            this.col_Qty.Width = 39;
             // 
-            // columnPrice
+            // col_Price
             // 
-            this.columnPrice.Caption = "Qiymət";
-            this.columnPrice.FieldName = "Price";
-            this.columnPrice.Name = "columnPrice";
-            this.columnPrice.Visible = true;
-            this.columnPrice.VisibleIndex = 2;
-            this.columnPrice.Width = 43;
+            this.col_Price.Caption = "Qiymət";
+            this.col_Price.FieldName = "Price";
+            this.col_Price.Name = "col_Price";
+            this.col_Price.Visible = true;
+            this.col_Price.VisibleIndex = 2;
+            this.col_Price.Width = 43;
             // 
-            // columnNetAmount
+            // col_NetAmount
             // 
-            this.columnNetAmount.Caption = "Net Tutar";
-            this.columnNetAmount.DisplayFormat.FormatString = "{0:0.##}";
-            this.columnNetAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.columnNetAmount.FieldName = "NetAmount";
-            this.columnNetAmount.Name = "columnNetAmount";
-            this.columnNetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.col_NetAmount.Caption = "Net Tutar";
+            this.col_NetAmount.DisplayFormat.FormatString = "{0:0.##}";
+            this.col_NetAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_NetAmount.FieldName = "NetAmount";
+            this.col_NetAmount.Name = "col_NetAmount";
+            this.col_NetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetAmount", "{0:0.##}")});
-            this.columnNetAmount.Visible = true;
-            this.columnNetAmount.VisibleIndex = 3;
-            this.columnNetAmount.Width = 70;
+            this.col_NetAmount.Visible = true;
+            this.col_NetAmount.VisibleIndex = 3;
+            this.col_NetAmount.Width = 70;
             // 
-            // columnBarcode
+            // col_Barcode
             // 
-            this.columnBarcode.Caption = "Barkod";
-            this.columnBarcode.FieldName = "Barcode";
-            this.columnBarcode.Name = "columnBarcode";
+            this.col_Barcode.Caption = "Barkod";
+            this.col_Barcode.FieldName = "Barcode";
+            this.col_Barcode.Name = "col_Barcode";
             // 
-            // columnPosDiscount
+            // col_PosDiscount
             // 
-            this.columnPosDiscount.Caption = "Endirim Faizi";
-            this.columnPosDiscount.FieldName = "PosDiscount";
-            this.columnPosDiscount.Name = "columnPosDiscount";
+            this.col_PosDiscount.Caption = "Endirim Faizi";
+            this.col_PosDiscount.FieldName = "PosDiscount";
+            this.col_PosDiscount.Name = "col_PosDiscount";
             // 
-            // columnAmount
+            // col_Amount
             // 
-            this.columnAmount.Caption = "Tutar";
-            this.columnAmount.FieldName = "Amount";
-            this.columnAmount.Name = "columnAmount";
+            this.col_Amount.Caption = "Tutar";
+            this.col_Amount.FieldName = "Amount";
+            this.col_Amount.Name = "col_Amount";
             // 
-            // columnVatRate
+            // col_VatRate
             // 
-            this.columnVatRate.Caption = "ƏDV";
-            this.columnVatRate.FieldName = "VatRate";
-            this.columnVatRate.Name = "columnVatRate";
+            this.col_VatRate.Caption = "ƏDV";
+            this.col_VatRate.FieldName = "VatRate";
+            this.col_VatRate.Name = "col_VatRate";
             // 
-            // simpleButtonProductSearch
+            // btn_ProductSearch
             // 
-            this.simpleButtonProductSearch.AllowFocus = false;
-            this.simpleButtonProductSearch.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonProductSearch.Appearance.Options.UseBackColor = true;
-            this.simpleButtonProductSearch.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonProductSearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonProductSearch.ImageOptions.SvgImage")));
-            this.simpleButtonProductSearch.Location = new System.Drawing.Point(754, 234);
-            this.simpleButtonProductSearch.Name = "simpleButtonProductSearch";
-            this.simpleButtonProductSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonProductSearch.Size = new System.Drawing.Size(88, 71);
-            this.simpleButtonProductSearch.StyleController = this.layoutControl1;
-            this.simpleButtonProductSearch.TabIndex = 20;
-            this.simpleButtonProductSearch.Text = "Məhsul";
-            this.simpleButtonProductSearch.Click += new System.EventHandler(this.simpleButtonProductSearch_Click);
+            this.btn_ProductSearch.AllowFocus = false;
+            this.btn_ProductSearch.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ProductSearch.Appearance.Options.UseBackColor = true;
+            this.btn_ProductSearch.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btn_ProductSearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_ProductSearch.ImageOptions.SvgImage")));
+            this.btn_ProductSearch.Location = new System.Drawing.Point(754, 234);
+            this.btn_ProductSearch.Name = "btn_ProductSearch";
+            this.btn_ProductSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_ProductSearch.Size = new System.Drawing.Size(88, 71);
+            this.btn_ProductSearch.StyleController = this.lC_InvoiceLine;
+            this.btn_ProductSearch.TabIndex = 20;
+            this.btn_ProductSearch.Text = "Məhsul";
+            this.btn_ProductSearch.Click += new System.EventHandler(this.btn_ProductSearch_Click);
             // 
-            // simpleButtonDiscount
+            // btn_Discount
             // 
-            this.simpleButtonDiscount.AllowFocus = false;
-            this.simpleButtonDiscount.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonDiscount.Appearance.Options.UseBackColor = true;
-            this.simpleButtonDiscount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonDiscount.ImageOptions.Image")));
-            this.simpleButtonDiscount.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonDiscount.Location = new System.Drawing.Point(846, 234);
-            this.simpleButtonDiscount.Name = "simpleButtonDiscount";
-            this.simpleButtonDiscount.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonDiscount.Size = new System.Drawing.Size(88, 71);
-            this.simpleButtonDiscount.StyleController = this.layoutControl1;
-            this.simpleButtonDiscount.TabIndex = 25;
-            this.simpleButtonDiscount.Text = "Endirim";
-            this.simpleButtonDiscount.Click += new System.EventHandler(this.simpleButtonDiscount_Click);
+            this.btn_Discount.AllowFocus = false;
+            this.btn_Discount.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Discount.Appearance.Options.UseBackColor = true;
+            this.btn_Discount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Discount.ImageOptions.Image")));
+            this.btn_Discount.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btn_Discount.Location = new System.Drawing.Point(846, 234);
+            this.btn_Discount.Name = "btn_Discount";
+            this.btn_Discount.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Discount.Size = new System.Drawing.Size(88, 71);
+            this.btn_Discount.StyleController = this.lC_InvoiceLine;
+            this.btn_Discount.TabIndex = 25;
+            this.btn_Discount.Text = "Endirim";
+            this.btn_Discount.Click += new System.EventHandler(this.btn_Discount_Click);
             // 
-            // simpleButtonCancelInvoice
+            // btn_CancelInvoice
             // 
-            this.simpleButtonCancelInvoice.AllowFocus = false;
-            this.simpleButtonCancelInvoice.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCancelInvoice.Appearance.Options.UseBackColor = true;
-            this.simpleButtonCancelInvoice.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancelInvoice.ImageOptions.Image")));
-            this.simpleButtonCancelInvoice.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonCancelInvoice.Location = new System.Drawing.Point(1030, 234);
-            this.simpleButtonCancelInvoice.Name = "simpleButtonCancelInvoice";
-            this.simpleButtonCancelInvoice.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonCancelInvoice.Size = new System.Drawing.Size(88, 71);
-            this.simpleButtonCancelInvoice.StyleController = this.layoutControl1;
-            this.simpleButtonCancelInvoice.TabIndex = 29;
-            this.simpleButtonCancelInvoice.Text = "Çeki Ləğv Et";
-            this.simpleButtonCancelInvoice.Click += new System.EventHandler(this.simpleButtonCancelInvoice_Click);
+            this.btn_CancelInvoice.AllowFocus = false;
+            this.btn_CancelInvoice.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CancelInvoice.Appearance.Options.UseBackColor = true;
+            this.btn_CancelInvoice.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CancelInvoice.ImageOptions.Image")));
+            this.btn_CancelInvoice.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btn_CancelInvoice.Location = new System.Drawing.Point(1030, 234);
+            this.btn_CancelInvoice.Name = "btn_CancelInvoice";
+            this.btn_CancelInvoice.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_CancelInvoice.Size = new System.Drawing.Size(88, 71);
+            this.btn_CancelInvoice.StyleController = this.lC_InvoiceLine;
+            this.btn_CancelInvoice.TabIndex = 29;
+            this.btn_CancelInvoice.Text = "Çeki Ləğv Et";
+            this.btn_CancelInvoice.Click += new System.EventHandler(this.btn_CancelInvoice_Click);
             // 
-            // simpleButtonDeleteLine
+            // btn_DeleteLine
             // 
-            this.simpleButtonDeleteLine.AllowFocus = false;
-            this.simpleButtonDeleteLine.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonDeleteLine.Appearance.Options.UseBackColor = true;
-            this.simpleButtonDeleteLine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonDeleteLine.ImageOptions.Image")));
-            this.simpleButtonDeleteLine.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonDeleteLine.Location = new System.Drawing.Point(938, 234);
-            this.simpleButtonDeleteLine.Name = "simpleButtonDeleteLine";
-            this.simpleButtonDeleteLine.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonDeleteLine.Size = new System.Drawing.Size(88, 71);
-            this.simpleButtonDeleteLine.StyleController = this.layoutControl1;
-            this.simpleButtonDeleteLine.TabIndex = 30;
-            this.simpleButtonDeleteLine.Text = "Sətri Sil";
-            this.simpleButtonDeleteLine.Click += new System.EventHandler(this.simpleButtonDeleteLine_Click);
+            this.btn_DeleteLine.AllowFocus = false;
+            this.btn_DeleteLine.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_DeleteLine.Appearance.Options.UseBackColor = true;
+            this.btn_DeleteLine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_DeleteLine.ImageOptions.Image")));
+            this.btn_DeleteLine.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btn_DeleteLine.Location = new System.Drawing.Point(938, 234);
+            this.btn_DeleteLine.Name = "btn_DeleteLine";
+            this.btn_DeleteLine.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_DeleteLine.Size = new System.Drawing.Size(88, 71);
+            this.btn_DeleteLine.StyleController = this.lC_InvoiceLine;
+            this.btn_DeleteLine.TabIndex = 30;
+            this.btn_DeleteLine.Text = "Sətri Sil";
+            this.btn_DeleteLine.Click += new System.EventHandler(this.btn_DeleteLine_Click);
             // 
-            // simpleButtonSalesPerson
+            // btn_SalesPerson
             // 
-            this.simpleButtonSalesPerson.AllowFocus = false;
-            this.simpleButtonSalesPerson.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonSalesPerson.Appearance.Options.UseBackColor = true;
-            this.simpleButtonSalesPerson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonSalesPerson.ImageOptions.Image")));
-            this.simpleButtonSalesPerson.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonSalesPerson.Location = new System.Drawing.Point(754, 309);
-            this.simpleButtonSalesPerson.Name = "simpleButtonSalesPerson";
-            this.simpleButtonSalesPerson.Size = new System.Drawing.Size(88, 71);
-            this.simpleButtonSalesPerson.StyleController = this.layoutControl1;
-            this.simpleButtonSalesPerson.TabIndex = 40;
-            this.simpleButtonSalesPerson.Text = "Satıcı";
+            this.btn_SalesPerson.AllowFocus = false;
+            this.btn_SalesPerson.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_SalesPerson.Appearance.Options.UseBackColor = true;
+            this.btn_SalesPerson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_SalesPerson.ImageOptions.Image")));
+            this.btn_SalesPerson.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btn_SalesPerson.Location = new System.Drawing.Point(754, 309);
+            this.btn_SalesPerson.Name = "btn_SalesPerson";
+            this.btn_SalesPerson.Size = new System.Drawing.Size(88, 71);
+            this.btn_SalesPerson.StyleController = this.lC_InvoiceLine;
+            this.btn_SalesPerson.TabIndex = 40;
+            this.btn_SalesPerson.Text = "Satıcı";
             // 
-            // textEditCustomerPhoneNum
+            // txtEdit_CustomerPhoneNum
             // 
-            this.textEditCustomerPhoneNum.Enabled = false;
-            this.textEditCustomerPhoneNum.Location = new System.Drawing.Point(819, 93);
-            this.textEditCustomerPhoneNum.Name = "textEditCustomerPhoneNum";
-            this.textEditCustomerPhoneNum.Properties.AllowFocused = false;
-            this.textEditCustomerPhoneNum.Size = new System.Drawing.Size(244, 20);
-            this.textEditCustomerPhoneNum.StyleController = this.layoutControl1;
-            this.textEditCustomerPhoneNum.TabIndex = 37;
+            this.txtEdit_CustomerPhoneNum.Enabled = false;
+            this.txtEdit_CustomerPhoneNum.Location = new System.Drawing.Point(819, 93);
+            this.txtEdit_CustomerPhoneNum.Name = "txtEdit_CustomerPhoneNum";
+            this.txtEdit_CustomerPhoneNum.Properties.AllowFocused = false;
+            this.txtEdit_CustomerPhoneNum.Size = new System.Drawing.Size(244, 20);
+            this.txtEdit_CustomerPhoneNum.StyleController = this.lC_InvoiceLine;
+            this.txtEdit_CustomerPhoneNum.TabIndex = 37;
             // 
-            // textEditCustomerAddress
+            // txtEdit_CustomerAddress
             // 
-            this.textEditCustomerAddress.Enabled = false;
-            this.textEditCustomerAddress.Location = new System.Drawing.Point(819, 117);
-            this.textEditCustomerAddress.Name = "textEditCustomerAddress";
-            this.textEditCustomerAddress.Properties.AllowFocused = false;
-            this.textEditCustomerAddress.Size = new System.Drawing.Size(244, 20);
-            this.textEditCustomerAddress.StyleController = this.layoutControl1;
-            this.textEditCustomerAddress.TabIndex = 38;
+            this.txtEdit_CustomerAddress.Enabled = false;
+            this.txtEdit_CustomerAddress.Location = new System.Drawing.Point(819, 117);
+            this.txtEdit_CustomerAddress.Name = "txtEdit_CustomerAddress";
+            this.txtEdit_CustomerAddress.Properties.AllowFocused = false;
+            this.txtEdit_CustomerAddress.Size = new System.Drawing.Size(244, 20);
+            this.txtEdit_CustomerAddress.StyleController = this.lC_InvoiceLine;
+            this.txtEdit_CustomerAddress.TabIndex = 38;
             // 
-            // textEditCustomerName
+            // txtEdit_CustomerName
             // 
-            this.textEditCustomerName.Enabled = false;
-            this.textEditCustomerName.Location = new System.Drawing.Point(819, 69);
-            this.textEditCustomerName.Name = "textEditCustomerName";
-            this.textEditCustomerName.Properties.AllowFocused = false;
-            this.textEditCustomerName.Size = new System.Drawing.Size(244, 20);
-            this.textEditCustomerName.StyleController = this.layoutControl1;
-            this.textEditCustomerName.TabIndex = 35;
+            this.txtEdit_CustomerName.Enabled = false;
+            this.txtEdit_CustomerName.Location = new System.Drawing.Point(819, 69);
+            this.txtEdit_CustomerName.Name = "txtEdit_CustomerName";
+            this.txtEdit_CustomerName.Properties.AllowFocused = false;
+            this.txtEdit_CustomerName.Size = new System.Drawing.Size(244, 20);
+            this.txtEdit_CustomerName.StyleController = this.lC_InvoiceLine;
+            this.txtEdit_CustomerName.TabIndex = 35;
             // 
-            // simpleButton3
+            // btn_CustomerSearch
             // 
-            this.simpleButton3.AllowFocus = false;
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton3.Appearance.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseBorderColor = true;
-            this.simpleButton3.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearanceDisabled.Options.UseBackColor = true;
-            this.simpleButton3.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton3.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearanceHovered.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearanceHovered.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearanceHovered.Options.UseBackColor = true;
-            this.simpleButton3.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton3.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearancePressed.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.AppearancePressed.Options.UseBackColor = true;
-            this.simpleButton3.AppearancePressed.Options.UseBorderColor = true;
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton3.Location = new System.Drawing.Point(1067, 45);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButton3.Size = new System.Drawing.Size(51, 44);
-            this.simpleButton3.StyleController = this.layoutControl1;
-            this.simpleButton3.TabIndex = 32;
-            this.simpleButton3.Text = "simpleButton3";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButtonCustomer_Click);
+            this.btn_CustomerSearch.AllowFocus = false;
+            this.btn_CustomerSearch.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.Appearance.Options.UseBackColor = true;
+            this.btn_CustomerSearch.Appearance.Options.UseBorderColor = true;
+            this.btn_CustomerSearch.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearanceDisabled.Options.UseBackColor = true;
+            this.btn_CustomerSearch.AppearanceDisabled.Options.UseBorderColor = true;
+            this.btn_CustomerSearch.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearanceHovered.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearanceHovered.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearanceHovered.Options.UseBackColor = true;
+            this.btn_CustomerSearch.AppearanceHovered.Options.UseBorderColor = true;
+            this.btn_CustomerSearch.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearancePressed.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerSearch.AppearancePressed.Options.UseBackColor = true;
+            this.btn_CustomerSearch.AppearancePressed.Options.UseBorderColor = true;
+            this.btn_CustomerSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerSearch.ImageOptions.Image")));
+            this.btn_CustomerSearch.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_CustomerSearch.Location = new System.Drawing.Point(1067, 45);
+            this.btn_CustomerSearch.Name = "btn_CustomerSearch";
+            this.btn_CustomerSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_CustomerSearch.Size = new System.Drawing.Size(51, 44);
+            this.btn_CustomerSearch.StyleController = this.lC_InvoiceLine;
+            this.btn_CustomerSearch.TabIndex = 32;
+            this.btn_CustomerSearch.Text = "simpleButton3";
+            this.btn_CustomerSearch.Click += new System.EventHandler(this.btn_Customer_Click);
             // 
-            // simpleButtonCustomerEdit
+            // btn_CustomerEdit
             // 
-            this.simpleButtonCustomerEdit.AllowFocus = false;
-            this.simpleButtonCustomerEdit.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.Appearance.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.Appearance.Options.UseBackColor = true;
-            this.simpleButtonCustomerEdit.Appearance.Options.UseBorderColor = true;
-            this.simpleButtonCustomerEdit.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearanceDisabled.Options.UseBackColor = true;
-            this.simpleButtonCustomerEdit.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButtonCustomerEdit.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearanceHovered.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearanceHovered.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearanceHovered.Options.UseBackColor = true;
-            this.simpleButtonCustomerEdit.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButtonCustomerEdit.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearancePressed.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerEdit.AppearancePressed.Options.UseBackColor = true;
-            this.simpleButtonCustomerEdit.AppearancePressed.Options.UseBorderColor = true;
-            this.simpleButtonCustomerEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCustomerEdit.ImageOptions.Image")));
-            this.simpleButtonCustomerEdit.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonCustomerEdit.Location = new System.Drawing.Point(1067, 141);
-            this.simpleButtonCustomerEdit.Name = "simpleButtonCustomerEdit";
-            this.simpleButtonCustomerEdit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonCustomerEdit.Size = new System.Drawing.Size(51, 44);
-            this.simpleButtonCustomerEdit.StyleController = this.layoutControl1;
-            this.simpleButtonCustomerEdit.TabIndex = 33;
-            this.simpleButtonCustomerEdit.Text = "simpleButton4";
+            this.btn_CustomerEdit.AllowFocus = false;
+            this.btn_CustomerEdit.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.Appearance.Options.UseBackColor = true;
+            this.btn_CustomerEdit.Appearance.Options.UseBorderColor = true;
+            this.btn_CustomerEdit.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearanceDisabled.Options.UseBackColor = true;
+            this.btn_CustomerEdit.AppearanceDisabled.Options.UseBorderColor = true;
+            this.btn_CustomerEdit.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearanceHovered.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearanceHovered.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearanceHovered.Options.UseBackColor = true;
+            this.btn_CustomerEdit.AppearanceHovered.Options.UseBorderColor = true;
+            this.btn_CustomerEdit.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearancePressed.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerEdit.AppearancePressed.Options.UseBackColor = true;
+            this.btn_CustomerEdit.AppearancePressed.Options.UseBorderColor = true;
+            this.btn_CustomerEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerEdit.ImageOptions.Image")));
+            this.btn_CustomerEdit.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_CustomerEdit.Location = new System.Drawing.Point(1067, 141);
+            this.btn_CustomerEdit.Name = "btn_CustomerEdit";
+            this.btn_CustomerEdit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_CustomerEdit.Size = new System.Drawing.Size(51, 44);
+            this.btn_CustomerEdit.StyleController = this.lC_InvoiceLine;
+            this.btn_CustomerEdit.TabIndex = 33;
+            this.btn_CustomerEdit.Text = "simpleButton4";
             // 
-            // simpleButtonCustomerAdd
+            // btn_CustomerAdd
             // 
-            this.simpleButtonCustomerAdd.AllowFocus = false;
-            this.simpleButtonCustomerAdd.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.Appearance.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.Appearance.Options.UseBackColor = true;
-            this.simpleButtonCustomerAdd.Appearance.Options.UseBorderColor = true;
-            this.simpleButtonCustomerAdd.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearanceDisabled.Options.UseBackColor = true;
-            this.simpleButtonCustomerAdd.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButtonCustomerAdd.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearanceHovered.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearanceHovered.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearanceHovered.Options.UseBackColor = true;
-            this.simpleButtonCustomerAdd.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButtonCustomerAdd.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearancePressed.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCustomerAdd.AppearancePressed.Options.UseBackColor = true;
-            this.simpleButtonCustomerAdd.AppearancePressed.Options.UseBorderColor = true;
-            this.simpleButtonCustomerAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCustomerAdd.ImageOptions.Image")));
-            this.simpleButtonCustomerAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonCustomerAdd.Location = new System.Drawing.Point(1067, 93);
-            this.simpleButtonCustomerAdd.Name = "simpleButtonCustomerAdd";
-            this.simpleButtonCustomerAdd.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonCustomerAdd.Size = new System.Drawing.Size(51, 44);
-            this.simpleButtonCustomerAdd.StyleController = this.layoutControl1;
-            this.simpleButtonCustomerAdd.TabIndex = 31;
-            this.simpleButtonCustomerAdd.Text = "simpleButton1";
-            this.simpleButtonCustomerAdd.Click += new System.EventHandler(this.simpleButtonCustomer_Click);
+            this.btn_CustomerAdd.AllowFocus = false;
+            this.btn_CustomerAdd.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.Appearance.Options.UseBackColor = true;
+            this.btn_CustomerAdd.Appearance.Options.UseBorderColor = true;
+            this.btn_CustomerAdd.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearanceDisabled.Options.UseBackColor = true;
+            this.btn_CustomerAdd.AppearanceDisabled.Options.UseBorderColor = true;
+            this.btn_CustomerAdd.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearanceHovered.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearanceHovered.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearanceHovered.Options.UseBackColor = true;
+            this.btn_CustomerAdd.AppearanceHovered.Options.UseBorderColor = true;
+            this.btn_CustomerAdd.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearancePressed.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearancePressed.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_CustomerAdd.AppearancePressed.Options.UseBackColor = true;
+            this.btn_CustomerAdd.AppearancePressed.Options.UseBorderColor = true;
+            this.btn_CustomerAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerAdd.ImageOptions.Image")));
+            this.btn_CustomerAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_CustomerAdd.Location = new System.Drawing.Point(1067, 93);
+            this.btn_CustomerAdd.Name = "btn_CustomerAdd";
+            this.btn_CustomerAdd.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_CustomerAdd.Size = new System.Drawing.Size(51, 44);
+            this.btn_CustomerAdd.StyleController = this.lC_InvoiceLine;
+            this.btn_CustomerAdd.TabIndex = 31;
+            this.btn_CustomerAdd.Text = "simpleButton1";
+            this.btn_CustomerAdd.Click += new System.EventHandler(this.btn_Customer_Click);
             // 
-            // textEditBonCardNum
+            // txtEdit_BonCardNum
             // 
-            this.textEditBonCardNum.Enabled = false;
-            this.textEditBonCardNum.Location = new System.Drawing.Point(819, 165);
-            this.textEditBonCardNum.Name = "textEditBonCardNum";
-            this.textEditBonCardNum.Properties.AllowFocused = false;
-            this.textEditBonCardNum.Size = new System.Drawing.Size(244, 20);
-            this.textEditBonCardNum.StyleController = this.layoutControl1;
-            this.textEditBonCardNum.TabIndex = 39;
+            this.txtEdit_BonCardNum.Enabled = false;
+            this.txtEdit_BonCardNum.Location = new System.Drawing.Point(819, 165);
+            this.txtEdit_BonCardNum.Name = "txtEdit_BonCardNum";
+            this.txtEdit_BonCardNum.Properties.AllowFocused = false;
+            this.txtEdit_BonCardNum.Size = new System.Drawing.Size(244, 20);
+            this.txtEdit_BonCardNum.StyleController = this.lC_InvoiceLine;
+            this.txtEdit_BonCardNum.TabIndex = 39;
             // 
-            // textEditCustomerBirthdate
+            // txtEdit_CustomerBirthdate
             // 
-            this.textEditCustomerBirthdate.Enabled = false;
-            this.textEditCustomerBirthdate.Location = new System.Drawing.Point(819, 141);
-            this.textEditCustomerBirthdate.Name = "textEditCustomerBirthdate";
-            this.textEditCustomerBirthdate.Size = new System.Drawing.Size(244, 20);
-            this.textEditCustomerBirthdate.StyleController = this.layoutControl1;
-            this.textEditCustomerBirthdate.TabIndex = 41;
+            this.txtEdit_CustomerBirthdate.Enabled = false;
+            this.txtEdit_CustomerBirthdate.Location = new System.Drawing.Point(819, 141);
+            this.txtEdit_CustomerBirthdate.Name = "txtEdit_CustomerBirthdate";
+            this.txtEdit_CustomerBirthdate.Size = new System.Drawing.Size(244, 20);
+            this.txtEdit_CustomerBirthdate.StyleController = this.lC_InvoiceLine;
+            this.txtEdit_CustomerBirthdate.TabIndex = 41;
             // 
-            // textEditCustomerCode
+            // txtEdit_CustomerCode
             // 
-            this.textEditCustomerCode.Enabled = false;
-            this.textEditCustomerCode.Location = new System.Drawing.Point(819, 45);
-            this.textEditCustomerCode.Name = "textEditCustomerCode";
-            this.textEditCustomerCode.Size = new System.Drawing.Size(244, 20);
-            this.textEditCustomerCode.StyleController = this.layoutControl1;
-            this.textEditCustomerCode.TabIndex = 42;
+            this.txtEdit_CustomerCode.Enabled = false;
+            this.txtEdit_CustomerCode.Location = new System.Drawing.Point(819, 45);
+            this.txtEdit_CustomerCode.Name = "txtEdit_CustomerCode";
+            this.txtEdit_CustomerCode.Size = new System.Drawing.Size(244, 20);
+            this.txtEdit_CustomerCode.StyleController = this.lC_InvoiceLine;
+            this.txtEdit_CustomerCode.TabIndex = 42;
             // 
-            // simpleButtonCash
+            // btn_Cash
             // 
-            this.simpleButtonCash.AllowFocus = false;
-            this.simpleButtonCash.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButtonCash.Appearance.Options.UseBackColor = true;
-            this.simpleButtonCash.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCash.ImageOptions.Image")));
-            this.simpleButtonCash.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonCash.Location = new System.Drawing.Point(754, 581);
-            this.simpleButtonCash.Name = "simpleButtonCash";
-            this.simpleButtonCash.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonCash.Size = new System.Drawing.Size(88, 87);
-            this.simpleButtonCash.StyleController = this.layoutControl1;
-            this.simpleButtonCash.TabIndex = 27;
-            this.simpleButtonCash.Text = "Cash";
-            this.simpleButtonCash.Click += new System.EventHandler(this.simpleButtonPayment_Click);
+            this.btn_Cash.AllowFocus = false;
+            this.btn_Cash.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Cash.Appearance.Options.UseBackColor = true;
+            this.btn_Cash.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cash.ImageOptions.Image")));
+            this.btn_Cash.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Cash.Location = new System.Drawing.Point(754, 581);
+            this.btn_Cash.Name = "btn_Cash";
+            this.btn_Cash.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Cash.Size = new System.Drawing.Size(88, 87);
+            this.btn_Cash.StyleController = this.lC_InvoiceLine;
+            this.btn_Cash.TabIndex = 27;
+            this.btn_Cash.Text = "Cash";
+            this.btn_Cash.Click += new System.EventHandler(this.btn_Payment_Click);
             // 
-            // simpleButtonCashless
+            // btn_Cashless
             // 
-            this.simpleButtonCashless.AllowFocus = false;
-            this.simpleButtonCashless.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCashless.ImageOptions.Image")));
-            this.simpleButtonCashless.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonCashless.Location = new System.Drawing.Point(846, 581);
-            this.simpleButtonCashless.Name = "simpleButtonCashless";
-            this.simpleButtonCashless.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonCashless.Size = new System.Drawing.Size(88, 87);
-            this.simpleButtonCashless.StyleController = this.layoutControl1;
-            this.simpleButtonCashless.TabIndex = 26;
-            this.simpleButtonCashless.Text = "Visa";
-            this.simpleButtonCashless.Click += new System.EventHandler(this.simpleButtonPayment_Click);
+            this.btn_Cashless.AllowFocus = false;
+            this.btn_Cashless.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cashless.ImageOptions.Image")));
+            this.btn_Cashless.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Cashless.Location = new System.Drawing.Point(846, 581);
+            this.btn_Cashless.Name = "btn_Cashless";
+            this.btn_Cashless.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Cashless.Size = new System.Drawing.Size(88, 87);
+            this.btn_Cashless.StyleController = this.lC_InvoiceLine;
+            this.btn_Cashless.TabIndex = 26;
+            this.btn_Cashless.Text = "Visa";
+            this.btn_Cashless.Click += new System.EventHandler(this.btn_Payment_Click);
             // 
-            // simpleButtonCustomerBonus
+            // btn_CustomerBonus
             // 
-            this.simpleButtonCustomerBonus.AllowFocus = false;
-            this.simpleButtonCustomerBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCustomerBonus.ImageOptions.Image")));
-            this.simpleButtonCustomerBonus.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButtonCustomerBonus.Location = new System.Drawing.Point(938, 581);
-            this.simpleButtonCustomerBonus.Name = "simpleButtonCustomerBonus";
-            this.simpleButtonCustomerBonus.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButtonCustomerBonus.Size = new System.Drawing.Size(88, 87);
-            this.simpleButtonCustomerBonus.StyleController = this.layoutControl1;
-            this.simpleButtonCustomerBonus.TabIndex = 28;
-            this.simpleButtonCustomerBonus.Text = "Bonus";
-            this.simpleButtonCustomerBonus.Click += new System.EventHandler(this.simpleButtonPayment_Click);
+            this.btn_CustomerBonus.AllowFocus = false;
+            this.btn_CustomerBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerBonus.ImageOptions.Image")));
+            this.btn_CustomerBonus.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_CustomerBonus.Location = new System.Drawing.Point(938, 581);
+            this.btn_CustomerBonus.Name = "btn_CustomerBonus";
+            this.btn_CustomerBonus.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_CustomerBonus.Size = new System.Drawing.Size(88, 87);
+            this.btn_CustomerBonus.StyleController = this.lC_InvoiceLine;
+            this.btn_CustomerBonus.TabIndex = 28;
+            this.btn_CustomerBonus.Text = "Bonus";
+            this.btn_CustomerBonus.Click += new System.EventHandler(this.btn_Payment_Click);
             // 
-            // Root
+            // lCG_Root
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroupBarcode,
-            this.layoutControlGroupInvoice,
-            this.layoutControlGroupFunction,
-            this.layoutControlGroupCustomer,
-            this.layoutControlGroupPayment,
+            this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lCG_Root.GroupBordersVisible = false;
+            this.lCG_Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCG_Barcode,
+            this.lCG_Invoice,
+            this.lCG_Function,
+            this.lCG_Customer,
+            this.lCG_Payment,
             this.layoutControlGroup2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1142, 692);
-            this.Root.TextVisible = false;
+            this.lCG_Root.Name = "lCG_Root";
+            this.lCG_Root.Size = new System.Drawing.Size(1142, 692);
+            this.lCG_Root.TextVisible = false;
             // 
-            // layoutControlGroupBarcode
+            // lCG_Barcode
             // 
-            this.layoutControlGroupBarcode.CustomizationFormText = "Barcode";
-            this.layoutControlGroupBarcode.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.layoutControlGroupBarcode.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemStar,
-            this.layoutControlItemComma,
-            this.layoutControlItemNum0,
-            this.layoutControlItemNum1,
-            this.layoutControlItemNum2,
-            this.layoutControlItemNum3,
-            this.layoutControlItemNum4,
-            this.layoutControlItemNum5,
-            this.layoutControlItemNum6,
-            this.layoutControlItemNum8,
-            this.layoutControlItemNum9,
-            this.layoutControlItemNum7,
-            this.layoutControlItemEnter,
-            this.layoutControlItemC,
-            this.layoutControlItemBackSpace,
-            this.layoutControlItemTextBox,
-            this.layoutControlItemComboBox});
-            this.layoutControlGroupBarcode.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.layoutControlGroupBarcode.Location = new System.Drawing.Point(412, 0);
-            this.layoutControlGroupBarcode.Name = "layoutControlGroupBarcode";
+            this.lCG_Barcode.CustomizationFormText = "Barcode";
+            this.lCG_Barcode.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_Star,
+            this.lCI_Comma,
+            this.lCI_Num0,
+            this.lCI_Num1,
+            this.lCI_Num2,
+            this.lCI_Num3,
+            this.lCI_Num4,
+            this.lCI_Num5,
+            this.lCI_Num6,
+            this.lCI_Num8,
+            this.lCI_Num9,
+            this.lCI_Num7,
+            this.lCI_Enter,
+            this.lCI_C,
+            this.lCI_BackSpace,
+            this.lCI_ItemTextBox,
+            this.lCI_ComboBox});
+            this.lCG_Barcode.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
+            this.lCG_Barcode.Location = new System.Drawing.Point(412, 0);
+            this.lCG_Barcode.Name = "lCG_Barcode";
             columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition1.Width = 25D;
             columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
@@ -922,7 +921,7 @@ namespace PointOfSale
             columnDefinition3.Width = 25D;
             columnDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition4.Width = 25D;
-            this.layoutControlGroupBarcode.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
+            this.lCG_Barcode.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
             columnDefinition1,
             columnDefinition2,
             columnDefinition3,
@@ -937,302 +936,300 @@ namespace PointOfSale
             rowDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
             rowDefinition5.Height = 20D;
             rowDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
-            this.layoutControlGroupBarcode.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
+            this.lCG_Barcode.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition1,
             rowDefinition2,
             rowDefinition3,
             rowDefinition4,
             rowDefinition5});
-            this.layoutControlGroupBarcode.Size = new System.Drawing.Size(318, 381);
-            this.layoutControlGroupBarcode.Text = "Barcode";
+            this.lCG_Barcode.Size = new System.Drawing.Size(318, 381);
+            this.lCG_Barcode.Text = "Barcode";
             // 
-            // layoutControlItemStar
+            // lCI_Star
             // 
-            this.layoutControlItemStar.Control = this.simpleButtonStar;
-            this.layoutControlItemStar.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemStar.CustomizationFormText = "layoutControlItemStar";
-            this.layoutControlItemStar.Location = new System.Drawing.Point(0, 268);
-            this.layoutControlItemStar.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemStar.Name = "layoutControlItemStar";
-            this.layoutControlItemStar.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItemStar.Size = new System.Drawing.Size(73, 68);
-            this.layoutControlItemStar.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemStar.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemStar.TextVisible = false;
+            this.lCI_Star.Control = this.btn_Star;
+            this.lCI_Star.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Star.CustomizationFormText = "layoutControlItemStar";
+            this.lCI_Star.Location = new System.Drawing.Point(0, 268);
+            this.lCI_Star.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Star.Name = "lCI_Star";
+            this.lCI_Star.OptionsTableLayoutItem.RowIndex = 4;
+            this.lCI_Star.Size = new System.Drawing.Size(73, 68);
+            this.lCI_Star.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Star.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Star.TextVisible = false;
             // 
-            // layoutControlItemComma
+            // lCI_Comma
             // 
-            this.layoutControlItemComma.Control = this.simpleButtonComma;
-            this.layoutControlItemComma.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemComma.CustomizationFormText = "layoutControlItemComma";
-            this.layoutControlItemComma.Location = new System.Drawing.Point(146, 268);
-            this.layoutControlItemComma.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemComma.Name = "layoutControlItemComma";
-            this.layoutControlItemComma.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItemComma.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItemComma.Size = new System.Drawing.Size(73, 68);
-            this.layoutControlItemComma.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemComma.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemComma.TextVisible = false;
+            this.lCI_Comma.Control = this.btn_Comma;
+            this.lCI_Comma.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Comma.CustomizationFormText = "layoutControlItemComma";
+            this.lCI_Comma.Location = new System.Drawing.Point(146, 268);
+            this.lCI_Comma.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Comma.Name = "lCI_Comma";
+            this.lCI_Comma.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.lCI_Comma.OptionsTableLayoutItem.RowIndex = 4;
+            this.lCI_Comma.Size = new System.Drawing.Size(73, 68);
+            this.lCI_Comma.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Comma.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Comma.TextVisible = false;
             // 
-            // layoutControlItemNum0
+            // lCI_Num0
             // 
-            this.layoutControlItemNum0.Control = this.simpleButtonNum0;
-            this.layoutControlItemNum0.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum0.CustomizationFormText = "layoutControlItemNum0";
-            this.layoutControlItemNum0.Location = new System.Drawing.Point(73, 268);
-            this.layoutControlItemNum0.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum0.Name = "layoutControlItemNum0";
-            this.layoutControlItemNum0.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemNum0.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItemNum0.Size = new System.Drawing.Size(73, 68);
-            this.layoutControlItemNum0.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum0.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum0.TextVisible = false;
+            this.lCI_Num0.Control = this.btn_Num0;
+            this.lCI_Num0.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num0.CustomizationFormText = "layoutControlItemNum0";
+            this.lCI_Num0.Location = new System.Drawing.Point(73, 268);
+            this.lCI_Num0.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num0.Name = "lCI_Num0";
+            this.lCI_Num0.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Num0.OptionsTableLayoutItem.RowIndex = 4;
+            this.lCI_Num0.Size = new System.Drawing.Size(73, 68);
+            this.lCI_Num0.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num0.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num0.TextVisible = false;
             // 
-            // layoutControlItemNum1
+            // lCI_Num1
             // 
-            this.layoutControlItemNum1.Control = this.simpleButtonNum1;
-            this.layoutControlItemNum1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum1.CustomizationFormText = "layoutControlItemNum1";
-            this.layoutControlItemNum1.Location = new System.Drawing.Point(0, 201);
-            this.layoutControlItemNum1.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum1.Name = "layoutControlItemNum1";
-            this.layoutControlItemNum1.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItemNum1.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum1.TextVisible = false;
+            this.lCI_Num1.Control = this.btn_Num1;
+            this.lCI_Num1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num1.CustomizationFormText = "layoutControlItemNum1";
+            this.lCI_Num1.Location = new System.Drawing.Point(0, 201);
+            this.lCI_Num1.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num1.Name = "lCI_Num1";
+            this.lCI_Num1.OptionsTableLayoutItem.RowIndex = 3;
+            this.lCI_Num1.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num1.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num1.TextVisible = false;
             // 
-            // layoutControlItemNum2
+            // lCI_Num2
             // 
-            this.layoutControlItemNum2.Control = this.simpleButtonNum2;
-            this.layoutControlItemNum2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum2.CustomizationFormText = "layoutControlItemNum2";
-            this.layoutControlItemNum2.Location = new System.Drawing.Point(73, 201);
-            this.layoutControlItemNum2.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum2.Name = "layoutControlItemNum2";
-            this.layoutControlItemNum2.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemNum2.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItemNum2.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum2.TextVisible = false;
+            this.lCI_Num2.Control = this.btn_Num2;
+            this.lCI_Num2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num2.CustomizationFormText = "layoutControlItemNum2";
+            this.lCI_Num2.Location = new System.Drawing.Point(73, 201);
+            this.lCI_Num2.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num2.Name = "lCI_Num2";
+            this.lCI_Num2.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Num2.OptionsTableLayoutItem.RowIndex = 3;
+            this.lCI_Num2.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num2.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num2.TextVisible = false;
             // 
-            // layoutControlItemNum3
+            // lCI_Num3
             // 
-            this.layoutControlItemNum3.Control = this.simpleButtonNum3;
-            this.layoutControlItemNum3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum3.CustomizationFormText = "layoutControlItemNum3";
-            this.layoutControlItemNum3.Location = new System.Drawing.Point(146, 201);
-            this.layoutControlItemNum3.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum3.Name = "layoutControlItemNum3";
-            this.layoutControlItemNum3.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItemNum3.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItemNum3.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum3.TextVisible = false;
+            this.lCI_Num3.Control = this.btn_Num3;
+            this.lCI_Num3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num3.CustomizationFormText = "layoutControlItemNum3";
+            this.lCI_Num3.Location = new System.Drawing.Point(146, 201);
+            this.lCI_Num3.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num3.Name = "lCI_Num3";
+            this.lCI_Num3.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.lCI_Num3.OptionsTableLayoutItem.RowIndex = 3;
+            this.lCI_Num3.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num3.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num3.TextVisible = false;
             // 
-            // layoutControlItemNum4
+            // lCI_Num4
             // 
-            this.layoutControlItemNum4.Control = this.simpleButtonNum4;
-            this.layoutControlItemNum4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum4.CustomizationFormText = "layoutControlItemNum4";
-            this.layoutControlItemNum4.Location = new System.Drawing.Point(0, 134);
-            this.layoutControlItemNum4.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum4.Name = "layoutControlItemNum4";
-            this.layoutControlItemNum4.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItemNum4.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum4.TextVisible = false;
+            this.lCI_Num4.Control = this.btn_Num4;
+            this.lCI_Num4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num4.CustomizationFormText = "layoutControlItemNum4";
+            this.lCI_Num4.Location = new System.Drawing.Point(0, 134);
+            this.lCI_Num4.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num4.Name = "lCI_Num4";
+            this.lCI_Num4.OptionsTableLayoutItem.RowIndex = 2;
+            this.lCI_Num4.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num4.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num4.TextVisible = false;
             // 
-            // layoutControlItemNum5
+            // lCI_Num5
             // 
-            this.layoutControlItemNum5.Control = this.simpleButtonNum5;
-            this.layoutControlItemNum5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum5.CustomizationFormText = "layoutControlItemNum5";
-            this.layoutControlItemNum5.Location = new System.Drawing.Point(73, 134);
-            this.layoutControlItemNum5.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum5.Name = "layoutControlItemNum5";
-            this.layoutControlItemNum5.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemNum5.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItemNum5.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum5.TextVisible = false;
+            this.lCI_Num5.Control = this.btn_Num5;
+            this.lCI_Num5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num5.CustomizationFormText = "layoutControlItemNum5";
+            this.lCI_Num5.Location = new System.Drawing.Point(73, 134);
+            this.lCI_Num5.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num5.Name = "lCI_Num5";
+            this.lCI_Num5.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Num5.OptionsTableLayoutItem.RowIndex = 2;
+            this.lCI_Num5.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num5.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num5.TextVisible = false;
             // 
-            // layoutControlItemNum6
+            // lCI_Num6
             // 
-            this.layoutControlItemNum6.Control = this.simpleButtonNum6;
-            this.layoutControlItemNum6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum6.CustomizationFormText = "layoutControlItemNum6";
-            this.layoutControlItemNum6.Location = new System.Drawing.Point(146, 134);
-            this.layoutControlItemNum6.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum6.Name = "layoutControlItemNum6";
-            this.layoutControlItemNum6.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItemNum6.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItemNum6.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum6.TextVisible = false;
+            this.lCI_Num6.Control = this.btn_Num6;
+            this.lCI_Num6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num6.CustomizationFormText = "layoutControlItemNum6";
+            this.lCI_Num6.Location = new System.Drawing.Point(146, 134);
+            this.lCI_Num6.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num6.Name = "lCI_Num6";
+            this.lCI_Num6.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.lCI_Num6.OptionsTableLayoutItem.RowIndex = 2;
+            this.lCI_Num6.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num6.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num6.TextVisible = false;
             // 
-            // layoutControlItemNum8
+            // lCI_Num8
             // 
-            this.layoutControlItemNum8.Control = this.simpleButtonNum8;
-            this.layoutControlItemNum8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum8.CustomizationFormText = "layoutControlItemNum8";
-            this.layoutControlItemNum8.Location = new System.Drawing.Point(73, 67);
-            this.layoutControlItemNum8.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum8.Name = "layoutControlItemNum8";
-            this.layoutControlItemNum8.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemNum8.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItemNum8.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum8.TextVisible = false;
+            this.lCI_Num8.Control = this.btn_Num8;
+            this.lCI_Num8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num8.CustomizationFormText = "layoutControlItemNum8";
+            this.lCI_Num8.Location = new System.Drawing.Point(73, 67);
+            this.lCI_Num8.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num8.Name = "lCI_Num8";
+            this.lCI_Num8.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Num8.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_Num8.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num8.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num8.TextVisible = false;
             // 
-            // layoutControlItemNum9
+            // lCI_Num9
             // 
-            this.layoutControlItemNum9.Control = this.simpleButtonNum9;
-            this.layoutControlItemNum9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum9.CustomizationFormText = "layoutControlItemNum9";
-            this.layoutControlItemNum9.Location = new System.Drawing.Point(146, 67);
-            this.layoutControlItemNum9.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum9.Name = "layoutControlItemNum9";
-            this.layoutControlItemNum9.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItemNum9.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItemNum9.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum9.TextVisible = false;
+            this.lCI_Num9.Control = this.btn_Num9;
+            this.lCI_Num9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num9.CustomizationFormText = "layoutControlItemNum9";
+            this.lCI_Num9.Location = new System.Drawing.Point(146, 67);
+            this.lCI_Num9.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num9.Name = "lCI_Num9";
+            this.lCI_Num9.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.lCI_Num9.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_Num9.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num9.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num9.TextVisible = false;
             // 
-            // layoutControlItemNum7
+            // lCI_Num7
             // 
-            this.layoutControlItemNum7.Control = this.simpleButtonNum7;
-            this.layoutControlItemNum7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemNum7.CustomizationFormText = "layoutControlItemNum7";
-            this.layoutControlItemNum7.Location = new System.Drawing.Point(0, 67);
-            this.layoutControlItemNum7.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemNum7.Name = "layoutControlItemNum7";
-            this.layoutControlItemNum7.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItemNum7.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemNum7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemNum7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemNum7.TextVisible = false;
+            this.lCI_Num7.Control = this.btn_Num7;
+            this.lCI_Num7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Num7.CustomizationFormText = "layoutControlItemNum7";
+            this.lCI_Num7.Location = new System.Drawing.Point(0, 67);
+            this.lCI_Num7.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Num7.Name = "lCI_Num7";
+            this.lCI_Num7.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_Num7.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num7.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num7.TextVisible = false;
             // 
-            // layoutControlItemEnter
+            // lCI_Enter
             // 
-            this.layoutControlItemEnter.Control = this.simpleButtonEnter;
-            this.layoutControlItemEnter.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemEnter.CustomizationFormText = "layoutControlItemEnter";
-            this.layoutControlItemEnter.Location = new System.Drawing.Point(219, 201);
-            this.layoutControlItemEnter.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemEnter.Name = "layoutControlItemEnter";
-            this.layoutControlItemEnter.OptionsTableLayoutItem.ColumnIndex = 3;
-            this.layoutControlItemEnter.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItemEnter.OptionsTableLayoutItem.RowSpan = 2;
-            this.layoutControlItemEnter.Size = new System.Drawing.Size(75, 135);
-            this.layoutControlItemEnter.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemEnter.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemEnter.TextVisible = false;
+            this.lCI_Enter.Control = this.btn_Enter;
+            this.lCI_Enter.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Enter.CustomizationFormText = "layoutControlItemEnter";
+            this.lCI_Enter.Location = new System.Drawing.Point(219, 201);
+            this.lCI_Enter.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Enter.Name = "lCI_Enter";
+            this.lCI_Enter.OptionsTableLayoutItem.ColumnIndex = 3;
+            this.lCI_Enter.OptionsTableLayoutItem.RowIndex = 3;
+            this.lCI_Enter.OptionsTableLayoutItem.RowSpan = 2;
+            this.lCI_Enter.Size = new System.Drawing.Size(75, 135);
+            this.lCI_Enter.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Enter.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Enter.TextVisible = false;
             // 
-            // layoutControlItemC
+            // lCI_C
             // 
-            this.layoutControlItemC.Control = this.simpleButtonC;
-            this.layoutControlItemC.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemC.CustomizationFormText = "layoutControlItemC";
-            this.layoutControlItemC.Location = new System.Drawing.Point(219, 134);
-            this.layoutControlItemC.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemC.Name = "layoutControlItemC";
-            this.layoutControlItemC.OptionsTableLayoutItem.ColumnIndex = 3;
-            this.layoutControlItemC.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItemC.Size = new System.Drawing.Size(75, 67);
-            this.layoutControlItemC.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemC.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemC.TextVisible = false;
+            this.lCI_C.Control = this.btn_C;
+            this.lCI_C.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_C.CustomizationFormText = "layoutControlItemC";
+            this.lCI_C.Location = new System.Drawing.Point(219, 134);
+            this.lCI_C.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_C.Name = "lCI_C";
+            this.lCI_C.OptionsTableLayoutItem.ColumnIndex = 3;
+            this.lCI_C.OptionsTableLayoutItem.RowIndex = 2;
+            this.lCI_C.Size = new System.Drawing.Size(75, 67);
+            this.lCI_C.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_C.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_C.TextVisible = false;
             // 
-            // layoutControlItemBackSpace
+            // lCI_BackSpace
             // 
-            this.layoutControlItemBackSpace.Control = this.simpleButtonBackSpace;
-            this.layoutControlItemBackSpace.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemBackSpace.CustomizationFormText = "layoutControlItemBackSpace";
-            this.layoutControlItemBackSpace.Location = new System.Drawing.Point(219, 67);
-            this.layoutControlItemBackSpace.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemBackSpace.Name = "layoutControlItemBackSpace";
-            this.layoutControlItemBackSpace.OptionsTableLayoutItem.ColumnIndex = 3;
-            this.layoutControlItemBackSpace.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItemBackSpace.Size = new System.Drawing.Size(75, 67);
-            this.layoutControlItemBackSpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemBackSpace.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemBackSpace.TextVisible = false;
+            this.lCI_BackSpace.Control = this.btn_BackSpace;
+            this.lCI_BackSpace.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_BackSpace.CustomizationFormText = "layoutControlItemBackSpace";
+            this.lCI_BackSpace.Location = new System.Drawing.Point(219, 67);
+            this.lCI_BackSpace.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_BackSpace.Name = "lCI_BackSpace";
+            this.lCI_BackSpace.OptionsTableLayoutItem.ColumnIndex = 3;
+            this.lCI_BackSpace.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_BackSpace.Size = new System.Drawing.Size(75, 67);
+            this.lCI_BackSpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_BackSpace.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_BackSpace.TextVisible = false;
             // 
-            // layoutControlItemTextBox
+            // lCI_ItemTextBox
             // 
-            this.layoutControlItemTextBox.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControlItemTextBox.Control = this.textEditBarcode;
-            this.layoutControlItemTextBox.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemTextBox.CustomizationFormText = "layoutControlItemTextBox";
-            this.layoutControlItemTextBox.Location = new System.Drawing.Point(73, 0);
-            this.layoutControlItemTextBox.MinSize = new System.Drawing.Size(40, 24);
-            this.layoutControlItemTextBox.Name = "layoutControlItemTextBox";
-            this.layoutControlItemTextBox.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemTextBox.OptionsTableLayoutItem.ColumnSpan = 3;
-            this.layoutControlItemTextBox.Size = new System.Drawing.Size(221, 67);
-            this.layoutControlItemTextBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemTextBox.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemTextBox.TextVisible = false;
+            this.lCI_ItemTextBox.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lCI_ItemTextBox.Control = this.txtEdit_Barcode;
+            this.lCI_ItemTextBox.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_ItemTextBox.CustomizationFormText = "layoutControlItemTextBox";
+            this.lCI_ItemTextBox.Location = new System.Drawing.Point(73, 0);
+            this.lCI_ItemTextBox.MinSize = new System.Drawing.Size(40, 24);
+            this.lCI_ItemTextBox.Name = "lCI_ItemTextBox";
+            this.lCI_ItemTextBox.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_ItemTextBox.OptionsTableLayoutItem.ColumnSpan = 3;
+            this.lCI_ItemTextBox.Size = new System.Drawing.Size(221, 67);
+            this.lCI_ItemTextBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_ItemTextBox.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_ItemTextBox.TextVisible = false;
             // 
-            // layoutControlItemComboBox
+            // lCI_ComboBox
             // 
-            this.layoutControlItemComboBox.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControlItemComboBox.Control = this.imageComboBoxEditBarcode;
-            this.layoutControlItemComboBox.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemComboBox.CustomizationFormText = "layoutControlItemComboBox";
-            this.layoutControlItemComboBox.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemComboBox.MinSize = new System.Drawing.Size(40, 24);
-            this.layoutControlItemComboBox.Name = "layoutControlItemComboBox";
-            this.layoutControlItemComboBox.Size = new System.Drawing.Size(73, 67);
-            this.layoutControlItemComboBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemComboBox.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemComboBox.TextVisible = false;
+            this.lCI_ComboBox.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lCI_ComboBox.Control = this.imageComboEdit_Barcode;
+            this.lCI_ComboBox.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_ComboBox.CustomizationFormText = "layoutControlItemComboBox";
+            this.lCI_ComboBox.Location = new System.Drawing.Point(0, 0);
+            this.lCI_ComboBox.MinSize = new System.Drawing.Size(40, 24);
+            this.lCI_ComboBox.Name = "lCI_ComboBox";
+            this.lCI_ComboBox.Size = new System.Drawing.Size(73, 67);
+            this.lCI_ComboBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_ComboBox.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_ComboBox.TextVisible = false;
             // 
-            // layoutControlGroupInvoice
+            // lCG_Invoice
             // 
-            this.layoutControlGroupInvoice.CustomizationFormText = "Satış";
-            this.layoutControlGroupInvoice.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.layoutControlGroupInvoice.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemGridView});
-            this.layoutControlGroupInvoice.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroupInvoice.Name = "layoutControlGroupInvoice";
-            this.layoutControlGroupInvoice.Size = new System.Drawing.Size(412, 672);
-            this.layoutControlGroupInvoice.Text = "Satış";
+            this.lCG_Invoice.CustomizationFormText = "Satış";
+            this.lCG_Invoice.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_GridView});
+            this.lCG_Invoice.Location = new System.Drawing.Point(0, 0);
+            this.lCG_Invoice.Name = "lCG_Invoice";
+            this.lCG_Invoice.Size = new System.Drawing.Size(412, 672);
+            this.lCG_Invoice.Text = "Satış";
             // 
-            // layoutControlItemGridView
+            // lCI_GridView
             // 
-            this.layoutControlItemGridView.Control = this.gridControlSale;
-            this.layoutControlItemGridView.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemGridView.CustomizationFormText = "layoutControlItemGridView";
-            this.layoutControlItemGridView.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemGridView.Name = "layoutControlItemGridView";
-            this.layoutControlItemGridView.Size = new System.Drawing.Size(388, 627);
-            this.layoutControlItemGridView.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemGridView.TextVisible = false;
+            this.lCI_GridView.Control = this.gC_Sale;
+            this.lCI_GridView.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_GridView.CustomizationFormText = "layoutControlItemGridView";
+            this.lCI_GridView.Location = new System.Drawing.Point(0, 0);
+            this.lCI_GridView.Name = "lCI_GridView";
+            this.lCI_GridView.Size = new System.Drawing.Size(388, 627);
+            this.lCI_GridView.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_GridView.TextVisible = false;
             // 
-            // layoutControlGroupFunction
+            // lCG_Function
             // 
-            this.layoutControlGroupFunction.CustomizationFormText = "Əməliyat";
-            this.layoutControlGroupFunction.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.layoutControlGroupFunction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemProductSearch,
-            this.layoutControlItemDiscount,
-            this.layoutControlItemCancelInvoice,
-            this.layoutControlItemDeleteLine,
-            this.layoutControlItemSalesPerson});
-            this.layoutControlGroupFunction.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.layoutControlGroupFunction.Location = new System.Drawing.Point(730, 189);
-            this.layoutControlGroupFunction.Name = "layoutControlGroupFunction";
+            this.lCG_Function.CustomizationFormText = "Əməliyat";
+            this.lCG_Function.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_ProductSearch,
+            this.lCI_Discount,
+            this.lCI_CancelInvoice,
+            this.lCI_DeleteLine,
+            this.lCI_SalesPerson});
+            this.lCG_Function.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
+            this.lCG_Function.Location = new System.Drawing.Point(730, 189);
+            this.lCG_Function.Name = "lCG_Function";
             columnDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition5.Width = 25D;
             columnDefinition6.SizeType = System.Windows.Forms.SizeType.Percent;
@@ -1241,7 +1238,7 @@ namespace PointOfSale
             columnDefinition7.Width = 25D;
             columnDefinition8.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition8.Width = 25D;
-            this.layoutControlGroupFunction.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
+            this.lCG_Function.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
             columnDefinition5,
             columnDefinition6,
             columnDefinition7,
@@ -1254,105 +1251,104 @@ namespace PointOfSale
             rowDefinition8.SizeType = System.Windows.Forms.SizeType.Percent;
             rowDefinition9.Height = 25D;
             rowDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
-            this.layoutControlGroupFunction.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
+            this.lCG_Function.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition6,
             rowDefinition7,
             rowDefinition8,
             rowDefinition9});
-            this.layoutControlGroupFunction.Size = new System.Drawing.Size(392, 347);
-            this.layoutControlGroupFunction.Text = "Əməliyat";
+            this.lCG_Function.Size = new System.Drawing.Size(392, 347);
+            this.lCG_Function.Text = "Əməliyat";
             // 
-            // layoutControlItemProductSearch
+            // lCI_ProductSearch
             // 
-            this.layoutControlItemProductSearch.Control = this.simpleButtonProductSearch;
-            this.layoutControlItemProductSearch.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemProductSearch.CustomizationFormText = "layoutControlItemProductSearch";
-            this.layoutControlItemProductSearch.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemProductSearch.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemProductSearch.Name = "layoutControlItemProductSearch";
-            this.layoutControlItemProductSearch.Size = new System.Drawing.Size(92, 75);
-            this.layoutControlItemProductSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemProductSearch.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemProductSearch.TextVisible = false;
+            this.lCI_ProductSearch.Control = this.btn_ProductSearch;
+            this.lCI_ProductSearch.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_ProductSearch.CustomizationFormText = "layoutControlItemProductSearch";
+            this.lCI_ProductSearch.Location = new System.Drawing.Point(0, 0);
+            this.lCI_ProductSearch.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_ProductSearch.Name = "lCI_ProductSearch";
+            this.lCI_ProductSearch.Size = new System.Drawing.Size(92, 75);
+            this.lCI_ProductSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_ProductSearch.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_ProductSearch.TextVisible = false;
             // 
-            // layoutControlItemDiscount
+            // lCI_Discount
             // 
-            this.layoutControlItemDiscount.Control = this.simpleButtonDiscount;
-            this.layoutControlItemDiscount.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemDiscount.CustomizationFormText = "layoutControlItemDiscount";
-            this.layoutControlItemDiscount.Location = new System.Drawing.Point(92, 0);
-            this.layoutControlItemDiscount.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemDiscount.Name = "layoutControlItemDiscount";
-            this.layoutControlItemDiscount.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemDiscount.Size = new System.Drawing.Size(92, 75);
-            this.layoutControlItemDiscount.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemDiscount.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemDiscount.TextVisible = false;
+            this.lCI_Discount.Control = this.btn_Discount;
+            this.lCI_Discount.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Discount.CustomizationFormText = "layoutControlItemDiscount";
+            this.lCI_Discount.Location = new System.Drawing.Point(92, 0);
+            this.lCI_Discount.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Discount.Name = "lCI_Discount";
+            this.lCI_Discount.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Discount.Size = new System.Drawing.Size(92, 75);
+            this.lCI_Discount.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Discount.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Discount.TextVisible = false;
             // 
-            // layoutControlItemCancelInvoice
+            // lCI_CancelInvoice
             // 
-            this.layoutControlItemCancelInvoice.Control = this.simpleButtonCancelInvoice;
-            this.layoutControlItemCancelInvoice.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCancelInvoice.CustomizationFormText = "layoutControlItemCancelInvoice";
-            this.layoutControlItemCancelInvoice.Location = new System.Drawing.Point(276, 0);
-            this.layoutControlItemCancelInvoice.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemCancelInvoice.Name = "layoutControlItemCancelInvoice";
-            this.layoutControlItemCancelInvoice.OptionsTableLayoutItem.ColumnIndex = 3;
-            this.layoutControlItemCancelInvoice.Size = new System.Drawing.Size(92, 75);
-            this.layoutControlItemCancelInvoice.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCancelInvoice.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCancelInvoice.TextVisible = false;
+            this.lCI_CancelInvoice.Control = this.btn_CancelInvoice;
+            this.lCI_CancelInvoice.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CancelInvoice.CustomizationFormText = "layoutControlItemCancelInvoice";
+            this.lCI_CancelInvoice.Location = new System.Drawing.Point(276, 0);
+            this.lCI_CancelInvoice.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_CancelInvoice.Name = "lCI_CancelInvoice";
+            this.lCI_CancelInvoice.OptionsTableLayoutItem.ColumnIndex = 3;
+            this.lCI_CancelInvoice.Size = new System.Drawing.Size(92, 75);
+            this.lCI_CancelInvoice.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CancelInvoice.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_CancelInvoice.TextVisible = false;
             // 
-            // layoutControlItemDeleteLine
+            // lCI_DeleteLine
             // 
-            this.layoutControlItemDeleteLine.Control = this.simpleButtonDeleteLine;
-            this.layoutControlItemDeleteLine.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemDeleteLine.CustomizationFormText = "layoutControlItemDeleteLine";
-            this.layoutControlItemDeleteLine.Location = new System.Drawing.Point(184, 0);
-            this.layoutControlItemDeleteLine.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemDeleteLine.Name = "layoutControlItemDeleteLine";
-            this.layoutControlItemDeleteLine.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItemDeleteLine.Size = new System.Drawing.Size(92, 75);
-            this.layoutControlItemDeleteLine.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemDeleteLine.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemDeleteLine.TextVisible = false;
+            this.lCI_DeleteLine.Control = this.btn_DeleteLine;
+            this.lCI_DeleteLine.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_DeleteLine.CustomizationFormText = "layoutControlItemDeleteLine";
+            this.lCI_DeleteLine.Location = new System.Drawing.Point(184, 0);
+            this.lCI_DeleteLine.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_DeleteLine.Name = "lCI_DeleteLine";
+            this.lCI_DeleteLine.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.lCI_DeleteLine.Size = new System.Drawing.Size(92, 75);
+            this.lCI_DeleteLine.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_DeleteLine.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_DeleteLine.TextVisible = false;
             // 
-            // layoutControlItemSalesPerson
+            // lCI_SalesPerson
             // 
-            this.layoutControlItemSalesPerson.Control = this.simpleButtonSalesPerson;
-            this.layoutControlItemSalesPerson.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemSalesPerson.CustomizationFormText = "layoutControlItemSalesPerson";
-            this.layoutControlItemSalesPerson.Location = new System.Drawing.Point(0, 75);
-            this.layoutControlItemSalesPerson.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItemSalesPerson.Name = "layoutControlItemSalesPerson";
-            this.layoutControlItemSalesPerson.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItemSalesPerson.Size = new System.Drawing.Size(92, 75);
-            this.layoutControlItemSalesPerson.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemSalesPerson.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemSalesPerson.TextVisible = false;
+            this.lCI_SalesPerson.Control = this.btn_SalesPerson;
+            this.lCI_SalesPerson.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_SalesPerson.CustomizationFormText = "layoutControlItemSalesPerson";
+            this.lCI_SalesPerson.Location = new System.Drawing.Point(0, 75);
+            this.lCI_SalesPerson.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_SalesPerson.Name = "lCI_SalesPerson";
+            this.lCI_SalesPerson.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_SalesPerson.Size = new System.Drawing.Size(92, 75);
+            this.lCI_SalesPerson.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_SalesPerson.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_SalesPerson.TextVisible = false;
             // 
-            // layoutControlGroupCustomer
+            // lCG_Customer
             // 
-            this.layoutControlGroupCustomer.CustomizationFormText = "Müştəri";
-            this.layoutControlGroupCustomer.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.layoutControlGroupCustomer.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemCustomerTel,
-            this.layoutControlItemCustomerAddress,
-            this.layoutControlItemCustomerName,
-            this.layoutControlItemCustomerSearch,
-            this.layoutControlItemCustomerEdit,
-            this.layoutControlItemCustomerAdd,
-            this.layoutControlItemBonCardNum,
-            this.layoutControlItemCustomerBirthdate,
-            this.layoutControlItemCustomerCode});
-            this.layoutControlGroupCustomer.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.layoutControlGroupCustomer.Location = new System.Drawing.Point(730, 0);
-            this.layoutControlGroupCustomer.Name = "layoutControlGroupCustomer";
+            this.lCG_Customer.CustomizationFormText = "Müştəri";
+            this.lCG_Customer.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_CustomerTel,
+            this.lCI_CustomerAddress,
+            this.lCI_CustomerName,
+            this.lCI_CustomerSearch,
+            this.lCI_CustomerEdit,
+            this.lCI_CustomerAdd,
+            this.lCI_BonusCardNum,
+            this.lCI_CustomerBirthdate,
+            this.lCI_CustomerCode});
+            this.lCG_Customer.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
+            this.lCG_Customer.Location = new System.Drawing.Point(730, 0);
+            this.lCG_Customer.Name = "lCG_Customer";
             columnDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition9.Width = 85D;
             columnDefinition10.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition10.Width = 15D;
-            this.layoutControlGroupCustomer.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
+            this.lCG_Customer.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
             columnDefinition9,
             columnDefinition10});
             rowDefinition10.Height = 16.7D;
@@ -1367,157 +1363,156 @@ namespace PointOfSale
             rowDefinition14.SizeType = System.Windows.Forms.SizeType.Percent;
             rowDefinition15.Height = 16.7D;
             rowDefinition15.SizeType = System.Windows.Forms.SizeType.Percent;
-            this.layoutControlGroupCustomer.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
+            this.lCG_Customer.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition10,
             rowDefinition11,
             rowDefinition12,
             rowDefinition13,
             rowDefinition14,
             rowDefinition15});
-            this.layoutControlGroupCustomer.Size = new System.Drawing.Size(392, 189);
-            this.layoutControlGroupCustomer.Text = "Müştəri";
+            this.lCG_Customer.Size = new System.Drawing.Size(392, 189);
+            this.lCG_Customer.Text = "Müştəri";
             // 
-            // layoutControlItemCustomerTel
+            // lCI_CustomerTel
             // 
-            this.layoutControlItemCustomerTel.Control = this.textEditCustomerPhoneNum;
-            this.layoutControlItemCustomerTel.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerTel.CustomizationFormText = "Telefon";
-            this.layoutControlItemCustomerTel.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItemCustomerTel.MinSize = new System.Drawing.Size(119, 24);
-            this.layoutControlItemCustomerTel.Name = "layoutControlItemCustomerTel";
-            this.layoutControlItemCustomerTel.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItemCustomerTel.Size = new System.Drawing.Size(313, 24);
-            this.layoutControlItemCustomerTel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerTel.Text = "Telefon";
-            this.layoutControlItemCustomerTel.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_CustomerTel.Control = this.txtEdit_CustomerPhoneNum;
+            this.lCI_CustomerTel.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerTel.CustomizationFormText = "Telefon";
+            this.lCI_CustomerTel.Location = new System.Drawing.Point(0, 48);
+            this.lCI_CustomerTel.MinSize = new System.Drawing.Size(119, 24);
+            this.lCI_CustomerTel.Name = "lCI_CustomerTel";
+            this.lCI_CustomerTel.OptionsTableLayoutItem.RowIndex = 2;
+            this.lCI_CustomerTel.Size = new System.Drawing.Size(313, 24);
+            this.lCI_CustomerTel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerTel.Text = "Telefon";
+            this.lCI_CustomerTel.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemCustomerAddress
+            // lCI_CustomerAddress
             // 
-            this.layoutControlItemCustomerAddress.Control = this.textEditCustomerAddress;
-            this.layoutControlItemCustomerAddress.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerAddress.CustomizationFormText = "Adres";
-            this.layoutControlItemCustomerAddress.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItemCustomerAddress.MinSize = new System.Drawing.Size(119, 24);
-            this.layoutControlItemCustomerAddress.Name = "layoutControlItemCustomerAddress";
-            this.layoutControlItemCustomerAddress.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItemCustomerAddress.Size = new System.Drawing.Size(313, 24);
-            this.layoutControlItemCustomerAddress.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerAddress.Text = "Adres";
-            this.layoutControlItemCustomerAddress.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_CustomerAddress.Control = this.txtEdit_CustomerAddress;
+            this.lCI_CustomerAddress.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerAddress.CustomizationFormText = "Adres";
+            this.lCI_CustomerAddress.Location = new System.Drawing.Point(0, 72);
+            this.lCI_CustomerAddress.MinSize = new System.Drawing.Size(119, 24);
+            this.lCI_CustomerAddress.Name = "lCI_CustomerAddress";
+            this.lCI_CustomerAddress.OptionsTableLayoutItem.RowIndex = 3;
+            this.lCI_CustomerAddress.Size = new System.Drawing.Size(313, 24);
+            this.lCI_CustomerAddress.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerAddress.Text = "Adres";
+            this.lCI_CustomerAddress.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemCustomerName
+            // lCI_CustomerName
             // 
-            this.layoutControlItemCustomerName.Control = this.textEditCustomerName;
-            this.layoutControlItemCustomerName.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerName.CustomizationFormText = "Adı, Soyadı";
-            this.layoutControlItemCustomerName.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItemCustomerName.MinSize = new System.Drawing.Size(119, 24);
-            this.layoutControlItemCustomerName.Name = "layoutControlItemCustomerName";
-            this.layoutControlItemCustomerName.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItemCustomerName.Size = new System.Drawing.Size(313, 24);
-            this.layoutControlItemCustomerName.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerName.Text = "Adı, Soyadı";
-            this.layoutControlItemCustomerName.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_CustomerName.Control = this.txtEdit_CustomerName;
+            this.lCI_CustomerName.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerName.CustomizationFormText = "Adı, Soyadı";
+            this.lCI_CustomerName.Location = new System.Drawing.Point(0, 24);
+            this.lCI_CustomerName.MinSize = new System.Drawing.Size(119, 24);
+            this.lCI_CustomerName.Name = "lCI_CustomerName";
+            this.lCI_CustomerName.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_CustomerName.Size = new System.Drawing.Size(313, 24);
+            this.lCI_CustomerName.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerName.Text = "Adı, Soyadı";
+            this.lCI_CustomerName.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemCustomerSearch
+            // lCI_CustomerSearch
             // 
-            this.layoutControlItemCustomerSearch.Control = this.simpleButton3;
-            this.layoutControlItemCustomerSearch.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerSearch.CustomizationFormText = "layoutControlItemCustomerSearch";
-            this.layoutControlItemCustomerSearch.Location = new System.Drawing.Point(313, 0);
-            this.layoutControlItemCustomerSearch.MinSize = new System.Drawing.Size(26, 26);
-            this.layoutControlItemCustomerSearch.Name = "layoutControlItemCustomerSearch";
-            this.layoutControlItemCustomerSearch.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemCustomerSearch.OptionsTableLayoutItem.RowSpan = 2;
-            this.layoutControlItemCustomerSearch.Size = new System.Drawing.Size(55, 48);
-            this.layoutControlItemCustomerSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerSearch.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCustomerSearch.TextVisible = false;
+            this.lCI_CustomerSearch.Control = this.btn_CustomerSearch;
+            this.lCI_CustomerSearch.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerSearch.CustomizationFormText = "layoutControlItemCustomerSearch";
+            this.lCI_CustomerSearch.Location = new System.Drawing.Point(313, 0);
+            this.lCI_CustomerSearch.MinSize = new System.Drawing.Size(26, 26);
+            this.lCI_CustomerSearch.Name = "lCI_CustomerSearch";
+            this.lCI_CustomerSearch.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_CustomerSearch.OptionsTableLayoutItem.RowSpan = 2;
+            this.lCI_CustomerSearch.Size = new System.Drawing.Size(55, 48);
+            this.lCI_CustomerSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerSearch.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_CustomerSearch.TextVisible = false;
             // 
-            // layoutControlItemCustomerEdit
+            // lCI_CustomerEdit
             // 
-            this.layoutControlItemCustomerEdit.Control = this.simpleButtonCustomerEdit;
-            this.layoutControlItemCustomerEdit.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerEdit.CustomizationFormText = "layoutControlItemCustomerEdit";
-            this.layoutControlItemCustomerEdit.Location = new System.Drawing.Point(313, 96);
-            this.layoutControlItemCustomerEdit.MinSize = new System.Drawing.Size(26, 26);
-            this.layoutControlItemCustomerEdit.Name = "layoutControlItemCustomerEdit";
-            this.layoutControlItemCustomerEdit.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemCustomerEdit.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItemCustomerEdit.OptionsTableLayoutItem.RowSpan = 2;
-            this.layoutControlItemCustomerEdit.Size = new System.Drawing.Size(55, 48);
-            this.layoutControlItemCustomerEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerEdit.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCustomerEdit.TextVisible = false;
+            this.lCI_CustomerEdit.Control = this.btn_CustomerEdit;
+            this.lCI_CustomerEdit.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerEdit.CustomizationFormText = "layoutControlItemCustomerEdit";
+            this.lCI_CustomerEdit.Location = new System.Drawing.Point(313, 96);
+            this.lCI_CustomerEdit.MinSize = new System.Drawing.Size(26, 26);
+            this.lCI_CustomerEdit.Name = "lCI_CustomerEdit";
+            this.lCI_CustomerEdit.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_CustomerEdit.OptionsTableLayoutItem.RowIndex = 4;
+            this.lCI_CustomerEdit.OptionsTableLayoutItem.RowSpan = 2;
+            this.lCI_CustomerEdit.Size = new System.Drawing.Size(55, 48);
+            this.lCI_CustomerEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerEdit.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_CustomerEdit.TextVisible = false;
             // 
-            // layoutControlItemCustomerAdd
+            // lCI_CustomerAdd
             // 
-            this.layoutControlItemCustomerAdd.Control = this.simpleButtonCustomerAdd;
-            this.layoutControlItemCustomerAdd.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerAdd.CustomizationFormText = "layoutControlItemCustomerAdd";
-            this.layoutControlItemCustomerAdd.Location = new System.Drawing.Point(313, 48);
-            this.layoutControlItemCustomerAdd.MinSize = new System.Drawing.Size(26, 26);
-            this.layoutControlItemCustomerAdd.Name = "layoutControlItemCustomerAdd";
-            this.layoutControlItemCustomerAdd.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemCustomerAdd.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItemCustomerAdd.OptionsTableLayoutItem.RowSpan = 2;
-            this.layoutControlItemCustomerAdd.Size = new System.Drawing.Size(55, 48);
-            this.layoutControlItemCustomerAdd.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerAdd.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCustomerAdd.TextVisible = false;
+            this.lCI_CustomerAdd.Control = this.btn_CustomerAdd;
+            this.lCI_CustomerAdd.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerAdd.CustomizationFormText = "layoutControlItemCustomerAdd";
+            this.lCI_CustomerAdd.Location = new System.Drawing.Point(313, 48);
+            this.lCI_CustomerAdd.MinSize = new System.Drawing.Size(26, 26);
+            this.lCI_CustomerAdd.Name = "lCI_CustomerAdd";
+            this.lCI_CustomerAdd.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_CustomerAdd.OptionsTableLayoutItem.RowIndex = 2;
+            this.lCI_CustomerAdd.OptionsTableLayoutItem.RowSpan = 2;
+            this.lCI_CustomerAdd.Size = new System.Drawing.Size(55, 48);
+            this.lCI_CustomerAdd.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerAdd.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_CustomerAdd.TextVisible = false;
             // 
-            // layoutControlItemBonCardNum
+            // lCI_BonusCardNum
             // 
-            this.layoutControlItemBonCardNum.Control = this.textEditBonCardNum;
-            this.layoutControlItemBonCardNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemBonCardNum.CustomizationFormText = "Müştəri Kartı";
-            this.layoutControlItemBonCardNum.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItemBonCardNum.MinSize = new System.Drawing.Size(119, 24);
-            this.layoutControlItemBonCardNum.Name = "layoutControlItemBonCardNum";
-            this.layoutControlItemBonCardNum.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItemBonCardNum.Size = new System.Drawing.Size(313, 24);
-            this.layoutControlItemBonCardNum.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemBonCardNum.Text = "Müştəri Kartı";
-            this.layoutControlItemBonCardNum.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_BonusCardNum.Control = this.txtEdit_BonCardNum;
+            this.lCI_BonusCardNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_BonusCardNum.CustomizationFormText = "Müştəri Kartı";
+            this.lCI_BonusCardNum.Location = new System.Drawing.Point(0, 120);
+            this.lCI_BonusCardNum.MinSize = new System.Drawing.Size(119, 24);
+            this.lCI_BonusCardNum.Name = "lCI_BonusCardNum";
+            this.lCI_BonusCardNum.OptionsTableLayoutItem.RowIndex = 5;
+            this.lCI_BonusCardNum.Size = new System.Drawing.Size(313, 24);
+            this.lCI_BonusCardNum.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_BonusCardNum.Text = "Müştəri Kartı";
+            this.lCI_BonusCardNum.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemCustomerBirthdate
+            // lCI_CustomerBirthdate
             // 
-            this.layoutControlItemCustomerBirthdate.Control = this.textEditCustomerBirthdate;
-            this.layoutControlItemCustomerBirthdate.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerBirthdate.CustomizationFormText = "Doğum Tarixi";
-            this.layoutControlItemCustomerBirthdate.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItemCustomerBirthdate.MinSize = new System.Drawing.Size(119, 24);
-            this.layoutControlItemCustomerBirthdate.Name = "layoutControlItemCustomerBirthdate";
-            this.layoutControlItemCustomerBirthdate.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItemCustomerBirthdate.Size = new System.Drawing.Size(313, 24);
-            this.layoutControlItemCustomerBirthdate.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerBirthdate.Text = "Doğum Tarixi";
-            this.layoutControlItemCustomerBirthdate.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_CustomerBirthdate.Control = this.txtEdit_CustomerBirthdate;
+            this.lCI_CustomerBirthdate.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerBirthdate.CustomizationFormText = "Doğum Tarixi";
+            this.lCI_CustomerBirthdate.Location = new System.Drawing.Point(0, 96);
+            this.lCI_CustomerBirthdate.MinSize = new System.Drawing.Size(119, 24);
+            this.lCI_CustomerBirthdate.Name = "lCI_CustomerBirthdate";
+            this.lCI_CustomerBirthdate.OptionsTableLayoutItem.RowIndex = 4;
+            this.lCI_CustomerBirthdate.Size = new System.Drawing.Size(313, 24);
+            this.lCI_CustomerBirthdate.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerBirthdate.Text = "Doğum Tarixi";
+            this.lCI_CustomerBirthdate.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItemCustomerCode
+            // lCI_CustomerCode
             // 
-            this.layoutControlItemCustomerCode.Control = this.textEditCustomerCode;
-            this.layoutControlItemCustomerCode.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerCode.CustomizationFormText = "Müştəri Kodu";
-            this.layoutControlItemCustomerCode.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemCustomerCode.MinSize = new System.Drawing.Size(119, 24);
-            this.layoutControlItemCustomerCode.Name = "layoutControlItemCustomerCode";
-            this.layoutControlItemCustomerCode.Size = new System.Drawing.Size(313, 24);
-            this.layoutControlItemCustomerCode.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerCode.Text = "Müştəri Kodu";
-            this.layoutControlItemCustomerCode.TextSize = new System.Drawing.Size(62, 13);
+            this.lCI_CustomerCode.Control = this.txtEdit_CustomerCode;
+            this.lCI_CustomerCode.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerCode.CustomizationFormText = "Müştəri Kodu";
+            this.lCI_CustomerCode.Location = new System.Drawing.Point(0, 0);
+            this.lCI_CustomerCode.MinSize = new System.Drawing.Size(119, 24);
+            this.lCI_CustomerCode.Name = "lCI_CustomerCode";
+            this.lCI_CustomerCode.Size = new System.Drawing.Size(313, 24);
+            this.lCI_CustomerCode.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerCode.Text = "Müştəri Kodu";
+            this.lCI_CustomerCode.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlGroupPayment
+            // lCG_Payment
             // 
-            this.layoutControlGroupPayment.CustomizationFormText = "Ödəmə";
-            this.layoutControlGroupPayment.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.layoutControlGroupPayment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemCash,
-            this.layoutControlItemCashless,
-            this.layoutControlItemCustomerBonus});
-            this.layoutControlGroupPayment.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.layoutControlGroupPayment.Location = new System.Drawing.Point(730, 536);
-            this.layoutControlGroupPayment.Name = "layoutControlGroupPayment";
+            this.lCG_Payment.CustomizationFormText = "Ödəmə";
+            this.lCG_Payment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_Cash,
+            this.lCI_Cashless,
+            this.lCI_CustomerBonus});
+            this.lCG_Payment.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
+            this.lCG_Payment.Location = new System.Drawing.Point(730, 536);
+            this.lCG_Payment.Name = "lCG_Payment";
             columnDefinition11.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition11.Width = 25D;
             columnDefinition12.SizeType = System.Windows.Forms.SizeType.Percent;
@@ -1526,63 +1521,62 @@ namespace PointOfSale
             columnDefinition13.Width = 25D;
             columnDefinition14.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition14.Width = 25D;
-            this.layoutControlGroupPayment.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
+            this.lCG_Payment.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
             columnDefinition11,
             columnDefinition12,
             columnDefinition13,
             columnDefinition14});
             rowDefinition16.Height = 100D;
             rowDefinition16.SizeType = System.Windows.Forms.SizeType.Percent;
-            this.layoutControlGroupPayment.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
+            this.lCG_Payment.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition16});
-            this.layoutControlGroupPayment.Size = new System.Drawing.Size(392, 136);
-            this.layoutControlGroupPayment.Text = "Ödəmə";
+            this.lCG_Payment.Size = new System.Drawing.Size(392, 136);
+            this.lCG_Payment.Text = "Ödəmə";
             // 
-            // layoutControlItemCash
+            // lCI_Cash
             // 
-            this.layoutControlItemCash.Control = this.simpleButtonCash;
-            this.layoutControlItemCash.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCash.CustomizationFormText = "layoutControlItemCash";
-            this.layoutControlItemCash.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemCash.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemCash.Name = "layoutControlItemCash";
-            this.layoutControlItemCash.Size = new System.Drawing.Size(92, 91);
-            this.layoutControlItemCash.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCash.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCash.TextVisible = false;
+            this.lCI_Cash.Control = this.btn_Cash;
+            this.lCI_Cash.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Cash.CustomizationFormText = "layoutControlItemCash";
+            this.lCI_Cash.Location = new System.Drawing.Point(0, 0);
+            this.lCI_Cash.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Cash.Name = "lCI_Cash";
+            this.lCI_Cash.Size = new System.Drawing.Size(92, 91);
+            this.lCI_Cash.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Cash.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Cash.TextVisible = false;
             // 
-            // layoutControlItemCashless
+            // lCI_Cashless
             // 
-            this.layoutControlItemCashless.Control = this.simpleButtonCashless;
-            this.layoutControlItemCashless.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCashless.CustomizationFormText = "layoutControlItemCashless";
-            this.layoutControlItemCashless.Location = new System.Drawing.Point(92, 0);
-            this.layoutControlItemCashless.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemCashless.Name = "layoutControlItemCashless";
-            this.layoutControlItemCashless.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItemCashless.Size = new System.Drawing.Size(92, 91);
-            this.layoutControlItemCashless.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCashless.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCashless.TextVisible = false;
+            this.lCI_Cashless.Control = this.btn_Cashless;
+            this.lCI_Cashless.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_Cashless.CustomizationFormText = "layoutControlItemCashless";
+            this.lCI_Cashless.Location = new System.Drawing.Point(92, 0);
+            this.lCI_Cashless.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_Cashless.Name = "lCI_Cashless";
+            this.lCI_Cashless.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Cashless.Size = new System.Drawing.Size(92, 91);
+            this.lCI_Cashless.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Cashless.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Cashless.TextVisible = false;
             // 
-            // layoutControlItemCustomerBonus
+            // lCI_CustomerBonus
             // 
-            this.layoutControlItemCustomerBonus.Control = this.simpleButtonCustomerBonus;
-            this.layoutControlItemCustomerBonus.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItemCustomerBonus.CustomizationFormText = "layoutControlItemCustomerBonus";
-            this.layoutControlItemCustomerBonus.Location = new System.Drawing.Point(184, 0);
-            this.layoutControlItemCustomerBonus.MinSize = new System.Drawing.Size(40, 26);
-            this.layoutControlItemCustomerBonus.Name = "layoutControlItemCustomerBonus";
-            this.layoutControlItemCustomerBonus.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItemCustomerBonus.Size = new System.Drawing.Size(92, 91);
-            this.layoutControlItemCustomerBonus.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItemCustomerBonus.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemCustomerBonus.TextVisible = false;
+            this.lCI_CustomerBonus.Control = this.btn_CustomerBonus;
+            this.lCI_CustomerBonus.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lCI_CustomerBonus.CustomizationFormText = "layoutControlItemCustomerBonus";
+            this.lCI_CustomerBonus.Location = new System.Drawing.Point(184, 0);
+            this.lCI_CustomerBonus.MinSize = new System.Drawing.Size(40, 26);
+            this.lCI_CustomerBonus.Name = "lCI_CustomerBonus";
+            this.lCI_CustomerBonus.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.lCI_CustomerBonus.Size = new System.Drawing.Size(92, 91);
+            this.lCI_CustomerBonus.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_CustomerBonus.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_CustomerBonus.TextVisible = false;
             // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.CustomizationFormText = "layoutControlGroup1";
-            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup2.Location = new System.Drawing.Point(412, 381);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(318, 291);
@@ -1592,62 +1586,63 @@ namespace PointOfSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.lC_InvoiceLine);
             this.Name = "UcSale";
             this.Size = new System.Drawing.Size(1142, 692);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBarcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageComboBoxEditBarcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerPhoneNum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerAddress.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditBonCardNum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerBirthdate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCustomerCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupBarcode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum0)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemNum7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemEnter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBackSpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemTextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemComboBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupInvoice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupFunction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemProductSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemDiscount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancelInvoice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemDeleteLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSalesPerson)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerTel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerAddress)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemBonCardNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBirthdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPayment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCashless)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCustomerBonus)).EndInit();
+            this.Load += new System.EventHandler(this.UcSale_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.lC_InvoiceLine)).EndInit();
+            this.lC_InvoiceLine.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Barcode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageComboEdit_Barcode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gC_Sale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerPhoneNum.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BonCardNum.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerBirthdate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CustomerCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Barcode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Star)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Comma)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Enter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_C)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_BackSpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_ItemTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_ComboBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Invoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_GridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Function)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_ProductSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Discount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CancelInvoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_DeleteLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_SalesPerson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Customer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerTel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerAddress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_BonusCardNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBirthdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Payment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Cashless)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             this.ResumeLayout(false);
 
@@ -1655,92 +1650,92 @@ namespace PointOfSale
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonStar;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonComma;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum0;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum1;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum2;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum3;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum4;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum5;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum6;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum8;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum9;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonNum7;
-        public DevExpress.XtraEditors.SimpleButton simpleButtonEnter;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonC;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonBackSpace;
-        private DevExpress.XtraEditors.TextEdit textEditBarcode;
-        private DevExpress.XtraEditors.ImageComboBoxEdit imageComboBoxEditBarcode;
-        private DevExpress.XtraGrid.GridControl gridControlSale;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView11;
-        private DevExpress.XtraGrid.Columns.GridColumn columnProductDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn columnQty;
-        private DevExpress.XtraGrid.Columns.GridColumn columnPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn columnNetAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn columnBarcode;
-        private DevExpress.XtraGrid.Columns.GridColumn columnPosDiscount;
-        private DevExpress.XtraGrid.Columns.GridColumn columnAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn columnVatRate;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonProductSearch;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonDiscount;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCancelInvoice;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonDeleteLine;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonSalesPerson;
-        private DevExpress.XtraEditors.TextEdit textEditCustomerPhoneNum;
-        private DevExpress.XtraEditors.TextEdit textEditCustomerAddress;
-        private DevExpress.XtraEditors.TextEdit textEditCustomerName;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCustomerEdit;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCustomerAdd;
-        private DevExpress.XtraEditors.TextEdit textEditBonCardNum;
-        private DevExpress.XtraEditors.TextEdit textEditCustomerBirthdate;
-        private DevExpress.XtraEditors.TextEdit textEditCustomerCode;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCash;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCashless;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCustomerBonus;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupBarcode;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemStar;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemComma;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum0;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum9;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemNum7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemEnter;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemC;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemBackSpace;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemTextBox;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemComboBox;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupInvoice;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemGridView;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupFunction;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemProductSearch;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemDiscount;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCancelInvoice;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemDeleteLine;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemSalesPerson;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupCustomer;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerTel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerAddress;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerName;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerSearch;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerAdd;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemBonCardNum;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerBirthdate;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerCode;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupPayment;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCash;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCashless;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCustomerBonus;
+        private DevExpress.XtraLayout.LayoutControl lC_InvoiceLine;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Root;
+        private DevExpress.XtraEditors.SimpleButton btn_Star;
+        private DevExpress.XtraEditors.SimpleButton btn_Comma;
+        private DevExpress.XtraEditors.SimpleButton btn_Num0;
+        private DevExpress.XtraEditors.SimpleButton btn_Num1;
+        private DevExpress.XtraEditors.SimpleButton btn_Num2;
+        private DevExpress.XtraEditors.SimpleButton btn_Num3;
+        private DevExpress.XtraEditors.SimpleButton btn_Num4;
+        private DevExpress.XtraEditors.SimpleButton btn_Num5;
+        private DevExpress.XtraEditors.SimpleButton btn_Num6;
+        private DevExpress.XtraEditors.SimpleButton btn_Num8;
+        private DevExpress.XtraEditors.SimpleButton btn_Num9;
+        private DevExpress.XtraEditors.SimpleButton btn_Num7;
+        public DevExpress.XtraEditors.SimpleButton btn_Enter;
+        private DevExpress.XtraEditors.SimpleButton btn_C;
+        private DevExpress.XtraEditors.SimpleButton btn_BackSpace;
+        private DevExpress.XtraEditors.TextEdit txtEdit_Barcode;
+        private DevExpress.XtraEditors.ImageComboBoxEdit imageComboEdit_Barcode;
+        private DevExpress.XtraGrid.GridControl gC_Sale;
+        private DevExpress.XtraGrid.Views.Grid.GridView gV_InvoiceLine;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ProductDesc;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Qty;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Price;
+        private DevExpress.XtraGrid.Columns.GridColumn col_NetAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Barcode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PosDiscount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Amount;
+        private DevExpress.XtraGrid.Columns.GridColumn col_VatRate;
+        private DevExpress.XtraEditors.SimpleButton btn_ProductSearch;
+        private DevExpress.XtraEditors.SimpleButton btn_Discount;
+        private DevExpress.XtraEditors.SimpleButton btn_CancelInvoice;
+        private DevExpress.XtraEditors.SimpleButton btn_DeleteLine;
+        private DevExpress.XtraEditors.SimpleButton btn_SalesPerson;
+        private DevExpress.XtraEditors.TextEdit txtEdit_CustomerPhoneNum;
+        private DevExpress.XtraEditors.TextEdit txtEdit_CustomerAddress;
+        private DevExpress.XtraEditors.TextEdit txtEdit_CustomerName;
+        private DevExpress.XtraEditors.SimpleButton btn_CustomerSearch;
+        private DevExpress.XtraEditors.SimpleButton btn_CustomerEdit;
+        private DevExpress.XtraEditors.SimpleButton btn_CustomerAdd;
+        private DevExpress.XtraEditors.TextEdit txtEdit_BonCardNum;
+        private DevExpress.XtraEditors.TextEdit txtEdit_CustomerBirthdate;
+        private DevExpress.XtraEditors.TextEdit txtEdit_CustomerCode;
+        private DevExpress.XtraEditors.SimpleButton btn_Cash;
+        private DevExpress.XtraEditors.SimpleButton btn_Cashless;
+        private DevExpress.XtraEditors.SimpleButton btn_CustomerBonus;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Barcode;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Star;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Comma;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num0;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num1;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num2;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num3;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num4;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num5;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num6;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num8;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num9;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Num7;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Enter;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_C;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_BackSpace;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_ItemTextBox;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_ComboBox;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Invoice;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_GridView;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Function;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_ProductSearch;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Discount;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CancelInvoice;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_DeleteLine;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_SalesPerson;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Customer;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerTel;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerAddress;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerName;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerSearch;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerEdit;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerAdd;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_BonusCardNum;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerBirthdate;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerCode;
+        private DevExpress.XtraLayout.LayoutControlGroup lCG_Payment;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Cash;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_Cashless;
+        private DevExpress.XtraLayout.LayoutControlItem lCI_CustomerBonus;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
     }
 }

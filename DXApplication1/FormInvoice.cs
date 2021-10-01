@@ -40,9 +40,9 @@ namespace PointOfSale
             invoiceHeaderId = Guid.NewGuid();
             TrInvoiceLineTableAdapter.Fill(subDataSet.TrInvoiceLine, invoiceHeaderId);
 
-            textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffice();
-            textEditStoreCode.Properties.DataSource = sqlMethods.SelectStore();
-            textEditWarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouse();
+            textEditOfficeCode.Properties.DataSource = sqlMethods.SelectOffices();
+            textEditStoreCode.Properties.DataSource = sqlMethods.SelectStores();
+            textEditWarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouses();
         }
 
         private void buttonEditDocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)

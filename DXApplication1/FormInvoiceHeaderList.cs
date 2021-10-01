@@ -18,12 +18,20 @@ namespace PointOfSale
         public TrInvoiceHeader TrInvoiceHeader { get; set; }
         SqlMethods sqlMethods = new SqlMethods();
 
+        private void FormInvoiceHeaderList_Load(object sender, EventArgs e)
+        {
+            OptionsLayoutGrid options = new OptionsLayoutGrid() { StoreAppearance = true };
+            gridView1.RestoreLayoutFromXml(@"D:\GvLayout.xml", options);
+
+            gridControl1.DataSource = sqlMethods.SelectInvoiceHeaders();
+        }
+
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             DXMouseEventArgs ea = e as DXMouseEventArgs;
             GridView view = sender as GridView;
             GridHitInfo info = view.CalcHitInfo(ea.Location);
-            if (info.InRow || info.InRowCell)
+            if ((info.InRow || info.InRowCell) && view.FocusedRowHandle >= 0)
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
@@ -48,11 +56,6 @@ namespace PointOfSale
                 };
                 DialogResult = DialogResult.OK;
             }
-        }
-
-        private void FormInvoiceHeaderList_Load(object sender, EventArgs e)
-        {
-            gridControl1.DataSource = sqlMethods.SelectInvoiceHeader();
         }
     }
 }

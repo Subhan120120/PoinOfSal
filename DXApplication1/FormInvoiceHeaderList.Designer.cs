@@ -1,4 +1,6 @@
 ﻿
+using DevExpress.Utils;
+
 namespace PointOfSale
 {
     partial class FormInvoiceHeaderList
@@ -62,6 +64,8 @@ namespace PointOfSale
             // 
             // gridView1
             // 
+            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            this.gridView1.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colDocumentNumber,
             this.colIsReturn,
@@ -79,7 +83,6 @@ namespace PointOfSale
             this.colProcessCode});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // colDocumentNumber
