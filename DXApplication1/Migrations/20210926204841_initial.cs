@@ -59,18 +59,11 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     PaymentTypeCode = table.Column<byte>(nullable: false),
-                    PaymentTypeDescription = table.Column<string>(maxLength: 100, nullable: true, defaultValueSql: "space(0)"),
-                    DcPaymentTypePaymentTypeCode = table.Column<byte>(nullable: true)
+                    PaymentTypeDesc = table.Column<string>(maxLength: 100, nullable: true, defaultValueSql: "space(0)")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DcPaymentTypes", x => x.PaymentTypeCode);
-                    table.ForeignKey(
-                        name: "FK_DcPaymentTypes_DcPaymentTypes_DcPaymentTypePaymentTypeCode",
-                        column: x => x.DcPaymentTypePaymentTypeCode,
-                        principalTable: "DcPaymentTypes",
-                        principalColumn: "PaymentTypeCode",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -260,20 +253,20 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     ProductCode = table.Column<string>(maxLength: 30, nullable: false),
-                    Barcode = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
-                    ProductTypeCode = table.Column<byte>(nullable: true),
-                    UsePos = table.Column<bool>(nullable: true),
+                    Barcode = table.Column<string>(maxLength: 50, nullable: false, defaultValueSql: "space(0)"),
+                    ProductTypeCode = table.Column<byte>(nullable: false),
+                    UsePos = table.Column<bool>(nullable: false, defaultValueSql: "0"),
                     PromotionCode = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
                     PromotionCode2 = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
-                    TaxRate = table.Column<double>(nullable: true),
-                    PosDiscount = table.Column<double>(nullable: true),
-                    IsDisabled = table.Column<bool>(nullable: true),
-                    RetailPrice = table.Column<double>(nullable: true),
-                    PurchasePrice = table.Column<double>(nullable: true),
-                    WholesalePrice = table.Column<double>(nullable: true),
-                    IsBlocked = table.Column<bool>(nullable: true),
-                    UseInternet = table.Column<bool>(nullable: true),
-                    ProductDescription = table.Column<string>(maxLength: 150, nullable: true, defaultValueSql: "space(0)")
+                    TaxRate = table.Column<double>(nullable: false, defaultValueSql: "0"),
+                    PosDiscount = table.Column<double>(nullable: false, defaultValueSql: "0"),
+                    IsDisabled = table.Column<bool>(nullable: false, defaultValueSql: "0"),
+                    RetailPrice = table.Column<double>(nullable: false, defaultValueSql: "0"),
+                    PurchasePrice = table.Column<double>(nullable: false, defaultValueSql: "0"),
+                    WholesalePrice = table.Column<double>(nullable: false, defaultValueSql: "0"),
+                    IsBlocked = table.Column<bool>(nullable: false, defaultValueSql: "0"),
+                    UseInternet = table.Column<bool>(nullable: false, defaultValueSql: "0"),
+                    ProductDescription = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)")
                 },
                 constraints: table =>
                 {
@@ -283,7 +276,7 @@ namespace PointOfSale.Migrations
                         column: x => x.ProductTypeCode,
                         principalTable: "DcProductTypes",
                         principalColumn: "ProductTypeCode",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -333,7 +326,7 @@ namespace PointOfSale.Migrations
                     OperationDate = table.Column<DateTime>(type: "date", nullable: false, defaultValueSql: "getdate()"),
                     OperationTime = table.Column<TimeSpan>(type: "time(0)", nullable: false, defaultValueSql: "'00:00:00'"),
                     Description = table.Column<string>(maxLength: 200, nullable: false, defaultValueSql: "space(0)"),
-                    CurrAccCode = table.Column<string>(maxLength: 30, nullable: true, defaultValueSql: "space(0)"),
+                    CurrAccCode = table.Column<string>(maxLength: 30, nullable: true),
                     OfficeCode = table.Column<string>(maxLength: 10, nullable: false, defaultValueSql: "space(0)"),
                     StoreCode = table.Column<string>(maxLength: 30, nullable: false, defaultValueSql: "space(0)"),
                     WarehouseCode = table.Column<string>(maxLength: 30, nullable: false, defaultValueSql: "space(0)"),
@@ -368,18 +361,18 @@ namespace PointOfSale.Migrations
                     InvoiceLineId = table.Column<Guid>(nullable: false),
                     InvoiceHeaderId = table.Column<Guid>(nullable: false),
                     RelatedLineId = table.Column<Guid>(nullable: true),
-                    ProductCode = table.Column<string>(maxLength: 30, nullable: true, defaultValueSql: "space(0)"),
-                    Qty = table.Column<int>(nullable: true, defaultValueSql: "1"),
-                    Price = table.Column<double>(nullable: true),
-                    Amount = table.Column<decimal>(type: "money", nullable: true),
-                    PosDiscount = table.Column<decimal>(type: "money", nullable: true, defaultValueSql: "0"),
-                    DiscountCampaign = table.Column<decimal>(type: "money", nullable: true, defaultValueSql: "0"),
-                    NetAmount = table.Column<decimal>(type: "money", nullable: true, defaultValueSql: "0"),
-                    VatRate = table.Column<float>(nullable: true),
-                    LineDescription = table.Column<string>(nullable: true),
+                    ProductCode = table.Column<string>(maxLength: 30, nullable: true),
+                    Qty = table.Column<int>(nullable: false, defaultValueSql: "1"),
+                    Price = table.Column<double>(nullable: false, defaultValueSql: "0"),
+                    Amount = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0"),
+                    PosDiscount = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0"),
+                    DiscountCampaign = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0"),
+                    NetAmount = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0"),
+                    VatRate = table.Column<float>(nullable: false, defaultValueSql: "0"),
+                    LineDescription = table.Column<string>(nullable: true, defaultValueSql: "space(0)"),
                     SalespersonCode = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
                     CurrencyCode = table.Column<string>(maxLength: 10, nullable: true, defaultValueSql: "space(0)"),
-                    ExchangeRate = table.Column<double>(nullable: true),
+                    ExchangeRate = table.Column<double>(nullable: false, defaultValueSql: "0"),
                     CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
@@ -445,10 +438,10 @@ namespace PointOfSale.Migrations
                     PaymentLineId = table.Column<Guid>(nullable: false),
                     PaymentHeaderId = table.Column<Guid>(nullable: false),
                     PaymentTypeCode = table.Column<byte>(nullable: false),
-                    Payment = table.Column<decimal>(type: "money", nullable: false, defaultValue: 0m),
+                    Payment = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0"),
                     LineDescription = table.Column<string>(maxLength: 200, nullable: false, defaultValueSql: "space(0)"),
                     CurrencyCode = table.Column<string>(maxLength: 10, nullable: false, defaultValueSql: "space(0)"),
-                    ExchangeRate = table.Column<double>(nullable: false),
+                    ExchangeRate = table.Column<double>(nullable: false, defaultValueSql: "0"),
                     BankId = table.Column<byte>(nullable: true),
                     CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
@@ -472,15 +465,79 @@ namespace PointOfSale.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "DcCurrAccTypes",
+                columns: new[] { "CurrAccTypeCode", "CurrAccTypeDescription", "IsDisabled", "RowGuid" },
+                values: new object[,]
+                {
+                    { (byte)1, "Müştəri", false, new Guid("00000000-0000-0000-0000-000000000000") },
+                    { (byte)2, "Tədarikçi", false, new Guid("00000000-0000-0000-0000-000000000000") },
+                    { (byte)3, "Personal", false, new Guid("00000000-0000-0000-0000-000000000000") }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DcOffices",
+                columns: new[] { "OfficeCode", "CompanyCode", "IsDisabled", "OfficeDesc", "RowGuid" },
+                values: new object[,]
+                {
+                    { "OFS01", 0m, false, "Bakıxanov Ofisi", new Guid("00000000-0000-0000-0000-000000000000") },
+                    { "OFS02", 0m, false, "Elmlər Ofisi", new Guid("00000000-0000-0000-0000-000000000000") }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DcPaymentTypes",
+                columns: new[] { "PaymentTypeCode", "PaymentTypeDesc" },
+                values: new object[,]
+                {
+                    { (byte)1, "Nağd" },
+                    { (byte)2, "Visa" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DcProductTypes",
+                columns: new[] { "ProductTypeCode", "ProductTypeDesc" },
+                values: new object[] { (byte)1, "Məhsul" });
+
+            migrationBuilder.InsertData(
+                table: "DcStores",
+                columns: new[] { "StoreCode", "CompanyCode", "IsDisabled", "RowGuid", "StoreDesc" },
+                values: new object[,]
+                {
+                    { "mgz-01", 0m, false, new Guid("00000000-0000-0000-0000-000000000000"), "Bakıxanov" },
+                    { "mgz-02", 0m, false, new Guid("00000000-0000-0000-0000-000000000000"), "Elmlər" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DcWarehouses",
+                columns: new[] { "WarehouseCode", "ControlStockLevel", "IsDefault", "IsDisabled", "PermitNegativeStock", "RowGuid", "WarehouseDesc", "WarehouseTypeCode", "WarnNegativeStock", "WarnStockLevelRate" },
+                values: new object[,]
+                {
+                    { "depo-01", false, false, false, false, new Guid("00000000-0000-0000-0000-000000000000"), "Bakıxanov deposu", (byte)0, false, false },
+                    { "depo-02", false, false, false, false, new Guid("00000000-0000-0000-0000-000000000000"), "Elmlər deposu", (byte)0, false, false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DcCurrAccs",
+                columns: new[] { "CurrAccCode", "CompanyCode", "CurrAccTypeCode", "CustomerPosDiscountRate", "CustomerTypeCode", "FirstName", "IsDisabled", "LastName", "PhoneNum", "RowGuid", "VendorTypeCode" },
+                values: new object[,]
+                {
+                    { "CA-1", (byte)0, (byte)1, 0.0, (byte)0, "Sübhan", false, "Hüseynzadə", "0519678909", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 },
+                    { "CA-2", (byte)0, (byte)2, 0.0, (byte)0, "Orxan", false, "Hüseynzadə", "0773628800", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DcProducts",
+                columns: new[] { "ProductCode", "Barcode", "ProductDescription", "ProductTypeCode", "RetailPrice" },
+                values: new object[,]
+                {
+                    { "test01", "123456", "Papaq", (byte)1, 4.5 },
+                    { "test02", "2000000000013", "Salvar", (byte)1, 2.5 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_CurrAccTypeCode",
                 table: "DcCurrAccs",
                 column: "CurrAccTypeCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DcPaymentTypes_DcPaymentTypePaymentTypeCode",
-                table: "DcPaymentTypes",
-                column: "DcPaymentTypePaymentTypeCode");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductTypeCode",
