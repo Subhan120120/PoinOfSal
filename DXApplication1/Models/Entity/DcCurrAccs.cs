@@ -88,6 +88,7 @@ namespace PointOfSale.Models
         [StringLength(50)]
         public string PhoneNum { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? BirthDate { get; set; }
 
         public virtual DcCurrAccType DcCurrAccType { get; set; }

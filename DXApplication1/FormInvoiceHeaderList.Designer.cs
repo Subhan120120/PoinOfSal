@@ -137,15 +137,13 @@ namespace PointOfSale
             this.col_OfficeCode.FieldName = "OfficeCode";
             this.col_OfficeCode.Name = "col_OfficeCode";
             this.col_OfficeCode.Visible = true;
-            this.col_OfficeCode.VisibleIndex = 7;
+            this.col_OfficeCode.VisibleIndex = 6;
             // 
             // col_StoreCode
             // 
             this.col_StoreCode.Caption = "Mağaza Kodu";
             this.col_StoreCode.FieldName = "StoreCode";
             this.col_StoreCode.Name = "col_StoreCode";
-            this.col_StoreCode.Visible = true;
-            this.col_StoreCode.VisibleIndex = 6;
             // 
             // col_WarehouseCode
             // 
@@ -153,7 +151,7 @@ namespace PointOfSale
             this.col_WarehouseCode.FieldName = "WarehouseCode";
             this.col_WarehouseCode.Name = "col_WarehouseCode";
             this.col_WarehouseCode.Visible = true;
-            this.col_WarehouseCode.VisibleIndex = 8;
+            this.col_WarehouseCode.VisibleIndex = 7;
             // 
             // col_CustomsDocNum
             // 
@@ -161,7 +159,7 @@ namespace PointOfSale
             this.col_CustomsDocNum.FieldName = "CustomsDocumentNumber";
             this.col_CustomsDocNum.Name = "col_CustomsDocNum";
             this.col_CustomsDocNum.Visible = true;
-            this.col_CustomsDocNum.VisibleIndex = 9;
+            this.col_CustomsDocNum.VisibleIndex = 8;
             // 
             // col_CreatedUserName
             // 
@@ -169,15 +167,13 @@ namespace PointOfSale
             this.col_CreatedUserName.FieldName = "CreatedUserName";
             this.col_CreatedUserName.Name = "col_CreatedUserName";
             this.col_CreatedUserName.Visible = true;
-            this.col_CreatedUserName.VisibleIndex = 10;
+            this.col_CreatedUserName.VisibleIndex = 9;
             // 
             // col_CreatedDate
             // 
             this.col_CreatedDate.Caption = "Yaradılma Tarixi";
             this.col_CreatedDate.FieldName = "CreatedDate";
             this.col_CreatedDate.Name = "col_CreatedDate";
-            this.col_CreatedDate.Visible = true;
-            this.col_CreatedDate.VisibleIndex = 11;
             // 
             // col_InvoiceHeaderId
             // 
@@ -190,8 +186,6 @@ namespace PointOfSale
             this.col_ProcessCode.Caption = "ProcessCode";
             this.col_ProcessCode.FieldName = "ProcessCode";
             this.col_ProcessCode.Name = "col_ProcessCode";
-            this.col_ProcessCode.Visible = true;
-            this.col_ProcessCode.VisibleIndex = 12;
             // 
             // FormInvoiceHeaderList
             // 

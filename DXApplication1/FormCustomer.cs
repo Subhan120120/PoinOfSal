@@ -9,31 +9,50 @@ namespace PointOfSale
     {
         SqlMethods sqlMethods = new SqlMethods();
         public DcCurrAcc DcCurrAcc { get; set; }
+
+
         public FormCustomer(DcCurrAcc DcCurrAcc)
         {
             this.DcCurrAcc = DcCurrAcc;
             InitializeComponent();
         }
 
-        private void simpleButtonOk_Click(object sender, EventArgs e)
+        private void FormCustomer_Load(object sender, EventArgs e)
         {
-            string newNum = sqlMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");            
-
-            DcCurrAcc = new DcCurrAcc()
+            if (!String.IsNullOrEmpty(DcCurrAcc.CurrAccCode))
             {
-                CurrAccCode = newNum,
-                CurrAccTypeCode = 2,
-                Address = memoEdit_Address.EditValue is null ? "" : memoEdit_Address.EditValue.ToString(),
-                BonusCardNum = txtEdit_BonusCard.EditValue is null ? "" : txtEdit_BonusCard.EditValue.ToString(),
-                FirstName = txtEdit_FirstName.EditValue is null ? "" : txtEdit_FirstName.EditValue.ToString(),
-                LastName = txtEdit_LastName.EditValue is null ? "" : txtEdit_LastName.EditValue.ToString(),
-                BirthDate = txtEdit_BirthDate.EditValue is null ? null : Convert.ToDateTime(txtEdit_BirthDate.EditValue),
-                PhoneNum = txtEdit_PhoneNum.EditValue is null ? "" : txtEdit_PhoneNum.EditValue.ToString()
-            };
+                txtEdit_CurrAccCode.EditValue = DcCurrAcc.CurrAccCode;
+                txtEdit_FirstName.EditValue = DcCurrAcc.FirstName;
+                memoEdit_Address.EditValue = DcCurrAcc.Address;
+                dateEdit_BirthDate.EditValue = DcCurrAcc.BirthDate;
+                txtEdit_BonusCard.EditValue = DcCurrAcc.BonusCardNum;
+                txtEdit_PhoneNum.EditValue = DcCurrAcc.PhoneNum;
+            }
+            else
+                txtEdit_CurrAccCode.EditValue = sqlMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
+        }
 
-            int result = sqlMethods.InsertCustomer(DcCurrAcc);
-            if (result > 0)
-                DialogResult = DialogResult.OK;
+        private void btn_Ok_Click(object sender, EventArgs e)
+        {
+            DcCurrAcc = sqlMethods.SelectCurrAcc(txtEdit_CurrAccCode.Text);
+            if (DcCurrAcc == null)                                      // if Customer doesnt exist in db
+                DcCurrAcc = new DcCurrAcc();
+
+            DcCurrAcc.CurrAccCode = txtEdit_CurrAccCode.Text;
+            DcCurrAcc.CurrAccTypeCode = 2;
+            DcCurrAcc.Address = memoEdit_Address.Text;
+            DcCurrAcc.BonusCardNum = txtEdit_BonusCard.Text;
+            DcCurrAcc.FirstName = txtEdit_FirstName.Text;
+            DcCurrAcc.LastName = txtEdit_LastName.Text;
+            DcCurrAcc.BirthDate = Convert.ToDateTime(dateEdit_BirthDate.EditValue ??= new DateTime(1901, 01, 01));
+            DcCurrAcc.PhoneNum = txtEdit_PhoneNum.Text;
+
+            if (sqlMethods.CustomerExist(txtEdit_CurrAccCode.Text))
+                sqlMethods.UpdateCustomer(DcCurrAcc);
+            else
+                sqlMethods.InsertCustomer(DcCurrAcc);
+
+            DialogResult = DialogResult.OK;
         }
     }
 }

@@ -235,7 +235,7 @@ namespace PointOfSale.Migrations
                     BonusCardNum = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
                     Address = table.Column<string>(maxLength: 150, nullable: true, defaultValueSql: "space(0)"),
                     PhoneNum = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
-                    BirthDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified))
+                    BirthDate = table.Column<DateTime>(type: "date", nullable: true, defaultValue: new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified))
                 },
                 constraints: table =>
                 {

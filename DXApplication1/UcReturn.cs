@@ -20,6 +20,17 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        private void UcReturn_Load(object sender, EventArgs e)
+        {
+            this.ParentForm.FormClosing += new FormClosingEventHandler(ParentForm_FormClosing); // set Parent Form Closing event
+        }
+
+        void ParentForm_FormClosing(object sender, FormClosingEventArgs e) // Parent Form Closing event
+        {
+            if (sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderId))
+                sqlMethods.DeleteInvoice(returnInvoiceHeaderId);                // delete incomplete invoice
+        }
+
         private void btnEdit_InvoiceHeader_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             using (FormInvoiceHeaderList formInvoiceHeaderList = new FormInvoiceHeaderList())

@@ -33,7 +33,7 @@ namespace PointOfSale.Migrations
 
                     b.Property<DateTime?>("BirthDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
+                        .HasColumnType("date")
                         .HasDefaultValue(new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
                     b.Property<string>("BonusCardNum")

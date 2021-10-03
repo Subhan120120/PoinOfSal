@@ -29,12 +29,12 @@ namespace PointOfSale
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcReturn));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.lC_Root = new DevExpress.XtraLayout.LayoutControl();
             this.gC_ReturnInvoiceLine = new DevExpress.XtraGrid.GridControl();
             this.gV_ReturnInvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -130,7 +130,7 @@ namespace PointOfSale
             this.gC_ReturnInvoiceLine.Location = new System.Drawing.Point(24, 45);
             this.gC_ReturnInvoiceLine.MainView = this.gV_ReturnInvoiceLine;
             this.gC_ReturnInvoiceLine.Name = "gC_ReturnInvoiceLine";
-            this.gC_ReturnInvoiceLine.Size = new System.Drawing.Size(345, 376);
+            this.gC_ReturnInvoiceLine.Size = new System.Drawing.Size(345, 375);
             this.gC_ReturnInvoiceLine.TabIndex = 10;
             this.gC_ReturnInvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_ReturnInvoiceLine});
@@ -234,10 +234,10 @@ namespace PointOfSale
             // 
             // gC_PaymentLine
             // 
-            this.gC_PaymentLine.Location = new System.Drawing.Point(24, 470);
+            this.gC_PaymentLine.Location = new System.Drawing.Point(24, 469);
             this.gC_PaymentLine.MainView = this.gV_PaymentLine;
             this.gC_PaymentLine.Name = "gC_PaymentLine";
-            this.gC_PaymentLine.Size = new System.Drawing.Size(345, 165);
+            this.gC_PaymentLine.Size = new System.Drawing.Size(345, 166);
             this.gC_PaymentLine.TabIndex = 6;
             this.gC_PaymentLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_PaymentLine});
@@ -288,7 +288,7 @@ namespace PointOfSale
             this.gC_InvoiceLine.Name = "gC_InvoiceLine";
             this.gC_InvoiceLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repoBtn_ReturnLine});
-            this.gC_InvoiceLine.Size = new System.Drawing.Size(685, 444);
+            this.gC_InvoiceLine.Size = new System.Drawing.Size(685, 443);
             this.gC_InvoiceLine.TabIndex = 5;
             this.gC_InvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_InvoiceLine});
@@ -442,10 +442,10 @@ namespace PointOfSale
             // repoBtn_ReturnLine
             // 
             this.repoBtn_ReturnLine.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(16, 16);
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
             this.repoBtn_ReturnLine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repoBtn_ReturnLine.Name = "repoBtn_ReturnLine";
             this.repoBtn_ReturnLine.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repoBtn_ReturnLine.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repobtn_ReturnLine_ButtonClick);
@@ -454,9 +454,9 @@ namespace PointOfSale
             // 
             this.btn_Payment.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Payment.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Payment.ImageOptions.SvgImage")));
-            this.btn_Payment.Location = new System.Drawing.Point(914, 580);
+            this.btn_Payment.Location = new System.Drawing.Point(914, 579);
             this.btn_Payment.Name = "btn_Payment";
-            this.btn_Payment.Size = new System.Drawing.Size(74, 67);
+            this.btn_Payment.Size = new System.Drawing.Size(74, 68);
             this.btn_Payment.StyleController = this.lC_Root;
             this.btn_Payment.TabIndex = 7;
             this.btn_Payment.Text = "simpleButton1";
@@ -466,9 +466,9 @@ namespace PointOfSale
             // 
             this.btn_Cancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Cancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Cancel.ImageOptions.SvgImage")));
-            this.btn_Cancel.Location = new System.Drawing.Point(992, 580);
+            this.btn_Cancel.Location = new System.Drawing.Point(992, 579);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(102, 67);
+            this.btn_Cancel.Size = new System.Drawing.Size(102, 68);
             this.btn_Cancel.StyleController = this.lC_Root;
             this.btn_Cancel.TabIndex = 8;
             this.btn_Cancel.Text = "simpleButton2";
@@ -523,10 +523,10 @@ namespace PointOfSale
             // lCI_Cancel
             // 
             this.lCI_Cancel.Control = this.btn_Cancel;
-            this.lCI_Cancel.Location = new System.Drawing.Point(980, 568);
+            this.lCI_Cancel.Location = new System.Drawing.Point(980, 567);
             this.lCI_Cancel.MinSize = new System.Drawing.Size(78, 26);
             this.lCI_Cancel.Name = "lCI_Cancel";
-            this.lCI_Cancel.Size = new System.Drawing.Size(106, 71);
+            this.lCI_Cancel.Size = new System.Drawing.Size(106, 72);
             this.lCI_Cancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Cancel.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Cancel.TextVisible = false;
@@ -534,10 +534,10 @@ namespace PointOfSale
             // lCI_Cash
             // 
             this.lCI_Cash.Control = this.btn_Payment;
-            this.lCI_Cash.Location = new System.Drawing.Point(902, 568);
+            this.lCI_Cash.Location = new System.Drawing.Point(902, 567);
             this.lCI_Cash.MinSize = new System.Drawing.Size(78, 26);
             this.lCI_Cash.Name = "lCI_Cash";
-            this.lCI_Cash.Size = new System.Drawing.Size(78, 71);
+            this.lCI_Cash.Size = new System.Drawing.Size(78, 72);
             this.lCI_Cash.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Cash.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Cash.TextVisible = false;
@@ -556,7 +556,7 @@ namespace PointOfSale
             this.layoutControlItem1});
             this.lCG_ReturnInvoiceLine.Location = new System.Drawing.Point(0, 0);
             this.lCG_ReturnInvoiceLine.Name = "lCG_ReturnInvoiceLine";
-            this.lCG_ReturnInvoiceLine.Size = new System.Drawing.Size(373, 425);
+            this.lCG_ReturnInvoiceLine.Size = new System.Drawing.Size(373, 424);
             this.lCG_ReturnInvoiceLine.Text = "Geri Qaytarma";
             // 
             // layoutControlItem1
@@ -564,7 +564,7 @@ namespace PointOfSale
             this.layoutControlItem1.Control = this.gC_ReturnInvoiceLine;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(349, 380);
+            this.layoutControlItem1.Size = new System.Drawing.Size(349, 379);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -574,7 +574,7 @@ namespace PointOfSale
             this.lCI_InvoiceLine});
             this.lCG_InvoiceLine.Location = new System.Drawing.Point(373, 75);
             this.lCG_InvoiceLine.Name = "lCG_InvoiceLine";
-            this.lCG_InvoiceLine.Size = new System.Drawing.Size(713, 493);
+            this.lCG_InvoiceLine.Size = new System.Drawing.Size(713, 492);
             this.lCG_InvoiceLine.Text = "Məhsul";
             // 
             // lCI_InvoiceLine
@@ -582,7 +582,7 @@ namespace PointOfSale
             this.lCI_InvoiceLine.Control = this.gC_InvoiceLine;
             this.lCI_InvoiceLine.Location = new System.Drawing.Point(0, 0);
             this.lCI_InvoiceLine.Name = "lCI_InvoiceLine";
-            this.lCI_InvoiceLine.Size = new System.Drawing.Size(689, 448);
+            this.lCI_InvoiceLine.Size = new System.Drawing.Size(689, 447);
             this.lCI_InvoiceLine.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_InvoiceLine.TextVisible = false;
             // 
@@ -590,9 +590,9 @@ namespace PointOfSale
             // 
             this.lCG_Payment.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lCI_Payment});
-            this.lCG_Payment.Location = new System.Drawing.Point(0, 425);
+            this.lCG_Payment.Location = new System.Drawing.Point(0, 424);
             this.lCG_Payment.Name = "lCG_Payment";
-            this.lCG_Payment.Size = new System.Drawing.Size(373, 214);
+            this.lCG_Payment.Size = new System.Drawing.Size(373, 215);
             this.lCG_Payment.Text = "Ödəmə";
             // 
             // lCI_Payment
@@ -600,7 +600,7 @@ namespace PointOfSale
             this.lCI_Payment.Control = this.gC_PaymentLine;
             this.lCI_Payment.Location = new System.Drawing.Point(0, 0);
             this.lCI_Payment.Name = "lCI_Payment";
-            this.lCI_Payment.Size = new System.Drawing.Size(349, 169);
+            this.lCI_Payment.Size = new System.Drawing.Size(349, 170);
             this.lCI_Payment.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Payment.TextVisible = false;
             // 
@@ -611,6 +611,7 @@ namespace PointOfSale
             this.Controls.Add(this.lC_Root);
             this.Name = "UcReturn";
             this.Size = new System.Drawing.Size(1106, 659);
+            this.Load += new System.EventHandler(this.UcReturn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).EndInit();
             this.lC_Root.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gC_ReturnInvoiceLine)).EndInit();

@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20210921172804_test22")]
-    partial class test22
+    [Migration("20211002184541_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,7 +35,7 @@ namespace PointOfSale.Migrations
 
                     b.Property<DateTime?>("BirthDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
+                        .HasColumnType("date")
                         .HasDefaultValue(new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
                     b.Property<string>("BonusCardNum")
@@ -155,13 +155,50 @@ namespace PointOfSale.Migrations
                     b.Property<byte>("VendorTypeCode")
                         .HasColumnType("tinyint");
 
-                    b.HasKey("CurrAccCode")
-                        .HasName("PK_dbo.DcCurrAcc");
+                    b.HasKey("CurrAccCode");
 
                     b.HasIndex("CurrAccTypeCode")
                         .HasName("IX_CurrAccTypeCode");
 
-                    b.ToTable("DcCurrAcc");
+                    b.ToTable("DcCurrAccs");
+
+                    b.HasData(
+                        new
+                        {
+                            CurrAccCode = "CA-1",
+                            CompanyCode = (byte)0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreditLimit = 0m,
+                            CurrAccTypeCode = (byte)1,
+                            CustomerPosDiscountRate = 0.0,
+                            CustomerTypeCode = (byte)0,
+                            FirstName = "Sübhan",
+                            IsDisabled = false,
+                            IsVip = false,
+                            LastName = "Hüseynzadə",
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PhoneNum = "0519678909",
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
+                            VendorTypeCode = (byte)0
+                        },
+                        new
+                        {
+                            CurrAccCode = "CA-2",
+                            CompanyCode = (byte)0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreditLimit = 0m,
+                            CurrAccTypeCode = (byte)2,
+                            CustomerPosDiscountRate = 0.0,
+                            CustomerTypeCode = (byte)0,
+                            FirstName = "Orxan",
+                            IsDisabled = false,
+                            IsVip = false,
+                            LastName = "Hüseynzadə",
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PhoneNum = "0773628800",
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
+                            VendorTypeCode = (byte)0
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcCurrAccType", b =>
@@ -182,10 +219,32 @@ namespace PointOfSale.Migrations
                     b.Property<Guid>("RowGuid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("CurrAccTypeCode")
-                        .HasName("PK_dbo.DcCurrAccType");
+                    b.HasKey("CurrAccTypeCode");
 
-                    b.ToTable("DcCurrAccType");
+                    b.ToTable("DcCurrAccTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            CurrAccTypeCode = (byte)1,
+                            CurrAccTypeDescription = "Müştəri",
+                            IsDisabled = false,
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            CurrAccTypeCode = (byte)2,
+                            CurrAccTypeDescription = "Tədarikçi",
+                            IsDisabled = false,
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            CurrAccTypeCode = (byte)3,
+                            CurrAccTypeDescription = "Personal",
+                            IsDisabled = false,
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcOffice", b =>
@@ -198,36 +257,67 @@ namespace PointOfSale.Migrations
                         .HasColumnType("numeric(4, 0)");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<bool>("IsDisabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("OfficeDesc")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(150)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(150);
 
                     b.Property<Guid>("RowGuid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("OfficeCode")
-                        .HasName("PK_dbo.DcOffice");
+                    b.HasKey("OfficeCode");
 
-                    b.ToTable("DcOffice");
+                    b.ToTable("DcOffices");
+
+                    b.HasData(
+                        new
+                        {
+                            OfficeCode = "OFS01",
+                            CompanyCode = 0m,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OfficeDesc = "Bakıxanov Ofisi",
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            OfficeCode = "OFS02",
+                            CompanyCode = 0m,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OfficeDesc = "Elmlər Ofisi",
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcPaymentType", b =>
@@ -235,14 +325,27 @@ namespace PointOfSale.Migrations
                     b.Property<byte>("PaymentTypeCode")
                         .HasColumnType("tinyint");
 
-                    b.Property<string>("PaymentTypeDescription")
+                    b.Property<string>("PaymentTypeDesc")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(100);
 
-                    b.HasKey("PaymentTypeCode")
-                        .HasName("PK_dbo.DcPaymentType");
+                    b.HasKey("PaymentTypeCode");
 
-                    b.ToTable("DcPaymentType");
+                    b.ToTable("DcPaymentTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            PaymentTypeCode = (byte)1,
+                            PaymentTypeDesc = "Nağd"
+                        },
+                        new
+                        {
+                            PaymentTypeCode = (byte)2,
+                            PaymentTypeDesc = "Visa"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProcess", b =>
@@ -255,74 +358,136 @@ namespace PointOfSale.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProcessDescription")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(200)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(200);
 
-                    b.HasKey("ProcessCode")
-                        .HasName("PK_dbo.DcProcess");
+                    b.HasKey("ProcessCode");
 
-                    b.ToTable("DcProcess");
+                    b.ToTable("DcProcesses");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProduct", b =>
                 {
                     b.Property<string>("ProductCode")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Barcode")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
-                    b.Property<bool?>("IsBlocked")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsBlocked")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<bool?>("IsDisabled")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsDisabled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("PosDiscount")
-                        .HasColumnType("float");
+                    b.Property<double>("PosDiscount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<string>("ProductDescription")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(150)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(150);
 
-                    b.Property<byte?>("ProductTypeCode")
+                    b.Property<byte>("ProductTypeCode")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("PromotionCode")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
                     b.Property<string>("PromotionCode2")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
-                    b.Property<double?>("PurchasePrice")
-                        .HasColumnType("float");
+                    b.Property<double>("PurchasePrice")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("RetailPrice")
-                        .HasColumnType("float");
+                    b.Property<double>("RetailPrice")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("TaxRate")
-                        .HasColumnType("float");
+                    b.Property<double>("TaxRate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<bool?>("UseInternet")
-                        .HasColumnType("bit");
+                    b.Property<bool>("UseInternet")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<bool?>("UsePos")
-                        .HasColumnType("bit");
+                    b.Property<bool>("UsePos")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("WholesalePrice")
-                        .HasColumnType("float");
+                    b.Property<double>("WholesalePrice")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
-                    b.HasKey("ProductCode")
-                        .HasName("PK_dbo.DcProduct");
+                    b.HasKey("ProductCode");
 
                     b.HasIndex("ProductTypeCode")
                         .HasName("IX_ProductTypeCode");
 
-                    b.ToTable("DcProduct");
+                    b.ToTable("DcProducts");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductCode = "test01",
+                            Barcode = "123456",
+                            IsBlocked = false,
+                            IsDisabled = false,
+                            PosDiscount = 0.0,
+                            ProductDescription = "Papaq",
+                            ProductTypeCode = (byte)1,
+                            PurchasePrice = 0.0,
+                            RetailPrice = 4.5,
+                            TaxRate = 0.0,
+                            UseInternet = false,
+                            UsePos = false,
+                            WholesalePrice = 0.0
+                        },
+                        new
+                        {
+                            ProductCode = "test02",
+                            Barcode = "2000000000013",
+                            IsBlocked = false,
+                            IsDisabled = false,
+                            PosDiscount = 0.0,
+                            ProductDescription = "Salvar",
+                            ProductTypeCode = (byte)1,
+                            PurchasePrice = 0.0,
+                            RetailPrice = 2.5,
+                            TaxRate = 0.0,
+                            UseInternet = false,
+                            UsePos = false,
+                            WholesalePrice = 0.0
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProductType", b =>
@@ -331,13 +496,21 @@ namespace PointOfSale.Migrations
                         .HasColumnType("tinyint");
 
                     b.Property<string>("ProductTypeDesc")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
-                    b.HasKey("ProductTypeCode")
-                        .HasName("PK_dbo.DcProductType");
+                    b.HasKey("ProductTypeCode");
 
-                    b.ToTable("DcProductType");
+                    b.ToTable("DcProductTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductTypeCode = (byte)1,
+                            ProductTypeDesc = "Məhsul"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcStore", b =>
@@ -350,22 +523,30 @@ namespace PointOfSale.Migrations
                         .HasColumnType("numeric(4, 0)");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<bool>("IsDisabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<Guid>("RowGuid")
@@ -373,13 +554,36 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("StoreDesc")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(150)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(150);
 
-                    b.HasKey("StoreCode")
-                        .HasName("PK_dbo.DcStore");
+                    b.HasKey("StoreCode");
 
-                    b.ToTable("DcStore");
+                    b.ToTable("DcStores");
+
+                    b.HasData(
+                        new
+                        {
+                            StoreCode = "mgz-01",
+                            CompanyCode = 0m,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
+                            StoreDesc = "Bakıxanov"
+                        },
+                        new
+                        {
+                            StoreCode = "mgz-02",
+                            CompanyCode = 0m,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
+                            StoreDesc = "Elmlər"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcTerminal", b =>
@@ -389,22 +593,30 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(50);
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<bool>("IsDisabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<Guid>("RowGuid")
@@ -412,13 +624,14 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("TerminalDesc")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(150)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(150);
 
-                    b.HasKey("TerminalCode")
-                        .HasName("PK_dbo.DcTerminal");
+                    b.HasKey("TerminalCode");
 
-                    b.ToTable("DcTerminal");
+                    b.ToTable("DcTerminals");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcWarehouse", b =>
@@ -431,11 +644,15 @@ namespace PointOfSale.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<bool>("IsDefault")
@@ -445,16 +662,22 @@ namespace PointOfSale.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("OfficeCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(5)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(5);
 
                     b.Property<bool>("PermitNegativeStock")
@@ -465,12 +688,16 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("StoreCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
                     b.Property<string>("WarehouseDesc")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(150)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(150);
 
                     b.Property<byte>("WarehouseTypeCode")
@@ -482,10 +709,41 @@ namespace PointOfSale.Migrations
                     b.Property<bool>("WarnStockLevelRate")
                         .HasColumnType("bit");
 
-                    b.HasKey("WarehouseCode")
-                        .HasName("PK_dbo.DcWarehouse");
+                    b.HasKey("WarehouseCode");
 
-                    b.ToTable("DcWarehouse");
+                    b.ToTable("DcWarehouses");
+
+                    b.HasData(
+                        new
+                        {
+                            WarehouseCode = "depo-01",
+                            ControlStockLevel = false,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDefault = false,
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PermitNegativeStock = false,
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
+                            WarehouseDesc = "Bakıxanov deposu",
+                            WarehouseTypeCode = (byte)0,
+                            WarnNegativeStock = false,
+                            WarnStockLevelRate = false
+                        },
+                        new
+                        {
+                            WarehouseCode = "depo-02",
+                            ControlStockLevel = false,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDefault = false,
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PermitNegativeStock = false,
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
+                            WarehouseDesc = "Elmlər deposu",
+                            WarehouseTypeCode = (byte)0,
+                            WarnNegativeStock = false,
+                            WarnStockLevelRate = false
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.MigrationHistory", b =>
@@ -550,13 +808,9 @@ namespace PointOfSale.Migrations
                     b.Property<Guid>("InvoiceHeaderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CompanyCode")
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
@@ -568,10 +822,10 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("CurrAccCode")
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
                         .HasDefaultValueSql("space(0)")
@@ -580,9 +834,9 @@ namespace PointOfSale.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(2000)")
+                        .HasColumnType("nvarchar(200)")
                         .HasDefaultValueSql("space(0)")
-                        .HasMaxLength(2000);
+                        .HasMaxLength(200);
 
                     b.Property<DateTime>("DocumentDate")
                         .ValueGeneratedOnAdd()
@@ -602,29 +856,43 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("'00:00:00'");
 
                     b.Property<byte>("FiscalPrintedState")
-                        .HasColumnType("tinyint");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsLocked")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsPrinted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsReturn")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsSalesViaInternet")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsSuspended")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("0");
 
                     b.Property<DateTime>("LastUpdatedDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
@@ -687,7 +955,7 @@ namespace PointOfSale.Migrations
                     b.HasIndex("CurrAccCode")
                         .HasName("IX_CurrAccCode");
 
-                    b.ToTable("TrInvoiceHeader");
+                    b.ToTable("TrInvoiceHeaders");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceLine", b =>
@@ -695,55 +963,79 @@ namespace PointOfSale.Migrations
                     b.Property<Guid>("InvoiceLineId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal?>("Amount")
-                        .HasColumnType("money");
+                    b.Property<decimal>("Amount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("money")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50)
-                        .HasDefaultValue("");
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
 
                     b.Property<string>("CurrencyCode")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
-                    b.Property<decimal?>("DiscountCampaign")
-                        .HasColumnType("money");
+                    b.Property<decimal>("DiscountCampaign")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("money")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("ExchangeRate")
-                        .HasColumnType("float");
+                    b.Property<double>("ExchangeRate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<Guid>("InvoiceHeaderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
 
                     b.Property<string>("LineDescription")
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValueSql("space(0)");
 
-                    b.Property<decimal?>("NetAmount")
-                        .HasColumnType("money");
+                    b.Property<decimal>("NetAmount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("money")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<decimal?>("PosDiscount")
-                        .HasColumnType("money");
+                    b.Property<decimal>("PosDiscount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("money")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double?>("Price")
-                        .HasColumnType("float");
+                    b.Property<double>("Price")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<string>("ProductCode")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
-                    b.Property<int?>("Qty")
+                    b.Property<int>("Qty")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValueSql("1");
@@ -752,14 +1044,17 @@ namespace PointOfSale.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("SalespersonCode")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
-                    b.Property<float?>("VatRate")
-                        .HasColumnType("real");
+                    b.Property<float>("VatRate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("real")
+                        .HasDefaultValueSql("0");
 
-                    b.HasKey("InvoiceLineId")
-                        .HasName("PK_dbo.TrInvoiceLine");
+                    b.HasKey("InvoiceLineId");
 
                     b.HasIndex("InvoiceHeaderId")
                         .HasName("IX_InvoiceHeaderId");
@@ -767,64 +1062,79 @@ namespace PointOfSale.Migrations
                     b.HasIndex("ProductCode")
                         .HasName("IX_ProductCode");
 
-                    b.ToTable("TrInvoiceLine");
+                    b.ToTable("TrInvoiceLines");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrPaymentHeader", b =>
                 {
                     b.Property<Guid>("PaymentHeaderId")
-                        .HasColumnName("PaymentHeaderId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("CompanyCode")
-                        .HasColumnType("numeric(4, 0)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
-                        .HasDefaultValueSql("space(0)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("CurrAccCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("CurrencyCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(200)")
+                        .HasDefaultValueSql("'00:00:00'")
                         .HasMaxLength(200);
 
                     b.Property<DateTime>("DocumentDate")
-                        .HasColumnType("date");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("date")
+                        .HasDefaultValue(new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
                     b.Property<string>("DocumentNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<TimeSpan>("DocumentTime")
-                        .HasColumnType("time(0)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("time(0)")
+                        .HasDefaultValueSql("'00:00:00'");
 
                     b.Property<double>("ExchangeRate")
                         .HasColumnType("float");
 
                     b.Property<Guid?>("InvoiceHeaderId")
-                        .HasColumnName("InvoiceHeaderId")
-                        .HasColumnType("uniqueidentifier");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<string>("InvoiceNumber")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<bool>("IsCompleted")
@@ -834,103 +1144,135 @@ namespace PointOfSale.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("OfficeCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(5)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(5);
 
                     b.Property<short>("PosterminalId")
-                        .HasColumnName("POSTerminalID")
-                        .HasColumnType("smallint");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("smallint")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<string>("StoreCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
-                    b.HasKey("PaymentHeaderId")
-                        .HasName("PK_dbo.TrPaymentHeader");
+                    b.HasKey("PaymentHeaderId");
 
-                    b.ToTable("TrPaymentHeader");
+                    b.HasIndex("InvoiceHeaderId");
+
+                    b.ToTable("TrPaymentHeaders");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrPaymentLine", b =>
                 {
                     b.Property<Guid>("PaymentLineId")
-                        .HasColumnName("PaymentLineId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte?>("BankId")
-                        .HasColumnName("BankID")
                         .HasColumnType("tinyint");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("CurrencyCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
                     b.Property<double>("ExchangeRate")
-                        .HasColumnType("float");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValueSql("0");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("LineDescription")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(200)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(200);
 
                     b.Property<decimal>("Payment")
-                        .HasColumnType("money");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("money")
+                        .HasDefaultValueSql("0");
 
                     b.Property<Guid>("PaymentHeaderId")
-                        .HasColumnName("PaymentHeaderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte>("PaymentTypeCode")
                         .HasColumnType("tinyint");
 
-                    b.HasKey("PaymentLineId")
-                        .HasName("PK_dbo.TrPaymentLine");
+                    b.HasKey("PaymentLineId");
 
-                    b.ToTable("TrPaymentLine");
+                    b.HasIndex("PaymentHeaderId");
+
+                    b.HasIndex("PaymentTypeCode");
+
+                    b.ToTable("TrPaymentLines");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrShipmentHeader", b =>
                 {
                     b.Property<Guid>("ShipmentHeaderId")
-                        .HasColumnName("ShipmentHeaderID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("CompanyCode")
-                        .HasColumnType("numeric(4, 0)");
+                        .HasColumnType("decimal(18,2)")
+                        .HasMaxLength(10);
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("CurrAccCode")
@@ -939,13 +1281,16 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
-                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(200)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(200);
 
                     b.Property<bool>("IsCompleted")
@@ -964,122 +1309,166 @@ namespace PointOfSale.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("OfficeCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(5)")
-                        .HasMaxLength(5);
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
+                        .HasMaxLength(10);
 
                     b.Property<DateTime>("OperationDate")
-                        .HasColumnType("date");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("date")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<TimeSpan>("OperationTime")
-                        .HasColumnType("time(0)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("time(0)")
+                        .HasDefaultValueSql("'00:00:00'");
 
                     b.Property<string>("ProcessCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(5)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(5);
 
                     b.Property<byte>("ShipTypeCode")
                         .HasColumnType("tinyint");
 
                     b.Property<DateTime>("ShippingDate")
-                        .HasColumnType("date");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("date")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("ShippingNumber")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<Guid?>("ShippingPostalAddressId")
-                        .HasColumnName("ShippingPostalAddressID")
-                        .HasColumnType("uniqueidentifier");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<TimeSpan>("ShippingTime")
-                        .HasColumnType("time(0)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("time(0)")
+                        .HasDefaultValueSql("'00:00:00'");
 
                     b.Property<string>("StoreCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("ToWarehouseCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
+                        .HasMaxLength(30);
 
                     b.Property<DateTime>("TransferApprovedDate")
-                        .HasColumnType("date");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<string>("WarehouseCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(30)")
+                        .HasDefaultValueSql("space(0)")
+                        .HasMaxLength(30);
 
-                    b.HasKey("ShipmentHeaderId")
-                        .HasName("PK_dbo.TrShipmentHeader");
+                    b.HasKey("ShipmentHeaderId");
 
-                    b.ToTable("TrShipmentHeader");
+                    b.ToTable("TrShipmentHeaders");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrShipmentLine", b =>
                 {
                     b.Property<Guid>("ShipmentLineId")
-                        .HasColumnName("ShipmentLineID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ColorCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("CurrencyCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
                     b.Property<byte>("ItemTypeCode")
                         .HasColumnType("tinyint");
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("LineDescription")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(200)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(200);
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("money");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("money")
+                        .HasDefaultValue(0m);
 
                     b.Property<string>("ProductCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<string>("ProductDimensionCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
                     b.Property<double>("Qty")
@@ -1087,11 +1476,12 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("SalespersonCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
                     b.Property<Guid>("ShipmentHeaderId")
-                        .HasColumnName("ShipmentHeaderID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("SortOrder")
@@ -1099,63 +1489,85 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("UsedBarcode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(10)")
+                        .HasDefaultValueSql("space(0)")
+                        .HasMaxLength(10);
 
-                    b.HasKey("ShipmentLineId")
-                        .HasName("PK_dbo.TrShipmentLine");
+                    b.HasKey("ShipmentLineId");
 
                     b.HasIndex("ShipmentHeaderId")
                         .HasName("IX_ShipmentHeaderID");
 
-                    b.ToTable("TrShipmentLine");
+                    b.ToTable("TrShipmentLines");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcCurrAcc", b =>
                 {
-                    b.HasOne("PointOfSale.Models.DcCurrAccType", "CurrAccTypeCodeNavigation")
-                        .WithMany("DcCurrAcc")
+                    b.HasOne("PointOfSale.Models.DcCurrAccType", "DcCurrAccType")
+                        .WithMany("DcCurrAccs")
                         .HasForeignKey("CurrAccTypeCode")
-                        .HasConstraintName("FK_dbo.DcCurrAcc_dbo.DcCurrAccType_CurrAccTypeCode")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProduct", b =>
                 {
-                    b.HasOne("PointOfSale.Models.DcProductType", "ProductTypeCodeNavigation")
-                        .WithMany("DcProduct")
+                    b.HasOne("PointOfSale.Models.DcProductType", "DcProductType")
+                        .WithMany("DcProducts")
                         .HasForeignKey("ProductTypeCode")
-                        .HasConstraintName("FK_dbo.DcProduct_dbo.DcProductType_ProductTypeCode");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
                 {
-                    b.HasOne("PointOfSale.Models.DcCurrAcc", "CurrAccCodeNavigation")
-                        .WithMany("TrInvoiceHeader")
-                        .HasForeignKey("CurrAccCode")
-                        .HasConstraintName("FK_dbo.TrInvoiceHeader_dbo.DcCurrAcc_CurrAccCode");
+                    b.HasOne("PointOfSale.Models.DcCurrAcc", "DcCurrAcc")
+                        .WithMany("TrInvoiceHeaders")
+                        .HasForeignKey("CurrAccCode");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceLine", b =>
                 {
-                    b.HasOne("PointOfSale.Models.TrInvoiceHeader", "InvoiceHeader")
-                        .WithMany("TrInvoiceLine")
+                    b.HasOne("PointOfSale.Models.TrInvoiceHeader", "TrInvoiceHeader")
+                        .WithMany("TrInvoiceLines")
                         .HasForeignKey("InvoiceHeaderId")
-                        .HasConstraintName("FK_dbo.TrInvoiceLine_dbo.TrInvoiceHeader_InvoiceHeaderId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PointOfSale.Models.DcProduct", "ProductCodeNavigation")
-                        .WithMany("TrInvoiceLine")
-                        .HasForeignKey("ProductCode")
-                        .HasConstraintName("FK_dbo.TrInvoiceLine_dbo.DcProduct_ProductCode");
+                    b.HasOne("PointOfSale.Models.DcProduct", "DcProduct")
+                        .WithMany("TrInvoiceLines")
+                        .HasForeignKey("ProductCode");
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.TrPaymentHeader", b =>
+                {
+                    b.HasOne("PointOfSale.Models.TrInvoiceHeader", "TrInvoiceHeader")
+                        .WithMany("TrPaymentHeaders")
+                        .HasForeignKey("InvoiceHeaderId");
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.TrPaymentLine", b =>
+                {
+                    b.HasOne("PointOfSale.Models.TrPaymentHeader", "TrPaymentHeader")
+                        .WithMany("TrPaymentLines")
+                        .HasForeignKey("PaymentHeaderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PointOfSale.Models.DcPaymentType", "DcPaymentType")
+                        .WithMany("TrPaymentLines")
+                        .HasForeignKey("PaymentTypeCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrShipmentLine", b =>
                 {
-                    b.HasOne("PointOfSale.Models.TrShipmentHeader", "ShipmentHeader")
-                        .WithMany("TrShipmentLine")
+                    b.HasOne("PointOfSale.Models.TrShipmentHeader", "TrShipmentHeader")
+                        .WithMany("TrShipmentLines")
                         .HasForeignKey("ShipmentHeaderId")
-                        .HasConstraintName("FK_dbo.TrShipmentLine_dbo.trShipmentHeader_ShipmentHeaderID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

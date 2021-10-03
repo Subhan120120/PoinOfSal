@@ -73,6 +73,8 @@
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraWizard.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -208,6 +210,7 @@
   <ItemGroup>
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
+    <Compile Include="AppCode\ReportClass.cs" />
     <Compile Include="FormChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,9 +253,9 @@
     <Compile Include="FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210926204841_initial.cs" />
-    <Compile Include="Migrations\20210926204841_initial.designer.cs">
-      <DependentUpon>20210926204841_initial.cs</DependentUpon>
+    <Compile Include="Migrations\20211002184541_initial.cs" />
+    <Compile Include="Migrations\20211002184541_initial.designer.cs">
+      <DependentUpon>20211002184541_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="Models\Context\subContext.cs" />
@@ -276,7 +279,7 @@
     <Compile Include="Models\Sysdiagrams.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReserveCode.cs" />
+    <Compile Include="AppCode\ReserveCode.cs" />
     <Compile Include="FormERP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,7 +292,7 @@
     <Compile Include="SplashScreenStartup.Designer.cs">
       <DependentUpon>SplashScreenStartup.cs</DependentUpon>
     </Compile>
-    <Compile Include="SqlMethods.cs" />
+    <Compile Include="AppCode\SqlMethods.cs" />
     <Compile Include="FormPayment.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -77,7 +77,9 @@ namespace PointOfSale
         {
             using (subContext db = new subContext())
             {
-                return db.TrInvoiceHeaders.OrderBy(x => x.CreatedDate).ToList();
+                return db.TrInvoiceHeaders.Where(x => x.IsCompleted == true)
+                                          .OrderBy(x => x.CreatedDate)
+                                          .ToList();
             }
         }
 
@@ -182,8 +184,9 @@ namespace PointOfSale
                 TrInvoiceHeader trInvoiceHeader = new TrInvoiceHeader() { InvoiceHeaderId = invoiceHeaderId };
                 db.TrInvoiceHeaders.Remove(trInvoiceHeader);
 
-                db.TrInvoiceLines.Remove(db.TrInvoiceLines.Where(x => x.InvoiceHeaderId == invoiceHeaderId)
-                                                          .FirstOrDefault());
+                IQueryable<TrInvoiceLine> trInvoiceLine = db.TrInvoiceLines.Where(x => x.InvoiceHeaderId == invoiceHeaderId);
+                if (trInvoiceLine.Any())
+                    db.TrInvoiceLines.Remove(trInvoiceLine.First());
 
                 return db.SaveChanges();
             }
@@ -266,8 +269,24 @@ namespace PointOfSale
                 return db.SaveChanges();
             }
         }
+        public bool CustomerExist(string CurrAccCode)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.DcCurrAccs.Any(x => x.CurrAccCode == CurrAccCode);
+            }
+        }
 
-        public int UpdateCurrAccCode(string currAccCode, Guid invoiceHeaderId)
+        public int UpdateCustomer(DcCurrAcc dcCurrAcc)
+        {
+            using (subContext db = new subContext())
+            {
+                db.DcCurrAccs.Update(dcCurrAcc);
+                return db.SaveChanges();
+            }
+        }
+
+        public int UpdateInvoiceCurrAccCode(string currAccCode, Guid invoiceHeaderId)
         {
             using (subContext db = new subContext())
             {
@@ -322,6 +341,15 @@ namespace PointOfSale
                 return db.DcCurrAccs.Where(x => x.IsDisabled == false)
                                     .OrderBy(x => x.CreatedDate)
                                     .ToList(); // burdaki kolonlari dizaynda da elave et
+            }
+        }
+
+        public DcCurrAcc SelectCurrAcc(string currAccCode)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.DcCurrAccs.Where(x => x.IsDisabled == false)
+                                    .FirstOrDefault(x => x.CurrAccCode == currAccCode);
             }
         }
 
