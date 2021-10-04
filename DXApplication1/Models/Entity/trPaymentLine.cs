@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class TrPaymentLine
+    public partial class TrPaymentLine : BaseEntity
     {
         [Key]
         public Guid PaymentLineId { get; set; }
@@ -36,22 +36,6 @@ namespace PointOfSale.Models
         public double ExchangeRate { get; set; }
 
         public byte? BankId { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Required]
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Required]
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
 
 
         public virtual TrPaymentHeader TrPaymentHeader { get; set; }

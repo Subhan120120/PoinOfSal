@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class TrShipmentHeader
+    public partial class TrShipmentHeader : BaseEntity
     {
         public TrShipmentHeader()
         {
@@ -76,20 +76,6 @@ namespace PointOfSale.Models
         public bool IsLocked { get; set; }
         public bool IsTransferApproved { get; set; }
         public DateTime TransferApprovedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
 
 
         public virtual ICollection<TrShipmentLine> TrShipmentLines { get; set; }

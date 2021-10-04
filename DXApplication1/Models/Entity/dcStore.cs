@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class DcStore
+    public partial class DcStore : BaseEntity
     {
         [Key]
         [StringLength(50)]
@@ -22,20 +22,6 @@ namespace PointOfSale.Models
         [Column(TypeName = "numeric(4, 0)")]
         public decimal CompanyCode { get; set; }
         public bool IsDisabled { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
 
         public Guid RowGuid { get; set; }
     }

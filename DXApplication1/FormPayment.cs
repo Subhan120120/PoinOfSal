@@ -68,8 +68,6 @@ namespace PointOfSale
             }
             else if (cashLarge < 0)
                 e.Cancel = true;
-
-
         }
 
         private void textEditCash_InvalidValue(object sender, InvalidValueExceptionEventArgs e)

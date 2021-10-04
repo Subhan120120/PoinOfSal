@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class TrInvoiceHeader
+    public partial class TrInvoiceHeader : BaseEntity
     {
         public TrInvoiceHeader()
         {
@@ -69,26 +69,18 @@ namespace PointOfSale.Models
         [Required]
         [StringLength(30)]
         public string PosTerminalId { get; set; }
+
         public bool IsSuspended { get; set; }
+
         public bool IsCompleted { get; set; }
+
         public bool IsPrinted { get; set; }
+
         public bool IsLocked { get; set; }
+
         public byte FiscalPrintedState { get; set; }
+
         public bool IsSalesViaInternet { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
 
 
         public virtual DcCurrAcc DcCurrAcc { get; set; }

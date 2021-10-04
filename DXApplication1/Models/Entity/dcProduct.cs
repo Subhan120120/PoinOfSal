@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class DcProduct
+    public partial class DcProduct : BaseEntity
     {
         public DcProduct()
         {
@@ -26,6 +26,7 @@ namespace PointOfSale.Models
 
         [ForeignKey("DcProductType")]
         public byte ProductTypeCode { get; set; }
+
         public bool UsePos { get; set; }
 
         [StringLength(50)]
@@ -33,13 +34,21 @@ namespace PointOfSale.Models
 
         [StringLength(50)]
         public string PromotionCode2 { get; set; }
+
         public double TaxRate { get; set; }
+
         public double PosDiscount { get; set; }
+
         public bool IsDisabled { get; set; }
+
         public double RetailPrice { get; set; }
+
         public double PurchasePrice { get; set; }
+
         public double WholesalePrice { get; set; }
+
         public bool IsBlocked { get; set; }
+
         public bool UseInternet { get; set; }
 
         [Required]

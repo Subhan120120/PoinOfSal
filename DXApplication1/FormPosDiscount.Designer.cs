@@ -110,7 +110,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // lC_Root
             // 
             this.lC_Root.Controls.Add(this.labelControl_Message);
             this.lC_Root.Controls.Add(this.btn_Num7);
@@ -133,30 +133,30 @@ namespace PointOfSale
             this.lC_Root.Controls.Add(this.btn_Enter);
             this.lC_Root.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lC_Root.Location = new System.Drawing.Point(0, 0);
-            this.lC_Root.Name = "layoutControl1";
+            this.lC_Root.Name = "lC_Root";
             this.lC_Root.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(561, 143, 650, 400);
             this.lC_Root.Root = this.lCG_Root;
             this.lC_Root.Size = new System.Drawing.Size(334, 404);
             this.lC_Root.TabIndex = 0;
             this.lC_Root.Text = "layoutControl1";
             // 
-            // labelControlMessage
+            // labelControl_Message
             // 
             this.labelControl_Message.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl_Message.Appearance.Options.UseForeColor = true;
             this.labelControl_Message.Location = new System.Drawing.Point(12, 338);
-            this.labelControl_Message.Name = "labelControlMessage";
+            this.labelControl_Message.Name = "labelControl_Message";
             this.labelControl_Message.Size = new System.Drawing.Size(152, 13);
             this.labelControl_Message.StyleController = this.lC_Root;
             this.labelControl_Message.TabIndex = 22;
             // 
-            // simpleButtonNum7
+            // btn_Num7
             // 
             this.btn_Num7.AllowFocus = false;
             this.btn_Num7.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num7.Appearance.Options.UseFont = true;
             this.btn_Num7.Location = new System.Drawing.Point(12, 58);
-            this.btn_Num7.Name = "simpleButtonNum7";
+            this.btn_Num7.Name = "btn_Num7";
             this.btn_Num7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num7.Size = new System.Drawing.Size(74, 54);
             this.btn_Num7.StyleController = this.lC_Root;
@@ -198,25 +198,25 @@ namespace PointOfSale
             this.textEditNetAmount.EditValueChanged += new System.EventHandler(this.textEditNetAmount_EditValueChanged);
             this.textEditNetAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textEditNetAmount_Validating);
             // 
-            // simpleButtonOk
+            // btn_Ok
             // 
-            this.btn_Ok.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOk.ImageOptions.Image")));
+            this.btn_Ok.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Ok.ImageOptions.Image")));
             this.btn_Ok.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Ok.Location = new System.Drawing.Point(168, 338);
-            this.btn_Ok.Name = "simpleButtonOk";
+            this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(74, 54);
             this.btn_Ok.StyleController = this.lC_Root;
             this.btn_Ok.TabIndex = 7;
             this.btn_Ok.Text = "simpleButtonOk";
             this.btn_Ok.Click += new System.EventHandler(this.simpleButtonOk_Click);
             // 
-            // simpleButtonNum8
+            // btn_Num8
             // 
             this.btn_Num8.AllowFocus = false;
             this.btn_Num8.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num8.Appearance.Options.UseFont = true;
             this.btn_Num8.Location = new System.Drawing.Point(90, 58);
-            this.btn_Num8.Name = "simpleButtonNum8";
+            this.btn_Num8.Name = "btn_Num8";
             this.btn_Num8.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num8.Size = new System.Drawing.Size(74, 54);
             this.btn_Num8.StyleController = this.lC_Root;
@@ -224,25 +224,25 @@ namespace PointOfSale
             this.btn_Num8.Text = "8";
             this.btn_Num8.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonCancel
+            // btn_Cancel
             // 
-            this.btn_Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
+            this.btn_Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cancel.ImageOptions.Image")));
             this.btn_Cancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Cancel.Location = new System.Drawing.Point(246, 338);
-            this.btn_Cancel.Name = "simpleButtonCancel";
+            this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(76, 54);
             this.btn_Cancel.StyleController = this.lC_Root;
             this.btn_Cancel.TabIndex = 9;
             this.btn_Cancel.Text = "simpleButtonCancel";
             this.btn_Cancel.Click += new System.EventHandler(this.simpleButtonCancel_Click);
             // 
-            // simpleButtonNum9
+            // btn_Num9
             // 
             this.btn_Num9.AllowFocus = false;
             this.btn_Num9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num9.Appearance.Options.UseFont = true;
             this.btn_Num9.Location = new System.Drawing.Point(168, 58);
-            this.btn_Num9.Name = "simpleButtonNum9";
+            this.btn_Num9.Name = "btn_Num9";
             this.btn_Num9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num9.Size = new System.Drawing.Size(74, 54);
             this.btn_Num9.StyleController = this.lC_Root;
@@ -250,13 +250,13 @@ namespace PointOfSale
             this.btn_Num9.Text = "9";
             this.btn_Num9.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonBackSpace
+            // btn_BackSpace
             // 
             this.btn_BackSpace.AllowFocus = false;
             this.btn_BackSpace.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.btn_BackSpace.Appearance.Options.UseFont = true;
             this.btn_BackSpace.Location = new System.Drawing.Point(246, 58);
-            this.btn_BackSpace.Name = "simpleButtonBackSpace";
+            this.btn_BackSpace.Name = "btn_BackSpace";
             this.btn_BackSpace.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_BackSpace.Size = new System.Drawing.Size(76, 54);
             this.btn_BackSpace.StyleController = this.lC_Root;
@@ -264,13 +264,13 @@ namespace PointOfSale
             this.btn_BackSpace.Text = "←";
             this.btn_BackSpace.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonNum4
+            // btn_Num4
             // 
             this.btn_Num4.AllowFocus = false;
             this.btn_Num4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num4.Appearance.Options.UseFont = true;
             this.btn_Num4.Location = new System.Drawing.Point(12, 116);
-            this.btn_Num4.Name = "simpleButtonNum4";
+            this.btn_Num4.Name = "btn_Num4";
             this.btn_Num4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num4.Size = new System.Drawing.Size(74, 54);
             this.btn_Num4.StyleController = this.lC_Root;
@@ -278,13 +278,13 @@ namespace PointOfSale
             this.btn_Num4.Text = "4";
             this.btn_Num4.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonNum5
+            // btn_Num5
             // 
             this.btn_Num5.AllowFocus = false;
             this.btn_Num5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num5.Appearance.Options.UseFont = true;
             this.btn_Num5.Location = new System.Drawing.Point(90, 116);
-            this.btn_Num5.Name = "simpleButtonNum5";
+            this.btn_Num5.Name = "btn_Num5";
             this.btn_Num5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num5.Size = new System.Drawing.Size(74, 54);
             this.btn_Num5.StyleController = this.lC_Root;
@@ -292,13 +292,13 @@ namespace PointOfSale
             this.btn_Num5.Text = "5";
             this.btn_Num5.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonNum6
+            // btn_Num6
             // 
             this.btn_Num6.AllowFocus = false;
             this.btn_Num6.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num6.Appearance.Options.UseFont = true;
             this.btn_Num6.Location = new System.Drawing.Point(168, 116);
-            this.btn_Num6.Name = "simpleButtonNum6";
+            this.btn_Num6.Name = "btn_Num6";
             this.btn_Num6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num6.Size = new System.Drawing.Size(74, 54);
             this.btn_Num6.StyleController = this.lC_Root;
@@ -306,13 +306,13 @@ namespace PointOfSale
             this.btn_Num6.Text = "6";
             this.btn_Num6.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonC
+            // btn_C
             // 
             this.btn_C.AllowFocus = false;
             this.btn_C.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_C.Appearance.Options.UseFont = true;
             this.btn_C.Location = new System.Drawing.Point(246, 116);
-            this.btn_C.Name = "simpleButtonC";
+            this.btn_C.Name = "btn_C";
             this.btn_C.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_C.Size = new System.Drawing.Size(76, 54);
             this.btn_C.StyleController = this.lC_Root;
@@ -320,13 +320,13 @@ namespace PointOfSale
             this.btn_C.Text = "C";
             this.btn_C.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonNum1
+            // btn_Num1
             // 
             this.btn_Num1.AllowFocus = false;
             this.btn_Num1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num1.Appearance.Options.UseFont = true;
             this.btn_Num1.Location = new System.Drawing.Point(12, 174);
-            this.btn_Num1.Name = "simpleButtonNum1";
+            this.btn_Num1.Name = "btn_Num1";
             this.btn_Num1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num1.Size = new System.Drawing.Size(74, 54);
             this.btn_Num1.StyleController = this.lC_Root;
@@ -334,13 +334,13 @@ namespace PointOfSale
             this.btn_Num1.Text = "1";
             this.btn_Num1.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonNum2
+            // btn_Num2
             // 
             this.btn_Num2.AllowFocus = false;
             this.btn_Num2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num2.Appearance.Options.UseFont = true;
             this.btn_Num2.Location = new System.Drawing.Point(90, 174);
-            this.btn_Num2.Name = "simpleButtonNum2";
+            this.btn_Num2.Name = "btn_Num2";
             this.btn_Num2.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num2.Size = new System.Drawing.Size(74, 54);
             this.btn_Num2.StyleController = this.lC_Root;
@@ -348,13 +348,13 @@ namespace PointOfSale
             this.btn_Num2.Text = "2";
             this.btn_Num2.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonNum3
+            // btn_Num3
             // 
             this.btn_Num3.AllowFocus = false;
             this.btn_Num3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num3.Appearance.Options.UseFont = true;
             this.btn_Num3.Location = new System.Drawing.Point(168, 174);
-            this.btn_Num3.Name = "simpleButtonNum3";
+            this.btn_Num3.Name = "btn_Num3";
             this.btn_Num3.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num3.Size = new System.Drawing.Size(74, 54);
             this.btn_Num3.StyleController = this.lC_Root;
@@ -362,13 +362,13 @@ namespace PointOfSale
             this.btn_Num3.Text = "3";
             this.btn_Num3.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonNum0
+            // btn_Num0
             // 
             this.btn_Num0.AllowFocus = false;
             this.btn_Num0.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num0.Appearance.Options.UseFont = true;
             this.btn_Num0.Location = new System.Drawing.Point(12, 232);
-            this.btn_Num0.Name = "simpleButtonNum0";
+            this.btn_Num0.Name = "btn_Num0";
             this.btn_Num0.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Num0.Size = new System.Drawing.Size(152, 54);
             this.btn_Num0.StyleController = this.lC_Root;
@@ -376,13 +376,13 @@ namespace PointOfSale
             this.btn_Num0.Text = "0";
             this.btn_Num0.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonComma
+            // btn_Comma
             // 
             this.btn_Comma.AllowFocus = false;
             this.btn_Comma.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Comma.Appearance.Options.UseFont = true;
             this.btn_Comma.Location = new System.Drawing.Point(168, 232);
-            this.btn_Comma.Name = "simpleButtonComma";
+            this.btn_Comma.Name = "btn_Comma";
             this.btn_Comma.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Comma.Size = new System.Drawing.Size(74, 54);
             this.btn_Comma.StyleController = this.lC_Root;
@@ -390,13 +390,13 @@ namespace PointOfSale
             this.btn_Comma.Text = ",";
             this.btn_Comma.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // simpleButtonEnter
+            // btn_Enter
             // 
             this.btn_Enter.AllowFocus = false;
             this.btn_Enter.Appearance.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
             this.btn_Enter.Appearance.Options.UseFont = true;
             this.btn_Enter.Location = new System.Drawing.Point(246, 174);
-            this.btn_Enter.Name = "simpleButtonEnter";
+            this.btn_Enter.Name = "btn_Enter";
             this.btn_Enter.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btn_Enter.Size = new System.Drawing.Size(76, 112);
             this.btn_Enter.StyleController = this.lC_Root;
@@ -404,7 +404,7 @@ namespace PointOfSale
             this.btn_Enter.Text = "↵";
             this.btn_Enter.Click += new System.EventHandler(this.simpleButtonNum_Click);
             // 
-            // Root
+            // lCG_Root
             // 
             this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.lCG_Root.GroupBordersVisible = false;
@@ -468,7 +468,7 @@ namespace PointOfSale
             this.lCG_Root.Size = new System.Drawing.Size(334, 404);
             this.lCG_Root.TextVisible = false;
             // 
-            // layoutControlItemNum7
+            // lCI_Num7
             // 
             this.lCI_Num7.Control = this.btn_Num7;
             this.lCI_Num7.Location = new System.Drawing.Point(0, 46);
@@ -480,7 +480,7 @@ namespace PointOfSale
             this.lCI_Num7.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num7.TextVisible = false;
             // 
-            // layoutControlItemTxtBxPercent
+            // lCI_TxtBxPercent
             // 
             this.lCI_TxtBxPercent.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lCI_TxtBxPercent.Control = this.textEditDiscountRate;
@@ -491,7 +491,7 @@ namespace PointOfSale
             this.lCI_TxtBxPercent.Text = "Faiz";
             this.lCI_TxtBxPercent.TextSize = new System.Drawing.Size(26, 13);
             // 
-            // layoutControlItemTxtBxAmount
+            // lCI_TxtBxAmount
             // 
             this.lCI_TxtBxAmount.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lCI_TxtBxAmount.Control = this.textEditNetAmount;
@@ -503,7 +503,7 @@ namespace PointOfSale
             this.lCI_TxtBxAmount.Text = "Tutar";
             this.lCI_TxtBxAmount.TextSize = new System.Drawing.Size(26, 13);
             // 
-            // layoutControlItemOk
+            // lCI_Ok
             // 
             this.lCI_Ok.Control = this.btn_Ok;
             this.lCI_Ok.Location = new System.Drawing.Point(156, 326);
@@ -516,7 +516,7 @@ namespace PointOfSale
             this.lCI_Ok.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Ok.TextVisible = false;
             // 
-            // layoutControlItemNum8
+            // lCI_Num8
             // 
             this.lCI_Num8.Control = this.btn_Num8;
             this.lCI_Num8.Location = new System.Drawing.Point(78, 46);
@@ -529,7 +529,7 @@ namespace PointOfSale
             this.lCI_Num8.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num8.TextVisible = false;
             // 
-            // layoutControlItemCancel
+            // lCI_Cancel
             // 
             this.lCI_Cancel.Control = this.btn_Cancel;
             this.lCI_Cancel.Location = new System.Drawing.Point(234, 326);
@@ -542,7 +542,7 @@ namespace PointOfSale
             this.lCI_Cancel.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Cancel.TextVisible = false;
             // 
-            // layoutControlItemNum9
+            // lCI_Num9
             // 
             this.lCI_Num9.Control = this.btn_Num9;
             this.lCI_Num9.Location = new System.Drawing.Point(156, 46);
@@ -555,7 +555,7 @@ namespace PointOfSale
             this.lCI_Num9.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num9.TextVisible = false;
             // 
-            // layoutControlItemBackSpace
+            // lCI_BackSpace
             // 
             this.lCI_BackSpace.Control = this.btn_BackSpace;
             this.lCI_BackSpace.Location = new System.Drawing.Point(234, 46);
@@ -568,7 +568,7 @@ namespace PointOfSale
             this.lCI_BackSpace.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_BackSpace.TextVisible = false;
             // 
-            // layoutControlItemNum4
+            // lCI_Num4
             // 
             this.lCI_Num4.Control = this.btn_Num4;
             this.lCI_Num4.Location = new System.Drawing.Point(0, 104);
@@ -580,7 +580,7 @@ namespace PointOfSale
             this.lCI_Num4.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num4.TextVisible = false;
             // 
-            // layoutControlItemNum5
+            // lCI_Num5
             // 
             this.lCI_Num5.Control = this.btn_Num5;
             this.lCI_Num5.Location = new System.Drawing.Point(78, 104);
@@ -593,7 +593,7 @@ namespace PointOfSale
             this.lCI_Num5.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num5.TextVisible = false;
             // 
-            // layoutControlItemNum6
+            // lCI_Num6
             // 
             this.lCI_Num6.Control = this.btn_Num6;
             this.lCI_Num6.Location = new System.Drawing.Point(156, 104);
@@ -606,7 +606,7 @@ namespace PointOfSale
             this.lCI_Num6.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num6.TextVisible = false;
             // 
-            // layoutControlItemC
+            // lCI_C
             // 
             this.lCI_C.Control = this.btn_C;
             this.lCI_C.Location = new System.Drawing.Point(234, 104);
@@ -619,7 +619,7 @@ namespace PointOfSale
             this.lCI_C.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_C.TextVisible = false;
             // 
-            // layoutControlItemNum1
+            // lCI_Num1
             // 
             this.lCI_Num1.Control = this.btn_Num1;
             this.lCI_Num1.Location = new System.Drawing.Point(0, 162);
@@ -631,7 +631,7 @@ namespace PointOfSale
             this.lCI_Num1.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num1.TextVisible = false;
             // 
-            // layoutControlItemNum2
+            // lCI_Num2
             // 
             this.lCI_Num2.Control = this.btn_Num2;
             this.lCI_Num2.Location = new System.Drawing.Point(78, 162);
@@ -644,7 +644,7 @@ namespace PointOfSale
             this.lCI_Num2.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num2.TextVisible = false;
             // 
-            // layoutControlItemNum3
+            // lCI_Num3
             // 
             this.lCI_Num3.Control = this.btn_Num3;
             this.lCI_Num3.Location = new System.Drawing.Point(156, 162);
@@ -657,7 +657,7 @@ namespace PointOfSale
             this.lCI_Num3.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num3.TextVisible = false;
             // 
-            // layoutControlItemNum0
+            // lCI_Num0
             // 
             this.lCI_Num0.Control = this.btn_Num0;
             this.lCI_Num0.Location = new System.Drawing.Point(0, 220);
@@ -670,7 +670,7 @@ namespace PointOfSale
             this.lCI_Num0.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num0.TextVisible = false;
             // 
-            // layoutControlItemComma
+            // lCI_Comma
             // 
             this.lCI_Comma.Control = this.btn_Comma;
             this.lCI_Comma.Location = new System.Drawing.Point(156, 220);
@@ -683,7 +683,7 @@ namespace PointOfSale
             this.lCI_Comma.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Comma.TextVisible = false;
             // 
-            // layoutControlItemEnter
+            // lCI_Enter
             // 
             this.lCI_Enter.Control = this.btn_Enter;
             this.lCI_Enter.Location = new System.Drawing.Point(234, 162);
@@ -697,7 +697,7 @@ namespace PointOfSale
             this.lCI_Enter.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Enter.TextVisible = false;
             // 
-            // layoutControlItemMessage
+            // lCI_Message
             // 
             this.lCI_Message.Control = this.labelControl_Message;
             this.lCI_Message.Location = new System.Drawing.Point(0, 326);

@@ -205,6 +205,18 @@ namespace PointOfSale.Models
                 entity.Property(e => e.IsBlocked)
                     .HasDefaultValueSql("0");
 
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
             });
 
             modelBuilder.Entity<DcProduct>().HasData(

@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class TrShipmentLine
+    public partial class TrShipmentLine : BaseEntity
     {
         [Key]
         public Guid ShipmentLineId { get; set; }
@@ -47,20 +47,6 @@ namespace PointOfSale.Models
 
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
 
 
         public virtual TrShipmentHeader TrShipmentHeader { get; set; }

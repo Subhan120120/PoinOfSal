@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class TrInvoiceLine
+    public partial class TrInvoiceLine : BaseEntity
     {
         [Key]
         public Guid InvoiceLineId { get; set; }
@@ -20,7 +20,7 @@ namespace PointOfSale.Models
         public Guid? RelatedLineId { get; set; }
 
         [StringLength(30)]
-        [ForeignKey("DcProduct")] 
+        [ForeignKey("DcProduct")]
         public string ProductCode { get; set; }
 
         [Required]
@@ -42,32 +42,18 @@ namespace PointOfSale.Models
         [Column(TypeName = "money")]
         public decimal NetAmount { get; set; }
 
-
         public float VatRate { get; set; }
 
         public string LineDescription { get; set; }
 
         [StringLength(50)]
         public string SalespersonCode { get; set; }
-        
+
         [StringLength(10)]
         public string CurrencyCode { get; set; }
 
         public double ExchangeRate { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
 
         public virtual TrInvoiceHeader TrInvoiceHeader { get; set; }
         public virtual DcProduct DcProduct { get; set; }

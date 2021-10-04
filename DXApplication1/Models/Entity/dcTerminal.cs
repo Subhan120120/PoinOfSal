@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class DcTerminal
+    public partial class DcTerminal : BaseEntity
     {
         [Key]
         [StringLength(50)]
@@ -19,20 +19,6 @@ namespace PointOfSale.Models
         [StringLength(150)]
         public string TerminalDesc { get; set; }
         public bool IsDisabled { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
         public Guid RowGuid { get; set; }
     }
 }

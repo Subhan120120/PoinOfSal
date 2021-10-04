@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20211004114513_test5")]
+    partial class test5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -476,44 +478,6 @@ namespace PointOfSale.Migrations
                         .HasName("IX_ProductTypeCode");
 
                     b.ToTable("DcProducts");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductCode = "test01",
-                            Barcode = "123456",
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsBlocked = false,
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PosDiscount = 0.0,
-                            ProductDescription = "Papaq",
-                            ProductTypeCode = (byte)1,
-                            PurchasePrice = 0.0,
-                            RetailPrice = 4.5,
-                            TaxRate = 0.0,
-                            UseInternet = false,
-                            UsePos = false,
-                            WholesalePrice = 0.0
-                        },
-                        new
-                        {
-                            ProductCode = "test02",
-                            Barcode = "2000000000013",
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsBlocked = false,
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PosDiscount = 0.0,
-                            ProductDescription = "Salvar",
-                            ProductTypeCode = (byte)1,
-                            PurchasePrice = 0.0,
-                            RetailPrice = 2.5,
-                            TaxRate = 0.0,
-                            UseInternet = false,
-                            UsePos = false,
-                            WholesalePrice = 0.0
-                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProductType", b =>

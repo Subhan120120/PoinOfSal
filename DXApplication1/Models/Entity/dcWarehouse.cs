@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class DcWarehouse
+    public partial class DcWarehouse : BaseEntity
     {
         [Key]
         [StringLength(50)]
@@ -18,6 +18,7 @@ namespace PointOfSale.Models
         [Required]
         [StringLength(150)]
         public string WarehouseDesc { get; set; }
+
         public byte WarehouseTypeCode { get; set; }
 
         [Required]
@@ -27,26 +28,19 @@ namespace PointOfSale.Models
         [Required]
         [StringLength(50)]
         public string StoreCode { get; set; }
+
         public bool PermitNegativeStock { get; set; }
+
         public bool WarnNegativeStock { get; set; }
+
         public bool ControlStockLevel { get; set; }
+
         public bool WarnStockLevelRate { get; set; }
+
         public bool IsDefault { get; set; }
+
         public bool IsDisabled { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string CreatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string LastUpdatedUserName { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime LastUpdatedDate { get; set; }
         public Guid RowGuid { get; set; }
     }
 }
