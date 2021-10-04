@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.ComponentModel;
 //using System.Data.Entity;
@@ -20,6 +21,7 @@ namespace PointOfSale.Models
         public subContext(DbContextOptions<subContext> options)
             : base(options) { }
 
+        public DbSet<DcClaim> DcClaims { get; set; }
         public DbSet<DcCurrAcc> DcCurrAccs { get; set; }
         public DbSet<DcCurrAccType> DcCurrAccTypes { get; set; }
         public DbSet<DcOffice> DcOffices { get; set; }
@@ -27,15 +29,18 @@ namespace PointOfSale.Models
         public DbSet<DcProcess> DcProcesses { get; set; }
         public DbSet<DcProduct> DcProducts { get; set; }
         public DbSet<DcProductType> DcProductTypes { get; set; }
+        public DbSet<DcRole> DcRoles { get; set; }
         public DbSet<DcStore> DcStores { get; set; }
         public DbSet<DcTerminal> DcTerminals { get; set; }
         public DbSet<DcWarehouse> DcWarehouses { get; set; }
         public DbSet<MigrationHistory> MigrationHistory { get; set; }
+        public DbSet<TrCurrAccRole> TrCurrAccRoles { get; set; }
         public DbSet<Sysdiagrams> Sysdiagrams { get; set; }
         public DbSet<TrInvoiceHeader> TrInvoiceHeaders { get; set; }
         public DbSet<TrInvoiceLine> TrInvoiceLines { get; set; }
         public DbSet<TrPaymentHeader> TrPaymentHeaders { get; set; }
         public DbSet<TrPaymentLine> TrPaymentLines { get; set; }
+        public DbSet<TrRoleClaim> TrRoleClaims { get; set; }
         public DbSet<TrShipmentHeader> TrShipmentHeaders { get; set; }
         public DbSet<TrShipmentLine> TrShipmentLines { get; set; }
         //public DbSet<ReturnFromProc> returnFromProc { get; set; }
@@ -118,13 +123,12 @@ namespace PointOfSale.Models
             });
 
             modelBuilder.Entity<DcCurrAccType>().HasData(
-
                 new DcCurrAccType { CurrAccTypeCode = 1, CurrAccTypeDescription = "Müştəri" },
                 new DcCurrAccType { CurrAccTypeCode = 2, CurrAccTypeDescription = "Tədarikçi" },
                 new DcCurrAccType { CurrAccTypeCode = 3, CurrAccTypeDescription = "Personal" }
                 );
 
-            modelBuilder.Entity<DcOffice>(entity =>
+            modelBuilder.Entity<DcRole>(entity =>
             {
                 entity.Property(e => e.CreatedDate)
                     .HasDefaultValueSql("getdate()");
@@ -137,10 +141,69 @@ namespace PointOfSale.Models
 
                 entity.Property(e => e.LastUpdatedUserName)
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
-
-                entity.Property(e => e.OfficeDesc)
-                    .HasDefaultValueSql("space(0)");
             });
+
+            modelBuilder.Entity<DcRole>().HasData(
+                new DcRole { RoleCode = "Admin", RoleDesc = "Administrator" },
+                new DcRole { RoleCode = "MGZ", RoleDesc = "Mağaza İstifadəçisi" }
+                );
+
+            modelBuilder.Entity<TrCurrAccRole>(entity =>
+            {
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+            });
+
+            modelBuilder.Entity<TrCurrAccRole>().HasData(
+            new TrCurrAccRole { CurrAccRoleId = 1, CurrAccCode = "CA-1", RoleCode = "Admin" });
+
+            modelBuilder.Entity<DcClaim>().HasData(
+                new DcClaim { ClaimCode = "PosDiscount", ClaimDesc = "POS Endirimi" });
+
+            modelBuilder.Entity<TrRoleClaim>(entity =>
+            {                
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+            });
+
+                modelBuilder.Entity<TrRoleClaim>().HasData(
+                new TrRoleClaim { RoleClaimId = 1, RoleCode = "Admin", ClaimCode = "PosDiscount" });
+
+            modelBuilder.Entity<DcOffice>(entity =>
+                        {
+                            entity.Property(e => e.CreatedDate)
+                                .HasDefaultValueSql("getdate()");
+
+                            entity.Property(e => e.CreatedUserName)
+                                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                            entity.Property(e => e.LastUpdatedDate)
+                                .HasDefaultValueSql("getdate()");
+
+                            entity.Property(e => e.LastUpdatedUserName)
+                                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                            entity.Property(e => e.OfficeDesc)
+                                .HasDefaultValueSql("space(0)");
+                        });
 
             modelBuilder.Entity<DcOffice>().HasData(
                 new DcOffice { OfficeCode = "OFS01", OfficeDesc = "Bakıxanov Ofisi" },
@@ -216,7 +279,6 @@ namespace PointOfSale.Models
 
                 entity.Property(e => e.LastUpdatedUserName)
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
-
             });
 
             modelBuilder.Entity<DcProduct>().HasData(
@@ -315,8 +377,8 @@ namespace PointOfSale.Models
                 entity.Property(e => e.Model).IsRequired();
 
                 entity.Property(e => e.ProductVersion)
-                    .IsRequired()
-                    .HasMaxLength(32);
+                      .IsRequired()
+                      .HasMaxLength(32);
             });
 
             modelBuilder.Entity<Sysdiagrams>(entity =>

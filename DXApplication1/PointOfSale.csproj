@@ -253,50 +253,16 @@
     <Compile Include="FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20211002184541_initial.cs" />
-    <Compile Include="Migrations\20211002184541_initial.designer.cs">
-      <DependentUpon>20211002184541_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004113432_test01.cs" />
-    <Compile Include="Migrations\20211004113432_test01.designer.cs">
-      <DependentUpon>20211004113432_test01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004113536_test1.cs" />
-    <Compile Include="Migrations\20211004113536_test1.designer.cs">
-      <DependentUpon>20211004113536_test1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004114513_test5.cs" />
-    <Compile Include="Migrations\20211004114513_test5.designer.cs">
-      <DependentUpon>20211004114513_test5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004114544_test6.cs" />
-    <Compile Include="Migrations\20211004114544_test6.designer.cs">
-      <DependentUpon>20211004114544_test6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004114626_test7.cs" />
-    <Compile Include="Migrations\20211004114626_test7.designer.cs">
-      <DependentUpon>20211004114626_test7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004114750_test8.cs" />
-    <Compile Include="Migrations\20211004114750_test8.designer.cs">
-      <DependentUpon>20211004114750_test8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004114834_test9.cs" />
-    <Compile Include="Migrations\20211004114834_test9.designer.cs">
-      <DependentUpon>20211004114834_test9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004114935_test10.cs" />
-    <Compile Include="Migrations\20211004114935_test10.designer.cs">
-      <DependentUpon>20211004114935_test10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211004115148_test11.cs" />
-    <Compile Include="Migrations\20211004115148_test11.designer.cs">
-      <DependentUpon>20211004115148_test11.cs</DependentUpon>
+    <Compile Include="Migrations\20211004195840_initial.cs" />
+    <Compile Include="Migrations\20211004195840_initial.designer.cs">
+      <DependentUpon>20211004195840_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="Models\Context\subContext.cs" />
     <Compile Include="Models\Entity\BaseEntity.cs" />
-    <Compile Include="Models\Entity\DcCurrAccs.cs" />
+    <Compile Include="Models\Entity\DcClaim.cs" />
+    <Compile Include="Models\Entity\DcRole.cs" />
+    <Compile Include="Models\Entity\DcCurrAcc.cs" />
     <Compile Include="Models\Entity\DcCurrAccType.cs" />
     <Compile Include="Models\Entity\DcOffice.cs" />
     <Compile Include="Models\Entity\DcPaymentType.cs" />
@@ -307,6 +273,8 @@
     <Compile Include="Models\Entity\DcTerminal.cs" />
     <Compile Include="Models\Entity\DcWarehouse.cs" />
     <Compile Include="Models\Entity\MigrationHistory.cs" />
+    <Compile Include="Models\Entity\TrCurrAccRole.cs" />
+    <Compile Include="Models\Entity\TrRoleClaim.cs" />
     <Compile Include="Models\Entity\TrInvoiceHeader.cs" />
     <Compile Include="Models\Entity\TrInvoiceLine.cs" />
     <Compile Include="Models\Entity\TrPaymentHeader.cs" />

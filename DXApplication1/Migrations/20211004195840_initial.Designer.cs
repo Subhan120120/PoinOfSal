@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20211004113536_test1")]
-    partial class test1
+    [Migration("20211004195840_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,27 @@ namespace PointOfSale.Migrations
                 .HasAnnotation("ProductVersion", "3.1.19")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("PointOfSale.Models.DcClaim", b =>
+                {
+                    b.Property<string>("ClaimCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ClaimDesc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ClaimCode");
+
+                    b.ToTable("DcClaims");
+
+                    b.HasData(
+                        new
+                        {
+                            ClaimCode = "PosDiscount",
+                            ClaimDesc = "POS Endirimi"
+                        });
+                });
 
             modelBuilder.Entity("PointOfSale.Models.DcCurrAcc", b =>
                 {
@@ -381,6 +402,18 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(50);
 
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("CreatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
                     b.Property<bool>("IsBlocked")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -390,6 +423,18 @@ namespace PointOfSale.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValueSql("0");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
 
                     b.Property<double>("PosDiscount")
                         .ValueGeneratedOnAdd()
@@ -460,8 +505,10 @@ namespace PointOfSale.Migrations
                         {
                             ProductCode = "test01",
                             Barcode = "123456",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PosDiscount = 0.0,
                             ProductDescription = "Papaq",
                             ProductTypeCode = (byte)1,
@@ -476,8 +523,10 @@ namespace PointOfSale.Migrations
                         {
                             ProductCode = "test02",
                             Barcode = "2000000000013",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PosDiscount = 0.0,
                             ProductDescription = "Salvar",
                             ProductTypeCode = (byte)1,
@@ -510,6 +559,60 @@ namespace PointOfSale.Migrations
                         {
                             ProductTypeCode = (byte)1,
                             ProductTypeDesc = "Məhsul"
+                        });
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.DcRole", b =>
+                {
+                    b.Property<string>("RoleCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("CreatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("RoleDesc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RoleCode");
+
+                    b.ToTable("DcRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleCode = "Admin",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoleDesc = "Administrator"
+                        },
+                        new
+                        {
+                            RoleCode = "MGZ",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoleDesc = "Mağaza İstifadəçisi"
                         });
                 });
 
@@ -801,6 +904,62 @@ namespace PointOfSale.Migrations
                         .HasName("PK_dbo.sysdiagrams");
 
                     b.ToTable("sysdiagrams");
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.TrCurrAccRole", b =>
+                {
+                    b.Property<int>("CurrAccRoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("CreatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("CurrAccCode")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("RoleCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CurrAccRoleId");
+
+                    b.HasIndex("CurrAccCode");
+
+                    b.HasIndex("RoleCode");
+
+                    b.ToTable("TrCurrAccRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            CurrAccRoleId = 1,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CurrAccCode = "CA-1",
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoleCode = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
@@ -1253,6 +1412,64 @@ namespace PointOfSale.Migrations
                     b.ToTable("TrPaymentLines");
                 });
 
+            modelBuilder.Entity("PointOfSale.Models.TrRoleClaim", b =>
+                {
+                    b.Property<int>("RoleClaimId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("CreatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("RoleCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("RoleClaimId");
+
+                    b.HasIndex("ClaimCode");
+
+                    b.HasIndex("RoleCode");
+
+                    b.ToTable("TrRoleClaims");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleClaimId = 1,
+                            ClaimCode = "PosDiscount",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoleCode = "Admin"
+                        });
+                });
+
             modelBuilder.Entity("PointOfSale.Models.TrShipmentHeader", b =>
                 {
                     b.Property<Guid>("ShipmentHeaderId")
@@ -1520,6 +1737,17 @@ namespace PointOfSale.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PointOfSale.Models.TrCurrAccRole", b =>
+                {
+                    b.HasOne("PointOfSale.Models.DcCurrAcc", "DcCurrAcc")
+                        .WithMany("TrCurrAccRole")
+                        .HasForeignKey("CurrAccCode");
+
+                    b.HasOne("PointOfSale.Models.DcRole", "DcRole")
+                        .WithMany("TrCurrAccRole")
+                        .HasForeignKey("RoleCode");
+                });
+
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
                 {
                     b.HasOne("PointOfSale.Models.DcCurrAcc", "DcCurrAcc")
@@ -1558,6 +1786,21 @@ namespace PointOfSale.Migrations
                     b.HasOne("PointOfSale.Models.DcPaymentType", "DcPaymentType")
                         .WithMany("TrPaymentLines")
                         .HasForeignKey("PaymentTypeCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.TrRoleClaim", b =>
+                {
+                    b.HasOne("PointOfSale.Models.DcClaim", "DcClaim")
+                        .WithMany("TrRoleClaims")
+                        .HasForeignKey("ClaimCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PointOfSale.Models.DcRole", "DcRole")
+                        .WithMany("TrRoleClaims")
+                        .HasForeignKey("RoleCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

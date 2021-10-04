@@ -22,6 +22,18 @@ namespace PointOfSale.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DcClaims",
+                columns: table => new
+                {
+                    ClaimCode = table.Column<string>(nullable: false),
+                    ClaimDesc = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DcClaims", x => x.ClaimCode);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DcCurrAccTypes",
                 columns: table => new
                 {
@@ -40,13 +52,13 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     OfficeCode = table.Column<string>(maxLength: 5, nullable: false),
-                    OfficeDesc = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)"),
-                    CompanyCode = table.Column<decimal>(type: "numeric(4, 0)", nullable: false),
-                    IsDisabled = table.Column<bool>(nullable: false),
                     CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    OfficeDesc = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)"),
+                    CompanyCode = table.Column<decimal>(type: "numeric(4, 0)", nullable: false),
+                    IsDisabled = table.Column<bool>(nullable: false),
                     RowGuid = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -92,17 +104,33 @@ namespace PointOfSale.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DcStores",
+                name: "DcRoles",
                 columns: table => new
                 {
-                    StoreCode = table.Column<string>(maxLength: 50, nullable: false),
-                    StoreDesc = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)"),
-                    CompanyCode = table.Column<decimal>(type: "numeric(4, 0)", nullable: false),
-                    IsDisabled = table.Column<bool>(nullable: false),
+                    RoleCode = table.Column<string>(nullable: false),
                     CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    RoleDesc = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DcRoles", x => x.RoleCode);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DcStores",
+                columns: table => new
+                {
+                    StoreCode = table.Column<string>(maxLength: 50, nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    StoreDesc = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)"),
+                    CompanyCode = table.Column<decimal>(type: "numeric(4, 0)", nullable: false),
+                    IsDisabled = table.Column<bool>(nullable: false),
                     RowGuid = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -115,12 +143,12 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     TerminalCode = table.Column<string>(maxLength: 50, nullable: false),
-                    TerminalDesc = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)"),
-                    IsDisabled = table.Column<bool>(nullable: false),
                     CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
                     LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    TerminalDesc = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)"),
+                    IsDisabled = table.Column<bool>(nullable: false),
                     RowGuid = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -133,6 +161,10 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     WarehouseCode = table.Column<string>(maxLength: 50, nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     WarehouseDesc = table.Column<string>(maxLength: 150, nullable: false, defaultValueSql: "space(0)"),
                     WarehouseTypeCode = table.Column<byte>(nullable: false),
                     OfficeCode = table.Column<string>(maxLength: 5, nullable: false, defaultValueSql: "space(0)"),
@@ -143,10 +175,6 @@ namespace PointOfSale.Migrations
                     WarnStockLevelRate = table.Column<bool>(nullable: false),
                     IsDefault = table.Column<bool>(nullable: false),
                     IsDisabled = table.Column<bool>(nullable: false),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     RowGuid = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -175,6 +203,10 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     ShipmentHeaderId = table.Column<Guid>(nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     ShipTypeCode = table.Column<byte>(nullable: false),
                     ProcessCode = table.Column<string>(maxLength: 5, nullable: false, defaultValueSql: "space(0)"),
                     ShippingNumber = table.Column<string>(maxLength: 30, nullable: false, defaultValueSql: "space(0)"),
@@ -196,11 +228,7 @@ namespace PointOfSale.Migrations
                     IsPrinted = table.Column<bool>(nullable: false),
                     IsLocked = table.Column<bool>(nullable: false),
                     IsTransferApproved = table.Column<bool>(nullable: false),
-                    TransferApprovedDate = table.Column<DateTime>(nullable: false, defaultValueSql: "space(0)"),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()")
+                    TransferApprovedDate = table.Column<DateTime>(nullable: false, defaultValueSql: "space(0)")
                 },
                 constraints: table =>
                 {
@@ -212,6 +240,10 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     CurrAccCode = table.Column<string>(maxLength: 30, nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     CurrAccTypeCode = table.Column<byte>(nullable: false),
                     CompanyCode = table.Column<byte>(nullable: false),
                     OfficeCode = table.Column<string>(maxLength: 5, nullable: false, defaultValueSql: "space(0)"),
@@ -227,10 +259,6 @@ namespace PointOfSale.Migrations
                     VendorTypeCode = table.Column<byte>(nullable: false),
                     CustomerPosDiscountRate = table.Column<double>(nullable: false),
                     IsDisabled = table.Column<bool>(nullable: false),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     RowGuid = table.Column<Guid>(nullable: false),
                     BonusCardNum = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
                     Address = table.Column<string>(maxLength: 150, nullable: true, defaultValueSql: "space(0)"),
@@ -253,6 +281,10 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     ProductCode = table.Column<string>(maxLength: 30, nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     Barcode = table.Column<string>(maxLength: 50, nullable: false, defaultValueSql: "space(0)"),
                     ProductTypeCode = table.Column<byte>(nullable: false),
                     UsePos = table.Column<bool>(nullable: false, defaultValueSql: "0"),
@@ -280,10 +312,44 @@ namespace PointOfSale.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TrRoleClaims",
+                columns: table => new
+                {
+                    RoleClaimId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    RoleCode = table.Column<string>(nullable: false),
+                    ClaimCode = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TrRoleClaims", x => x.RoleClaimId);
+                    table.ForeignKey(
+                        name: "FK_TrRoleClaims_DcClaims_ClaimCode",
+                        column: x => x.ClaimCode,
+                        principalTable: "DcClaims",
+                        principalColumn: "ClaimCode",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TrRoleClaims_DcRoles_RoleCode",
+                        column: x => x.RoleCode,
+                        principalTable: "DcRoles",
+                        principalColumn: "RoleCode",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TrShipmentLines",
                 columns: table => new
                 {
                     ShipmentLineId = table.Column<Guid>(nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     ShipmentHeaderId = table.Column<Guid>(nullable: false),
                     SortOrder = table.Column<int>(nullable: false),
                     ItemTypeCode = table.Column<byte>(nullable: false),
@@ -295,11 +361,7 @@ namespace PointOfSale.Migrations
                     LineDescription = table.Column<string>(maxLength: 200, nullable: false, defaultValueSql: "space(0)"),
                     UsedBarcode = table.Column<string>(maxLength: 10, nullable: false, defaultValueSql: "space(0)"),
                     CurrencyCode = table.Column<string>(maxLength: 10, nullable: false, defaultValueSql: "space(0)"),
-                    Price = table.Column<decimal>(type: "money", nullable: false, defaultValue: 0m),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()")
+                    Price = table.Column<decimal>(type: "money", nullable: false, defaultValue: 0m)
                 },
                 constraints: table =>
                 {
@@ -313,10 +375,44 @@ namespace PointOfSale.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TrCurrAccRoles",
+                columns: table => new
+                {
+                    CurrAccRoleId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    CurrAccCode = table.Column<string>(nullable: true),
+                    RoleCode = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TrCurrAccRoles", x => x.CurrAccRoleId);
+                    table.ForeignKey(
+                        name: "FK_TrCurrAccRoles_DcCurrAccs_CurrAccCode",
+                        column: x => x.CurrAccCode,
+                        principalTable: "DcCurrAccs",
+                        principalColumn: "CurrAccCode",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TrCurrAccRoles_DcRoles_RoleCode",
+                        column: x => x.RoleCode,
+                        principalTable: "DcRoles",
+                        principalColumn: "RoleCode",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TrInvoiceHeaders",
                 columns: table => new
                 {
                     InvoiceHeaderId = table.Column<Guid>(nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     RelatedInvoiceId = table.Column<Guid>(nullable: true),
                     ProcessCode = table.Column<string>(maxLength: 5, nullable: false, defaultValueSql: "space(0)"),
                     DocumentNumber = table.Column<string>(maxLength: 30, nullable: false, defaultValueSql: "space(0)"),
@@ -337,11 +433,7 @@ namespace PointOfSale.Migrations
                     IsPrinted = table.Column<bool>(nullable: false, defaultValueSql: "0"),
                     IsLocked = table.Column<bool>(nullable: false, defaultValueSql: "0"),
                     FiscalPrintedState = table.Column<byte>(nullable: false, defaultValueSql: "space(0)"),
-                    IsSalesViaInternet = table.Column<bool>(nullable: false, defaultValueSql: "0"),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()")
+                    IsSalesViaInternet = table.Column<bool>(nullable: false, defaultValueSql: "0")
                 },
                 constraints: table =>
                 {
@@ -359,6 +451,10 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     InvoiceLineId = table.Column<Guid>(nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     InvoiceHeaderId = table.Column<Guid>(nullable: false),
                     RelatedLineId = table.Column<Guid>(nullable: true),
                     ProductCode = table.Column<string>(maxLength: 30, nullable: true),
@@ -372,11 +468,7 @@ namespace PointOfSale.Migrations
                     LineDescription = table.Column<string>(nullable: true, defaultValueSql: "space(0)"),
                     SalespersonCode = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
                     CurrencyCode = table.Column<string>(maxLength: 10, nullable: true, defaultValueSql: "space(0)"),
-                    ExchangeRate = table.Column<double>(nullable: false, defaultValueSql: "0"),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()")
+                    ExchangeRate = table.Column<double>(nullable: false, defaultValueSql: "0")
                 },
                 constraints: table =>
                 {
@@ -400,6 +492,10 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     PaymentHeaderId = table.Column<Guid>(nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     InvoiceHeaderId = table.Column<Guid>(nullable: true, defaultValueSql: "space(0)"),
                     DocumentNumber = table.Column<string>(nullable: true, defaultValueSql: "space(0)"),
                     DocumentDate = table.Column<DateTime>(type: "date", nullable: false, defaultValue: new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)),
@@ -414,11 +510,7 @@ namespace PointOfSale.Migrations
                     CurrencyCode = table.Column<string>(maxLength: 10, nullable: false, defaultValueSql: "space(0)"),
                     ExchangeRate = table.Column<double>(nullable: false),
                     IsCompleted = table.Column<bool>(nullable: false),
-                    IsLocked = table.Column<bool>(nullable: false),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()")
+                    IsLocked = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -436,17 +528,17 @@ namespace PointOfSale.Migrations
                 columns: table => new
                 {
                     PaymentLineId = table.Column<Guid>(nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     PaymentHeaderId = table.Column<Guid>(nullable: false),
                     PaymentTypeCode = table.Column<byte>(nullable: false),
                     Payment = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0"),
                     LineDescription = table.Column<string>(maxLength: 200, nullable: false, defaultValueSql: "space(0)"),
                     CurrencyCode = table.Column<string>(maxLength: 10, nullable: false, defaultValueSql: "space(0)"),
                     ExchangeRate = table.Column<double>(nullable: false, defaultValueSql: "0"),
-                    BankId = table.Column<byte>(nullable: true),
-                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
-                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
-                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()")
+                    BankId = table.Column<byte>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -464,6 +556,11 @@ namespace PointOfSale.Migrations
                         principalColumn: "PaymentTypeCode",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "DcClaims",
+                columns: new[] { "ClaimCode", "ClaimDesc" },
+                values: new object[] { "PosDiscount", "POS Endirimi" });
 
             migrationBuilder.InsertData(
                 table: "DcCurrAccTypes",
@@ -497,6 +594,15 @@ namespace PointOfSale.Migrations
                 table: "DcProductTypes",
                 columns: new[] { "ProductTypeCode", "ProductTypeDesc" },
                 values: new object[] { (byte)1, "Məhsul" });
+
+            migrationBuilder.InsertData(
+                table: "DcRoles",
+                columns: new[] { "RoleCode", "RoleDesc" },
+                values: new object[,]
+                {
+                    { "Admin", "Administrator" },
+                    { "MGZ", "Mağaza İstifadəçisi" }
+                });
 
             migrationBuilder.InsertData(
                 table: "DcStores",
@@ -534,6 +640,16 @@ namespace PointOfSale.Migrations
                     { "test02", "2000000000013", "Salvar", (byte)1, 2.5 }
                 });
 
+            migrationBuilder.InsertData(
+                table: "TrRoleClaims",
+                columns: new[] { "RoleClaimId", "ClaimCode", "RoleCode" },
+                values: new object[] { 1, "PosDiscount", "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "TrCurrAccRoles",
+                columns: new[] { "CurrAccRoleId", "CurrAccCode", "RoleCode" },
+                values: new object[] { 1, "CA-1", "Admin" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_CurrAccTypeCode",
                 table: "DcCurrAccs",
@@ -543,6 +659,16 @@ namespace PointOfSale.Migrations
                 name: "IX_ProductTypeCode",
                 table: "DcProducts",
                 column: "ProductTypeCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TrCurrAccRoles_CurrAccCode",
+                table: "TrCurrAccRoles",
+                column: "CurrAccCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TrCurrAccRoles_RoleCode",
+                table: "TrCurrAccRoles",
+                column: "RoleCode");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CurrAccCode",
@@ -575,6 +701,16 @@ namespace PointOfSale.Migrations
                 column: "PaymentTypeCode");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TrRoleClaims_ClaimCode",
+                table: "TrRoleClaims",
+                column: "ClaimCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TrRoleClaims_RoleCode",
+                table: "TrRoleClaims",
+                column: "RoleCode");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ShipmentHeaderID",
                 table: "TrShipmentLines",
                 column: "ShipmentHeaderId");
@@ -604,10 +740,16 @@ namespace PointOfSale.Migrations
                 name: "sysdiagrams");
 
             migrationBuilder.DropTable(
+                name: "TrCurrAccRoles");
+
+            migrationBuilder.DropTable(
                 name: "TrInvoiceLines");
 
             migrationBuilder.DropTable(
                 name: "TrPaymentLines");
+
+            migrationBuilder.DropTable(
+                name: "TrRoleClaims");
 
             migrationBuilder.DropTable(
                 name: "TrShipmentLines");
@@ -620,6 +762,12 @@ namespace PointOfSale.Migrations
 
             migrationBuilder.DropTable(
                 name: "DcPaymentTypes");
+
+            migrationBuilder.DropTable(
+                name: "DcClaims");
+
+            migrationBuilder.DropTable(
+                name: "DcRoles");
 
             migrationBuilder.DropTable(
                 name: "TrShipmentHeaders");

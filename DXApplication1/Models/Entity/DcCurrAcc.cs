@@ -78,7 +78,9 @@ namespace PointOfSale.Models
         [Column(TypeName = "date")]
         public DateTime? BirthDate { get; set; }
 
+
         public virtual DcCurrAccType DcCurrAccType { get; set; }
         public virtual ICollection<TrInvoiceHeader> TrInvoiceHeaders { get; set; }
+        public virtual ICollection<TrCurrAccRole> TrCurrAccRole { get; set; }
     }
 }
