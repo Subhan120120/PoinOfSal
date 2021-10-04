@@ -21,11 +21,12 @@ namespace PointOfSale
             ucReturn.Dock = DockStyle.Fill;
             navigationPageReturn.Controls.Add(ucReturn);
 
+            AcceptButton = ucSale.btn_Enter;
         }
 
         private void FormPOS_Load(object sender, EventArgs e)
         {
-            //AcceptButton = ucSale.simpleButtonEnter;
+
         }
 
         private void barCheckItem1_CheckedChanged(object sender, ItemClickEventArgs e)

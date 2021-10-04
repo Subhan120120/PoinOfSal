@@ -64,7 +64,7 @@ namespace PointOfSale
 
             // Assign the data source to the report.
             report.DataSource = Datasource;
-            report.DataMember = "customQuery";
+            //report.DataMember = "customQuery";
 
             // Add a detail band to the report.
             //DetailBand detailBand = new DetailBand();

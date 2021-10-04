@@ -117,9 +117,10 @@ namespace PointOfSale
 
         private void btn_Payment_Click(object sender, EventArgs e)
         {
-            decimal summaryNetAmount = Convert.ToDecimal(sqlMethods.SelectInvoiceLines(returnInvoiceHeaderId).Compute("Sum(NetAmount)", string.Empty));
+            object sumNetAmount = sqlMethods.SelectInvoiceLines(returnInvoiceHeaderId).Compute("Sum(NetAmount)", string.Empty);
+            decimal summaryNetAmount = Convert.ToDecimal(sumNetAmount == DBNull.Value ? 0 : sumNetAmount); 
 
-            if (summaryNetAmount < 0)
+            if (summaryNetAmount != 0)
             {
                 int paymentType = 0;
 

@@ -319,14 +319,14 @@ namespace PointOfSale
         private void btn_Print_Click(object sender, EventArgs e)
         {
             ReportClass reportClass = new ReportClass();
-            ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLine(invoiceHeaderId), string.Empty));
+            ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineWithHead(invoiceHeaderId), string.Empty));
             printTool.ShowPreview();
         }
 
         private void btn_PrintDesign_Click(object sender, EventArgs e)
         {
             ReportClass reportClass = new ReportClass();
-            ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLine(invoiceHeaderId), string.Empty));
+            ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineWithHead(invoiceHeaderId), string.Empty));
             designTool.ShowRibbonDesignerDialog();
         }
     }

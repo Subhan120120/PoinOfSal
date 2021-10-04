@@ -108,6 +108,16 @@ namespace PointOfSale
             return SqlGetDt(qry, paramArray);
         }
 
+        public List<TrInvoiceLine> SelectInvoiceLineWithHead(Guid invoiceHeaderId)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.TrInvoiceLines.Include(x => x.TrInvoiceHeader)
+                                        .Where(x => x.InvoiceHeaderId == invoiceHeaderId)
+                                        .ToList();
+            }
+        }
+
         public int InsertInvoiceLine(DcProduct dcProduct, Guid invoiceHeaderId)
         {
             using (subContext db = new subContext())

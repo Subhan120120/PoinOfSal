@@ -104,6 +104,8 @@ namespace PointOfSale
             this.btn_Cash = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cashless = new DevExpress.XtraEditors.SimpleButton();
             this.btn_CustomerBonus = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Print = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_PrintDesign = new DevExpress.XtraEditors.SimpleButton();
             this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCG_Barcode = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCI_Star = new DevExpress.XtraLayout.LayoutControlItem();
@@ -131,6 +133,8 @@ namespace PointOfSale
             this.lCI_CancelInvoice = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_DeleteLine = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_SalesPerson = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Print = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_PrintDesign = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCG_Customer = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCI_CustomerSearch = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_BonusCardNum = new DevExpress.XtraLayout.LayoutControlItem();
@@ -145,10 +149,6 @@ namespace PointOfSale
             this.lCI_Cashless = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_CustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.btn_Print = new DevExpress.XtraEditors.SimpleButton();
-            this.lCI_Print = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btn_PrintDesign = new DevExpress.XtraEditors.SimpleButton();
-            this.lCI_PrintDesign = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lC_InvoiceLine)).BeginInit();
             this.lC_InvoiceLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Barcode.Properties)).BeginInit();
@@ -187,6 +187,8 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CancelInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DeleteLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_SalesPerson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Print)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_PrintDesign)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_BonusCardNum)).BeginInit();
@@ -201,8 +203,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Cashless)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCI_Print)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCI_PrintDesign)).BeginInit();
             this.SuspendLayout();
             // 
             // lC_InvoiceLine
@@ -248,7 +248,7 @@ namespace PointOfSale
             this.lC_InvoiceLine.Name = "lC_InvoiceLine";
             this.lC_InvoiceLine.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1189, 400, 650, 400);
             this.lC_InvoiceLine.Root = this.lCG_Root;
-            this.lC_InvoiceLine.Size = new System.Drawing.Size(1142, 692);
+            this.lC_InvoiceLine.Size = new System.Drawing.Size(1142, 719);
             this.lC_InvoiceLine.TabIndex = 0;
             this.lC_InvoiceLine.Text = "layoutControl1";
             // 
@@ -257,10 +257,10 @@ namespace PointOfSale
             this.btn_Star.AllowFocus = false;
             this.btn_Star.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Star.Appearance.Options.UseFont = true;
-            this.btn_Star.Location = new System.Drawing.Point(436, 313);
+            this.btn_Star.Location = new System.Drawing.Point(436, 325);
             this.btn_Star.Name = "btn_Star";
             this.btn_Star.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Star.Size = new System.Drawing.Size(69, 64);
+            this.btn_Star.Size = new System.Drawing.Size(69, 67);
             this.btn_Star.StyleController = this.lC_InvoiceLine;
             this.btn_Star.TabIndex = 14;
             this.btn_Star.Text = "*";
@@ -271,10 +271,10 @@ namespace PointOfSale
             this.btn_Comma.AllowFocus = false;
             this.btn_Comma.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Comma.Appearance.Options.UseFont = true;
-            this.btn_Comma.Location = new System.Drawing.Point(582, 313);
+            this.btn_Comma.Location = new System.Drawing.Point(582, 325);
             this.btn_Comma.Name = "btn_Comma";
             this.btn_Comma.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Comma.Size = new System.Drawing.Size(69, 64);
+            this.btn_Comma.Size = new System.Drawing.Size(69, 67);
             this.btn_Comma.StyleController = this.lC_InvoiceLine;
             this.btn_Comma.TabIndex = 15;
             this.btn_Comma.Text = ",";
@@ -285,10 +285,10 @@ namespace PointOfSale
             this.btn_Num0.AllowFocus = false;
             this.btn_Num0.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num0.Appearance.Options.UseFont = true;
-            this.btn_Num0.Location = new System.Drawing.Point(509, 313);
+            this.btn_Num0.Location = new System.Drawing.Point(509, 325);
             this.btn_Num0.Name = "btn_Num0";
             this.btn_Num0.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num0.Size = new System.Drawing.Size(69, 64);
+            this.btn_Num0.Size = new System.Drawing.Size(69, 67);
             this.btn_Num0.StyleController = this.lC_InvoiceLine;
             this.btn_Num0.TabIndex = 13;
             this.btn_Num0.Text = "0";
@@ -299,10 +299,10 @@ namespace PointOfSale
             this.btn_Num1.AllowFocus = false;
             this.btn_Num1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num1.Appearance.Options.UseFont = true;
-            this.btn_Num1.Location = new System.Drawing.Point(436, 246);
+            this.btn_Num1.Location = new System.Drawing.Point(436, 255);
             this.btn_Num1.Name = "btn_Num1";
             this.btn_Num1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num1.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num1.Size = new System.Drawing.Size(69, 66);
             this.btn_Num1.StyleController = this.lC_InvoiceLine;
             this.btn_Num1.TabIndex = 6;
             this.btn_Num1.Text = "1";
@@ -313,10 +313,10 @@ namespace PointOfSale
             this.btn_Num2.AllowFocus = false;
             this.btn_Num2.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num2.Appearance.Options.UseFont = true;
-            this.btn_Num2.Location = new System.Drawing.Point(509, 246);
+            this.btn_Num2.Location = new System.Drawing.Point(509, 255);
             this.btn_Num2.Name = "btn_Num2";
             this.btn_Num2.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num2.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num2.Size = new System.Drawing.Size(69, 66);
             this.btn_Num2.StyleController = this.lC_InvoiceLine;
             this.btn_Num2.TabIndex = 7;
             this.btn_Num2.Text = "2";
@@ -327,10 +327,10 @@ namespace PointOfSale
             this.btn_Num3.AllowFocus = false;
             this.btn_Num3.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num3.Appearance.Options.UseFont = true;
-            this.btn_Num3.Location = new System.Drawing.Point(582, 246);
+            this.btn_Num3.Location = new System.Drawing.Point(582, 255);
             this.btn_Num3.Name = "btn_Num3";
             this.btn_Num3.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num3.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num3.Size = new System.Drawing.Size(69, 66);
             this.btn_Num3.StyleController = this.lC_InvoiceLine;
             this.btn_Num3.TabIndex = 8;
             this.btn_Num3.Text = "3";
@@ -341,10 +341,10 @@ namespace PointOfSale
             this.btn_Num4.AllowFocus = false;
             this.btn_Num4.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num4.Appearance.Options.UseFont = true;
-            this.btn_Num4.Location = new System.Drawing.Point(436, 179);
+            this.btn_Num4.Location = new System.Drawing.Point(436, 185);
             this.btn_Num4.Name = "btn_Num4";
             this.btn_Num4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num4.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num4.Size = new System.Drawing.Size(69, 66);
             this.btn_Num4.StyleController = this.lC_InvoiceLine;
             this.btn_Num4.TabIndex = 5;
             this.btn_Num4.Text = "4";
@@ -355,10 +355,10 @@ namespace PointOfSale
             this.btn_Num5.AllowFocus = false;
             this.btn_Num5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num5.Appearance.Options.UseFont = true;
-            this.btn_Num5.Location = new System.Drawing.Point(509, 179);
+            this.btn_Num5.Location = new System.Drawing.Point(509, 185);
             this.btn_Num5.Name = "btn_Num5";
             this.btn_Num5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num5.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num5.Size = new System.Drawing.Size(69, 66);
             this.btn_Num5.StyleController = this.lC_InvoiceLine;
             this.btn_Num5.TabIndex = 5;
             this.btn_Num5.Text = "5";
@@ -369,10 +369,10 @@ namespace PointOfSale
             this.btn_Num6.AllowFocus = false;
             this.btn_Num6.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num6.Appearance.Options.UseFont = true;
-            this.btn_Num6.Location = new System.Drawing.Point(582, 179);
+            this.btn_Num6.Location = new System.Drawing.Point(582, 185);
             this.btn_Num6.Name = "btn_Num6";
             this.btn_Num6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num6.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num6.Size = new System.Drawing.Size(69, 66);
             this.btn_Num6.StyleController = this.lC_InvoiceLine;
             this.btn_Num6.TabIndex = 9;
             this.btn_Num6.Text = "6";
@@ -383,10 +383,10 @@ namespace PointOfSale
             this.btn_Num8.AllowFocus = false;
             this.btn_Num8.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num8.Appearance.Options.UseFont = true;
-            this.btn_Num8.Location = new System.Drawing.Point(509, 112);
+            this.btn_Num8.Location = new System.Drawing.Point(509, 115);
             this.btn_Num8.Name = "btn_Num8";
             this.btn_Num8.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num8.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num8.Size = new System.Drawing.Size(69, 66);
             this.btn_Num8.StyleController = this.lC_InvoiceLine;
             this.btn_Num8.TabIndex = 10;
             this.btn_Num8.Text = "8";
@@ -397,10 +397,10 @@ namespace PointOfSale
             this.btn_Num9.AllowFocus = false;
             this.btn_Num9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num9.Appearance.Options.UseFont = true;
-            this.btn_Num9.Location = new System.Drawing.Point(582, 112);
+            this.btn_Num9.Location = new System.Drawing.Point(582, 115);
             this.btn_Num9.Name = "btn_Num9";
             this.btn_Num9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num9.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num9.Size = new System.Drawing.Size(69, 66);
             this.btn_Num9.StyleController = this.lC_InvoiceLine;
             this.btn_Num9.TabIndex = 12;
             this.btn_Num9.Text = "9";
@@ -411,10 +411,10 @@ namespace PointOfSale
             this.btn_Num7.AllowFocus = false;
             this.btn_Num7.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_Num7.Appearance.Options.UseFont = true;
-            this.btn_Num7.Location = new System.Drawing.Point(436, 112);
+            this.btn_Num7.Location = new System.Drawing.Point(436, 115);
             this.btn_Num7.Name = "btn_Num7";
             this.btn_Num7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num7.Size = new System.Drawing.Size(69, 63);
+            this.btn_Num7.Size = new System.Drawing.Size(69, 66);
             this.btn_Num7.StyleController = this.lC_InvoiceLine;
             this.btn_Num7.TabIndex = 22;
             this.btn_Num7.Text = "7";
@@ -424,10 +424,10 @@ namespace PointOfSale
             // 
             this.btn_Enter.Appearance.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
             this.btn_Enter.Appearance.Options.UseFont = true;
-            this.btn_Enter.Location = new System.Drawing.Point(655, 246);
+            this.btn_Enter.Location = new System.Drawing.Point(655, 255);
             this.btn_Enter.Name = "btn_Enter";
             this.btn_Enter.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Enter.Size = new System.Drawing.Size(71, 131);
+            this.btn_Enter.Size = new System.Drawing.Size(71, 137);
             this.btn_Enter.StyleController = this.lC_InvoiceLine;
             this.btn_Enter.TabIndex = 18;
             this.btn_Enter.Text = "↵";
@@ -438,10 +438,10 @@ namespace PointOfSale
             this.btn_C.AllowFocus = false;
             this.btn_C.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_C.Appearance.Options.UseFont = true;
-            this.btn_C.Location = new System.Drawing.Point(655, 179);
+            this.btn_C.Location = new System.Drawing.Point(655, 185);
             this.btn_C.Name = "btn_C";
             this.btn_C.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_C.Size = new System.Drawing.Size(71, 63);
+            this.btn_C.Size = new System.Drawing.Size(71, 66);
             this.btn_C.StyleController = this.lC_InvoiceLine;
             this.btn_C.TabIndex = 17;
             this.btn_C.Text = "C";
@@ -452,10 +452,10 @@ namespace PointOfSale
             this.btn_BackSpace.AllowFocus = false;
             this.btn_BackSpace.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_BackSpace.Appearance.Options.UseFont = true;
-            this.btn_BackSpace.Location = new System.Drawing.Point(655, 112);
+            this.btn_BackSpace.Location = new System.Drawing.Point(655, 115);
             this.btn_BackSpace.Name = "btn_BackSpace";
             this.btn_BackSpace.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_BackSpace.Size = new System.Drawing.Size(71, 63);
+            this.btn_BackSpace.Size = new System.Drawing.Size(71, 66);
             this.btn_BackSpace.StyleController = this.lC_InvoiceLine;
             this.btn_BackSpace.TabIndex = 16;
             this.btn_BackSpace.Text = "←";
@@ -463,7 +463,7 @@ namespace PointOfSale
             // 
             // txtEdit_Barcode
             // 
-            this.txtEdit_Barcode.Location = new System.Drawing.Point(509, 59);
+            this.txtEdit_Barcode.Location = new System.Drawing.Point(509, 61);
             this.txtEdit_Barcode.Name = "txtEdit_Barcode";
             this.txtEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 17F);
             this.txtEdit_Barcode.Properties.Appearance.Options.UseFont = true;
@@ -473,7 +473,7 @@ namespace PointOfSale
             // 
             // imageComboEdit_Barcode
             // 
-            this.imageComboEdit_Barcode.Location = new System.Drawing.Point(436, 58);
+            this.imageComboEdit_Barcode.Location = new System.Drawing.Point(436, 60);
             this.imageComboEdit_Barcode.Name = "imageComboEdit_Barcode";
             this.imageComboEdit_Barcode.Properties.AllowFocused = false;
             this.imageComboEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
@@ -494,7 +494,7 @@ namespace PointOfSale
             this.gC_Sale.Location = new System.Drawing.Point(24, 45);
             this.gC_Sale.MainView = this.gV_InvoiceLine;
             this.gC_Sale.Name = "gC_Sale";
-            this.gC_Sale.Size = new System.Drawing.Size(384, 623);
+            this.gC_Sale.Size = new System.Drawing.Size(384, 650);
             this.gC_Sale.TabIndex = 4;
             this.gC_Sale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_InvoiceLine});
@@ -602,10 +602,10 @@ namespace PointOfSale
             this.btn_ProductSearch.Appearance.Options.UseBackColor = true;
             this.btn_ProductSearch.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btn_ProductSearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_ProductSearch.ImageOptions.SvgImage")));
-            this.btn_ProductSearch.Location = new System.Drawing.Point(754, 246);
+            this.btn_ProductSearch.Location = new System.Drawing.Point(754, 254);
             this.btn_ProductSearch.Name = "btn_ProductSearch";
             this.btn_ProductSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_ProductSearch.Size = new System.Drawing.Size(88, 69);
+            this.btn_ProductSearch.Size = new System.Drawing.Size(88, 72);
             this.btn_ProductSearch.StyleController = this.lC_InvoiceLine;
             this.btn_ProductSearch.TabIndex = 20;
             this.btn_ProductSearch.Text = "Məhsul";
@@ -618,10 +618,10 @@ namespace PointOfSale
             this.btn_Discount.Appearance.Options.UseBackColor = true;
             this.btn_Discount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Discount.ImageOptions.Image")));
             this.btn_Discount.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btn_Discount.Location = new System.Drawing.Point(846, 246);
+            this.btn_Discount.Location = new System.Drawing.Point(846, 254);
             this.btn_Discount.Name = "btn_Discount";
             this.btn_Discount.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Discount.Size = new System.Drawing.Size(88, 69);
+            this.btn_Discount.Size = new System.Drawing.Size(88, 72);
             this.btn_Discount.StyleController = this.lC_InvoiceLine;
             this.btn_Discount.TabIndex = 25;
             this.btn_Discount.Text = "Endirim";
@@ -634,10 +634,10 @@ namespace PointOfSale
             this.btn_CancelInvoice.Appearance.Options.UseBackColor = true;
             this.btn_CancelInvoice.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CancelInvoice.ImageOptions.Image")));
             this.btn_CancelInvoice.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btn_CancelInvoice.Location = new System.Drawing.Point(1030, 246);
+            this.btn_CancelInvoice.Location = new System.Drawing.Point(1030, 254);
             this.btn_CancelInvoice.Name = "btn_CancelInvoice";
             this.btn_CancelInvoice.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_CancelInvoice.Size = new System.Drawing.Size(88, 69);
+            this.btn_CancelInvoice.Size = new System.Drawing.Size(88, 72);
             this.btn_CancelInvoice.StyleController = this.lC_InvoiceLine;
             this.btn_CancelInvoice.TabIndex = 29;
             this.btn_CancelInvoice.Text = "Çeki Ləğv Et";
@@ -650,10 +650,10 @@ namespace PointOfSale
             this.btn_DeleteLine.Appearance.Options.UseBackColor = true;
             this.btn_DeleteLine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_DeleteLine.ImageOptions.Image")));
             this.btn_DeleteLine.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btn_DeleteLine.Location = new System.Drawing.Point(938, 246);
+            this.btn_DeleteLine.Location = new System.Drawing.Point(938, 254);
             this.btn_DeleteLine.Name = "btn_DeleteLine";
             this.btn_DeleteLine.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_DeleteLine.Size = new System.Drawing.Size(88, 69);
+            this.btn_DeleteLine.Size = new System.Drawing.Size(88, 72);
             this.btn_DeleteLine.StyleController = this.lC_InvoiceLine;
             this.btn_DeleteLine.TabIndex = 30;
             this.btn_DeleteLine.Text = "Sətri Sil";
@@ -666,9 +666,9 @@ namespace PointOfSale
             this.btn_SalesPerson.Appearance.Options.UseBackColor = true;
             this.btn_SalesPerson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_SalesPerson.ImageOptions.Image")));
             this.btn_SalesPerson.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btn_SalesPerson.Location = new System.Drawing.Point(754, 319);
+            this.btn_SalesPerson.Location = new System.Drawing.Point(754, 330);
             this.btn_SalesPerson.Name = "btn_SalesPerson";
-            this.btn_SalesPerson.Size = new System.Drawing.Size(88, 69);
+            this.btn_SalesPerson.Size = new System.Drawing.Size(88, 73);
             this.btn_SalesPerson.StyleController = this.lC_InvoiceLine;
             this.btn_SalesPerson.TabIndex = 40;
             this.btn_SalesPerson.Text = "Satıcı";
@@ -676,7 +676,7 @@ namespace PointOfSale
             // txtEdit_CustomerPhoneNum
             // 
             this.txtEdit_CustomerPhoneNum.Enabled = false;
-            this.txtEdit_CustomerPhoneNum.Location = new System.Drawing.Point(819, 123);
+            this.txtEdit_CustomerPhoneNum.Location = new System.Drawing.Point(819, 126);
             this.txtEdit_CustomerPhoneNum.Name = "txtEdit_CustomerPhoneNum";
             this.txtEdit_CustomerPhoneNum.Properties.AllowFocused = false;
             this.txtEdit_CustomerPhoneNum.Size = new System.Drawing.Size(244, 20);
@@ -686,7 +686,7 @@ namespace PointOfSale
             // txtEdit_CustomerAddress
             // 
             this.txtEdit_CustomerAddress.Enabled = false;
-            this.txtEdit_CustomerAddress.Location = new System.Drawing.Point(819, 149);
+            this.txtEdit_CustomerAddress.Location = new System.Drawing.Point(819, 153);
             this.txtEdit_CustomerAddress.Name = "txtEdit_CustomerAddress";
             this.txtEdit_CustomerAddress.Properties.AllowFocused = false;
             this.txtEdit_CustomerAddress.Size = new System.Drawing.Size(244, 20);
@@ -696,7 +696,7 @@ namespace PointOfSale
             // txtEdit_CustomerName
             // 
             this.txtEdit_CustomerName.Enabled = false;
-            this.txtEdit_CustomerName.Location = new System.Drawing.Point(819, 97);
+            this.txtEdit_CustomerName.Location = new System.Drawing.Point(819, 99);
             this.txtEdit_CustomerName.Name = "txtEdit_CustomerName";
             this.txtEdit_CustomerName.Properties.AllowFocused = false;
             this.txtEdit_CustomerName.Size = new System.Drawing.Size(244, 20);
@@ -731,7 +731,7 @@ namespace PointOfSale
             this.btn_CustomerSearch.Location = new System.Drawing.Point(1067, 45);
             this.btn_CustomerSearch.Name = "btn_CustomerSearch";
             this.btn_CustomerSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_CustomerSearch.Size = new System.Drawing.Size(51, 48);
+            this.btn_CustomerSearch.Size = new System.Drawing.Size(51, 50);
             this.btn_CustomerSearch.StyleController = this.lC_InvoiceLine;
             this.btn_CustomerSearch.TabIndex = 32;
             this.btn_CustomerSearch.Text = "simpleButton3";
@@ -761,10 +761,10 @@ namespace PointOfSale
             this.btn_CustomerEdit.AppearancePressed.Options.UseBorderColor = true;
             this.btn_CustomerEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerEdit.ImageOptions.Image")));
             this.btn_CustomerEdit.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_CustomerEdit.Location = new System.Drawing.Point(1067, 149);
+            this.btn_CustomerEdit.Location = new System.Drawing.Point(1067, 153);
             this.btn_CustomerEdit.Name = "btn_CustomerEdit";
             this.btn_CustomerEdit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_CustomerEdit.Size = new System.Drawing.Size(51, 48);
+            this.btn_CustomerEdit.Size = new System.Drawing.Size(51, 52);
             this.btn_CustomerEdit.StyleController = this.lC_InvoiceLine;
             this.btn_CustomerEdit.TabIndex = 33;
             this.btn_CustomerEdit.Text = "simpleButton4";
@@ -795,10 +795,10 @@ namespace PointOfSale
             this.btn_CustomerAdd.AppearancePressed.Options.UseBorderColor = true;
             this.btn_CustomerAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerAdd.ImageOptions.Image")));
             this.btn_CustomerAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_CustomerAdd.Location = new System.Drawing.Point(1067, 97);
+            this.btn_CustomerAdd.Location = new System.Drawing.Point(1067, 99);
             this.btn_CustomerAdd.Name = "btn_CustomerAdd";
             this.btn_CustomerAdd.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_CustomerAdd.Size = new System.Drawing.Size(51, 48);
+            this.btn_CustomerAdd.Size = new System.Drawing.Size(51, 50);
             this.btn_CustomerAdd.StyleController = this.lC_InvoiceLine;
             this.btn_CustomerAdd.TabIndex = 31;
             this.btn_CustomerAdd.Text = "simpleButton1";
@@ -807,7 +807,7 @@ namespace PointOfSale
             // txtEdit_BonCardNum
             // 
             this.txtEdit_BonCardNum.Enabled = false;
-            this.txtEdit_BonCardNum.Location = new System.Drawing.Point(819, 175);
+            this.txtEdit_BonCardNum.Location = new System.Drawing.Point(819, 180);
             this.txtEdit_BonCardNum.Name = "txtEdit_BonCardNum";
             this.txtEdit_BonCardNum.Properties.AllowFocused = false;
             this.txtEdit_BonCardNum.Size = new System.Drawing.Size(244, 20);
@@ -817,7 +817,7 @@ namespace PointOfSale
             // txtEdit_CustomerCode
             // 
             this.txtEdit_CustomerCode.Enabled = false;
-            this.txtEdit_CustomerCode.Location = new System.Drawing.Point(819, 71);
+            this.txtEdit_CustomerCode.Location = new System.Drawing.Point(819, 72);
             this.txtEdit_CustomerCode.Name = "txtEdit_CustomerCode";
             this.txtEdit_CustomerCode.Size = new System.Drawing.Size(244, 20);
             this.txtEdit_CustomerCode.StyleController = this.lC_InvoiceLine;
@@ -830,10 +830,10 @@ namespace PointOfSale
             this.btn_Cash.Appearance.Options.UseBackColor = true;
             this.btn_Cash.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cash.ImageOptions.Image")));
             this.btn_Cash.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_Cash.Location = new System.Drawing.Point(754, 584);
+            this.btn_Cash.Location = new System.Drawing.Point(754, 606);
             this.btn_Cash.Name = "btn_Cash";
             this.btn_Cash.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Cash.Size = new System.Drawing.Size(88, 84);
+            this.btn_Cash.Size = new System.Drawing.Size(88, 89);
             this.btn_Cash.StyleController = this.lC_InvoiceLine;
             this.btn_Cash.TabIndex = 27;
             this.btn_Cash.Text = "Cash";
@@ -844,10 +844,10 @@ namespace PointOfSale
             this.btn_Cashless.AllowFocus = false;
             this.btn_Cashless.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cashless.ImageOptions.Image")));
             this.btn_Cashless.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_Cashless.Location = new System.Drawing.Point(846, 584);
+            this.btn_Cashless.Location = new System.Drawing.Point(846, 606);
             this.btn_Cashless.Name = "btn_Cashless";
             this.btn_Cashless.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Cashless.Size = new System.Drawing.Size(88, 84);
+            this.btn_Cashless.Size = new System.Drawing.Size(88, 89);
             this.btn_Cashless.StyleController = this.lC_InvoiceLine;
             this.btn_Cashless.TabIndex = 26;
             this.btn_Cashless.Text = "Visa";
@@ -858,14 +858,38 @@ namespace PointOfSale
             this.btn_CustomerBonus.AllowFocus = false;
             this.btn_CustomerBonus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerBonus.ImageOptions.Image")));
             this.btn_CustomerBonus.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_CustomerBonus.Location = new System.Drawing.Point(938, 584);
+            this.btn_CustomerBonus.Location = new System.Drawing.Point(938, 606);
             this.btn_CustomerBonus.Name = "btn_CustomerBonus";
             this.btn_CustomerBonus.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_CustomerBonus.Size = new System.Drawing.Size(88, 84);
+            this.btn_CustomerBonus.Size = new System.Drawing.Size(88, 89);
             this.btn_CustomerBonus.StyleController = this.lC_InvoiceLine;
             this.btn_CustomerBonus.TabIndex = 28;
             this.btn_CustomerBonus.Text = "Bonus";
             this.btn_CustomerBonus.Click += new System.EventHandler(this.btn_Payment_Click);
+            // 
+            // btn_Print
+            // 
+            this.btn_Print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Print.ImageOptions.Image")));
+            this.btn_Print.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btn_Print.Location = new System.Drawing.Point(846, 330);
+            this.btn_Print.Name = "btn_Print";
+            this.btn_Print.Size = new System.Drawing.Size(88, 73);
+            this.btn_Print.StyleController = this.lC_InvoiceLine;
+            this.btn_Print.TabIndex = 43;
+            this.btn_Print.Text = "Çap";
+            this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
+            // 
+            // btn_PrintDesign
+            // 
+            this.btn_PrintDesign.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintDesign.ImageOptions.Image")));
+            this.btn_PrintDesign.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btn_PrintDesign.Location = new System.Drawing.Point(938, 330);
+            this.btn_PrintDesign.Name = "btn_PrintDesign";
+            this.btn_PrintDesign.Size = new System.Drawing.Size(88, 73);
+            this.btn_PrintDesign.StyleController = this.lC_InvoiceLine;
+            this.btn_PrintDesign.TabIndex = 44;
+            this.btn_PrintDesign.Text = "Çap Dizayn";
+            this.btn_PrintDesign.Click += new System.EventHandler(this.btn_PrintDesign_Click);
             // 
             // lCG_Root
             // 
@@ -879,7 +903,7 @@ namespace PointOfSale
             this.lCG_Payment,
             this.layoutControlGroup2});
             this.lCG_Root.Name = "Root";
-            this.lCG_Root.Size = new System.Drawing.Size(1142, 692);
+            this.lCG_Root.Size = new System.Drawing.Size(1142, 719);
             this.lCG_Root.TextVisible = false;
             // 
             // lCG_Barcode
@@ -935,7 +959,7 @@ namespace PointOfSale
             rowDefinition3,
             rowDefinition4,
             rowDefinition5});
-            this.lCG_Barcode.Size = new System.Drawing.Size(318, 381);
+            this.lCG_Barcode.Size = new System.Drawing.Size(318, 396);
             this.lCG_Barcode.Text = "Barcode";
             // 
             // lCI_Star
@@ -943,11 +967,11 @@ namespace PointOfSale
             this.lCI_Star.Control = this.btn_Star;
             this.lCI_Star.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Star.CustomizationFormText = "layoutControlItemStar";
-            this.lCI_Star.Location = new System.Drawing.Point(0, 268);
+            this.lCI_Star.Location = new System.Drawing.Point(0, 280);
             this.lCI_Star.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Star.Name = "lCI_Star";
             this.lCI_Star.OptionsTableLayoutItem.RowIndex = 4;
-            this.lCI_Star.Size = new System.Drawing.Size(73, 68);
+            this.lCI_Star.Size = new System.Drawing.Size(73, 71);
             this.lCI_Star.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Star.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Star.TextVisible = false;
@@ -957,12 +981,12 @@ namespace PointOfSale
             this.lCI_Comma.Control = this.btn_Comma;
             this.lCI_Comma.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Comma.CustomizationFormText = "layoutControlItemComma";
-            this.lCI_Comma.Location = new System.Drawing.Point(146, 268);
+            this.lCI_Comma.Location = new System.Drawing.Point(146, 280);
             this.lCI_Comma.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Comma.Name = "lCI_Comma";
             this.lCI_Comma.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lCI_Comma.OptionsTableLayoutItem.RowIndex = 4;
-            this.lCI_Comma.Size = new System.Drawing.Size(73, 68);
+            this.lCI_Comma.Size = new System.Drawing.Size(73, 71);
             this.lCI_Comma.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Comma.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Comma.TextVisible = false;
@@ -972,12 +996,12 @@ namespace PointOfSale
             this.lCI_Num0.Control = this.btn_Num0;
             this.lCI_Num0.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num0.CustomizationFormText = "layoutControlItemNum0";
-            this.lCI_Num0.Location = new System.Drawing.Point(73, 268);
+            this.lCI_Num0.Location = new System.Drawing.Point(73, 280);
             this.lCI_Num0.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num0.Name = "lCI_Num0";
             this.lCI_Num0.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_Num0.OptionsTableLayoutItem.RowIndex = 4;
-            this.lCI_Num0.Size = new System.Drawing.Size(73, 68);
+            this.lCI_Num0.Size = new System.Drawing.Size(73, 71);
             this.lCI_Num0.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num0.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num0.TextVisible = false;
@@ -987,11 +1011,11 @@ namespace PointOfSale
             this.lCI_Num1.Control = this.btn_Num1;
             this.lCI_Num1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num1.CustomizationFormText = "layoutControlItemNum1";
-            this.lCI_Num1.Location = new System.Drawing.Point(0, 201);
+            this.lCI_Num1.Location = new System.Drawing.Point(0, 210);
             this.lCI_Num1.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num1.Name = "lCI_Num1";
             this.lCI_Num1.OptionsTableLayoutItem.RowIndex = 3;
-            this.lCI_Num1.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num1.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num1.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num1.TextVisible = false;
@@ -1001,12 +1025,12 @@ namespace PointOfSale
             this.lCI_Num2.Control = this.btn_Num2;
             this.lCI_Num2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num2.CustomizationFormText = "layoutControlItemNum2";
-            this.lCI_Num2.Location = new System.Drawing.Point(73, 201);
+            this.lCI_Num2.Location = new System.Drawing.Point(73, 210);
             this.lCI_Num2.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num2.Name = "lCI_Num2";
             this.lCI_Num2.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_Num2.OptionsTableLayoutItem.RowIndex = 3;
-            this.lCI_Num2.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num2.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num2.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num2.TextVisible = false;
@@ -1016,12 +1040,12 @@ namespace PointOfSale
             this.lCI_Num3.Control = this.btn_Num3;
             this.lCI_Num3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num3.CustomizationFormText = "layoutControlItemNum3";
-            this.lCI_Num3.Location = new System.Drawing.Point(146, 201);
+            this.lCI_Num3.Location = new System.Drawing.Point(146, 210);
             this.lCI_Num3.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num3.Name = "lCI_Num3";
             this.lCI_Num3.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lCI_Num3.OptionsTableLayoutItem.RowIndex = 3;
-            this.lCI_Num3.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num3.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num3.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num3.TextVisible = false;
@@ -1031,11 +1055,11 @@ namespace PointOfSale
             this.lCI_Num4.Control = this.btn_Num4;
             this.lCI_Num4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num4.CustomizationFormText = "layoutControlItemNum4";
-            this.lCI_Num4.Location = new System.Drawing.Point(0, 134);
+            this.lCI_Num4.Location = new System.Drawing.Point(0, 140);
             this.lCI_Num4.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num4.Name = "lCI_Num4";
             this.lCI_Num4.OptionsTableLayoutItem.RowIndex = 2;
-            this.lCI_Num4.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num4.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num4.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num4.TextVisible = false;
@@ -1045,12 +1069,12 @@ namespace PointOfSale
             this.lCI_Num5.Control = this.btn_Num5;
             this.lCI_Num5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num5.CustomizationFormText = "layoutControlItemNum5";
-            this.lCI_Num5.Location = new System.Drawing.Point(73, 134);
+            this.lCI_Num5.Location = new System.Drawing.Point(73, 140);
             this.lCI_Num5.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num5.Name = "lCI_Num5";
             this.lCI_Num5.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_Num5.OptionsTableLayoutItem.RowIndex = 2;
-            this.lCI_Num5.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num5.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num5.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num5.TextVisible = false;
@@ -1060,12 +1084,12 @@ namespace PointOfSale
             this.lCI_Num6.Control = this.btn_Num6;
             this.lCI_Num6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num6.CustomizationFormText = "layoutControlItemNum6";
-            this.lCI_Num6.Location = new System.Drawing.Point(146, 134);
+            this.lCI_Num6.Location = new System.Drawing.Point(146, 140);
             this.lCI_Num6.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num6.Name = "lCI_Num6";
             this.lCI_Num6.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lCI_Num6.OptionsTableLayoutItem.RowIndex = 2;
-            this.lCI_Num6.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num6.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num6.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num6.TextVisible = false;
@@ -1075,12 +1099,12 @@ namespace PointOfSale
             this.lCI_Num8.Control = this.btn_Num8;
             this.lCI_Num8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num8.CustomizationFormText = "layoutControlItemNum8";
-            this.lCI_Num8.Location = new System.Drawing.Point(73, 67);
+            this.lCI_Num8.Location = new System.Drawing.Point(73, 70);
             this.lCI_Num8.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num8.Name = "lCI_Num8";
             this.lCI_Num8.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_Num8.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_Num8.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num8.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num8.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num8.TextVisible = false;
@@ -1090,12 +1114,12 @@ namespace PointOfSale
             this.lCI_Num9.Control = this.btn_Num9;
             this.lCI_Num9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num9.CustomizationFormText = "layoutControlItemNum9";
-            this.lCI_Num9.Location = new System.Drawing.Point(146, 67);
+            this.lCI_Num9.Location = new System.Drawing.Point(146, 70);
             this.lCI_Num9.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num9.Name = "lCI_Num9";
             this.lCI_Num9.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lCI_Num9.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_Num9.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num9.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num9.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num9.TextVisible = false;
@@ -1105,11 +1129,11 @@ namespace PointOfSale
             this.lCI_Num7.Control = this.btn_Num7;
             this.lCI_Num7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Num7.CustomizationFormText = "layoutControlItemNum7";
-            this.lCI_Num7.Location = new System.Drawing.Point(0, 67);
+            this.lCI_Num7.Location = new System.Drawing.Point(0, 70);
             this.lCI_Num7.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Num7.Name = "lCI_Num7";
             this.lCI_Num7.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_Num7.Size = new System.Drawing.Size(73, 67);
+            this.lCI_Num7.Size = new System.Drawing.Size(73, 70);
             this.lCI_Num7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Num7.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Num7.TextVisible = false;
@@ -1119,13 +1143,13 @@ namespace PointOfSale
             this.lCI_Enter.Control = this.btn_Enter;
             this.lCI_Enter.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_Enter.CustomizationFormText = "layoutControlItemEnter";
-            this.lCI_Enter.Location = new System.Drawing.Point(219, 201);
+            this.lCI_Enter.Location = new System.Drawing.Point(219, 210);
             this.lCI_Enter.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Enter.Name = "lCI_Enter";
             this.lCI_Enter.OptionsTableLayoutItem.ColumnIndex = 3;
             this.lCI_Enter.OptionsTableLayoutItem.RowIndex = 3;
             this.lCI_Enter.OptionsTableLayoutItem.RowSpan = 2;
-            this.lCI_Enter.Size = new System.Drawing.Size(75, 135);
+            this.lCI_Enter.Size = new System.Drawing.Size(75, 141);
             this.lCI_Enter.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Enter.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Enter.TextVisible = false;
@@ -1135,12 +1159,12 @@ namespace PointOfSale
             this.lCI_C.Control = this.btn_C;
             this.lCI_C.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_C.CustomizationFormText = "layoutControlItemC";
-            this.lCI_C.Location = new System.Drawing.Point(219, 134);
+            this.lCI_C.Location = new System.Drawing.Point(219, 140);
             this.lCI_C.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_C.Name = "lCI_C";
             this.lCI_C.OptionsTableLayoutItem.ColumnIndex = 3;
             this.lCI_C.OptionsTableLayoutItem.RowIndex = 2;
-            this.lCI_C.Size = new System.Drawing.Size(75, 67);
+            this.lCI_C.Size = new System.Drawing.Size(75, 70);
             this.lCI_C.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_C.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_C.TextVisible = false;
@@ -1150,12 +1174,12 @@ namespace PointOfSale
             this.lCI_BackSpace.Control = this.btn_BackSpace;
             this.lCI_BackSpace.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_BackSpace.CustomizationFormText = "layoutControlItemBackSpace";
-            this.lCI_BackSpace.Location = new System.Drawing.Point(219, 67);
+            this.lCI_BackSpace.Location = new System.Drawing.Point(219, 70);
             this.lCI_BackSpace.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_BackSpace.Name = "lCI_BackSpace";
             this.lCI_BackSpace.OptionsTableLayoutItem.ColumnIndex = 3;
             this.lCI_BackSpace.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_BackSpace.Size = new System.Drawing.Size(75, 67);
+            this.lCI_BackSpace.Size = new System.Drawing.Size(75, 70);
             this.lCI_BackSpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_BackSpace.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_BackSpace.TextVisible = false;
@@ -1172,7 +1196,7 @@ namespace PointOfSale
             this.lCI_ItemTextBox.Name = "lCI_ItemTextBox";
             this.lCI_ItemTextBox.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_ItemTextBox.OptionsTableLayoutItem.ColumnSpan = 3;
-            this.lCI_ItemTextBox.Size = new System.Drawing.Size(221, 67);
+            this.lCI_ItemTextBox.Size = new System.Drawing.Size(221, 70);
             this.lCI_ItemTextBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_ItemTextBox.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_ItemTextBox.TextVisible = false;
@@ -1187,7 +1211,7 @@ namespace PointOfSale
             this.lCI_ComboBox.Location = new System.Drawing.Point(0, 0);
             this.lCI_ComboBox.MinSize = new System.Drawing.Size(40, 24);
             this.lCI_ComboBox.Name = "lCI_ComboBox";
-            this.lCI_ComboBox.Size = new System.Drawing.Size(73, 67);
+            this.lCI_ComboBox.Size = new System.Drawing.Size(73, 70);
             this.lCI_ComboBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_ComboBox.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_ComboBox.TextVisible = false;
@@ -1199,7 +1223,7 @@ namespace PointOfSale
             this.lCI_GridView});
             this.lCG_Invoice.Location = new System.Drawing.Point(0, 0);
             this.lCG_Invoice.Name = "lCG_Invoice";
-            this.lCG_Invoice.Size = new System.Drawing.Size(412, 672);
+            this.lCG_Invoice.Size = new System.Drawing.Size(412, 699);
             this.lCG_Invoice.Text = "Satış";
             // 
             // lCI_GridView
@@ -1209,7 +1233,7 @@ namespace PointOfSale
             this.lCI_GridView.CustomizationFormText = "layoutControlItemGridView";
             this.lCI_GridView.Location = new System.Drawing.Point(0, 0);
             this.lCI_GridView.Name = "lCI_GridView";
-            this.lCI_GridView.Size = new System.Drawing.Size(388, 627);
+            this.lCI_GridView.Size = new System.Drawing.Size(388, 654);
             this.lCI_GridView.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_GridView.TextVisible = false;
             // 
@@ -1225,7 +1249,7 @@ namespace PointOfSale
             this.lCI_Print,
             this.lCI_PrintDesign});
             this.lCG_Function.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.lCG_Function.Location = new System.Drawing.Point(730, 201);
+            this.lCG_Function.Location = new System.Drawing.Point(730, 209);
             this.lCG_Function.Name = "lCG_Function";
             columnDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition5.Width = 25D;
@@ -1253,7 +1277,7 @@ namespace PointOfSale
             rowDefinition7,
             rowDefinition8,
             rowDefinition9});
-            this.lCG_Function.Size = new System.Drawing.Size(392, 338);
+            this.lCG_Function.Size = new System.Drawing.Size(392, 352);
             this.lCG_Function.Text = "Əməliyat";
             // 
             // lCI_ProductSearch
@@ -1264,7 +1288,7 @@ namespace PointOfSale
             this.lCI_ProductSearch.Location = new System.Drawing.Point(0, 0);
             this.lCI_ProductSearch.MinSize = new System.Drawing.Size(78, 26);
             this.lCI_ProductSearch.Name = "lCI_ProductSearch";
-            this.lCI_ProductSearch.Size = new System.Drawing.Size(92, 73);
+            this.lCI_ProductSearch.Size = new System.Drawing.Size(92, 76);
             this.lCI_ProductSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_ProductSearch.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_ProductSearch.TextVisible = false;
@@ -1278,7 +1302,7 @@ namespace PointOfSale
             this.lCI_Discount.MinSize = new System.Drawing.Size(78, 26);
             this.lCI_Discount.Name = "lCI_Discount";
             this.lCI_Discount.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.lCI_Discount.Size = new System.Drawing.Size(92, 73);
+            this.lCI_Discount.Size = new System.Drawing.Size(92, 76);
             this.lCI_Discount.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Discount.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Discount.TextVisible = false;
@@ -1292,7 +1316,7 @@ namespace PointOfSale
             this.lCI_CancelInvoice.MinSize = new System.Drawing.Size(78, 26);
             this.lCI_CancelInvoice.Name = "lCI_CancelInvoice";
             this.lCI_CancelInvoice.OptionsTableLayoutItem.ColumnIndex = 3;
-            this.lCI_CancelInvoice.Size = new System.Drawing.Size(92, 73);
+            this.lCI_CancelInvoice.Size = new System.Drawing.Size(92, 76);
             this.lCI_CancelInvoice.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CancelInvoice.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_CancelInvoice.TextVisible = false;
@@ -1306,7 +1330,7 @@ namespace PointOfSale
             this.lCI_DeleteLine.MinSize = new System.Drawing.Size(78, 26);
             this.lCI_DeleteLine.Name = "lCI_DeleteLine";
             this.lCI_DeleteLine.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.lCI_DeleteLine.Size = new System.Drawing.Size(92, 73);
+            this.lCI_DeleteLine.Size = new System.Drawing.Size(92, 76);
             this.lCI_DeleteLine.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_DeleteLine.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_DeleteLine.TextVisible = false;
@@ -1316,14 +1340,40 @@ namespace PointOfSale
             this.lCI_SalesPerson.Control = this.btn_SalesPerson;
             this.lCI_SalesPerson.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_SalesPerson.CustomizationFormText = "layoutControlItemSalesPerson";
-            this.lCI_SalesPerson.Location = new System.Drawing.Point(0, 73);
+            this.lCI_SalesPerson.Location = new System.Drawing.Point(0, 76);
             this.lCI_SalesPerson.MinSize = new System.Drawing.Size(78, 26);
             this.lCI_SalesPerson.Name = "lCI_SalesPerson";
             this.lCI_SalesPerson.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_SalesPerson.Size = new System.Drawing.Size(92, 73);
+            this.lCI_SalesPerson.Size = new System.Drawing.Size(92, 77);
             this.lCI_SalesPerson.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_SalesPerson.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_SalesPerson.TextVisible = false;
+            // 
+            // lCI_Print
+            // 
+            this.lCI_Print.Control = this.btn_Print;
+            this.lCI_Print.Location = new System.Drawing.Point(92, 76);
+            this.lCI_Print.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Print.Name = "lCI_Print";
+            this.lCI_Print.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Print.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_Print.Size = new System.Drawing.Size(92, 77);
+            this.lCI_Print.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Print.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Print.TextVisible = false;
+            // 
+            // lCI_PrintDesign
+            // 
+            this.lCI_PrintDesign.Control = this.btn_PrintDesign;
+            this.lCI_PrintDesign.Location = new System.Drawing.Point(184, 76);
+            this.lCI_PrintDesign.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_PrintDesign.Name = "lCI_PrintDesign";
+            this.lCI_PrintDesign.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.lCI_PrintDesign.OptionsTableLayoutItem.RowIndex = 1;
+            this.lCI_PrintDesign.Size = new System.Drawing.Size(92, 77);
+            this.lCI_PrintDesign.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_PrintDesign.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_PrintDesign.TextVisible = false;
             // 
             // lCG_Customer
             // 
@@ -1366,7 +1416,7 @@ namespace PointOfSale
             rowDefinition13,
             rowDefinition14,
             rowDefinition15});
-            this.lCG_Customer.Size = new System.Drawing.Size(392, 201);
+            this.lCG_Customer.Size = new System.Drawing.Size(392, 209);
             this.lCG_Customer.Text = "Müştəri";
             // 
             // lCI_CustomerSearch
@@ -1379,7 +1429,7 @@ namespace PointOfSale
             this.lCI_CustomerSearch.Name = "lCI_CustomerSearch";
             this.lCI_CustomerSearch.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_CustomerSearch.OptionsTableLayoutItem.RowSpan = 2;
-            this.lCI_CustomerSearch.Size = new System.Drawing.Size(55, 52);
+            this.lCI_CustomerSearch.Size = new System.Drawing.Size(55, 54);
             this.lCI_CustomerSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerSearch.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_CustomerSearch.TextVisible = false;
@@ -1389,11 +1439,11 @@ namespace PointOfSale
             this.lCI_BonusCardNum.Control = this.txtEdit_BonCardNum;
             this.lCI_BonusCardNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_BonusCardNum.CustomizationFormText = "Müştəri Kartı";
-            this.lCI_BonusCardNum.Location = new System.Drawing.Point(0, 130);
+            this.lCI_BonusCardNum.Location = new System.Drawing.Point(0, 135);
             this.lCI_BonusCardNum.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_BonusCardNum.Name = "lCI_BonusCardNum";
             this.lCI_BonusCardNum.OptionsTableLayoutItem.RowIndex = 5;
-            this.lCI_BonusCardNum.Size = new System.Drawing.Size(313, 26);
+            this.lCI_BonusCardNum.Size = new System.Drawing.Size(313, 29);
             this.lCI_BonusCardNum.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_BonusCardNum.Text = "Müştəri Kartı";
             this.lCI_BonusCardNum.TextSize = new System.Drawing.Size(62, 13);
@@ -1403,11 +1453,11 @@ namespace PointOfSale
             this.lCI_CustomerAddress.Control = this.txtEdit_CustomerAddress;
             this.lCI_CustomerAddress.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerAddress.CustomizationFormText = "Adres";
-            this.lCI_CustomerAddress.Location = new System.Drawing.Point(0, 104);
+            this.lCI_CustomerAddress.Location = new System.Drawing.Point(0, 108);
             this.lCI_CustomerAddress.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerAddress.Name = "lCI_CustomerAddress";
             this.lCI_CustomerAddress.OptionsTableLayoutItem.RowIndex = 4;
-            this.lCI_CustomerAddress.Size = new System.Drawing.Size(313, 26);
+            this.lCI_CustomerAddress.Size = new System.Drawing.Size(313, 27);
             this.lCI_CustomerAddress.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerAddress.Text = "Adres";
             this.lCI_CustomerAddress.TextSize = new System.Drawing.Size(62, 13);
@@ -1417,11 +1467,11 @@ namespace PointOfSale
             this.lCI_CustomerTel.Control = this.txtEdit_CustomerPhoneNum;
             this.lCI_CustomerTel.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerTel.CustomizationFormText = "Telefon";
-            this.lCI_CustomerTel.Location = new System.Drawing.Point(0, 78);
+            this.lCI_CustomerTel.Location = new System.Drawing.Point(0, 81);
             this.lCI_CustomerTel.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerTel.Name = "lCI_CustomerTel";
             this.lCI_CustomerTel.OptionsTableLayoutItem.RowIndex = 3;
-            this.lCI_CustomerTel.Size = new System.Drawing.Size(313, 26);
+            this.lCI_CustomerTel.Size = new System.Drawing.Size(313, 27);
             this.lCI_CustomerTel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerTel.Text = "Telefon";
             this.lCI_CustomerTel.TextSize = new System.Drawing.Size(62, 13);
@@ -1431,11 +1481,11 @@ namespace PointOfSale
             this.lCI_CustomerName.Control = this.txtEdit_CustomerName;
             this.lCI_CustomerName.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerName.CustomizationFormText = "Adı, Soyadı";
-            this.lCI_CustomerName.Location = new System.Drawing.Point(0, 52);
+            this.lCI_CustomerName.Location = new System.Drawing.Point(0, 54);
             this.lCI_CustomerName.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerName.Name = "lCI_CustomerName";
             this.lCI_CustomerName.OptionsTableLayoutItem.RowIndex = 2;
-            this.lCI_CustomerName.Size = new System.Drawing.Size(313, 26);
+            this.lCI_CustomerName.Size = new System.Drawing.Size(313, 27);
             this.lCI_CustomerName.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerName.Text = "Adı, Soyadı";
             this.lCI_CustomerName.TextSize = new System.Drawing.Size(62, 13);
@@ -1445,11 +1495,11 @@ namespace PointOfSale
             this.lCI_CustomerCode.Control = this.txtEdit_CustomerCode;
             this.lCI_CustomerCode.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerCode.CustomizationFormText = "Müştəri Kodu";
-            this.lCI_CustomerCode.Location = new System.Drawing.Point(0, 26);
+            this.lCI_CustomerCode.Location = new System.Drawing.Point(0, 27);
             this.lCI_CustomerCode.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerCode.Name = "lCI_CustomerCode";
             this.lCI_CustomerCode.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_CustomerCode.Size = new System.Drawing.Size(313, 26);
+            this.lCI_CustomerCode.Size = new System.Drawing.Size(313, 27);
             this.lCI_CustomerCode.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerCode.Text = "Müştəri Kodu";
             this.lCI_CustomerCode.TextSize = new System.Drawing.Size(62, 13);
@@ -1459,13 +1509,13 @@ namespace PointOfSale
             this.lCI_CustomerAdd.Control = this.btn_CustomerAdd;
             this.lCI_CustomerAdd.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerAdd.CustomizationFormText = "layoutControlItemCustomerAdd";
-            this.lCI_CustomerAdd.Location = new System.Drawing.Point(313, 52);
+            this.lCI_CustomerAdd.Location = new System.Drawing.Point(313, 54);
             this.lCI_CustomerAdd.MinSize = new System.Drawing.Size(26, 26);
             this.lCI_CustomerAdd.Name = "lCI_CustomerAdd";
             this.lCI_CustomerAdd.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_CustomerAdd.OptionsTableLayoutItem.RowIndex = 2;
             this.lCI_CustomerAdd.OptionsTableLayoutItem.RowSpan = 2;
-            this.lCI_CustomerAdd.Size = new System.Drawing.Size(55, 52);
+            this.lCI_CustomerAdd.Size = new System.Drawing.Size(55, 54);
             this.lCI_CustomerAdd.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerAdd.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_CustomerAdd.TextVisible = false;
@@ -1475,13 +1525,13 @@ namespace PointOfSale
             this.lCI_CustomerEdit.Control = this.btn_CustomerEdit;
             this.lCI_CustomerEdit.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerEdit.CustomizationFormText = "layoutControlItemCustomerEdit";
-            this.lCI_CustomerEdit.Location = new System.Drawing.Point(313, 104);
+            this.lCI_CustomerEdit.Location = new System.Drawing.Point(313, 108);
             this.lCI_CustomerEdit.MinSize = new System.Drawing.Size(26, 26);
             this.lCI_CustomerEdit.Name = "lCI_CustomerEdit";
             this.lCI_CustomerEdit.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lCI_CustomerEdit.OptionsTableLayoutItem.RowIndex = 4;
             this.lCI_CustomerEdit.OptionsTableLayoutItem.RowSpan = 2;
-            this.lCI_CustomerEdit.Size = new System.Drawing.Size(55, 52);
+            this.lCI_CustomerEdit.Size = new System.Drawing.Size(55, 56);
             this.lCI_CustomerEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerEdit.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_CustomerEdit.TextVisible = false;
@@ -1494,7 +1544,7 @@ namespace PointOfSale
             this.lCI_Cashless,
             this.lCI_CustomerBonus});
             this.lCG_Payment.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.lCG_Payment.Location = new System.Drawing.Point(730, 539);
+            this.lCG_Payment.Location = new System.Drawing.Point(730, 561);
             this.lCG_Payment.Name = "lCG_Payment";
             columnDefinition11.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition11.Width = 25D;
@@ -1513,7 +1563,7 @@ namespace PointOfSale
             rowDefinition16.SizeType = System.Windows.Forms.SizeType.Percent;
             this.lCG_Payment.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition16});
-            this.lCG_Payment.Size = new System.Drawing.Size(392, 133);
+            this.lCG_Payment.Size = new System.Drawing.Size(392, 138);
             this.lCG_Payment.Text = "Ödəmə";
             // 
             // lCI_Cash
@@ -1524,7 +1574,7 @@ namespace PointOfSale
             this.lCI_Cash.Location = new System.Drawing.Point(0, 0);
             this.lCI_Cash.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Cash.Name = "lCI_Cash";
-            this.lCI_Cash.Size = new System.Drawing.Size(92, 88);
+            this.lCI_Cash.Size = new System.Drawing.Size(92, 93);
             this.lCI_Cash.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Cash.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Cash.TextVisible = false;
@@ -1538,7 +1588,7 @@ namespace PointOfSale
             this.lCI_Cashless.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_Cashless.Name = "lCI_Cashless";
             this.lCI_Cashless.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.lCI_Cashless.Size = new System.Drawing.Size(92, 88);
+            this.lCI_Cashless.Size = new System.Drawing.Size(92, 93);
             this.lCI_Cashless.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_Cashless.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Cashless.TextVisible = false;
@@ -1552,7 +1602,7 @@ namespace PointOfSale
             this.lCI_CustomerBonus.MinSize = new System.Drawing.Size(40, 26);
             this.lCI_CustomerBonus.Name = "lCI_CustomerBonus";
             this.lCI_CustomerBonus.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.lCI_CustomerBonus.Size = new System.Drawing.Size(92, 88);
+            this.lCI_CustomerBonus.Size = new System.Drawing.Size(92, 93);
             this.lCI_CustomerBonus.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_CustomerBonus.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_CustomerBonus.TextVisible = false;
@@ -1560,60 +1610,10 @@ namespace PointOfSale
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.CustomizationFormText = "layoutControlGroup1";
-            this.layoutControlGroup2.Location = new System.Drawing.Point(412, 381);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(412, 396);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(318, 291);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(318, 303);
             this.layoutControlGroup2.Text = "layoutControlGroup1";
-            // 
-            // btn_Print
-            // 
-            this.btn_Print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Print.ImageOptions.Image")));
-            this.btn_Print.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btn_Print.Location = new System.Drawing.Point(846, 319);
-            this.btn_Print.Name = "btn_Print";
-            this.btn_Print.Size = new System.Drawing.Size(88, 69);
-            this.btn_Print.StyleController = this.lC_InvoiceLine;
-            this.btn_Print.TabIndex = 43;
-            this.btn_Print.Text = "Çap";
-            this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
-            // 
-            // lCI_Print
-            // 
-            this.lCI_Print.Control = this.btn_Print;
-            this.lCI_Print.Location = new System.Drawing.Point(92, 73);
-            this.lCI_Print.MinSize = new System.Drawing.Size(78, 26);
-            this.lCI_Print.Name = "lCI_Print";
-            this.lCI_Print.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.lCI_Print.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_Print.Size = new System.Drawing.Size(92, 73);
-            this.lCI_Print.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lCI_Print.TextSize = new System.Drawing.Size(0, 0);
-            this.lCI_Print.TextVisible = false;
-            // 
-            // btn_PrintDesign
-            // 
-            this.btn_PrintDesign.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintDesign.ImageOptions.Image")));
-            this.btn_PrintDesign.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btn_PrintDesign.Location = new System.Drawing.Point(938, 319);
-            this.btn_PrintDesign.Name = "btn_PrintDesign";
-            this.btn_PrintDesign.Size = new System.Drawing.Size(88, 69);
-            this.btn_PrintDesign.StyleController = this.lC_InvoiceLine;
-            this.btn_PrintDesign.TabIndex = 44;
-            this.btn_PrintDesign.Text = "Çap Dizayn";
-            this.btn_PrintDesign.Click += new System.EventHandler(this.btn_PrintDesign_Click);
-            // 
-            // lCI_PrintDesign
-            // 
-            this.lCI_PrintDesign.Control = this.btn_PrintDesign;
-            this.lCI_PrintDesign.Location = new System.Drawing.Point(184, 73);
-            this.lCI_PrintDesign.MinSize = new System.Drawing.Size(78, 26);
-            this.lCI_PrintDesign.Name = "lCI_PrintDesign";
-            this.lCI_PrintDesign.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.lCI_PrintDesign.OptionsTableLayoutItem.RowIndex = 1;
-            this.lCI_PrintDesign.Size = new System.Drawing.Size(92, 73);
-            this.lCI_PrintDesign.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lCI_PrintDesign.TextSize = new System.Drawing.Size(0, 0);
-            this.lCI_PrintDesign.TextVisible = false;
             // 
             // UcSale
             // 
@@ -1621,7 +1621,7 @@ namespace PointOfSale
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lC_InvoiceLine);
             this.Name = "UcSale";
-            this.Size = new System.Drawing.Size(1142, 692);
+            this.Size = new System.Drawing.Size(1142, 719);
             this.Load += new System.EventHandler(this.UcSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lC_InvoiceLine)).EndInit();
             this.lC_InvoiceLine.ResumeLayout(false);
@@ -1661,6 +1661,8 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CancelInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DeleteLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_SalesPerson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Print)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_PrintDesign)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_BonusCardNum)).EndInit();
@@ -1675,8 +1677,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Cashless)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCI_Print)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCI_PrintDesign)).EndInit();
             this.ResumeLayout(false);
 
         }
