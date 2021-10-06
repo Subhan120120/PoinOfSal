@@ -1,5 +1,6 @@
 ﻿using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.DataAccess.Sql;
+using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace PointOfSale
                 }
                 else
                 {
-                    MessageBox.Show("Yalnız .repx fayl seçə bilərsiniz", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Yalnız .repx fayl seçə bilərsiniz", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return "";
                 }
             }
@@ -53,13 +54,13 @@ namespace PointOfSale
             if (File.Exists(reportFilePath))
                 report.LoadLayoutFromXml(reportFilePath);
             else
-                MessageBox.Show("Dizayn faylı tapılmadı.");
+                XtraMessageBox.Show("Dizayn faylı tapılmadı.");
 
             // Load a report's style sheet from XML.
             //if (File.Exists(styleSheetFilePath))
             //    report.StyleSheet.LoadFromXml(styleSheetFilePath);
             //else
-            //    MessageBox.Show("The source file does not exist.");
+            //    XtraMessageBox.Show("The source file does not exist.");
 
 
             // Assign the data source to the report.

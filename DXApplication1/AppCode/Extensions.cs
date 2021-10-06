@@ -8,7 +8,7 @@ namespace PointOfSale
     {
         public static bool Between(this decimal num, decimal lower, decimal upper, bool inclusive = false)
         {
-            if (lower > upper) // boyuk ve kicik reqemlerin yerlerinin deyisdirilmesi ucun
+            if (lower > upper) // Swapping Values parametr lower and upper
             {
                 decimal upper2 = upper;
                 upper = lower;

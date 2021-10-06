@@ -208,6 +208,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppCode\Session.cs" />
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
@@ -253,9 +254,17 @@
     <Compile Include="FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20211004195840_initial.cs" />
-    <Compile Include="Migrations\20211004195840_initial.designer.cs">
-      <DependentUpon>20211004195840_initial.cs</DependentUpon>
+    <Compile Include="Migrations\20211005105343_init.cs" />
+    <Compile Include="Migrations\20211005105343_init.designer.cs">
+      <DependentUpon>20211005105343_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211005122830_test1.cs" />
+    <Compile Include="Migrations\20211005122830_test1.designer.cs">
+      <DependentUpon>20211005122830_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211005132722_test2.cs" />
+    <Compile Include="Migrations\20211005132722_test2.designer.cs">
+      <DependentUpon>20211005132722_test2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="Models\Context\subContext.cs" />
@@ -375,6 +384,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQty.resx">
       <DependentUpon>FormQty.cs</DependentUpon>

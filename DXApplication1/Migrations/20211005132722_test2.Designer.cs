@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20211004195840_initial")]
-    partial class initial
+    [Migration("20211005132722_test2")]
+    partial class test2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -156,6 +156,12 @@ namespace PointOfSale.Migrations
                         .HasColumnType("nvarchar(5)")
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(5);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValueSql("space(0)");
 
                     b.Property<string>("PhoneNum")
                         .ValueGeneratedOnAdd()
@@ -1744,7 +1750,7 @@ namespace PointOfSale.Migrations
                         .HasForeignKey("CurrAccCode");
 
                     b.HasOne("PointOfSale.Models.DcRole", "DcRole")
-                        .WithMany("TrCurrAccRole")
+                        .WithMany("TrCurrAccRoles")
                         .HasForeignKey("RoleCode");
                 });
 

@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.ComponentModel;
-//using System.Data.Entity;
-//using System.Data.Entity.Core.Objects;
-//using System.Data.Entity.Infrastructure;
-//using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -82,6 +78,9 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.IdentityNum)
+                    .HasDefaultValueSql("space(0)");
+
+                entity.Property(e => e.Password)
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.IsVip)
@@ -710,8 +709,6 @@ namespace PointOfSale.Models
                 entity.Property(e => e.LastUpdatedUserName)
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
-
-            //modelBuilder.Entity<ReturnFromProc>().HasNoKey().ToView(null);
 
             OnModelCreatingPartial(modelBuilder);
         }

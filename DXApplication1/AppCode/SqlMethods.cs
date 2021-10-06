@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DevExpress.XtraEditors;
+using Microsoft.EntityFrameworkCore;
 using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace PointOfSale
                     int result = cmd.ExecuteNonQuery();
 
                     if (result < 0)
-                        MessageBox.Show("Data Əlavə edilməsində xəta baş verdi!");
+                        XtraMessageBox.Show("Data Əlavə edilməsində xəta baş verdi!");
                     return result;
                 }
             }
@@ -108,11 +109,12 @@ namespace PointOfSale
             return SqlGetDt(qry, paramArray);
         }
 
-        public List<TrInvoiceLine> SelectInvoiceLineWithHead(Guid invoiceHeaderId)
+        public List<TrInvoiceLine> SelectInvoiceLineForReport(Guid invoiceHeaderId)
         {
             using (subContext db = new subContext())
             {
                 return db.TrInvoiceLines.Include(x => x.TrInvoiceHeader)
+                                            .ThenInclude(x => x.DcCurrAcc)
                                         .Where(x => x.InvoiceHeaderId == invoiceHeaderId)
                                         .ToList();
             }
@@ -390,6 +392,32 @@ namespace PointOfSale
                 return db.DcWarehouses.Where(x => x.IsDisabled == false)
                                       .OrderBy(x => x.CreatedDate)
                                       .ToList(); // burdaki kolonlari dizaynda da elave et
+            }
+        }
+
+        public bool CurrAccExist(string CurrAccCode, string Password)
+        {
+            if (string.IsNullOrEmpty(Password.Trim()))
+                return false;
+            else
+            {
+                using (subContext db = new subContext())
+                {
+                    return db.DcCurrAccs.Where(x => x.IsDisabled == false)
+                                        .Where(x => x.CurrAccCode == CurrAccCode)
+                                        .Any(x => x.Password == Password);
+                }
+            }
+        }
+
+        public List<DcRole> SelectRoles(string CurrAccCode)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.DcRoles.Include(x => x.TrCurrAccRoles)
+                    .ThenInclude(x => x.DcCurrAcc)
+                    .Where(o => o.TrCurrAccRoles.Any(x => x.CurrAccCode == CurrAccCode))
+                                 .ToList();
             }
         }
     }

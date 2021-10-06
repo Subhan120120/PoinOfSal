@@ -111,7 +111,7 @@ namespace PointOfSale
                     }
                 }
                 else
-                    MessageBox.Show("Geri qaytarıla bilecek miqdar yoxdur");
+                    XtraMessageBox.Show("Geri qaytarıla bilecek miqdar yoxdur");
             }
         }
 
@@ -154,7 +154,7 @@ namespace PointOfSale
                     }
                 }
             }
-            else MessageBox.Show("Ödəmə 0a bərabərdir");
+            else XtraMessageBox.Show("Ödəmə 0a bərabərdir");
         }
 
         private void gV_ReturnInvoiceLine_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)

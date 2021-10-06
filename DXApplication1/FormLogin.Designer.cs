@@ -65,14 +65,14 @@ namespace PointOfSale
             this.btn_ERP.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_ERP.Appearance.Options.UseFont = true;
             this.btn_ERP.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_ERP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btn_ERP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_ERP.ImageOptions.SvgImage")));
             this.btn_ERP.Location = new System.Drawing.Point(131, 84);
             this.btn_ERP.Name = "btn_ERP";
             this.btn_ERP.Size = new System.Drawing.Size(115, 99);
             this.btn_ERP.StyleController = this.lC_Root;
             this.btn_ERP.TabIndex = 0;
             this.btn_ERP.Text = "Arxa Ofis";
-            this.btn_ERP.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.btn_ERP.Click += new System.EventHandler(this.btn_ERP_Click);
             // 
             // lC_Root
             // 
@@ -94,14 +94,14 @@ namespace PointOfSale
             this.btn_POS.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             this.btn_POS.Appearance.Options.UseFont = true;
             this.btn_POS.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_POS.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btn_POS.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_POS.ImageOptions.SvgImage")));
             this.btn_POS.Location = new System.Drawing.Point(12, 84);
             this.btn_POS.Name = "btn_POS";
             this.btn_POS.Size = new System.Drawing.Size(115, 99);
             this.btn_POS.StyleController = this.lC_Root;
             this.btn_POS.TabIndex = 1;
             this.btn_POS.Text = "Satış";
-            this.btn_POS.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.btn_POS.Click += new System.EventHandler(this.btn_POS_Click);
             // 
             // txtEdit_UserName
             // 

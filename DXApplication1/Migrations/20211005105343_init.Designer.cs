@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20211005105343_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,12 +156,6 @@ namespace PointOfSale.Migrations
                         .HasColumnType("nvarchar(5)")
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(5);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValueSql("space(0)");
 
                     b.Property<string>("PhoneNum")
                         .ValueGeneratedOnAdd()
@@ -1748,7 +1744,7 @@ namespace PointOfSale.Migrations
                         .HasForeignKey("CurrAccCode");
 
                     b.HasOne("PointOfSale.Models.DcRole", "DcRole")
-                        .WithMany("TrCurrAccRoles")
+                        .WithMany("TrCurrAccRole")
                         .HasForeignKey("RoleCode");
                 });
 

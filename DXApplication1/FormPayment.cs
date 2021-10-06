@@ -13,23 +13,24 @@ namespace PointOfSale
         public Guid PaymentHeaderId = Guid.NewGuid();
         public Guid InvoiceHeaderId { get; set; }
         public int PaymentType { get; set; }
-        public decimal SummaryNetAmount { get; set; }
+        public decimal SumNetAmount { get; set; }
 
         private bool isNegativ = false;
         private decimal cashLarge = 0;
         private decimal cashless = 0;
         private decimal bonus = 0;
 
-        public FormPayment(int PaymentType, decimal SummaryNetAmount, Guid InvoiceHeaderId)
+        public FormPayment(int PaymentType, decimal SumNetAmount, Guid InvoiceHeaderId)
         {
             InitializeComponent();
             AcceptButton = btn_Ok;
             CancelButton = btn_Cancel;
 
-            if (SummaryNetAmount < 0)
+            if (SumNetAmount < 0)
                 isNegativ = true;
+
             this.PaymentType = PaymentType;
-            this.SummaryNetAmount = SummaryNetAmount;
+            this.SumNetAmount = Math.Abs(SumNetAmount);
             this.InvoiceHeaderId = InvoiceHeaderId;
         }
 
@@ -38,16 +39,16 @@ namespace PointOfSale
             switch (PaymentType)
             {
                 case 1:
-                    txt_EditCash.EditValue = Math.Abs(SummaryNetAmount);
+                    txt_EditCash.EditValue = SumNetAmount;
                     break;
                 case 2:
-                    txtEdit_Cashless.EditValue = Math.Abs(SummaryNetAmount);
+                    txtEdit_Cashless.EditValue = SumNetAmount;
                     break;
                 case 3:
-                    txtEdit_Bonus.EditValue = Math.Abs(SummaryNetAmount);
+                    txtEdit_Bonus.EditValue = SumNetAmount;
                     break;
                 default:
-                    txt_EditCash.EditValue = Math.Abs(SummaryNetAmount);
+                    txt_EditCash.EditValue = SumNetAmount;
                     break;
             }
         }
@@ -56,17 +57,12 @@ namespace PointOfSale
         {
             txt_EditCash.DoValidate();
             decimal txtCash = Convert.ToDecimal(txt_EditCash.EditValue);
-            cashLarge = isNegativ ? txtCash * (-1) : txtCash;
+            cashLarge = txtCash;
         }
 
         private void textEditCash_Validating(object sender, CancelEventArgs e)
         {
-            if (isNegativ)
-            {
-                if (cashLarge > 0)
-                    e.Cancel = true;
-            }
-            else if (cashLarge < 0)
+            if (cashLarge < 0)
                 e.Cancel = true;
         }
 
@@ -79,7 +75,7 @@ namespace PointOfSale
 
         private void simpleButtonUpdateCash_Click(object sender, EventArgs e)
         {
-            decimal restAmount = SummaryNetAmount - cashless + bonus;
+            decimal restAmount = SumNetAmount - cashless + bonus;
             if (restAmount >= 0)
                 txt_EditCash.EditValue = restAmount;
         }
@@ -88,31 +84,25 @@ namespace PointOfSale
         {
             txtEdit_Cashless.DoValidate();
             decimal txtCashless = Convert.ToDecimal(txtEdit_Cashless.EditValue);
-            cashless = isNegativ ? txtCashless * (-1) : txtCashless;
+            cashless = txtCashless;
         }
 
         private void textEditCashless_Validating(object sender, CancelEventArgs e)
         {
-            //if (cashless < 0)
-            //    e.Cancel = true;
-            //else if (cashless > SummaryNetAmount)
-            //    e.Cancel = true;
-
-            if (!cashless.Between(0, SummaryNetAmount, false))
+            if (!cashless.Between(0, SumNetAmount, true))
                 e.Cancel = true;
-
         }
 
         private void textEditCashless_InvalidValue(object sender, InvalidValueExceptionEventArgs e)
         {
             e.ExceptionMode = ExceptionMode.DisplayError;
             e.WindowCaption = "Diqqət";
-            e.ErrorText = "Dəyər ödenilmeli məbləğdən " + SummaryNetAmount + "dan çox olmamalıdır";
+            e.ErrorText = "Dəyər ödenilmeli məbləğdən (" + SumNetAmount + "'dan) çox olmamalıdır";
         }
 
         private void simpleButtonUpdateCashless_Click(object sender, EventArgs e)
         {
-            decimal restAmount = SummaryNetAmount - cashLarge + bonus;
+            decimal restAmount = SumNetAmount - cashLarge + bonus;
             if (restAmount >= 0)
                 txtEdit_Cashless.EditValue = restAmount;
         }
@@ -121,17 +111,12 @@ namespace PointOfSale
         {
             txtEdit_Bonus.DoValidate();
             decimal txtBonus = Convert.ToDecimal(txtEdit_Bonus.EditValue);
-            bonus = isNegativ ? txtBonus * (-1) : txtBonus;
+            bonus = txtBonus;
         }
 
         private void textEditBonus_Validating(object sender, CancelEventArgs e)
         {
-            //if (bonus < 0)
-            //    e.Cancel = true;
-            //else if (bonus > SummaryNetAmount)
-            //    e.Cancel = true;
-
-            if (!cashless.Between(0, SummaryNetAmount, false))
+            if (!cashless.Between(0, SumNetAmount, true))
                 e.Cancel = true;
         }
 
@@ -139,12 +124,12 @@ namespace PointOfSale
         {
             e.ExceptionMode = ExceptionMode.DisplayError;
             e.WindowCaption = "Diqqət";
-            e.ErrorText = "Dəyər ödenilmeli məbləğdən " + SummaryNetAmount + "dan çox olmamalıdır";
+            e.ErrorText = "Dəyər ödenilmeli məbləğdən " + SumNetAmount + "dan çox olmamalıdır";
         }
 
         private void simpleButtonUpdateBonus_Click(object sender, EventArgs e)
         {
-            decimal restAmount = SummaryNetAmount - cashLarge + cashless;
+            decimal restAmount = SumNetAmount - cashLarge + cashless;
             if (restAmount >= 0)
                 txtEdit_Bonus.EditValue = restAmount;
         }
@@ -176,9 +161,10 @@ namespace PointOfSale
             SqlMethods sqlMethods = new SqlMethods();
             string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
 
-            if ((cashLarge + cashless + bonus) >= SummaryNetAmount)
+
+            if ((cashLarge + cashless + bonus) >= SumNetAmount)
             {
-                decimal cash = SummaryNetAmount - cashless - bonus;
+                decimal cash = SumNetAmount - cashless - bonus;
                 if (!sqlMethods.PaymentHeaderExist(InvoiceHeaderId))
                 {
                     TrPaymentHeader trPayment = new TrPaymentHeader()
@@ -189,44 +175,44 @@ namespace PointOfSale
                     };
                     sqlMethods.InsertPaymentHeader(trPayment);
 
-                    if (cash != 0)
+                    if (cash > 0)
                     {
                         TrPaymentLine TrPaymentLine = new TrPaymentLine()
                         {
                             PaymentLineId = Guid.NewGuid(),
                             PaymentHeaderId = PaymentHeaderId,
-                            Payment = cash,
+                            Payment = isNegativ ? cash * (-1) : cash,
                             PaymentTypeCode = 1
                         };
                         sqlMethods.InsertPaymentLine(TrPaymentLine);
                     }
 
-                    if (cashless != 0)
+                    if (cashless > 0)
                     {
                         TrPaymentLine TrPaymentLine = new TrPaymentLine()
                         {
                             PaymentLineId = Guid.NewGuid(),
                             PaymentHeaderId = PaymentHeaderId,
-                            Payment = cashless,
+                            Payment = isNegativ ? cashless * (-1) : cashless,
                             PaymentTypeCode = 2
                         };
                         sqlMethods.InsertPaymentLine(TrPaymentLine);
                     }
 
-                    if (bonus != 0)
+                    if (bonus > 0)
                     {
                         TrPaymentLine TrPaymentLine = new TrPaymentLine()
                         {
                             PaymentLineId = Guid.NewGuid(),
                             PaymentHeaderId = PaymentHeaderId,
-                            Payment = bonus,
+                            Payment = isNegativ ? bonus * (-1) : bonus,
                             PaymentTypeCode = 3
                         };
                         sqlMethods.InsertPaymentLine(TrPaymentLine);
                     }
                 }
 
-                decimal change = cash + cashless + bonus - SummaryNetAmount;
+                decimal change = cashLarge + cashless + bonus - SumNetAmount;
                 if (change > 0)
                 {
                     using (FormChange formChange = new FormChange(cashLarge, change))
@@ -237,7 +223,7 @@ namespace PointOfSale
                 DialogResult = DialogResult.OK;
             }
             else
-                MessageBox.Show("Ödəmə ödənilməli olan məbləğdən azdır");
+                XtraMessageBox.Show("Ödəmə ödənilməli olan məbləğdən azdır");
         }
     }
 }

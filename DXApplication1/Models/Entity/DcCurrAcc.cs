@@ -43,6 +43,9 @@ namespace PointOfSale.Models
         public string FatherName { get; set; }
 
         [Required]
+        public string Password { get; set; }
+
+        [Required]
         [StringLength(20)]
         public string IdentityNum { get; set; }
 

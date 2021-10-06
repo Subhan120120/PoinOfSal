@@ -10,6 +10,12 @@ namespace PointOfSale.Models
 {
     public partial class DcRole : BaseEntity
     {
+        public DcRole()
+        {
+            TrRoleClaims = new HashSet<TrRoleClaim>();
+            TrCurrAccRoles = new HashSet<TrCurrAccRole>();
+        }
+
         [Key]
         public string RoleCode { get; set; }
 
@@ -18,7 +24,7 @@ namespace PointOfSale.Models
 
 
         public virtual ICollection<TrRoleClaim> TrRoleClaims { get; set; }
-        public virtual ICollection<TrCurrAccRole> TrCurrAccRole { get; set; }
+        public virtual ICollection<TrCurrAccRole> TrCurrAccRoles { get; set; }
 
     }
 }

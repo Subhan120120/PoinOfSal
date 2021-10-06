@@ -10,6 +10,11 @@ namespace PointOfSale.Models
 {
     public partial class DcClaim
     {
+        public DcClaim()
+        {
+            TrRoleClaims = new HashSet<TrRoleClaim>();
+        }
+
         [Key]
         public string ClaimCode { get; set; }
 
