@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace PointOfSale
 {
@@ -15,7 +14,6 @@ namespace PointOfSale
         private string subConnString = Properties.Settings.Default.subConnString;
         private SqlParameter[] paramArray = new SqlParameter[] { };
         //private subContext db;
-
         public SqlMethods()
         {
             //this.db = new subContext();
@@ -273,6 +271,26 @@ namespace PointOfSale
             }
         }
 
+        public int UpdateInvoiceCurrAccCode(Guid invoiceHeaderId, string currAccCode)
+        {
+            using (subContext db = new subContext())
+            {
+                TrInvoiceHeader trInvoiceHeader = new TrInvoiceHeader() { InvoiceHeaderId = invoiceHeaderId, CurrAccCode = currAccCode };
+                db.Entry(trInvoiceHeader).Property(x => x.CurrAccCode).IsModified = true;
+                return db.SaveChanges();
+            }
+        }
+
+        public int UpdateInvoiceSalesPerson(Guid invoiceLineId, string currAccCode)
+        {
+            using (subContext db = new subContext())
+            {
+                TrInvoiceLine trInvoiceLine = new TrInvoiceLine() { InvoiceLineId = invoiceLineId, SalesPersonCode = currAccCode };
+                db.Entry(trInvoiceLine).Property(x => x.SalesPersonCode).IsModified = true;
+                return db.SaveChanges();
+            }
+        }
+
         public int InsertCustomer(DcCurrAcc dcCurrAcc)
         {
             using (subContext db = new subContext())
@@ -281,6 +299,7 @@ namespace PointOfSale
                 return db.SaveChanges();
             }
         }
+
         public bool CustomerExist(string CurrAccCode)
         {
             using (subContext db = new subContext())
@@ -294,16 +313,6 @@ namespace PointOfSale
             using (subContext db = new subContext())
             {
                 db.DcCurrAccs.Update(dcCurrAcc);
-                return db.SaveChanges();
-            }
-        }
-
-        public int UpdateInvoiceCurrAccCode(string currAccCode, Guid invoiceHeaderId)
-        {
-            using (subContext db = new subContext())
-            {
-                TrInvoiceHeader trInvoiceHeader = new TrInvoiceHeader() { InvoiceHeaderId = invoiceHeaderId, CurrAccCode = currAccCode };
-                db.Entry(trInvoiceHeader).Property(x => x.CurrAccCode).IsModified = true;
                 return db.SaveChanges();
             }
         }

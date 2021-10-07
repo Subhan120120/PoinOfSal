@@ -520,7 +520,7 @@ namespace PointOfSale.Models
                 entity.Property(e => e.LineDescription)
                     .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.SalespersonCode)
+                entity.Property(e => e.SalesPersonCode)
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.CreatedDate)

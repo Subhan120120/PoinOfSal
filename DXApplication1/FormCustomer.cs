@@ -44,7 +44,7 @@ namespace PointOfSale
             DcCurrAcc.BonusCardNum = txtEdit_BonusCard.Text;
             DcCurrAcc.FirstName = txtEdit_FirstName.Text;
             DcCurrAcc.LastName = txtEdit_LastName.Text;
-            DcCurrAcc.BirthDate = Convert.ToDateTime(dateEdit_BirthDate.EditValue ??= new DateTime(1901, 01, 01));
+            DcCurrAcc.BirthDate = Convert.ToDateTime(dateEdit_BirthDate.EditValue ?? new DateTime(1901, 01, 01));
             DcCurrAcc.PhoneNum = txtEdit_PhoneNum.Text;
 
             if (sqlMethods.CustomerExist(txtEdit_CurrAccCode.Text))

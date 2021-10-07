@@ -165,10 +165,11 @@ namespace PointOfSale
             decimal PosDiscount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscount"]));
             decimal Amount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["Amount"]));
             decimal NetAmount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["NetAmount"]));
-            string asdasd = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
-            float VatRate = float.Parse(asdasd);
+            string SalesPersonCode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["SalesPersonCode"]);
+            string strVatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
+            float VatRate = float.Parse(strVatRate);
 
-            e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, String.Empty);
+            e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, String.Empty, SalesPersonCode);
         }
     }
 }

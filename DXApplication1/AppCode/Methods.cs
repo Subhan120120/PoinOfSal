@@ -6,7 +6,7 @@ namespace PointOfSale
 {
     public static class Methods
     {
-        public static string GetPreviewText(decimal PosDiscount, decimal Amount, decimal NetAmount, float VatRate, string Barcode)
+        public static string GetPreviewText(decimal PosDiscount, decimal Amount, decimal NetAmount, float VatRate, string Barcode, string SalesPersonCode)
         {
             decimal PosDiscountRate = 0;
             if (Amount != 0 && NetAmount != 0)
@@ -14,11 +14,15 @@ namespace PointOfSale
 
             string previewText = "ƏDV: " + VatRate + "%\n";
 
-            if (Barcode != string.Empty)
+            if (!string.IsNullOrEmpty(Barcode))
                 previewText += "Barkod: " + Barcode + "\n";
 
             if (PosDiscountRate > 0)
                 previewText += "Pos Endirimi: [" + PosDiscountRate + "%] = " + PosDiscount + "\n";
+
+            if (!string.IsNullOrEmpty(SalesPersonCode))
+                previewText += "Satıcı: " + SalesPersonCode + "\n";
+
             return previewText;
         }
 

@@ -161,7 +161,6 @@ namespace PointOfSale
             SqlMethods sqlMethods = new SqlMethods();
             string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
 
-
             if ((cashLarge + cashless + bonus) >= SumNetAmount)
             {
                 decimal cash = SumNetAmount - cashless - bonus;

@@ -12,7 +12,9 @@ namespace PointOfSale
     public partial class UcSale : XtraUserControl
     {
         public Guid invoiceHeaderId = Guid.NewGuid();
+        public int rowIndx = (-1);                      // setting by "FocusedRowChanged" event
         SqlMethods sqlMethods = new SqlMethods();
+        ReportClass reportClass = new ReportClass();
 
         public UcSale()
         {
@@ -21,7 +23,6 @@ namespace PointOfSale
             btn_CustomerSearch.BorderStyle = BorderStyles.UltraFlat;
             btn_CustomerEdit.BorderStyle = BorderStyles.UltraFlat;
 
-            //AcceptButton = simpleButtonEnter;
             ActiveControl = txtEdit_Barcode;
         }
 
@@ -44,10 +45,11 @@ namespace PointOfSale
             decimal PosDiscount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscount"]));
             decimal Amount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["Amount"]));
             decimal NetAmount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["NetAmount"]));
-            string asdasd = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
-            float VatRate = float.Parse(asdasd);
+            string SalesPersonCode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["SalesPersonCode"]);
+            string strVatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
+            float VatRate = float.Parse(strVatRate);
 
-            e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, Barcode);
+            e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, Barcode, SalesPersonCode);
         }
 
         private void btn_ProductSearch_Click(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace PointOfSale
 
                     if (result > 0)
                     {
-                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                     else
@@ -85,17 +87,22 @@ namespace PointOfSale
 
         private void btn_CancelInvoice_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = XtraMessageBox.Show("Silmək istədiyinizə əminmisiniz?", "Diqqət", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (rowIndx >= 0)
             {
-                int result = sqlMethods.DeleteInvoice(invoiceHeaderId);
-
-                if (result >= 0)
+                DialogResult dialogResult = XtraMessageBox.Show("Silmək istədiyinizə əminmisiniz?", "Diqqət", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
-                    invoiceHeaderId = Guid.NewGuid();
+                    int result = sqlMethods.DeleteInvoice(invoiceHeaderId);
+
+                    if (result >= 0)
+                    {
+                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        invoiceHeaderId = Guid.NewGuid();
+                    }
                 }
             }
+            else
+                XtraMessageBox.Show("Faktura boşdur");
         }
 
 
@@ -106,18 +113,20 @@ namespace PointOfSale
                 DialogResult dialogResult = XtraMessageBox.Show("Silmək istədiyinizə əminmisiniz?", "Diqqət", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    object invoiceLineId = gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "InvoiceLineId");
+                    object invoiceLineId = gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
                     int result = sqlMethods.DeleteInvoiceLine(invoiceLineId);
 
                     if (result >= 0)
                     {
-                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }
             }
             else if (gV_InvoiceLine.RowCount == 1)
                 XtraMessageBox.Show("Son Sətri Silmək Olmur.\nSilmək üçün çeki ləğv etməlisiniz!", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                XtraMessageBox.Show("Məhsul seçin", "Diqqət", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -126,18 +135,18 @@ namespace PointOfSale
             bool authorized = false;
             Session.DcRoles.ForEach(x => authorized = x.RoleCode.Contains("Admin"));     //check user role
 
-            if (authorized)                                                              
+            if (authorized)
             {
-                if (gV_InvoiceLine.FocusedRowHandle >= 0)                           //if product selected
+                if (rowIndx >= 0)                           //if product selected
                 {
-                    decimal PosDiscount = Convert.ToDecimal(gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "PosDiscount"));
-                    decimal Amount = Convert.ToDecimal(gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "Amount"));
+                    decimal PosDiscount = Convert.ToDecimal(gV_InvoiceLine.GetRowCellValue(rowIndx, "PosDiscount"));
+                    decimal Amount = Convert.ToDecimal(gV_InvoiceLine.GetRowCellValue(rowIndx, "Amount"));
 
                     using (FormPosDiscount formPosDiscount = new FormPosDiscount(PosDiscount, Amount))
                     {
                         if (formPosDiscount.ShowDialog(this) == DialogResult.OK)
                         {
-                            object invoiceLineId = gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "InvoiceLineId");
+                            object invoiceLineId = gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
 
                             TrInvoiceLine TrInvoiceLine = new TrInvoiceLine()
                             {
@@ -149,7 +158,7 @@ namespace PointOfSale
 
                             if (result >= 0)
                             {
-                                gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                                gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                                 gV_InvoiceLine.MoveLast();
                             }
                         }
@@ -204,7 +213,7 @@ namespace PointOfSale
 
                 if (result > 0)
                 {
-                    gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                    gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                     gV_InvoiceLine.MoveLast();
                     txtEdit_Barcode.EditValue = string.Empty;
                 }
@@ -251,7 +260,7 @@ namespace PointOfSale
 
                         invoiceHeaderId = Guid.NewGuid();
 
-                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                     }
                 }
             }
@@ -273,7 +282,7 @@ namespace PointOfSale
                 }
                 else
                 {
-                    XtraMessageBox.Show("Fakturaya aid olan Musteri yoxdur");
+                    XtraMessageBox.Show("Əvvəlcə bir Müştəri seçin");
                     return; // return btn_Customer_Click
                 }
             }
@@ -294,7 +303,7 @@ namespace PointOfSale
                         sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }
 
-                    int result = sqlMethods.UpdateInvoiceCurrAccCode(formCustomer.DcCurrAcc.CurrAccCode, invoiceHeaderId);
+                    int result = sqlMethods.UpdateInvoiceCurrAccCode(invoiceHeaderId, formCustomer.DcCurrAcc.CurrAccCode);
 
                     if (result >= 0)
                     {
@@ -310,15 +319,15 @@ namespace PointOfSale
 
         private void gC_Sale_DoubleClick(object sender, EventArgs e)
         {
-            object invoiceLineId = gV_InvoiceLine.GetRowCellValue(gV_InvoiceLine.FocusedRowHandle, "InvoiceLineId");
             if (gV_InvoiceLine.FocusedColumn == col_Qty)
             {
                 using (FormQty formQty = new FormQty())
                 {
                     if (formQty.ShowDialog(this) == DialogResult.OK)
                     {
+                        object invoiceLineId = gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
                         sqlMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
-                        gC_Sale.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }
@@ -327,16 +336,52 @@ namespace PointOfSale
 
         private void btn_Print_Click(object sender, EventArgs e)
         {
-            ReportClass reportClass = new ReportClass();
-            ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineForReport(invoiceHeaderId), string.Empty));
-            printTool.ShowPreview();
+            string designPath = reportClass.SelectDesign();
+            if (!string.IsNullOrEmpty(designPath))
+            {
+                ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
+                printTool.ShowPreview();
+            }
         }
 
         private void btn_PrintDesign_Click(object sender, EventArgs e)
         {
-            ReportClass reportClass = new ReportClass();
+            string designPath = reportClass.SelectDesign();
+            if (!string.IsNullOrEmpty(designPath))
+            {
+                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
+                designTool.ShowRibbonDesignerDialog();
+            }
+        }
+
+        private void btn_ReportZ_Click(object sender, EventArgs e)
+        {
             ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineForReport(invoiceHeaderId), string.Empty));
             designTool.ShowRibbonDesignerDialog();
+        }
+
+        private void btn_SalesPerson_Click(object sender, EventArgs e)
+        {
+            if (rowIndx >= 0)
+            {
+                using (FormCurrAccList form = new FormCurrAccList())
+                {
+                    if (form.ShowDialog(this) == DialogResult.OK)
+                    {
+                        Guid invoiceLineId = (Guid)gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
+                        sqlMethods.UpdateInvoiceSalesPerson(invoiceLineId, form.DcCurrAcc.CurrAccCode);
+                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gV_InvoiceLine.MoveLast();
+                    }
+                }
+            }
+            else
+                XtraMessageBox.Show("Məhsul Seçin");
+        }
+
+        private void gV_InvoiceLine_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            rowIndx = gV_InvoiceLine.FocusedRowHandle;
         }
     }
 }

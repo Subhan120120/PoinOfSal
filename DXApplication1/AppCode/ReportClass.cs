@@ -36,48 +36,22 @@ namespace PointOfSale
                 return "";
         }
 
-        public XtraReport CreateReport(object Datasource, string reportDesignPath)
+        public XtraReport CreateReport(object Datasource, string reportFilePath)
         {
-            if (reportDesignPath == "")
-                reportDesignPath = SelectDesign();
-
-            // A path to a report's definition file.
-            string reportFilePath = reportDesignPath;
-
-            // A path to a report style sheet.
-            string styleSheetFilePath = @"C:\Temp\ReportStyleSheet1.repss";
-
-            // Create a new report instance.
             XtraReport report = new XtraReport();
 
-            // Load a report's layout from XML.
             if (File.Exists(reportFilePath))
                 report.LoadLayoutFromXml(reportFilePath);
             else
                 XtraMessageBox.Show("Dizayn faylı tapılmadı.");
 
-            // Load a report's style sheet from XML.
+            //string styleSheetFilePath = @"C:\Temp\ReportStyleSheet1.repss";
             //if (File.Exists(styleSheetFilePath))
             //    report.StyleSheet.LoadFromXml(styleSheetFilePath);
             //else
             //    XtraMessageBox.Show("The source file does not exist.");
 
-
-            // Assign the data source to the report.
             report.DataSource = Datasource;
-            //report.DataMember = "customQuery";
-
-            // Add a detail band to the report.
-            //DetailBand detailBand = new DetailBand();
-            //detailBand.Height = 50;
-            //report.Bands.Add(detailBand);
-
-            // Create a new label.
-            //XRLabel label = new XRLabel { WidthF = 300 };
-            // Bind the label to data.
-            //label.ExpressionBindings.Add(new ExpressionBinding("BeforePrint", "Text", "[ProductName]"));
-            // Add a label to the detail band. 
-            //detailBand.Controls.Add(label);
 
             return report;
         }

@@ -266,6 +266,10 @@
     <Compile Include="Migrations\20211005132722_test2.designer.cs">
       <DependentUpon>20211005132722_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20211006221527_test1212.cs" />
+    <Compile Include="Migrations\20211006221527_test1212.designer.cs">
+      <DependentUpon>20211006221527_test1212.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="Models\Context\subContext.cs" />
     <Compile Include="Models\Entity\BaseEntity.cs" />

@@ -47,7 +47,7 @@ namespace PointOfSale.Models
         public string LineDescription { get; set; }
 
         [StringLength(50)]
-        public string SalespersonCode { get; set; }
+        public string SalesPersonCode { get; set; }
 
         [StringLength(10)]
         public string CurrencyCode { get; set; }

@@ -286,10 +286,10 @@ namespace PointOfSale
             this.gV_InvoiceLine.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gV_InvoiceLine.OptionsView.ShowFooter = true;
             this.gV_InvoiceLine.OptionsView.ShowGroupPanel = false;
-            this.gV_InvoiceLine.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
-            this.gV_InvoiceLine.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
-            this.gV_InvoiceLine.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView1_InvalidRowException);
-            this.gV_InvoiceLine.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
+            this.gV_InvoiceLine.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gV_InvoiceLine_InitNewRow);
+            this.gV_InvoiceLine.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gV_InvoiceLine_CellValueChanging);
+            this.gV_InvoiceLine.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gV_InvoiceLine_InvalidRowException);
+            this.gV_InvoiceLine.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gV_InvoiceLine_ValidateRow);
             this.gV_InvoiceLine.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             // 
             // col_InvoiceLineId
@@ -324,7 +324,7 @@ namespace PointOfSale
             this.repoBtnEdit_ProductCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repoBtnEdit_ProductCode.Name = "repoBtnEdit_ProductCode";
-            this.repoBtnEdit_ProductCode.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoItemButtonEditProductCode_ButtonPressed);
+            this.repoBtnEdit_ProductCode.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoBtnEdit_ProductCode_ButtonPressed);
             // 
             // col_Qty
             // 
@@ -385,7 +385,7 @@ namespace PointOfSale
             this.btnEdit_DocNum.Size = new System.Drawing.Size(306, 20);
             this.btnEdit_DocNum.StyleController = this.lC_Root;
             this.btnEdit_DocNum.TabIndex = 4;
-            this.btnEdit_DocNum.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditDocNum_ButtonPressed);
+            this.btnEdit_DocNum.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEdit_DocNum_ButtonPressed);
             // 
             // checkEdit_IsReturn
             // 
@@ -447,7 +447,7 @@ namespace PointOfSale
             this.btnEdit_CurrAccCode.Size = new System.Drawing.Size(341, 20);
             this.btnEdit_CurrAccCode.StyleController = this.lC_Root;
             this.btnEdit_CurrAccCode.TabIndex = 14;
-            this.btnEdit_CurrAccCode.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditCurrAccCode_ButtonClick);
+            this.btnEdit_CurrAccCode.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEdit_CurrAccCode_ButtonClick);
             // 
             // memoEdit_InvoiceDesc
             // 

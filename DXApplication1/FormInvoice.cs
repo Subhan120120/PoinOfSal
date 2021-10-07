@@ -45,7 +45,7 @@ namespace PointOfSale
             lookUpEdit_WarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouses();
         }
 
-        private void buttonEditDocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
+        private void btnEdit_DocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
             using (FormInvoiceHeaderList form = new FormInvoiceHeaderList())
             {
@@ -67,7 +67,7 @@ namespace PointOfSale
             }
         }
 
-        private void buttonEditCurrAccCode_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private void btnEdit_CurrAccCode_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             using (FormCurrAccList form = new FormCurrAccList())
             {
@@ -78,7 +78,7 @@ namespace PointOfSale
             }
         }
 
-        private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
+        private void gV_InvoiceLine_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
             {
@@ -105,7 +105,7 @@ namespace PointOfSale
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
         }
 
-        private void gridView1_CellValueChanging(object sender, CellValueChangedEventArgs e)
+        private void gV_InvoiceLine_CellValueChanging(object sender, CellValueChangedEventArgs e)
         {
             object objPrice = gV_InvoiceLine.GetRowCellValue(e.RowHandle, "Price");
             object objQty = gV_InvoiceLine.GetRowCellValue(e.RowHandle, "Qty");
@@ -126,7 +126,7 @@ namespace PointOfSale
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - PosDiscount);
         }
 
-        private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
+        private void gV_InvoiceLine_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             #region Comment
             //GridView view = sender as GridView;
@@ -140,7 +140,7 @@ namespace PointOfSale
             #endregion
         }
 
-        private void repoItemButtonEditProductCode_ButtonPressed(object sender, ButtonPressedEventArgs e)
+        private void repoBtnEdit_ProductCode_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
             ButtonEdit editor = (ButtonEdit)sender;
             int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
@@ -156,7 +156,7 @@ namespace PointOfSale
             }
         }
 
-        private void gridView1_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        private void gV_InvoiceLine_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
             //e.ExceptionMode = ExceptionMode.DisplayError;
             //e.ErrorText = "Deyer 10dan az ola bilmez";
