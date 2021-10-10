@@ -356,8 +356,8 @@ namespace PointOfSale
 
         private void btn_ReportZ_Click(object sender, EventArgs e)
         {
-            ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineForReport(invoiceHeaderId), string.Empty));
-            designTool.ShowRibbonDesignerDialog();
+            ////XtraReport1 xtraReport = new XtraReport1();
+            //xtraReport.ShowDesignerDialog();
         }
 
         private void btn_SalesPerson_Click(object sender, EventArgs e)

@@ -7,6 +7,9 @@ using DevExpress.XtraGrid.Views.Grid;
 using PointOfSale.Models;
 using System;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PointOfSale
 {
@@ -19,10 +22,14 @@ namespace PointOfSale
         public Guid invoiceHeaderId;
 
         SqlMethods sqlMethods = new SqlMethods();
+        subContext dbContext;
 
         public FormInvoice()
         {
             InitializeComponent();
+            lookUpEdit_OfficeCode.Properties.DataSource = sqlMethods.SelectOffices();
+            lookUpEdit_StoreCode.Properties.DataSource = sqlMethods.SelectStores();
+            lookUpEdit_WarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouses();
 
             adornerUIManager1 = new AdornerUIManager(components);
             badge1 = new Badge();
@@ -38,11 +45,11 @@ namespace PointOfSale
         private void FormInvoice_Load(object sender, EventArgs e)
         {
             invoiceHeaderId = Guid.NewGuid();
-            TrInvoiceLineTableAdapter.Fill(subDataSet.TrInvoiceLine, invoiceHeaderId);
 
-            lookUpEdit_OfficeCode.Properties.DataSource = sqlMethods.SelectOffices();
-            lookUpEdit_StoreCode.Properties.DataSource = sqlMethods.SelectStores();
-            lookUpEdit_WarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouses();
+            dbContext = new subContext();
+            dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == invoiceHeaderId)
+                                    .LoadAsync()
+                                    .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void btnEdit_DocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -62,7 +69,10 @@ namespace PointOfSale
                     lookUpEdit_WarehouseCode.EditValue = form.TrInvoiceHeader.WarehouseCode;
                     memoEdit_InvoiceDesc.EditValue = form.TrInvoiceHeader.Description;
 
-                    TrInvoiceLineTableAdapter.Fill(subDataSet.TrInvoiceLine, form.TrInvoiceHeader.InvoiceHeaderId);
+                    dbContext = new subContext();
+                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.TrInvoiceHeader.InvoiceHeaderId)
+                                            .LoadAsync()
+                                            .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
                 }
             }
         }
@@ -72,9 +82,7 @@ namespace PointOfSale
             using (FormCurrAccList form = new FormCurrAccList())
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
-                {
                     btnEdit_CurrAccCode.EditValue = form.DcCurrAcc.CurrAccCode;
-                }
             }
         }
 
@@ -83,26 +91,42 @@ namespace PointOfSale
             if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
             {
                 string NewDocNum = sqlMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
-                TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
-                {
-                    InvoiceHeaderId = invoiceHeaderId,
-                    ProcessCode = "RP",
-                    DocumentNumber = NewDocNum,
-                    IsReturn = Convert.ToBoolean(checkEdit_IsReturn.EditValue),
-                    CustomsDocumentNumber = txtEdit_InvoiceCustomNum.EditValue.ToString(),
-                    DocumentDate = Convert.ToDateTime(dateEdit_DocDate.EditValue),
-                    DocumentTime = (TimeSpan)dateEdit_DocTime.EditValue,
-                    CurrAccCode = btnEdit_CurrAccCode.EditValue.ToString(),
-                    OfficeCode = lookUpEdit_OfficeCode.EditValue.ToString(),
-                    StoreCode = lookUpEdit_StoreCode.EditValue.ToString(),
-                    WarehouseCode = lookUpEdit_WarehouseCode.EditValue.ToString(),
-                    Description = memoEdit_InvoiceDesc.EditValue.ToString(),
-                };
+
+                TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader();
+
+                TrInvoiceHeader.InvoiceHeaderId = invoiceHeaderId;
+                TrInvoiceHeader.ProcessCode = "RP";
+                TrInvoiceHeader.DocumentNumber = NewDocNum;
+                TrInvoiceHeader.IsReturn = Convert.ToBoolean(checkEdit_IsReturn.EditValue);
+                TrInvoiceHeader.CustomsDocumentNumber = txtEdit_InvoiceCustomNum.Text;
+                TrInvoiceHeader.DocumentDate = Convert.ToDateTime(dateEdit_DocDate.EditValue);
+                TrInvoiceHeader.DocumentTime = (TimeSpan)dateEdit_DocTime.EditValue;
+                TrInvoiceHeader.CurrAccCode = btnEdit_CurrAccCode.EditValue.ToString();
+                TrInvoiceHeader.OfficeCode = lookUpEdit_OfficeCode.EditValue.ToString();
+                TrInvoiceHeader.StoreCode = lookUpEdit_StoreCode.EditValue.ToString();
+                TrInvoiceHeader.WarehouseCode = lookUpEdit_WarehouseCode.EditValue.ToString();
+                TrInvoiceHeader.Description = memoEdit_InvoiceDesc.Text;
+
                 sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
             }
 
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
+
+            sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
+        }
+
+        private void gV_InvoiceLine_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("Sətir Silinsin?", "Təsdiqlə", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
+                GridView gV = sender as GridView;
+                MessageBox.Show(gV.FocusedRowHandle.ToString());
+
+                gV.DeleteRow(gV.FocusedRowHandle);
+            }
         }
 
         private void gV_InvoiceLine_CellValueChanging(object sender, CellValueChangedEventArgs e)
@@ -162,9 +186,14 @@ namespace PointOfSale
             //e.ErrorText = "Deyer 10dan az ola bilmez";
         }
 
-        private void gridView1_RowUpdated(object sender, RowObjectEventArgs e)
+        private void gV_InvoiceLine_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            TrInvoiceLineTableAdapter.Adapter.Update(subDataSet);
+            dbContext.SaveChanges();
+        }
+
+        private void gV_InvoiceLine_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
+        {
+            dbContext.SaveChanges();
         }
     }
 }

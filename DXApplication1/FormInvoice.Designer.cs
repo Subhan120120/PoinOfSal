@@ -45,8 +45,7 @@ namespace PointOfSale
             this.lookUpEdit_WarehouseCode = new DevExpress.XtraEditors.LookUpEdit();
             this.lC_Root = new DevExpress.XtraLayout.LayoutControl();
             this.gC_InvoiceLine = new DevExpress.XtraGrid.GridControl();
-            this.TrInvoiceLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.subDataSet = new PointOfSale.subDataSet();
+            this.trInvoiceLinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gV_InvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_InvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_InvoiceHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,7 +60,6 @@ namespace PointOfSale
             this.btnEdit_DocNum = new DevExpress.XtraEditors.ButtonEdit();
             this.checkEdit_IsReturn = new DevExpress.XtraEditors.CheckEdit();
             this.dateEdit_DocDate = new DevExpress.XtraEditors.DateEdit();
-            this.dateEdit_DocTime = new DevExpress.XtraEditors.TimeEdit();
             this.txtEdit_InvoiceCustomNum = new DevExpress.XtraEditors.TextEdit();
             this.btnEdit_CurrAccCode = new DevExpress.XtraEditors.ButtonEdit();
             this.memoEdit_InvoiceDesc = new DevExpress.XtraEditors.MemoEdit();
@@ -79,22 +77,20 @@ namespace PointOfSale
             this.lCI_DocNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_CustomDocNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_IsReturn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TrInvoiceLineTableAdapter = new PointOfSale.subDataSetTableAdapters.TrInvoiceLineTableAdapter();
+            this.dateEdit_DocTime = new DevExpress.XtraEditors.TimeEdit();
             ((System.ComponentModel.ISupportInitialize)(this.RibbonControl_Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_WarehouseCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).BeginInit();
             this.lC_Root.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TrInvoiceLineBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLinesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_ProductCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit_DocNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_IsReturn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_InvoiceCustomNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit_CurrAccCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_InvoiceDesc.Properties)).BeginInit();
@@ -112,6 +108,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomDocNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_IsReturn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // RibbonControl_Root
@@ -119,6 +116,7 @@ namespace PointOfSale
             this.RibbonControl_Root.ExpandCollapseItem.Id = 0;
             this.RibbonControl_Root.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.RibbonControl_Root.ExpandCollapseItem,
+            this.RibbonControl_Root.SearchEditItem,
             this.bBI_Save,
             this.bBI_SaveAndClose,
             this.bBI_SaveAndNew,
@@ -131,13 +129,6 @@ namespace PointOfSale
             this.RibbonControl_Root.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.RibbonPage_Invoice});
             this.RibbonControl_Root.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            // 
-            // 
-            // 
-            this.RibbonControl_Root.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.RibbonControl_Root.SearchEditItem.EditWidth = 150;
-            this.RibbonControl_Root.SearchEditItem.Id = -5000;
-            this.RibbonControl_Root.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.RibbonControl_Root.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.RibbonControl_Root.Size = new System.Drawing.Size(903, 158);
             this.RibbonControl_Root.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
@@ -229,13 +220,13 @@ namespace PointOfSale
             this.lC_Root.Controls.Add(this.btnEdit_DocNum);
             this.lC_Root.Controls.Add(this.checkEdit_IsReturn);
             this.lC_Root.Controls.Add(this.dateEdit_DocDate);
-            this.lC_Root.Controls.Add(this.dateEdit_DocTime);
             this.lC_Root.Controls.Add(this.txtEdit_InvoiceCustomNum);
             this.lC_Root.Controls.Add(this.btnEdit_CurrAccCode);
             this.lC_Root.Controls.Add(this.memoEdit_InvoiceDesc);
             this.lC_Root.Controls.Add(this.lookUpEdit_OfficeCode);
             this.lC_Root.Controls.Add(this.lookUpEdit_StoreCode);
             this.lC_Root.Controls.Add(this.lookUpEdit_WarehouseCode);
+            this.lC_Root.Controls.Add(this.dateEdit_DocTime);
             this.lC_Root.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lC_Root.Location = new System.Drawing.Point(0, 158);
             this.lC_Root.Name = "lC_Root";
@@ -247,7 +238,7 @@ namespace PointOfSale
             // 
             // gC_InvoiceLine
             // 
-            this.gC_InvoiceLine.DataSource = this.TrInvoiceLineBindingSource;
+            this.gC_InvoiceLine.DataSource = this.trInvoiceLinesBindingSource;
             this.gC_InvoiceLine.Location = new System.Drawing.Point(12, 132);
             this.gC_InvoiceLine.MainView = this.gV_InvoiceLine;
             this.gC_InvoiceLine.MenuManager = this.RibbonControl_Root;
@@ -259,15 +250,9 @@ namespace PointOfSale
             this.gC_InvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_InvoiceLine});
             // 
-            // TrInvoiceLineBindingSource
+            // trInvoiceLinesBindingSource
             // 
-            this.TrInvoiceLineBindingSource.DataMember = "TrInvoiceLine";
-            this.TrInvoiceLineBindingSource.DataSource = this.subDataSet;
-            // 
-            // subDataSet
-            // 
-            this.subDataSet.DataSetName = "subDataSet";
-            this.subDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.trInvoiceLinesBindingSource.DataSource = typeof(PointOfSale.Models.TrInvoiceLine);
             // 
             // gV_InvoiceLine
             // 
@@ -283,14 +268,17 @@ namespace PointOfSale
             this.col_LineDesc});
             this.gV_InvoiceLine.GridControl = this.gC_InvoiceLine;
             this.gV_InvoiceLine.Name = "gV_InvoiceLine";
+            this.gV_InvoiceLine.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gV_InvoiceLine.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gV_InvoiceLine.OptionsView.ShowFooter = true;
             this.gV_InvoiceLine.OptionsView.ShowGroupPanel = false;
             this.gV_InvoiceLine.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gV_InvoiceLine_InitNewRow);
             this.gV_InvoiceLine.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gV_InvoiceLine_CellValueChanging);
             this.gV_InvoiceLine.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gV_InvoiceLine_InvalidRowException);
+            this.gV_InvoiceLine.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.gV_InvoiceLine_RowDeleted);
             this.gV_InvoiceLine.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gV_InvoiceLine_ValidateRow);
-            this.gV_InvoiceLine.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
+            this.gV_InvoiceLine.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gV_InvoiceLine_RowUpdated);
+            this.gV_InvoiceLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gV_InvoiceLine_KeyDown);
             // 
             // col_InvoiceLineId
             // 
@@ -399,7 +387,7 @@ namespace PointOfSale
             // 
             // dateEdit_DocDate
             // 
-            this.dateEdit_DocDate.EditValue = new System.DateTime(2021, 9, 20, 9, 43, 19, 29);
+            this.dateEdit_DocDate.EditValue = DateTime.Now;
             this.dateEdit_DocDate.Location = new System.Drawing.Point(126, 84);
             this.dateEdit_DocDate.MenuManager = this.RibbonControl_Root;
             this.dateEdit_DocDate.Name = "dateEdit_DocDate";
@@ -410,21 +398,6 @@ namespace PointOfSale
             this.dateEdit_DocDate.Size = new System.Drawing.Size(306, 20);
             this.dateEdit_DocDate.StyleController = this.lC_Root;
             this.dateEdit_DocDate.TabIndex = 6;
-            // 
-            // dateEdit_DocTime
-            // 
-            this.dateEdit_DocTime.EditValue = new System.DateTime(2021, 9, 20, 9, 43, 19, 34);
-            this.dateEdit_DocTime.Location = new System.Drawing.Point(126, 108);
-            this.dateEdit_DocTime.MenuManager = this.RibbonControl_Root;
-            this.dateEdit_DocTime.Name = "dateEdit_DocTime";
-            this.dateEdit_DocTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_DocTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEdit_DocTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEdit_DocTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.dateEdit_DocTime.Size = new System.Drawing.Size(306, 20);
-            this.dateEdit_DocTime.StyleController = this.lC_Root;
-            this.dateEdit_DocTime.TabIndex = 7;
             // 
             // txtEdit_InvoiceCustomNum
             // 
@@ -442,7 +415,7 @@ namespace PointOfSale
             this.btnEdit_CurrAccCode.Name = "btnEdit_CurrAccCode";
             this.btnEdit_CurrAccCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnEdit_CurrAccCode.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)(((DevExpress.XtraEditors.ShowNullValuePromptOptions.EmptyValue | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused) 
+            this.btnEdit_CurrAccCode.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)(((DevExpress.XtraEditors.ShowNullValuePromptOptions.EmptyValue | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused)
             | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.btnEdit_CurrAccCode.Size = new System.Drawing.Size(341, 20);
             this.btnEdit_CurrAccCode.StyleController = this.lC_Root;
@@ -613,9 +586,20 @@ namespace PointOfSale
             this.lCI_IsReturn.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_IsReturn.TextVisible = false;
             // 
-            // TrInvoiceLineTableAdapter
+            // dateEdit_DocTime
             // 
-            this.TrInvoiceLineTableAdapter.ClearBeforeFill = true;
+            this.dateEdit_DocTime.EditValue = DateTime.Now.TimeOfDay;
+            this.dateEdit_DocTime.Location = new System.Drawing.Point(126, 108);
+            this.dateEdit_DocTime.MenuManager = this.RibbonControl_Root;
+            this.dateEdit_DocTime.Name = "dateEdit_DocTime";
+            this.dateEdit_DocTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit_DocTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEdit_DocTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEdit_DocTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.dateEdit_DocTime.Size = new System.Drawing.Size(306, 20);
+            this.dateEdit_DocTime.StyleController = this.lC_Root;
+            this.dateEdit_DocTime.TabIndex = 7;
             // 
             // FormInvoice
             // 
@@ -636,15 +620,13 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).EndInit();
             this.lC_Root.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TrInvoiceLineBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLinesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_ProductCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit_DocNum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_IsReturn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_InvoiceCustomNum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit_CurrAccCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_InvoiceDesc.Properties)).EndInit();
@@ -662,6 +644,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomDocNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_IsReturn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -687,7 +670,6 @@ namespace PointOfSale
         private DevExpress.XtraEditors.ButtonEdit btnEdit_DocNum;
         private DevExpress.XtraEditors.CheckEdit checkEdit_IsReturn;
         private DevExpress.XtraEditors.DateEdit dateEdit_DocDate;
-        private DevExpress.XtraEditors.TimeEdit dateEdit_DocTime;
         private DevExpress.XtraEditors.TextEdit txtEdit_InvoiceCustomNum;
         private DevExpress.XtraEditors.ButtonEdit btnEdit_CurrAccCode;
         private DevExpress.XtraEditors.MemoEdit memoEdit_InvoiceDesc;
@@ -705,9 +687,6 @@ namespace PointOfSale
         private DevExpress.XtraLayout.LayoutControlItem lCI_DocNum;
         private DevExpress.XtraLayout.LayoutControlItem lCI_CustomDocNum;
         private DevExpress.XtraLayout.LayoutControlItem lCI_IsReturn;
-        private subDataSet subDataSet;
-        private System.Windows.Forms.BindingSource TrInvoiceLineBindingSource;
-        private subDataSetTableAdapters.TrInvoiceLineTableAdapter TrInvoiceLineTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn col_ProductCode;
         private DevExpress.XtraGrid.Columns.GridColumn col_Qty;
         private DevExpress.XtraGrid.Columns.GridColumn col_Price;
@@ -716,5 +695,7 @@ namespace PointOfSale
         private DevExpress.XtraGrid.Columns.GridColumn col_NetAmount;
         private DevExpress.XtraGrid.Columns.GridColumn col_LineDesc;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoBtnEdit_ProductCode;
+        private System.Windows.Forms.BindingSource trInvoiceLinesBindingSource;
+        private DevExpress.XtraEditors.TimeEdit dateEdit_DocTime;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
