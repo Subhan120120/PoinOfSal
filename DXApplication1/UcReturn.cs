@@ -17,9 +17,10 @@ namespace PointOfSale
         public Guid returnInvoiceHeaderId;
         public Guid invoiceHeaderId;
         public Guid invoiceLineID;
-        AdoMethods adoMethods = new AdoMethods();
-        EfMethods efMethods = new EfMethods();
 
+        
+        EfMethods efMethods = new EfMethods();
+        AdoMethods adoMethods = new AdoMethods();
         public UcReturn()
         {
             InitializeComponent();
@@ -49,8 +50,7 @@ namespace PointOfSale
                         efMethods.DeleteInvoice(returnInvoiceHeaderId);                // delete previous invoice
                     returnInvoiceHeaderId = Guid.NewGuid();                             // create next invoice
 
-                    DataTable trInvoiceLine = adoMethods.SelectInvoiceLines(invoiceHeaderId);
-                    gC_InvoiceLine.DataSource = trInvoiceLine;
+                    gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
 
                     gC_PaymentLine.DataSource = efMethods.SelectPaymentLines(invoiceHeaderId);
                     gC_ReturnInvoiceLine.DataSource = null;
@@ -105,7 +105,7 @@ namespace PointOfSale
                                 };
 
                                 efMethods.InsertInvoiceLine(returnInvoiceLine);
-                                gC_ReturnInvoiceLine.DataSource = adoMethods.SelectInvoiceLines(returnInvoiceHeaderId);
+                                gC_ReturnInvoiceLine.DataSource = efMethods.SelectInvoiceLines(returnInvoiceHeaderId);
                             }
                             else
                                 efMethods.UpdateInvoiceLineQty(returnInvoiceHeaderId, invoiceLineID, formQty.qty * (-1));
@@ -121,10 +121,9 @@ namespace PointOfSale
 
         private void btn_Payment_Click(object sender, EventArgs e)
         {
-            object sumNetAmount = adoMethods.SelectInvoiceLines(returnInvoiceHeaderId).Compute("Sum(NetAmount)", string.Empty);
-            decimal summaryNetAmount = Convert.ToDecimal(sumNetAmount == DBNull.Value ? 0 : sumNetAmount);
+            decimal sumNetAmount = efMethods.SelectInvoiceNetAmount(returnInvoiceHeaderId);
 
-            if (summaryNetAmount != 0)
+            if (sumNetAmount != 0)
             {
                 int paymentType = 0;
 
@@ -144,7 +143,7 @@ namespace PointOfSale
                         break;
                 }
 
-                using (FormPayment formPayment = new FormPayment(paymentType, summaryNetAmount, returnInvoiceHeaderId))
+                using (FormPayment formPayment = new FormPayment(paymentType, sumNetAmount, returnInvoiceHeaderId))
                 {
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {

@@ -78,7 +78,7 @@ namespace PointOfSale
 
                     if (result > 0)
                     {
-                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                     else
@@ -98,7 +98,7 @@ namespace PointOfSale
 
                     if (result >= 0)
                     {
-                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                         invoiceHeaderId = Guid.NewGuid();
                     }
                 }
@@ -120,7 +120,7 @@ namespace PointOfSale
 
                     if (result >= 0)
                     {
-                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }
@@ -160,7 +160,7 @@ namespace PointOfSale
 
                             if (result >= 0)
                             {
-                                gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                                gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                                 gV_InvoiceLine.MoveLast();
                             }
                         }
@@ -215,7 +215,7 @@ namespace PointOfSale
 
                 if (result > 0)
                 {
-                    gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                    gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                     gV_InvoiceLine.MoveLast();
                     txtEdit_Barcode.EditValue = string.Empty;
                 }
@@ -262,7 +262,7 @@ namespace PointOfSale
 
                         invoiceHeaderId = Guid.NewGuid();
 
-                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                     }
                 }
             }
@@ -329,7 +329,7 @@ namespace PointOfSale
                     {
                         object invoiceLineId = gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
                         efMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
-                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }
@@ -391,7 +391,7 @@ namespace PointOfSale
                     {
                         Guid invoiceLineId = (Guid)gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
                         efMethods.UpdateInvoiceSalesPerson(invoiceLineId, form.DcCurrAcc.CurrAccCode);
-                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }

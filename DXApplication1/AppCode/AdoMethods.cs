@@ -61,11 +61,7 @@ namespace PointOfSale
 
         public DataTable SelectInvoiceLines(Guid invoiceHeaderId)
         {
-            string qry = "select TrInvoiceLines.*, ProductDescription, Barcode" +
-                ", ReturnQty = ISNULL((select sum(Qty) from TrInvoiceLines returnLine where returnLine.RelatedLineId = TrInvoiceLines.InvoiceLineId),0) " +
-                ", RemainingQty = Qty + ISNULL((select sum(Qty) from TrInvoiceLines returnLine where returnLine.RelatedLineId = TrInvoiceLines.InvoiceLineId),0) " +
-                "from TrInvoiceLines " +
-                "left join DcProducts on TrInvoiceLines.ProductCode = DcProducts.ProductCode " +
+            string qry = "select * from TrInvoiceLines " +
                 "where InvoiceHeaderId = @InvoiceHeaderId " +
                 "order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
 
@@ -78,7 +74,9 @@ namespace PointOfSale
 
         public DataTable SelectInvoiceHeaders(Guid invoiceHeaderId)
         {
-            string qry = "select * from TrInvoiceHeaders where InvoiceHeaderId = @InvoiceHeaderId"; // burdaki kolonlari dizaynda da elave et
+            string qry = "select * from TrInvoiceHeaders " +
+                "where InvoiceHeaderId = @InvoiceHeaderId " + // burdaki kolonlari dizaynda da elave et
+                "order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
 
             paramArray = new SqlParameter[]
             {

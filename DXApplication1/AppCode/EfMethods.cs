@@ -18,6 +18,7 @@ namespace PointOfSale
             //this.db = new subContext();
         }
 
+
         public List<TrInvoiceLine> SelectInvoiceLines(Guid invoiceHeaderId)
         {
             using (subContext db = new subContext())
@@ -33,6 +34,7 @@ namespace PointOfSale
                     x.RemainingQty = db.TrInvoiceLines.Where(y => y.RelatedLineId == x.InvoiceLineId).Sum(s => s.Qty) + x.Qty;
                 });
 
+                #region Comment
                 //List<TrInvoiceLine> linqInvoiceLine = (from i in db.TrInvoiceLines
                 //                   join p in db.DcProducts on i.ProductCode equals p.ProductCode
                 //                   where i.InvoiceHeaderId == invoiceHeaderId
@@ -41,10 +43,21 @@ namespace PointOfSale
                 //                   {                                       
                 //                       ReturnQty = db.TrInvoiceLines.Where(x => x.RelatedLineId == i.InvoiceLineId).Sum(x => x.Qty),
                 //                       RemainingQty = i.Qty + db.TrInvoiceLines.Where(x => x.RelatedLineId == i.InvoiceLineId).Sum(x => x.Qty),
-                //                   }).ToList();
+                //                   }).ToList(); 
+                #endregion
 
 
                 return InvoiceLines;
+            }
+        }
+
+        public decimal SelectInvoiceNetAmount(Guid invoiceHeaderId)
+        {
+            using (subContext db = new subContext())
+            {
+                decimal sumNetAmount = db.TrInvoiceLines.Where(x => x.InvoiceHeaderId == invoiceHeaderId)
+                                                        .Sum(x => x.NetAmount);
+                return sumNetAmount;
             }
         }
 

@@ -160,6 +160,7 @@ namespace PointOfSale
         {
             EfMethods efMethods = new EfMethods();
             AdoMethods adoMethods = new AdoMethods();
+
             string NewDocNum = adoMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
 
             if ((cashLarge + cashless + bonus) >= SumNetAmount)
