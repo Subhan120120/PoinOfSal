@@ -6,62 +6,46 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PointOfSale
 {
-    public class SqlMethods
+    public class EfMethods
     {
-        private string subConnString = Properties.Settings.Default.subConnString;
-        private SqlParameter[] paramArray = new SqlParameter[] { };
         //private subContext db;
-        public SqlMethods()
+        public EfMethods()
         {
             //this.db = new subContext();
         }
 
-        public int SqlExec(string query, SqlParameter[] sqlParameters)
+        public List<TrInvoiceLine> SelectInvoiceLines(Guid invoiceHeaderId)
         {
-            using (SqlConnection con = new SqlConnection(subConnString))
+            using (subContext db = new subContext())
             {
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                List<TrInvoiceLine> InvoiceLines = db.TrInvoiceLines.Include(x => x.DcProduct)
+                                        .Where(x => x.InvoiceHeaderId == invoiceHeaderId)
+                                        .OrderBy(x => x.CreatedDate)
+                                        .ToList();
+
+                InvoiceLines.ForEach(x =>
                 {
-                    cmd.Parameters.AddRange(sqlParameters);
-                    con.Open();
+                    x.ReturnQty = db.TrInvoiceLines.Where(y => y.RelatedLineId == x.InvoiceLineId).Sum(s => s.Qty);
+                    x.RemainingQty = db.TrInvoiceLines.Where(y => y.RelatedLineId == x.InvoiceLineId).Sum(s => s.Qty) + x.Qty;
+                });
 
-                    int result = cmd.ExecuteNonQuery();
+                //List<TrInvoiceLine> linqInvoiceLine = (from i in db.TrInvoiceLines
+                //                   join p in db.DcProducts on i.ProductCode equals p.ProductCode
+                //                   where i.InvoiceHeaderId == invoiceHeaderId
+                //                   orderby i.CreatedDate
+                //                   select new TrInvoiceLine
+                //                   {                                       
+                //                       ReturnQty = db.TrInvoiceLines.Where(x => x.RelatedLineId == i.InvoiceLineId).Sum(x => x.Qty),
+                //                       RemainingQty = i.Qty + db.TrInvoiceLines.Where(x => x.RelatedLineId == i.InvoiceLineId).Sum(x => x.Qty),
+                //                   }).ToList();
 
-                    if (result < 0)
-                        XtraMessageBox.Show("Data Əlavə edilməsində xəta baş verdi!");
-                    return result;
-                }
+
+                return InvoiceLines;
             }
-        }
-
-        public DataTable SqlGetDt(string query, SqlParameter[] sqlParameters)
-        {
-            using (SqlConnection con = new SqlConnection(subConnString))
-            {
-                using (SqlDataAdapter da = new SqlDataAdapter(query, con))
-                {
-                    da.SelectCommand.Parameters.AddRange(sqlParameters);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    return dt;
-                }
-            }
-        }
-
-        public string GetNextDocNum(string processCode, string columnName, string tableName)
-        {
-            string qry = "dbo.GetNextDocNum @ProcessCode = @ProcessCode, @ColumnName = @ColumnName, @TableName = @TableName";
-            paramArray = new SqlParameter[]
-             {
-                new SqlParameter("@ProcessCode", processCode),
-                new SqlParameter("@ColumnName", columnName),
-                new SqlParameter("@TableName", tableName)
-             };
-            DataTable dt = SqlGetDt(qry, paramArray);
-            return dt.Rows[0][0].ToString();
         }
 
         public List<DcProduct> SelectProducts()
@@ -88,23 +72,6 @@ namespace PointOfSale
             {
                 return db.TrInvoiceLines.FirstOrDefault(x => x.InvoiceLineId == invoiceLineId);
             }
-        }
-
-        public DataTable SelectInvoiceLines(Guid invoiceHeaderId)
-        {
-            string qry = "select TrInvoiceLines.*, ProductDescription, Barcode" +
-                ", ReturnQty = ISNULL((select sum(Qty) from TrInvoiceLines returnLine where returnLine.RelatedLineId = TrInvoiceLines.InvoiceLineId),0) " +
-                ", RemainingQty = Qty + ISNULL((select sum(Qty) from TrInvoiceLines returnLine where returnLine.RelatedLineId = TrInvoiceLines.InvoiceLineId),0) " +
-                "from TrInvoiceLines " +
-                "left join DcProducts on TrInvoiceLines.ProductCode = DcProducts.ProductCode " +
-                "where InvoiceHeaderId = @InvoiceHeaderId " +
-                "order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
-
-            paramArray = new SqlParameter[]
-            {
-                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId)
-            };
-            return SqlGetDt(qry, paramArray);
         }
 
         public List<TrInvoiceLine> SelectInvoiceLineForReport(Guid invoiceHeaderId)

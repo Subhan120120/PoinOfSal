@@ -14,7 +14,7 @@ namespace PointOfSale
 {
     class ReportClass
     {
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
         public string SelectDesign()
         {
             string fileExt = string.Empty;

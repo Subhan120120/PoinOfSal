@@ -48,6 +48,7 @@ namespace PointOfSale
             this.col_RNetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_RVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_RCurrencyCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_RSalesPersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gC_PaymentLine = new DevExpress.XtraGrid.GridControl();
             this.gV_PaymentLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_PaymentHeaderId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +67,7 @@ namespace PointOfSale
             this.col_DiscountCampaign = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_NetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_LineDesc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_SalespersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_SalesPersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_VatRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Return = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repoBtn_ReturnLine = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -151,7 +152,8 @@ namespace PointOfSale
             this.col_RPosDiscount,
             this.col_RNetAmount,
             this.col_RVatRate,
-            this.col_RCurrencyCode});
+            this.col_RCurrencyCode,
+            this.col_RSalesPersonCode});
             this.gV_ReturnInvoiceLine.GridControl = this.gC_ReturnInvoiceLine;
             this.gV_ReturnInvoiceLine.Name = "gV_ReturnInvoiceLine";
             this.gV_ReturnInvoiceLine.OptionsBehavior.Editable = false;
@@ -232,6 +234,14 @@ namespace PointOfSale
             this.col_RCurrencyCode.Caption = "gridColumn1";
             this.col_RCurrencyCode.Name = "col_RCurrencyCode";
             // 
+            // col_RSalesPersonCode
+            // 
+            this.col_RSalesPersonCode.Caption = "Satıcı";
+            this.col_RSalesPersonCode.FieldName = "SalesPersonCode";
+            this.col_RSalesPersonCode.Name = "col_RSalesPersonCode";
+            this.col_RSalesPersonCode.Visible = true;
+            this.col_RSalesPersonCode.VisibleIndex = 4;
+            // 
             // gC_PaymentLine
             // 
             this.gC_PaymentLine.Location = new System.Drawing.Point(24, 469);
@@ -311,7 +321,7 @@ namespace PointOfSale
             this.col_DiscountCampaign,
             this.col_NetAmount,
             this.col_LineDesc,
-            this.col_SalespersonCode,
+            this.col_SalesPersonCode,
             this.col_VatRate,
             this.col_Return});
             this.gV_InvoiceLine.GridControl = this.gC_InvoiceLine;
@@ -415,12 +425,12 @@ namespace PointOfSale
             this.col_LineDesc.Name = "col_LineDesc";
             this.col_LineDesc.OptionsColumn.AllowEdit = false;
             // 
-            // col_SalespersonCode
+            // col_SalesPersonCode
             // 
-            this.col_SalespersonCode.Caption = "Satıcı";
-            this.col_SalespersonCode.FieldName = "SalespersonCode";
-            this.col_SalespersonCode.Name = "col_SalespersonCode";
-            this.col_SalespersonCode.OptionsColumn.AllowEdit = false;
+            this.col_SalesPersonCode.Caption = "Satıcı";
+            this.col_SalesPersonCode.FieldName = "SalesPersonCode";
+            this.col_SalesPersonCode.Name = "col_SalesPersonCode";
+            this.col_SalesPersonCode.OptionsColumn.AllowEdit = false;
             // 
             // col_VatRate
             // 
@@ -660,7 +670,7 @@ namespace PointOfSale
         private DevExpress.XtraGrid.Columns.GridColumn col_DiscountCampaign;
         private DevExpress.XtraGrid.Columns.GridColumn col_NetAmount;
         private DevExpress.XtraGrid.Columns.GridColumn col_LineDesc;
-        private DevExpress.XtraGrid.Columns.GridColumn col_SalespersonCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_SalesPersonCode;
         private DevExpress.XtraGrid.Columns.GridColumn col_VatRate;
         private DevExpress.XtraGrid.Columns.GridColumn col_Return;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoBtn_ReturnLine;
@@ -690,5 +700,6 @@ namespace PointOfSale
         private DevExpress.XtraGrid.Columns.GridColumn col_RNetAmount;
         private DevExpress.XtraGrid.Columns.GridColumn col_RVatRate;
         private DevExpress.XtraGrid.Columns.GridColumn col_RCurrencyCode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_RSalesPersonCode;
     }
 }

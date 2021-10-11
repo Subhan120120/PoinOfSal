@@ -21,15 +21,16 @@ namespace PointOfSale
 
         public Guid invoiceHeaderId;
 
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
+        AdoMethods adoMethods = new AdoMethods();
         subContext dbContext;
 
         public FormInvoice()
         {
             InitializeComponent();
-            lookUpEdit_OfficeCode.Properties.DataSource = sqlMethods.SelectOffices();
-            lookUpEdit_StoreCode.Properties.DataSource = sqlMethods.SelectStores();
-            lookUpEdit_WarehouseCode.Properties.DataSource = sqlMethods.SelectWarehouses();
+            lookUpEdit_OfficeCode.Properties.DataSource = efMethods.SelectOffices();
+            lookUpEdit_StoreCode.Properties.DataSource = efMethods.SelectStores();
+            lookUpEdit_WarehouseCode.Properties.DataSource = efMethods.SelectWarehouses();
 
             adornerUIManager1 = new AdornerUIManager(components);
             badge1 = new Badge();
@@ -88,9 +89,9 @@ namespace PointOfSale
 
         private void gV_InvoiceLine_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
+            if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
             {
-                string NewDocNum = sqlMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
+                string NewDocNum = adoMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
 
                 TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader();
 
@@ -107,13 +108,13 @@ namespace PointOfSale
                 TrInvoiceHeader.WarehouseCode = lookUpEdit_WarehouseCode.EditValue.ToString();
                 TrInvoiceHeader.Description = memoEdit_InvoiceDesc.Text;
 
-                sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
+                efMethods.InsertInvoiceHeader(TrInvoiceHeader);
             }
 
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
 
-            sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
+            efMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
         }
 
         private void gV_InvoiceLine_KeyDown(object sender, KeyEventArgs e)
@@ -194,6 +195,11 @@ namespace PointOfSale
         private void gV_InvoiceLine_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
         {
             dbContext.SaveChanges();
+        }
+
+        private void FormInvoice_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dbContext.Dispose();
         }
     }
 }

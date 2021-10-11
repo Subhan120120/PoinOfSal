@@ -1,9 +1,13 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
+using Microsoft.EntityFrameworkCore;
 using PointOfSale.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PointOfSale
@@ -13,7 +17,8 @@ namespace PointOfSale
         public Guid returnInvoiceHeaderId;
         public Guid invoiceHeaderId;
         public Guid invoiceLineID;
-        SqlMethods sqlMethods = new SqlMethods();
+        AdoMethods adoMethods = new AdoMethods();
+        EfMethods efMethods = new EfMethods();
 
         public UcReturn()
         {
@@ -27,8 +32,8 @@ namespace PointOfSale
 
         void ParentForm_FormClosing(object sender, FormClosingEventArgs e) // Parent Form Closing event
         {
-            if (sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderId))
-                sqlMethods.DeleteInvoice(returnInvoiceHeaderId);                // delete incomplete invoice
+            if (efMethods.InvoiceHeaderExist(returnInvoiceHeaderId))
+                efMethods.DeleteInvoice(returnInvoiceHeaderId);                // delete incomplete invoice
         }
 
         private void btnEdit_InvoiceHeader_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -40,14 +45,14 @@ namespace PointOfSale
                     btnEdit_InvoiceHeader.EditValue = formInvoiceHeaderList.TrInvoiceHeader.DocumentNumber;
                     invoiceHeaderId = formInvoiceHeaderList.TrInvoiceHeader.InvoiceHeaderId;
 
-                    if (sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderId))
-                        sqlMethods.DeleteInvoice(returnInvoiceHeaderId);                // delete previous invoice
+                    if (efMethods.InvoiceHeaderExist(returnInvoiceHeaderId))
+                        efMethods.DeleteInvoice(returnInvoiceHeaderId);                // delete previous invoice
                     returnInvoiceHeaderId = Guid.NewGuid();                             // create next invoice
 
-                    DataTable trInvoiceLine = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                    DataTable trInvoiceLine = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                     gC_InvoiceLine.DataSource = trInvoiceLine;
 
-                    gC_PaymentLine.DataSource = sqlMethods.SelectPaymentLines(invoiceHeaderId);
+                    gC_PaymentLine.DataSource = efMethods.SelectPaymentLines(invoiceHeaderId);
                     gC_ReturnInvoiceLine.DataSource = null;
                 }
             }
@@ -69,9 +74,9 @@ namespace PointOfSale
                     {
                         if (formQty.ShowDialog(this) == DialogResult.OK)
                         {
-                            if (!sqlMethods.InvoiceHeaderExist(returnInvoiceHeaderId)) //if invoiceHeader doesnt exist
+                            if (!efMethods.InvoiceHeaderExist(returnInvoiceHeaderId)) //if invoiceHeader doesnt exist
                             {
-                                string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                                string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                                 TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                                 {
                                     InvoiceHeaderId = returnInvoiceHeaderId,
@@ -79,12 +84,12 @@ namespace PointOfSale
                                     ProcessCode = "RS",
                                     IsReturn = true
                                 };
-                                sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
+                                efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                             }
 
-                            if (!sqlMethods.InvoiceLineExist(returnInvoiceHeaderId, invoiceLineID))
+                            if (!efMethods.InvoiceLineExist(returnInvoiceHeaderId, invoiceLineID))
                             {
-                                TrInvoiceLine invoiceLine = sqlMethods.SelectInvoiceLine(invoiceLineID);
+                                TrInvoiceLine invoiceLine = efMethods.SelectInvoiceLine(invoiceLineID);
 
                                 TrInvoiceLine returnInvoiceLine = new TrInvoiceLine
                                 {
@@ -96,17 +101,16 @@ namespace PointOfSale
                                     Price = invoiceLine.Price,
                                     Amount = Convert.ToDecimal(formQty.qty * invoiceLine.Price * (-1)),
                                     PosDiscount = formQty.qty * invoiceLine.PosDiscount / invoiceLine.Qty * (-1),
-                                    NetAmount = formQty.qty * invoiceLine.NetAmount / invoiceLine.Qty * (-1), 
+                                    NetAmount = formQty.qty * invoiceLine.NetAmount / invoiceLine.Qty * (-1),
                                 };
 
-                                sqlMethods.InsertInvoiceLine(returnInvoiceLine);
-
-                                gC_ReturnInvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(returnInvoiceHeaderId);
+                                efMethods.InsertInvoiceLine(returnInvoiceLine);
+                                gC_ReturnInvoiceLine.DataSource = adoMethods.SelectInvoiceLines(returnInvoiceHeaderId);
                             }
                             else
-                                sqlMethods.UpdateInvoiceLineQty(returnInvoiceHeaderId, invoiceLineID, formQty.qty * (-1));
+                                efMethods.UpdateInvoiceLineQty(returnInvoiceHeaderId, invoiceLineID, formQty.qty * (-1));
 
-                            gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                            gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                         }
                     }
                 }
@@ -117,8 +121,8 @@ namespace PointOfSale
 
         private void btn_Payment_Click(object sender, EventArgs e)
         {
-            object sumNetAmount = sqlMethods.SelectInvoiceLines(returnInvoiceHeaderId).Compute("Sum(NetAmount)", string.Empty);
-            decimal summaryNetAmount = Convert.ToDecimal(sumNetAmount == DBNull.Value ? 0 : sumNetAmount); 
+            object sumNetAmount = adoMethods.SelectInvoiceLines(returnInvoiceHeaderId).Compute("Sum(NetAmount)", string.Empty);
+            decimal summaryNetAmount = Convert.ToDecimal(sumNetAmount == DBNull.Value ? 0 : sumNetAmount);
 
             if (summaryNetAmount != 0)
             {
@@ -145,7 +149,7 @@ namespace PointOfSale
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {
                         returnInvoiceHeaderId = Guid.NewGuid();
-                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
+                        efMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
 
                         gC_InvoiceLine.DataSource = null;
                         gC_PaymentLine.DataSource = null;
@@ -165,8 +169,8 @@ namespace PointOfSale
             decimal PosDiscount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["PosDiscount"]));
             decimal Amount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["Amount"]));
             decimal NetAmount = Convert.ToDecimal(view.GetRowCellDisplayText(e.RowHandle, view.Columns["NetAmount"]));
-            string SalesPersonCode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["SalesPersonCode"]);
             string strVatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
+            string SalesPersonCode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["SalesPersonCode"]);
             float VatRate = float.Parse(strVatRate);
 
             e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, String.Empty, SalesPersonCode);

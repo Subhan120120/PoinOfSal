@@ -65,6 +65,7 @@ namespace PointOfSale
             this.memoEdit_InvoiceDesc = new DevExpress.XtraEditors.MemoEdit();
             this.lookUpEdit_OfficeCode = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit_StoreCode = new DevExpress.XtraEditors.LookUpEdit();
+            this.dateEdit_DocTime = new DevExpress.XtraEditors.TimeEdit();
             this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCI_DocDate = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_DocTime = new DevExpress.XtraLayout.LayoutControlItem();
@@ -77,7 +78,6 @@ namespace PointOfSale
             this.lCI_DocNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_CustomDocNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_IsReturn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateEdit_DocTime = new DevExpress.XtraEditors.TimeEdit();
             ((System.ComponentModel.ISupportInitialize)(this.RibbonControl_Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_WarehouseCode.Properties)).BeginInit();
@@ -96,6 +96,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_InvoiceDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_OfficeCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_StoreCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocTime)).BeginInit();
@@ -108,7 +109,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomDocNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_IsReturn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // RibbonControl_Root
@@ -387,7 +387,7 @@ namespace PointOfSale
             // 
             // dateEdit_DocDate
             // 
-            this.dateEdit_DocDate.EditValue = DateTime.Now;
+            this.dateEdit_DocDate.EditValue = new System.DateTime(2021, 10, 10, 6, 2, 18, 531);
             this.dateEdit_DocDate.Location = new System.Drawing.Point(126, 84);
             this.dateEdit_DocDate.MenuManager = this.RibbonControl_Root;
             this.dateEdit_DocDate.Name = "dateEdit_DocDate";
@@ -415,7 +415,7 @@ namespace PointOfSale
             this.btnEdit_CurrAccCode.Name = "btnEdit_CurrAccCode";
             this.btnEdit_CurrAccCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnEdit_CurrAccCode.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)(((DevExpress.XtraEditors.ShowNullValuePromptOptions.EmptyValue | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused)
+            this.btnEdit_CurrAccCode.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)(((DevExpress.XtraEditors.ShowNullValuePromptOptions.EmptyValue | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused) 
             | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.btnEdit_CurrAccCode.Size = new System.Drawing.Size(341, 20);
             this.btnEdit_CurrAccCode.StyleController = this.lC_Root;
@@ -466,6 +466,21 @@ namespace PointOfSale
             this.lookUpEdit_StoreCode.Size = new System.Drawing.Size(341, 20);
             this.lookUpEdit_StoreCode.StyleController = this.lC_Root;
             this.lookUpEdit_StoreCode.TabIndex = 9;
+            // 
+            // dateEdit_DocTime
+            // 
+            this.dateEdit_DocTime.EditValue = System.TimeSpan.Parse("06:02:18.5709715");
+            this.dateEdit_DocTime.Location = new System.Drawing.Point(126, 108);
+            this.dateEdit_DocTime.MenuManager = this.RibbonControl_Root;
+            this.dateEdit_DocTime.Name = "dateEdit_DocTime";
+            this.dateEdit_DocTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit_DocTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEdit_DocTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEdit_DocTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.dateEdit_DocTime.Size = new System.Drawing.Size(306, 20);
+            this.dateEdit_DocTime.StyleController = this.lC_Root;
+            this.dateEdit_DocTime.TabIndex = 7;
             // 
             // lCG_Root
             // 
@@ -586,21 +601,6 @@ namespace PointOfSale
             this.lCI_IsReturn.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_IsReturn.TextVisible = false;
             // 
-            // dateEdit_DocTime
-            // 
-            this.dateEdit_DocTime.EditValue = DateTime.Now.TimeOfDay;
-            this.dateEdit_DocTime.Location = new System.Drawing.Point(126, 108);
-            this.dateEdit_DocTime.MenuManager = this.RibbonControl_Root;
-            this.dateEdit_DocTime.Name = "dateEdit_DocTime";
-            this.dateEdit_DocTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_DocTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEdit_DocTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEdit_DocTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.dateEdit_DocTime.Size = new System.Drawing.Size(306, 20);
-            this.dateEdit_DocTime.StyleController = this.lC_Root;
-            this.dateEdit_DocTime.TabIndex = 7;
-            // 
             // FormInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -613,6 +613,7 @@ namespace PointOfSale
             this.Ribbon = this.RibbonControl_Root;
             this.Text = "Faktura";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInvoice_FormClosed);
             this.Load += new System.EventHandler(this.FormInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RibbonControl_Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
@@ -632,6 +633,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_InvoiceDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_OfficeCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_StoreCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocTime)).EndInit();
@@ -644,7 +646,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_DocNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomDocNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_IsReturn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocTime.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -161,6 +161,9 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Model1.Context.cs">
+      <HintPath>obj\Debug\TempPE\Model1.Context.cs.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -218,10 +221,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppCode\AdoMethods.cs" />
     <Compile Include="AppCode\Session.cs" />
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
+    <Compile Include="Migrations\20211010222213_test45.cs" />
+    <Compile Include="Migrations\20211010222213_test45.designer.cs">
+      <DependentUpon>20211010222213_test45.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportVM.cs" />
     <Compile Include="Class3.cs" />
     <Compile Include="FormChange.cs">
       <SubType>Form</SubType>
@@ -321,7 +330,7 @@
     <Compile Include="SplashScreenStartup.Designer.cs">
       <DependentUpon>SplashScreenStartup.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppCode\SqlMethods.cs" />
+    <Compile Include="AppCode\EfMethods.cs" />
     <Compile Include="FormPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,11 +379,11 @@
     <Compile Include="DefaultControls.Designer.cs">
       <DependentUpon>DefaultControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="XtraForm1.cs">
-      <SubType>Form</SubType>
+    <Compile Include="XtraReport1.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="XtraForm1.Designer.cs">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
+    <Compile Include="XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
@@ -440,8 +449,8 @@
     <EmbeddedResource Include="DefaultControls.resx">
       <DependentUpon>DefaultControls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XtraForm1.resx">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
+    <EmbeddedResource Include="XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

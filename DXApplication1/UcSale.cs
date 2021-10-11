@@ -6,6 +6,7 @@ using PointOfSale.Models;
 using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
 using System.Collections.Generic;
+using System.Data;
 
 namespace PointOfSale
 {
@@ -13,7 +14,8 @@ namespace PointOfSale
     {
         public Guid invoiceHeaderId = Guid.NewGuid();
         public int rowIndx = (-1);                      // setting by "FocusedRowChanged" event
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
+        AdoMethods adoMethods = new AdoMethods();
         ReportClass reportClass = new ReportClass();
 
         public UcSale()
@@ -32,8 +34,8 @@ namespace PointOfSale
         }
         void ParentForm_FormClosing(object sender, FormClosingEventArgs e) // Parent Form Closing event
         {
-            if (sqlMethods.InvoiceHeaderExist(invoiceHeaderId))
-                sqlMethods.DeleteInvoice(invoiceHeaderId);                // delete incomplete invoice
+            if (efMethods.InvoiceHeaderExist(invoiceHeaderId))
+                efMethods.DeleteInvoice(invoiceHeaderId);                // delete incomplete invoice
         }
 
         private void gV_InvoiceLine_CalcPreviewText(object sender, CalcPreviewTextEventArgs e)
@@ -58,9 +60,9 @@ namespace PointOfSale
             {
                 if (formProductList.ShowDialog(this) == DialogResult.OK)
                 {
-                    if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
+                    if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                        string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
 
                         TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                         {
@@ -68,15 +70,15 @@ namespace PointOfSale
                             ProcessCode = "RS",
                             DocumentNumber = NewDocNum
                         };
-                        sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
+                        efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }
 
                     DcProduct DcProduct = formProductList.DcProduct;
-                    int result = sqlMethods.InsertInvoiceLine(DcProduct, invoiceHeaderId);
+                    int result = efMethods.InsertInvoiceLine(DcProduct, invoiceHeaderId);
 
                     if (result > 0)
                     {
-                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                     else
@@ -92,11 +94,11 @@ namespace PointOfSale
                 DialogResult dialogResult = XtraMessageBox.Show("Silmək istədiyinizə əminmisiniz?", "Diqqət", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    int result = sqlMethods.DeleteInvoice(invoiceHeaderId);
+                    int result = efMethods.DeleteInvoice(invoiceHeaderId);
 
                     if (result >= 0)
                     {
-                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                         invoiceHeaderId = Guid.NewGuid();
                     }
                 }
@@ -114,11 +116,11 @@ namespace PointOfSale
                 if (dialogResult == DialogResult.Yes)
                 {
                     object invoiceLineId = gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
-                    int result = sqlMethods.DeleteInvoiceLine(invoiceLineId);
+                    int result = efMethods.DeleteInvoiceLine(invoiceLineId);
 
                     if (result >= 0)
                     {
-                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }
@@ -154,11 +156,11 @@ namespace PointOfSale
                                 NetAmount = Amount - formPosDiscount.PosDiscount,
                                 PosDiscount = formPosDiscount.PosDiscount
                             };
-                            int result = sqlMethods.UpdateInvoicePosDiscount(TrInvoiceLine);
+                            int result = efMethods.UpdateInvoicePosDiscount(TrInvoiceLine);
 
                             if (result >= 0)
                             {
-                                gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                                gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                                 gV_InvoiceLine.MoveLast();
                             }
                         }
@@ -198,22 +200,22 @@ namespace PointOfSale
             {
                 DcProduct DcProduct = new DcProduct { Barcode = txtEdit_Barcode.EditValue.ToString() };
 
-                if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
+                if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                 {
-                    string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                    string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                     TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                     {
                         InvoiceHeaderId = invoiceHeaderId,
                         ProcessCode = "RS",
                         DocumentNumber = NewDocNum,
                     };
-                    sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
+                    efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                 }
-                int result = sqlMethods.InsertInvoiceLine(DcProduct, invoiceHeaderId);
+                int result = efMethods.InsertInvoiceLine(DcProduct, invoiceHeaderId);
 
                 if (result > 0)
                 {
-                    gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                    gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                     gV_InvoiceLine.MoveLast();
                     txtEdit_Barcode.EditValue = string.Empty;
                 }
@@ -256,11 +258,11 @@ namespace PointOfSale
                 {
                     if (formPayment.ShowDialog(this) == DialogResult.OK)
                     {
-                        sqlMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
+                        efMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
 
                         invoiceHeaderId = Guid.NewGuid();
 
-                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                     }
                 }
             }
@@ -278,11 +280,11 @@ namespace PointOfSale
                 if (!string.IsNullOrEmpty(txtEdit_CustomerCode.Text))
                 {
                     string currAccCode = txtEdit_CustomerCode.Text;
-                    DcCurrAcc = sqlMethods.SelectCurrAcc(currAccCode);
+                    DcCurrAcc = efMethods.SelectCurrAcc(currAccCode);
                 }
                 else
                 {
-                    XtraMessageBox.Show("Əvvəlcə bir Müştəri seçin");
+                    XtraMessageBox.Show("Müştəri seçin");
                     return; // return btn_Customer_Click
                 }
             }
@@ -291,19 +293,19 @@ namespace PointOfSale
             {
                 if (formCustomer.ShowDialog(this) == DialogResult.OK)
                 {
-                    if (!sqlMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
+                    if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = sqlMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                        string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                         TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                         {
                             InvoiceHeaderId = invoiceHeaderId,
                             ProcessCode = "RS",
                             DocumentNumber = NewDocNum,
                         };
-                        sqlMethods.InsertInvoiceHeader(TrInvoiceHeader);
+                        efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }
 
-                    int result = sqlMethods.UpdateInvoiceCurrAccCode(invoiceHeaderId, formCustomer.DcCurrAcc.CurrAccCode);
+                    int result = efMethods.UpdateInvoiceCurrAccCode(invoiceHeaderId, formCustomer.DcCurrAcc.CurrAccCode);
 
                     if (result >= 0)
                     {
@@ -326,8 +328,8 @@ namespace PointOfSale
                     if (formQty.ShowDialog(this) == DialogResult.OK)
                     {
                         object invoiceLineId = gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
-                        sqlMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
-                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        efMethods.UpdateInvoiceLineQty(invoiceLineId, formQty.qty);
+                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }
@@ -339,7 +341,7 @@ namespace PointOfSale
             string designPath = reportClass.SelectDesign();
             if (!string.IsNullOrEmpty(designPath))
             {
-                ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
+                ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
                 printTool.ShowPreview();
             }
         }
@@ -349,15 +351,34 @@ namespace PointOfSale
             string designPath = reportClass.SelectDesign();
             if (!string.IsNullOrEmpty(designPath))
             {
-                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(sqlMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
+                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
                 designTool.ShowRibbonDesignerDialog();
             }
         }
 
         private void btn_ReportZ_Click(object sender, EventArgs e)
         {
-            ////XtraReport1 xtraReport = new XtraReport1();
-            //xtraReport.ShowDesignerDialog();
+            string asdasd = "909f8d59-ab84-4aec-856b-a47c300f3c70";
+            Guid ownerIdGuid = new Guid(asdasd);
+
+            DataTable trInvoiceLines = adoMethods.SelectInvoiceLines(ownerIdGuid);
+            DataTable trInvoiceHeaders = adoMethods.SelectInvoiceHeaders(ownerIdGuid);
+
+            trInvoiceLines.TableName = nameof(trInvoiceLines);
+            trInvoiceHeaders.TableName = nameof(trInvoiceHeaders);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(trInvoiceLines);
+            dataSet.Tables.Add(trInvoiceHeaders);
+
+
+
+            string designPath = reportClass.SelectDesign();
+            if (!string.IsNullOrEmpty(designPath))
+            {
+                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(dataSet, designPath));
+                designTool.ShowRibbonDesignerDialog();
+            }
         }
 
         private void btn_SalesPerson_Click(object sender, EventArgs e)
@@ -369,8 +390,8 @@ namespace PointOfSale
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
                         Guid invoiceLineId = (Guid)gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
-                        sqlMethods.UpdateInvoiceSalesPerson(invoiceLineId, form.DcCurrAcc.CurrAccCode);
-                        gC_InvoiceLine.DataSource = sqlMethods.SelectInvoiceLines(invoiceHeaderId);
+                        efMethods.UpdateInvoiceSalesPerson(invoiceLineId, form.DcCurrAcc.CurrAccCode);
+                        gC_InvoiceLine.DataSource = adoMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }
                 }

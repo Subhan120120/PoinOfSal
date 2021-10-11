@@ -122,6 +122,7 @@ namespace PointOfSale
             this.btn_Print = new DevExpress.XtraEditors.SimpleButton();
             this.btn_PrintDesign = new DevExpress.XtraEditors.SimpleButton();
             this.btn_ReportZ = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Num5 = new DevExpress.XtraEditors.SimpleButton();
             this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCG_Barcode = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCI_Star = new DevExpress.XtraLayout.LayoutControlItem();
@@ -140,6 +141,7 @@ namespace PointOfSale
             this.lCI_BackSpace = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_ItemTextBox = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_ComboBox = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lCI_Num5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCG_Invoice = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lCI_GridView = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCG_Function = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -165,8 +167,6 @@ namespace PointOfSale
             this.lCI_Cashless = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_CustomerBonus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.btn_Num5 = new DevExpress.XtraEditors.SimpleButton();
-            this.lCI_Num5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lC_InvoiceLine)).BeginInit();
             this.lC_InvoiceLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_Barcode.Properties)).BeginInit();
@@ -196,6 +196,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_BackSpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_ItemTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_ComboBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Invoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Function)).BeginInit();
@@ -221,7 +222,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Cashless)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num5)).BeginInit();
             this.SuspendLayout();
             // 
             // lC_InvoiceLine
@@ -369,20 +369,6 @@ namespace PointOfSale
             this.btn_Num4.TabIndex = 5;
             this.btn_Num4.Text = "4";
             this.btn_Num4.Click += new System.EventHandler(this.btn_Num_Click);
-            // 
-            // btn_Num5
-            // 
-            this.btn_Num5.AllowFocus = false;
-            this.btn_Num5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.btn_Num5.Appearance.Options.UseFont = true;
-            this.btn_Num5.Location = new System.Drawing.Point(514, 185);
-            this.btn_Num5.Name = "btn_Num5";
-            this.btn_Num5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btn_Num5.Size = new System.Drawing.Size(74, 66);
-            this.btn_Num5.StyleController = this.lC_InvoiceLine;
-            this.btn_Num5.TabIndex = 46;
-            this.btn_Num5.Text = "5";
-            this.btn_Num5.Click += new System.EventHandler(this.btn_Num_Click);
             // 
             // btn_Num6
             // 
@@ -932,6 +918,20 @@ namespace PointOfSale
             this.btn_ReportZ.Text = "Gün Sonu";
             this.btn_ReportZ.Click += new System.EventHandler(this.btn_ReportZ_Click);
             // 
+            // btn_Num5
+            // 
+            this.btn_Num5.AllowFocus = false;
+            this.btn_Num5.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.btn_Num5.Appearance.Options.UseFont = true;
+            this.btn_Num5.Location = new System.Drawing.Point(514, 185);
+            this.btn_Num5.Name = "btn_Num5";
+            this.btn_Num5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_Num5.Size = new System.Drawing.Size(74, 66);
+            this.btn_Num5.StyleController = this.lC_InvoiceLine;
+            this.btn_Num5.TabIndex = 46;
+            this.btn_Num5.Text = "5";
+            this.btn_Num5.Click += new System.EventHandler(this.btn_Num_Click);
+            // 
             // lCG_Root
             // 
             this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -1241,6 +1241,19 @@ namespace PointOfSale
             this.lCI_ComboBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lCI_ComboBox.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_ComboBox.TextVisible = false;
+            // 
+            // lCI_Num5
+            // 
+            this.lCI_Num5.Control = this.btn_Num5;
+            this.lCI_Num5.Location = new System.Drawing.Point(78, 140);
+            this.lCI_Num5.MinSize = new System.Drawing.Size(78, 26);
+            this.lCI_Num5.Name = "lCI_Num5";
+            this.lCI_Num5.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.lCI_Num5.OptionsTableLayoutItem.RowIndex = 2;
+            this.lCI_Num5.Size = new System.Drawing.Size(78, 70);
+            this.lCI_Num5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lCI_Num5.TextSize = new System.Drawing.Size(0, 0);
+            this.lCI_Num5.TextVisible = false;
             // 
             // lCG_Invoice
             // 
@@ -1654,20 +1667,6 @@ namespace PointOfSale
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(336, 303);
             this.layoutControlGroup2.Text = "layoutControlGroup1";
-
-            // 
-            // lCI_Num5
-            // 
-            this.lCI_Num5.Control = this.btn_Num5;
-            this.lCI_Num5.Location = new System.Drawing.Point(78, 140);
-            this.lCI_Num5.MinSize = new System.Drawing.Size(78, 26);
-            this.lCI_Num5.Name = "lCI_Num5";
-            this.lCI_Num5.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.lCI_Num5.OptionsTableLayoutItem.RowIndex = 2;
-            this.lCI_Num5.Size = new System.Drawing.Size(78, 70);
-            this.lCI_Num5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lCI_Num5.TextSize = new System.Drawing.Size(0, 0);
-            this.lCI_Num5.TextVisible = false;
             // 
             // UcSale
             // 
@@ -1706,6 +1705,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_BackSpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_ItemTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_ComboBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Invoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCG_Function)).EndInit();
@@ -1731,7 +1731,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Cashless)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CustomerBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCI_Num5)).EndInit();
             this.ResumeLayout(false);
 
         }

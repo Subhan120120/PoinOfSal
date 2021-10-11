@@ -15,7 +15,7 @@ namespace PointOfSale
 {
     public partial class FormLogin : XtraForm
     {
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
 
         public FormLogin()
         {
@@ -28,7 +28,7 @@ namespace PointOfSale
 
         private void btn_POS_Click(object sender, EventArgs e)
         {
-            if (sqlMethods.CurrAccExist(txtEdit_UserName.Text, txtEdit_Password.Text))
+            if (efMethods.CurrAccExist(txtEdit_UserName.Text, txtEdit_Password.Text))
             {
                 SettingSave();
 
@@ -42,7 +42,7 @@ namespace PointOfSale
 
         private void btn_ERP_Click(object sender, EventArgs e)
         {
-            if (sqlMethods.CurrAccExist(txtEdit_UserName.Text, txtEdit_Password.Text))
+            if (efMethods.CurrAccExist(txtEdit_UserName.Text, txtEdit_Password.Text))
             {
                 SettingSave();
 
@@ -71,7 +71,7 @@ namespace PointOfSale
             }
 
             Session.CurrAccCode = txtEdit_UserName.Text;
-            Session.DcRoles = sqlMethods.SelectRoles(txtEdit_UserName.Text);
+            Session.DcRoles = efMethods.SelectRoles(txtEdit_UserName.Text);
         }
     }
 }

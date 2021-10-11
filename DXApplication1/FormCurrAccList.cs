@@ -11,7 +11,7 @@ namespace PointOfSale
 {
     public partial class FormCurrAccList : XtraForm
     {
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
         public DcCurrAcc DcCurrAcc { get; set; }
 
         public FormCurrAccList()
@@ -23,7 +23,7 @@ namespace PointOfSale
 
         private void FormCurrAccList_Load(object sender, EventArgs e)
         {
-            gC_CurrAccList.DataSource = sqlMethods.SelectCurrAccs();
+            gC_CurrAccList.DataSource = efMethods.SelectCurrAccs();
         }
 
         private void gV_CurrAccList_DoubleClick(object sender, EventArgs e)

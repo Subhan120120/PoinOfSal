@@ -17,7 +17,7 @@ namespace PointOfSale
             var efConnectionParameters = new EFConnectionParameters()
             {
                 Source = typeof(subContext),
-                ConnectionStringName = "efConString"
+                ConnectionStringName = "efConString"                
             };
 
             efDataSource.ConnectionParameters = efConnectionParameters;

@@ -18,11 +18,11 @@ namespace PointOfSale
         }
 
         public TrInvoiceHeader TrInvoiceHeader { get; set; }
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
 
         private void FormInvoiceHeaderList_Load(object sender, EventArgs e)
         {
-            gC_InvoiceHeaderList.DataSource = sqlMethods.SelectInvoiceHeaders();
+            gC_InvoiceHeaderList.DataSource = efMethods.SelectInvoiceHeaders();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

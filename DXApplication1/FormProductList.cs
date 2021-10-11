@@ -11,7 +11,7 @@ namespace PointOfSale
     public partial class FormProductList : XtraForm
     {
         public DcProduct DcProduct { get; set; }
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
 
         public FormProductList()
         {
@@ -20,7 +20,7 @@ namespace PointOfSale
             OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
             this.gV_ProductList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
 
-            gC_ProductList.DataSource = sqlMethods.SelectProducts();
+            gC_ProductList.DataSource = efMethods.SelectProducts();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

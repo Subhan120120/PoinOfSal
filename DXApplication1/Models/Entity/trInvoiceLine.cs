@@ -54,6 +54,12 @@ namespace PointOfSale.Models
 
         public double ExchangeRate { get; set; }
 
+        [NotMapped]
+        public int ReturnQty { get; set; }
+
+        [NotMapped]
+        public int RemainingQty { get; set; }
+
 
         public virtual TrInvoiceHeader TrInvoiceHeader { get; set; }
         public virtual DcProduct DcProduct { get; set; }

@@ -7,7 +7,8 @@ namespace PointOfSale
 {
     public partial class FormCustomer : XtraForm
     {
-        SqlMethods sqlMethods = new SqlMethods();
+        EfMethods efMethods = new EfMethods();
+        AdoMethods adoMethods = new AdoMethods();
         public DcCurrAcc DcCurrAcc { get; set; }
 
 
@@ -29,12 +30,12 @@ namespace PointOfSale
                 txtEdit_PhoneNum.EditValue = DcCurrAcc.PhoneNum;
             }
             else
-                txtEdit_CurrAccCode.EditValue = sqlMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
+                txtEdit_CurrAccCode.EditValue = adoMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
         }
 
         private void btn_Ok_Click(object sender, EventArgs e)
         {
-            DcCurrAcc = sqlMethods.SelectCurrAcc(txtEdit_CurrAccCode.Text);
+            DcCurrAcc = efMethods.SelectCurrAcc(txtEdit_CurrAccCode.Text);
             if (DcCurrAcc == null)                                      // if Customer doesnt exist in db
                 DcCurrAcc = new DcCurrAcc();
 
@@ -47,10 +48,10 @@ namespace PointOfSale
             DcCurrAcc.BirthDate = Convert.ToDateTime(dateEdit_BirthDate.EditValue ?? new DateTime(1901, 01, 01));
             DcCurrAcc.PhoneNum = txtEdit_PhoneNum.Text;
 
-            if (sqlMethods.CustomerExist(txtEdit_CurrAccCode.Text))
-                sqlMethods.UpdateCustomer(DcCurrAcc);
+            if (efMethods.CustomerExist(txtEdit_CurrAccCode.Text))
+                efMethods.UpdateCustomer(DcCurrAcc);
             else
-                sqlMethods.InsertCustomer(DcCurrAcc);
+                efMethods.InsertCustomer(DcCurrAcc);
 
             DialogResult = DialogResult.OK;
         }

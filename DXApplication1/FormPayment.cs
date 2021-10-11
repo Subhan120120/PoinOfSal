@@ -158,13 +158,14 @@ namespace PointOfSale
 
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
-            SqlMethods sqlMethods = new SqlMethods();
-            string NewDocNum = sqlMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
+            EfMethods efMethods = new EfMethods();
+            AdoMethods adoMethods = new AdoMethods();
+            string NewDocNum = adoMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
 
             if ((cashLarge + cashless + bonus) >= SumNetAmount)
             {
                 decimal cash = SumNetAmount - cashless - bonus;
-                if (!sqlMethods.PaymentHeaderExist(InvoiceHeaderId))
+                if (!efMethods.PaymentHeaderExist(InvoiceHeaderId))
                 {
                     TrPaymentHeader trPayment = new TrPaymentHeader()
                     {
@@ -172,7 +173,7 @@ namespace PointOfSale
                         DocumentNumber = NewDocNum,
                         InvoiceHeaderId = InvoiceHeaderId
                     };
-                    sqlMethods.InsertPaymentHeader(trPayment);
+                    efMethods.InsertPaymentHeader(trPayment);
 
                     if (cash > 0)
                     {
@@ -183,7 +184,7 @@ namespace PointOfSale
                             Payment = isNegativ ? cash * (-1) : cash,
                             PaymentTypeCode = 1
                         };
-                        sqlMethods.InsertPaymentLine(TrPaymentLine);
+                        efMethods.InsertPaymentLine(TrPaymentLine);
                     }
 
                     if (cashless > 0)
@@ -195,7 +196,7 @@ namespace PointOfSale
                             Payment = isNegativ ? cashless * (-1) : cashless,
                             PaymentTypeCode = 2
                         };
-                        sqlMethods.InsertPaymentLine(TrPaymentLine);
+                        efMethods.InsertPaymentLine(TrPaymentLine);
                     }
 
                     if (bonus > 0)
@@ -207,7 +208,7 @@ namespace PointOfSale
                             Payment = isNegativ ? bonus * (-1) : bonus,
                             PaymentTypeCode = 3
                         };
-                        sqlMethods.InsertPaymentLine(TrPaymentLine);
+                        efMethods.InsertPaymentLine(TrPaymentLine);
                     }
                 }
 
