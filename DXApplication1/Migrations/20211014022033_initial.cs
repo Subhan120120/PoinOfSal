@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PointOfSale.Migrations
 {
-    public partial class init : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -250,6 +250,7 @@ namespace PointOfSale.Migrations
                     FirstName = table.Column<string>(maxLength: 60, nullable: false, defaultValueSql: "space(0)"),
                     LastName = table.Column<string>(maxLength: 60, nullable: false, defaultValueSql: "space(0)"),
                     FatherName = table.Column<string>(maxLength: 60, nullable: false, defaultValueSql: "space(0)"),
+                    Password = table.Column<string>(nullable: false, defaultValueSql: "space(0)"),
                     IdentityNum = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "space(0)"),
                     TaxNum = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "space(0)"),
                     DataLanguageCode = table.Column<string>(maxLength: 5, nullable: false, defaultValueSql: "space(0)"),
@@ -466,7 +467,7 @@ namespace PointOfSale.Migrations
                     NetAmount = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0"),
                     VatRate = table.Column<float>(nullable: false, defaultValueSql: "0"),
                     LineDescription = table.Column<string>(nullable: true, defaultValueSql: "space(0)"),
-                    SalespersonCode = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
+                    SalesPersonCode = table.Column<string>(maxLength: 50, nullable: true, defaultValueSql: "space(0)"),
                     CurrencyCode = table.Column<string>(maxLength: 10, nullable: true, defaultValueSql: "space(0)"),
                     ExchangeRate = table.Column<double>(nullable: false, defaultValueSql: "0")
                 },

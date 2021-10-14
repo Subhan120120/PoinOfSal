@@ -62,7 +62,7 @@ namespace PointOfSale
                 {
                     if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                        string NewDocNum = efMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
 
                         TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                         {
@@ -202,7 +202,7 @@ namespace PointOfSale
 
                 if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                 {
-                    string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                    string NewDocNum = efMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                     TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                     {
                         InvoiceHeaderId = invoiceHeaderId,
@@ -295,7 +295,7 @@ namespace PointOfSale
                 {
                     if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
                     {
-                        string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                        string NewDocNum = efMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                         TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                         {
                             InvoiceHeaderId = invoiceHeaderId,

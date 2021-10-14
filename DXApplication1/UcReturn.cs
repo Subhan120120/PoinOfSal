@@ -28,7 +28,7 @@ namespace PointOfSale
 
         private void UcReturn_Load(object sender, EventArgs e)
         {
-            this.ParentForm.FormClosing += new FormClosingEventHandler(ParentForm_FormClosing); // set Parent Form Closing event
+            ParentForm.FormClosing += new FormClosingEventHandler(ParentForm_FormClosing); // set Parent Form Closing event
         }
 
         void ParentForm_FormClosing(object sender, FormClosingEventArgs e) // Parent Form Closing event

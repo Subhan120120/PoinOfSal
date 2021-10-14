@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20211006221527_test1212")]
-    partial class test1212
+    [Migration("20211014013633_Add_procedures")]
+    partial class Add_procedures
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

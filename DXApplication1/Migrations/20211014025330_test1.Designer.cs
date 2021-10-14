@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20211005132722_test2")]
-    partial class test2
+    [Migration("20211014025330_test1")]
+    partial class test1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -204,6 +204,7 @@ namespace PointOfSale.Migrations
                             IsVip = false,
                             LastName = "Hüseynzadə",
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Password = "123",
                             PhoneNum = "0519678909",
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             VendorTypeCode = (byte)0
@@ -222,6 +223,7 @@ namespace PointOfSale.Migrations
                             IsVip = false,
                             LastName = "Hüseynzadə",
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Password = "456",
                             PhoneNum = "0773628800",
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             VendorTypeCode = (byte)0
@@ -1208,7 +1210,7 @@ namespace PointOfSale.Migrations
                     b.Property<Guid?>("RelatedLineId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("SalespersonCode")
+                    b.Property<string>("SalesPersonCode")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
                         .HasDefaultValueSql("space(0)")

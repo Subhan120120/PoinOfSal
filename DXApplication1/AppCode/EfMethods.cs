@@ -4,7 +4,7 @@ using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,6 +18,50 @@ namespace PointOfSale
             //this.db = new subContext();
         }
 
+        public string GetNextDocNum(string processCode, string columnName, string tableName)
+        {
+            //SqlParameter parameterReturn = new SqlParameter
+            //{
+            //    ParameterName = "NewDocNum",
+            //    SqlDbType = System.Data.SqlDbType.NVarChar,
+            //    Direction = System.Data.ParameterDirection.Output,
+            //};
+
+            //using (subContext db = new subContext())
+            //{
+            //    var asa = db.Database.ExecuteSqlRaw($"exec @NewDocNum = [dbo].[GetNextDocNum] 'RS', 'DocumentNumber', 'TrInvoiceHeaders'", parameterReturn);
+            //    return (string)parameterReturn.Value;
+            //}
+
+            var returnCode = new SqlParameter();
+            returnCode.ParameterName = "@NewDocNum";
+            returnCode.SqlDbType = SqlDbType.NVarChar;
+            returnCode.Direction = ParameterDirection.Output;
+            returnCode.Value = "s"; 
+
+            SqlParameter[] paramArray = new SqlParameter[]
+            {
+                new SqlParameter("@ProcessCode", processCode),
+                new SqlParameter("@ColumnName", columnName),
+                new SqlParameter("@TableName", tableName),
+                new SqlParameter
+            {
+                ParameterName = "NewDocNum",
+                SqlDbType = System.Data.SqlDbType.Structured,
+                Direction = System.Data.ParameterDirection.Output,
+                Value = "s",
+            }
+            };
+
+            using (subContext db = new subContext())
+            {
+
+                // assign the return code to the new output parameter and pass it to the sp
+                var data = db.Database.ExecuteSqlRaw("exec @NewDocNum = [dbo].[GetNextDocNum] @ProcessCode, @ColumnName, @TableName", paramArray);
+                System.Windows.Forms.MessageBox.Show(paramArray[3].Value.ToString());
+                return returnCode.Value.ToString();
+            }
+        }
 
         public List<TrInvoiceLine> SelectInvoiceLines(Guid invoiceHeaderId)
         {

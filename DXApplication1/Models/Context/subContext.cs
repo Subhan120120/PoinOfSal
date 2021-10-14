@@ -112,8 +112,8 @@ namespace PointOfSale.Models
             });
 
             modelBuilder.Entity<DcCurrAcc>().HasData(
-                new DcCurrAcc { CurrAccCode = "CA-1", FirstName = "Sübhan", LastName = "Hüseynzadə", PhoneNum = "0519678909", CurrAccTypeCode = 1 },
-                new DcCurrAcc { CurrAccCode = "CA-2", FirstName = "Orxan", LastName = "Hüseynzadə", PhoneNum = "0773628800", CurrAccTypeCode = 2 });
+                new DcCurrAcc { CurrAccCode = "CA-1", FirstName = "Sübhan", LastName = "Hüseynzadə", Password = "123", PhoneNum = "0519678909", CurrAccTypeCode = 1 },
+                new DcCurrAcc { CurrAccCode = "CA-2", FirstName = "Orxan", LastName = "Hüseynzadə", Password = "456", PhoneNum = "0773628800", CurrAccTypeCode = 2 });
 
             modelBuilder.Entity<DcCurrAccType>(entity =>
             {
@@ -169,7 +169,7 @@ namespace PointOfSale.Models
                 new DcClaim { ClaimCode = "PosDiscount", ClaimDesc = "POS Endirimi" });
 
             modelBuilder.Entity<TrRoleClaim>(entity =>
-            {                
+            {
                 entity.Property(e => e.CreatedDate)
                     .HasDefaultValueSql("getdate()");
 
@@ -183,8 +183,8 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
 
-                modelBuilder.Entity<TrRoleClaim>().HasData(
-                new TrRoleClaim { RoleClaimId = 1, RoleCode = "Admin", ClaimCode = "PosDiscount" });
+            modelBuilder.Entity<TrRoleClaim>().HasData(
+            new TrRoleClaim { RoleClaimId = 1, RoleCode = "Admin", ClaimCode = "PosDiscount" });
 
             modelBuilder.Entity<DcOffice>(entity =>
                         {

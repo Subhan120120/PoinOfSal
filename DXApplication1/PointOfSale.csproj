@@ -226,10 +226,19 @@
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
-    <Compile Include="Migrations\20211010222213_test45.cs" />
-    <Compile Include="Migrations\20211010222213_test45.designer.cs">
-      <DependentUpon>20211010222213_test45.cs</DependentUpon>
+    <Compile Include="Migrations\20211014022033_initial.cs" />
+    <Compile Include="Migrations\20211014022033_initial.designer.cs">
+      <DependentUpon>20211014022033_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20211014025330_test1.cs" />
+    <Compile Include="Migrations\20211014025330_test1.designer.cs">
+      <DependentUpon>20211014025330_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Procedures\Add_procedures.cs" />
+    <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
+      <DependentUpon>Add_procedures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="ReportVM.cs" />
     <Compile Include="Class3.cs" />
     <Compile Include="FormChange.cs">
@@ -274,23 +283,6 @@
     <Compile Include="FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20211005105343_init.cs" />
-    <Compile Include="Migrations\20211005105343_init.designer.cs">
-      <DependentUpon>20211005105343_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211005122830_test1.cs" />
-    <Compile Include="Migrations\20211005122830_test1.designer.cs">
-      <DependentUpon>20211005122830_test1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211005132722_test2.cs" />
-    <Compile Include="Migrations\20211005132722_test2.designer.cs">
-      <DependentUpon>20211005132722_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20211006221527_test1212.cs" />
-    <Compile Include="Migrations\20211006221527_test1212.designer.cs">
-      <DependentUpon>20211006221527_test1212.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="Models\Context\subContext.cs" />
     <Compile Include="Models\Entity\BaseEntity.cs" />
     <Compile Include="Models\Entity\DcClaim.cs" />

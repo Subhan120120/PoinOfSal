@@ -202,6 +202,7 @@ namespace PointOfSale.Migrations
                             IsVip = false,
                             LastName = "Hüseynzadə",
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Password = "123",
                             PhoneNum = "0519678909",
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             VendorTypeCode = (byte)0
@@ -220,6 +221,7 @@ namespace PointOfSale.Migrations
                             IsVip = false,
                             LastName = "Hüseynzadə",
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Password = "456",
                             PhoneNum = "0773628800",
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             VendorTypeCode = (byte)0

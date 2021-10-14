@@ -28,10 +28,8 @@ namespace PointOfSale
 
         private void btn_POS_Click(object sender, EventArgs e)
         {
-            if (efMethods.CurrAccExist(txtEdit_UserName.Text, txtEdit_Password.Text))
+            if (Login(txtEdit_UserName.Text, txtEdit_Password.Text))
             {
-                SettingSave();
-
                 FormPOS formPos = new FormPOS();
                 Hide();
                 formPos.ShowDialog();
@@ -42,18 +40,29 @@ namespace PointOfSale
 
         private void btn_ERP_Click(object sender, EventArgs e)
         {
-            if (efMethods.CurrAccExist(txtEdit_UserName.Text, txtEdit_Password.Text))
+            if (Login(txtEdit_UserName.Text, txtEdit_Password.Text))
             {
-                SettingSave();
-
                 FormERP formERP = new FormERP();
                 Hide();
                 formERP.ShowDialog();
                 Close();
             }
+            else
+                XtraMessageBox.Show("İstifadəçi və ya şifrə yanlışdır");
         }
 
-        private void SettingSave()
+        public bool Login(string user, string password)
+        {
+            if (efMethods.CurrAccExist(user, password))
+            {
+                SessionSave();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private void SessionSave()
         {
             if (checkEdit_RemindMe.Checked)
             {
