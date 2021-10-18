@@ -39,7 +39,6 @@ namespace PointOfSale.Models
         public DbSet<TrRoleClaim> TrRoleClaims { get; set; }
         public DbSet<TrShipmentHeader> TrShipmentHeaders { get; set; }
         public DbSet<TrShipmentLine> TrShipmentLines { get; set; }
-        //public DbSet<ReturnFromProc> returnFromProc { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -51,6 +50,10 @@ namespace PointOfSale.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<GetNextDocNum>() //procedure
+                        .HasNoKey()
+                        .ToView(null);
+
             modelBuilder.Entity<DcCurrAcc>(entity =>
             {
                 entity.HasIndex(e => e.CurrAccTypeCode)
@@ -187,22 +190,22 @@ namespace PointOfSale.Models
             new TrRoleClaim { RoleClaimId = 1, RoleCode = "Admin", ClaimCode = "PosDiscount" });
 
             modelBuilder.Entity<DcOffice>(entity =>
-                        {
-                            entity.Property(e => e.CreatedDate)
-                                .HasDefaultValueSql("getdate()");
+            {
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
 
-                            entity.Property(e => e.CreatedUserName)
-                                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
 
-                            entity.Property(e => e.LastUpdatedDate)
-                                .HasDefaultValueSql("getdate()");
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
 
-                            entity.Property(e => e.LastUpdatedUserName)
-                                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
 
-                            entity.Property(e => e.OfficeDesc)
-                                .HasDefaultValueSql("space(0)");
-                        });
+                entity.Property(e => e.OfficeDesc)
+                    .HasDefaultValueSql("space(0)");
+            });
 
             modelBuilder.Entity<DcOffice>().HasData(
                 new DcOffice { OfficeCode = "OFS01", OfficeDesc = "Bakıxanov Ofisi" },
@@ -712,6 +715,8 @@ namespace PointOfSale.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
+
+
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }

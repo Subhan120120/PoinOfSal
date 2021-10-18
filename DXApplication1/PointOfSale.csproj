@@ -234,11 +234,40 @@
     <Compile Include="Migrations\20211014025330_test1.designer.cs">
       <DependentUpon>20211014025330_test1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20211014115625_test-2.cs" />
+    <Compile Include="Migrations\20211014115625_test-2.designer.cs">
+      <DependentUpon>20211014115625_test-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211014120858_test-3.cs" />
+    <Compile Include="Migrations\20211014120858_test-3.designer.cs">
+      <DependentUpon>20211014120858_test-3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211014121045_test-4.cs" />
+    <Compile Include="Migrations\20211014121045_test-4.designer.cs">
+      <DependentUpon>20211014121045_test-4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211014121124_test-5.cs" />
+    <Compile Include="Migrations\20211014121124_test-5.designer.cs">
+      <DependentUpon>20211014121124_test-5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211017235527_test234.cs" />
+    <Compile Include="Migrations\20211017235527_test234.designer.cs">
+      <DependentUpon>20211017235527_test234.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211017235628_test235.cs" />
+    <Compile Include="Migrations\20211017235628_test235.designer.cs">
+      <DependentUpon>20211017235628_test235.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20211018001501_test236.cs" />
+    <Compile Include="Migrations\20211018001501_test236.designer.cs">
+      <DependentUpon>20211018001501_test236.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
       <DependentUpon>Add_procedures.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
+    <Compile Include="Models\Entity\StringReturn.cs" />
     <Compile Include="ReportVM.cs" />
     <Compile Include="Class3.cs" />
     <Compile Include="FormChange.cs">

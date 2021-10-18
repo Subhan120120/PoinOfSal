@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20211014120858_test-3")]
+    partial class test3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -878,14 +880,6 @@ namespace PointOfSale.Migrations
                         .HasName("PK_dbo.__MigrationHistory");
 
                     b.ToTable("__MigrationHistory");
-                });
-
-            modelBuilder.Entity("PointOfSale.Models.StringReturn", b =>
-                {
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("StringReturn");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.Sysdiagrams", b =>
