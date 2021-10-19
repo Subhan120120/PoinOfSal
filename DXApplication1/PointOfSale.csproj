@@ -262,13 +262,17 @@
     <Compile Include="Migrations\20211018001501_test236.designer.cs">
       <DependentUpon>20211018001501_test236.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20211019064533_test324.cs" />
+    <Compile Include="Migrations\20211019064533_test324.designer.cs">
+      <DependentUpon>20211019064533_test324.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
       <DependentUpon>Add_procedures.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="Models\Entity\StringReturn.cs" />
-    <Compile Include="ReportVM.cs" />
+    <Compile Include="Models\ViewModel\ReportVM.cs" />
     <Compile Include="Class3.cs" />
     <Compile Include="FormChange.cs">
       <SubType>Form</SubType>
@@ -535,10 +539,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\ViewModel\" />
+    <EmbeddedResource Include="AppCode\Qry_Sales.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppCode\Qry_Payments.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

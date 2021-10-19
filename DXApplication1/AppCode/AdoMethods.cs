@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace PointOfSale
 {
@@ -46,42 +48,46 @@ namespace PointOfSale
             }
         }
 
-        public string GetNextDocNum(string processCode, string columnName, string tableName)
+        public DataTable SelectInvoiceLines(DateTime StartDate, DateTime EndDate)
         {
-            string qry = "dbo.GetNextDocNum @ProcessCode = @ProcessCode, @ColumnName = @ColumnName, @TableName = @TableName";
-            paramArray = new SqlParameter[]
-             {
-                new SqlParameter("@ProcessCode", processCode),
-                new SqlParameter("@ColumnName", columnName),
-                new SqlParameter("@TableName", tableName)
-             };
-            DataTable dt = SqlGetDt(qry, paramArray);
-            return dt.Rows[0][0].ToString();
-        }
-
-        public DataTable SelectInvoiceLines(Guid invoiceHeaderId)
-        {
-            string qry = "select * from TrInvoiceLines " +
-                "where InvoiceHeaderId = @InvoiceHeaderId " +
-                "order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string str = "PointOfSale.AppCode.Qry_Sales.sql";
+            string qry = "";
+            using (Stream stream = assembly.GetManifestResourceStream(str))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    qry = reader.ReadToEnd();
+                }
+            }
 
             paramArray = new SqlParameter[]
             {
-                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId)
+                new SqlParameter("@StartDate", StartDate),
+                new SqlParameter("@EndDate", EndDate)
             };
             return SqlGetDt(qry, paramArray);
         }
 
-        public DataTable SelectInvoiceHeaders(Guid invoiceHeaderId)
+        public DataTable SelectPaymentLines(DateTime StartDate, DateTime EndDate)
         {
-            string qry = "select * from TrInvoiceHeaders " +
-                "where InvoiceHeaderId = @InvoiceHeaderId " + // burdaki kolonlari dizaynda da elave et
-                "order by CreatedDate"; // burdaki kolonlari dizaynda da elave et
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string str = "PointOfSale.AppCode.Qry_Payments.sql";
+            string qry = "";
+            using (Stream stream = assembly.GetManifestResourceStream(str))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    qry = reader.ReadToEnd();
+                }
+            }
 
             paramArray = new SqlParameter[]
             {
-                new SqlParameter("@InvoiceHeaderId", invoiceHeaderId)
+                new SqlParameter("@StartDate", StartDate),
+                new SqlParameter("@EndDate", EndDate)
             };
+
             return SqlGetDt(qry, paramArray);
         }
 

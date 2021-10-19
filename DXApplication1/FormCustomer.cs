@@ -8,7 +8,6 @@ namespace PointOfSale
     public partial class FormCustomer : XtraForm
     {
         EfMethods efMethods = new EfMethods();
-        AdoMethods adoMethods = new AdoMethods();
         public DcCurrAcc DcCurrAcc { get; set; }
 
 
@@ -30,7 +29,7 @@ namespace PointOfSale
                 txtEdit_PhoneNum.EditValue = DcCurrAcc.PhoneNum;
             }
             else
-                txtEdit_CurrAccCode.EditValue = adoMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
+                txtEdit_CurrAccCode.EditValue = efMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
         }
 
         private void btn_Ok_Click(object sender, EventArgs e)

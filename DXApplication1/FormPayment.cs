@@ -159,9 +159,8 @@ namespace PointOfSale
         private void simpleButtonOk_Click(object sender, EventArgs e)
         {
             EfMethods efMethods = new EfMethods();
-            AdoMethods adoMethods = new AdoMethods();
 
-            string NewDocNum = adoMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
+            string NewDocNum = efMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
 
             if ((cashLarge + cashless + bonus) >= SumNetAmount)
             {

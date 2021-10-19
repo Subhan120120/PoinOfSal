@@ -22,7 +22,6 @@ namespace PointOfSale
         public Guid invoiceHeaderId;
 
         EfMethods efMethods = new EfMethods();
-        AdoMethods adoMethods = new AdoMethods();
         subContext dbContext;
 
         public FormInvoice()
@@ -91,7 +90,7 @@ namespace PointOfSale
         {
             if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
             {
-                string NewDocNum = adoMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
+                string NewDocNum = efMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
 
                 TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader();
 

@@ -1,12 +1,9 @@
-﻿using DevExpress.XtraEditors;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Microsoft.Data.SqlClient;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PointOfSale
 {
@@ -58,7 +55,6 @@ namespace PointOfSale
                 //                       RemainingQty = i.Qty + db.TrInvoiceLines.Where(x => x.RelatedLineId == i.InvoiceLineId).Sum(x => x.Qty),
                 //                   }).ToList(); 
                 #endregion
-
 
                 return InvoiceLines;
             }

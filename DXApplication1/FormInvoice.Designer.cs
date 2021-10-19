@@ -89,8 +89,8 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_ProductCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit_DocNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_IsReturn.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_DocDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_InvoiceCustomNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit_CurrAccCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_InvoiceDesc.Properties)).BeginInit();
@@ -112,6 +112,9 @@ namespace PointOfSale
             this.SuspendLayout();
             // 
             // RibbonControl_Root
+            // 
+            // 
+            // 
             // 
             this.RibbonControl_Root.ExpandCollapseItem.Id = 0;
             this.RibbonControl_Root.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -187,12 +190,6 @@ namespace PointOfSale
             // 
             this.RibbonPageGroup_Invoice.AllowTextClipping = false;
             this.RibbonPageGroup_Invoice.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_Save);
-            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_SaveAndClose);
-            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_SaveAndNew);
-            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_Reset);
-            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_Delete);
-            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_Close);
             this.RibbonPageGroup_Invoice.Name = "RibbonPageGroup_Invoice";
             this.RibbonPageGroup_Invoice.Text = "Tasks";
             // 
@@ -201,6 +198,9 @@ namespace PointOfSale
             this.lookUpEdit_WarehouseCode.Location = new System.Drawing.Point(550, 84);
             this.lookUpEdit_WarehouseCode.MenuManager = this.RibbonControl_Root;
             this.lookUpEdit_WarehouseCode.Name = "lookUpEdit_WarehouseCode";
+            // 
+            // 
+            // 
             this.lookUpEdit_WarehouseCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit_WarehouseCode.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -368,6 +368,9 @@ namespace PointOfSale
             this.btnEdit_DocNum.Location = new System.Drawing.Point(126, 12);
             this.btnEdit_DocNum.MenuManager = this.RibbonControl_Root;
             this.btnEdit_DocNum.Name = "btnEdit_DocNum";
+            // 
+            // 
+            // 
             this.btnEdit_DocNum.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btnEdit_DocNum.Size = new System.Drawing.Size(306, 20);
@@ -380,6 +383,9 @@ namespace PointOfSale
             this.checkEdit_IsReturn.Location = new System.Drawing.Point(12, 36);
             this.checkEdit_IsReturn.MenuManager = this.RibbonControl_Root;
             this.checkEdit_IsReturn.Name = "checkEdit_IsReturn";
+            // 
+            // 
+            // 
             this.checkEdit_IsReturn.Properties.Caption = "Geri Qaytarma";
             this.checkEdit_IsReturn.Size = new System.Drawing.Size(420, 20);
             this.checkEdit_IsReturn.StyleController = this.lC_Root;
@@ -391,8 +397,14 @@ namespace PointOfSale
             this.dateEdit_DocDate.Location = new System.Drawing.Point(126, 84);
             this.dateEdit_DocDate.MenuManager = this.RibbonControl_Root;
             this.dateEdit_DocDate.Name = "dateEdit_DocDate";
+            // 
+            // 
+            // 
             this.dateEdit_DocDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            // 
+            // 
+            // 
             this.dateEdit_DocDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_DocDate.Size = new System.Drawing.Size(306, 20);
@@ -413,6 +425,9 @@ namespace PointOfSale
             this.btnEdit_CurrAccCode.Location = new System.Drawing.Point(550, 12);
             this.btnEdit_CurrAccCode.MenuManager = this.RibbonControl_Root;
             this.btnEdit_CurrAccCode.Name = "btnEdit_CurrAccCode";
+            // 
+            // 
+            // 
             this.btnEdit_CurrAccCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btnEdit_CurrAccCode.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)(((DevExpress.XtraEditors.ShowNullValuePromptOptions.EmptyValue | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused) 
@@ -436,6 +451,9 @@ namespace PointOfSale
             this.lookUpEdit_OfficeCode.Location = new System.Drawing.Point(550, 36);
             this.lookUpEdit_OfficeCode.MenuManager = this.RibbonControl_Root;
             this.lookUpEdit_OfficeCode.Name = "lookUpEdit_OfficeCode";
+            // 
+            // 
+            // 
             this.lookUpEdit_OfficeCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit_OfficeCode.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -454,6 +472,9 @@ namespace PointOfSale
             this.lookUpEdit_StoreCode.Location = new System.Drawing.Point(550, 60);
             this.lookUpEdit_StoreCode.MenuManager = this.RibbonControl_Root;
             this.lookUpEdit_StoreCode.Name = "lookUpEdit_StoreCode";
+            // 
+            // 
+            // 
             this.lookUpEdit_StoreCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit_StoreCode.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -473,6 +494,9 @@ namespace PointOfSale
             this.dateEdit_DocTime.Location = new System.Drawing.Point(126, 108);
             this.dateEdit_DocTime.MenuManager = this.RibbonControl_Root;
             this.dateEdit_DocTime.Name = "dateEdit_DocTime";
+            // 
+            // 
+            // 
             this.dateEdit_DocTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_DocTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;

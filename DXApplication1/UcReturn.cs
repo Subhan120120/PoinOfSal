@@ -17,10 +17,9 @@ namespace PointOfSale
         public Guid returnInvoiceHeaderId;
         public Guid invoiceHeaderId;
         public Guid invoiceLineID;
-
         
         EfMethods efMethods = new EfMethods();
-        AdoMethods adoMethods = new AdoMethods();
+
         public UcReturn()
         {
             InitializeComponent();
@@ -76,7 +75,7 @@ namespace PointOfSale
                         {
                             if (!efMethods.InvoiceHeaderExist(returnInvoiceHeaderId)) //if invoiceHeader doesnt exist
                             {
-                                string NewDocNum = adoMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                                string NewDocNum = efMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
                                 TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
                                 {
                                     InvoiceHeaderId = returnInvoiceHeaderId,

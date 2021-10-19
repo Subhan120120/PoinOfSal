@@ -226,7 +226,16 @@ namespace PointOfSale.Models
                 entity.Property(e => e.ProcessDescription).HasDefaultValueSql("space(0)");
             });
 
-            modelBuilder.Entity<DcProduct>(entity =>
+            modelBuilder.Entity<DcProcess>().HasData(
+                new DcProcess { ProcessCode = "RS", ProcessDescription = "Pərakəndə Satış" },
+                new DcProcess { ProcessCode = "RP", ProcessDescription = "Pərakəndə Alış" },
+                new DcProcess { ProcessCode = "P", ProcessDescription = "Ödəmə" },
+                new DcProcess { ProcessCode = "CA", ProcessDescription = "Cari" },
+                new DcProcess { ProcessCode = "SB", ProcessDescription = "Toptan Alış" },
+                new DcProcess { ProcessCode = "W", ProcessDescription = "Toptan Satış" }
+                );
+
+                modelBuilder.Entity<DcProduct>(entity =>
             {
                 entity.HasIndex(e => e.ProductTypeCode)
                     .HasName("IX_ProductTypeCode");

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace PointOfSale
 {
@@ -358,18 +359,18 @@ namespace PointOfSale
 
         private void btn_ReportZ_Click(object sender, EventArgs e)
         {
-            string asdasd = "909f8d59-ab84-4aec-856b-a47c300f3c70";
-            Guid ownerIdGuid = new Guid(asdasd);
+            DataTable trInvoiceLines = adoMethods.SelectInvoiceLines(DateTime.Now.Date, DateTime.Now.Date);
+            DataTable trPaymentLines = adoMethods.SelectPaymentLines(DateTime.Now.Date, DateTime.Now.Date);
 
-            DataTable trInvoiceLines = adoMethods.SelectInvoiceLines(ownerIdGuid);
-            DataTable trInvoiceHeaders = adoMethods.SelectInvoiceHeaders(ownerIdGuid);
+
+            //object[] objInvoiceHeaders = efMethods.SelectInvoiceLineForReport(invoiceHeaderId).Cast<object>().ToArray();
 
             trInvoiceLines.TableName = nameof(trInvoiceLines);
-            trInvoiceHeaders.TableName = nameof(trInvoiceHeaders);
+            trPaymentLines.TableName = nameof(trPaymentLines);
 
             DataSet dataSet = new DataSet();
             dataSet.Tables.Add(trInvoiceLines);
-            dataSet.Tables.Add(trInvoiceHeaders);
+            dataSet.Tables.Add(trPaymentLines);
 
 
 
