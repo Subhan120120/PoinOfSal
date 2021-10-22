@@ -499,7 +499,7 @@ namespace PointOfSale.Migrations
                     LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
                     InvoiceHeaderId = table.Column<Guid>(nullable: true, defaultValueSql: "space(0)"),
                     DocumentNumber = table.Column<string>(nullable: true, defaultValueSql: "space(0)"),
-                    DocumentDate = table.Column<DateTime>(type: "date", nullable: false, defaultValue: new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)),
+                    DocumentDate = table.Column<DateTime>(type: "date", nullable: false, defaultValueSql: "getdate()"),
                     DocumentTime = table.Column<TimeSpan>(type: "time(0)", nullable: false, defaultValueSql: "'00:00:00'"),
                     InvoiceNumber = table.Column<string>(maxLength: 30, nullable: false, defaultValueSql: "space(0)"),
                     CurrAccCode = table.Column<string>(maxLength: 30, nullable: false, defaultValueSql: "space(0)"),
@@ -592,6 +592,19 @@ namespace PointOfSale.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "DcProcesses",
+                columns: new[] { "ProcessCode", "LastNumber", "ProcessDescription" },
+                values: new object[,]
+                {
+                    { "W", null, "Toptan Satış" },
+                    { "SB", null, "Toptan Alış" },
+                    { "CA", null, "Cari" },
+                    { "P", null, "Ödəmə" },
+                    { "RP", null, "Pərakəndə Alış" },
+                    { "RS", null, "Pərakəndə Satış" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "DcProductTypes",
                 columns: new[] { "ProductTypeCode", "ProductTypeDesc" },
                 values: new object[] { (byte)1, "Məhsul" });
@@ -625,11 +638,11 @@ namespace PointOfSale.Migrations
 
             migrationBuilder.InsertData(
                 table: "DcCurrAccs",
-                columns: new[] { "CurrAccCode", "CompanyCode", "CurrAccTypeCode", "CustomerPosDiscountRate", "CustomerTypeCode", "FirstName", "IsDisabled", "LastName", "PhoneNum", "RowGuid", "VendorTypeCode" },
+                columns: new[] { "CurrAccCode", "CompanyCode", "CurrAccTypeCode", "CustomerPosDiscountRate", "CustomerTypeCode", "FirstName", "IsDisabled", "LastName", "Password", "PhoneNum", "RowGuid", "VendorTypeCode" },
                 values: new object[,]
                 {
-                    { "CA-1", (byte)0, (byte)1, 0.0, (byte)0, "Sübhan", false, "Hüseynzadə", "0519678909", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 },
-                    { "CA-2", (byte)0, (byte)2, 0.0, (byte)0, "Orxan", false, "Hüseynzadə", "0773628800", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 }
+                    { "CA-1", (byte)0, (byte)1, 0.0, (byte)0, "Sübhan", false, "Hüseynzadə", "123", "0519678909", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 },
+                    { "CA-2", (byte)0, (byte)2, 0.0, (byte)0, "Orxan", false, "Hüseynzadə", "456", "0773628800", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 }
                 });
 
             migrationBuilder.InsertData(

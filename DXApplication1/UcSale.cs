@@ -1,13 +1,15 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using DevExpress.DataAccess.ConnectionParameters;
+using DevExpress.DataAccess.Sql;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
-using PointOfSale.Models;
-using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
-using System.Collections.Generic;
+using PointOfSale.Models;
+using System;
 using System.Data;
-using System.Linq;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace PointOfSale
 {
@@ -275,7 +277,6 @@ namespace PointOfSale
             SimpleButton simpleButton = (SimpleButton)sender;
             DcCurrAcc DcCurrAcc = new DcCurrAcc();
 
-
             if (simpleButton.Name == "btn_CustomerEdit")
             {
                 if (!string.IsNullOrEmpty(txtEdit_CustomerCode.Text))
@@ -320,6 +321,38 @@ namespace PointOfSale
             }
         }
 
+        private void btn_CustomerSearch_Click(object sender, EventArgs e)
+        {
+            using (FormCurrAccList form = new FormCurrAccList())
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
+                    {
+                        string NewDocNum = efMethods.GetNextDocNum("RS", "DocumentNumber", "TrInvoiceHeaders");
+                        TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader()
+                        {
+                            InvoiceHeaderId = invoiceHeaderId,
+                            ProcessCode = "RS",
+                            DocumentNumber = NewDocNum,
+                        };
+                        efMethods.InsertInvoiceHeader(TrInvoiceHeader);
+                    }
+
+                    int result = efMethods.UpdateInvoiceCurrAccCode(invoiceHeaderId, form.DcCurrAcc.CurrAccCode);
+
+                    if (result >= 0)
+                    {
+                        txtEdit_CustomerCode.EditValue = form.DcCurrAcc.CurrAccCode;
+                        txtEdit_BonCardNum.EditValue = form.DcCurrAcc.BonusCardNum;
+                        txtEdit_CustomerName.EditValue = form.DcCurrAcc.FirstName + " " + form.DcCurrAcc.LastName;
+                        txtEdit_CustomerAddress.EditValue = form.DcCurrAcc.Address;
+                        txtEdit_CustomerPhoneNum.EditValue = form.DcCurrAcc.PhoneNum;
+                    }
+                }
+            }
+        }
+
         private void gC_Sale_DoubleClick(object sender, EventArgs e)
         {
             if (gV_InvoiceLine.FocusedColumn == col_Qty)
@@ -357,27 +390,32 @@ namespace PointOfSale
             }
         }
 
+        private string subConnString = Properties.Settings.Default.subConnString;
+
         private void btn_ReportZ_Click(object sender, EventArgs e)
         {
             DataTable trInvoiceLines = adoMethods.SelectInvoiceLines(DateTime.Now.Date, DateTime.Now.Date);
             DataTable trPaymentLines = adoMethods.SelectPaymentLines(DateTime.Now.Date, DateTime.Now.Date);
 
-
             //object[] objInvoiceHeaders = efMethods.SelectInvoiceLineForReport(invoiceHeaderId).Cast<object>().ToArray();
 
-            trInvoiceLines.TableName = nameof(trInvoiceLines);
-            trPaymentLines.TableName = nameof(trPaymentLines);
-
             DataSet dataSet = new DataSet();
-            dataSet.Tables.Add(trInvoiceLines);
-            dataSet.Tables.Add(trPaymentLines);
+            dataSet.Tables.AddRange(new DataTable[] { trInvoiceLines, trPaymentLines });
 
+            CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
+            SqlDataSource dataSource = new SqlDataSource(connectionParameters);
 
+            DsMethods dsMethods = new DsMethods();
+            SqlQuery sqlQuerySale = dsMethods.SelectInvoiceLines(DateTime.Now.Date, DateTime.Now.Date);
+            SqlQuery sqlQueryPayment = dsMethods.SelectPaymentLines(DateTime.Now.Date, DateTime.Now.Date);
+
+            dataSource.Queries.AddRange(new SqlQuery[] { sqlQuerySale, sqlQueryPayment });
+            dataSource.Fill();
 
             string designPath = reportClass.SelectDesign();
             if (!string.IsNullOrEmpty(designPath))
             {
-                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(dataSet, designPath));
+                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(dataSource, designPath));
                 designTool.ShowRibbonDesignerDialog();
             }
         }

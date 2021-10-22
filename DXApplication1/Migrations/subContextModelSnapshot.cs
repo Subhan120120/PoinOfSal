@@ -1307,7 +1307,7 @@ namespace PointOfSale.Migrations
                     b.Property<DateTime>("DocumentDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("date")
-                        .HasDefaultValue(new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("DocumentNumber")
                         .ValueGeneratedOnAdd()

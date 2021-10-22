@@ -691,30 +691,30 @@ namespace PointOfSale
             // txtEdit_CustomerPhoneNum
             // 
             this.txtEdit_CustomerPhoneNum.Enabled = false;
-            this.txtEdit_CustomerPhoneNum.Location = new System.Drawing.Point(837, 126);
+            this.txtEdit_CustomerPhoneNum.Location = new System.Drawing.Point(846, 126);
             this.txtEdit_CustomerPhoneNum.Name = "txtEdit_CustomerPhoneNum";
             this.txtEdit_CustomerPhoneNum.Properties.AllowFocused = false;
-            this.txtEdit_CustomerPhoneNum.Size = new System.Drawing.Size(228, 20);
+            this.txtEdit_CustomerPhoneNum.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_CustomerPhoneNum.StyleController = this.lC_InvoiceLine;
             this.txtEdit_CustomerPhoneNum.TabIndex = 37;
             // 
             // txtEdit_CustomerAddress
             // 
             this.txtEdit_CustomerAddress.Enabled = false;
-            this.txtEdit_CustomerAddress.Location = new System.Drawing.Point(837, 153);
+            this.txtEdit_CustomerAddress.Location = new System.Drawing.Point(846, 153);
             this.txtEdit_CustomerAddress.Name = "txtEdit_CustomerAddress";
             this.txtEdit_CustomerAddress.Properties.AllowFocused = false;
-            this.txtEdit_CustomerAddress.Size = new System.Drawing.Size(228, 20);
+            this.txtEdit_CustomerAddress.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_CustomerAddress.StyleController = this.lC_InvoiceLine;
             this.txtEdit_CustomerAddress.TabIndex = 38;
             // 
             // txtEdit_CustomerName
             // 
             this.txtEdit_CustomerName.Enabled = false;
-            this.txtEdit_CustomerName.Location = new System.Drawing.Point(837, 99);
+            this.txtEdit_CustomerName.Location = new System.Drawing.Point(846, 99);
             this.txtEdit_CustomerName.Name = "txtEdit_CustomerName";
             this.txtEdit_CustomerName.Properties.AllowFocused = false;
-            this.txtEdit_CustomerName.Size = new System.Drawing.Size(228, 20);
+            this.txtEdit_CustomerName.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_CustomerName.StyleController = this.lC_InvoiceLine;
             this.txtEdit_CustomerName.TabIndex = 35;
             // 
@@ -750,6 +750,7 @@ namespace PointOfSale
             this.btn_CustomerSearch.StyleController = this.lC_InvoiceLine;
             this.btn_CustomerSearch.TabIndex = 32;
             this.btn_CustomerSearch.Text = "simpleButton3";
+            this.btn_CustomerSearch.Click += new System.EventHandler(this.btn_CustomerSearch_Click);
             // 
             // btn_CustomerEdit
             // 
@@ -822,19 +823,19 @@ namespace PointOfSale
             // txtEdit_BonCardNum
             // 
             this.txtEdit_BonCardNum.Enabled = false;
-            this.txtEdit_BonCardNum.Location = new System.Drawing.Point(837, 180);
+            this.txtEdit_BonCardNum.Location = new System.Drawing.Point(846, 180);
             this.txtEdit_BonCardNum.Name = "txtEdit_BonCardNum";
             this.txtEdit_BonCardNum.Properties.AllowFocused = false;
-            this.txtEdit_BonCardNum.Size = new System.Drawing.Size(228, 20);
+            this.txtEdit_BonCardNum.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_BonCardNum.StyleController = this.lC_InvoiceLine;
             this.txtEdit_BonCardNum.TabIndex = 39;
             // 
             // txtEdit_CustomerCode
             // 
             this.txtEdit_CustomerCode.Enabled = false;
-            this.txtEdit_CustomerCode.Location = new System.Drawing.Point(837, 72);
+            this.txtEdit_CustomerCode.Location = new System.Drawing.Point(846, 72);
             this.txtEdit_CustomerCode.Name = "txtEdit_CustomerCode";
-            this.txtEdit_CustomerCode.Size = new System.Drawing.Size(228, 20);
+            this.txtEdit_CustomerCode.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_CustomerCode.StyleController = this.lC_InvoiceLine;
             this.txtEdit_CustomerCode.TabIndex = 42;
             // 

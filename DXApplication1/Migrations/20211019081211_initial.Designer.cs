@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20211019064533_test324")]
-    partial class test324
+    [Migration("20211019081211_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1309,7 +1309,7 @@ namespace PointOfSale.Migrations
                     b.Property<DateTime>("DocumentDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("date")
-                        .HasDefaultValue(new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("DocumentNumber")
                         .ValueGeneratedOnAdd()

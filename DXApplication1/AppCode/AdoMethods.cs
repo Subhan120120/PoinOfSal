@@ -66,7 +66,10 @@ namespace PointOfSale
                 new SqlParameter("@StartDate", StartDate),
                 new SqlParameter("@EndDate", EndDate)
             };
-            return SqlGetDt(qry, paramArray);
+
+            DataTable dt = SqlGetDt(qry, paramArray);
+            dt.TableName = "trInvoiceLines";
+            return dt;
         }
 
         public DataTable SelectPaymentLines(DateTime StartDate, DateTime EndDate)
@@ -88,7 +91,9 @@ namespace PointOfSale
                 new SqlParameter("@EndDate", EndDate)
             };
 
-            return SqlGetDt(qry, paramArray);
+            DataTable dt = SqlGetDt(qry, paramArray);
+            dt.TableName = "trPaymentLines";
+            return dt;
         }
 
     }

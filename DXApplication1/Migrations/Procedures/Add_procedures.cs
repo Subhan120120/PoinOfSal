@@ -25,7 +25,7 @@ namespace PointOfSale.Migrations
 											EXEC sp_executesql @QryDocCount, N'@DocNum int OUTPUT', @DocCount OUTPUT
 									
 										END
-										SELECT @NextDoc
+										SELECT @NextDoc AS Value
 										UPDATE DcProcesses SET LastNumber = @LastNumber WHERE ProcessCode = @ProcessCode
 									END";
             migrationBuilder.Sql(createProcSql);

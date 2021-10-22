@@ -235,62 +235,62 @@ namespace PointOfSale.Models
                 new DcProcess { ProcessCode = "W", ProcessDescription = "Toptan Satış" }
                 );
 
-                modelBuilder.Entity<DcProduct>(entity =>
-            {
-                entity.HasIndex(e => e.ProductTypeCode)
-                    .HasName("IX_ProductTypeCode");
+            modelBuilder.Entity<DcProduct>(entity =>
+        {
+            entity.HasIndex(e => e.ProductTypeCode)
+                .HasName("IX_ProductTypeCode");
 
-                entity.Property(e => e.Barcode)
-                    .HasDefaultValueSql("space(0)");
+            entity.Property(e => e.Barcode)
+                .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.ProductDescription)
-                    .HasDefaultValueSql("space(0)");
+            entity.Property(e => e.ProductDescription)
+                .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.RetailPrice)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.RetailPrice)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.PurchasePrice)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.PurchasePrice)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.WholesalePrice)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.WholesalePrice)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.PosDiscount)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.PosDiscount)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.PromotionCode)
-                    .HasDefaultValueSql("space(0)");
+            entity.Property(e => e.PromotionCode)
+                .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.PromotionCode2)
-                    .HasDefaultValueSql("space(0)");
+            entity.Property(e => e.PromotionCode2)
+                .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.UsePos)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.UsePos)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.UseInternet)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.UseInternet)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.TaxRate)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.TaxRate)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.IsDisabled)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.IsDisabled)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.IsBlocked)
-                    .HasDefaultValueSql("0");
+            entity.Property(e => e.IsBlocked)
+                .HasDefaultValueSql("0");
 
-                entity.Property(e => e.CreatedDate)
-                    .HasDefaultValueSql("getdate()");
+            entity.Property(e => e.CreatedDate)
+                .HasDefaultValueSql("getdate()");
 
-                entity.Property(e => e.CreatedUserName)
-                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+            entity.Property(e => e.CreatedUserName)
+                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
 
-                entity.Property(e => e.LastUpdatedDate)
-                    .HasDefaultValueSql("getdate()");
+            entity.Property(e => e.LastUpdatedDate)
+                .HasDefaultValueSql("getdate()");
 
-                entity.Property(e => e.LastUpdatedUserName)
-                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
-            });
+            entity.Property(e => e.LastUpdatedUserName)
+                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+        });
 
             modelBuilder.Entity<DcProduct>().HasData(
                 new DcProduct { ProductTypeCode = 1, ProductCode = "test01", ProductDescription = "Papaq", Barcode = "123456", RetailPrice = 4.5 },
@@ -560,7 +560,7 @@ namespace PointOfSale.Models
                         .HasDefaultValueSql("'00:00:00'");
 
                 entity.Property(e => e.DocumentDate)
-                    .HasDefaultValue(new DateTime(1901, 1, 1));
+                    .HasDefaultValueSql("getdate()");
 
                 entity.Property(e => e.DocumentNumber)
                     .HasDefaultValueSql("space(0)");

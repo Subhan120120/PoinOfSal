@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20211014025330_test1")]
-    partial class test1
+    [Migration("20211019081350_initial2")]
+    partial class initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -395,6 +395,38 @@ namespace PointOfSale.Migrations
                     b.HasKey("ProcessCode");
 
                     b.ToTable("DcProcesses");
+
+                    b.HasData(
+                        new
+                        {
+                            ProcessCode = "RS",
+                            ProcessDescription = "Pərakəndə Satış"
+                        },
+                        new
+                        {
+                            ProcessCode = "RP",
+                            ProcessDescription = "Pərakəndə Alış"
+                        },
+                        new
+                        {
+                            ProcessCode = "P",
+                            ProcessDescription = "Ödəmə"
+                        },
+                        new
+                        {
+                            ProcessCode = "CA",
+                            ProcessDescription = "Cari"
+                        },
+                        new
+                        {
+                            ProcessCode = "SB",
+                            ProcessDescription = "Toptan Alış"
+                        },
+                        new
+                        {
+                            ProcessCode = "W",
+                            ProcessDescription = "Toptan Satış"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcProduct", b =>
@@ -1277,7 +1309,7 @@ namespace PointOfSale.Migrations
                     b.Property<DateTime>("DocumentDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("date")
-                        .HasDefaultValue(new DateTime(1901, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("DocumentNumber")
                         .ValueGeneratedOnAdd()

@@ -35,10 +35,15 @@ namespace PointOfSale
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                DcCurrAcc = new DcCurrAcc()
-                {
-                    CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString()
-                };
+                DcCurrAcc = new DcCurrAcc();
+
+                DcCurrAcc.CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString();
+                DcCurrAcc.FirstName = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["FirstName"]).ToString();
+                DcCurrAcc.LastName = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["LastName"]).ToString();
+                DcCurrAcc.Address = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Address"]).ToString();
+                DcCurrAcc.BonusCardNum = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["BonusCardNum"]).ToString();
+                DcCurrAcc.PhoneNum = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["PhoneNum"]).ToString();
+
                 DialogResult = DialogResult.OK;
             }
         }

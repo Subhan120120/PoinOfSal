@@ -40,6 +40,8 @@ namespace PointOfSale
             this.col_LastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_IdentityNum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_PhoneNum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Address = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_BonusCardNum = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gC_CurrAccList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_CurrAccList)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +66,9 @@ namespace PointOfSale
             this.col_FirstName,
             this.col_LastName,
             this.col_IdentityNum,
-            this.col_PhoneNum});
+            this.col_PhoneNum,
+            this.col_Address,
+            this.col_BonusCardNum});
             this.gV_CurrAccList.GridControl = this.gC_CurrAccList;
             this.gV_CurrAccList.Name = "gV_CurrAccList";
             this.gV_CurrAccList.DoubleClick += new System.EventHandler(this.gV_CurrAccList_DoubleClick);
@@ -125,6 +129,18 @@ namespace PointOfSale
             this.col_PhoneNum.Visible = true;
             this.col_PhoneNum.VisibleIndex = 6;
             // 
+            // col_Address
+            // 
+            this.col_Address.Caption = "Adres";
+            this.col_Address.FieldName = "Address";
+            this.col_Address.Name = "col_Address";
+            // 
+            // col_BonusCardNum
+            // 
+            this.col_BonusCardNum.Caption = "Bonus Kartı";
+            this.col_BonusCardNum.FieldName = "BonusCardNum";
+            this.col_BonusCardNum.Name = "col_BonusCardNum";
+            // 
             // FormCurrAccList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +167,7 @@ namespace PointOfSale
         private DevExpress.XtraGrid.Columns.GridColumn col_LastName;
         private DevExpress.XtraGrid.Columns.GridColumn col_IdentityNum;
         private DevExpress.XtraGrid.Columns.GridColumn col_PhoneNum;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Address;
+        private DevExpress.XtraGrid.Columns.GridColumn col_BonusCardNum;
     }
 }
