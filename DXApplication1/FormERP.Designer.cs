@@ -46,8 +46,9 @@ namespace PointOfSale
             this.aCE_ApproveInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Acounting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_HumanResource = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.aCE_Report = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCE_Reports = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Setting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCE_Report = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aC_Root)).BeginInit();
             this.SuspendLayout();
@@ -128,7 +129,7 @@ namespace PointOfSale
             this.aCE_Invoices,
             this.aCE_Acounting,
             this.aCE_HumanResource,
-            this.aCE_Report,
+            this.aCE_Reports,
             this.aCE_Setting});
             this.aC_Root.Location = new System.Drawing.Point(0, 158);
             this.aC_Root.Name = "aC_Root";
@@ -148,7 +149,7 @@ namespace PointOfSale
             this.aCE_Invoices.Expanded = true;
             this.aCE_Invoices.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Invoices.ImageOptions.SvgImage")));
             this.aCE_Invoices.Name = "aCE_Invoices";
-            this.aCE_Invoices.Text = "Element1";
+            this.aCE_Invoices.Text = "Report";
             // 
             // aCE_NewInvoice
             // 
@@ -156,7 +157,7 @@ namespace PointOfSale
             this.aCE_NewInvoice.Name = "aCE_NewInvoice";
             this.aCE_NewInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aCE_NewInvoice.Text = "Alış Fakturası";
-            this.aCE_NewInvoice.Click += new System.EventHandler(this.accordionControlElement2_Click);
+            this.aCE_NewInvoice.Click += new System.EventHandler(this.aCE_Invoice_Click);
             // 
             // aCE_shipment
             // 
@@ -164,7 +165,7 @@ namespace PointOfSale
             this.aCE_shipment.Name = "aCE_shipment";
             this.aCE_shipment.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aCE_shipment.Text = "Transfer Qəbzi";
-            this.aCE_shipment.Click += new System.EventHandler(this.aCEshipment_Click);
+            this.aCE_shipment.Click += new System.EventHandler(this.aCE_shipment_Click);
             // 
             // aCE_ApproveInvoice
             // 
@@ -187,12 +188,14 @@ namespace PointOfSale
             this.aCE_HumanResource.Name = "aCE_HumanResource";
             this.aCE_HumanResource.Text = "Element5";
             // 
-            // aCE_Report
+            // aCE_Reports
             // 
-            this.aCE_Report.Expanded = true;
-            this.aCE_Report.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Report.ImageOptions.SvgImage")));
-            this.aCE_Report.Name = "aCE_Report";
-            this.aCE_Report.Text = "Element2";
+            this.aCE_Reports.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aCE_Report});
+            this.aCE_Reports.Expanded = true;
+            this.aCE_Reports.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Report.ImageOptions.SvgImage")));
+            this.aCE_Reports.Name = "aCE_Reports";
+            this.aCE_Reports.Text = "Element2";
             // 
             // aCE_Setting
             // 
@@ -200,6 +203,14 @@ namespace PointOfSale
             this.aCE_Setting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Setting.ImageOptions.SvgImage")));
             this.aCE_Setting.Name = "aCE_Setting";
             this.aCE_Setting.Text = "Element4";
+            // 
+            // aCE_Report
+            // 
+            this.aCE_Report.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
+            this.aCE_Report.Name = "aCE_Report";
+            this.aCE_Report.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCE_Report.Text = "Report";
+            this.aCE_Report.Click += new System.EventHandler(this.aCE_Report_Click);
             // 
             // FormERP
             // 
@@ -239,7 +250,8 @@ namespace PointOfSale
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_ApproveInvoice;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Acounting;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_HumanResource;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Report;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Reports;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Setting;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Report;
     }
 }

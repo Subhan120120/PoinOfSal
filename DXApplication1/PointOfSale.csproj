@@ -227,6 +227,12 @@
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\20211019081211_initial.cs" />
     <Compile Include="Migrations\20211019081211_initial.designer.cs">
       <DependentUpon>20211019081211_initial.cs</DependentUpon>
@@ -235,11 +241,32 @@
     <Compile Include="Migrations\20211019081350_initial2.designer.cs">
       <DependentUpon>20211019081350_initial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220130210255_added-DcReport.cs" />
+    <Compile Include="Migrations\20220130210255_added-DcReport.designer.cs">
+      <DependentUpon>20220130210255_added-DcReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220130211206_added-DcReport3.cs" />
+    <Compile Include="Migrations\20220130211206_added-DcReport3.designer.cs">
+      <DependentUpon>20220130211206_added-DcReport3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220130212106_added-DcReport4.cs" />
+    <Compile Include="Migrations\20220130212106_added-DcReport4.designer.cs">
+      <DependentUpon>20220130212106_added-DcReport4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220130212229_added-DcReport5.cs" />
+    <Compile Include="Migrations\20220130212229_added-DcReport5.designer.cs">
+      <DependentUpon>20220130212229_added-DcReport5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220130212303_added-DcReport6.cs" />
+    <Compile Include="Migrations\20220130212303_added-DcReport6.designer.cs">
+      <DependentUpon>20220130212303_added-DcReport6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
       <DependentUpon>Add_procedures.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
+    <Compile Include="Models\Entity\DcReport.cs" />
     <Compile Include="Models\Entity\StringReturn.cs" />
     <Compile Include="Models\ViewModel\ReportVM.cs" />
     <Compile Include="Class3.cs" />
@@ -401,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormQty.resx">
       <DependentUpon>FormQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>

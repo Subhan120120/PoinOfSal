@@ -39,6 +39,7 @@ namespace PointOfSale.Models
         public DbSet<TrRoleClaim> TrRoleClaims { get; set; }
         public DbSet<TrShipmentHeader> TrShipmentHeaders { get; set; }
         public DbSet<TrShipmentLine> TrShipmentLines { get; set; }
+        public DbSet<DcReport> DcReports { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -236,61 +237,61 @@ namespace PointOfSale.Models
                 );
 
             modelBuilder.Entity<DcProduct>(entity =>
-        {
-            entity.HasIndex(e => e.ProductTypeCode)
-                .HasName("IX_ProductTypeCode");
+            {
+                entity.HasIndex(e => e.ProductTypeCode)
+                    .HasName("IX_ProductTypeCode");
 
-            entity.Property(e => e.Barcode)
-                .HasDefaultValueSql("space(0)");
+                entity.Property(e => e.Barcode)
+                    .HasDefaultValueSql("space(0)");
 
-            entity.Property(e => e.ProductDescription)
-                .HasDefaultValueSql("space(0)");
+                entity.Property(e => e.ProductDescription)
+                    .HasDefaultValueSql("space(0)");
 
-            entity.Property(e => e.RetailPrice)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.RetailPrice)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.PurchasePrice)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.PurchasePrice)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.WholesalePrice)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.WholesalePrice)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.PosDiscount)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.PosDiscount)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.PromotionCode)
-                .HasDefaultValueSql("space(0)");
+                entity.Property(e => e.PromotionCode)
+                    .HasDefaultValueSql("space(0)");
 
-            entity.Property(e => e.PromotionCode2)
-                .HasDefaultValueSql("space(0)");
+                entity.Property(e => e.PromotionCode2)
+                    .HasDefaultValueSql("space(0)");
 
-            entity.Property(e => e.UsePos)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.UsePos)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.UseInternet)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.UseInternet)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.TaxRate)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.TaxRate)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.IsDisabled)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.IsDisabled)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.IsBlocked)
-                .HasDefaultValueSql("0");
+                entity.Property(e => e.IsBlocked)
+                    .HasDefaultValueSql("0");
 
-            entity.Property(e => e.CreatedDate)
-                .HasDefaultValueSql("getdate()");
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
 
-            entity.Property(e => e.CreatedUserName)
-                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
 
-            entity.Property(e => e.LastUpdatedDate)
-                .HasDefaultValueSql("getdate()");
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
 
-            entity.Property(e => e.LastUpdatedUserName)
-                .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
-        });
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+            });
 
             modelBuilder.Entity<DcProduct>().HasData(
                 new DcProduct { ProductTypeCode = 1, ProductCode = "test01", ProductDescription = "Papaq", Barcode = "123456", RetailPrice = 4.5 },
@@ -412,6 +413,7 @@ namespace PointOfSale.Models
 
                 entity.Property(e => e.Version).HasColumnName("version");
             });
+
 
             modelBuilder.Entity<TrInvoiceHeader>(entity =>
             {
@@ -721,7 +723,20 @@ namespace PointOfSale.Models
                 entity.Property(e => e.LastUpdatedUserName)
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
+            modelBuilder.Entity<DcReport>(entity =>
+            {
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
 
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+            });
             OnModelCreatingPartial(modelBuilder);
         }
 

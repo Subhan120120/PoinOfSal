@@ -317,6 +317,28 @@
         c3ZnPgs=
 </value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="accordionControlElement1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAATdEVYdFRpdGxlAERlc2lnbjtSZXBvcnQcg+XoAAAD
+        QElEQVQ4T22Tf0zMYRzHH5EfiTLjL/9ZyW9SNDL+YFjmD4nr6q7UrqLo5KbkRyynqFvFGnd1Wj+uustS
+        ufXjrovKleWKrmTW4ZaorLuOLLR4e54vo43v9trzfJ/v8359P/t+ni9Zsy3APTarNjtB3vJOfKt5ODa7
+        voaXqNhLCHGhzKI4/Wau8LImmo6zRZl6AoCDHJPVVpW0WtBuHYPxtR3FzRYkKdsQeU1rOiRRRPoHir22
+        BYrXBiUWpIWn1U1SgatAWjtNkG1A3+gEHlgdUJtHkKXrx5W7ZqSWdSIxz4homR4xskbk1JgRfOk+TZBF
+        lJkUVt0MEpHewAk0vR9QYHoPac0LnMxrR+g1Pc6pOlH+ZBDGgY8wDY3j4NlKJliqlwZIjdcPsLkz4V/W
+        coLynhHI2weRUvkcx2+3gZ+m50Z2z9bZ84AENQx3UjRvDLlolu5jgrkkMPkeJ1B1D+NmywCS1GZE5T4C
+        76qOG5M0ZtxsHUApfb4rVgWLqQE/HM/QdGn3L8F+iQa59804cqGGllgFXmodBBlNOCxtQMSNViSUdEPW
+        ZEXx02FsFxVi5G0PpoYboUveyQTzyO441fetIZkFntuFOzz9hTu8D6Zc9D+qeLUnXo2g1HrEKk1I171G
+        TmM//MKU+GDtwOSgFnUSfyZwIZt5GWfoxJ3i/BvW/yVeu06JvINkHX4C+ZRvaD72xuRBXliB8aEufLNW
+        QBvvxwTzKVzIaYtQSTYL8olvSB5bY21y1+acvvvSWI2hVx0YsbSgv60CX95U47M5C9XHfZjAlfjQwCa+
+        gngHyznoNYMyr1jkk9GnOYev1nuYeKFAV0k8xOsX4ePj83AYJagUbWCCBX9OlFbs9ydceHRjZq9KjM89
+        OXA8kqBLfhjJvouRG7AMY83xGHsYh4rwNUyw8O+R/BV2yResk/UUxWH8WQbGHpyAnW52tCdjor8IE5Zi
+        2A3RsDdGQS1YyUJu0wVz8vmrZN0FMfjUeRU2QxRsdKNdL4JNHwmbLgK2hgiM1ofDVh+GMr7nPxW4sLI0
+        4auhEa7i3sAR6oXykBVcoDTYE2XBHijleUAZuLyFZaYL2Jd3pbhRWFv/B/uRGGxO202cfgL0jRs/SOuN
+        dwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="aCE_Report.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjIxLjEsIFZlcnNpb249MjEuMS42

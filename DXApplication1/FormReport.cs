@@ -1,6 +1,6 @@
 ﻿using DevExpress.Utils.VisualEffects;
-using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class FormTransfer : RibbonForm
+    public partial class FormReport : RibbonForm
     {
         Badge badge1;
         Badge badge2;
         AdornerUIManager adornerUIManager1;
-
-        public FormTransfer()
+        EfMethods efMethods = new EfMethods();
+        public FormReport()
         {
             InitializeComponent();
 
@@ -38,6 +38,23 @@ namespace PointOfSale
             {
                 return new AdornerElement[] { badge1, badge2 };
             }
+        }
+
+        private void FormReport_Load(object sender, EventArgs e)
+        {
+            WindowsFormsSettings.FilterCriteriaDisplayStyle = FilterCriteriaDisplayStyle.Text;
+            filterControl1.SourceControl = efMethods.SelectStores();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void filterControl1_Click(object sender, EventArgs e)
+        {
+            string filterString = DevExpress.Data.Filtering.CriteriaToWhereClauseHelper.GetMsSqlWhere(filterControl1.FilterCriteria);
+            label1.Text = filterString;
         }
     }
 }

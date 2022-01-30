@@ -17,12 +17,14 @@ namespace PointOfSale
     {
         FormInvoice formInvoice;
         FormTransfer formTransfer;
+        FormReport formReport;
         AdornerUIManager adornerUIManager1;
         IList<AdornerElement> adorners1;
 
         public FormERP()
         {
             InitializeComponent();
+
             adorners1 = new List<AdornerElement>();
             formInvoice = new FormInvoice();
             formInvoice.MdiParent = this;
@@ -31,6 +33,11 @@ namespace PointOfSale
             adorners1 = new List<AdornerElement>();
             formTransfer = new FormTransfer();
             formTransfer.MdiParent = this;
+            adornerUIManager1 = new AdornerUIManager(this.components);
+
+            adorners1 = new List<AdornerElement>();
+            formReport = new FormReport();
+            formReport.MdiParent = this;
             adornerUIManager1 = new AdornerUIManager(this.components);
         }
 
@@ -63,9 +70,10 @@ namespace PointOfSale
             adornerUIManager1.EndUpdate();
         }
 
-        private void accordionControlElement2_Click(object sender, EventArgs e)
+        private void aCE_Invoice_Click(object sender, EventArgs e)
         {
             FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
+
             if (formInvoice != null)
             {
                 formInvoice.BringToFront();
@@ -96,9 +104,10 @@ namespace PointOfSale
             }
         }
 
-        private void aCEshipment_Click(object sender, EventArgs e)
+        private void aCE_shipment_Click(object sender, EventArgs e)
         {
             FormTransfer formTransfer = Application.OpenForms["FormTransfer"] as FormTransfer;
+
             if (formTransfer != null)
             {
                 formTransfer.BringToFront();
@@ -123,9 +132,22 @@ namespace PointOfSale
 
         }
 
-        private void accordionControlElement2_Click_1(object sender, EventArgs e)
+        private void aCE_Report_Click(object sender, EventArgs e)
         {
+            FormReport formReport = Application.OpenForms["FormReport"] as FormReport;
 
+            if (formReport != null)
+            {
+                formReport.BringToFront();
+                formReport.Activate();
+            }
+            else
+            {
+                formReport = new FormReport();
+                formReport.MdiParent = this;
+                formReport.Show();
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+            }
         }
     }
 }
