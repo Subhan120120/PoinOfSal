@@ -57,12 +57,13 @@ namespace PointOfSale
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
+            this.ribbonControl.SearchEditItem,
             this.skinRibbonGalleryBarItem,
             this.skinPaletteDropDownButtonItem,
             this.bBI_MdiChildrenList,
             this.bBI_CloseWindows});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 11;
+            this.ribbonControl.MaxItemId = 12;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.OptionsTouch.ShowTouchUISelectorInQAT = true;
             this.ribbonControl.OptionsTouch.ShowTouchUISelectorVisibilityItemInQATMenu = true;
@@ -70,13 +71,6 @@ namespace PointOfSale
             this.ribbonPage_Home});
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem);
-            // 
-            // 
-            // 
-            this.ribbonControl.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.ribbonControl.SearchEditItem.EditWidth = 150;
-            this.ribbonControl.SearchEditItem.Id = -5000;
-            this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.Size = new System.Drawing.Size(821, 158);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
@@ -95,7 +89,7 @@ namespace PointOfSale
             // 
             this.bBI_MdiChildrenList.Caption = "Aktiv Pencereler";
             this.bBI_MdiChildrenList.Id = 4;
-            this.bBI_MdiChildrenList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barMdiChildrenListItem1.ImageOptions.SvgImage")));
+            this.bBI_MdiChildrenList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_MdiChildrenList.ImageOptions.SvgImage")));
             this.bBI_MdiChildrenList.Name = "bBI_MdiChildrenList";
             // 
             // bBI_CloseWindows
@@ -142,9 +136,8 @@ namespace PointOfSale
             this.aC_Root.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.aC_Root.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.aC_Root.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.aC_Root.Size = new System.Drawing.Size(215, 428);
+            this.aC_Root.Size = new System.Drawing.Size(223, 428);
             this.aC_Root.TabIndex = 2;
-            this.aC_Root.Text = "accordionControl1";
             // 
             // aCE_Invoices
             // 
@@ -153,13 +146,13 @@ namespace PointOfSale
             this.aCE_shipment,
             this.aCE_ApproveInvoice});
             this.aCE_Invoices.Expanded = true;
-            this.aCE_Invoices.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.aCE_Invoices.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Invoices.ImageOptions.SvgImage")));
             this.aCE_Invoices.Name = "aCE_Invoices";
             this.aCE_Invoices.Text = "Element1";
             // 
             // aCE_NewInvoice
             // 
-            this.aCE_NewInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Invoice.ImageOptions.SvgImage")));
+            this.aCE_NewInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_NewInvoice.ImageOptions.SvgImage")));
             this.aCE_NewInvoice.Name = "aCE_NewInvoice";
             this.aCE_NewInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aCE_NewInvoice.Text = "Alış Fakturası";
@@ -183,28 +176,28 @@ namespace PointOfSale
             // aCE_Acounting
             // 
             this.aCE_Acounting.Expanded = true;
-            this.aCE_Acounting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement3.ImageOptions.SvgImage")));
+            this.aCE_Acounting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Acounting.ImageOptions.SvgImage")));
             this.aCE_Acounting.Name = "aCE_Acounting";
             this.aCE_Acounting.Text = "Element3";
             // 
             // aCE_HumanResource
             // 
             this.aCE_HumanResource.Expanded = true;
-            this.aCE_HumanResource.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
+            this.aCE_HumanResource.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_HumanResource.ImageOptions.SvgImage")));
             this.aCE_HumanResource.Name = "aCE_HumanResource";
             this.aCE_HumanResource.Text = "Element5";
             // 
             // aCE_Report
             // 
             this.aCE_Report.Expanded = true;
-            this.aCE_Report.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
+            this.aCE_Report.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Report.ImageOptions.SvgImage")));
             this.aCE_Report.Name = "aCE_Report";
             this.aCE_Report.Text = "Element2";
             // 
             // aCE_Setting
             // 
             this.aCE_Setting.Expanded = true;
-            this.aCE_Setting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement4.ImageOptions.SvgImage")));
+            this.aCE_Setting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Setting.ImageOptions.SvgImage")));
             this.aCE_Setting.Name = "aCE_Setting";
             this.aCE_Setting.Text = "Element4";
             // 

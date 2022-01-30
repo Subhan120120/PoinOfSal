@@ -33,10 +33,10 @@ namespace PointOfSale
         {
             using (subContext db = new subContext())
             {
-                List<TrInvoiceLine> InvoiceLines = db.TrInvoiceLines.Include(x => x.DcProduct)
-                                        .Where(x => x.InvoiceHeaderId == invoiceHeaderId)
-                                        .OrderBy(x => x.CreatedDate)
-                                        .ToList();
+                  List<TrInvoiceLine> InvoiceLines = db.TrInvoiceLines.Include(x => x.DcProduct)
+                                                                    .Where(x => x.InvoiceHeaderId == invoiceHeaderId)
+                                                                    .OrderBy(x => x.CreatedDate)
+                                                                    .ToList();
 
                 InvoiceLines.ForEach(x =>
                 {

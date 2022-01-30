@@ -540,13 +540,12 @@ namespace PointOfSale
             // col_ProductDesc
             // 
             this.col_ProductDesc.Caption = "Məhsul";
-            this.col_ProductDesc.FieldName = "ProductDescription";
+            this.col_ProductDesc.FieldName = "DcProduct.ProductDescription";
             this.col_ProductDesc.Name = "col_ProductDesc";
             this.col_ProductDesc.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "ProductDescription", "Toplam:")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "DcProduct.ProductDescription", "Toplam:")});
             this.col_ProductDesc.Visible = true;
             this.col_ProductDesc.VisibleIndex = 0;
-            this.col_ProductDesc.Width = 230;
             // 
             // col_Qty
             // 
@@ -1758,7 +1757,6 @@ namespace PointOfSale
         private ImageComboBoxEdit imageComboEdit_Barcode;
         private GridControl gC_InvoiceLine;
         private GridView gV_InvoiceLine;
-        private GridColumn col_ProductDesc;
         private GridColumn col_Qty;
         private GridColumn col_Price;
         private GridColumn col_NetAmount;
@@ -1830,5 +1828,6 @@ namespace PointOfSale
         private GridColumn col_SalesPersonCode;
         private SimpleButton btn_Num5;
         private LayoutControlItem lCI_Num5;
+        private GridColumn col_ProductDesc;
     }
 }

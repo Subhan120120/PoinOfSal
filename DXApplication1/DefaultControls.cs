@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class DefaultControls : DevExpress.XtraEditors.XtraForm
+    public partial class DefaultControls : XtraForm
     {
         public DefaultControls()
         {

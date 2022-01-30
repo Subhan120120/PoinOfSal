@@ -373,12 +373,6 @@
     <Compile Include="DefaultControls.Designer.cs">
       <DependentUpon>DefaultControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -442,9 +436,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DefaultControls.resx">
       <DependentUpon>DefaultControls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
