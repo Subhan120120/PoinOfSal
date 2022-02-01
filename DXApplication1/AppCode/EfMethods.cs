@@ -33,10 +33,10 @@ namespace PointOfSale
         {
             using (subContext db = new subContext())
             {
-                  List<TrInvoiceLine> InvoiceLines = db.TrInvoiceLines.Include(x => x.DcProduct)
-                                                                    .Where(x => x.InvoiceHeaderId == invoiceHeaderId)
-                                                                    .OrderBy(x => x.CreatedDate)
-                                                                    .ToList();
+                List<TrInvoiceLine> InvoiceLines = db.TrInvoiceLines.Include(x => x.DcProduct)
+                                                                  .Where(x => x.InvoiceHeaderId == invoiceHeaderId)
+                                                                  .OrderBy(x => x.CreatedDate)
+                                                                  .ToList();
 
                 InvoiceLines.ForEach(x =>
                 {
@@ -416,6 +416,43 @@ namespace PointOfSale
                     .ThenInclude(x => x.DcCurrAcc)
                     .Where(o => o.TrCurrAccRoles.Any(x => x.CurrAccCode == CurrAccCode))
                                  .ToList();
+            }
+        }
+
+        public int UpdateReportLayout(Guid id, string reportLayout)
+        {
+            using (subContext db = new subContext())
+            {
+                DcReport dcReport = new DcReport() { Id = id, ReportLayout = reportLayout };
+                db.Entry(dcReport).Property(x => x.ReportLayout).IsModified = true;
+                return db.SaveChanges();
+            }
+        }
+
+        public DcReport SelectReport(Guid id)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.DcReports.FirstOrDefault(x => x.Id == id);
+            }
+        }
+
+        public int UpdateReportFilter(Guid id, string reportFilter)
+        {
+            using (subContext db = new subContext())
+            {
+                DcReport dcReport = new DcReport() { Id = id, ReportFilter = reportFilter };
+                db.Entry(dcReport).Property(x => x.ReportFilter).IsModified = true;
+                return db.SaveChanges();
+            }
+        }
+
+        public int UpdateReport(DcReport dcReport)
+        {
+            using (subContext db = new subContext())
+            {
+                db.DcReports.Update(dcReport);
+                return db.SaveChanges();
             }
         }
     }

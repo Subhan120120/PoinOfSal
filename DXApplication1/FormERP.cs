@@ -3,21 +3,12 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PointOfSale
 {
     public partial class FormERP : RibbonForm
     {
-        FormInvoice formInvoice;
-        FormTransfer formTransfer;
-        FormReport formReport;
         AdornerUIManager adornerUIManager1;
         IList<AdornerElement> adorners1;
 
@@ -26,18 +17,6 @@ namespace PointOfSale
             InitializeComponent();
 
             adorners1 = new List<AdornerElement>();
-            formInvoice = new FormInvoice();
-            formInvoice.MdiParent = this;
-            adornerUIManager1 = new AdornerUIManager(this.components);
-
-            adorners1 = new List<AdornerElement>();
-            formTransfer = new FormTransfer();
-            formTransfer.MdiParent = this;
-            adornerUIManager1 = new AdornerUIManager(this.components);
-
-            adorners1 = new List<AdornerElement>();
-            formReport = new FormReport();
-            formReport.MdiParent = this;
             adornerUIManager1 = new AdornerUIManager(this.components);
         }
 
@@ -122,19 +101,18 @@ namespace PointOfSale
             }
         }
 
-        private void FormERP_MdiChildActivate(object sender, EventArgs e)
+        private void FormERP_MdiChildActivate(object sender, EventArgs e) 
         {
             try
             {
-                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0]; // child form acanda ona aid olan ribbon acilsin
             }
             catch (Exception) { }
-
         }
 
         private void aCE_Report_Click(object sender, EventArgs e)
         {
-            FormReport formReport = Application.OpenForms["FormReport"] as FormReport;
+            FormReportFilter formReport = Application.OpenForms["FormReportFilter"] as FormReportFilter;
 
             if (formReport != null)
             {
@@ -143,7 +121,7 @@ namespace PointOfSale
             }
             else
             {
-                formReport = new FormReport();
+                formReport = new FormReportFilter();
                 formReport.MdiParent = this;
                 formReport.Show();
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];

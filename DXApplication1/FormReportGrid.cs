@@ -1,11 +1,11 @@
 ﻿using DevExpress.Utils.VisualEffects;
-using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
+using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +13,18 @@ using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class FormReport : RibbonForm
+    public partial class FormReportGrid : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         Badge badge1;
         Badge badge2;
         AdornerUIManager adornerUIManager1;
+        Guid reportId;
         EfMethods efMethods = new EfMethods();
-        public FormReport()
+
+        public FormReportGrid(Guid reportId)
         {
+            this.reportId = reportId;
+
             InitializeComponent();
 
             adornerUIManager1 = new AdornerUIManager(components);
@@ -40,21 +44,22 @@ namespace PointOfSale
             }
         }
 
-        private void FormReport_Load(object sender, EventArgs e)
-        {
-            WindowsFormsSettings.FilterCriteriaDisplayStyle = FilterCriteriaDisplayStyle.Text;
-            filterControl1.SourceControl = efMethods.SelectStores();
-        }
-
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Stream str = new MemoryStream();
+            gridView1.SaveLayoutToStream(str);
+            str.Seek(0, SeekOrigin.Begin);
+            StreamReader reader = new StreamReader(str);
+            string layourTxt = reader.ReadToEnd();
+            efMethods.UpdateReportLayout(reportId, layourTxt);
         }
 
-        private void filterControl1_Click(object sender, EventArgs e)
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string filterString = DevExpress.Data.Filtering.CriteriaToWhereClauseHelper.GetMsSqlWhere(filterControl1.FilterCriteria);
-            label1.Text = filterString;
+            DcReport dcReport = efMethods.SelectReport(reportId);
+            byte[] byteArray = Encoding.ASCII.GetBytes(dcReport.ReportLayout);
+            MemoryStream stream = new MemoryStream(byteArray);
+            gridView1.RestoreLayoutFromStream(stream);
         }
     }
 }

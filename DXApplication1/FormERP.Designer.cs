@@ -47,8 +47,8 @@ namespace PointOfSale
             this.aCE_Acounting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_HumanResource = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Reports = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.aCE_Setting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Report = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCE_Setting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aC_Root)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +72,7 @@ namespace PointOfSale
             this.ribbonPage_Home});
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem);
-            this.ribbonControl.Size = new System.Drawing.Size(821, 158);
+            this.ribbonControl.Size = new System.Drawing.Size(1153, 158);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
             // skinRibbonGalleryBarItem
@@ -117,10 +117,10 @@ namespace PointOfSale
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 586);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 628);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(821, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1153, 24);
             // 
             // aC_Root
             // 
@@ -137,7 +137,7 @@ namespace PointOfSale
             this.aC_Root.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.aC_Root.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.aC_Root.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.aC_Root.Size = new System.Drawing.Size(223, 428);
+            this.aC_Root.Size = new System.Drawing.Size(223, 470);
             this.aC_Root.TabIndex = 2;
             // 
             // aCE_Invoices
@@ -193,9 +193,17 @@ namespace PointOfSale
             this.aCE_Reports.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.aCE_Report});
             this.aCE_Reports.Expanded = true;
-            this.aCE_Reports.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Report.ImageOptions.SvgImage")));
+            this.aCE_Reports.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Reports.ImageOptions.SvgImage")));
             this.aCE_Reports.Name = "aCE_Reports";
             this.aCE_Reports.Text = "Element2";
+            // 
+            // aCE_Report
+            // 
+            this.aCE_Report.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aCE_Report.ImageOptions.Image")));
+            this.aCE_Report.Name = "aCE_Report";
+            this.aCE_Report.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCE_Report.Text = "Report";
+            this.aCE_Report.Click += new System.EventHandler(this.aCE_Report_Click);
             // 
             // aCE_Setting
             // 
@@ -204,19 +212,11 @@ namespace PointOfSale
             this.aCE_Setting.Name = "aCE_Setting";
             this.aCE_Setting.Text = "Element4";
             // 
-            // aCE_Report
-            // 
-            this.aCE_Report.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
-            this.aCE_Report.Name = "aCE_Report";
-            this.aCE_Report.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aCE_Report.Text = "Report";
-            this.aCE_Report.Click += new System.EventHandler(this.aCE_Report_Click);
-            // 
             // FormERP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 610);
+            this.ClientSize = new System.Drawing.Size(1153, 652);
             this.Controls.Add(this.aC_Root);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);

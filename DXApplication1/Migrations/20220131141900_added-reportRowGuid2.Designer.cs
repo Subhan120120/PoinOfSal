@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220131141900_added-reportRowGuid2")]
+    partial class addedreportRowGuid2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -602,7 +604,7 @@ namespace PointOfSale.Migrations
 
             modelBuilder.Entity("PointOfSale.Models.DcReport", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("RowGuid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -630,9 +632,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
-                    b.Property<string>("ReportFilter")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ReportLayout")
                         .HasColumnType("nvarchar(max)");
 
@@ -642,7 +641,7 @@ namespace PointOfSale.Migrations
                     b.Property<string>("ReportQuery")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("RowGuid");
 
                     b.ToTable("DcReports");
                 });

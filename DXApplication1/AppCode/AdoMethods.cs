@@ -16,6 +16,23 @@ namespace PointOfSale
         private string subConnString = Properties.Settings.Default.subConnString;
         private SqlParameter[] paramArray = new SqlParameter[] { };
 
+        public int SqlExec(string query)
+        {
+            using (SqlConnection con = new SqlConnection(subConnString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result < 0)
+                        XtraMessageBox.Show("Data Əlavə edilməsində xəta baş verdi!");
+                    return result;
+                }
+            }
+        }
+
         public int SqlExec(string query, SqlParameter[] sqlParameters)
         {
             using (SqlConnection con = new SqlConnection(subConnString))
@@ -30,6 +47,19 @@ namespace PointOfSale
                     if (result < 0)
                         XtraMessageBox.Show("Data Əlavə edilməsində xəta baş verdi!");
                     return result;
+                }
+            }
+        }
+
+        public DataTable SqlGetDt(string query)
+        {
+            using (SqlConnection con = new SqlConnection(subConnString))
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(query, con))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
                 }
             }
         }
