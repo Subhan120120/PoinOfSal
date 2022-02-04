@@ -49,24 +49,6 @@ namespace PointOfSale
             adornerUIManager1.EndUpdate();
         }
 
-        private void aCE_Invoice_Click(object sender, EventArgs e)
-        {
-            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
-
-            if (formInvoice != null)
-            {
-                formInvoice.BringToFront();
-                formInvoice.Activate();
-            }
-            else
-            {
-                formInvoice = new FormInvoice();
-                formInvoice.MdiParent = this;
-                formInvoice.Show();
-                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
-            }
-        }
-
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
             CloseOpenChildForms();
@@ -124,6 +106,42 @@ namespace PointOfSale
                 formReport = new FormReportFilter();
                 formReport.MdiParent = this;
                 formReport.Show();
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+            }
+        }
+
+        private void aCE_Invoice_Click(object sender, EventArgs e)
+        {
+            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
+
+            if (formInvoice != null)
+            {
+                formInvoice.BringToFront();
+                formInvoice.Activate();
+            }
+            else
+            {
+                formInvoice = new FormInvoice();
+                formInvoice.MdiParent = this;
+                formInvoice.Show();
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+            }
+        }
+
+        private void aCE_CurrAccs_Click(object sender, EventArgs e)
+        {
+            FormCurrAccList form = Application.OpenForms["FormCurrAccList"] as FormCurrAccList;
+
+            if (form != null)
+            {
+                form.BringToFront();
+                form.Activate();
+            }
+            else
+            {
+                form = new FormCurrAccList();
+                form.MdiParent = this;
+                form.Show();
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }

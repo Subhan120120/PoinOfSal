@@ -4,15 +4,16 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using PointOfSale.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class FormCurrAccList : XtraForm
+    public partial class FormCurrAccList : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         EfMethods efMethods = new EfMethods();
-        public DcCurrAcc DcCurrAcc { get; set; }
+        public DcCurrAcc dcCurrAcc { get; set; }
 
         public FormCurrAccList()
         {
@@ -35,17 +36,25 @@ namespace PointOfSale
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                DcCurrAcc = new DcCurrAcc();
-
-                DcCurrAcc.CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString();
-                DcCurrAcc.FirstName = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["FirstName"]).ToString();
-                DcCurrAcc.LastName = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["LastName"]).ToString();
-                DcCurrAcc.Address = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Address"]).ToString();
-                DcCurrAcc.BonusCardNum = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["BonusCardNum"]).ToString();
-                DcCurrAcc.PhoneNum = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["PhoneNum"]).ToString();
+                dcCurrAcc = new DcCurrAcc();                
+                string CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString();
+                dcCurrAcc = efMethods.SelectCurrAcc(CurrAccCode);
 
                 DialogResult = DialogResult.OK;
+
+                FormCurrAcc form = new FormCurrAcc(dcCurrAcc);
+                form.Show();
             }
+        }
+
+        private void bBI_CurrAccNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void bBI_CurrAccEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

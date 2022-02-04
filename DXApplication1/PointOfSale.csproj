@@ -234,6 +234,12 @@
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
+    <Compile Include="FormCurrAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCurrAcc.Designer.cs">
+      <DependentUpon>FormCurrAcc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReportEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -441,6 +447,9 @@
     </Compile>
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCurrAcc.resx">
+      <DependentUpon>FormCurrAcc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCurrAccList.resx">
       <DependentUpon>FormCurrAccList.cs</DependentUpon>

@@ -339,15 +339,15 @@ namespace PointOfSale
                         efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }
 
-                    int result = efMethods.UpdateInvoiceCurrAccCode(invoiceHeaderId, form.DcCurrAcc.CurrAccCode);
+                    int result = efMethods.UpdateInvoiceCurrAccCode(invoiceHeaderId, form.dcCurrAcc.CurrAccCode);
 
                     if (result >= 0)
                     {
-                        txtEdit_CustomerCode.EditValue = form.DcCurrAcc.CurrAccCode;
-                        txtEdit_BonCardNum.EditValue = form.DcCurrAcc.BonusCardNum;
-                        txtEdit_CustomerName.EditValue = form.DcCurrAcc.FirstName + " " + form.DcCurrAcc.LastName;
-                        txtEdit_CustomerAddress.EditValue = form.DcCurrAcc.Address;
-                        txtEdit_CustomerPhoneNum.EditValue = form.DcCurrAcc.PhoneNum;
+                        txtEdit_CustomerCode.EditValue = form.dcCurrAcc.CurrAccCode;
+                        txtEdit_BonCardNum.EditValue = form.dcCurrAcc.BonusCardNum;
+                        txtEdit_CustomerName.EditValue = form.dcCurrAcc.FirstName + " " + form.dcCurrAcc.LastName;
+                        txtEdit_CustomerAddress.EditValue = form.dcCurrAcc.Address;
+                        txtEdit_CustomerPhoneNum.EditValue = form.dcCurrAcc.PhoneNum;
                     }
                 }
             }
@@ -429,7 +429,7 @@ namespace PointOfSale
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
                         Guid invoiceLineId = (Guid)gV_InvoiceLine.GetRowCellValue(rowIndx, "InvoiceLineId");
-                        efMethods.UpdateInvoiceSalesPerson(invoiceLineId, form.DcCurrAcc.CurrAccCode);
+                        efMethods.UpdateInvoiceSalesPerson(invoiceLineId, form.dcCurrAcc.CurrAccCode);
                         gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
                         gV_InvoiceLine.MoveLast();
                     }

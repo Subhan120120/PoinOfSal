@@ -55,9 +55,9 @@ namespace PointOfSale
 
         private void textEditCash_EditValueChanged(object sender, EventArgs e)
         {
-            txt_EditCash.DoValidate();
             decimal txtCash = Convert.ToDecimal(txt_EditCash.EditValue);
             cashLarge = txtCash;
+            txt_EditCash.DoValidate();
         }
 
         private void textEditCash_Validating(object sender, CancelEventArgs e)
@@ -82,9 +82,9 @@ namespace PointOfSale
 
         private void textEditCashless_EditValueChanged(object sender, EventArgs e)
         {
-            txtEdit_Cashless.DoValidate();
             decimal txtCashless = Convert.ToDecimal(txtEdit_Cashless.EditValue);
             cashless = txtCashless;
+            txtEdit_Cashless.DoValidate();
         }
 
         private void textEditCashless_Validating(object sender, CancelEventArgs e)
@@ -109,9 +109,9 @@ namespace PointOfSale
 
         private void textEditBonus_EditValueChanged(object sender, EventArgs e)
         {
-            txtEdit_Bonus.DoValidate();
             decimal txtBonus = Convert.ToDecimal(txtEdit_Bonus.EditValue);
             bonus = txtBonus;
+            txtEdit_Bonus.DoValidate();
         }
 
         private void textEditBonus_Validating(object sender, CancelEventArgs e)

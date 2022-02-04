@@ -49,6 +49,7 @@ namespace PointOfSale
             this.aCE_Reports = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Report = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Setting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCE_CurrAccs = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aC_Root)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +73,7 @@ namespace PointOfSale
             this.ribbonPage_Home});
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem);
-            this.ribbonControl.Size = new System.Drawing.Size(1153, 158);
+            this.ribbonControl.Size = new System.Drawing.Size(1023, 158);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
             // skinRibbonGalleryBarItem
@@ -117,10 +118,10 @@ namespace PointOfSale
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 628);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 608);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1153, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1023, 24);
             // 
             // aC_Root
             // 
@@ -137,7 +138,7 @@ namespace PointOfSale
             this.aC_Root.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.aC_Root.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.aC_Root.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.aC_Root.Size = new System.Drawing.Size(223, 470);
+            this.aC_Root.Size = new System.Drawing.Size(223, 450);
             this.aC_Root.TabIndex = 2;
             // 
             // aCE_Invoices
@@ -207,16 +208,26 @@ namespace PointOfSale
             // 
             // aCE_Setting
             // 
+            this.aCE_Setting.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aCE_CurrAccs});
             this.aCE_Setting.Expanded = true;
             this.aCE_Setting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Setting.ImageOptions.SvgImage")));
             this.aCE_Setting.Name = "aCE_Setting";
             this.aCE_Setting.Text = "Element4";
             // 
+            // aCE_CurrAccs
+            // 
+            this.aCE_CurrAccs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.aCE_CurrAccs.Name = "aCE_CurrAccs";
+            this.aCE_CurrAccs.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCE_CurrAccs.Text = "İstifadəçilər";
+            this.aCE_CurrAccs.Click += new System.EventHandler(this.aCE_CurrAccs_Click);
+            // 
             // FormERP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 652);
+            this.ClientSize = new System.Drawing.Size(1023, 632);
             this.Controls.Add(this.aC_Root);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
@@ -253,5 +264,6 @@ namespace PointOfSale
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Reports;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Setting;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Report;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_CurrAccs;
     }
 }

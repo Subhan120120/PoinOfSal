@@ -82,7 +82,7 @@ namespace PointOfSale
             using (FormCurrAccList form = new FormCurrAccList())
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
-                    btnEdit_CurrAccCode.EditValue = form.DcCurrAcc.CurrAccCode;
+                    btnEdit_CurrAccCode.EditValue = form.dcCurrAcc.CurrAccCode;
             }
         }
 

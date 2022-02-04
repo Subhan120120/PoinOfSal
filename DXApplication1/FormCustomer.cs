@@ -54,5 +54,10 @@ namespace PointOfSale
 
             DialogResult = DialogResult.OK;
         }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }

@@ -31,6 +31,8 @@ namespace PointOfSale
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomer));
             this.lC_Root = new DevExpress.XtraLayout.LayoutControl();
+            this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.txtEdit_BonusCard = new DevExpress.XtraEditors.TextEdit();
             this.txtEdit_FirstName = new DevExpress.XtraEditors.TextEdit();
             this.txtEdit_LastName = new DevExpress.XtraEditors.TextEdit();
@@ -39,20 +41,20 @@ namespace PointOfSale
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.txtEdit_PhoneNum = new DevExpress.XtraEditors.TextEdit();
             this.dateEdit_BirthDate = new DevExpress.XtraEditors.DateEdit();
-            this.lCG_Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.txtEdit_CurrAccCode = new DevExpress.XtraEditors.TextEdit();
             this.lCI_CardNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_Name = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_Address = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_Ok = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_Cancel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lCI_Birthdate = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_PhoneNum = new DevExpress.XtraLayout.LayoutControlItem();
             this.lCI_Lastname = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtEdit_CurrAccCode = new DevExpress.XtraEditors.TextEdit();
             this.lCI_CurrAccCode = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).BeginInit();
             this.lC_Root.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BonusCard.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_FirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_LastName.Properties)).BeginInit();
@@ -60,17 +62,15 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_PhoneNum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_BirthDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_BirthDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CurrAccCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CardNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Name)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Address)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Ok)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Cancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Birthdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_PhoneNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Lastname)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CurrAccCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CurrAccCode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,35 +94,62 @@ namespace PointOfSale
             this.lC_Root.TabIndex = 0;
             this.lC_Root.Text = "layoutControl1";
             // 
+            // lCG_Root
+            // 
+            this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lCG_Root.GroupBordersVisible = false;
+            this.lCG_Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lCI_CardNum,
+            this.lCI_Name,
+            this.lCI_Address,
+            this.lCI_Ok,
+            this.lCI_Cancel,
+            this.emptySpaceItem1,
+            this.lCI_Birthdate,
+            this.lCI_PhoneNum,
+            this.lCI_Lastname,
+            this.lCI_CurrAccCode});
+            this.lCG_Root.Name = "lCG_Root";
+            this.lCG_Root.Size = new System.Drawing.Size(344, 303);
+            this.lCG_Root.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 222);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(168, 61);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // txtEdit_BonusCard
             // 
-            this.txtEdit_BonusCard.Location = new System.Drawing.Point(77, 36);
+            this.txtEdit_BonusCard.Location = new System.Drawing.Point(86, 36);
             this.txtEdit_BonusCard.Name = "txtEdit_BonusCard";
-            this.txtEdit_BonusCard.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_BonusCard.Size = new System.Drawing.Size(246, 20);
             this.txtEdit_BonusCard.StyleController = this.lC_Root;
             this.txtEdit_BonusCard.TabIndex = 4;
             // 
             // txtEdit_FirstName
             // 
-            this.txtEdit_FirstName.Location = new System.Drawing.Point(77, 60);
+            this.txtEdit_FirstName.Location = new System.Drawing.Point(86, 60);
             this.txtEdit_FirstName.Name = "txtEdit_FirstName";
-            this.txtEdit_FirstName.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_FirstName.Size = new System.Drawing.Size(246, 20);
             this.txtEdit_FirstName.StyleController = this.lC_Root;
             this.txtEdit_FirstName.TabIndex = 5;
             // 
             // txtEdit_LastName
             // 
-            this.txtEdit_LastName.Location = new System.Drawing.Point(77, 84);
+            this.txtEdit_LastName.Location = new System.Drawing.Point(86, 84);
             this.txtEdit_LastName.Name = "txtEdit_LastName";
-            this.txtEdit_LastName.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_LastName.Size = new System.Drawing.Size(246, 20);
             this.txtEdit_LastName.StyleController = this.lC_Root;
             this.txtEdit_LastName.TabIndex = 6;
             // 
             // memoEdit_Address
             // 
-            this.memoEdit_Address.Location = new System.Drawing.Point(77, 156);
+            this.memoEdit_Address.Location = new System.Drawing.Point(86, 156);
             this.memoEdit_Address.Name = "memoEdit_Address";
-            this.memoEdit_Address.Size = new System.Drawing.Size(255, 74);
+            this.memoEdit_Address.Size = new System.Drawing.Size(246, 74);
             this.memoEdit_Address.StyleController = this.lC_Root;
             this.memoEdit_Address.TabIndex = 8;
             // 
@@ -148,46 +175,40 @@ namespace PointOfSale
             this.btn_Cancel.StyleController = this.lC_Root;
             this.btn_Cancel.TabIndex = 10;
             this.btn_Cancel.Text = "simpleButton2";
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // txtEdit_PhoneNum
             // 
-            this.txtEdit_PhoneNum.Location = new System.Drawing.Point(77, 132);
+            this.txtEdit_PhoneNum.Location = new System.Drawing.Point(86, 132);
             this.txtEdit_PhoneNum.Name = "txtEdit_PhoneNum";
-            this.txtEdit_PhoneNum.Size = new System.Drawing.Size(255, 20);
+            this.txtEdit_PhoneNum.Properties.BeepOnError = false;
+            this.txtEdit_PhoneNum.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.txtEdit_PhoneNum.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.txtEdit_PhoneNum.Properties.MaskSettings.Set("mask", "(\\+994) (\\(\\d\\d\\) )\\d\\d\\d-\\d\\d-\\d\\d");
+            this.txtEdit_PhoneNum.Size = new System.Drawing.Size(246, 20);
             this.txtEdit_PhoneNum.StyleController = this.lC_Root;
             this.txtEdit_PhoneNum.TabIndex = 12;
             // 
-            // txtEdit_BirthDate
+            // dateEdit_BirthDate
             // 
             this.dateEdit_BirthDate.EditValue = null;
-            this.dateEdit_BirthDate.Location = new System.Drawing.Point(77, 108);
+            this.dateEdit_BirthDate.Location = new System.Drawing.Point(86, 108);
             this.dateEdit_BirthDate.Name = "dateEdit_BirthDate";
             this.dateEdit_BirthDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_BirthDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_BirthDate.Size = new System.Drawing.Size(255, 20);
+            this.dateEdit_BirthDate.Size = new System.Drawing.Size(246, 20);
             this.dateEdit_BirthDate.StyleController = this.lC_Root;
             this.dateEdit_BirthDate.TabIndex = 11;
             // 
-            // lCG_Root
+            // txtEdit_CurrAccCode
             // 
-            this.lCG_Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.lCG_Root.GroupBordersVisible = false;
-            this.lCG_Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lCI_CardNum,
-            this.lCI_Name,
-            this.lCI_Address,
-            this.lCI_Ok,
-            this.lCI_Cancel,
-            this.emptySpaceItem1,
-            this.lCI_Birthdate,
-            this.lCI_PhoneNum,
-            this.lCI_Lastname,
-            this.lCI_CurrAccCode});
-            this.lCG_Root.Name = "lCG_Root";
-            this.lCG_Root.Size = new System.Drawing.Size(344, 303);
-            this.lCG_Root.TextVisible = false;
+            this.txtEdit_CurrAccCode.Location = new System.Drawing.Point(86, 12);
+            this.txtEdit_CurrAccCode.Name = "txtEdit_CurrAccCode";
+            this.txtEdit_CurrAccCode.Size = new System.Drawing.Size(246, 20);
+            this.txtEdit_CurrAccCode.StyleController = this.lC_Root;
+            this.txtEdit_CurrAccCode.TabIndex = 13;
             // 
             // lCI_CardNum
             // 
@@ -238,14 +259,6 @@ namespace PointOfSale
             this.lCI_Cancel.TextSize = new System.Drawing.Size(0, 0);
             this.lCI_Cancel.TextVisible = false;
             // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 222);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(168, 61);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // lCI_Birthdate
             // 
             this.lCI_Birthdate.Control = this.dateEdit_BirthDate;
@@ -273,14 +286,6 @@ namespace PointOfSale
             this.lCI_Lastname.Text = "Soyadı";
             this.lCI_Lastname.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // txtEdit_CurrAccCode
-            // 
-            this.txtEdit_CurrAccCode.Location = new System.Drawing.Point(77, 12);
-            this.txtEdit_CurrAccCode.Name = "txtEdit_CurrAccCode";
-            this.txtEdit_CurrAccCode.Size = new System.Drawing.Size(255, 20);
-            this.txtEdit_CurrAccCode.StyleController = this.lC_Root;
-            this.txtEdit_CurrAccCode.TabIndex = 13;
-            // 
             // lCI_CurrAccCode
             // 
             this.lCI_CurrAccCode.Control = this.txtEdit_CurrAccCode;
@@ -303,6 +308,8 @@ namespace PointOfSale
             this.Load += new System.EventHandler(this.FormCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lC_Root)).EndInit();
             this.lC_Root.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_BonusCard.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_FirstName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_LastName.Properties)).EndInit();
@@ -310,17 +317,15 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.txtEdit_PhoneNum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_BirthDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_BirthDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lCG_Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CurrAccCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CardNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Name)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Address)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Ok)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Cancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Birthdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_PhoneNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_Lastname)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdit_CurrAccCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lCI_CurrAccCode)).EndInit();
             this.ResumeLayout(false);
 
