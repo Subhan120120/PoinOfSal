@@ -45,12 +45,12 @@ namespace PointOfSale
             this.col_BonusCardNum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bBI_CurrAccNew = new DevExpress.XtraBars.BarButtonItem();
+            this.bBI_CurAccEdit = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.bBI_CurAccEdit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gC_CurrAccList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_CurrAccList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -175,9 +175,17 @@ namespace PointOfSale
             // 
             this.bBI_CurrAccNew.Caption = "Yeni Istifadəçi";
             this.bBI_CurrAccNew.Id = 1;
-            this.bBI_CurrAccNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_newCurrAcc.ImageOptions.SvgImage")));
+            this.bBI_CurrAccNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_CurrAccNew.ImageOptions.SvgImage")));
             this.bBI_CurrAccNew.Name = "bBI_CurrAccNew";
             this.bBI_CurrAccNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_CurrAccNew_ItemClick);
+            // 
+            // bBI_CurAccEdit
+            // 
+            this.bBI_CurAccEdit.Caption = "Istifadəçini Dəyiş";
+            this.bBI_CurAccEdit.Id = 2;
+            this.bBI_CurAccEdit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_CurAccEdit.ImageOptions.SvgImage")));
+            this.bBI_CurAccEdit.Name = "bBI_CurAccEdit";
+            this.bBI_CurAccEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_CurrAccEdit_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -211,14 +219,6 @@ namespace PointOfSale
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
-            // bBI_CurAccEdit
-            // 
-            this.bBI_CurAccEdit.Caption = "Istifadəçini Dəyiş";
-            this.bBI_CurAccEdit.Id = 2;
-            this.bBI_CurAccEdit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.bBI_CurAccEdit.Name = "bBI_CurAccEdit";
-            this.bBI_CurAccEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_CurrAccEdit_ItemClick);
-            // 
             // FormCurrAccList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +231,7 @@ namespace PointOfSale
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "XtraForm1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormCurrAccList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gC_CurrAccList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_CurrAccList)).EndInit();

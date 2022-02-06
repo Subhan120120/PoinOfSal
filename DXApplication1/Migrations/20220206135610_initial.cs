@@ -104,6 +104,25 @@ namespace PointOfSale.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DcReports",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: false, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    ReportName = table.Column<string>(nullable: true),
+                    ReportQuery = table.Column<string>(nullable: true),
+                    ReportLayout = table.Column<string>(nullable: true),
+                    ReportFilter = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DcReports", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DcRoles",
                 columns: table => new
                 {
@@ -740,6 +759,9 @@ namespace PointOfSale.Migrations
 
             migrationBuilder.DropTable(
                 name: "DcProcesses");
+
+            migrationBuilder.DropTable(
+                name: "DcReports");
 
             migrationBuilder.DropTable(
                 name: "DcStores");

@@ -645,6 +645,16 @@ namespace PointOfSale.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DcReports");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d6186910-3619-428a-9eca-12f9672ff479"),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReportName = "Satis",
+                            ReportQuery = "select * from TrInvoiceLines"
+                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcRole", b =>

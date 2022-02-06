@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20220131140234_added-reportLayout")]
-    partial class addedreportLayout
+    [Migration("20220206135610_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -604,10 +604,9 @@ namespace PointOfSale.Migrations
 
             modelBuilder.Entity("PointOfSale.Models.DcReport", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
@@ -632,6 +631,9 @@ namespace PointOfSale.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
+
+                    b.Property<string>("ReportFilter")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ReportLayout")
                         .HasColumnType("nvarchar(max)");

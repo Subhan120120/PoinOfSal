@@ -31,126 +31,135 @@ namespace PointOfSale
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductList));
             this.gC_ProductList = new DevExpress.XtraGrid.GridControl();
             this.gV_ProductList = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.col_ProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_Barcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_ProductTypeCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_UsePos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_PromotionCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_PromotionCode2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_TaxRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_IsDisabled = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_PosDiscountRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_RetailPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBarcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProductTypeCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUsePos = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPromotionCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPromotionCode2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTaxRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIsDisabled = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPosDiscountRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRetailPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.BBI_newProduct = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gC_ProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_ProductList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // gC_ProductList
             // 
             this.gC_ProductList.DataMember = "DcProduct";
             this.gC_ProductList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gC_ProductList.Location = new System.Drawing.Point(0, 0);
+            this.gC_ProductList.Location = new System.Drawing.Point(0, 158);
             this.gC_ProductList.MainView = this.gV_ProductList;
-            this.gC_ProductList.Name = "gridControl1";
-            this.gC_ProductList.Size = new System.Drawing.Size(865, 415);
+            this.gC_ProductList.Name = "gC_ProductList";
+            this.gC_ProductList.Size = new System.Drawing.Size(865, 233);
             this.gC_ProductList.TabIndex = 0;
             this.gC_ProductList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_ProductList});
             // 
-            // gridView1
+            // gV_ProductList
             // 
             this.gV_ProductList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.col_ProductCode,
-            this.col_Barcode,
-            this.col_ProductTypeCode,
-            this.col_UsePos,
-            this.col_PromotionCode,
-            this.col_PromotionCode2,
-            this.col_TaxRate,
-            this.col_IsDisabled,
-            this.col_PosDiscountRate,
-            this.col_RetailPrice,
+            this.colProductCode,
+            this.colBarcode,
+            this.colProductTypeCode,
+            this.colUsePos,
+            this.colPromotionCode,
+            this.colPromotionCode2,
+            this.colTaxRate,
+            this.colIsDisabled,
+            this.colPosDiscountRate,
+            this.colRetailPrice,
             this.colProductDescription});
             this.gV_ProductList.GridControl = this.gC_ProductList;
-            this.gV_ProductList.Name = "gridView1";
+            this.gV_ProductList.Name = "gV_ProductList";
             this.gV_ProductList.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // colProductCode
             // 
-            this.col_ProductCode.FieldName = "ProductCode";
-            this.col_ProductCode.Name = "colProductCode";
-            this.col_ProductCode.Visible = true;
-            this.col_ProductCode.VisibleIndex = 0;
-            this.col_ProductCode.Width = 82;
+            this.colProductCode.FieldName = "ProductCode";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.Visible = true;
+            this.colProductCode.VisibleIndex = 0;
+            this.colProductCode.Width = 82;
             // 
             // colBarcode
             // 
-            this.col_Barcode.FieldName = "Barcode";
-            this.col_Barcode.Name = "colBarcode";
-            this.col_Barcode.Visible = true;
-            this.col_Barcode.VisibleIndex = 2;
-            this.col_Barcode.Width = 56;
+            this.colBarcode.FieldName = "Barcode";
+            this.colBarcode.Name = "colBarcode";
+            this.colBarcode.Visible = true;
+            this.colBarcode.VisibleIndex = 2;
+            this.colBarcode.Width = 56;
             // 
             // colProductTypeCode
             // 
-            this.col_ProductTypeCode.FieldName = "ProductTypeCode";
-            this.col_ProductTypeCode.Name = "colProductTypeCode";
-            this.col_ProductTypeCode.Width = 93;
+            this.colProductTypeCode.FieldName = "ProductTypeCode";
+            this.colProductTypeCode.Name = "colProductTypeCode";
+            this.colProductTypeCode.Width = 93;
             // 
             // colUsePos
             // 
-            this.col_UsePos.FieldName = "UsePos";
-            this.col_UsePos.Name = "colUsePos";
-            this.col_UsePos.Width = 50;
+            this.colUsePos.FieldName = "UsePos";
+            this.colUsePos.Name = "colUsePos";
+            this.colUsePos.Width = 50;
             // 
             // colPromotionCode
             // 
-            this.col_PromotionCode.FieldName = "PromotionCode";
-            this.col_PromotionCode.Name = "colPromotionCode";
-            this.col_PromotionCode.Visible = true;
-            this.col_PromotionCode.VisibleIndex = 5;
-            this.col_PromotionCode.Width = 50;
+            this.colPromotionCode.FieldName = "PromotionCode";
+            this.colPromotionCode.Name = "colPromotionCode";
+            this.colPromotionCode.Visible = true;
+            this.colPromotionCode.VisibleIndex = 5;
+            this.colPromotionCode.Width = 50;
             // 
             // colPromotionCode2
             // 
-            this.col_PromotionCode2.FieldName = "PromotionCode2";
-            this.col_PromotionCode2.Name = "colPromotionCode2";
-            this.col_PromotionCode2.Visible = true;
-            this.col_PromotionCode2.VisibleIndex = 6;
-            this.col_PromotionCode2.Width = 50;
+            this.colPromotionCode2.FieldName = "PromotionCode2";
+            this.colPromotionCode2.Name = "colPromotionCode2";
+            this.colPromotionCode2.Visible = true;
+            this.colPromotionCode2.VisibleIndex = 6;
+            this.colPromotionCode2.Width = 50;
             // 
             // colTaxRate
             // 
-            this.col_TaxRate.FieldName = "TaxRate";
-            this.col_TaxRate.Name = "colTaxRate";
-            this.col_TaxRate.Visible = true;
-            this.col_TaxRate.VisibleIndex = 7;
-            this.col_TaxRate.Width = 50;
+            this.colTaxRate.FieldName = "TaxRate";
+            this.colTaxRate.Name = "colTaxRate";
+            this.colTaxRate.Visible = true;
+            this.colTaxRate.VisibleIndex = 7;
+            this.colTaxRate.Width = 50;
             // 
             // colIsDisabled
             // 
-            this.col_IsDisabled.FieldName = "IsDisabled";
-            this.col_IsDisabled.Name = "colIsDisabled";
-            this.col_IsDisabled.Width = 50;
+            this.colIsDisabled.FieldName = "IsDisabled";
+            this.colIsDisabled.Name = "colIsDisabled";
+            this.colIsDisabled.Width = 50;
             // 
             // colPosDiscountRate
             // 
-            this.col_PosDiscountRate.FieldName = "PosDiscountRate";
-            this.col_PosDiscountRate.Name = "colPosDiscountRate";
-            this.col_PosDiscountRate.Visible = true;
-            this.col_PosDiscountRate.VisibleIndex = 4;
-            this.col_PosDiscountRate.Width = 53;
+            this.colPosDiscountRate.FieldName = "PosDiscountRate";
+            this.colPosDiscountRate.Name = "colPosDiscountRate";
+            this.colPosDiscountRate.Visible = true;
+            this.colPosDiscountRate.VisibleIndex = 4;
+            this.colPosDiscountRate.Width = 53;
             // 
             // colRetailPrice
             // 
-            this.col_RetailPrice.FieldName = "RetailPrice";
-            this.col_RetailPrice.Name = "colRetailPrice";
-            this.col_RetailPrice.Visible = true;
-            this.col_RetailPrice.VisibleIndex = 3;
-            this.col_RetailPrice.Width = 54;
+            this.colRetailPrice.FieldName = "RetailPrice";
+            this.colRetailPrice.Name = "colRetailPrice";
+            this.colRetailPrice.Visible = true;
+            this.colRetailPrice.VisibleIndex = 3;
+            this.colRetailPrice.Width = 54;
             // 
             // colProductDescription
             // 
@@ -159,18 +168,78 @@ namespace PointOfSale
             this.colProductDescription.Visible = true;
             this.colProductDescription.VisibleIndex = 1;
             // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
+            this.BBI_newProduct});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.MaxItemId = 2;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1});
+            this.ribbonControl1.Size = new System.Drawing.Size(865, 158);
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.BBI_newProduct);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 391);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(865, 24);
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // BBI_newProduct
+            // 
+            this.BBI_newProduct.Caption = "Yeni Məhsul";
+            this.BBI_newProduct.Id = 1;
+            this.BBI_newProduct.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.BBI_newProduct.Name = "BBI_newProduct";
+            this.BBI_newProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BBI_newProduct_ItemClick);
+            // 
             // FormProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 415);
             this.Controls.Add(this.gC_ProductList);
+            this.Controls.Add(this.ribbonStatusBar1);
+            this.Controls.Add(this.ribbonControl1);
             this.Name = "FormProductList";
+            this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StatusBar = this.ribbonStatusBar1;
             this.Text = "FormProductList";
             ((System.ComponentModel.ISupportInitialize)(this.gC_ProductList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_ProductList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -189,5 +258,22 @@ namespace PointOfSale
         private DevExpress.XtraGrid.Columns.GridColumn col_PosDiscountRate;
         private DevExpress.XtraGrid.Columns.GridColumn col_RetailPrice;
         private DevExpress.XtraGrid.Columns.GridColumn colProductDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colBarcode;
+        private DevExpress.XtraGrid.Columns.GridColumn colProductTypeCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colUsePos;
+        private DevExpress.XtraGrid.Columns.GridColumn colPromotionCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colPromotionCode2;
+        private DevExpress.XtraGrid.Columns.GridColumn colTaxRate;
+        private DevExpress.XtraGrid.Columns.GridColumn colIsDisabled;
+        private DevExpress.XtraGrid.Columns.GridColumn colPosDiscountRate;
+        private DevExpress.XtraGrid.Columns.GridColumn colRetailPrice;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.BarButtonItem BBI_newProduct;
     }
 }

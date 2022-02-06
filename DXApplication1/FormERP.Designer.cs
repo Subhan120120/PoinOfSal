@@ -217,7 +217,7 @@ namespace PointOfSale
             // 
             // aCE_CurrAccs
             // 
-            this.aCE_CurrAccs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.aCE_CurrAccs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_CurrAccs.ImageOptions.SvgImage")));
             this.aCE_CurrAccs.Name = "aCE_CurrAccs";
             this.aCE_CurrAccs.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aCE_CurrAccs.Text = "İstifadəçilər";

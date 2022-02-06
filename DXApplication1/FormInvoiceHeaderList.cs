@@ -13,8 +13,8 @@ namespace PointOfSale
         public FormInvoiceHeaderList()
         {
             InitializeComponent();
-            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            this.gV_InvoiceHeaderList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
+            //OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            //this.gV_InvoiceHeaderList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
         }
 
         public TrInvoiceHeader TrInvoiceHeader { get; set; }

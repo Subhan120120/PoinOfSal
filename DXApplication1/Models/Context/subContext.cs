@@ -723,6 +723,7 @@ namespace PointOfSale.Models
                 entity.Property(e => e.LastUpdatedUserName)
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
+
             modelBuilder.Entity<DcReport>(entity =>
             {
                 entity.Property(e => e.CreatedDate)
@@ -737,6 +738,10 @@ namespace PointOfSale.Models
                 entity.Property(e => e.LastUpdatedUserName)
                     .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
             });
+
+            modelBuilder.Entity<DcReport>().HasData(
+                new DcReport { ReportName = "Satis", ReportQuery = "select * from TrInvoiceLines", Id = Guid.NewGuid() });
+
             OnModelCreatingPartial(modelBuilder);
         }
 

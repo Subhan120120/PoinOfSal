@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20211019081211_initial")]
-    partial class initial
+    [Migration("20220206154101_dada")]
+    partial class dada
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -599,6 +599,63 @@ namespace PointOfSale.Migrations
                         {
                             ProductTypeCode = (byte)1,
                             ProductTypeDesc = "Məhsul"
+                        });
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.DcReport", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("CreatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("ReportFilter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReportLayout")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReportName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReportQuery")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DcReports");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d6186910-3619-428a-9eca-12f9672ff479"),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReportName = "Satis",
+                            ReportQuery = "select * from TrInvoiceLines"
                         });
                 });
 

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class FormProductList : XtraForm
+    public partial class FormProductList : RibbonForm
     {
         public DcProduct DcProduct { get; set; }
         EfMethods efMethods = new EfMethods();
@@ -17,8 +18,8 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            this.gV_ProductList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
+            //OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            //this.gV_ProductList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
 
             gC_ProductList.DataSource = efMethods.SelectProducts();
         }
@@ -41,6 +42,11 @@ namespace PointOfSale
                 };
                 DialogResult = DialogResult.OK;
             }
+        }
+
+        private void BBI_newProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class FormCurrAccList : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FormCurrAccList : RibbonForm
     {
         EfMethods efMethods = new EfMethods();
         public DcCurrAcc dcCurrAcc { get; set; }
@@ -18,8 +19,8 @@ namespace PointOfSale
         public FormCurrAccList()
         {
             InitializeComponent();
-            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            gV_CurrAccList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
+            //OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            //gV_CurrAccList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
         }
 
         private void FormCurrAccList_Load(object sender, EventArgs e)
