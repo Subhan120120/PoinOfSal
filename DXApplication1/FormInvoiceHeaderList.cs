@@ -4,6 +4,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using PointOfSale.Models;
 using System;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace PointOfSale
@@ -13,8 +15,10 @@ namespace PointOfSale
         public FormInvoiceHeaderList()
         {
             InitializeComponent();
-            //OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            //this.gV_InvoiceHeaderList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
+            byte[] byteArray = Encoding.ASCII.GetBytes(Properties.Settings.Default.GridViewLayout);
+            MemoryStream stream = new MemoryStream(byteArray);
+            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            this.gV_InvoiceHeaderList.RestoreLayoutFromStream(stream, option);
         }
 
         public TrInvoiceHeader TrInvoiceHeader { get; set; }

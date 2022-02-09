@@ -7,6 +7,8 @@ using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace PointOfSale
@@ -19,8 +21,10 @@ namespace PointOfSale
         public FormCurrAccList()
         {
             InitializeComponent();
-            //OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            //gV_CurrAccList.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml", option);
+            byte[] byteArray = Encoding.ASCII.GetBytes(Properties.Settings.Default.GridViewLayout);
+            MemoryStream stream = new MemoryStream(byteArray);
+            OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
+            gV_CurrAccList.RestoreLayoutFromStream(stream, option);
         }
 
         private void FormCurrAccList_Load(object sender, EventArgs e)

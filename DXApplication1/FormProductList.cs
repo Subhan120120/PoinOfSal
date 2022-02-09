@@ -20,21 +20,11 @@ namespace PointOfSale
 
         public FormProductList()
         {
-
-
-
             InitializeComponent();
             byte[] byteArray = Encoding.ASCII.GetBytes(Properties.Settings.Default.GridViewLayout);
             MemoryStream stream = new MemoryStream(byteArray);
             OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
             gV_ProductList.RestoreLayoutFromStream(stream, option);
-            
-
-
-            //Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("PointOfSale.AppCode.GvListDefaultLayout.xml");
-            //OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
-            //this.gV_ProductList.RestoreLayoutFromStream(stream, option);
-
 
             gC_ProductList.DataSource = efMethods.SelectProducts();
         }

@@ -13,7 +13,6 @@ namespace PointOfSale
             //System.Threading.Thread.Sleep(7000);
 
             string layout = efMethods.SelectAppSettingGridViewLayout();
-            //byte[] byteArray = Encoding.ASCII.GetBytes(layout);
             Properties.Settings.Default.GridViewLayout = layout;
             Properties.Settings.Default.Save();
 
