@@ -3,43 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220208133011_added-foreignKey_TrFeature2")]
+    partial class addedforeignKey_TrFeature2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.19")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("PointOfSale.Models.AppSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("GridViewLayout")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppSettings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GridViewLayout = ""
-                        });
-                });
 
             modelBuilder.Entity("PointOfSale.Models.DcClaim", b =>
                 {
@@ -1110,11 +1090,9 @@ namespace PointOfSale.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductCode");
+                    b.HasIndex("FeatureId");
 
-                    b.HasIndex("FeatureId", "ProductCode")
-                        .IsUnique()
-                        .HasFilter("[ProductCode] IS NOT NULL");
+                    b.HasIndex("ProductCode");
 
                     b.ToTable("TrFeatures");
                 });

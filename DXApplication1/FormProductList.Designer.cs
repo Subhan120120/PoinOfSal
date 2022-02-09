@@ -46,12 +46,13 @@ namespace PointOfSale
             this.colRetailPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.BBI_ProductNew = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_ProductEdit = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.BBI_newProduct = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gC_ProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_ProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -85,6 +86,7 @@ namespace PointOfSale
             this.colProductDescription});
             this.gV_ProductList.GridControl = this.gC_ProductList;
             this.gV_ProductList.Name = "gV_ProductList";
+            this.gV_ProductList.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gV_ProductList_FocusedRowChanged);
             this.gV_ProductList.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // colProductCode
@@ -174,14 +176,31 @@ namespace PointOfSale
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
-            this.BBI_newProduct});
+            this.BBI_ProductNew,
+            this.btn_ProductEdit});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 2;
+            this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(865, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // BBI_ProductNew
+            // 
+            this.BBI_ProductNew.Caption = "Yeni Məhsul";
+            this.BBI_ProductNew.Id = 1;
+            this.BBI_ProductNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BBI_newProduct.ImageOptions.SvgImage")));
+            this.BBI_ProductNew.Name = "BBI_ProductNew";
+            this.BBI_ProductNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BBI_ProductNew_ItemClick);
+            // 
+            // btn_ProductEdit
+            // 
+            this.btn_ProductEdit.Caption = "Məhsulu Dəyiş";
+            this.btn_ProductEdit.Id = 2;
+            this.btn_ProductEdit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_ProductEdit.ImageOptions.SvgImage")));
+            this.btn_ProductEdit.Name = "btn_ProductEdit";
+            this.btn_ProductEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_productEdit_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -193,7 +212,8 @@ namespace PointOfSale
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.BBI_newProduct);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BBI_ProductNew);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btn_ProductEdit);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
@@ -213,14 +233,6 @@ namespace PointOfSale
             // 
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
-            // 
-            // BBI_newProduct
-            // 
-            this.BBI_newProduct.Caption = "Yeni Məhsul";
-            this.BBI_newProduct.Id = 1;
-            this.BBI_newProduct.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.BBI_newProduct.Name = "BBI_newProduct";
-            this.BBI_newProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BBI_newProduct_ItemClick);
             // 
             // FormProductList
             // 
@@ -274,6 +286,7 @@ namespace PointOfSale
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraBars.BarButtonItem BBI_newProduct;
+        private DevExpress.XtraBars.BarButtonItem BBI_ProductNew;
+        private DevExpress.XtraBars.BarButtonItem btn_ProductEdit;
     }
 }

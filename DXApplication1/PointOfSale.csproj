@@ -14,6 +14,11 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <LangVersion>9.0</LangVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,13 +31,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -266,11 +266,50 @@
     <Compile Include="Migrations\20220206154101_dada.designer.cs">
       <DependentUpon>20220206154101_dada.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220207133310_as.cs" />
+    <Compile Include="Migrations\20220207133310_as.designer.cs">
+      <DependentUpon>20220207133310_as.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220207151946_added_features.cs" />
+    <Compile Include="Migrations\20220207151946_added_features.designer.cs">
+      <DependentUpon>20220207151946_added_features.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220207152048_added_features2.cs" />
+    <Compile Include="Migrations\20220207152048_added_features2.designer.cs">
+      <DependentUpon>20220207152048_added_features2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220208132910_added-foreignKey_TrFeature.cs" />
+    <Compile Include="Migrations\20220208132910_added-foreignKey_TrFeature.designer.cs">
+      <DependentUpon>20220208132910_added-foreignKey_TrFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220208133011_added-foreignKey_TrFeature2.cs" />
+    <Compile Include="Migrations\20220208133011_added-foreignKey_TrFeature2.designer.cs">
+      <DependentUpon>20220208133011_added-foreignKey_TrFeature2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220208161506_added-uniqueKey_TrFeature.cs" />
+    <Compile Include="Migrations\20220208161506_added-uniqueKey_TrFeature.designer.cs">
+      <DependentUpon>20220208161506_added-uniqueKey_TrFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220208162233_test.cs" />
+    <Compile Include="Migrations\20220208162233_test.designer.cs">
+      <DependentUpon>20220208162233_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220209003324_added_AppSetting3.cs" />
+    <Compile Include="Migrations\20220209003324_added_AppSetting3.designer.cs">
+      <DependentUpon>20220209003324_added_AppSetting3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220209011631_added_AppSetting_HassData.cs" />
+    <Compile Include="Migrations\20220209011631_added_AppSetting_HassData.designer.cs">
+      <DependentUpon>20220209011631_added_AppSetting_HassData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
       <DependentUpon>Add_procedures.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
+    <Compile Include="Models\Entity\AppSetting.cs" />
+    <Compile Include="Models\Entity\TrFeature.cs" />
+    <Compile Include="Models\Entity\DcFeature.cs" />
     <Compile Include="Models\Entity\DcReport.cs" />
     <Compile Include="Models\Entity\StringReturn.cs" />
     <Compile Include="Models\ViewModel\ReportVM.cs" />
@@ -350,6 +389,12 @@
     <Compile Include="FormERP.Designer.cs">
       <DependentUpon>FormERP.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduct.Designer.cs">
+      <DependentUpon>FormProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreenStartup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,6 +450,7 @@
     <Compile Include="DefaultControls.Designer.cs">
       <DependentUpon>DefaultControls.cs</DependentUpon>
     </Compile>
+    <None Include="AppCode\GvListDefaultLayout.xml" />
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -451,7 +497,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -468,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPOS.resx">
       <DependentUpon>FormPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProduct.resx">
+      <DependentUpon>FormProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreenStartup.resx">
       <DependentUpon>SplashScreenStartup.cs</DependentUpon>

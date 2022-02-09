@@ -76,7 +76,7 @@ namespace PointOfSale
                         efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }
 
-                    DcProduct DcProduct = formProductList.DcProduct;
+                    DcProduct DcProduct = formProductList.dcProduct;
                     int result = efMethods.InsertInvoiceLine(DcProduct, invoiceHeaderId);
 
                     if (result > 0)

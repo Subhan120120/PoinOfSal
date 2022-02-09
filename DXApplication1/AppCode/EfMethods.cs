@@ -455,5 +455,23 @@ namespace PointOfSale
                 return db.SaveChanges();
             }
         }
+
+        public int UpdateAppSettingGridViewLayout(string layout)
+        {
+            using (subContext db = new subContext())
+            {
+                AppSetting appSetting = new AppSetting() { Id = 1, GridViewLayout = layout };
+                db.Entry(appSetting).Property(x => x.GridViewLayout).IsModified = true;
+                return db.SaveChanges();
+            }
+        }
+
+        public string SelectAppSettingGridViewLayout()
+        {
+            using (subContext db = new subContext())
+            {
+                return db.AppSettings.Find(1).GridViewLayout;
+            }
+        }
     }
 }

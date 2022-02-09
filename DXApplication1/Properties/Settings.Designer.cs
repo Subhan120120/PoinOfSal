@@ -69,5 +69,17 @@ namespace PointOfSale.Properties {
                 this["LoginChecked"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GridViewLayout {
+            get {
+                return ((string)(this["GridViewLayout"]));
+            }
+            set {
+                this["GridViewLayout"] = value;
+            }
+        }
     }
 }

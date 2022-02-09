@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -41,6 +42,7 @@ namespace PointOfSale.Models
 
         public bool IsDisabled { get; set; }
 
+        [DisplayName("Satış Qiyməti")]
         public double RetailPrice { get; set; }
 
         public double PurchasePrice { get; set; }
@@ -57,5 +59,6 @@ namespace PointOfSale.Models
 
         public virtual DcProductType DcProductType { get; set; }
         public virtual ICollection<TrInvoiceLine> TrInvoiceLines { get; set; }
+        public virtual ICollection<TrFeature> TrFeature { get; set; }
     }
 }

@@ -174,7 +174,7 @@ namespace PointOfSale
                 {
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
-                        editor.EditValue = form.DcProduct.ProductCode;
+                        editor.EditValue = form.dcProduct.ProductCode;
                     }
                 }
             }

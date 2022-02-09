@@ -40,6 +40,9 @@ namespace PointOfSale.Models
         public DbSet<TrShipmentHeader> TrShipmentHeaders { get; set; }
         public DbSet<TrShipmentLine> TrShipmentLines { get; set; }
         public DbSet<DcReport> DcReports { get; set; }
+        public DbSet<DcFeature> DcFeatures { get; set; }
+        public DbSet<TrFeature> TrFeatures { get; set; }
+        public DbSet<AppSetting> AppSettings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -740,7 +743,14 @@ namespace PointOfSale.Models
             });
 
             modelBuilder.Entity<DcReport>().HasData(
-                new DcReport { ReportName = "Satis", ReportQuery = "select * from TrInvoiceLines", Id = Guid.NewGuid() });
+                new DcReport { ReportName = "Satis", ReportQuery = "select * from TrInvoiceLines", Id = new Guid("01fdab8b-0c03-4bdb-bc07-c03ff743ce45") });
+
+            modelBuilder.Entity<TrFeature>()
+                .HasIndex(entity => new { entity.FeatureId, entity.ProductCode }).IsUnique();
+
+            modelBuilder.Entity<AppSetting>().HasData(
+                new AppSetting { Id = 1, GridViewLayout = "" });
+
 
             OnModelCreatingPartial(modelBuilder);
         }

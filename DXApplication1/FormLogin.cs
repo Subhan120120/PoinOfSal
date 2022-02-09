@@ -1,15 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraSplashScreen;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PointOfSale
 {
@@ -21,6 +11,12 @@ namespace PointOfSale
         {
             InitializeComponent();
             //System.Threading.Thread.Sleep(7000);
+
+            string layout = efMethods.SelectAppSettingGridViewLayout();
+            //byte[] byteArray = Encoding.ASCII.GetBytes(layout);
+            Properties.Settings.Default.GridViewLayout = layout;
+            Properties.Settings.Default.Save();
+
             txtEdit_UserName.Text = Properties.Settings.Default.LoginName;
             txtEdit_Password.Text = Properties.Settings.Default.LoginPassword;
             checkEdit_RemindMe.Checked = Properties.Settings.Default.LoginChecked;

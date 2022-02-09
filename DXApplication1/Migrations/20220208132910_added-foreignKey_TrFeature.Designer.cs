@@ -3,43 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220208132910_added-foreignKey_TrFeature")]
+    partial class addedforeignKey_TrFeature
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.19")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("PointOfSale.Models.AppSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("GridViewLayout")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppSettings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GridViewLayout = ""
-                        });
-                });
 
             modelBuilder.Entity("PointOfSale.Models.DcClaim", b =>
                 {
@@ -1102,19 +1082,17 @@ namespace PointOfSale.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FeatureId")
+                    b.Property<int?>("DcFeatureId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ProductCode")
+                    b.Property<string>("DcProductProductCode")
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductCode");
+                    b.HasIndex("DcFeatureId");
 
-                    b.HasIndex("FeatureId", "ProductCode")
-                        .IsUnique()
-                        .HasFilter("[ProductCode] IS NOT NULL");
+                    b.HasIndex("DcProductProductCode");
 
                     b.ToTable("TrFeatures");
                 });
@@ -1907,15 +1885,13 @@ namespace PointOfSale.Migrations
 
             modelBuilder.Entity("PointOfSale.Models.TrFeature", b =>
                 {
-                    b.HasOne("PointOfSale.Models.DcFeature", "DcFeature")
+                    b.HasOne("PointOfSale.Models.DcFeature", null)
                         .WithMany("TrFeatures")
-                        .HasForeignKey("FeatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DcFeatureId");
 
-                    b.HasOne("PointOfSale.Models.DcProduct", "DcProduct")
+                    b.HasOne("PointOfSale.Models.DcProduct", null)
                         .WithMany("TrFeature")
-                        .HasForeignKey("ProductCode");
+                        .HasForeignKey("DcProductProductCode");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>

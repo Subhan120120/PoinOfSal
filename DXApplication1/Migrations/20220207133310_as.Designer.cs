@@ -3,43 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220207133310_as")]
+    partial class @as
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.19")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("PointOfSale.Models.AppSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("GridViewLayout")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppSettings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GridViewLayout = ""
-                        });
-                });
 
             modelBuilder.Entity("PointOfSale.Models.DcClaim", b =>
                 {
@@ -294,22 +274,6 @@ namespace PointOfSale.Migrations
                             IsDisabled = false,
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000")
                         });
-                });
-
-            modelBuilder.Entity("PointOfSale.Models.DcFeature", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FeatureName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DcFeatures");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcOffice", b =>
@@ -1093,30 +1057,6 @@ namespace PointOfSale.Migrations
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RoleCode = "Admin"
                         });
-                });
-
-            modelBuilder.Entity("PointOfSale.Models.TrFeature", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("FeatureId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProductCode")
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductCode");
-
-                    b.HasIndex("FeatureId", "ProductCode")
-                        .IsUnique()
-                        .HasFilter("[ProductCode] IS NOT NULL");
-
-                    b.ToTable("TrFeatures");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
@@ -1903,19 +1843,6 @@ namespace PointOfSale.Migrations
                     b.HasOne("PointOfSale.Models.DcRole", "DcRole")
                         .WithMany("TrCurrAccRoles")
                         .HasForeignKey("RoleCode");
-                });
-
-            modelBuilder.Entity("PointOfSale.Models.TrFeature", b =>
-                {
-                    b.HasOne("PointOfSale.Models.DcFeature", "DcFeature")
-                        .WithMany("TrFeatures")
-                        .HasForeignKey("FeatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PointOfSale.Models.DcProduct", "DcProduct")
-                        .WithMany("TrFeature")
-                        .HasForeignKey("ProductCode");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
