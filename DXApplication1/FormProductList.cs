@@ -4,6 +4,7 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using PointOfSale.Models;
+using PointOfSale.Properties;
 using System;
 using System.IO;
 using System.Reflection;
@@ -21,7 +22,7 @@ namespace PointOfSale
         public FormProductList()
         {
             InitializeComponent();
-            byte[] byteArray = Encoding.ASCII.GetBytes(Properties.Settings.Default.GridViewLayout);
+            byte[] byteArray = Encoding.ASCII.GetBytes(Settings.Default.AppSetting.GridViewLayout);
             MemoryStream stream = new MemoryStream(byteArray);
             OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
             gV_ProductList.RestoreLayoutFromStream(stream, option);

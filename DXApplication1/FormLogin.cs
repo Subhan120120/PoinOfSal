@@ -1,9 +1,12 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraBars.ToolbarForm;
+using DevExpress.XtraEditors;
+using PointOfSale.Properties;
 using System;
 
 namespace PointOfSale
 {
-    public partial class FormLogin : XtraForm
+    public partial class FormLogin : ToolbarForm
     {
         EfMethods efMethods = new EfMethods();
 
@@ -12,13 +15,9 @@ namespace PointOfSale
             InitializeComponent();
             //System.Threading.Thread.Sleep(7000);
 
-            string layout = efMethods.SelectAppSettingGridViewLayout();
-            Properties.Settings.Default.GridViewLayout = layout;
-            Properties.Settings.Default.Save();
-
-            txtEdit_UserName.Text = Properties.Settings.Default.LoginName;
-            txtEdit_Password.Text = Properties.Settings.Default.LoginPassword;
-            checkEdit_RemindMe.Checked = Properties.Settings.Default.LoginChecked;
+            txtEdit_UserName.Text = Settings.Default.LoginName;
+            txtEdit_Password.Text = Settings.Default.LoginPassword;
+            checkEdit_RemindMe.Checked = Settings.Default.LoginChecked;
         }
 
         private void btn_POS_Click(object sender, EventArgs e)
@@ -61,21 +60,27 @@ namespace PointOfSale
         {
             if (checkEdit_RemindMe.Checked)
             {
-                Properties.Settings.Default.LoginName = txtEdit_UserName.Text;
-                Properties.Settings.Default.LoginPassword = txtEdit_Password.Text;
-                Properties.Settings.Default.LoginChecked = checkEdit_RemindMe.Checked;
-                Properties.Settings.Default.Save();
+                Settings.Default.LoginName = txtEdit_UserName.Text;
+                Settings.Default.LoginPassword = txtEdit_Password.Text;
+                Settings.Default.LoginChecked = checkEdit_RemindMe.Checked;
+                Settings.Default.Save();
             }
             else
             {
-                Properties.Settings.Default.LoginName = string.Empty;
-                Properties.Settings.Default.LoginPassword = string.Empty;
-                Properties.Settings.Default.LoginChecked = false;
-                Properties.Settings.Default.Save();
+                Settings.Default.LoginName = string.Empty;
+                Settings.Default.LoginPassword = string.Empty;
+                Settings.Default.LoginChecked = false;
+                Settings.Default.Save();
             }
 
-            Session.CurrAccCode = txtEdit_UserName.Text;
-            Session.DcRoles = efMethods.SelectRoles(txtEdit_UserName.Text);
+            Authorization.CurrAccCode = txtEdit_UserName.Text;
+            Authorization.DcRoles = efMethods.SelectRoles(txtEdit_UserName.Text);
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DefaultControls defaultControls = new DefaultControls();
+            defaultControls.Show();
         }
     }
 }

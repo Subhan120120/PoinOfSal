@@ -1,6 +1,7 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,13 @@ namespace PointOfSale
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DefaultControls());
+
+            EfMethods efMethods = new EfMethods();
+            AppSetting appSetting = efMethods.SelectAppSetting();
+            Properties.Settings.Default.AppSetting = appSetting;
+            Properties.Settings.Default.Save();
+
+            Application.Run(new FormLogin());
         }
     }
 }

@@ -413,8 +413,8 @@ namespace PointOfSale
             using (subContext db = new subContext())
             {
                 return db.DcRoles.Include(x => x.TrCurrAccRoles)
-                    .ThenInclude(x => x.DcCurrAcc)
-                    .Where(o => o.TrCurrAccRoles.Any(x => x.CurrAccCode == CurrAccCode))
+                                    .ThenInclude(x => x.DcCurrAcc)
+                                 .Where(o => o.TrCurrAccRoles.Any(x => x.CurrAccCode == CurrAccCode))
                                  .ToList();
             }
         }
@@ -466,11 +466,11 @@ namespace PointOfSale
             }
         }
 
-        public string SelectAppSettingGridViewLayout()
+        public AppSetting SelectAppSetting()
         {
             using (subContext db = new subContext())
             {
-                return db.AppSettings.Find(1).GridViewLayout;
+                return db.AppSettings.Find(1);
             }
         }
     }

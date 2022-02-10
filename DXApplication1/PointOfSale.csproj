@@ -69,6 +69,7 @@
     <Reference Include="DevExpress.Images.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v21.2.Drawing, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.PivotGrid.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -78,6 +79,8 @@
     <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.Extensions, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.Wizard, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraDiagram.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v21.2" />
     <Reference Include="DevExpress.Printing.v21.2.Core" />
@@ -85,11 +88,14 @@
     <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v21.2.CodeCompletion, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v21.2.Extensions, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraWizard.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -230,7 +236,7 @@
   <ItemGroup>
     <Compile Include="AppCode\AdoMethods.cs" />
     <Compile Include="AppCode\DsMethods.cs" />
-    <Compile Include="AppCode\Session.cs" />
+    <Compile Include="AppCode\Authorization.cs" />
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
@@ -301,6 +307,14 @@
     <Compile Include="Migrations\20220209011631_added_AppSetting_HassData.cs" />
     <Compile Include="Migrations\20220209011631_added_AppSetting_HassData.designer.cs">
       <DependentUpon>20220209011631_added_AppSetting_HassData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220210004748_added_AppSetting_PrıntSettıngs.cs" />
+    <Compile Include="Migrations\20220210004748_added_AppSetting_PrıntSettıngs.designer.cs">
+      <DependentUpon>20220210004748_added_AppSetting_PrıntSettıngs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.cs" />
+    <Compile Include="Migrations\20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.designer.cs">
+      <DependentUpon>20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">

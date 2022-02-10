@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220210004748_added_AppSetting_PrıntSettıngs")]
+    partial class added_AppSetting_PrıntSettıngs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,9 +32,6 @@ namespace PointOfSale.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("GridViewLayout")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PrintDesignPath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PrinterCopyNum")

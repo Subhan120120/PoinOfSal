@@ -34,12 +34,13 @@ namespace PointOfSale
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_saveLayout = new DevExpress.XtraBars.BarButtonItem();
+            this.bBI_formLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.bBI_loadLayout = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -77,9 +78,10 @@ namespace PointOfSale
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
             this.btn_saveLayout,
-            this.barButtonItem1});
+            this.bBI_formLogin,
+            this.bBI_loadLayout});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 3;
+            this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -94,6 +96,22 @@ namespace PointOfSale
             this.btn_saveLayout.Name = "btn_saveLayout";
             this.btn_saveLayout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_saveLayout_ItemClick);
             // 
+            // bBI_formLogin
+            // 
+            this.bBI_formLogin.Caption = "Login";
+            this.bBI_formLogin.Id = 2;
+            this.bBI_formLogin.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_Login.ImageOptions.SvgImage")));
+            this.bBI_formLogin.Name = "bBI_formLogin";
+            this.bBI_formLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_formLogin_ItemClick);
+            // 
+            // bBI_loadLayout
+            // 
+            this.bBI_loadLayout.Caption = "Load Layout";
+            this.bBI_loadLayout.Id = 3;
+            this.bBI_loadLayout.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_loadLayout.ImageOptions.SvgImage")));
+            this.bBI_loadLayout.Name = "bBI_loadLayout";
+            this.bBI_loadLayout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_loadLayout_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -105,12 +123,13 @@ namespace PointOfSale
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_saveLayout);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bBI_loadLayout);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bBI_formLogin);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -125,14 +144,6 @@ namespace PointOfSale
             // 
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Login";
-            this.barButtonItem1.Id = 2;
-            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // DefaultControls
             // 
@@ -165,6 +176,7 @@ namespace PointOfSale
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.BarButtonItem btn_saveLayout;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem bBI_formLogin;
+        private DevExpress.XtraBars.BarButtonItem bBI_loadLayout;
     }
 }

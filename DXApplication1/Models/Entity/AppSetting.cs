@@ -15,6 +15,10 @@ namespace PointOfSale.Models
         public int Id { get; set; }
 
         public string GridViewLayout { get; set; }
+        public bool GetPrint { get; set; }
+        public string PrinterName { get; set; }
+        public int PrinterCopyNum { get; set; }
+        public string PrintDesignPath { get; set; }
 
     }
 }

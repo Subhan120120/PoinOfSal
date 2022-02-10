@@ -6,12 +6,18 @@ using System.Globalization;
 
 namespace PointOfSale
 {
-    public static class Session
+    public static class Authorization
     {
         public static string CurrAccCode { get; set; }
-        //public string Password { get; set; }
+
         public static List<DcRole> DcRoles { get; set; }
 
+        public static bool Authorized(string role)
+        {
+            bool authorized = false;
+            DcRoles.ForEach(x => authorized = x.RoleCode.Contains(role));     //check user role
 
+            return authorized;
+        }
     }
 }

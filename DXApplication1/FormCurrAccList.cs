@@ -1,12 +1,10 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using PointOfSale.Models;
+using PointOfSale.Properties;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -21,7 +19,7 @@ namespace PointOfSale
         public FormCurrAccList()
         {
             InitializeComponent();
-            byte[] byteArray = Encoding.ASCII.GetBytes(Properties.Settings.Default.GridViewLayout);
+            byte[] byteArray = Encoding.ASCII.GetBytes(Settings.Default.AppSetting.GridViewLayout);
             MemoryStream stream = new MemoryStream(byteArray);
             OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
             gV_CurrAccList.RestoreLayoutFromStream(stream, option);
@@ -41,7 +39,7 @@ namespace PointOfSale
             {
                 //info.RowHandle
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                dcCurrAcc = new DcCurrAcc();                
+                dcCurrAcc = new DcCurrAcc();
                 string CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString();
                 dcCurrAcc = efMethods.SelectCurrAcc(CurrAccCode);
 

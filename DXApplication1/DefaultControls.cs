@@ -30,10 +30,16 @@ namespace PointOfSale
             efMethods.UpdateAppSettingGridViewLayout(layourTxt);
         }
 
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bBI_formLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
+        }
+
+        private void bBI_loadLayout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridView1.RestoreLayoutFromXml(@"D:\GvListDefaultLayout.xml");
+
         }
     }
 }

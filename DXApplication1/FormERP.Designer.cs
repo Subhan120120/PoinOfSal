@@ -36,6 +36,7 @@ namespace PointOfSale
             this.skinPaletteDropDownButtonItem = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.bBI_MdiChildrenList = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.bBI_CloseWindows = new DevExpress.XtraBars.BarButtonItem();
+            this.bBI_POS = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGr_Control = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -63,9 +64,10 @@ namespace PointOfSale
             this.skinRibbonGalleryBarItem,
             this.skinPaletteDropDownButtonItem,
             this.bBI_MdiChildrenList,
-            this.bBI_CloseWindows});
+            this.bBI_CloseWindows,
+            this.bBI_POS});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 12;
+            this.ribbonControl.MaxItemId = 13;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.OptionsTouch.ShowTouchUISelectorInQAT = true;
             this.ribbonControl.OptionsTouch.ShowTouchUISelectorVisibilityItemInQATMenu = true;
@@ -73,6 +75,7 @@ namespace PointOfSale
             this.ribbonPage_Home});
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem);
+            this.ribbonControl.QuickToolbarItemLinks.Add(this.bBI_POS);
             this.ribbonControl.Size = new System.Drawing.Size(1023, 158);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
@@ -100,7 +103,15 @@ namespace PointOfSale
             this.bBI_CloseWindows.Id = 9;
             this.bBI_CloseWindows.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_CloseWindows.ImageOptions.SvgImage")));
             this.bBI_CloseWindows.Name = "bBI_CloseWindows";
-            this.bBI_CloseWindows.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.bBI_CloseWindows.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_CloseWindows_ItemClick);
+            // 
+            // bBI_POS
+            // 
+            this.bBI_POS.Caption = "barButtonItem1";
+            this.bBI_POS.Id = 12;
+            this.bBI_POS.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BBI_POS.ImageOptions.SvgImage")));
+            this.bBI_POS.Name = "bBI_POS";
+            this.bBI_POS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_POS_ItemClick);
             // 
             // ribbonPage_Home
             // 
@@ -265,5 +276,6 @@ namespace PointOfSale
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Setting;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Report;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_CurrAccs;
+        private DevExpress.XtraBars.BarButtonItem bBI_POS;
     }
 }

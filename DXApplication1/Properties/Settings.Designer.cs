@@ -81,5 +81,16 @@ namespace PointOfSale.Properties {
                 this["GridViewLayout"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::PointOfSale.Models.AppSetting AppSetting {
+            get {
+                return ((global::PointOfSale.Models.AppSetting)(this["AppSetting"]));
+            }
+            set {
+                this["AppSetting"] = value;
+            }
+        }
     }
 }

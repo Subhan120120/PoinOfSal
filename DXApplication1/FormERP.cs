@@ -49,7 +49,13 @@ namespace PointOfSale
             adornerUIManager1.EndUpdate();
         }
 
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        private void bBI_POS_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormPOS formPOS = new FormPOS();
+            formPOS.Show();
+        }
+
+        private void bBI_CloseWindows_ItemClick(object sender, ItemClickEventArgs e)
         {
             CloseOpenChildForms();
         }
@@ -145,5 +151,7 @@ namespace PointOfSale
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }
+
+        
     }
 }

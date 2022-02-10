@@ -22,5 +22,8 @@
     <Setting Name="GridViewLayout" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="AppSetting" Type="PointOfSale.Models.AppSetting" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

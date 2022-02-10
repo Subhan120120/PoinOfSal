@@ -5,6 +5,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using PointOfSale.Models;
+using PointOfSale.Properties;
 using System;
 using System.Data;
 using System.IO;
@@ -72,6 +73,7 @@ namespace PointOfSale
                             InvoiceHeaderId = invoiceHeaderId,
                             ProcessCode = "RS",
                             DocumentNumber = NewDocNum
+
                         };
                         efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }
@@ -137,10 +139,7 @@ namespace PointOfSale
 
         private void btn_Discount_Click(object sender, EventArgs e)
         {
-            bool authorized = false;
-            Session.DcRoles.ForEach(x => authorized = x.RoleCode.Contains("Admin"));     //check user role
-
-            if (authorized)
+            if (Authorization.Authorized("Admin"))
             {
                 if (rowIndx >= 0)                           //if product selected
                 {
@@ -263,9 +262,18 @@ namespace PointOfSale
                     {
                         efMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
 
-                        invoiceHeaderId = Guid.NewGuid();
+                        if (Settings.Default.AppSetting.GetPrint == true)
+                        {
+                            string designPath = Settings.Default.AppSetting.PrintDesignPath;
+                            if (!File.Exists(designPath))
+                                designPath = reportClass.SelectDesign();
 
-                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId);
+                            ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
+                            printTool.Print();
+                        }
+
+                        invoiceHeaderId = Guid.NewGuid();
+                        gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(invoiceHeaderId); // sifirlamaq
                     }
                 }
             }
@@ -372,25 +380,29 @@ namespace PointOfSale
 
         private void btn_Print_Click(object sender, EventArgs e)
         {
-            string designPath = reportClass.SelectDesign();
-            if (!string.IsNullOrEmpty(designPath))
-            {
-                ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
-                printTool.ShowPreview();
-            }
+            string designPath = Settings.Default.AppSetting.PrintDesignPath;
+
+            if (!File.Exists(designPath))
+                designPath = reportClass.SelectDesign();
+
+            ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
+            printTool.ShowPreview();
+
         }
 
         private void btn_PrintDesign_Click(object sender, EventArgs e)
         {
-            string designPath = reportClass.SelectDesign();
-            if (!string.IsNullOrEmpty(designPath))
-            {
-                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
-                designTool.ShowRibbonDesignerDialog();
-            }
+            string designPath = Settings.Default.AppSetting.PrintDesignPath;
+
+            if (!File.Exists(designPath))
+                designPath = reportClass.SelectDesign();
+
+            ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(invoiceHeaderId), designPath));
+            designTool.ShowRibbonDesignerDialog();
+
         }
 
-        private string subConnString = Properties.Settings.Default.subConnString;
+        private string subConnString = Settings.Default.subConnString;
 
         private void btn_ReportZ_Click(object sender, EventArgs e)
         {
@@ -412,12 +424,12 @@ namespace PointOfSale
             dataSource.Queries.AddRange(new SqlQuery[] { sqlQuerySale, sqlQueryPayment });
             dataSource.Fill();
 
-            string designPath = reportClass.SelectDesign();
-            if (!string.IsNullOrEmpty(designPath))
-            {
-                ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(dataSource, designPath));
-                designTool.ShowRibbonDesignerDialog();
-            }
+            string designPath = Settings.Default.AppSetting.PrintDesignPath;
+            if (!File.Exists(designPath))
+                designPath = reportClass.SelectDesign();
+            ReportDesignTool designTool = new ReportDesignTool(reportClass.CreateReport(dataSource, designPath));
+            designTool.ShowRibbonDesignerDialog();
+
         }
 
         private void btn_SalesPerson_Click(object sender, EventArgs e)
