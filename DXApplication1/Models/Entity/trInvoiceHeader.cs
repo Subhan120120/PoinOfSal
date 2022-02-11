@@ -41,7 +41,7 @@ namespace PointOfSale.Models
         [Column(TypeName = "time(0)")]
         public TimeSpan OperationTime { get; set; }
 
-        [Required]
+
         [StringLength(200)]
         public string Description { get; set; }
 

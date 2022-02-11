@@ -10,14 +10,12 @@ namespace PointOfSale.Models
 {
     public partial class BaseEntity
     {
-        [Required]
         [StringLength(20)]
         public string CreatedUserName { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime CreatedDate { get; set; }
 
-        [Required]
         [StringLength(20)]
         public string LastUpdatedUserName { get; set; }
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220211114924_trinvoiceheader_description_notRequired")]
+    partial class trinvoiceheader_description_notRequired
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,6 +110,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -177,6 +180,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -339,6 +343,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -353,6 +358,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -499,6 +505,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -520,6 +527,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -663,6 +671,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -674,6 +683,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -717,6 +727,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -728,6 +739,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -773,6 +785,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -787,6 +800,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -841,6 +855,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -855,6 +870,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -890,6 +906,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -907,6 +924,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1055,6 +1073,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1069,6 +1088,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1131,6 +1151,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1211,6 +1232,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1288,6 +1310,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1318,6 +1341,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1392,6 +1416,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1460,6 +1485,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1506,6 +1532,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1529,6 +1556,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1578,6 +1606,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1589,6 +1618,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1633,6 +1663,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1677,6 +1708,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1781,6 +1813,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1802,6 +1835,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")

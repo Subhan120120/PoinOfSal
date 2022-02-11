@@ -316,6 +316,18 @@
     <Compile Include="Migrations\20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.designer.cs">
       <DependentUpon>20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220210132027_added_process_expenses.cs" />
+    <Compile Include="Migrations\20220210132027_added_process_expenses.designer.cs">
+      <DependentUpon>20220210132027_added_process_expenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220211114924_trinvoiceheader_description_notRequired.cs" />
+    <Compile Include="Migrations\20220211114924_trinvoiceheader_description_notRequired.designer.cs">
+      <DependentUpon>20220211114924_trinvoiceheader_description_notRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220211145840_createdusername_NotRequired.cs" />
+    <Compile Include="Migrations\20220211145840_createdusername_NotRequired.designer.cs">
+      <DependentUpon>20220211145840_createdusername_NotRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
       <DependentUpon>Add_procedures.cs</DependentUpon>
@@ -464,6 +476,15 @@
     <Compile Include="DefaultControls.Designer.cs">
       <DependentUpon>DefaultControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="UcExpense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcExpense.Designer.cs">
+      <DependentUpon>UcExpense.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UcExpense.resx">
+      <DependentUpon>UcExpense.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AppCode\GvListDefaultLayout.xml" />
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>

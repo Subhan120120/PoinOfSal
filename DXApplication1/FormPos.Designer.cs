@@ -41,11 +41,13 @@ namespace PointOfSale
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
-            this.barCheckItem2 = new DevExpress.XtraBars.BarCheckItem();
-            this.navigationPageReturn = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.navigationPageSale = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.bCI_invoice = new DevExpress.XtraBars.BarCheckItem();
+            this.bCI_return = new DevExpress.XtraBars.BarCheckItem();
+            this.navPage_Return = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.navPage_Sale = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.bCI_expenses = new DevExpress.XtraBars.BarCheckItem();
+            this.navPage_Expenses = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
@@ -60,8 +62,9 @@ namespace PointOfSale
             this.toolbarFormControl1.Size = new System.Drawing.Size(1242, 31);
             this.toolbarFormControl1.TabIndex = 1;
             this.toolbarFormControl1.TabStop = false;
-            this.toolbarFormControl1.TitleItemLinks.Add(this.barCheckItem1);
-            this.toolbarFormControl1.TitleItemLinks.Add(this.barCheckItem2);
+            this.toolbarFormControl1.TitleItemLinks.Add(this.bCI_invoice);
+            this.toolbarFormControl1.TitleItemLinks.Add(this.bCI_return);
+            this.toolbarFormControl1.TitleItemLinks.Add(this.bCI_expenses);
             this.toolbarFormControl1.ToolbarForm = this;
             // 
             // toolbarFormManager1
@@ -72,9 +75,10 @@ namespace PointOfSale
             this.toolbarFormManager1.DockControls.Add(this.barDockControlRight);
             this.toolbarFormManager1.Form = this;
             this.toolbarFormManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barCheckItem1,
-            this.barCheckItem2});
-            this.toolbarFormManager1.MaxItemId = 24;
+            this.bCI_invoice,
+            this.bCI_return,
+            this.bCI_expenses});
+            this.toolbarFormManager1.MaxItemId = 25;
             // 
             // barDockControlTop
             // 
@@ -108,50 +112,65 @@ namespace PointOfSale
             this.barDockControlRight.Manager = this.toolbarFormManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 618);
             // 
-            // barCheckItem1
+            // bCI_invoice
             // 
-            this.barCheckItem1.BindableChecked = true;
-            this.barCheckItem1.Caption = "Satış";
-            this.barCheckItem1.Checked = true;
-            this.barCheckItem1.Id = 20;
-            this.barCheckItem1.Name = "barCheckItem1";
-            this.barCheckItem1.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem1_CheckedChanged);
-            this.barCheckItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem1_ItemClick);
+            this.bCI_invoice.BindableChecked = true;
+            this.bCI_invoice.Caption = "Satış";
+            this.bCI_invoice.Checked = true;
+            this.bCI_invoice.Id = 20;
+            this.bCI_invoice.Name = "bCI_invoice";
+            this.bCI_invoice.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_CheckedChanged);
+            this.bCI_invoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_invoice_ItemClick);
             // 
-            // barCheckItem2
+            // bCI_return
             // 
-            this.barCheckItem2.Caption = "Geri Qaytarma";
-            this.barCheckItem2.Id = 22;
-            this.barCheckItem2.Name = "barCheckItem2";
-            this.barCheckItem2.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem2_CheckedChanged);
-            this.barCheckItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem2_ItemClick);
+            this.bCI_return.Caption = "Geri Qaytarma";
+            this.bCI_return.Id = 22;
+            this.bCI_return.Name = "bCI_return";
+            this.bCI_return.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_CheckedChanged);
+            this.bCI_return.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_return_ItemClick);
             // 
-            // navigationPageReturn
+            // navPage_Return
             // 
-            this.navigationPageReturn.ControlName = "GeriQaytarma";
-            this.navigationPageReturn.Name = "navigationPageReturn";
-            this.navigationPageReturn.Size = new System.Drawing.Size(1242, 618);
+            this.navPage_Return.ControlName = "GeriQaytarma";
+            this.navPage_Return.Name = "navPage_Return";
+            this.navPage_Return.Size = new System.Drawing.Size(1242, 618);
             // 
-            // navigationPageSale
+            // navPage_Sale
             // 
-            this.navigationPageSale.ControlName = "Satış";
-            this.navigationPageSale.Name = "navigationPageSale";
-            this.navigationPageSale.Size = new System.Drawing.Size(1242, 618);
+            this.navPage_Sale.ControlName = "Satış";
+            this.navPage_Sale.Name = "navPage_Sale";
+            this.navPage_Sale.Size = new System.Drawing.Size(1242, 618);
             // 
             // navigationFrame1
             // 
-            this.navigationFrame1.Controls.Add(this.navigationPageSale);
-            this.navigationFrame1.Controls.Add(this.navigationPageReturn);
+            this.navigationFrame1.Controls.Add(this.navPage_Sale);
+            this.navigationFrame1.Controls.Add(this.navPage_Return);
+            this.navigationFrame1.Controls.Add(this.navPage_Expenses);
             this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame1.Location = new System.Drawing.Point(0, 31);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPageSale,
-            this.navigationPageReturn});
-            this.navigationFrame1.SelectedPage = this.navigationPageSale;
+            this.navPage_Sale,
+            this.navPage_Return,
+            this.navPage_Expenses});
+            this.navigationFrame1.SelectedPage = this.navPage_Sale;
             this.navigationFrame1.Size = new System.Drawing.Size(1242, 618);
             this.navigationFrame1.TabIndex = 0;
             this.navigationFrame1.Text = "navigationFrame1";
+            // 
+            // bCI_expenses
+            // 
+            this.bCI_expenses.Caption = "Xərclər";
+            this.bCI_expenses.Id = 24;
+            this.bCI_expenses.Name = "bCI_expenses";
+            this.bCI_expenses.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_CheckedChanged);
+            this.bCI_expenses.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_expenses_ItemClick);
+            // 
+            // navPage_Expenses
+            // 
+            this.navPage_Expenses.Name = "navPage_Expenses";
+            this.navPage_Expenses.Size = new System.Drawing.Size(1242, 618);
             // 
             // FormPOS
             // 
@@ -180,15 +199,17 @@ namespace PointOfSale
         private ToolbarFormControl toolbarFormControl1;
         private ToolbarFormManager toolbarFormManager1;
         private NavigationFrame navigationFrame1;
-        private NavigationPage navigationPageSale;
-        private NavigationPage navigationPageReturn;
+        private NavigationPage navPage_Sale;
+        private NavigationPage navPage_Return;
         private BarDockControl barDockControlTop;
         private BarDockControl barDockControlBottom;
         private BarDockControl barDockControlLeft;
         private BarDockControl barDockControlRight;
         //private UcSale ucSale;
         //private UcReturn ucReturn;
-        private BarCheckItem barCheckItem1;
-        private BarCheckItem barCheckItem2;
+        private BarCheckItem bCI_invoice;
+        private BarCheckItem bCI_return;
+        private BarCheckItem bCI_expenses;
+        private NavigationPage navPage_Expenses;
     }
 }

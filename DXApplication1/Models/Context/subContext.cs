@@ -236,7 +236,8 @@ namespace PointOfSale.Models
                 new DcProcess { ProcessCode = "P", ProcessDescription = "Ödəmə" },
                 new DcProcess { ProcessCode = "CA", ProcessDescription = "Cari" },
                 new DcProcess { ProcessCode = "SB", ProcessDescription = "Toptan Alış" },
-                new DcProcess { ProcessCode = "W", ProcessDescription = "Toptan Satış" }
+                new DcProcess { ProcessCode = "W", ProcessDescription = "Toptan Satış" },
+                new DcProcess { ProcessCode = "EX", ProcessDescription = "Xərclər" }
                 );
 
             modelBuilder.Entity<DcProduct>(entity =>
