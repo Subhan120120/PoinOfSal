@@ -18,43 +18,54 @@ namespace PointOfSale.Models
         }
 
         [Key]
-        [StringLength(30)]
+        [DisplayName("Məhsul Kodu")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ProductCode { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [DisplayName("Barkod")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(50, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string Barcode { get; set; }
 
         [ForeignKey("DcProductType")]
+        [DisplayName("Məhsul Tipi")]
         public byte ProductTypeCode { get; set; }
 
+        [DisplayName("POSda İstifadə Et")]
         public bool UsePos { get; set; }
 
-        [StringLength(50)]
+        [DisplayName("Tanıtım")]
+        [StringLength(50, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string PromotionCode { get; set; }
 
-        [StringLength(50)]
+        [DisplayName("Tanıtım2")]
+        [StringLength(50, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string PromotionCode2 { get; set; }
 
+        [DisplayName("Vergi Dərəcəsi")]
         public double TaxRate { get; set; }
 
+        [DisplayName("Pos Endirimi")]
         public double PosDiscount { get; set; }
 
+        [DisplayName("Qeyri-Aktiv")]
         public bool IsDisabled { get; set; }
 
         [DisplayName("Satış Qiyməti")]
         public double RetailPrice { get; set; }
 
+        [DisplayName("Alış Qiyməti")]
         public double PurchasePrice { get; set; }
 
+        [DisplayName("Toptan Satış Qiyməti")]
         public double WholesalePrice { get; set; }
 
-        public bool IsBlocked { get; set; }
-
+        [DisplayName("İnternetdə İstifadə Et")]
         public bool UseInternet { get; set; }
 
-        [Required]
-        [StringLength(150)]
+        [DisplayName("Məhsul Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(150, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ProductDescription { get; set; }
 
         public virtual DcProductType DcProductType { get; set; }

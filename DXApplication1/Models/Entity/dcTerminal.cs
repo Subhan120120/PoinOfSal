@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,13 +13,19 @@ namespace PointOfSale.Models
     public partial class DcTerminal : BaseEntity
     {
         [Key]
-        [StringLength(50)]
+        [DisplayName("Terminal Kodu")]
+        [StringLength(50, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string TerminalCode { get; set; }
 
-        [Required]
-        [StringLength(150)]
+        [DisplayName("Terminal Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(150, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string TerminalDesc { get; set; }
+
+        [DisplayName("Qeyri-Aktiv")]
         public bool IsDisabled { get; set; }
+
+        [DisplayName("Guid Id")]
         public Guid RowGuid { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -11,11 +12,14 @@ namespace PointOfSale.Models
     public partial class TrCurrAccRole : BaseEntity
     {
         [Key]
+        [DisplayName("Cari Hesab Rol Id")]
         public int CurrAccRoleId { get; set; }
 
         [ForeignKey("DcCurrAcc")]
+        [DisplayName("Cari Hesab")]
         public string CurrAccCode { get; set; }
 
+        [DisplayName("Rol")]
         [ForeignKey("DcRole")]
         public string RoleCode { get; set; }
 

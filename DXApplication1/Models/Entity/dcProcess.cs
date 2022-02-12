@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,11 +13,15 @@ namespace PointOfSale.Models
     public partial class DcProcess
     {
         [Key]
-        [StringLength(5)]
+        [DisplayName("Proses Kodu")]
+        [StringLength(5, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ProcessCode { get; set; }
 
-        [StringLength(200)]
+        [DisplayName("Proses Kodu")]
+        [StringLength(150, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ProcessDescription { get; set; }
+
+        [DisplayName("Sonuncu Nömrə")]
         public int? LastNumber { get; set; }
     }
 }

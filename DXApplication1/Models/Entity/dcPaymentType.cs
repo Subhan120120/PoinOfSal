@@ -13,9 +13,12 @@ namespace PointOfSale.Models
     public partial class DcPaymentType
     {
         [Key]
+        [DisplayName("Ödəmə Tipi Kodu")]
         public byte PaymentTypeCode { get; set; }
 
-        [StringLength(100)]
+        [DisplayName("Ödəmə Tipi Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(100, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string PaymentTypeDesc { get; set; }
 
         public virtual ICollection<TrPaymentLine> TrPaymentLines { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,9 +18,12 @@ namespace PointOfSale.Models
         }
 
         [Key]
+        [DisplayName("Məhsul Tipi Kodu")]
         public byte ProductTypeCode { get; set; }
 
-        [StringLength(50)]
+        [DisplayName("Məhsul Tipi Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(50, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ProductTypeDesc { get; set; }
 
         public virtual ICollection<DcProduct> DcProducts { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
@@ -11,13 +12,14 @@ namespace PointOfSale.Models
         }
 
         [Key]
+        [DisplayName("Id")]
         public int Id { get; set; }
 
-
+        [DisplayName("Özəllik Id")]
         [ForeignKey("DcFeature")]
         public int FeatureId { get; set; }
-
-
+                
+        [DisplayName("Məhsul")]
         [ForeignKey("DcProduct")]
         public string ProductCode { get; set; }
 

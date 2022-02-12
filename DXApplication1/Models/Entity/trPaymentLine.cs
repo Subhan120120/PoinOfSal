@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,24 +18,30 @@ namespace PointOfSale.Models
         [ForeignKey("TrPaymentHeader")]
         public Guid PaymentHeaderId { get; set; }
 
+        [DisplayName("Ödəmə Tipi")]
         [ForeignKey("DcPaymentType")]
         public byte PaymentTypeCode { get; set; }
 
-        [Required]
+        [DisplayName("Ödəmə")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [Column(TypeName = "money")]
         public decimal Payment { get; set; }
 
-        [Required]
-        [StringLength(200)]
+        [DisplayName("Sətir Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(200, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string LineDescription { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Valyuta")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CurrencyCode { get; set; }
 
-        [Required]
+        [DisplayName("Valyuta Kursu")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         public double ExchangeRate { get; set; }
 
+        [DisplayName("Bank")]
         public byte? BankId { get; set; }
 
 

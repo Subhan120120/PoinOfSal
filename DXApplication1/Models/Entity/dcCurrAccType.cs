@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,12 +18,19 @@ namespace PointOfSale.Models
         }
 
         [Key]
+        [DisplayName("Cari Hesab Tipi Kodu")]
         public byte CurrAccTypeCode { get; set; }
 
-        [Required]
-        [StringLength(100)]
+
+        [DisplayName("Cari Hesab Tipi Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(100, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CurrAccTypeDescription { get; set; }
+
+        [DisplayName("Qeyri-Aktiv")]
         public bool IsDisabled { get; set; }
+
+        [DisplayName("Guid Id")]
         public Guid RowGuid { get; set; }
 
         public virtual ICollection<DcCurrAcc> DcCurrAccs { get; set; }

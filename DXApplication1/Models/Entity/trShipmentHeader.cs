@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,61 +21,93 @@ namespace PointOfSale.Models
         public Guid ShipmentHeaderId { get; set; }
         public byte ShipTypeCode { get; set; }
 
-        [Required]
-        [StringLength(5)]
+        [DisplayName("Proses")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(5, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ProcessCode { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Daşıma Nömrəsi")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ShippingNumber { get; set; }
 
+        [DisplayName("Daşıma Tarixi")]
         [Column(TypeName = "date")]
         public DateTime ShippingDate { get; set; }
 
+        [DisplayName("Daşıma Vaxtı")]
         [Column(TypeName = "time(0)")]
         public TimeSpan ShippingTime { get; set; }
 
+        [DisplayName("Əməliyat Tarixi")]
         [Column(TypeName = "date")]
         public DateTime OperationDate { get; set; }
 
+        [DisplayName("Əməliyat Vaxtı")]
         [Column(TypeName = "time(0)")]
         public TimeSpan OperationTime { get; set; }
 
-        [StringLength(30)]
+        [DisplayName("Fərdi Sənəd Nömrəsi")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CustomsDocumentNumber { get; set; }
 
-        [Required]
-        [StringLength(200)]
+        [DisplayName("Açıqlama")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(200, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string Description { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Cari Hesab")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CurrAccCode { get; set; }
+
+        [DisplayName("Daşıma Adresi")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public Guid? ShippingPostalAddressId { get; set; }
 
-        [StringLength(10)]
+        [DisplayName("Şirkət")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public decimal CompanyCode { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Ofis")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string OfficeCode { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Mağaza")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string StoreCode { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Depo")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string WarehouseCode { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Depoya")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ToWarehouseCode { get; set; }
+
+        [DisplayName("Sifariş Əsaslıdır")]
         public bool IsOrderBase { get; set; }
+
+        [DisplayName("Tamamlanıb")]
         public bool IsCompleted { get; set; }
+
+        [DisplayName("Çap Edilib")]
         public bool IsPrinted { get; set; }
+
+        [DisplayName("Kilidlənib")]
         public bool IsLocked { get; set; }
+
+        [DisplayName("Təsdiqlənib")]
         public bool IsTransferApproved { get; set; }
+
+        [DisplayName("Təsdiqlənmə Tarixi")]
         public DateTime TransferApprovedDate { get; set; }
 
 

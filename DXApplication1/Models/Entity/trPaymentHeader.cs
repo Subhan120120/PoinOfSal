@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,41 +17,63 @@ namespace PointOfSale.Models
 
         [ForeignKey("TrInvoiceHeader")]
         public Guid? InvoiceHeaderId { get; set; }
+
+        [DisplayName("Sənəd Nömrəsi")]
         public string DocumentNumber { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayName("Sənəd Tarixi")]
         public DateTime DocumentDate { get; set; }
 
+        [DisplayName("Sənəd Vaxtı")]
         [Column(TypeName = "time(0)")]
         public TimeSpan DocumentTime { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Faktura Nömrəsi")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string InvoiceNumber { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Cari Hesab")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CurrAccCode { get; set; }
 
-        [Required]
-        [StringLength(200)]
+        [DisplayName("Adı")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(200, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string Description { get; set; }
+
+        [DisplayName("Şirkət")]
         public decimal CompanyCode { get; set; }
 
-        [Required]
-        [StringLength(5)]
+        [DisplayName("Ofis")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(5, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string OfficeCode { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [DisplayName("Mağaza")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string StoreCode { get; set; }
+
+        [DisplayName("POS Terminal")]
         public short PosterminalId { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Valyuta")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CurrencyCode { get; set; }
+
+        [DisplayName("Valyuta Dərəcəsi")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public double ExchangeRate { get; set; }
+
+        [DisplayName("Tamamlanıb")]
         public bool IsCompleted { get; set; }
+
+        [DisplayName("Kilidlənib")]
         public bool IsLocked { get; set; }
 
 

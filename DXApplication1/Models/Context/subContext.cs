@@ -281,9 +281,6 @@ namespace PointOfSale.Models
                 entity.Property(e => e.IsDisabled)
                     .HasDefaultValueSql("0");
 
-                entity.Property(e => e.IsBlocked)
-                    .HasDefaultValueSql("0");
-
                 entity.Property(e => e.CreatedDate)
                     .HasDefaultValueSql("getdate()");
 

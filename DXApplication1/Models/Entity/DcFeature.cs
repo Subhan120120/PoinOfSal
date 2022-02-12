@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace PointOfSale.Models
@@ -11,9 +12,11 @@ namespace PointOfSale.Models
         }
 
         [Key]
+        [DisplayName("Özəllik Kodu")]
         public int Id { get; set; }
 
-        [Required]
+        [DisplayName("Özəllik Adı")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         public string FeatureName { get; set; }
 
         public virtual ICollection<TrFeature> TrFeatures { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,9 +18,11 @@ namespace PointOfSale.Models
         }
 
         [Key]
+        [DisplayName("Rol Kodu")]
         public string RoleCode { get; set; }
 
-        [Required]
+        [DisplayName("Rol Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         public string RoleDesc { get; set; }
 
 

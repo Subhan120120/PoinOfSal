@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,35 +17,47 @@ namespace PointOfSale.Models
 
         [ForeignKey("TrShipmentHeader")]
         public Guid ShipmentHeaderId { get; set; }
+
+        [DisplayName("Sıra Nömrəsi")]
         public int SortOrder { get; set; }
-        public byte ItemTypeCode { get; set; }
+
+        [DisplayName("Məhsul")]
         public string ProductCode { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Rəng")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ColorCode { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Ölçü")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string ProductDimensionCode { get; set; }
+
+        [DisplayName("Say")]
         public double Qty { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Satıcı")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string SalespersonCode { get; set; }
 
-        [Required]
-        [StringLength(200)]
+        [DisplayName("Sətir Açıqlaması")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(200, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string LineDescription { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Daxili Barkod")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string UsedBarcode { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [DisplayName("Valyuta")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CurrencyCode { get; set; }
 
+        [DisplayName("Qiymət")]
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
