@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,39 +20,55 @@ namespace PointOfSale.Models
 
         public Guid? RelatedLineId { get; set; }
 
-        [StringLength(30)]
+
+        [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         [ForeignKey("DcProduct")]
+        [DisplayName("Məhsul")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         public string ProductCode { get; set; }
 
-        [Required]
+        [DisplayName("Say")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         public int Qty { get; set; }
 
-        [Required]
+        [DisplayName("Qiymət")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         public double Price { get; set; }
 
         [Column(TypeName = "money")]
+        [DisplayName("Tutar")]
         public decimal Amount { get; set; }
 
-        [Required]
+        [DisplayName("Qiymət")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [Column(TypeName = "money")]
         public decimal PosDiscount { get; set; }
 
         [Column(TypeName = "money")]
+        [DisplayName("Kampaniya Endirimi")]
         public decimal DiscountCampaign { get; set; }
 
         [Column(TypeName = "money")]
+        [DisplayName("Net Tutar")]
         public decimal NetAmount { get; set; }
 
+        [DisplayName("ƏDV")]
         public float VatRate { get; set; }
 
+        [DisplayName("Açıqlama")]
+        [StringLength(100, ErrorMessage = "{0} {1} simvoldan çox ola bilmez \n")]
         public string LineDescription { get; set; }
 
-        [StringLength(50)]
+        [DisplayName("Satıcı")]
+        [StringLength(50, ErrorMessage = "{0} {1} simvoldan çox ola bilmez \n")]
         public string SalesPersonCode { get; set; }
 
-        [StringLength(10)]
+        [DisplayName("Valyuta")]
+        [StringLength(10, ErrorMessage = "{0} {1} simvoldan çox ola bilmez \n")]
         public string CurrencyCode { get; set; }
 
+
+        [DisplayName("Valyuta kursu")]
         public double ExchangeRate { get; set; }
 
         [NotMapped]

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PointOfSale.Models
 {
@@ -14,10 +9,20 @@ namespace PointOfSale.Models
         [Key]
         public int Id { get; set; }
 
+        [DisplayName("Cədvəl Dizaynı")]
         public string GridViewLayout { get; set; }
+
+        [DisplayName("Print Edilsin")]
         public bool GetPrint { get; set; }
+
+        [DisplayName("Printer Adı")]
         public string PrinterName { get; set; }
+
+        [DisplayName("Çap sayı")]
         public int PrinterCopyNum { get; set; }
+
+
+        [DisplayName("Print Dizayn Yolu")]
         public string PrintDesignPath { get; set; }
 
     }

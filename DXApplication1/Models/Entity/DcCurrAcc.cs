@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,30 +20,38 @@ namespace PointOfSale.Models
 
         [Key]
         [StringLength(30)]
+        [DisplayName("Cari Hesab Kodu")]
         public string CurrAccCode { get; set; }
 
         [ForeignKey("DcCurrAccType")]
+        [DisplayName("Cari Hesab Tipi Kodu")]
         public byte CurrAccTypeCode { get; set; }
 
+        [DisplayName("Şirkət")]
         public byte CompanyCode { get; set; }
 
-        [Required]
-        [StringLength(5)]
+        [DisplayName("Ofis")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(5, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string OfficeCode { get; set; }
 
-        [Required]
-        [StringLength(60)]
+        [DisplayName("Adı")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string FirstName { get; set; }
 
-        [Required]
-        [StringLength(60)]
+        [DisplayName("Soyadı")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string LastName { get; set; }
 
-        [Required]
-        [StringLength(60)]
+        [DisplayName("Ata Adı")]
+        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string FatherName { get; set; }
 
         [Required]
+        [DisplayName("Şifrə")]
         public string Password { get; set; }
 
         [Required]
@@ -52,7 +61,7 @@ namespace PointOfSale.Models
         [Required]
         [StringLength(20)]
         public string TaxNum { get; set; }
-        
+
         [Required]
         [StringLength(5)]
         public string DataLanguageCode { get; set; }

@@ -235,6 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\AdoMethods.cs" />
+    <Compile Include="AppCode\ReflectionExtensions.cs" />
     <Compile Include="AppCode\DsMethods.cs" />
     <Compile Include="AppCode\Authorization.cs" />
     <Compile Include="AppCode\Extensions.cs" />
@@ -345,6 +346,10 @@
     <Compile Include="Migrations\20220212011450_addedXerc2.cs" />
     <Compile Include="Migrations\20220212011450_addedXerc2.designer.cs">
       <DependentUpon>20220212011450_addedXerc2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220212122459_addedProduct.cs" />
+    <Compile Include="Migrations\20220212122459_addedProduct.designer.cs">
+      <DependentUpon>20220212122459_addedProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
