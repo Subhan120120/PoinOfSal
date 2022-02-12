@@ -170,7 +170,7 @@ namespace PointOfSale
             int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
             if (buttonIndex == 0)
             {
-                using (FormProductList form = new FormProductList())
+                using (FormProductList form = new FormProductList(1))
                 {
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {

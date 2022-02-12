@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220212010148_addedXerc")]
+    partial class addedXerc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -621,42 +623,6 @@ namespace PointOfSale.Migrations
                             ProductTypeCode = (byte)1,
                             PurchasePrice = 0.0,
                             RetailPrice = 2.5,
-                            TaxRate = 0.0,
-                            UseInternet = false,
-                            UsePos = false,
-                            WholesalePrice = 0.0
-                        },
-                        new
-                        {
-                            ProductCode = "xerc01",
-                            Barcode = "",
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsBlocked = false,
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PosDiscount = 0.0,
-                            ProductDescription = "Yol Xerci",
-                            ProductTypeCode = (byte)2,
-                            PurchasePrice = 0.0,
-                            RetailPrice = 0.0,
-                            TaxRate = 0.0,
-                            UseInternet = false,
-                            UsePos = false,
-                            WholesalePrice = 0.0
-                        },
-                        new
-                        {
-                            ProductCode = "xerc02",
-                            Barcode = "",
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsBlocked = false,
-                            IsDisabled = false,
-                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PosDiscount = 0.0,
-                            ProductDescription = "Isiq Pulu",
-                            ProductTypeCode = (byte)2,
-                            PurchasePrice = 0.0,
-                            RetailPrice = 0.0,
                             TaxRate = 0.0,
                             UseInternet = false,
                             UsePos = false,

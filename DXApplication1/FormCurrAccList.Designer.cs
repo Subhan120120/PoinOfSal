@@ -232,7 +232,6 @@ namespace PointOfSale
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "XtraForm1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormCurrAccList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gC_CurrAccList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_CurrAccList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

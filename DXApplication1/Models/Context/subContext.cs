@@ -299,7 +299,9 @@ namespace PointOfSale.Models
 
             modelBuilder.Entity<DcProduct>().HasData(
                 new DcProduct { ProductTypeCode = 1, ProductCode = "test01", ProductDescription = "Papaq", Barcode = "123456", RetailPrice = 4.5 },
-                new DcProduct { ProductTypeCode = 1, ProductCode = "test02", ProductDescription = "Salvar", Barcode = "2000000000013", RetailPrice = 2.5 }
+                new DcProduct { ProductTypeCode = 1, ProductCode = "test02", ProductDescription = "Salvar", Barcode = "2000000000013", RetailPrice = 2.5 },
+                new DcProduct { ProductTypeCode = 2, ProductCode = "xerc01", ProductDescription = "Yol Xerci", Barcode = "", RetailPrice = 0 },
+                new DcProduct { ProductTypeCode = 2, ProductCode = "xerc02", ProductDescription = "Isiq Pulu", Barcode = "", RetailPrice = 0 }
             );
 
             modelBuilder.Entity<DcProductType>(entity =>
@@ -309,7 +311,9 @@ namespace PointOfSale.Models
             });
 
             modelBuilder.Entity<DcProductType>().HasData(
-                new DcProductType { ProductTypeCode = 1, ProductTypeDesc = "Məhsul" });
+                new DcProductType { ProductTypeCode = 1, ProductTypeDesc = "Məhsul" },
+                new DcProductType { ProductTypeCode = 2, ProductTypeDesc = "Xərc" }
+                );
 
             modelBuilder.Entity<DcStore>(entity =>
             {
@@ -443,7 +447,7 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("0");
 
                 entity.Property(e => e.DocumentTime)
-                    .HasDefaultValueSql("'00:00:00'");
+                    .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                 entity.Property(e => e.OfficeCode)
                     .HasDefaultValueSql("space(0)");
@@ -452,7 +456,7 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("getdate()");
 
                 entity.Property(e => e.OperationTime)
-                    .HasDefaultValueSql("'00:00:00'");
+                    .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                 entity.Property(e => e.PosTerminalId)
                     .HasDefaultValueSql("space(0)");
@@ -563,7 +567,7 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.Description)
-                        .HasDefaultValueSql("'00:00:00'");
+                        .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                 entity.Property(e => e.DocumentDate)
                     .HasDefaultValueSql("getdate()");
@@ -572,7 +576,7 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.DocumentTime)
-                    .HasDefaultValueSql("'00:00:00'");
+                    .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                 entity.Property(e => e.InvoiceHeaderId)
                     .HasDefaultValueSql("space(0)");
@@ -644,7 +648,7 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("getdate()");
 
                 entity.Property(e => e.OperationTime)
-                    .HasDefaultValueSql("'00:00:00'");
+                    .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                 entity.Property(e => e.ProcessCode)
                     .HasDefaultValueSql("space(0)");
@@ -659,7 +663,7 @@ namespace PointOfSale.Models
                     .HasDefaultValueSql("space(0)");
 
                 entity.Property(e => e.ShippingTime)
-                    .HasDefaultValueSql("'00:00:00'");
+                    .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                 entity.Property(e => e.StoreCode)
                     .HasDefaultValueSql("space(0)");

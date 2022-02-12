@@ -15,6 +15,7 @@ namespace PointOfSale
     {
         EfMethods efMethods = new EfMethods();
         public DcCurrAcc dcCurrAcc { get; set; }
+        public byte currAccTypeCode;
 
         public FormCurrAccList()
         {
@@ -25,9 +26,15 @@ namespace PointOfSale
             gV_CurrAccList.RestoreLayoutFromStream(stream, option);
         }
 
-        private void FormCurrAccList_Load(object sender, EventArgs e)
+        public FormCurrAccList(byte currAccTypeCode)
+            : this()
         {
-            gC_CurrAccList.DataSource = efMethods.SelectCurrAccs();
+            this.currAccTypeCode = currAccTypeCode;
+            if (currAccTypeCode != 0)
+                gC_CurrAccList.DataSource = efMethods.SelectCurrAccsByType(currAccTypeCode);
+            else
+                gC_CurrAccList.DataSource = efMethods.SelectCurrAccs();
+
         }
 
         private void gV_CurrAccList_DoubleClick(object sender, EventArgs e)
@@ -44,20 +51,20 @@ namespace PointOfSale
                 dcCurrAcc = efMethods.SelectCurrAcc(CurrAccCode);
 
                 DialogResult = DialogResult.OK;
-
-                FormCurrAcc form = new FormCurrAcc(dcCurrAcc);
-                form.Show();
             }
         }
 
         private void bBI_CurrAccNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            dcCurrAcc = new DcCurrAcc();
+            FormCurrAcc form = new FormCurrAcc(dcCurrAcc);
+            form.Show();
         }
 
         private void bBI_CurrAccEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            FormCurrAcc form = new FormCurrAcc(dcCurrAcc);
+            form.Show();
         }
     }
 }

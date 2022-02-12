@@ -78,6 +78,14 @@ namespace PointOfSale
             }
         }
 
+        public List<DcProduct> SelectProductsByProductType(byte productTypeCode)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.DcProducts.Where(x => x.ProductTypeCode == productTypeCode).ToList();
+            }
+        }
+
         public List<TrInvoiceHeader> SelectInvoiceHeaders()
         {
             using (subContext db = new subContext())
@@ -349,6 +357,16 @@ namespace PointOfSale
             using (subContext db = new subContext())
             {
                 return db.DcCurrAccs.Where(x => x.IsDisabled == false)
+                                    .OrderBy(x => x.CreatedDate)
+                                    .ToList(); // burdaki kolonlari dizaynda da elave et
+            }
+        }
+
+        public List<DcCurrAcc> SelectCurrAccsByType(byte currAccTypeCode)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.DcCurrAccs.Where(x => x.IsDisabled == false && x.CurrAccTypeCode == currAccTypeCode)
                                     .OrderBy(x => x.CreatedDate)
                                     .ToList(); // burdaki kolonlari dizaynda da elave et
             }

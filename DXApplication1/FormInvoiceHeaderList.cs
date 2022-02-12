@@ -38,26 +38,10 @@ namespace PointOfSale
             if ((info.InRow || info.InRowCell) && view.FocusedRowHandle >= 0)
             {
                 //info.RowHandle
-                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
+                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();              
 
-                object currAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]);
-                string currAcc = currAccCode == null ? null : currAccCode.ToString();
+                TrInvoiceHeader = view.GetRow(view.FocusedRowHandle) as TrInvoiceHeader;
 
-                TrInvoiceHeader = new TrInvoiceHeader()
-                {
-                    InvoiceHeaderId = (Guid)view.GetRowCellValue(view.FocusedRowHandle, view.Columns["InvoiceHeaderId"]),
-                    ProcessCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProcessCode"]).ToString(),
-                    DocumentNumber = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["DocumentNumber"]).ToString(),
-                    IsReturn = Convert.ToBoolean(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["IsReturn"])),
-                    CustomsDocumentNumber = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CustomsDocumentNumber"]).ToString(),
-                    DocumentDate = Convert.ToDateTime(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["DocumentDate"])),
-                    DocumentTime = (TimeSpan)(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["DocumentTime"])),
-                    CurrAccCode = currAcc,
-                    OfficeCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["OfficeCode"]).ToString(),
-                    StoreCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["StoreCode"]).ToString(),
-                    WarehouseCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["WarehouseCode"]).ToString(),
-                    Description = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Description"]).ToString(),
-                };
                 DialogResult = DialogResult.OK;
             }
         }

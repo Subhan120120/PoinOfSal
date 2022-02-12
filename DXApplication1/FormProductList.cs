@@ -7,6 +7,7 @@ using PointOfSale.Models;
 using PointOfSale.Properties;
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Text;
@@ -17,6 +18,9 @@ namespace PointOfSale
     public partial class FormProductList : RibbonForm
     {
         public DcProduct dcProduct { get; set; }
+
+        public byte productTypeCode;
+
         EfMethods efMethods = new EfMethods();
 
         public FormProductList()
@@ -27,10 +31,18 @@ namespace PointOfSale
             OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
             gV_ProductList.RestoreLayoutFromStream(stream, option);
 
-            gC_ProductList.DataSource = efMethods.SelectProducts();
         }
 
+        public FormProductList(byte productTypeCode)
+            : this()
+        {
+            this.productTypeCode = productTypeCode;
+            if (productTypeCode != 0)
+                gC_ProductList.DataSource = efMethods.SelectProductsByProductType(productTypeCode);
+            else
+                gC_ProductList.DataSource = efMethods.SelectProducts();
 
+        }
 
         private void gV_ProductList_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
@@ -39,14 +51,12 @@ namespace PointOfSale
             if (view.FocusedRowHandle >= 0)
             {
                 dcProduct = new DcProduct();
-                dcProduct.ProductCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProductCode"]).ToString();
-                dcProduct.Barcode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Barcode"]).ToString();
-                dcProduct.ProductDescription = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProductDescription"]).ToString();
-                dcProduct.RetailPrice = Convert.ToDouble(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["RetailPrice"]));
+                dcProduct = view.GetRow(view.FocusedRowHandle) as DcProduct;
             }
         }
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
+            #region Comment
             //DXMouseEventArgs ea = e as DXMouseEventArgs;
             //GridView view = sender as GridView;
             //GridHitInfo info = view.CalcHitInfo(ea.Location);
@@ -61,7 +71,8 @@ namespace PointOfSale
             //        ProductDescription = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["ProductDescription"]).ToString(),
             //        RetailPrice = Convert.ToDouble(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["RetailPrice"]))
             //    };
-            //}
+            //} 
+            #endregion
 
             GridView view = sender as GridView;
             if (view.FocusedRowHandle >= 0)
@@ -72,7 +83,12 @@ namespace PointOfSale
         {
             FormProduct formProduct = new FormProduct();
             if (formProduct.ShowDialog(this) == DialogResult.OK)
-                gC_ProductList.DataSource = efMethods.SelectProducts();
+            {
+                if (productTypeCode != 0)
+                    gC_ProductList.DataSource = efMethods.SelectProductsByProductType(productTypeCode);
+                else
+                    gC_ProductList.DataSource = efMethods.SelectProducts();
+            }
 
         }
 
@@ -83,7 +99,12 @@ namespace PointOfSale
             if (formProduct.ShowDialog(this) == DialogResult.OK)
             {
                 int fr = gV_ProductList.FocusedRowHandle;
-                gC_ProductList.DataSource = efMethods.SelectProducts();
+
+                if (productTypeCode != 0)
+                    gC_ProductList.DataSource = efMethods.SelectProductsByProductType(productTypeCode);
+                else
+                    gC_ProductList.DataSource = efMethods.SelectProducts();
+
                 gV_ProductList.FocusedRowHandle = fr;
             }
         }

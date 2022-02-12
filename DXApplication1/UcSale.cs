@@ -60,7 +60,7 @@ namespace PointOfSale
 
         private void btn_ProductSearch_Click(object sender, EventArgs e)
         {
-            using (FormProductList formProductList = new FormProductList())
+            using (FormProductList formProductList = new FormProductList(1))
             {
                 if (formProductList.ShowDialog(this) == DialogResult.OK)
                 {

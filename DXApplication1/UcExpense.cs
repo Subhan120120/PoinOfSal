@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class UcExpense : DevExpress.XtraEditors.XtraUserControl
+    public partial class UcExpense : XtraUserControl
     {
         subContext dbContext;
 
@@ -33,9 +33,12 @@ namespace PointOfSale
             dbContext = new subContext();
 
             trInvoiceHeader = trInvoiceHeadersBindingSource.AddNew() as TrInvoiceHeader;
+
             string NewDocNum = efMethods.GetNextDocNum("EX", "DocumentNumber", "TrInvoiceHeaders");
             trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
             trInvoiceHeader.DocumentNumber = NewDocNum;
+            trInvoiceHeader.DocumentDate = DateTime.Now;
+            trInvoiceHeader.DocumentTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
             trInvoiceHeader.ProcessCode = "EX";
 
             dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
@@ -55,22 +58,14 @@ namespace PointOfSale
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
-                    //btnEdit_DocNum.EditValue = form.TrInvoiceHeader.DocumentNumber;
-                    //dateEdit_DocDate.EditValue = form.TrInvoiceHeader.DocumentDate;
-                    //dateEdit_DocTime.EditValue = form.TrInvoiceHeader.DocumentTime;
-                    //btnEdit_CurrAccCode.EditValue = form.TrInvoiceHeader.CurrAccCode;
-                    //memoEdit_InvoiceDesc.EditValue = form.TrInvoiceHeader.Description;
-
                     dbContext = new subContext();
+
+                    dbContext.TrInvoiceHeaders.Where(x => x.InvoiceHeaderId == form.TrInvoiceHeader.InvoiceHeaderId).Load();
+                    trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList();
+
                     dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.TrInvoiceHeader.InvoiceHeaderId)
                                             .LoadAsync()
                                             .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
-
-
-                    dbContext.TrInvoiceHeaders.Where(x => x.InvoiceHeaderId == form.TrInvoiceHeader.InvoiceHeaderId)
-                                              .LoadAsync()
-                                              .ContinueWith(loadTask => trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
-                    
                 }
             }
         }
@@ -124,7 +119,7 @@ namespace PointOfSale
             int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
             if (buttonIndex == 0)
             {
-                using (FormProductList form = new FormProductList())
+                using (FormProductList form = new FormProductList(2))
                 {
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {

@@ -25,7 +25,7 @@ namespace PointOfSale
             Properties.Settings.Default.AppSetting = appSetting;
             Properties.Settings.Default.Save();
 
-            Application.Run(new FormLogin());
+            Application.Run(new FormPOS());
         }
     }
 }

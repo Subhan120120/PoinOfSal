@@ -240,6 +240,12 @@
     <Compile Include="AppCode\Extensions.cs" />
     <Compile Include="AppCode\Methods.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCurrAcc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,18 @@
     <Compile Include="Migrations\20220211145840_createdusername_NotRequired.cs" />
     <Compile Include="Migrations\20220211145840_createdusername_NotRequired.designer.cs">
       <DependentUpon>20220211145840_createdusername_NotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220212004130_addedTime.cs" />
+    <Compile Include="Migrations\20220212004130_addedTime.designer.cs">
+      <DependentUpon>20220212004130_addedTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220212010148_addedXerc.cs" />
+    <Compile Include="Migrations\20220212010148_addedXerc.designer.cs">
+      <DependentUpon>20220212010148_addedXerc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220212011450_addedXerc2.cs" />
+    <Compile Include="Migrations\20220212011450_addedXerc2.designer.cs">
+      <DependentUpon>20220212011450_addedXerc2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
@@ -482,6 +500,9 @@
     <Compile Include="UcExpense.Designer.cs">
       <DependentUpon>UcExpense.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UcExpense.resx">
       <DependentUpon>UcExpense.cs</DependentUpon>
     </EmbeddedResource>

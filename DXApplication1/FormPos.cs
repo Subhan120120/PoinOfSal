@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraBars;
-using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.ToolbarForm;
 using System;
 using System.Drawing;
@@ -15,11 +14,15 @@ namespace PointOfSale
 
             UcSale ucSale = new UcSale();
             ucSale.Dock = DockStyle.Fill;
-            navigationPageSale.Controls.Add(ucSale);
+            navPage_Sale.Controls.Add(ucSale);
 
             UcReturn ucReturn = new UcReturn();
             ucReturn.Dock = DockStyle.Fill;
-            navigationPageReturn.Controls.Add(ucReturn);
+            navPage_Return.Controls.Add(ucReturn);
+
+            UcExpense ucExpense = new UcExpense();
+            ucExpense.Dock = DockStyle.Fill;
+            navPage_Expenses.Controls.Add(ucExpense);
 
             AcceptButton = ucSale.btn_Enter;
         }
@@ -29,7 +32,7 @@ namespace PointOfSale
 
         }
 
-        private void barCheckItem1_CheckedChanged(object sender, ItemClickEventArgs e)
+        private void bCI_CheckedChanged(object sender, ItemClickEventArgs e)
         {
             BarCheckItem clickedBarItem = e.Item as BarCheckItem;
             if (clickedBarItem.Checked)
@@ -46,48 +49,45 @@ namespace PointOfSale
             }
         }
 
-        private void barCheckItem2_CheckedChanged(object sender, ItemClickEventArgs e)
+        private void bCI_return_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BarCheckItem clickedBarItem = e.Item as BarCheckItem;
-            if (clickedBarItem.Checked)
+            navigationFrame1.SelectedPage = navPage_Return;
+            BarCheckItem clickedBtn = e.Item as BarCheckItem;
+            foreach (BarItem control in toolbarFormManager1.Items)
             {
-                clickedBarItem.ItemAppearance.Normal.Font = new Font("Tahoma", 10F, FontStyle.Regular);
-                clickedBarItem.ItemAppearance.Normal.ForeColor = Color.FromArgb(0, 0, 192);
-                clickedBarItem.ItemAppearance.Normal.Options.UseFont = true;
-                clickedBarItem.ItemAppearance.Normal.Options.UseForeColor = true;
-            }
-            else
-            {
-                clickedBarItem.ItemAppearance.Normal.Options.UseFont = false;
-                clickedBarItem.ItemAppearance.Normal.Options.UseForeColor = false;
+                BarCheckItem btn = control as BarCheckItem;
+                if (btn == clickedBtn)
+                    clickedBtn.Checked = true; // secilen true olsun 
+                else
+                    btn.Checked = false; // qalanlari false olsun 
             }
         }
 
-        private void barCheckItem2_ItemClick(object sender, ItemClickEventArgs e)
+        private void bCI_invoice_ItemClick(object sender, ItemClickEventArgs e)
         {
-            navigationFrame1.SelectedPage = navigationPageReturn;
-            BarCheckItem clickedBarItem = e.Item as BarCheckItem;
+            navigationFrame1.SelectedPage = navPage_Sale;
+            BarCheckItem clickedBtn = e.Item as BarCheckItem;
             foreach (BarItem control in toolbarFormManager1.Items)
             {
-                BarCheckItem ctrl = control as BarCheckItem;
-                if (ctrl == clickedBarItem)
-                    clickedBarItem.Checked = true;
+                BarCheckItem btn = control as BarCheckItem;
+                if (btn == clickedBtn)
+                    clickedBtn.Checked = true;
                 else
-                    ctrl.Checked = false;
+                    btn.Checked = false;
             }
         }
 
-        private void barCheckItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void bCI_expenses_ItemClick(object sender, ItemClickEventArgs e)
         {
-            navigationFrame1.SelectedPage = navigationPageSale;
-            BarCheckItem clickedBarItem = e.Item as BarCheckItem;
+            navigationFrame1.SelectedPage = navPage_Expenses;
+            BarCheckItem clickedBtn = e.Item as BarCheckItem;
             foreach (BarItem control in toolbarFormManager1.Items)
             {
-                BarCheckItem ctrl = control as BarCheckItem;
-                if (ctrl == clickedBarItem)
-                    clickedBarItem.Checked = true;
+                BarCheckItem btn = control as BarCheckItem;
+                if (btn == clickedBtn)
+                    clickedBtn.Checked = true;
                 else
-                    ctrl.Checked = false;
+                    btn.Checked = false;
             }
         }
     }

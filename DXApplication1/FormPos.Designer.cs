@@ -43,10 +43,10 @@ namespace PointOfSale
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.bCI_invoice = new DevExpress.XtraBars.BarCheckItem();
             this.bCI_return = new DevExpress.XtraBars.BarCheckItem();
+            this.bCI_expenses = new DevExpress.XtraBars.BarCheckItem();
             this.navPage_Return = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navPage_Sale = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.bCI_expenses = new DevExpress.XtraBars.BarCheckItem();
             this.navPage_Expenses = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
@@ -130,6 +130,14 @@ namespace PointOfSale
             this.bCI_return.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_CheckedChanged);
             this.bCI_return.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_return_ItemClick);
             // 
+            // bCI_expenses
+            // 
+            this.bCI_expenses.Caption = "Xərclər";
+            this.bCI_expenses.Id = 24;
+            this.bCI_expenses.Name = "bCI_expenses";
+            this.bCI_expenses.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_CheckedChanged);
+            this.bCI_expenses.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_expenses_ItemClick);
+            // 
             // navPage_Return
             // 
             this.navPage_Return.ControlName = "GeriQaytarma";
@@ -158,14 +166,7 @@ namespace PointOfSale
             this.navigationFrame1.Size = new System.Drawing.Size(1242, 618);
             this.navigationFrame1.TabIndex = 0;
             this.navigationFrame1.Text = "navigationFrame1";
-            // 
-            // bCI_expenses
-            // 
-            this.bCI_expenses.Caption = "Xərclər";
-            this.bCI_expenses.Id = 24;
-            this.bCI_expenses.Name = "bCI_expenses";
-            this.bCI_expenses.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_CheckedChanged);
-            this.bCI_expenses.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bCI_expenses_ItemClick);
+            this.navigationFrame1.TransitionAnimationProperties.FrameInterval = 3000;
             // 
             // navPage_Expenses
             // 
