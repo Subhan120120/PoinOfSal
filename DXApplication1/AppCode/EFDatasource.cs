@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PointOfSale
 {
-    static class Class3
+    static class EFDatasource
     {
         public static object Exevute()
         {

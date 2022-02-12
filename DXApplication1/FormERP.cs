@@ -145,7 +145,7 @@ namespace PointOfSale
             }
             else
             {
-                form = new FormCurrAccList();
+                form = new FormCurrAccList(0);
                 form.MdiParent = this;
                 form.Show();
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];

@@ -331,7 +331,7 @@ namespace PointOfSale
 
         private void btn_CustomerSearch_Click(object sender, EventArgs e)
         {
-            using (FormCurrAccList form = new FormCurrAccList())
+            using (FormCurrAccList form = new FormCurrAccList(1))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
@@ -436,7 +436,7 @@ namespace PointOfSale
         {
             if (rowIndx >= 0)
             {
-                using (FormCurrAccList form = new FormCurrAccList())
+                using (FormCurrAccList form = new FormCurrAccList(1))
                 {
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {

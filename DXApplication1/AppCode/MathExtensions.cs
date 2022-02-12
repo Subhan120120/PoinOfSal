@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace PointOfSale
 {
-    public static class Extensions
+    public static class MathExtensions
     {
         public static bool Between(this decimal num, decimal lower, decimal upper, bool inclusive = false)
         {

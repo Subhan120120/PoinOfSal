@@ -72,7 +72,7 @@ namespace PointOfSale
 
         private void btnEdit_CurrAccCode_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            using (FormCurrAccList form = new FormCurrAccList())
+            using (FormCurrAccList form = new FormCurrAccList(2))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                     btnEdit_CurrAccCode.EditValue = form.dcCurrAcc.CurrAccCode;
