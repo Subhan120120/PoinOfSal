@@ -13,6 +13,11 @@ namespace PointOfSale
 {
     public partial class FormInvoiceHeaderList : XtraForm
     {
+        EfMethods efMethods = new EfMethods();
+        public TrInvoiceHeader trInvoiceHeader { get; set; }
+        //public string processCode { get; set; }
+
+
         public FormInvoiceHeaderList()
         {
             InitializeComponent();
@@ -22,12 +27,11 @@ namespace PointOfSale
             this.gV_InvoiceHeaderList.RestoreLayoutFromStream(stream, option);
         }
 
-        public TrInvoiceHeader TrInvoiceHeader { get; set; }
-        EfMethods efMethods = new EfMethods();
-
-        private void FormInvoiceHeaderList_Load(object sender, EventArgs e)
+        public FormInvoiceHeaderList(string processCode)
+            : this()
         {
-            gC_InvoiceHeaderList.DataSource = efMethods.SelectInvoiceHeaders();
+            //this.processCode = processCode;
+            gC_InvoiceHeaderList.DataSource = efMethods.SelectInvoiceHeadersByProcessCode(processCode);
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -38,9 +42,9 @@ namespace PointOfSale
             if ((info.InRow || info.InRowCell) && view.FocusedRowHandle >= 0)
             {
                 //info.RowHandle
-                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();              
+                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
 
-                TrInvoiceHeader = view.GetRow(view.FocusedRowHandle) as TrInvoiceHeader;
+                trInvoiceHeader = view.GetRow(view.FocusedRowHandle) as TrInvoiceHeader;
 
                 DialogResult = DialogResult.OK;
             }

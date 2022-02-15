@@ -38,12 +38,12 @@ namespace PointOfSale
 
         private void btnEdit_InvoiceHeader_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            using (FormInvoiceHeaderList formInvoiceHeaderList = new FormInvoiceHeaderList())
+            using (FormInvoiceHeaderList formInvoiceHeaderList = new FormInvoiceHeaderList("RS"))
             {
                 if (formInvoiceHeaderList.ShowDialog(this) == DialogResult.OK)
                 {
-                    btnEdit_InvoiceHeader.EditValue = formInvoiceHeaderList.TrInvoiceHeader.DocumentNumber;
-                    invoiceHeaderId = formInvoiceHeaderList.TrInvoiceHeader.InvoiceHeaderId;
+                    btnEdit_InvoiceHeader.EditValue = formInvoiceHeaderList.trInvoiceHeader.DocumentNumber;
+                    invoiceHeaderId = formInvoiceHeaderList.trInvoiceHeader.InvoiceHeaderId;
 
                     if (efMethods.InvoiceHeaderExist(returnInvoiceHeaderId))
                         efMethods.DeleteInvoice(returnInvoiceHeaderId);                // delete previous invoice

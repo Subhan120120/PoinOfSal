@@ -31,7 +31,7 @@ namespace PointOfSale.Models
         [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string DocumentNumber { get; set; }
 
-        [DisplayName("Qaytarılmadır")]
+        [DisplayName("Geri Qaytarma")]
         public bool IsReturn { get; set; }
 
         [Column(TypeName = "date")]

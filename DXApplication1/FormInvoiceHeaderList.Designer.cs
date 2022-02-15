@@ -196,7 +196,6 @@ namespace PointOfSale
             this.Name = "FormInvoiceHeaderList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormInvoiceHeaderList";
-            this.Load += new System.EventHandler(this.FormInvoiceHeaderList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceHeaderList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceHeaderList)).EndInit();
             this.ResumeLayout(false);

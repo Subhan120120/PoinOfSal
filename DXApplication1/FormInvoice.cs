@@ -19,7 +19,7 @@ namespace PointOfSale
         Badge badge2;
         AdornerUIManager adornerUIManager1;
 
-        public Guid invoiceHeaderId;
+        public TrInvoiceHeader trInvoiceHeader;
 
         EfMethods efMethods = new EfMethods();
         subContext dbContext;
@@ -27,9 +27,9 @@ namespace PointOfSale
         public FormInvoice()
         {
             InitializeComponent();
-            lookUpEdit_OfficeCode.Properties.DataSource = efMethods.SelectOffices();
-            lookUpEdit_StoreCode.Properties.DataSource = efMethods.SelectStores();
-            lookUpEdit_WarehouseCode.Properties.DataSource = efMethods.SelectWarehouses();
+            lUE_OfficeCode.Properties.DataSource = efMethods.SelectOffices();
+            lUE_StoreCode.Properties.DataSource = efMethods.SelectStores();
+            lUE_WarehouseCode.Properties.DataSource = efMethods.SelectWarehouses();
 
             adornerUIManager1 = new AdornerUIManager(components);
             badge1 = new Badge();
@@ -38,39 +38,58 @@ namespace PointOfSale
             adornerUIManager1.Elements.Add(badge2);
             badge1.TargetElement = bBI_Save;
             badge2.TargetElement = RibbonPage_Invoice;
+
+
+            //        dbContext.TrInvoiceHeaders.LoadAsync().ContinueWith(loadTask =>
+            //        {
+            //// Bind data to control when loading complete
+            //trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList();
+            //        }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+
+
         }
 
         public AdornerElement[] Badges { get { return new AdornerElement[] { badge1, badge2 }; } }
 
         private void FormInvoice_Load(object sender, EventArgs e)
         {
-            invoiceHeaderId = Guid.NewGuid();
+            ClearControlsAddNew();
+        }
 
+        private void ClearControlsAddNew()
+        {
             dbContext = new subContext();
-            dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == invoiceHeaderId)
-                                    .LoadAsync()
-                                    .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+
+            trInvoiceHeader = trInvoiceHeadersBindingSource.AddNew() as TrInvoiceHeader;
+
+            string NewDocNum = efMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
+            trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
+            trInvoiceHeader.DocumentNumber = NewDocNum;
+            trInvoiceHeader.DocumentDate = DateTime.Now;
+            trInvoiceHeader.DocumentTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
+            trInvoiceHeader.ProcessCode = "RP";
+
+            dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
+                                                .LoadAsync()
+                                                .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void btnEdit_DocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            using (FormInvoiceHeaderList form = new FormInvoiceHeaderList())
+            using (FormInvoiceHeaderList form = new FormInvoiceHeaderList("RP"))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
-                    btnEdit_DocNum.EditValue = form.TrInvoiceHeader.DocumentNumber;
-                    checkEdit_IsReturn.EditValue = form.TrInvoiceHeader.IsReturn;
-                    txtEdit_InvoiceCustomNum.EditValue = form.TrInvoiceHeader.CustomsDocumentNumber;
-                    dateEdit_DocDate.EditValue = form.TrInvoiceHeader.DocumentDate;
-                    dateEdit_DocTime.EditValue = form.TrInvoiceHeader.DocumentTime;
-                    btnEdit_CurrAccCode.EditValue = form.TrInvoiceHeader.CurrAccCode;
-                    lookUpEdit_OfficeCode.EditValue = form.TrInvoiceHeader.OfficeCode;
-                    lookUpEdit_StoreCode.EditValue = form.TrInvoiceHeader.StoreCode;
-                    lookUpEdit_WarehouseCode.EditValue = form.TrInvoiceHeader.WarehouseCode;
-                    memoEdit_InvoiceDesc.EditValue = form.TrInvoiceHeader.Description;
+                    //trInvoiceHeadersBindingSource.DataSource = form.trInvoiceHeader;
+
+                    trInvoiceHeader.InvoiceHeaderId = form.trInvoiceHeader.InvoiceHeaderId;
 
                     dbContext = new subContext();
-                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.TrInvoiceHeader.InvoiceHeaderId)
+                    dbContext.TrInvoiceHeaders.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId).Load();
+                    trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList();
+
+
+                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId)
                                             .LoadAsync()
                                             .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
                 }
@@ -88,32 +107,9 @@ namespace PointOfSale
 
         private void gV_InvoiceLine_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            if (!efMethods.InvoiceHeaderExist(invoiceHeaderId)) //if invoiceHeader doesnt exist
-            {
-                string NewDocNum = efMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
-
-                TrInvoiceHeader TrInvoiceHeader = new TrInvoiceHeader();
-
-                TrInvoiceHeader.InvoiceHeaderId = invoiceHeaderId;
-                TrInvoiceHeader.ProcessCode = "RP";
-                TrInvoiceHeader.DocumentNumber = NewDocNum;
-                TrInvoiceHeader.IsReturn = Convert.ToBoolean(checkEdit_IsReturn.EditValue);
-                TrInvoiceHeader.CustomsDocumentNumber = txtEdit_InvoiceCustomNum.Text;
-                TrInvoiceHeader.DocumentDate = Convert.ToDateTime(dateEdit_DocDate.EditValue);
-                TrInvoiceHeader.DocumentTime = (TimeSpan)dateEdit_DocTime.EditValue;
-                TrInvoiceHeader.CurrAccCode = btnEdit_CurrAccCode.EditValue.ToString();
-                TrInvoiceHeader.OfficeCode = lookUpEdit_OfficeCode.EditValue.ToString();
-                TrInvoiceHeader.StoreCode = lookUpEdit_StoreCode.EditValue.ToString();
-                TrInvoiceHeader.WarehouseCode = lookUpEdit_WarehouseCode.EditValue.ToString();
-                TrInvoiceHeader.Description = memoEdit_InvoiceDesc.Text;
-
-                efMethods.InsertInvoiceHeader(TrInvoiceHeader);
-            }
-
-            gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", invoiceHeaderId);
+            gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId);
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
 
-            efMethods.UpdateInvoiceIsCompleted(invoiceHeaderId);
         }
 
         private void gV_InvoiceLine_KeyDown(object sender, KeyEventArgs e)
@@ -188,17 +184,39 @@ namespace PointOfSale
 
         private void gV_InvoiceLine_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            dbContext.SaveChanges();
+            //dbContext.SaveChanges();
         }
 
         private void gV_InvoiceLine_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
         {
-            dbContext.SaveChanges();
+            //dbContext.SaveChanges();
         }
 
         private void FormInvoice_FormClosed(object sender, FormClosedEventArgs e)
         {
             dbContext.Dispose();
+        }
+
+        private void btn_Save(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
+            if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
+            {
+                efMethods.InsertInvoiceHeader(trInvoiceHeader);
+
+            }
+
+            dbContext.SaveChanges();
+
+            efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
+
+            ClearControlsAddNew();
+
         }
     }
 }

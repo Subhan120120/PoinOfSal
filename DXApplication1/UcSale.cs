@@ -9,7 +9,6 @@ using PointOfSale.Properties;
 using System;
 using System.Data;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace PointOfSale
@@ -72,8 +71,9 @@ namespace PointOfSale
                         {
                             InvoiceHeaderId = invoiceHeaderId,
                             ProcessCode = "RS",
-                            DocumentNumber = NewDocNum
-
+                            DocumentNumber = NewDocNum,
+                            DocumentDate = DateTime.Now,
+                            DocumentTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"))
                         };
                         efMethods.InsertInvoiceHeader(TrInvoiceHeader);
                     }

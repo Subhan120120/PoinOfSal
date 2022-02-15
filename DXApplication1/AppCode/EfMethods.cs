@@ -96,6 +96,16 @@ namespace PointOfSale
             }
         }
 
+        public List<TrInvoiceHeader> SelectInvoiceHeadersByProcessCode(string processCode)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.TrInvoiceHeaders.Where(x => x.IsCompleted == true && x.ProcessCode == processCode)
+                                          .OrderBy(x => x.CreatedDate)
+                                          .ToList();
+            }
+        }
+
         public TrInvoiceLine SelectInvoiceLine(Guid invoiceLineId)
         {
             using (subContext db = new subContext())

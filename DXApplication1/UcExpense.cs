@@ -41,6 +41,7 @@ namespace PointOfSale
             trInvoiceHeader.DocumentTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
             trInvoiceHeader.ProcessCode = "EX";
 
+
             dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
                         .LoadAsync()
                         .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
@@ -54,16 +55,18 @@ namespace PointOfSale
 
         private void btnEdit_DocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            using (FormInvoiceHeaderList form = new FormInvoiceHeaderList())
+            using (FormInvoiceHeaderList form = new FormInvoiceHeaderList("EX"))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
+                    trInvoiceHeader.InvoiceHeaderId = form.trInvoiceHeader.InvoiceHeaderId;
+
                     dbContext = new subContext();
 
-                    dbContext.TrInvoiceHeaders.Where(x => x.InvoiceHeaderId == form.TrInvoiceHeader.InvoiceHeaderId).Load();
+                    dbContext.TrInvoiceHeaders.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId).Load();
                     trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList();
 
-                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.TrInvoiceHeader.InvoiceHeaderId)
+                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId)
                                             .LoadAsync()
                                             .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
                 }
@@ -86,8 +89,6 @@ namespace PointOfSale
                 if (MessageBox.Show("Sətir Silinsin?", "Təsdiqlə", MessageBoxButtons.YesNo) != DialogResult.Yes)
                     return;
                 GridView gV = sender as GridView;
-                MessageBox.Show(gV.FocusedRowHandle.ToString());
-
                 gV.DeleteRow(gV.FocusedRowHandle);
             }
         }
@@ -136,6 +137,7 @@ namespace PointOfSale
                 dbContext.TrInvoiceHeaders.Add(trInvoiceHeader);
             dbContext.SaveChanges();
             efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
+
 
             ClearControlsAddNew();
         }
