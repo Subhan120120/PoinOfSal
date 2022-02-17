@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220215163801_added-vatiable")]
+    partial class addedvatiable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -431,6 +433,9 @@ namespace PointOfSale.Migrations
                         .HasColumnType("nvarchar(5)")
                         .HasMaxLength(5);
 
+                    b.Property<int?>("LastNumber")
+                        .HasColumnType("int");
+
                     b.Property<string>("ProcessDescription")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(150)")
@@ -456,6 +461,11 @@ namespace PointOfSale.Migrations
                         {
                             ProcessCode = "P",
                             ProcessDescription = "Ödəmə"
+                        },
+                        new
+                        {
+                            ProcessCode = "CA",
+                            ProcessDescription = "Cari"
                         },
                         new
                         {
@@ -900,66 +910,6 @@ namespace PointOfSale.Migrations
                     b.HasKey("TerminalCode");
 
                     b.ToTable("DcTerminals");
-                });
-
-            modelBuilder.Entity("PointOfSale.Models.DcVariable", b =>
-                {
-                    b.Property<string>("VariableCode")
-                        .HasColumnType("nvarchar(5)")
-                        .HasMaxLength(5);
-
-                    b.Property<int?>("LastNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("VariableDesc")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.HasKey("VariableCode");
-
-                    b.ToTable("DcVariables");
-
-                    b.HasData(
-                        new
-                        {
-                            VariableCode = "CA",
-                            VariableDesc = "Cari"
-                        },
-                        new
-                        {
-                            VariableCode = "PR",
-                            VariableDesc = "Məhsul"
-                        },
-                        new
-                        {
-                            VariableCode = "RS",
-                            VariableDesc = "Pərakəndə Satış"
-                        },
-                        new
-                        {
-                            VariableCode = "RP",
-                            VariableDesc = "Pərakəndə Alış"
-                        },
-                        new
-                        {
-                            VariableCode = "P",
-                            VariableDesc = "Ödəmə"
-                        },
-                        new
-                        {
-                            VariableCode = "SB",
-                            VariableDesc = "Toptan Alış"
-                        },
-                        new
-                        {
-                            VariableCode = "W",
-                            VariableDesc = "Toptan Satış"
-                        },
-                        new
-                        {
-                            VariableCode = "EX",
-                            VariableDesc = "Xərclər"
-                        });
                 });
 
             modelBuilder.Entity("PointOfSale.Models.DcWarehouse", b =>

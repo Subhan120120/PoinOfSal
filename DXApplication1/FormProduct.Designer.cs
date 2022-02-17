@@ -125,6 +125,7 @@ namespace PointOfSale
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(924, 0, 650, 400);
             this.dataLayoutControl1.Root = this.Root;
             this.dataLayoutControl1.Size = new System.Drawing.Size(671, 239);
             this.dataLayoutControl1.TabIndex = 0;
@@ -306,7 +307,6 @@ namespace PointOfSale
             this.btn_Cancel.StyleController = this.dataLayoutControl1;
             this.btn_Cancel.TabIndex = 20;
             this.btn_Cancel.Text = "simpleButton2";
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // Root
             // 

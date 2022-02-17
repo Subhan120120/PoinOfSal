@@ -37,33 +37,49 @@ namespace PointOfSale
 
         }
 
+        private void gV_CurrAccList_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            GridView view = sender as GridView;
+
+            if (view.FocusedRowHandle >= 0)
+                dcCurrAcc = view.GetRow(view.FocusedRowHandle) as DcCurrAcc;
+        }
+
         private void gV_CurrAccList_DoubleClick(object sender, EventArgs e)
         {
-            DXMouseEventArgs ea = e as DXMouseEventArgs;
-            GridView view = sender as GridView;
-            GridHitInfo info = view.CalcHitInfo(ea.Location);
-            if (info.InRow || info.InRowCell)
-            {
-                //info.RowHandle
-                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                dcCurrAcc = new DcCurrAcc();
-                string CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString();
-                dcCurrAcc = efMethods.SelectCurrAcc(CurrAccCode);
+            #region comment
+            //DXMouseEventArgs ea = e as DXMouseEventArgs;
+            //GridView view = sender as GridView;
+            //GridHitInfo info = view.CalcHitInfo(ea.Location);
+            //if (info.InRow || info.InRowCell)
+            //{
+            //    //info.RowHandle
+            //    string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
+            //    dcCurrAcc = new DcCurrAcc();
+            //    string CurrAccCode = view.GetRowCellValue(view.FocusedRowHandle, view.Columns["CurrAccCode"]).ToString();
+            //    dcCurrAcc = efMethods.SelectCurrAcc(CurrAccCode);
 
+            //    DialogResult = DialogResult.OK;
+            //} 
+            #endregion
+
+            GridView view = sender as GridView;
+            if (view.FocusedRowHandle >= 0)
                 DialogResult = DialogResult.OK;
-            }
         }
 
         private void bBI_CurrAccNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             dcCurrAcc = new DcCurrAcc();
-            FormCurrAcc form = new FormCurrAcc(dcCurrAcc);
-            form.Show();
+            FormCurrAcc form = new FormCurrAcc();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+            }
         }
 
         private void bBI_CurrAccEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FormCurrAcc form = new FormCurrAcc(dcCurrAcc);
+            FormCurrAcc form = new FormCurrAcc(dcCurrAcc.CurrAccCode);
             form.Show();
         }
     }

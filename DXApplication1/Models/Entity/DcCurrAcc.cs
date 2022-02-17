@@ -50,9 +50,17 @@ namespace PointOfSale.Models
         [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string FatherName { get; set; }
 
-        [DisplayName("Şifrə")]
+        //[DisplayName("Şifrə")]
+        //[Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        //public string Password { get; set; }
+
         [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
-        public string Password { get; set; }
+        [DataType(DataType.Password), Display(Name = "Yeni Şifrə")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password), Compare("NewPassword", ErrorMessage = "Şifrələr biri birinə uyğun deyil"), Display(Name = "Şifrəni Təsdiqlə")]
+        public string ConfirmPassword { get; set; }
+
 
         [DisplayName("Ş.V.Nömrəsi")]
         [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
@@ -64,6 +72,7 @@ namespace PointOfSale.Models
         [StringLength(20, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string TaxNum { get; set; }
 
+        [DisplayName("İstifadəçi Dili")]
         [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [StringLength(5, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string DataLanguageCode { get; set; }
@@ -99,7 +108,8 @@ namespace PointOfSale.Models
         [StringLength(150, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string Address { get; set; }
 
-        [Phone]
+
+        [DataType(DataType.PhoneNumber)]
         [DisplayName("Telefon")]
         [StringLength(150, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string PhoneNum { get; set; }

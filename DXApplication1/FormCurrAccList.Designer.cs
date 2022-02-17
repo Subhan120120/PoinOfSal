@@ -83,6 +83,7 @@ namespace PointOfSale
             this.gV_CurrAccList.GridControl = this.gC_CurrAccList;
             this.gV_CurrAccList.Name = "gV_CurrAccList";
             this.gV_CurrAccList.OptionsView.ShowGroupPanel = false;
+            this.gV_CurrAccList.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gV_CurrAccList_FocusedRowChanged);
             this.gV_CurrAccList.DoubleClick += new System.EventHandler(this.gV_CurrAccList_DoubleClick);
             // 
             // col_CurrAccCode

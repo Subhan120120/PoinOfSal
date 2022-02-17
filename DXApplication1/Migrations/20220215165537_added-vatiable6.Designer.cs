@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220215165537_added-vatiable6")]
+    partial class addedvatiable6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -904,61 +906,61 @@ namespace PointOfSale.Migrations
 
             modelBuilder.Entity("PointOfSale.Models.DcVariable", b =>
                 {
-                    b.Property<string>("VariableCode")
+                    b.Property<string>("DcVariableCode")
                         .HasColumnType("nvarchar(5)")
                         .HasMaxLength(5);
+
+                    b.Property<string>("DcVariableDesc")
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<int?>("LastNumber")
                         .HasColumnType("int");
 
-                    b.Property<string>("VariableDesc")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.HasKey("VariableCode");
+                    b.HasKey("DcVariableCode");
 
                     b.ToTable("DcVariables");
 
                     b.HasData(
                         new
                         {
-                            VariableCode = "CA",
-                            VariableDesc = "Cari"
+                            DcVariableCode = "CA",
+                            DcVariableDesc = "Cari"
                         },
                         new
                         {
-                            VariableCode = "PR",
-                            VariableDesc = "Məhsul"
+                            DcVariableCode = "PR",
+                            DcVariableDesc = "Məhsul"
                         },
                         new
                         {
-                            VariableCode = "RS",
-                            VariableDesc = "Pərakəndə Satış"
+                            DcVariableCode = "RS",
+                            DcVariableDesc = "Pərakəndə Satış"
                         },
                         new
                         {
-                            VariableCode = "RP",
-                            VariableDesc = "Pərakəndə Alış"
+                            DcVariableCode = "RP",
+                            DcVariableDesc = "Pərakəndə Alış"
                         },
                         new
                         {
-                            VariableCode = "P",
-                            VariableDesc = "Ödəmə"
+                            DcVariableCode = "P",
+                            DcVariableDesc = "Ödəmə"
                         },
                         new
                         {
-                            VariableCode = "SB",
-                            VariableDesc = "Toptan Alış"
+                            DcVariableCode = "SB",
+                            DcVariableDesc = "Toptan Alış"
                         },
                         new
                         {
-                            VariableCode = "W",
-                            VariableDesc = "Toptan Satış"
+                            DcVariableCode = "W",
+                            DcVariableDesc = "Toptan Satış"
                         },
                         new
                         {
-                            VariableCode = "EX",
-                            VariableDesc = "Xərclər"
+                            DcVariableCode = "EX",
+                            DcVariableDesc = "Xərclər"
                         });
                 });
 

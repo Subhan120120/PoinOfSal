@@ -359,12 +359,37 @@
     <Compile Include="Migrations\20220212235727_nothing.designer.cs">
       <DependentUpon>20220212235727_nothing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220215120430_confirmPasword.cs" />
+    <Compile Include="Migrations\20220215120430_confirmPasword.designer.cs">
+      <DependentUpon>20220215120430_confirmPasword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220215163801_added-vatiable.cs" />
+    <Compile Include="Migrations\20220215163801_added-vatiable.designer.cs">
+      <DependentUpon>20220215163801_added-vatiable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220215163904_added-vatiable2.cs" />
+    <Compile Include="Migrations\20220215163904_added-vatiable2.designer.cs">
+      <DependentUpon>20220215163904_added-vatiable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220215164321_added-vatiable5.cs" />
+    <Compile Include="Migrations\20220215164321_added-vatiable5.designer.cs">
+      <DependentUpon>20220215164321_added-vatiable5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220215165537_added-vatiable6.cs" />
+    <Compile Include="Migrations\20220215165537_added-vatiable6.designer.cs">
+      <DependentUpon>20220215165537_added-vatiable6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220215165815_added-vatiable7.cs" />
+    <Compile Include="Migrations\20220215165815_added-vatiable7.designer.cs">
+      <DependentUpon>20220215165815_added-vatiable7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
       <DependentUpon>Add_procedures.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\subContextModelSnapshot.cs" />
     <Compile Include="Models\Entity\AppSetting.cs" />
+    <Compile Include="Models\Entity\DcVariable.cs" />
     <Compile Include="Models\Entity\TrFeature.cs" />
     <Compile Include="Models\Entity\DcFeature.cs" />
     <Compile Include="Models\Entity\DcReport.cs" />

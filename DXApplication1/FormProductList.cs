@@ -17,11 +17,9 @@ namespace PointOfSale
 {
     public partial class FormProductList : RibbonForm
     {
-        public DcProduct dcProduct { get; set; }
-
-        public byte productTypeCode;
-
         EfMethods efMethods = new EfMethods();
+        public DcProduct dcProduct { get; set; }
+        public byte productTypeCode;
 
         public FormProductList()
         {
@@ -30,7 +28,6 @@ namespace PointOfSale
             MemoryStream stream = new MemoryStream(byteArray);
             OptionsLayoutGrid option = new OptionsLayoutGrid() { StoreAllOptions = true, StoreAppearance = true };
             gV_ProductList.RestoreLayoutFromStream(stream, option);
-
         }
 
         public FormProductList(byte productTypeCode)
@@ -49,10 +46,7 @@ namespace PointOfSale
             GridView view = sender as GridView;
 
             if (view.FocusedRowHandle >= 0)
-            {
-                dcProduct = new DcProduct();
                 dcProduct = view.GetRow(view.FocusedRowHandle) as DcProduct;
-            }
         }
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {

@@ -431,7 +431,7 @@ namespace PointOfSale
                 {
                     return db.DcCurrAccs.Where(x => x.IsDisabled == false)
                                         .Where(x => x.CurrAccCode == CurrAccCode)
-                                        .Any(x => x.Password == Password);
+                                        .Any(x => x.NewPassword == Password);
                 }
             }
         }

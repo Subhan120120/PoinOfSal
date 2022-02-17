@@ -21,30 +21,28 @@ namespace PointOfSale
         }
 
         public FormProduct(string productCode)
-            :this()
+            : this()
         {
             this.productCode = productCode;
         }
 
         private void FormProduct_Load(object sender, System.EventArgs e)
         {
-            if (!string.IsNullOrEmpty(productCode))
+            DcProduct dcProduct;
+
+            if (string.IsNullOrEmpty(productCode))
             {
-                dbContext.DcProducts.Where(x => x.ProductCode == productCode)
-                                    .LoadAsync()
-                                    .ContinueWith(loadTask => dcProductsBindingSource.DataSource = dbContext.DcProducts.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+                dcProduct = dcProductsBindingSource.AddNew() as DcProduct;
+                dcProduct.ProductCode = "";
             }
+
+            dbContext.DcProducts.Where(x => x.ProductCode == productCode).LoadAsync().ContinueWith(loadTask => dcProductsBindingSource.DataSource = dbContext.DcProducts.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void btn_Ok_Click(object sender, System.EventArgs e)
         {
             dbContext.SaveChanges();
             DialogResult = DialogResult.OK;
-        }
-
-        private void btn_Cancel_Click(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

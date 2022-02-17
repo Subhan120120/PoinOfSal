@@ -29,590 +29,964 @@ namespace PointOfSale
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCurrAcc));
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Ok = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.ButtonEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit6 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit8 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.buttonEdit7 = new DevExpress.XtraEditors.TextEdit();
+            this.CurrAccCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.dcCurrAccsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataLanguageCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.CurrAccTypeCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.FirstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.FatherNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.NewPasswordTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.ConfirmPasswordTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.IdentityNumTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.TaxNumTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.CreditLimitTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.IsVipCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.CustomerTypeCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.VendorTypeCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.CustomerPosDiscountRateTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.IsDisabledCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.RowGuidTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.BonusCardNumTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.AddressTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.PhoneNumTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.BirthDateDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.DcCurrAccTypeTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.TrInvoiceHeadersGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TrCurrAccRoleGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CreatedUserNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.CreatedDateDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.LastUpdatedUserNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.LastUpdatedDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.autoGeneratedGroup0 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ItemForCurrAccCode = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ItemForCreditLimit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForIsVip = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForBonusCardNum = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForDataLanguageCode = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForIsDisabled = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ItemForAddress = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForFirstName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForLastName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForFatherName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForPhoneNum = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForBirthDate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForIdentityNum = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForTaxNum = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForCurrAccTypeCode = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForNewPassword = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForConfirmPassword = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).BeginInit();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
+            this.dataLayoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrAccCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dcCurrAccsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataLanguageCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrAccTypeCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FirstNameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FatherNameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NewPasswordTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConfirmPasswordTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdentityNumTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TaxNumTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreditLimitTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsVipCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerTypeCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VendorTypeCodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerPosDiscountRateTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsDisabledCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RowGuidTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BonusCardNumTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddressTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhoneNumTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BirthDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BirthDateDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DcCurrAccTypeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrInvoiceHeadersGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrCurrAccRoleGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatedUserNameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatedDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatedDateDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastUpdatedUserNameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastUpdatedDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastUpdatedDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autoGeneratedGroup0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCurrAccCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCreditLimit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForIsVip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForBonusCardNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDataLanguageCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForIsDisabled)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForAddress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFatherName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPhoneNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForBirthDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForIdentityNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForTaxNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCurrAccTypeCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForNewPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForConfirmPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // dataLayoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.btn_Cancel);
-            this.layoutControl1.Controls.Add(this.btn_Ok);
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.comboBoxEdit1);
-            this.layoutControl1.Controls.Add(this.checkEdit1);
-            this.layoutControl1.Controls.Add(this.checkEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit5);
-            this.layoutControl1.Controls.Add(this.textEdit4);
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.buttonEdit1);
-            this.layoutControl1.Controls.Add(this.buttonEdit2);
-            this.layoutControl1.Controls.Add(this.buttonEdit3);
-            this.layoutControl1.Controls.Add(this.buttonEdit5);
-            this.layoutControl1.Controls.Add(this.buttonEdit6);
-            this.layoutControl1.Controls.Add(this.buttonEdit8);
-            this.layoutControl1.Controls.Add(this.buttonEdit4);
-            this.layoutControl1.Controls.Add(this.buttonEdit7);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1060, 111, 650, 400);
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(770, 372);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.dataLayoutControl1.Controls.Add(this.simpleButton1);
+            this.dataLayoutControl1.Controls.Add(this.btn_Cancel);
+            this.dataLayoutControl1.Controls.Add(this.btn_Ok);
+            this.dataLayoutControl1.Controls.Add(this.CurrAccCodeTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.DataLanguageCodeTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.CurrAccTypeCodeTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.FirstNameTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.LastNameTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.FatherNameTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.NewPasswordTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.ConfirmPasswordTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.IdentityNumTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.TaxNumTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.CreditLimitTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.IsVipCheckEdit);
+            this.dataLayoutControl1.Controls.Add(this.CustomerTypeCodeTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.VendorTypeCodeTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.CustomerPosDiscountRateTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.IsDisabledCheckEdit);
+            this.dataLayoutControl1.Controls.Add(this.RowGuidTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.BonusCardNumTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.AddressTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.PhoneNumTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.BirthDateDateEdit);
+            this.dataLayoutControl1.Controls.Add(this.DcCurrAccTypeTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.TrInvoiceHeadersGridControl);
+            this.dataLayoutControl1.Controls.Add(this.TrCurrAccRoleGridControl);
+            this.dataLayoutControl1.Controls.Add(this.CreatedUserNameTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.CreatedDateDateEdit);
+            this.dataLayoutControl1.Controls.Add(this.LastUpdatedUserNameTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.LastUpdatedDateDateEdit);
+            this.dataLayoutControl1.DataSource = this.dcCurrAccsBindingSource;
+            this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl1.Name = "dataLayoutControl1";
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1023, 140, 650, 400);
+            this.dataLayoutControl1.OptionsFocus.MoveFocusRightToLeft = false;
+            this.dataLayoutControl1.Root = this.Root;
+            this.dataLayoutControl1.Size = new System.Drawing.Size(770, 401);
+            this.dataLayoutControl1.TabIndex = 0;
+            this.dataLayoutControl1.Text = "dataLayoutControl1";
+            this.dataLayoutControl1.FieldRetrieving += new System.EventHandler<DevExpress.XtraDataLayout.FieldRetrievingEventArgs>(this.dataLayoutControl1_FieldRetrieving);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(528, 318);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(74, 71);
+            this.simpleButton1.StyleController = this.dataLayoutControl1;
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_Cancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.btn_Cancel.Location = new System.Drawing.Point(597, 294);
+            this.btn_Cancel.Location = new System.Drawing.Point(606, 318);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(83, 66);
-            this.btn_Cancel.StyleController = this.layoutControl1;
-            this.btn_Cancel.TabIndex = 10;
-            this.btn_Cancel.Text = "btn_Cancel";
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            this.btn_Cancel.Size = new System.Drawing.Size(74, 71);
+            this.btn_Cancel.StyleController = this.dataLayoutControl1;
+            this.btn_Cancel.TabIndex = 5;
+            this.btn_Cancel.Text = "simpleButton2";
             // 
             // btn_Ok
             // 
-            this.btn_Ok.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_Ok.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btn_Ok.Location = new System.Drawing.Point(684, 294);
+            this.btn_Ok.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Ok.ImageOptions.SvgImage")));
+            this.btn_Ok.Location = new System.Drawing.Point(684, 318);
             this.btn_Ok.Name = "btn_Ok";
-            this.btn_Ok.Size = new System.Drawing.Size(74, 66);
-            this.btn_Ok.StyleController = this.layoutControl1;
-            this.btn_Ok.TabIndex = 10;
-            this.btn_Ok.Text = "btn_Ok";
+            this.btn_Ok.Size = new System.Drawing.Size(74, 71);
+            this.btn_Ok.StyleController = this.dataLayoutControl1;
+            this.btn_Ok.TabIndex = 4;
+            this.btn_Ok.Text = "simpleButton1";
             this.btn_Ok.Click += new System.EventHandler(this.btn_Ok_Click);
             // 
-            // textEdit1
+            // CurrAccCodeTextEdit
             // 
-            this.textEdit1.Location = new System.Drawing.Point(95, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.textEdit1.Size = new System.Drawing.Size(288, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
+            this.CurrAccCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "CurrAccCode", true));
+            this.CurrAccCodeTextEdit.Location = new System.Drawing.Point(125, 12);
+            this.CurrAccCodeTextEdit.Name = "CurrAccCodeTextEdit";
+            this.CurrAccCodeTextEdit.Size = new System.Drawing.Size(257, 20);
+            this.CurrAccCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.CurrAccCodeTextEdit.TabIndex = 6;
             // 
-            // comboBoxEdit1
+            // dcCurrAccsBindingSource
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(470, 12);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dcCurrAccsBindingSource.DataSource = typeof(PointOfSale.Models.DcCurrAcc);
+            this.dcCurrAccsBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.dcCurrAccsBindingSource_AddingNew);
+            // 
+            // DataLanguageCodeTextEdit
+            // 
+            this.DataLanguageCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "DataLanguageCode", true));
+            this.DataLanguageCodeTextEdit.Location = new System.Drawing.Point(499, 234);
+            this.DataLanguageCodeTextEdit.Name = "DataLanguageCodeTextEdit";
+            this.DataLanguageCodeTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.DataLanguageCodeTextEdit.Size = new System.Drawing.Size(247, 20);
+            this.DataLanguageCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.DataLanguageCodeTextEdit.TabIndex = 7;
+            // 
+            // CurrAccTypeCodeTextEdit
+            // 
+            this.CurrAccTypeCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "CurrAccTypeCode", true));
+            this.CurrAccTypeCodeTextEdit.Location = new System.Drawing.Point(125, 36);
+            this.CurrAccTypeCodeTextEdit.Name = "CurrAccTypeCodeTextEdit";
+            this.CurrAccTypeCodeTextEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.CurrAccTypeCodeTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.CurrAccTypeCodeTextEdit.Properties.Mask.EditMask = "N0";
+            this.CurrAccTypeCodeTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CurrAccTypeCodeTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.CurrAccTypeCodeTextEdit.Size = new System.Drawing.Size(258, 20);
+            this.CurrAccTypeCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.CurrAccTypeCodeTextEdit.TabIndex = 9;
+            // 
+            // FirstNameTextEdit
+            // 
+            this.FirstNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "FirstName", true));
+            this.FirstNameTextEdit.Location = new System.Drawing.Point(137, 93);
+            this.FirstNameTextEdit.Name = "FirstNameTextEdit";
+            this.FirstNameTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.FirstNameTextEdit.Size = new System.Drawing.Size(245, 20);
+            this.FirstNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.FirstNameTextEdit.TabIndex = 12;
+            // 
+            // LastNameTextEdit
+            // 
+            this.LastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "LastName", true));
+            this.LastNameTextEdit.Location = new System.Drawing.Point(137, 117);
+            this.LastNameTextEdit.Name = "LastNameTextEdit";
+            this.LastNameTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.LastNameTextEdit.Size = new System.Drawing.Size(245, 20);
+            this.LastNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.LastNameTextEdit.TabIndex = 13;
+            // 
+            // FatherNameTextEdit
+            // 
+            this.FatherNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "FatherName", true));
+            this.FatherNameTextEdit.Location = new System.Drawing.Point(137, 141);
+            this.FatherNameTextEdit.Name = "FatherNameTextEdit";
+            this.FatherNameTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.FatherNameTextEdit.Size = new System.Drawing.Size(245, 20);
+            this.FatherNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.FatherNameTextEdit.TabIndex = 14;
+            // 
+            // NewPasswordTextEdit
+            // 
+            this.NewPasswordTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "NewPassword", true));
+            this.NewPasswordTextEdit.Location = new System.Drawing.Point(499, 12);
+            this.NewPasswordTextEdit.Name = "NewPasswordTextEdit";
+            this.NewPasswordTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.NewPasswordTextEdit.Properties.UseSystemPasswordChar = true;
+            this.NewPasswordTextEdit.Size = new System.Drawing.Size(259, 20);
+            this.NewPasswordTextEdit.StyleController = this.dataLayoutControl1;
+            this.NewPasswordTextEdit.TabIndex = 15;
+            // 
+            // ConfirmPasswordTextEdit
+            // 
+            this.ConfirmPasswordTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "ConfirmPassword", true));
+            this.ConfirmPasswordTextEdit.Location = new System.Drawing.Point(500, 36);
+            this.ConfirmPasswordTextEdit.Name = "ConfirmPasswordTextEdit";
+            this.ConfirmPasswordTextEdit.Properties.UseSystemPasswordChar = true;
+            this.ConfirmPasswordTextEdit.Size = new System.Drawing.Size(258, 20);
+            this.ConfirmPasswordTextEdit.StyleController = this.dataLayoutControl1;
+            this.ConfirmPasswordTextEdit.TabIndex = 16;
+            // 
+            // IdentityNumTextEdit
+            // 
+            this.IdentityNumTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "IdentityNum", true));
+            this.IdentityNumTextEdit.Location = new System.Drawing.Point(499, 117);
+            this.IdentityNumTextEdit.Name = "IdentityNumTextEdit";
+            this.IdentityNumTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.IdentityNumTextEdit.Size = new System.Drawing.Size(247, 20);
+            this.IdentityNumTextEdit.StyleController = this.dataLayoutControl1;
+            this.IdentityNumTextEdit.TabIndex = 17;
+            // 
+            // TaxNumTextEdit
+            // 
+            this.TaxNumTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "TaxNum", true));
+            this.TaxNumTextEdit.Location = new System.Drawing.Point(499, 141);
+            this.TaxNumTextEdit.Name = "TaxNumTextEdit";
+            this.TaxNumTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.TaxNumTextEdit.Size = new System.Drawing.Size(247, 20);
+            this.TaxNumTextEdit.StyleController = this.dataLayoutControl1;
+            this.TaxNumTextEdit.TabIndex = 18;
+            // 
+            // CreditLimitTextEdit
+            // 
+            this.CreditLimitTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "CreditLimit", true));
+            this.CreditLimitTextEdit.Location = new System.Drawing.Point(137, 258);
+            this.CreditLimitTextEdit.Name = "CreditLimitTextEdit";
+            this.CreditLimitTextEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.CreditLimitTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.CreditLimitTextEdit.Properties.Mask.EditMask = "G";
+            this.CreditLimitTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CreditLimitTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.CreditLimitTextEdit.Size = new System.Drawing.Size(245, 20);
+            this.CreditLimitTextEdit.StyleController = this.dataLayoutControl1;
+            this.CreditLimitTextEdit.TabIndex = 19;
+            // 
+            // IsVipCheckEdit
+            // 
+            this.IsVipCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "IsVip", true));
+            this.IsVipCheckEdit.Location = new System.Drawing.Point(386, 258);
+            this.IsVipCheckEdit.Name = "IsVipCheckEdit";
+            this.IsVipCheckEdit.Properties.Caption = "VIP";
+            this.IsVipCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.IsVipCheckEdit.Size = new System.Drawing.Size(360, 20);
+            this.IsVipCheckEdit.StyleController = this.dataLayoutControl1;
+            this.IsVipCheckEdit.TabIndex = 20;
+            // 
+            // CustomerTypeCodeTextEdit
+            // 
+            this.CustomerTypeCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "CustomerTypeCode", true));
+            this.CustomerTypeCodeTextEdit.Location = new System.Drawing.Point(140, 464);
+            this.CustomerTypeCodeTextEdit.Name = "CustomerTypeCodeTextEdit";
+            this.CustomerTypeCodeTextEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.CustomerTypeCodeTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.CustomerTypeCodeTextEdit.Properties.Mask.EditMask = "N0";
+            this.CustomerTypeCodeTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CustomerTypeCodeTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.CustomerTypeCodeTextEdit.Size = new System.Drawing.Size(601, 20);
+            this.CustomerTypeCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.CustomerTypeCodeTextEdit.TabIndex = 21;
+            // 
+            // VendorTypeCodeTextEdit
+            // 
+            this.VendorTypeCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "VendorTypeCode", true));
+            this.VendorTypeCodeTextEdit.Location = new System.Drawing.Point(140, 488);
+            this.VendorTypeCodeTextEdit.Name = "VendorTypeCodeTextEdit";
+            this.VendorTypeCodeTextEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.VendorTypeCodeTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.VendorTypeCodeTextEdit.Properties.Mask.EditMask = "N0";
+            this.VendorTypeCodeTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.VendorTypeCodeTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.VendorTypeCodeTextEdit.Size = new System.Drawing.Size(601, 20);
+            this.VendorTypeCodeTextEdit.StyleController = this.dataLayoutControl1;
+            this.VendorTypeCodeTextEdit.TabIndex = 22;
+            // 
+            // CustomerPosDiscountRateTextEdit
+            // 
+            this.CustomerPosDiscountRateTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "CustomerPosDiscountRate", true));
+            this.CustomerPosDiscountRateTextEdit.Location = new System.Drawing.Point(140, 512);
+            this.CustomerPosDiscountRateTextEdit.Name = "CustomerPosDiscountRateTextEdit";
+            this.CustomerPosDiscountRateTextEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.CustomerPosDiscountRateTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.CustomerPosDiscountRateTextEdit.Properties.Mask.EditMask = "F";
+            this.CustomerPosDiscountRateTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CustomerPosDiscountRateTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.CustomerPosDiscountRateTextEdit.Size = new System.Drawing.Size(601, 20);
+            this.CustomerPosDiscountRateTextEdit.StyleController = this.dataLayoutControl1;
+            this.CustomerPosDiscountRateTextEdit.TabIndex = 23;
+            // 
+            // IsDisabledCheckEdit
+            // 
+            this.IsDisabledCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "IsDisabled", true));
+            this.IsDisabledCheckEdit.Location = new System.Drawing.Point(12, 294);
+            this.IsDisabledCheckEdit.Name = "IsDisabledCheckEdit";
+            this.IsDisabledCheckEdit.Properties.Caption = "Qeyri-Aktiv";
+            this.IsDisabledCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.IsDisabledCheckEdit.Size = new System.Drawing.Size(746, 20);
+            this.IsDisabledCheckEdit.StyleController = this.dataLayoutControl1;
+            this.IsDisabledCheckEdit.TabIndex = 24;
+            // 
+            // RowGuidTextEdit
+            // 
+            this.RowGuidTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "RowGuid", true));
+            this.RowGuidTextEdit.Location = new System.Drawing.Point(140, 560);
+            this.RowGuidTextEdit.Name = "RowGuidTextEdit";
+            this.RowGuidTextEdit.Size = new System.Drawing.Size(601, 20);
+            this.RowGuidTextEdit.StyleController = this.dataLayoutControl1;
+            this.RowGuidTextEdit.TabIndex = 25;
+            // 
+            // BonusCardNumTextEdit
+            // 
+            this.BonusCardNumTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "BonusCardNum", true));
+            this.BonusCardNumTextEdit.Location = new System.Drawing.Point(137, 234);
+            this.BonusCardNumTextEdit.Name = "BonusCardNumTextEdit";
+            this.BonusCardNumTextEdit.Size = new System.Drawing.Size(245, 20);
+            this.BonusCardNumTextEdit.StyleController = this.dataLayoutControl1;
+            this.BonusCardNumTextEdit.TabIndex = 26;
+            // 
+            // AddressTextEdit
+            // 
+            this.AddressTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "Address", true));
+            this.AddressTextEdit.Location = new System.Drawing.Point(499, 165);
+            this.AddressTextEdit.Name = "AddressTextEdit";
+            this.AddressTextEdit.Size = new System.Drawing.Size(247, 20);
+            this.AddressTextEdit.StyleController = this.dataLayoutControl1;
+            this.AddressTextEdit.TabIndex = 27;
+            // 
+            // PhoneNumTextEdit
+            // 
+            this.PhoneNumTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "PhoneNum", true));
+            this.PhoneNumTextEdit.Location = new System.Drawing.Point(137, 165);
+            this.PhoneNumTextEdit.Name = "PhoneNumTextEdit";
+            this.PhoneNumTextEdit.Properties.Mask.EditMask = "(999) 000-0000";
+            this.PhoneNumTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.PhoneNumTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.PhoneNumTextEdit.Size = new System.Drawing.Size(245, 20);
+            this.PhoneNumTextEdit.StyleController = this.dataLayoutControl1;
+            this.PhoneNumTextEdit.TabIndex = 28;
+            // 
+            // BirthDateDateEdit
+            // 
+            this.BirthDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "BirthDate", true));
+            this.BirthDateDateEdit.EditValue = null;
+            this.BirthDateDateEdit.Location = new System.Drawing.Point(499, 93);
+            this.BirthDateDateEdit.Name = "BirthDateDateEdit";
+            this.BirthDateDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.BirthDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(288, 20);
-            this.comboBoxEdit1.StyleController = this.layoutControl1;
-            this.comboBoxEdit1.TabIndex = 6;
+            this.BirthDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.BirthDateDateEdit.Size = new System.Drawing.Size(247, 20);
+            this.BirthDateDateEdit.StyleController = this.dataLayoutControl1;
+            this.BirthDateDateEdit.TabIndex = 29;
             // 
-            // checkEdit1
+            // DcCurrAccTypeTextEdit
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(390, 258);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "VIP Müştəri";
-            this.checkEdit1.Size = new System.Drawing.Size(356, 20);
-            this.checkEdit1.StyleController = this.layoutControl1;
-            this.checkEdit1.TabIndex = 7;
+            this.DcCurrAccTypeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "DcCurrAccType", true));
+            this.DcCurrAccTypeTextEdit.Location = new System.Drawing.Point(140, 680);
+            this.DcCurrAccTypeTextEdit.Name = "DcCurrAccTypeTextEdit";
+            this.DcCurrAccTypeTextEdit.Size = new System.Drawing.Size(601, 20);
+            this.DcCurrAccTypeTextEdit.StyleController = this.dataLayoutControl1;
+            this.DcCurrAccTypeTextEdit.TabIndex = 30;
             // 
-            // checkEdit2
+            // TrInvoiceHeadersGridControl
             // 
-            this.checkEdit2.Location = new System.Drawing.Point(390, 234);
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Caption = "Qeyri-aktiv";
-            this.checkEdit2.Size = new System.Drawing.Size(356, 20);
-            this.checkEdit2.StyleController = this.layoutControl1;
-            this.checkEdit2.TabIndex = 8;
+            this.TrInvoiceHeadersGridControl.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.dcCurrAccsBindingSource, "TrInvoiceHeaders", true));
+            this.TrInvoiceHeadersGridControl.Location = new System.Drawing.Point(12, 704);
+            this.TrInvoiceHeadersGridControl.MainView = this.gridView1;
+            this.TrInvoiceHeadersGridControl.Name = "TrInvoiceHeadersGridControl";
+            this.TrInvoiceHeadersGridControl.Size = new System.Drawing.Size(729, 20);
+            this.TrInvoiceHeadersGridControl.TabIndex = 31;
+            this.TrInvoiceHeadersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // textEdit5
+            // gridView1
             // 
-            this.textEdit5.Location = new System.Drawing.Point(107, 141);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(276, 20);
-            this.textEdit5.StyleController = this.layoutControl1;
-            this.textEdit5.TabIndex = 9;
+            this.gridView1.GridControl = this.TrInvoiceHeadersGridControl;
+            this.gridView1.Name = "gridView1";
             // 
-            // textEdit4
+            // TrCurrAccRoleGridControl
             // 
-            this.textEdit4.Location = new System.Drawing.Point(470, 165);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(276, 20);
-            this.textEdit4.StyleController = this.layoutControl1;
-            this.textEdit4.TabIndex = 9;
+            this.TrCurrAccRoleGridControl.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.dcCurrAccsBindingSource, "TrCurrAccRole", true));
+            this.TrCurrAccRoleGridControl.Location = new System.Drawing.Point(12, 728);
+            this.TrCurrAccRoleGridControl.MainView = this.gridView2;
+            this.TrCurrAccRoleGridControl.Name = "TrCurrAccRoleGridControl";
+            this.TrCurrAccRoleGridControl.Size = new System.Drawing.Size(729, 20);
+            this.TrCurrAccRoleGridControl.TabIndex = 32;
+            this.TrCurrAccRoleGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
             // 
-            // textEdit3
+            // gridView2
             // 
-            this.textEdit3.Location = new System.Drawing.Point(107, 165);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(276, 20);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 9;
+            this.gridView2.GridControl = this.TrCurrAccRoleGridControl;
+            this.gridView2.Name = "gridView2";
             // 
-            // textEdit2
+            // CreatedUserNameTextEdit
             // 
-            this.textEdit2.Location = new System.Drawing.Point(470, 141);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(276, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 9;
+            this.CreatedUserNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "CreatedUserName", true));
+            this.CreatedUserNameTextEdit.Location = new System.Drawing.Point(140, 752);
+            this.CreatedUserNameTextEdit.Name = "CreatedUserNameTextEdit";
+            this.CreatedUserNameTextEdit.Size = new System.Drawing.Size(601, 20);
+            this.CreatedUserNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.CreatedUserNameTextEdit.TabIndex = 33;
             // 
-            // buttonEdit1
+            // CreatedDateDateEdit
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(107, 93);
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Size = new System.Drawing.Size(276, 20);
-            this.buttonEdit1.StyleController = this.layoutControl1;
-            this.buttonEdit1.TabIndex = 5;
+            this.CreatedDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "CreatedDate", true));
+            this.CreatedDateDateEdit.EditValue = null;
+            this.CreatedDateDateEdit.Location = new System.Drawing.Point(140, 776);
+            this.CreatedDateDateEdit.Name = "CreatedDateDateEdit";
+            this.CreatedDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CreatedDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CreatedDateDateEdit.Size = new System.Drawing.Size(601, 20);
+            this.CreatedDateDateEdit.StyleController = this.dataLayoutControl1;
+            this.CreatedDateDateEdit.TabIndex = 34;
             // 
-            // buttonEdit2
+            // LastUpdatedUserNameTextEdit
             // 
-            this.buttonEdit2.Location = new System.Drawing.Point(107, 117);
-            this.buttonEdit2.Name = "buttonEdit2";
-            this.buttonEdit2.Size = new System.Drawing.Size(276, 20);
-            this.buttonEdit2.StyleController = this.layoutControl1;
-            this.buttonEdit2.TabIndex = 5;
+            this.LastUpdatedUserNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "LastUpdatedUserName", true));
+            this.LastUpdatedUserNameTextEdit.Location = new System.Drawing.Point(140, 800);
+            this.LastUpdatedUserNameTextEdit.Name = "LastUpdatedUserNameTextEdit";
+            this.LastUpdatedUserNameTextEdit.Size = new System.Drawing.Size(601, 20);
+            this.LastUpdatedUserNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.LastUpdatedUserNameTextEdit.TabIndex = 35;
             // 
-            // buttonEdit3
+            // LastUpdatedDateDateEdit
             // 
-            this.buttonEdit3.Location = new System.Drawing.Point(470, 93);
-            this.buttonEdit3.Name = "buttonEdit3";
-            this.buttonEdit3.Size = new System.Drawing.Size(276, 20);
-            this.buttonEdit3.StyleController = this.layoutControl1;
-            this.buttonEdit3.TabIndex = 5;
-            // 
-            // buttonEdit5
-            // 
-            this.buttonEdit5.Location = new System.Drawing.Point(470, 117);
-            this.buttonEdit5.Name = "buttonEdit5";
-            this.buttonEdit5.Size = new System.Drawing.Size(276, 20);
-            this.buttonEdit5.StyleController = this.layoutControl1;
-            this.buttonEdit5.TabIndex = 5;
-            // 
-            // buttonEdit6
-            // 
-            this.buttonEdit6.Location = new System.Drawing.Point(107, 234);
-            this.buttonEdit6.Name = "buttonEdit6";
-            this.buttonEdit6.Size = new System.Drawing.Size(279, 20);
-            this.buttonEdit6.StyleController = this.layoutControl1;
-            this.buttonEdit6.TabIndex = 5;
-            // 
-            // buttonEdit8
-            // 
-            this.buttonEdit8.Location = new System.Drawing.Point(107, 258);
-            this.buttonEdit8.Name = "buttonEdit8";
-            this.buttonEdit8.Size = new System.Drawing.Size(279, 20);
-            this.buttonEdit8.StyleController = this.layoutControl1;
-            this.buttonEdit8.TabIndex = 5;
-            // 
-            // buttonEdit4
-            // 
-            this.buttonEdit4.Location = new System.Drawing.Point(95, 36);
-            this.buttonEdit4.Name = "buttonEdit4";
-            this.buttonEdit4.Size = new System.Drawing.Size(288, 20);
-            this.buttonEdit4.StyleController = this.layoutControl1;
-            this.buttonEdit4.TabIndex = 5;
-            // 
-            // buttonEdit7
-            // 
-            this.buttonEdit7.Location = new System.Drawing.Point(470, 36);
-            this.buttonEdit7.Name = "buttonEdit7";
-            this.buttonEdit7.Size = new System.Drawing.Size(288, 20);
-            this.buttonEdit7.StyleController = this.layoutControl1;
-            this.buttonEdit7.TabIndex = 5;
+            this.LastUpdatedDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcCurrAccsBindingSource, "LastUpdatedDate", true));
+            this.LastUpdatedDateDateEdit.EditValue = null;
+            this.LastUpdatedDateDateEdit.Location = new System.Drawing.Point(140, 824);
+            this.LastUpdatedDateDateEdit.Name = "LastUpdatedDateDateEdit";
+            this.LastUpdatedDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LastUpdatedDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LastUpdatedDateDateEdit.Size = new System.Drawing.Size(601, 20);
+            this.LastUpdatedDateDateEdit.StyleController = this.dataLayoutControl1;
+            this.LastUpdatedDateDateEdit.TabIndex = 36;
             // 
             // Root
             // 
+            this.Root.CustomizationFormText = "Root";
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1,
-            this.layoutControlGroup1,
-            this.layoutControlItem1,
-            this.layoutControlItem3,
-            this.layoutControlGroup2,
-            this.layoutControlItem6,
-            this.layoutControlItem9,
-            this.layoutControlItem17,
-            this.layoutControlItem18});
+            this.autoGeneratedGroup0});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(770, 372);
+            this.Root.Size = new System.Drawing.Size(770, 401);
             this.Root.TextVisible = false;
             // 
-            // emptySpaceItem1
+            // autoGeneratedGroup0
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 282);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(585, 70);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.autoGeneratedGroup0.AllowDrawBackground = false;
+            this.autoGeneratedGroup0.CustomizationFormText = "autoGeneratedGroup0";
+            this.autoGeneratedGroup0.GroupBordersVisible = false;
+            this.autoGeneratedGroup0.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ItemForCurrAccCode,
+            this.layoutControlGroup3,
+            this.ItemForIsDisabled,
+            this.layoutControlGroup2,
+            this.ItemForCurrAccTypeCode,
+            this.ItemForNewPassword,
+            this.ItemForConfirmPassword,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.emptySpaceItem1,
+            this.layoutControlItem3});
+            this.autoGeneratedGroup0.Location = new System.Drawing.Point(0, 0);
+            this.autoGeneratedGroup0.Name = "autoGeneratedGroup0";
+            this.autoGeneratedGroup0.Size = new System.Drawing.Size(750, 381);
             // 
-            // layoutControlGroup1
+            // ItemForCurrAccCode
             // 
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem8,
-            this.layoutControlItem12,
-            this.layoutControlItem10,
-            this.layoutControlItem11});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 189);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(750, 93);
+            this.ItemForCurrAccCode.Control = this.CurrAccCodeTextEdit;
+            this.ItemForCurrAccCode.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForCurrAccCode.CustomizationFormText = "Cari Hesab Kodu";
+            this.ItemForCurrAccCode.Location = new System.Drawing.Point(0, 0);
+            this.ItemForCurrAccCode.Name = "ItemForCurrAccCode";
+            this.ItemForCurrAccCode.Size = new System.Drawing.Size(374, 24);
+            this.ItemForCurrAccCode.Text = "Cari Hesab Kodu";
+            this.ItemForCurrAccCode.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // layoutControlItem8
+            // layoutControlGroup3
             // 
-            this.layoutControlItem8.Control = this.buttonEdit6;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(366, 24);
-            this.layoutControlItem8.Text = "V.Ö.E.N.";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(71, 13);
+            this.layoutControlGroup3.CustomizationFormText = "layoutControlGroup3";
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ItemForCreditLimit,
+            this.ItemForIsVip,
+            this.ItemForBonusCardNum,
+            this.ItemForDataLanguageCode});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 189);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(750, 93);
             // 
-            // layoutControlItem12
+            // ItemForCreditLimit
             // 
-            this.layoutControlItem12.Control = this.checkEdit2;
-            this.layoutControlItem12.Location = new System.Drawing.Point(366, 0);
-            this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(360, 24);
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem12.TextVisible = false;
+            this.ItemForCreditLimit.Control = this.CreditLimitTextEdit;
+            this.ItemForCreditLimit.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForCreditLimit.CustomizationFormText = "Kredit Limiti";
+            this.ItemForCreditLimit.Location = new System.Drawing.Point(0, 24);
+            this.ItemForCreditLimit.Name = "ItemForCreditLimit";
+            this.ItemForCreditLimit.Size = new System.Drawing.Size(362, 24);
+            this.ItemForCreditLimit.Text = "Kredit Limiti";
+            this.ItemForCreditLimit.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // layoutControlItem10
+            // ItemForIsVip
             // 
-            this.layoutControlItem10.Control = this.buttonEdit8;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(366, 24);
-            this.layoutControlItem10.Text = "Kredit Limiti";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(71, 13);
+            this.ItemForIsVip.Control = this.IsVipCheckEdit;
+            this.ItemForIsVip.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForIsVip.CustomizationFormText = "VIP";
+            this.ItemForIsVip.Location = new System.Drawing.Point(362, 24);
+            this.ItemForIsVip.Name = "ItemForIsVip";
+            this.ItemForIsVip.Size = new System.Drawing.Size(364, 24);
+            this.ItemForIsVip.Text = "VIP";
+            this.ItemForIsVip.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForIsVip.TextVisible = false;
             // 
-            // layoutControlItem11
+            // ItemForBonusCardNum
             // 
-            this.layoutControlItem11.Control = this.checkEdit1;
-            this.layoutControlItem11.Location = new System.Drawing.Point(366, 24);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(360, 24);
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem11.TextVisible = false;
+            this.ItemForBonusCardNum.Control = this.BonusCardNumTextEdit;
+            this.ItemForBonusCardNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForBonusCardNum.CustomizationFormText = "Bonus Kartı";
+            this.ItemForBonusCardNum.Location = new System.Drawing.Point(0, 0);
+            this.ItemForBonusCardNum.Name = "ItemForBonusCardNum";
+            this.ItemForBonusCardNum.Size = new System.Drawing.Size(362, 24);
+            this.ItemForBonusCardNum.Text = "Bonus Kartı";
+            this.ItemForBonusCardNum.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // layoutControlItem1
+            // ItemForDataLanguageCode
             // 
-            this.layoutControlItem1.Control = this.textEdit1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem1.Text = "İstifadəçi Kodu";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(71, 13);
+            this.ItemForDataLanguageCode.Control = this.DataLanguageCodeTextEdit;
+            this.ItemForDataLanguageCode.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForDataLanguageCode.CustomizationFormText = "Data Language Code";
+            this.ItemForDataLanguageCode.Location = new System.Drawing.Point(362, 0);
+            this.ItemForDataLanguageCode.Name = "ItemForDataLanguageCode";
+            this.ItemForDataLanguageCode.Size = new System.Drawing.Size(364, 24);
+            this.ItemForDataLanguageCode.Text = "Data Language Code";
+            this.ItemForDataLanguageCode.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // layoutControlItem3
+            // ItemForIsDisabled
             // 
-            this.layoutControlItem3.Control = this.comboBoxEdit1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(375, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem3.Text = "Tipi";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(71, 13);
+            this.ItemForIsDisabled.Control = this.IsDisabledCheckEdit;
+            this.ItemForIsDisabled.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForIsDisabled.CustomizationFormText = "Qeyri-Aktiv";
+            this.ItemForIsDisabled.Location = new System.Drawing.Point(0, 282);
+            this.ItemForIsDisabled.Name = "ItemForIsDisabled";
+            this.ItemForIsDisabled.Size = new System.Drawing.Size(750, 24);
+            this.ItemForIsDisabled.Text = "Qeyri-Aktiv";
+            this.ItemForIsDisabled.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForIsDisabled.TextVisible = false;
             // 
             // layoutControlGroup2
             // 
+            this.layoutControlGroup2.CustomizationFormText = "layoutControlGroup2";
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
-            this.layoutControlItem4,
-            this.layoutControlItem16,
-            this.layoutControlItem14,
-            this.layoutControlItem5,
-            this.layoutControlItem7,
-            this.layoutControlItem13,
-            this.layoutControlItem15});
+            this.ItemForAddress,
+            this.ItemForFirstName,
+            this.ItemForLastName,
+            this.ItemForFatherName,
+            this.ItemForPhoneNum,
+            this.ItemForBirthDate,
+            this.ItemForIdentityNum,
+            this.ItemForTaxNum});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 48);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(750, 141);
             // 
+            // ItemForAddress
+            // 
+            this.ItemForAddress.Control = this.AddressTextEdit;
+            this.ItemForAddress.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForAddress.CustomizationFormText = "Adres";
+            this.ItemForAddress.Location = new System.Drawing.Point(362, 72);
+            this.ItemForAddress.Name = "ItemForAddress";
+            this.ItemForAddress.Size = new System.Drawing.Size(364, 24);
+            this.ItemForAddress.Text = "Adres";
+            this.ItemForAddress.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForFirstName
+            // 
+            this.ItemForFirstName.Control = this.FirstNameTextEdit;
+            this.ItemForFirstName.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForFirstName.CustomizationFormText = "Adı";
+            this.ItemForFirstName.Location = new System.Drawing.Point(0, 0);
+            this.ItemForFirstName.Name = "ItemForFirstName";
+            this.ItemForFirstName.Size = new System.Drawing.Size(362, 24);
+            this.ItemForFirstName.Text = "Adı";
+            this.ItemForFirstName.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForLastName
+            // 
+            this.ItemForLastName.Control = this.LastNameTextEdit;
+            this.ItemForLastName.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForLastName.CustomizationFormText = "Soyadı";
+            this.ItemForLastName.Location = new System.Drawing.Point(0, 24);
+            this.ItemForLastName.Name = "ItemForLastName";
+            this.ItemForLastName.Size = new System.Drawing.Size(362, 24);
+            this.ItemForLastName.Text = "Soyadı";
+            this.ItemForLastName.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForFatherName
+            // 
+            this.ItemForFatherName.Control = this.FatherNameTextEdit;
+            this.ItemForFatherName.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForFatherName.CustomizationFormText = "Ata Adı";
+            this.ItemForFatherName.Location = new System.Drawing.Point(0, 48);
+            this.ItemForFatherName.Name = "ItemForFatherName";
+            this.ItemForFatherName.Size = new System.Drawing.Size(362, 24);
+            this.ItemForFatherName.Text = "Ata Adı";
+            this.ItemForFatherName.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForPhoneNum
+            // 
+            this.ItemForPhoneNum.Control = this.PhoneNumTextEdit;
+            this.ItemForPhoneNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForPhoneNum.CustomizationFormText = "Telefon";
+            this.ItemForPhoneNum.Location = new System.Drawing.Point(0, 72);
+            this.ItemForPhoneNum.Name = "ItemForPhoneNum";
+            this.ItemForPhoneNum.Size = new System.Drawing.Size(362, 24);
+            this.ItemForPhoneNum.Text = "Telefon";
+            this.ItemForPhoneNum.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForBirthDate
+            // 
+            this.ItemForBirthDate.Control = this.BirthDateDateEdit;
+            this.ItemForBirthDate.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForBirthDate.CustomizationFormText = "Doğum Günü";
+            this.ItemForBirthDate.Location = new System.Drawing.Point(362, 0);
+            this.ItemForBirthDate.Name = "ItemForBirthDate";
+            this.ItemForBirthDate.Size = new System.Drawing.Size(364, 24);
+            this.ItemForBirthDate.Text = "Doğum Günü";
+            this.ItemForBirthDate.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForIdentityNum
+            // 
+            this.ItemForIdentityNum.Control = this.IdentityNumTextEdit;
+            this.ItemForIdentityNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForIdentityNum.CustomizationFormText = "Ş.V.Nömrəsi";
+            this.ItemForIdentityNum.Location = new System.Drawing.Point(362, 24);
+            this.ItemForIdentityNum.Name = "ItemForIdentityNum";
+            this.ItemForIdentityNum.Size = new System.Drawing.Size(364, 24);
+            this.ItemForIdentityNum.Text = "Ş.V.Nömrəsi";
+            this.ItemForIdentityNum.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForTaxNum
+            // 
+            this.ItemForTaxNum.Control = this.TaxNumTextEdit;
+            this.ItemForTaxNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForTaxNum.CustomizationFormText = "Vergi Nömrəsi";
+            this.ItemForTaxNum.Location = new System.Drawing.Point(362, 48);
+            this.ItemForTaxNum.Name = "ItemForTaxNum";
+            this.ItemForTaxNum.Size = new System.Drawing.Size(364, 24);
+            this.ItemForTaxNum.Text = "Vergi Nömrəsi";
+            this.ItemForTaxNum.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForCurrAccTypeCode
+            // 
+            this.ItemForCurrAccTypeCode.Control = this.CurrAccTypeCodeTextEdit;
+            this.ItemForCurrAccTypeCode.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForCurrAccTypeCode.CustomizationFormText = "Cari Hesab Tipi Kodu";
+            this.ItemForCurrAccTypeCode.Location = new System.Drawing.Point(0, 24);
+            this.ItemForCurrAccTypeCode.Name = "ItemForCurrAccTypeCode";
+            this.ItemForCurrAccTypeCode.Size = new System.Drawing.Size(375, 24);
+            this.ItemForCurrAccTypeCode.Text = "Cari Hesab Tipi Kodu";
+            this.ItemForCurrAccTypeCode.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForNewPassword
+            // 
+            this.ItemForNewPassword.Control = this.NewPasswordTextEdit;
+            this.ItemForNewPassword.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForNewPassword.CustomizationFormText = "Yeni Şifrə";
+            this.ItemForNewPassword.Location = new System.Drawing.Point(374, 0);
+            this.ItemForNewPassword.Name = "ItemForNewPassword";
+            this.ItemForNewPassword.Size = new System.Drawing.Size(376, 24);
+            this.ItemForNewPassword.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // ItemForConfirmPassword
+            // 
+            this.ItemForConfirmPassword.Control = this.ConfirmPasswordTextEdit;
+            this.ItemForConfirmPassword.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.ItemForConfirmPassword.CustomizationFormText = "Şifrəni Təsdiqlə";
+            this.ItemForConfirmPassword.Location = new System.Drawing.Point(375, 24);
+            this.ItemForConfirmPassword.Name = "ItemForConfirmPassword";
+            this.ItemForConfirmPassword.Size = new System.Drawing.Size(375, 24);
+            this.ItemForConfirmPassword.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.btn_Ok;
+            this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem1.Location = new System.Drawing.Point(672, 306);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(78, 75);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.buttonEdit1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Control = this.btn_Cancel;
+            this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
+            this.layoutControlItem2.Location = new System.Drawing.Point(594, 306);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(78, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem2.Text = "Adı";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(71, 13);
+            this.layoutControlItem2.Size = new System.Drawing.Size(78, 75);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
-            // layoutControlItem4
+            // emptySpaceItem1
             // 
-            this.layoutControlItem4.Control = this.buttonEdit2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem4.Text = "Soyadı";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(71, 13);
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 306);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(516, 75);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem16
+            // layoutControlItem3
             // 
-            this.layoutControlItem16.Control = this.textEdit5;
-            this.layoutControlItem16.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem16.Text = "Telefon";
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.textEdit3;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem14.Text = "Adres";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.buttonEdit3;
-            this.layoutControlItem5.Location = new System.Drawing.Point(363, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem5.Text = "Ata Adı";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.buttonEdit5;
-            this.layoutControlItem7.Location = new System.Drawing.Point(363, 24);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem7.Text = "Ş.V. Nömrəsi";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.textEdit2;
-            this.layoutControlItem13.Location = new System.Drawing.Point(363, 48);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem13.Text = "Bonus Kart No";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem15
-            // 
-            this.layoutControlItem15.Control = this.textEdit4;
-            this.layoutControlItem15.Location = new System.Drawing.Point(363, 72);
-            this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(363, 24);
-            this.layoutControlItem15.Text = "Ad günü";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.buttonEdit4;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem6.Text = "Şifrə";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.buttonEdit7;
-            this.layoutControlItem9.Location = new System.Drawing.Point(375, 24);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem9.Text = "Dil";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem17
-            // 
-            this.layoutControlItem17.Control = this.btn_Ok;
-            this.layoutControlItem17.Location = new System.Drawing.Point(672, 282);
-            this.layoutControlItem17.MinSize = new System.Drawing.Size(78, 26);
-            this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(78, 70);
-            this.layoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem17.TextVisible = false;
-            // 
-            // layoutControlItem18
-            // 
-            this.layoutControlItem18.Control = this.btn_Cancel;
-            this.layoutControlItem18.Location = new System.Drawing.Point(585, 282);
-            this.layoutControlItem18.MinSize = new System.Drawing.Size(42, 40);
-            this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(87, 70);
-            this.layoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem18.TextVisible = false;
+            this.layoutControlItem3.Control = this.simpleButton1;
+            this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem3.Location = new System.Drawing.Point(516, 306);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(78, 75);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // FormCurrAcc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 372);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(770, 401);
+            this.Controls.Add(this.dataLayoutControl1);
             this.Name = "FormCurrAcc";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormCurrAcc_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
+            this.dataLayoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CurrAccCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dcCurrAccsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataLanguageCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrAccTypeCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FirstNameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FatherNameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NewPasswordTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConfirmPasswordTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdentityNumTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TaxNumTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreditLimitTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsVipCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerTypeCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VendorTypeCodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerPosDiscountRateTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsDisabledCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RowGuidTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BonusCardNumTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddressTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhoneNumTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BirthDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BirthDateDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DcCurrAccTypeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrInvoiceHeadersGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrCurrAccRoleGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatedUserNameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatedDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreatedDateDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastUpdatedUserNameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastUpdatedDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastUpdatedDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autoGeneratedGroup0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCurrAccCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCreditLimit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForIsVip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForBonusCardNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDataLanguageCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForIsDisabled)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForAddress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFatherName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPhoneNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForBirthDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForIdentityNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForTaxNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCurrAccTypeCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForNewPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForConfirmPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.ButtonEdit textEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit buttonEdit1;
-        private DevExpress.XtraEditors.TextEdit buttonEdit2;
-        private DevExpress.XtraEditors.TextEdit buttonEdit3;
-        private DevExpress.XtraEditors.TextEdit buttonEdit5;
-        private DevExpress.XtraEditors.TextEdit buttonEdit6;
-        private DevExpress.XtraEditors.TextEdit buttonEdit8;
-        private DevExpress.XtraEditors.TextEdit buttonEdit4;
-        private DevExpress.XtraEditors.TextEdit buttonEdit7;
+        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
+        private System.Windows.Forms.BindingSource dcCurrAccsBindingSource;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel;
         private DevExpress.XtraEditors.SimpleButton btn_Ok;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+        private DevExpress.XtraEditors.TextEdit CurrAccCodeTextEdit;
+        private DevExpress.XtraEditors.TextEdit DataLanguageCodeTextEdit;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.TextEdit CurrAccTypeCodeTextEdit;
+        private DevExpress.XtraEditors.TextEdit FirstNameTextEdit;
+        private DevExpress.XtraEditors.TextEdit LastNameTextEdit;
+        private DevExpress.XtraEditors.TextEdit FatherNameTextEdit;
+        private DevExpress.XtraEditors.TextEdit NewPasswordTextEdit;
+        private DevExpress.XtraEditors.TextEdit ConfirmPasswordTextEdit;
+        private DevExpress.XtraEditors.TextEdit IdentityNumTextEdit;
+        private DevExpress.XtraEditors.TextEdit TaxNumTextEdit;
+        private DevExpress.XtraEditors.TextEdit CreditLimitTextEdit;
+        private DevExpress.XtraEditors.CheckEdit IsVipCheckEdit;
+        private DevExpress.XtraEditors.TextEdit CustomerTypeCodeTextEdit;
+        private DevExpress.XtraEditors.TextEdit VendorTypeCodeTextEdit;
+        private DevExpress.XtraEditors.TextEdit CustomerPosDiscountRateTextEdit;
+        private DevExpress.XtraEditors.CheckEdit IsDisabledCheckEdit;
+        private DevExpress.XtraEditors.TextEdit RowGuidTextEdit;
+        private DevExpress.XtraEditors.TextEdit BonusCardNumTextEdit;
+        private DevExpress.XtraEditors.TextEdit AddressTextEdit;
+        private DevExpress.XtraEditors.TextEdit PhoneNumTextEdit;
+        private DevExpress.XtraEditors.DateEdit BirthDateDateEdit;
+        private DevExpress.XtraEditors.TextEdit DcCurrAccTypeTextEdit;
+        private DevExpress.XtraGrid.GridControl TrInvoiceHeadersGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl TrCurrAccRoleGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.TextEdit CreatedUserNameTextEdit;
+        private DevExpress.XtraEditors.DateEdit CreatedDateDateEdit;
+        private DevExpress.XtraEditors.TextEdit LastUpdatedUserNameTextEdit;
+        private DevExpress.XtraEditors.DateEdit LastUpdatedDateDateEdit;
+        private DevExpress.XtraLayout.LayoutControlGroup autoGeneratedGroup0;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForCurrAccCode;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForCreditLimit;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForIsVip;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForBonusCardNum;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForDataLanguageCode;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForIsDisabled;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForAddress;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForFirstName;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForLastName;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForFatherName;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForPhoneNum;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForBirthDate;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForIdentityNum;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForTaxNum;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForCurrAccTypeCode;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForNewPassword;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForConfirmPassword;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

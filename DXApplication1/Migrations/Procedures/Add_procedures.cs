@@ -6,10 +6,10 @@ namespace PointOfSale.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            var createProcSql = @"Create PROCEDURE [dbo].[GetNextDocNum] @ProcessCode nvarchar(5), @ColumnName nvarchar(30), @TableName nvarchar(30)
+            var createProcSql = @"Create PROCEDURE [dbo].[GetNextDocNum] @VariableCode nvarchar(5), @ColumnName nvarchar(30), @TableName nvarchar(30)
 									AS
 									BEGIN
-										DECLARE @LastNumber int = (select ISNULL(LastNumber,0) from DcProcesses where ProcessCode = @ProcessCode)
+										DECLARE @LastNumber int = (select ISNULL(LastNumber,0) from DcVariables where VariableCode = @VariableCode)
 										DECLARE @DocCount int = 1	
 										
 										WHILE ( @DocCount = 1)
@@ -18,7 +18,7 @@ namespace PointOfSale.Migrations
 												SET @LastNumber = 0
 											SET @LastNumber = @LastNumber + 1
 									
-											DECLARE @NextDoc nvarchar(50) = @ProcessCode + '-' + Convert(nvarchar, @LastNumber)
+											DECLARE @NextDoc nvarchar(50) = @VariableCode + '-' + Convert(nvarchar, @LastNumber)
 											
 											DECLARE @QryDocCount nvarchar(500) = 'select @DocNum = count(1) from '+@TableName+' where '+@ColumnName+' = '''+@NextDoc+''''
 											
@@ -26,7 +26,7 @@ namespace PointOfSale.Migrations
 									
 										END
 										SELECT @NextDoc AS Value
-										UPDATE DcProcesses SET LastNumber = @LastNumber WHERE ProcessCode = @ProcessCode
+										UPDATE DcVariables SET LastNumber = @LastNumber WHERE VariableCode = @VariableCode
 									END";
             migrationBuilder.Sql(createProcSql);
         }

@@ -10,15 +10,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PointOfSale.Models
 {
-    public partial class DcProcess
+    public partial class DcVariable
     {
         [Key]
-        [DisplayName("Proses Kodu")]
+        [DisplayName("Dəyişən Kodu")]
         [StringLength(5, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
-        public string ProcessCode { get; set; }
+        public string VariableCode { get; set; }
 
-        [DisplayName("Proses Kodu")]
+        [DisplayName("Dəyişən Kodu")]
         [StringLength(150, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
-        public string ProcessDescription { get; set; }
+        public string VariableDesc { get; set; }
+
+        [DisplayName("Sonuncu Nömrə")]
+        public int? LastNumber { get; set; }
     }
 }

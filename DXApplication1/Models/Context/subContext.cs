@@ -43,6 +43,7 @@ namespace PointOfSale.Models
         public DbSet<DcFeature> DcFeatures { get; set; }
         public DbSet<TrFeature> TrFeatures { get; set; }
         public DbSet<AppSetting> AppSettings { get; set; }
+        public DbSet<DcVariable> DcVariables { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -87,9 +88,6 @@ namespace PointOfSale.Models
                 entity.Property(e => e.IdentityNum)
                     .HasDefaultValueSql("space(0)");
 
-                entity.Property(e => e.Password)
-                    .HasDefaultValueSql("space(0)");
-
                 entity.Property(e => e.IsVip)
                     .HasDefaultValueSql("0");
 
@@ -119,8 +117,8 @@ namespace PointOfSale.Models
             });
 
             modelBuilder.Entity<DcCurrAcc>().HasData(
-                new DcCurrAcc { CurrAccCode = "CA-1", FirstName = "Sübhan", LastName = "Hüseynzadə", Password = "123", PhoneNum = "0519678909", CurrAccTypeCode = 1 },
-                new DcCurrAcc { CurrAccCode = "CA-2", FirstName = "Orxan", LastName = "Hüseynzadə", Password = "456", PhoneNum = "0773628800", CurrAccTypeCode = 2 });
+                new DcCurrAcc { CurrAccCode = "CA-1", FirstName = "Sübhan", LastName = "Hüseynzadə", NewPassword = "123", PhoneNum = "0519678909", CurrAccTypeCode = 1 },
+                new DcCurrAcc { CurrAccCode = "CA-2", FirstName = "Orxan", LastName = "Hüseynzadə", NewPassword = "456", PhoneNum = "0773628800", CurrAccTypeCode = 2 });
 
             modelBuilder.Entity<DcCurrAccType>(entity =>
             {
@@ -234,7 +232,6 @@ namespace PointOfSale.Models
                 new DcProcess { ProcessCode = "RS", ProcessDescription = "Pərakəndə Satış" },
                 new DcProcess { ProcessCode = "RP", ProcessDescription = "Pərakəndə Alış" },
                 new DcProcess { ProcessCode = "P", ProcessDescription = "Ödəmə" },
-                new DcProcess { ProcessCode = "CA", ProcessDescription = "Cari" },
                 new DcProcess { ProcessCode = "SB", ProcessDescription = "Toptan Alış" },
                 new DcProcess { ProcessCode = "W", ProcessDescription = "Toptan Satış" },
                 new DcProcess { ProcessCode = "EX", ProcessDescription = "Xərclər" }
@@ -753,6 +750,15 @@ namespace PointOfSale.Models
             modelBuilder.Entity<AppSetting>().HasData(
                 new AppSetting { Id = 1, GridViewLayout = "" });
 
+            modelBuilder.Entity<DcVariable>().HasData(
+                new DcVariable { VariableCode = "CA", VariableDesc = "Cari" },
+                new DcVariable { VariableCode = "PR", VariableDesc = "Məhsul" },
+                new DcVariable { VariableCode = "RS", VariableDesc = "Pərakəndə Satış" },
+                new DcVariable { VariableCode = "RP", VariableDesc = "Pərakəndə Alış" },
+                new DcVariable { VariableCode = "P",  VariableDesc = "Ödəmə" },
+                new DcVariable { VariableCode = "SB", VariableDesc = "Toptan Alış" },
+                new DcVariable { VariableCode = "W",  VariableDesc = "Toptan Satış" },
+                new DcVariable { VariableCode = "EX", VariableDesc = "Xərclər" });
 
             OnModelCreatingPartial(modelBuilder);
         }
