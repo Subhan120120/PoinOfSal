@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace PointOfSale
 {
@@ -209,23 +210,11 @@ namespace PointOfSale
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            dxErrorProvider1.DataSource = trInvoiceHeadersBindingSource;
-            dxErrorProvider1.ContainerControl = dataLayoutControl1;
-
-            foreach (Control ctrl in dataLayoutControl1.Controls)
+            if (true)
             {
-                BaseEdit edit = ctrl as BaseEdit;
-                if (edit != null)
-                {
-                    edit.IsModified = true;
-                    edit.DoValidate();
-                }
+
             }
-
-            //dbContext.GetValidationErrors();
-
-
-            MessageBox.Show(dxErrorProvider1.GetControlsWithError().Count.ToString());
+            isValid();
 
 
             //if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
@@ -239,6 +228,25 @@ namespace PointOfSale
             //efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
 
             //ClearControlsAddNew();
+        }
+
+        private bool isValid()
+        {
+            DXErrorProvider dXErrorProvider = new DXErrorProvider();
+            foreach (Control ctrl in dataLayoutControl1.Controls)
+            {
+                BaseEdit edit = ctrl as BaseEdit;
+                if (edit != null)
+                {
+                    edit.IsModified = true;
+                    edit.DoValidate();
+                    dXErrorProvider.SetError(edit, edit.ErrorText, ErrorType.Information);
+                }
+            }
+
+            if (dXErrorProvider.GetControlsWithError().Count == 0)
+                return true;
+            else return false;
         }
     }
 }
