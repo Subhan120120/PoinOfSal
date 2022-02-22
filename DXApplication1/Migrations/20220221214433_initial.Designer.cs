@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20220207133310_as")]
-    partial class @as
+    [Migration("20220221214433_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,42 @@ namespace PointOfSale.Migrations
                 .HasAnnotation("ProductVersion", "3.1.19")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("PointOfSale.Models.AppSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("GetPrint")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("GridViewLayout")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrintDesignPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PrinterCopyNum")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PrinterName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppSettings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            GetPrint = false,
+                            GridViewLayout = "",
+                            PrinterCopyNum = 0
+                        });
+                });
 
             modelBuilder.Entity("PointOfSale.Models.DcClaim", b =>
                 {
@@ -68,13 +104,15 @@ namespace PointOfSale.Migrations
                     b.Property<byte>("CompanyCode")
                         .HasColumnType("tinyint");
 
+                    b.Property<string>("ConfirmPassword")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -144,11 +182,14 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
+
+                    b.Property<string>("NewPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OfficeCode")
                         .IsRequired()
@@ -157,17 +198,11 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(5);
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValueSql("space(0)");
-
                     b.Property<string>("PhoneNum")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("nvarchar(150)")
                         .HasDefaultValueSql("space(0)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(150);
 
                     b.Property<Guid>("RowGuid")
                         .HasColumnType("uniqueidentifier");
@@ -204,7 +239,7 @@ namespace PointOfSale.Migrations
                             IsVip = false,
                             LastName = "Hüseynzadə",
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Password = "123",
+                            NewPassword = "123",
                             PhoneNum = "0519678909",
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             VendorTypeCode = (byte)0
@@ -223,7 +258,7 @@ namespace PointOfSale.Migrations
                             IsVip = false,
                             LastName = "Hüseynzadə",
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Password = "456",
+                            NewPassword = "456",
                             PhoneNum = "0773628800",
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             VendorTypeCode = (byte)0
@@ -276,6 +311,22 @@ namespace PointOfSale.Migrations
                         });
                 });
 
+            modelBuilder.Entity("PointOfSale.Models.DcFeature", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FeatureName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DcFeatures");
+                });
+
             modelBuilder.Entity("PointOfSale.Models.DcOffice", b =>
                 {
                     b.Property<string>("OfficeCode")
@@ -291,7 +342,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -306,7 +356,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -355,6 +404,7 @@ namespace PointOfSale.Migrations
                         .HasColumnType("tinyint");
 
                     b.Property<string>("PaymentTypeDesc")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
                         .HasDefaultValueSql("space(0)")
@@ -383,14 +433,11 @@ namespace PointOfSale.Migrations
                         .HasColumnType("nvarchar(5)")
                         .HasMaxLength(5);
 
-                    b.Property<int?>("LastNumber")
-                        .HasColumnType("int");
-
                     b.Property<string>("ProcessDescription")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("nvarchar(150)")
                         .HasDefaultValueSql("space(0)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(150);
 
                     b.HasKey("ProcessCode");
 
@@ -414,11 +461,6 @@ namespace PointOfSale.Migrations
                         },
                         new
                         {
-                            ProcessCode = "CA",
-                            ProcessDescription = "Cari"
-                        },
-                        new
-                        {
                             ProcessCode = "SB",
                             ProcessDescription = "Toptan Alış"
                         },
@@ -426,6 +468,11 @@ namespace PointOfSale.Migrations
                         {
                             ProcessCode = "W",
                             ProcessDescription = "Toptan Satış"
+                        },
+                        new
+                        {
+                            ProcessCode = "EX",
+                            ProcessDescription = "Xərclər"
                         });
                 });
 
@@ -448,16 +495,10 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
-
-                    b.Property<bool>("IsBlocked")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValueSql("0");
 
                     b.Property<bool>("IsDisabled")
                         .ValueGeneratedOnAdd()
@@ -470,7 +511,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -546,7 +586,6 @@ namespace PointOfSale.Migrations
                             ProductCode = "test01",
                             Barcode = "123456",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsBlocked = false,
                             IsDisabled = false,
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PosDiscount = 0.0,
@@ -564,7 +603,6 @@ namespace PointOfSale.Migrations
                             ProductCode = "test02",
                             Barcode = "2000000000013",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsBlocked = false,
                             IsDisabled = false,
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PosDiscount = 0.0,
@@ -572,6 +610,40 @@ namespace PointOfSale.Migrations
                             ProductTypeCode = (byte)1,
                             PurchasePrice = 0.0,
                             RetailPrice = 2.5,
+                            TaxRate = 0.0,
+                            UseInternet = false,
+                            UsePos = false,
+                            WholesalePrice = 0.0
+                        },
+                        new
+                        {
+                            ProductCode = "xerc01",
+                            Barcode = "",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PosDiscount = 0.0,
+                            ProductDescription = "Yol Xerci",
+                            ProductTypeCode = (byte)2,
+                            PurchasePrice = 0.0,
+                            RetailPrice = 0.0,
+                            TaxRate = 0.0,
+                            UseInternet = false,
+                            UsePos = false,
+                            WholesalePrice = 0.0
+                        },
+                        new
+                        {
+                            ProductCode = "xerc02",
+                            Barcode = "",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDisabled = false,
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PosDiscount = 0.0,
+                            ProductDescription = "Isiq Pulu",
+                            ProductTypeCode = (byte)2,
+                            PurchasePrice = 0.0,
+                            RetailPrice = 0.0,
                             TaxRate = 0.0,
                             UseInternet = false,
                             UsePos = false,
@@ -585,6 +657,7 @@ namespace PointOfSale.Migrations
                         .HasColumnType("tinyint");
 
                     b.Property<string>("ProductTypeDesc")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(50)")
                         .HasDefaultValueSql("space(0)")
@@ -599,6 +672,11 @@ namespace PointOfSale.Migrations
                         {
                             ProductTypeCode = (byte)1,
                             ProductTypeDesc = "Məhsul"
+                        },
+                        new
+                        {
+                            ProductTypeCode = (byte)2,
+                            ProductTypeDesc = "Xərc"
                         });
                 });
 
@@ -614,7 +692,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -626,7 +703,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -670,7 +746,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -682,7 +757,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -728,7 +802,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -743,7 +816,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -798,7 +870,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -813,7 +884,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -834,6 +904,66 @@ namespace PointOfSale.Migrations
                     b.ToTable("DcTerminals");
                 });
 
+            modelBuilder.Entity("PointOfSale.Models.DcVariable", b =>
+                {
+                    b.Property<string>("VariableCode")
+                        .HasColumnType("nvarchar(5)")
+                        .HasMaxLength(5);
+
+                    b.Property<int?>("LastNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VariableDesc")
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
+
+                    b.HasKey("VariableCode");
+
+                    b.ToTable("DcVariables");
+
+                    b.HasData(
+                        new
+                        {
+                            VariableCode = "CA",
+                            VariableDesc = "Cari"
+                        },
+                        new
+                        {
+                            VariableCode = "PR",
+                            VariableDesc = "Məhsul"
+                        },
+                        new
+                        {
+                            VariableCode = "RS",
+                            VariableDesc = "Pərakəndə Satış"
+                        },
+                        new
+                        {
+                            VariableCode = "RP",
+                            VariableDesc = "Pərakəndə Alış"
+                        },
+                        new
+                        {
+                            VariableCode = "P",
+                            VariableDesc = "Ödəmə"
+                        },
+                        new
+                        {
+                            VariableCode = "SB",
+                            VariableDesc = "Toptan Alış"
+                        },
+                        new
+                        {
+                            VariableCode = "W",
+                            VariableDesc = "Toptan Satış"
+                        },
+                        new
+                        {
+                            VariableCode = "EX",
+                            VariableDesc = "Xərclər"
+                        });
+                });
+
             modelBuilder.Entity("PointOfSale.Models.DcWarehouse", b =>
                 {
                     b.Property<string>("WarehouseCode")
@@ -849,7 +979,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -867,14 +996,12 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<string>("OfficeCode")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(5)")
                         .HasDefaultValueSql("space(0)")
@@ -1016,7 +1143,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1031,7 +1157,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1059,6 +1184,30 @@ namespace PointOfSale.Migrations
                         });
                 });
 
+            modelBuilder.Entity("PointOfSale.Models.TrFeature", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FeatureId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductCode")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductCode");
+
+                    b.HasIndex("FeatureId", "ProductCode")
+                        .IsUnique()
+                        .HasFilter("[ProductCode] IS NOT NULL");
+
+                    b.ToTable("TrFeatures");
+                });
+
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
                 {
                     b.Property<Guid>("InvoiceHeaderId")
@@ -1070,7 +1219,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1088,7 +1236,6 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(200)")
                         .HasDefaultValueSql("space(0)")
@@ -1109,7 +1256,7 @@ namespace PointOfSale.Migrations
                     b.Property<TimeSpan>("DocumentTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("time(0)")
-                        .HasDefaultValueSql("'00:00:00'");
+                        .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                     b.Property<byte>("FiscalPrintedState")
                         .ValueGeneratedOnAdd()
@@ -1152,7 +1299,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1173,7 +1319,7 @@ namespace PointOfSale.Migrations
                     b.Property<TimeSpan>("OperationTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("time(0)")
-                        .HasDefaultValueSql("'00:00:00'");
+                        .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                     b.Property<string>("PosTerminalId")
                         .IsRequired()
@@ -1230,7 +1376,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1261,7 +1406,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1269,8 +1413,9 @@ namespace PointOfSale.Migrations
 
                     b.Property<string>("LineDescription")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValueSql("space(0)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("space(0)")
+                        .HasMaxLength(100);
 
                     b.Property<decimal>("NetAmount")
                         .ValueGeneratedOnAdd()
@@ -1288,6 +1433,7 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("ProductCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
@@ -1336,7 +1482,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1360,7 +1505,7 @@ namespace PointOfSale.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(200)")
-                        .HasDefaultValueSql("'00:00:00'")
+                        .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)")
                         .HasMaxLength(200);
 
                     b.Property<DateTime>("DocumentDate")
@@ -1376,10 +1521,11 @@ namespace PointOfSale.Migrations
                     b.Property<TimeSpan>("DocumentTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("time(0)")
-                        .HasDefaultValueSql("'00:00:00'");
+                        .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                     b.Property<double>("ExchangeRate")
-                        .HasColumnType("float");
+                        .HasColumnType("float")
+                        .HasMaxLength(60);
 
                     b.Property<Guid?>("InvoiceHeaderId")
                         .ValueGeneratedOnAdd()
@@ -1405,7 +1551,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1452,7 +1597,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1476,7 +1620,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1526,7 +1669,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1538,7 +1680,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1583,7 +1724,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1595,6 +1735,7 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
                         .HasDefaultValueSql("space(0)")
@@ -1628,7 +1769,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1649,7 +1789,7 @@ namespace PointOfSale.Migrations
                     b.Property<TimeSpan>("OperationTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("time(0)")
-                        .HasDefaultValueSql("'00:00:00'");
+                        .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                     b.Property<string>("ProcessCode")
                         .IsRequired()
@@ -1674,14 +1814,16 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<Guid?>("ShippingPostalAddressId")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("space(0)");
+                        .HasDefaultValueSql("space(0)")
+                        .HasMaxLength(60);
 
                     b.Property<TimeSpan>("ShippingTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("time(0)")
-                        .HasDefaultValueSql("'00:00:00'");
+                        .HasDefaultValueSql("convert(varchar(10), GETDATE(), 108)");
 
                     b.Property<string>("StoreCode")
                         .IsRequired()
@@ -1733,7 +1875,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("CreatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1746,16 +1887,12 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
-                    b.Property<byte>("ItemTypeCode")
-                        .HasColumnType("tinyint");
-
                     b.Property<DateTime>("LastUpdatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
@@ -1845,6 +1982,19 @@ namespace PointOfSale.Migrations
                         .HasForeignKey("RoleCode");
                 });
 
+            modelBuilder.Entity("PointOfSale.Models.TrFeature", b =>
+                {
+                    b.HasOne("PointOfSale.Models.DcFeature", "DcFeature")
+                        .WithMany("TrFeatures")
+                        .HasForeignKey("FeatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PointOfSale.Models.DcProduct", "DcProduct")
+                        .WithMany("TrFeature")
+                        .HasForeignKey("ProductCode");
+                });
+
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceHeader", b =>
                 {
                     b.HasOne("PointOfSale.Models.DcCurrAcc", "DcCurrAcc")
@@ -1862,7 +2012,9 @@ namespace PointOfSale.Migrations
 
                     b.HasOne("PointOfSale.Models.DcProduct", "DcProduct")
                         .WithMany("TrInvoiceLines")
-                        .HasForeignKey("ProductCode");
+                        .HasForeignKey("ProductCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrPaymentHeader", b =>

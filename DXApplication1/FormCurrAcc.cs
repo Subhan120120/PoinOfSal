@@ -50,12 +50,11 @@ namespace PointOfSale
             dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
                    .LoadAsync()
                    .ContinueWith(loadTask => dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
-
-
         }
 
         private void ClearControls()
         {
+
         }
 
         private void btn_Ok_Click(object sender, EventArgs e)

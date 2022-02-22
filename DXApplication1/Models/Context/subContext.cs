@@ -1,8 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using PointOfSale.AppCode;
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -747,18 +750,23 @@ namespace PointOfSale.Models
             modelBuilder.Entity<TrFeature>()
                 .HasIndex(entity => new { entity.FeatureId, entity.ProductCode }).IsUnique();
 
+            CustomMethods customMethods = new CustomMethods();
+            string qry = customMethods.GetDataFromFile("PointOfSale.AppCode.GvListDefaultLayout.xml");
+
             modelBuilder.Entity<AppSetting>().HasData(
-                new AppSetting { Id = 1, GridViewLayout = "" });
+                new AppSetting { Id = 1, GridViewLayout = qry });
 
             modelBuilder.Entity<DcVariable>().HasData(
                 new DcVariable { VariableCode = "CA", VariableDesc = "Cari" },
                 new DcVariable { VariableCode = "PR", VariableDesc = "Məhsul" },
                 new DcVariable { VariableCode = "RS", VariableDesc = "Pərakəndə Satış" },
                 new DcVariable { VariableCode = "RP", VariableDesc = "Pərakəndə Alış" },
-                new DcVariable { VariableCode = "P",  VariableDesc = "Ödəmə" },
+                new DcVariable { VariableCode = "P", VariableDesc = "Ödəmə" },
                 new DcVariable { VariableCode = "SB", VariableDesc = "Toptan Alış" },
-                new DcVariable { VariableCode = "W",  VariableDesc = "Toptan Satış" },
+                new DcVariable { VariableCode = "W", VariableDesc = "Toptan Satış" },
                 new DcVariable { VariableCode = "EX", VariableDesc = "Xərclər" });
+
+
 
             OnModelCreatingPartial(modelBuilder);
         }

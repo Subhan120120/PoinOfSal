@@ -4,8 +4,9 @@ using System;
 
 namespace PointOfSale
 {
-    public static class Methods
+    public static class CustomExtensions
     {
+
         public static string GetPreviewText(decimal PosDiscount, decimal Amount, decimal NetAmount, float VatRate, string Barcode, string SalesPersonCode)
         {
             decimal PosDiscountRate = 0;

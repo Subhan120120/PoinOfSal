@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using PointOfSale.Properties;
 using System;
 
@@ -13,6 +14,8 @@ namespace PointOfSale
         public FormLogin()
         {
             InitializeComponent();
+            SplashScreenManager sSM = new SplashScreenManager(this, typeof(global::PointOfSale.SplashScreenStartup), true, true);
+            sSM.ClosingDelay = 500;
             //System.Threading.Thread.Sleep(7000);
 
             txtEdit_UserName.Text = Settings.Default.LoginName;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace PointOfSale
 {
@@ -68,6 +69,10 @@ namespace PointOfSale
             trInvoiceHeader.DocumentDate = DateTime.Now;
             trInvoiceHeader.DocumentTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
             trInvoiceHeader.ProcessCode = "RP";
+
+            trInvoiceHeadersBindingSource.DataSource = trInvoiceHeader;
+
+            //trInvoiceHeadersBindingSource.EndEdit();
 
             dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
                                     .LoadAsync()
@@ -204,19 +209,36 @@ namespace PointOfSale
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            dxErrorProvider1.DataSource = trInvoiceHeadersBindingSource;
+            dxErrorProvider1.ContainerControl = dataLayoutControl1;
 
-            if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
+            foreach (Control ctrl in dataLayoutControl1.Controls)
             {
-                efMethods.InsertInvoiceHeader(trInvoiceHeader);
-
+                BaseEdit edit = ctrl as BaseEdit;
+                if (edit != null)
+                {
+                    edit.IsModified = true;
+                    edit.DoValidate();
+                }
             }
 
-            dbContext.SaveChanges();
+            //dbContext.GetValidationErrors();
 
-            efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
 
-            ClearControlsAddNew();
+            MessageBox.Show(dxErrorProvider1.GetControlsWithError().Count.ToString());
 
+
+            //if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
+            //{
+            //    efMethods.InsertInvoiceHeader(trInvoiceHeader);
+
+            //}
+
+            //dbContext.SaveChanges();
+
+            //efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
+
+            //ClearControlsAddNew();
         }
     }
 }

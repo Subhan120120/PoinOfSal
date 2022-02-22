@@ -171,7 +171,7 @@ namespace PointOfSale
             string SalesPersonCode = view.GetRowCellDisplayText(e.RowHandle, view.Columns["SalesPersonCode"]);
             float VatRate = float.Parse(strVatRate);
 
-            e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, String.Empty, SalesPersonCode);
+            e.PreviewText = CustomExtensions.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, String.Empty, SalesPersonCode);
         }
     }
 }

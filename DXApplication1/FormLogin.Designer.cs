@@ -30,7 +30,7 @@ namespace PointOfSale
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PointOfSale.SplashScreenStartup), true, true);
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.btn_ERP = new DevExpress.XtraEditors.SimpleButton();
             this.lC_Root = new DevExpress.XtraLayout.LayoutControl();
@@ -68,7 +68,6 @@ namespace PointOfSale
             // 
             // splashScreenManager1
             // 
-            splashScreenManager1.ClosingDelay = 500;
             // 
             // btn_ERP
             // 

@@ -54,7 +54,7 @@ namespace PointOfSale
             string strVatRate = view.GetRowCellDisplayText(e.RowHandle, view.Columns["VatRate"]);
             float VatRate = float.Parse(strVatRate);
 
-            e.PreviewText = Methods.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, Barcode, SalesPersonCode);
+            e.PreviewText = CustomExtensions.GetPreviewText(PosDiscount, Amount, NetAmount, VatRate, Barcode, SalesPersonCode);
         }
 
         private void btn_ProductSearch_Click(object sender, EventArgs e)

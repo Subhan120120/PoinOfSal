@@ -59,44 +59,46 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v21.2" />
-    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    </Reference>
     <Reference Include="DevExpress.Data.Desktop.v21.2" />
     <Reference Include="DevExpress.Data.v21.2" />
-    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v21.2.UI, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Diagram.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Images.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Pdf.v21.2.Drawing, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.PivotGrid.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v21.2.UI, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Diagram.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v21.2.Drawing, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v21.2" />
     <Reference Include="DevExpress.Sparkline.v21.2.Core" />
-    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraCharts.v21.2.Extensions, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v21.2.Wizard, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraDiagram.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.Extensions, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.Wizard, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v21.2" />
     <Reference Include="DevExpress.Printing.v21.2.Core" />
-    <Reference Include="DevExpress.XtraGauges.v21.2.Core, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraNavBar.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPivotGrid.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v21.2.CodeCompletion, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v21.2.Extensions, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraWizard.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v21.2.CodeCompletion, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v21.2.Extensions, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraWizard.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -235,18 +237,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\AdoMethods.cs" />
+    <Compile Include="AppCode\CustomMethods.cs" />
     <Compile Include="AppCode\ReflectionExtensions.cs" />
     <Compile Include="AppCode\DsMethods.cs" />
     <Compile Include="AppCode\Authorization.cs" />
     <Compile Include="AppCode\MathExtensions.cs" />
-    <Compile Include="AppCode\Methods.cs" />
+    <Compile Include="AppCode\CustomExtensions.cs" />
     <Compile Include="AppCode\ReportClass.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormCurrAcc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,129 +256,25 @@
     <Compile Include="FormReportEditor.Designer.cs">
       <DependentUpon>FormReportEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReportGrid.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormReportGrid.Designer.cs">
-      <DependentUpon>FormReportGrid.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormReportFilter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReportFilter.Designer.cs">
       <DependentUpon>FormReportFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20220206135610_initial.cs" />
-    <Compile Include="Migrations\20220206135610_initial.designer.cs">
-      <DependentUpon>20220206135610_initial.cs</DependentUpon>
+    <Compile Include="FormReportGrid.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\20220206154101_dada.cs" />
-    <Compile Include="Migrations\20220206154101_dada.designer.cs">
-      <DependentUpon>20220206154101_dada.cs</DependentUpon>
+    <Compile Include="FormReportGrid.Designer.cs">
+      <DependentUpon>FormReportGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20220207133310_as.cs" />
-    <Compile Include="Migrations\20220207133310_as.designer.cs">
-      <DependentUpon>20220207133310_as.cs</DependentUpon>
+    <Compile Include="Migrations\20220221214433_initial.cs" />
+    <Compile Include="Migrations\20220221214433_initial.designer.cs">
+      <DependentUpon>20220221214433_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20220207151946_added_features.cs" />
-    <Compile Include="Migrations\20220207151946_added_features.designer.cs">
-      <DependentUpon>20220207151946_added_features.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220207152048_added_features2.cs" />
-    <Compile Include="Migrations\20220207152048_added_features2.designer.cs">
-      <DependentUpon>20220207152048_added_features2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220208132910_added-foreignKey_TrFeature.cs" />
-    <Compile Include="Migrations\20220208132910_added-foreignKey_TrFeature.designer.cs">
-      <DependentUpon>20220208132910_added-foreignKey_TrFeature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220208133011_added-foreignKey_TrFeature2.cs" />
-    <Compile Include="Migrations\20220208133011_added-foreignKey_TrFeature2.designer.cs">
-      <DependentUpon>20220208133011_added-foreignKey_TrFeature2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220208161506_added-uniqueKey_TrFeature.cs" />
-    <Compile Include="Migrations\20220208161506_added-uniqueKey_TrFeature.designer.cs">
-      <DependentUpon>20220208161506_added-uniqueKey_TrFeature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220208162233_test.cs" />
-    <Compile Include="Migrations\20220208162233_test.designer.cs">
-      <DependentUpon>20220208162233_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220209003324_added_AppSetting3.cs" />
-    <Compile Include="Migrations\20220209003324_added_AppSetting3.designer.cs">
-      <DependentUpon>20220209003324_added_AppSetting3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220209011631_added_AppSetting_HassData.cs" />
-    <Compile Include="Migrations\20220209011631_added_AppSetting_HassData.designer.cs">
-      <DependentUpon>20220209011631_added_AppSetting_HassData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220210004748_added_AppSetting_PrıntSettıngs.cs" />
-    <Compile Include="Migrations\20220210004748_added_AppSetting_PrıntSettıngs.designer.cs">
-      <DependentUpon>20220210004748_added_AppSetting_PrıntSettıngs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.cs" />
-    <Compile Include="Migrations\20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.designer.cs">
-      <DependentUpon>20220210013219_added_AppSetting_PrıntSettıngs.PrintDesignPath.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220210132027_added_process_expenses.cs" />
-    <Compile Include="Migrations\20220210132027_added_process_expenses.designer.cs">
-      <DependentUpon>20220210132027_added_process_expenses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220211114924_trinvoiceheader_description_notRequired.cs" />
-    <Compile Include="Migrations\20220211114924_trinvoiceheader_description_notRequired.designer.cs">
-      <DependentUpon>20220211114924_trinvoiceheader_description_notRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220211145840_createdusername_NotRequired.cs" />
-    <Compile Include="Migrations\20220211145840_createdusername_NotRequired.designer.cs">
-      <DependentUpon>20220211145840_createdusername_NotRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220212004130_addedTime.cs" />
-    <Compile Include="Migrations\20220212004130_addedTime.designer.cs">
-      <DependentUpon>20220212004130_addedTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220212010148_addedXerc.cs" />
-    <Compile Include="Migrations\20220212010148_addedXerc.designer.cs">
-      <DependentUpon>20220212010148_addedXerc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220212011450_addedXerc2.cs" />
-    <Compile Include="Migrations\20220212011450_addedXerc2.designer.cs">
-      <DependentUpon>20220212011450_addedXerc2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220212122459_addedProduct.cs" />
-    <Compile Include="Migrations\20220212122459_addedProduct.designer.cs">
-      <DependentUpon>20220212122459_addedProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220212183317_added_DisplayName.cs" />
-    <Compile Include="Migrations\20220212183317_added_DisplayName.designer.cs">
-      <DependentUpon>20220212183317_added_DisplayName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220212235727_nothing.cs" />
-    <Compile Include="Migrations\20220212235727_nothing.designer.cs">
-      <DependentUpon>20220212235727_nothing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220215120430_confirmPasword.cs" />
-    <Compile Include="Migrations\20220215120430_confirmPasword.designer.cs">
-      <DependentUpon>20220215120430_confirmPasword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220215163801_added-vatiable.cs" />
-    <Compile Include="Migrations\20220215163801_added-vatiable.designer.cs">
-      <DependentUpon>20220215163801_added-vatiable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220215163904_added-vatiable2.cs" />
-    <Compile Include="Migrations\20220215163904_added-vatiable2.designer.cs">
-      <DependentUpon>20220215163904_added-vatiable2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220215164321_added-vatiable5.cs" />
-    <Compile Include="Migrations\20220215164321_added-vatiable5.designer.cs">
-      <DependentUpon>20220215164321_added-vatiable5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220215165537_added-vatiable6.cs" />
-    <Compile Include="Migrations\20220215165537_added-vatiable6.designer.cs">
-      <DependentUpon>20220215165537_added-vatiable6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220215165815_added-vatiable7.cs" />
-    <Compile Include="Migrations\20220215165815_added-vatiable7.designer.cs">
-      <DependentUpon>20220215165815_added-vatiable7.cs</DependentUpon>
+    <Compile Include="Migrations\20220221230727_initial2.cs" />
+    <Compile Include="Migrations\20220221230727_initial2.designer.cs">
+      <DependentUpon>20220221230727_initial2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
@@ -538,13 +431,13 @@
     <Compile Include="UcExpense.Designer.cs">
       <DependentUpon>UcExpense.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormReportGrid.resx">
+      <DependentUpon>FormReportGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcExpense.resx">
       <DependentUpon>UcExpense.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AppCode\GvListDefaultLayout.xml" />
+    <EmbeddedResource Include="AppCode\GvListDefaultLayout.xml" />
     <EmbeddedResource Include="FormChange.resx">
       <DependentUpon>FormChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -582,9 +475,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportFilter.resx">
       <DependentUpon>FormReportFilter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormReportGrid.resx">
-      <DependentUpon>FormReportGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>

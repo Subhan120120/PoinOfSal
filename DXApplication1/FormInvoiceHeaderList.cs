@@ -17,7 +17,6 @@ namespace PointOfSale
         public TrInvoiceHeader trInvoiceHeader { get; set; }
         //public string processCode { get; set; }
 
-
         public FormInvoiceHeaderList()
         {
             InitializeComponent();
