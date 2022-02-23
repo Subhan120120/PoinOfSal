@@ -276,6 +276,10 @@
     <Compile Include="Migrations\20220221230727_initial2.designer.cs">
       <DependentUpon>20220221230727_initial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220223214926_initi55.cs" />
+    <Compile Include="Migrations\20220223214926_initi55.designer.cs">
+      <DependentUpon>20220223214926_initi55.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Procedures\Add_procedures.cs" />
     <Compile Include="Migrations\Procedures\Add_procedures.designer.cs">
       <DependentUpon>Add_procedures.cs</DependentUpon>

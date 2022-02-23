@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.XtraDataLayout;
 
 namespace PointOfSale
 {
@@ -38,17 +39,8 @@ namespace PointOfSale
             badge2 = new Badge();
             adornerUIManager1.Elements.Add(badge1);
             adornerUIManager1.Elements.Add(badge2);
-            badge1.TargetElement = bBI_Save;
+            //badge1.TargetElement = bBI_Save;
             badge2.TargetElement = RibbonPage_Invoice;
-
-
-            //        dbContext.TrInvoiceHeaders.LoadAsync().ContinueWith(loadTask =>
-            //        {
-            //// Bind data to control when loading complete
-            //trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList();
-            //        }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
-
-
         }
 
         public AdornerElement[] Badges { get { return new AdornerElement[] { badge1, badge2 }; } }
@@ -56,6 +48,7 @@ namespace PointOfSale
         private void FormInvoice_Load(object sender, EventArgs e)
         {
             ClearControlsAddNew();
+            dataLayoutControl1.isValid(out List<string> errorList);
         }
 
         private void ClearControlsAddNew()
@@ -196,6 +189,7 @@ namespace PointOfSale
         private void gV_InvoiceLine_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
         {
             //dbContext.SaveChanges();
+
         }
 
         private void FormInvoice_FormClosed(object sender, FormClosedEventArgs e)
@@ -203,50 +197,25 @@ namespace PointOfSale
             dbContext.Dispose();
         }
 
-        private void btn_Save(object sender, EventArgs e)
-        {
 
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void bBI_Save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (true)
+            if (dataLayoutControl1.isValid(out List<string> errorList))
             {
+                if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
+                    efMethods.InsertInvoiceHeader(trInvoiceHeader);
 
+                dbContext.SaveChanges();
+
+                efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
+
+                ClearControlsAddNew();
             }
-            isValid();
-
-
-            //if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
-            //{
-            //    efMethods.InsertInvoiceHeader(trInvoiceHeader);
-
-            //}
-
-            //dbContext.SaveChanges();
-
-            //efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
-
-            //ClearControlsAddNew();
-        }
-
-        private bool isValid()
-        {
-            DXErrorProvider dXErrorProvider = new DXErrorProvider();
-            foreach (Control ctrl in dataLayoutControl1.Controls)
+            else
             {
-                BaseEdit edit = ctrl as BaseEdit;
-                if (edit != null)
-                {
-                    edit.IsModified = true;
-                    edit.DoValidate();
-                    dXErrorProvider.SetError(edit, edit.ErrorText, ErrorType.Information);
-                }
+                string combinedString = errorList.Aggregate((x, y) => x + "" + y);
+                XtraMessageBox.Show(combinedString);
             }
-
-            if (dXErrorProvider.GetControlsWithError().Count == 0)
-                return true;
-            else return false;
         }
     }
 }

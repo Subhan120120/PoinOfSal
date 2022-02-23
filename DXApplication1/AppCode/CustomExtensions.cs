@@ -1,11 +1,42 @@
 ﻿using DevExpress.Xpo;
+using DevExpress.XtraDataLayout;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace PointOfSale
 {
     public static class CustomExtensions
     {
+        public static bool isValid(this DataLayoutControl dataLayoutControl, out List<string> errorList)
+        {
+            DXErrorProvider dXErrorProvider = new DXErrorProvider();
+
+            List<string> list = new List<string>();
+
+
+            foreach (Control ctrl in dataLayoutControl.Controls)
+            {
+                BaseEdit edit = ctrl as BaseEdit;
+                if (edit != null)
+                {
+                    edit.IsModified = true;
+                    edit.DoValidate();
+                    if (edit.ErrorText != string.Empty)
+                        list.Add(edit.ErrorText);
+                }
+            }
+            errorList = list;
+            if (list.Count == 0)
+                return true;
+
+            else
+                return false;
+
+        }
 
         public static string GetPreviewText(decimal PosDiscount, decimal Amount, decimal NetAmount, float VatRate, string Barcode, string SalesPersonCode)
         {

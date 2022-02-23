@@ -32,19 +32,16 @@ namespace PointOfSale
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInvoice));
             this.RibbonControl_Root = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bBI_Save = new DevExpress.XtraBars.BarButtonItem();
-            this.bBI_SaveAndClose = new DevExpress.XtraBars.BarButtonItem();
             this.bBI_SaveAndNew = new DevExpress.XtraBars.BarButtonItem();
-            this.bBI_Reset = new DevExpress.XtraBars.BarButtonItem();
-            this.bBI_Delete = new DevExpress.XtraBars.BarButtonItem();
-            this.bBI_Close = new DevExpress.XtraBars.BarButtonItem();
+            this.bBI_SaveAndClose = new DevExpress.XtraBars.BarButtonItem();
             this.RibbonPage_Invoice = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.RibbonPageGroup_Invoice = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.trInvoiceLinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gC_InvoiceLine = new DevExpress.XtraGrid.GridControl();
             this.gV_InvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_InvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -81,7 +78,6 @@ namespace PointOfSale
             this.ItemForStoreCode = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForWarehouseCode = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForDescription = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.RibbonControl_Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -116,7 +112,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStoreCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForWarehouseCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,13 +122,10 @@ namespace PointOfSale
             this.RibbonControl_Root.ExpandCollapseItem,
             this.RibbonControl_Root.SearchEditItem,
             this.bBI_Save,
-            this.bBI_SaveAndClose,
             this.bBI_SaveAndNew,
-            this.bBI_Reset,
-            this.bBI_Delete,
-            this.bBI_Close});
+            this.bBI_SaveAndClose});
             this.RibbonControl_Root.Location = new System.Drawing.Point(0, 0);
-            this.RibbonControl_Root.MaxItemId = 10;
+            this.RibbonControl_Root.MaxItemId = 13;
             this.RibbonControl_Root.Name = "RibbonControl_Root";
             this.RibbonControl_Root.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.RibbonPage_Invoice});
@@ -144,45 +136,25 @@ namespace PointOfSale
             // 
             // bBI_Save
             // 
-            this.bBI_Save.Caption = "Save";
-            this.bBI_Save.Id = 2;
-            this.bBI_Save.ImageOptions.ImageUri.Uri = "Save";
+            this.bBI_Save.Caption = "Yadda Saxla";
+            this.bBI_Save.Id = 10;
+            this.bBI_Save.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_Save.ImageOptions.SvgImage")));
             this.bBI_Save.Name = "bBI_Save";
-            // 
-            // bBI_SaveAndClose
-            // 
-            this.bBI_SaveAndClose.Caption = "Save And Close";
-            this.bBI_SaveAndClose.Id = 3;
-            this.bBI_SaveAndClose.ImageOptions.ImageUri.Uri = "SaveAndClose";
-            this.bBI_SaveAndClose.Name = "bBI_SaveAndClose";
+            this.bBI_Save.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_Save_ItemClick);
             // 
             // bBI_SaveAndNew
             // 
-            this.bBI_SaveAndNew.Caption = "Save And New";
-            this.bBI_SaveAndNew.Id = 4;
-            this.bBI_SaveAndNew.ImageOptions.ImageUri.Uri = "SaveAndNew";
+            this.bBI_SaveAndNew.Caption = "Yadda Saxla & Yeni";
+            this.bBI_SaveAndNew.Id = 11;
+            this.bBI_SaveAndNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_SaveAndNew.ImageOptions.SvgImage")));
             this.bBI_SaveAndNew.Name = "bBI_SaveAndNew";
             // 
-            // bBI_Reset
+            // bBI_SaveAndClose
             // 
-            this.bBI_Reset.Caption = "Reset Changes";
-            this.bBI_Reset.Id = 5;
-            this.bBI_Reset.ImageOptions.ImageUri.Uri = "Reset";
-            this.bBI_Reset.Name = "bBI_Reset";
-            // 
-            // bBI_Delete
-            // 
-            this.bBI_Delete.Caption = "Delete";
-            this.bBI_Delete.Id = 6;
-            this.bBI_Delete.ImageOptions.ImageUri.Uri = "Delete";
-            this.bBI_Delete.Name = "bBI_Delete";
-            // 
-            // bBI_Close
-            // 
-            this.bBI_Close.Caption = "Close";
-            this.bBI_Close.Id = 7;
-            this.bBI_Close.ImageOptions.ImageUri.Uri = "Close";
-            this.bBI_Close.Name = "bBI_Close";
+            this.bBI_SaveAndClose.Caption = "Yadda Saxla & Bağla";
+            this.bBI_SaveAndClose.Id = 12;
+            this.bBI_SaveAndClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_SaveAndClose.ImageOptions.SvgImage")));
+            this.bBI_SaveAndClose.Name = "bBI_SaveAndClose";
             // 
             // RibbonPage_Invoice
             // 
@@ -196,8 +168,11 @@ namespace PointOfSale
             // 
             this.RibbonPageGroup_Invoice.AllowTextClipping = false;
             this.RibbonPageGroup_Invoice.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_Save);
+            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_SaveAndNew);
+            this.RibbonPageGroup_Invoice.ItemLinks.Add(this.bBI_SaveAndClose);
             this.RibbonPageGroup_Invoice.Name = "RibbonPageGroup_Invoice";
-            this.RibbonPageGroup_Invoice.Text = "Tasks";
+            this.RibbonPageGroup_Invoice.Text = "Yadda Saxla";
             // 
             // trInvoiceLinesBindingSource
             // 
@@ -205,7 +180,6 @@ namespace PointOfSale
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.simpleButton1);
             this.dataLayoutControl1.Controls.Add(this.gC_InvoiceLine);
             this.dataLayoutControl1.Controls.Add(this.IsReturnCheckEdit);
             this.dataLayoutControl1.Controls.Add(this.DocumentDateDateEdit);
@@ -227,16 +201,6 @@ namespace PointOfSale
             this.dataLayoutControl1.TabIndex = 4;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 452);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(1123, 22);
-            this.simpleButton1.StyleController = this.dataLayoutControl1;
-            this.simpleButton1.TabIndex = 15;
-            this.simpleButton1.Text = "simpleButton1";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
             // gC_InvoiceLine
             // 
             this.gC_InvoiceLine.DataSource = this.trInvoiceLinesBindingSource;
@@ -246,7 +210,7 @@ namespace PointOfSale
             this.gC_InvoiceLine.Name = "gC_InvoiceLine";
             this.gC_InvoiceLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repoBtnEdit_ProductCode});
-            this.gC_InvoiceLine.Size = new System.Drawing.Size(1123, 316);
+            this.gC_InvoiceLine.Size = new System.Drawing.Size(1123, 342);
             this.gC_InvoiceLine.TabIndex = 13;
             this.gC_InvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_InvoiceLine});
@@ -347,6 +311,8 @@ namespace PointOfSale
             this.col_NetAmount.Caption = "Net Tutar";
             this.col_NetAmount.FieldName = "NetAmount";
             this.col_NetAmount.Name = "col_NetAmount";
+            this.col_NetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetAmount", "SUM={0:0.##}")});
             this.col_NetAmount.Visible = true;
             this.col_NetAmount.VisibleIndex = 5;
             // 
@@ -535,8 +501,7 @@ namespace PointOfSale
             this.ItemForCustomsDocumentNumber,
             this.ItemForStoreCode,
             this.ItemForWarehouseCode,
-            this.ItemForDescription,
-            this.layoutControlItem2});
+            this.ItemForDescription});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1127, 466);
@@ -574,7 +539,7 @@ namespace PointOfSale
             this.layoutControlItem1.Control = this.gC_InvoiceLine;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1127, 320);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1127, 346);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -641,15 +606,6 @@ namespace PointOfSale
             this.ItemForDescription.Text = "Açıqlama";
             this.ItemForDescription.TextSize = new System.Drawing.Size(98, 13);
             // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.simpleButton1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 440);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1127, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
@@ -702,7 +658,6 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStoreCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForWarehouseCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -713,12 +668,6 @@ namespace PointOfSale
         private DevExpress.XtraBars.Ribbon.RibbonControl RibbonControl_Root;
         private DevExpress.XtraBars.Ribbon.RibbonPage RibbonPage_Invoice;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup RibbonPageGroup_Invoice;
-        private DevExpress.XtraBars.BarButtonItem bBI_Save;
-        private DevExpress.XtraBars.BarButtonItem bBI_SaveAndClose;
-        private DevExpress.XtraBars.BarButtonItem bBI_SaveAndNew;
-        private DevExpress.XtraBars.BarButtonItem bBI_Reset;
-        private DevExpress.XtraBars.BarButtonItem bBI_Delete;
-        private DevExpress.XtraBars.BarButtonItem bBI_Close;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.BindingSource trInvoiceLinesBindingSource;
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
@@ -758,8 +707,9 @@ namespace PointOfSale
         private DevExpress.XtraEditors.LookUpEdit lUE_OfficeCode;
         private DevExpress.XtraEditors.LookUpEdit lUE_StoreCode;
         private DevExpress.XtraEditors.LookUpEdit lUE_WarehouseCode;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraBars.BarButtonItem bBI_Save;
+        private DevExpress.XtraBars.BarButtonItem bBI_SaveAndNew;
+        private DevExpress.XtraBars.BarButtonItem bBI_SaveAndClose;
     }
 }

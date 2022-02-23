@@ -35,7 +35,8 @@ namespace PointOfSale.Models
         public string ProductDimensionCode { get; set; }
 
         [DisplayName("Say")]
-        public double Qty { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "{0} {1} dan az ola bilməz \n")]
+        public int Qty { get; set; }
 
         [DisplayName("Satıcı")]
         [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]

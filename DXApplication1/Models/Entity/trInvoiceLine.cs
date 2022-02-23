@@ -29,6 +29,7 @@ namespace PointOfSale.Models
 
         [DisplayName("Say")]
         [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
+        [Range(1, int.MaxValue, ErrorMessage = "{0} {1} dan az ola bilməz \n")]
         public int Qty { get; set; }
 
         [DisplayName("Qiymət")]
