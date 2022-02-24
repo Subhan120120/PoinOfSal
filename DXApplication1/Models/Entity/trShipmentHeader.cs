@@ -48,7 +48,6 @@ namespace PointOfSale.Models
         public TimeSpan OperationTime { get; set; }
 
         [DisplayName("Fərdi Sənəd Nömrəsi")]
-        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [StringLength(30, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string CustomsDocumentNumber { get; set; }
 

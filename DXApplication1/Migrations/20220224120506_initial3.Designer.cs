@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20220223214926_initi55")]
-    partial class initi55
+    [Migration("20220224120506_initial3")]
+    partial class initial3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1289,14 +1289,12 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(20);
 
                     b.Property<string>("CurrAccCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
@@ -1799,10 +1797,7 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
@@ -2063,7 +2058,9 @@ namespace PointOfSale.Migrations
                 {
                     b.HasOne("PointOfSale.Models.DcCurrAcc", "DcCurrAcc")
                         .WithMany("TrInvoiceHeaders")
-                        .HasForeignKey("CurrAccCode");
+                        .HasForeignKey("CurrAccCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PointOfSale.Models.TrInvoiceLine", b =>

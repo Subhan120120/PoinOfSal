@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20220221214433_initial")]
-    partial class initial
+    [Migration("20220224120316_initial2")]
+    partial class initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,71 @@ namespace PointOfSale.Migrations
                         {
                             Id = 1,
                             GetPrint = false,
-                            GridViewLayout = "",
+                            GridViewLayout = @"<XtraSerializer version=""1.0"" application=""View"">
+  <property name=""#LayoutVersion"" />
+  <property name=""#LayoutScaleFactor"">@1,Width=1@1,Height=1</property>
+  <property name=""Appearance"" isnull=""true"" iskey=""true"">
+    <property name=""Row"" iskey=""true"" value=""Row"">
+      <property name=""Options"" isnull=""true"" iskey=""true"">
+        <property name=""UseFont"">true</property>
+      </property>
+      <property name=""Font"">Tahoma, 12pt</property>
+    </property>
+    <property name=""FooterPanel"" iskey=""true"" value=""FooterPanel"">
+      <property name=""Options"" isnull=""true"" iskey=""true"">
+        <property name=""UseFont"">true</property>
+      </property>
+      <property name=""Font"">Tahoma, 12pt</property>
+    </property>
+  </property>
+  <property name=""OptionsBehavior"" isnull=""true"" iskey=""true"">
+    <property name=""Editable"">false</property>
+  </property>
+  <property name=""OptionsView"" isnull=""true"" iskey=""true"">
+    <property name=""ColumnHeaderAutoHeight"">True</property>
+    <property name=""ShowAutoFilterRow"">true</property>
+    <property name=""ShowGroupPanel"">false</property>
+    <property name=""ShowIndicator"">false</property>
+  </property>
+  <property name=""FixedLineWidth"">2</property>
+  <property name=""IndicatorWidth"">-1</property>
+  <property name=""ColumnPanelRowHeight"">-1</property>
+  <property name=""RowSeparatorHeight"">0</property>
+  <property name=""FooterPanelHeight"">-1</property>
+  <property name=""HorzScrollVisibility"">Auto</property>
+  <property name=""VertScrollVisibility"">Auto</property>
+  <property name=""RowHeight"">-1</property>
+  <property name=""GroupRowHeight"">-1</property>
+  <property name=""GroupFormat"">{0}: [#image]{1} {2}</property>
+  <property name=""ChildGridLevelName"" />
+  <property name=""VertScrollTipFieldName"" />
+  <property name=""PreviewFieldName"" />
+  <property name=""GroupPanelText"" />
+  <property name=""NewItemRowText"" />
+  <property name=""LevelIndent"">-1</property>
+  <property name=""PreviewIndent"">-1</property>
+  <property name=""PreviewLineCount"">-1</property>
+  <property name=""ScrollStyle"">LiveVertScroll, LiveHorzScroll</property>
+  <property name=""FocusRectStyle"">CellFocus</property>
+  <property name=""HorzScrollStep"">0</property>
+  <property name=""ActiveFilterEnabled"">true</property>
+  <property name=""ViewCaptionHeight"">-1</property>
+  <property name=""Columns"" iskey=""true"" value=""0"" />
+  <property name=""ViewCaption"" />
+  <property name=""BorderStyle"">Default</property>
+  <property name=""SynchronizeClones"">true</property>
+  <property name=""DetailTabHeaderLocation"">Top</property>
+  <property name=""Name"">gridView1</property>
+  <property name=""DetailHeight"">350</property>
+  <property name=""Tag"" isnull=""true"" />
+  <property name=""GroupSummary"" iskey=""true"" value=""0"" />
+  <property name=""ActiveFilterString"" />
+  <property name=""FormatRules"" iskey=""true"" value=""0"" />
+  <property name=""FormatConditions"" iskey=""true"" value=""0"" />
+  <property name=""GroupSummarySortInfoState"" />
+  <property name=""FindFilterText"" />
+  <property name=""FindPanelVisible"">false</property>
+</XtraSerializer>",
                             PrinterCopyNum = 0
                         });
                 });
@@ -1229,10 +1293,7 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
@@ -1735,10 +1796,7 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
@@ -1922,8 +1980,8 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
-                    b.Property<double>("Qty")
-                        .HasColumnType("float");
+                    b.Property<int>("Qty")
+                        .HasColumnType("int");
 
                     b.Property<string>("SalespersonCode")
                         .IsRequired()

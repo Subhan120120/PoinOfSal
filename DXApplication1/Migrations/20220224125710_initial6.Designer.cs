@@ -10,8 +10,8 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20220221230727_initial2")]
-    partial class initial2
+    [Migration("20220224125710_initial6")]
+    partial class initial6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1293,10 +1293,7 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
@@ -1799,10 +1796,7 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("CustomsDocumentNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(30)")
-                        .HasDefaultValueSql("space(0)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Description")
@@ -1986,8 +1980,8 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("space(0)")
                         .HasMaxLength(10);
 
-                    b.Property<double>("Qty")
-                        .HasColumnType("float");
+                    b.Property<int>("Qty")
+                        .HasColumnType("int");
 
                     b.Property<string>("SalespersonCode")
                         .IsRequired()

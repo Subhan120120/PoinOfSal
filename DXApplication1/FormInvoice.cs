@@ -11,8 +11,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using DevExpress.XtraEditors.DXErrorProvider;
-using DevExpress.XtraDataLayout;
+using PointOfSale.Properties;
+using System.IO;
+using DevExpress.XtraReports.UI;
 
 namespace PointOfSale
 {
@@ -22,14 +23,17 @@ namespace PointOfSale
         Badge badge2;
         AdornerUIManager adornerUIManager1;
 
-        public TrInvoiceHeader trInvoiceHeader;
+        private TrInvoiceHeader trInvoiceHeader;
+        private string processCode;
+        private EfMethods efMethods = new EfMethods();
+        private subContext dbContext;
 
-        EfMethods efMethods = new EfMethods();
-        subContext dbContext;
 
-        public FormInvoice()
+        public FormInvoice(string processCode)
         {
+            this.processCode = processCode;
             InitializeComponent();
+
             lUE_OfficeCode.Properties.DataSource = efMethods.SelectOffices();
             lUE_StoreCode.Properties.DataSource = efMethods.SelectStores();
             lUE_WarehouseCode.Properties.DataSource = efMethods.SelectWarehouses();
@@ -39,8 +43,8 @@ namespace PointOfSale
             badge2 = new Badge();
             adornerUIManager1.Elements.Add(badge1);
             adornerUIManager1.Elements.Add(badge2);
-            //badge1.TargetElement = bBI_Save;
-            badge2.TargetElement = RibbonPage_Invoice;
+            badge1.TargetElement = bBI_Save;
+            //badge2.TargetElement = RibbonPage_Invoice;
         }
 
         public AdornerElement[] Badges { get { return new AdornerElement[] { badge1, badge2 }; } }
@@ -57,12 +61,12 @@ namespace PointOfSale
 
             trInvoiceHeader = trInvoiceHeadersBindingSource.AddNew() as TrInvoiceHeader;
 
-            string NewDocNum = efMethods.GetNextDocNum("RP", "DocumentNumber", "TrInvoiceHeaders");
+            string NewDocNum = efMethods.GetNextDocNum(this.processCode, "DocumentNumber", "TrInvoiceHeaders");
             trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
             trInvoiceHeader.DocumentNumber = NewDocNum;
             trInvoiceHeader.DocumentDate = DateTime.Now;
             trInvoiceHeader.DocumentTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
-            trInvoiceHeader.ProcessCode = "RP";
+            trInvoiceHeader.ProcessCode = this.processCode;
 
             trInvoiceHeadersBindingSource.DataSource = trInvoiceHeader;
 
@@ -75,7 +79,7 @@ namespace PointOfSale
 
         private void btnEdit_DocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            using (FormInvoiceHeaderList form = new FormInvoiceHeaderList("RP"))
+            using (FormInvoiceHeaderList form = new FormInvoiceHeaderList(this.processCode))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
@@ -91,6 +95,8 @@ namespace PointOfSale
                     dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId)
                                             .LoadAsync()
                                             .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+
+                    dataLayoutControl1.isValid(out List<string> errorList);
                 }
             }
         }
@@ -189,7 +195,6 @@ namespace PointOfSale
         private void gV_InvoiceLine_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
         {
             //dbContext.SaveChanges();
-
         }
 
         private void FormInvoice_FormClosed(object sender, FormClosedEventArgs e)
@@ -197,19 +202,45 @@ namespace PointOfSale
             dbContext.Dispose();
         }
 
-
-        private void bBI_Save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bBI_SaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (dataLayoutControl1.isValid(out List<string> errorList))
             {
-                if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
-                    efMethods.InsertInvoiceHeader(trInvoiceHeader);
+                decimal summaryNetAmount = Convert.ToDecimal(gV_InvoiceLine.Columns["NetAmount"].SummaryItem.SummaryValue);
 
-                dbContext.SaveChanges();
+                if (summaryNetAmount > 0)
+                {
+                    using (FormPayment formPayment = new FormPayment(1, summaryNetAmount, trInvoiceHeader.InvoiceHeaderId))
+                    {
+                        if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
+                            efMethods.InsertInvoiceHeader(trInvoiceHeader);
 
-                efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
+                        if (formPayment.ShowDialog(this) == DialogResult.OK)
+                        {
 
-                ClearControlsAddNew();
+                            dbContext.SaveChanges();
+
+                            efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
+
+                            ClearControlsAddNew();
+
+                            if (Settings.Default.AppSetting.GetPrint == true)
+                            {
+                                ReportClass reportClass = new ReportClass();
+                                string designPath = Settings.Default.AppSetting.PrintDesignPath;
+                                if (!File.Exists(designPath))
+                                    designPath = reportClass.SelectDesign();
+
+                                ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(trInvoiceHeader.InvoiceHeaderId), designPath));
+                                printTool.PrintDialog();
+                            }
+
+                            trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
+                            gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(trInvoiceHeader.InvoiceHeaderId); // sifirlamaq
+                        }
+                    }
+                }
+                else XtraMessageBox.Show("Ödəmə 0a bərabərdir");
             }
             else
             {

@@ -22,7 +22,7 @@ namespace PointOfSale
 
         private void RibbonControl1_Merge(object sender, RibbonMergeEventArgs e)
         {
-            AdornerElement[] badges = ((FormInvoice)e.MergedChild.Parent).Badges;
+            AdornerElement[] badges = ((FormInvoiceRetailPurchase)e.MergedChild.Parent).Badges;
             adornerUIManager1.BeginUpdate();
             foreach (AdornerElement badge in badges)
             {
@@ -70,6 +70,14 @@ namespace PointOfSale
                 myCustomChild.Close();
             }
         }
+        private void FormERP_MdiChildActivate(object sender, EventArgs e)
+        {
+            try
+            {
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0]; // child form acanda ona aid olan ribbon acilsin
+            }
+            catch (Exception) { }
+        }
 
         private void aCE_shipment_Click(object sender, EventArgs e)
         {
@@ -88,15 +96,7 @@ namespace PointOfSale
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }
-
-        private void FormERP_MdiChildActivate(object sender, EventArgs e) 
-        {
-            try
-            {
-                ribbonControl.SelectedPage = ribbonControl.MergedPages[0]; // child form acanda ona aid olan ribbon acilsin
-            }
-            catch (Exception) { }
-        }
+        
 
         private void aCE_Report_Click(object sender, EventArgs e)
         {
@@ -112,24 +112,6 @@ namespace PointOfSale
                 formReport = new FormReportFilter();
                 formReport.MdiParent = this;
                 formReport.Show();
-                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
-            }
-        }
-
-        private void aCE_Invoice_Click(object sender, EventArgs e)
-        {
-            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
-
-            if (formInvoice != null)
-            {
-                formInvoice.BringToFront();
-                formInvoice.Activate();
-            }
-            else
-            {
-                formInvoice = new FormInvoice();
-                formInvoice.MdiParent = this;
-                formInvoice.Show();
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }
@@ -152,6 +134,41 @@ namespace PointOfSale
             }
         }
 
-        
+        private void aCE_RetailPurchaseInvoice_Click(object sender, EventArgs e)
+        {
+            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
+
+            if (formInvoice != null)
+            {
+                formInvoice.BringToFront();
+                formInvoice.Activate();
+            }
+            else
+            {
+                formInvoice = new FormInvoice("RP");
+                formInvoice.MdiParent = this;
+                formInvoice.Show();
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+            }
+        }
+
+
+        private void aCE_RetailSaleInvoice_Click(object sender, EventArgs e)
+        {
+            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
+
+            if (formInvoice != null)
+            {
+                formInvoice.BringToFront();
+                formInvoice.Activate();
+            }
+            else
+            {
+                formInvoice = new FormInvoice("RS");
+                formInvoice.MdiParent = this;
+                formInvoice.Show();
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+            }
+        }
     }
 }

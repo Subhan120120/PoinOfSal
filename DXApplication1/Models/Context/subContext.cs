@@ -428,9 +428,6 @@ namespace PointOfSale.Models
                 entity.Property(e => e.InvoiceHeaderId)
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.CustomsDocumentNumber)
-                    .HasDefaultValueSql("space(0)");
-
                 entity.Property(e => e.Description)
                     .HasDefaultValueSql("space(0)");
 
@@ -632,9 +629,6 @@ namespace PointOfSale.Models
 
             modelBuilder.Entity<TrShipmentHeader>(entity =>
             {
-                entity.Property(e => e.CustomsDocumentNumber)
-                    .HasDefaultValueSql("space(0)");
-
                 entity.Property(e => e.Description)
                     .HasDefaultValueSql("space(0)");
 

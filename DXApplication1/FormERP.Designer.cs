@@ -42,7 +42,8 @@ namespace PointOfSale
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.aC_Root = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.aCE_Invoices = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.aCE_NewInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCE_RetailPurchaseInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCE_RetailSaleInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_shipment = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_ApproveInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Acounting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -76,7 +77,7 @@ namespace PointOfSale
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.bBI_POS);
-            this.ribbonControl.Size = new System.Drawing.Size(1023, 158);
+            this.ribbonControl.Size = new System.Drawing.Size(1023, 242);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
             // skinRibbonGalleryBarItem
@@ -109,7 +110,7 @@ namespace PointOfSale
             // 
             this.bBI_POS.Caption = "barButtonItem1";
             this.bBI_POS.Id = 12;
-            this.bBI_POS.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BBI_POS.ImageOptions.SvgImage")));
+            this.bBI_POS.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_POS.ImageOptions.SvgImage")));
             this.bBI_POS.Name = "bBI_POS";
             this.bBI_POS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_POS_ItemClick);
             // 
@@ -129,10 +130,10 @@ namespace PointOfSale
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 608);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 592);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1023, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1023, 40);
             // 
             // aC_Root
             // 
@@ -143,19 +144,20 @@ namespace PointOfSale
             this.aCE_HumanResource,
             this.aCE_Reports,
             this.aCE_Setting});
-            this.aC_Root.Location = new System.Drawing.Point(0, 158);
+            this.aC_Root.Location = new System.Drawing.Point(0, 242);
             this.aC_Root.Name = "aC_Root";
             this.aC_Root.ResizeMode = DevExpress.XtraBars.Navigation.AccordionControlResizeMode.OuterResizeZone;
             this.aC_Root.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.aC_Root.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.aC_Root.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.aC_Root.Size = new System.Drawing.Size(223, 450);
+            this.aC_Root.Size = new System.Drawing.Size(223, 350);
             this.aC_Root.TabIndex = 2;
             // 
             // aCE_Invoices
             // 
             this.aCE_Invoices.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.aCE_NewInvoice,
+            this.aCE_RetailPurchaseInvoice,
+            this.aCE_RetailSaleInvoice,
             this.aCE_shipment,
             this.aCE_ApproveInvoice});
             this.aCE_Invoices.Expanded = true;
@@ -163,13 +165,21 @@ namespace PointOfSale
             this.aCE_Invoices.Name = "aCE_Invoices";
             this.aCE_Invoices.Text = "Report";
             // 
-            // aCE_NewInvoice
+            // aCE_RetailPurchaseInvoice
             // 
-            this.aCE_NewInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_NewInvoice.ImageOptions.SvgImage")));
-            this.aCE_NewInvoice.Name = "aCE_NewInvoice";
-            this.aCE_NewInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aCE_NewInvoice.Text = "Alış Fakturası";
-            this.aCE_NewInvoice.Click += new System.EventHandler(this.aCE_Invoice_Click);
+            this.aCE_RetailPurchaseInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_RetailPurchaseInvoice.ImageOptions.SvgImage")));
+            this.aCE_RetailPurchaseInvoice.Name = "aCE_RetailPurchaseInvoice";
+            this.aCE_RetailPurchaseInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCE_RetailPurchaseInvoice.Text = "Alış Fakturası";
+            this.aCE_RetailPurchaseInvoice.Click += new System.EventHandler(this.aCE_RetailPurchaseInvoice_Click);
+            // 
+            // aCE_RetailSaleInvoice
+            // 
+            this.aCE_RetailSaleInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_RetailSaleInvoice.ImageOptions.SvgImage")));
+            this.aCE_RetailSaleInvoice.Name = "aCE_RetailSaleInvoice";
+            this.aCE_RetailSaleInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCE_RetailSaleInvoice.Text = "Satış Fakturası";
+            this.aCE_RetailSaleInvoice.Click += new System.EventHandler(this.aCE_RetailSaleInvoice_Click);
             // 
             // aCE_shipment
             // 
@@ -247,6 +257,7 @@ namespace PointOfSale
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "ERP";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MdiChildActivate += new System.EventHandler(this.FormERP_MdiChildActivate);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aC_Root)).EndInit();
@@ -263,7 +274,7 @@ namespace PointOfSale
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.Navigation.AccordionControl aC_Root;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Invoices;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_NewInvoice;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_RetailPurchaseInvoice;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem;
         private DevExpress.XtraBars.BarMdiChildrenListItem bBI_MdiChildrenList;
@@ -277,5 +288,6 @@ namespace PointOfSale
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Report;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_CurrAccs;
         private DevExpress.XtraBars.BarButtonItem bBI_POS;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_RetailSaleInvoice;
     }
 }
