@@ -48,6 +48,8 @@ namespace PointOfSale
             this.col_PosDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_NetAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_LineDesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_SalesPersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repoBtnEdit_SalesPersonCode = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.IsReturnCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.trInvoiceHeadersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DocumentDateDateEdit = new DevExpress.XtraEditors.DateEdit();
@@ -77,7 +79,6 @@ namespace PointOfSale
             this.bBI_SaveAndNew = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -87,6 +88,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_ProductCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_SalesPersonCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IsReturnCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trInvoiceHeadersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DocumentDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
@@ -149,7 +151,8 @@ namespace PointOfSale
             this.gC_InvoiceLine.MainView = this.gV_InvoiceLine;
             this.gC_InvoiceLine.Name = "gC_InvoiceLine";
             this.gC_InvoiceLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repoBtnEdit_ProductCode});
+            this.repoBtnEdit_ProductCode,
+            this.repoBtnEdit_SalesPersonCode});
             this.gC_InvoiceLine.Size = new System.Drawing.Size(1123, 318);
             this.gC_InvoiceLine.TabIndex = 13;
             this.gC_InvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -166,7 +169,9 @@ namespace PointOfSale
             this.col_Amount,
             this.col_PosDiscount,
             this.col_NetAmount,
-            this.col_LineDesc});
+            this.col_LineDesc,
+            this.col_SalesPersonCode});
+            this.gV_InvoiceLine.CustomizationFormBounds = new System.Drawing.Rectangle(1141, 456, 264, 272);
             this.gV_InvoiceLine.GridControl = this.gC_InvoiceLine;
             this.gV_InvoiceLine.Name = "gV_InvoiceLine";
             this.gV_InvoiceLine.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -232,7 +237,7 @@ namespace PointOfSale
             this.col_Amount.Name = "col_Amount";
             this.col_Amount.OptionsColumn.AllowEdit = false;
             this.col_Amount.Visible = true;
-            this.col_Amount.VisibleIndex = 4;
+            this.col_Amount.VisibleIndex = 5;
             // 
             // col_PosDiscount
             // 
@@ -240,7 +245,7 @@ namespace PointOfSale
             this.col_PosDiscount.FieldName = "PosDiscount";
             this.col_PosDiscount.Name = "col_PosDiscount";
             this.col_PosDiscount.Visible = true;
-            this.col_PosDiscount.VisibleIndex = 5;
+            this.col_PosDiscount.VisibleIndex = 6;
             // 
             // col_NetAmount
             // 
@@ -250,7 +255,7 @@ namespace PointOfSale
             this.col_NetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetAmount", "SUM={0:0.##}")});
             this.col_NetAmount.Visible = true;
-            this.col_NetAmount.VisibleIndex = 6;
+            this.col_NetAmount.VisibleIndex = 7;
             // 
             // col_LineDesc
             // 
@@ -258,7 +263,23 @@ namespace PointOfSale
             this.col_LineDesc.FieldName = "LineDescription";
             this.col_LineDesc.Name = "col_LineDesc";
             this.col_LineDesc.Visible = true;
-            this.col_LineDesc.VisibleIndex = 3;
+            this.col_LineDesc.VisibleIndex = 4;
+            // 
+            // col_SalesPersonCode
+            // 
+            this.col_SalesPersonCode.ColumnEdit = this.repoBtnEdit_SalesPersonCode;
+            this.col_SalesPersonCode.FieldName = "SalesPersonCode";
+            this.col_SalesPersonCode.Name = "col_SalesPersonCode";
+            this.col_SalesPersonCode.Visible = true;
+            this.col_SalesPersonCode.VisibleIndex = 3;
+            // 
+            // repoBtnEdit_SalesPersonCode
+            // 
+            this.repoBtnEdit_SalesPersonCode.AutoHeight = false;
+            this.repoBtnEdit_SalesPersonCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repoBtnEdit_SalesPersonCode.Name = "repoBtnEdit_SalesPersonCode";
+            this.repoBtnEdit_SalesPersonCode.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoBtnEdit_SalesPersonCode_ButtonPressed);
             // 
             // IsReturnCheckEdit
             // 
@@ -567,22 +588,16 @@ namespace PointOfSale
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.ribbonPage1.Text = "Faktura";
             // 
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.bBI_Save);
             this.ribbonPageGroup1.ItemLinks.Add(this.bBI_SaveAndNew);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.ribbonPageGroup1.Text = "Yadda Saxla";
             // 
             // ribbonStatusBar1
             // 
@@ -618,6 +633,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.gC_InvoiceLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_ProductCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_SalesPersonCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IsReturnCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trInvoiceHeadersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DocumentDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
@@ -692,10 +708,11 @@ namespace PointOfSale
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.BarButtonItem bBI_Save;
         private DevExpress.XtraBars.BarButtonItem bBI_SaveAndNew;
+        private DevExpress.XtraGrid.Columns.GridColumn col_SalesPersonCode;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoBtnEdit_SalesPersonCode;
     }
 }

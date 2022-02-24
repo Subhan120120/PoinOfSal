@@ -52,6 +52,7 @@ namespace PointOfSale
             this.aCE_Report = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_Setting = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aCE_CurrAccs = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aCE_Expense = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aC_Root)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +78,7 @@ namespace PointOfSale
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem);
             this.ribbonControl.QuickToolbarItemLinks.Add(this.bBI_POS);
-            this.ribbonControl.Size = new System.Drawing.Size(1023, 242);
+            this.ribbonControl.Size = new System.Drawing.Size(1023, 158);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
             // skinRibbonGalleryBarItem
@@ -130,10 +131,10 @@ namespace PointOfSale
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 592);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 608);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1023, 40);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1023, 24);
             // 
             // aC_Root
             // 
@@ -144,13 +145,13 @@ namespace PointOfSale
             this.aCE_HumanResource,
             this.aCE_Reports,
             this.aCE_Setting});
-            this.aC_Root.Location = new System.Drawing.Point(0, 242);
+            this.aC_Root.Location = new System.Drawing.Point(0, 158);
             this.aC_Root.Name = "aC_Root";
             this.aC_Root.ResizeMode = DevExpress.XtraBars.Navigation.AccordionControlResizeMode.OuterResizeZone;
             this.aC_Root.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.aC_Root.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.aC_Root.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.aC_Root.Size = new System.Drawing.Size(223, 350);
+            this.aC_Root.Size = new System.Drawing.Size(223, 450);
             this.aC_Root.TabIndex = 2;
             // 
             // aCE_Invoices
@@ -159,7 +160,8 @@ namespace PointOfSale
             this.aCE_RetailPurchaseInvoice,
             this.aCE_RetailSaleInvoice,
             this.aCE_shipment,
-            this.aCE_ApproveInvoice});
+            this.aCE_ApproveInvoice,
+            this.aCE_Expense});
             this.aCE_Invoices.Expanded = true;
             this.aCE_Invoices.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aCE_Invoices.ImageOptions.SvgImage")));
             this.aCE_Invoices.Name = "aCE_Invoices";
@@ -244,6 +246,14 @@ namespace PointOfSale
             this.aCE_CurrAccs.Text = "İstifadəçilər";
             this.aCE_CurrAccs.Click += new System.EventHandler(this.aCE_CurrAccs_Click);
             // 
+            // aCE_Expense
+            // 
+            this.aCE_Expense.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.aCE_Expense.Name = "aCE_Expense";
+            this.aCE_Expense.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aCE_Expense.Text = "Xərclər";
+            this.aCE_Expense.Click += new System.EventHandler(this.aCE_Expense_Click);
+            // 
             // FormERP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,5 +299,6 @@ namespace PointOfSale
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_CurrAccs;
         private DevExpress.XtraBars.BarButtonItem bBI_POS;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_RetailSaleInvoice;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aCE_Expense;
     }
 }

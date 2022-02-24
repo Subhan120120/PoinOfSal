@@ -24,14 +24,16 @@ namespace PointOfSale
         AdornerUIManager adornerUIManager1;
 
         private TrInvoiceHeader trInvoiceHeader;
-        private string processCode;
+        public string processCode;
+        private byte productTypeCode;
         private EfMethods efMethods = new EfMethods();
         private subContext dbContext;
 
 
-        public FormInvoice(string processCode)
+        public FormInvoice(string processCode, byte productTypeCode)
         {
             this.processCode = processCode;
+            this.productTypeCode = productTypeCode;
             InitializeComponent();
 
             lUE_OfficeCode.Properties.DataSource = efMethods.SelectOffices();
@@ -171,11 +173,27 @@ namespace PointOfSale
             int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
             if (buttonIndex == 0)
             {
-                using (FormProductList form = new FormProductList(1))
+                using (FormProductList form = new FormProductList(productTypeCode))
                 {
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
                         editor.EditValue = form.dcProduct.ProductCode;
+                    }
+                }
+            }
+        }
+
+        private void repoBtnEdit_SalesPersonCode_ButtonPressed(object sender, ButtonPressedEventArgs e)
+        {
+            ButtonEdit editor = (ButtonEdit)sender;
+            int buttonIndex = editor.Properties.Buttons.IndexOf(e.Button);
+            if (buttonIndex == 0)
+            {
+                using (FormCurrAccList form = new FormCurrAccList(3))
+                {
+                    if (form.ShowDialog(this) == DialogResult.OK)
+                    {
+                        editor.EditValue = form.dcCurrAcc.CurrAccCode;
                     }
                 }
             }
@@ -214,12 +232,10 @@ namespace PointOfSale
                     {
                         if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
                             efMethods.InsertInvoiceHeader(trInvoiceHeader);
+                        dbContext.SaveChanges();
 
                         if (formPayment.ShowDialog(this) == DialogResult.OK)
                         {
-
-                            dbContext.SaveChanges();
-
                             efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
 
                             ClearControlsAddNew();
@@ -248,5 +264,6 @@ namespace PointOfSale
                 XtraMessageBox.Show(combinedString);
             }
         }
+
     }
 }

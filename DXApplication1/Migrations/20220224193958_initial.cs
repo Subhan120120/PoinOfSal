@@ -821,7 +821,8 @@ namespace PointOfSale.Migrations
                 values: new object[,]
                 {
                     { "CA-1", (byte)0, null, (byte)1, 0.0, (byte)0, "Sübhan", false, "Hüseynzadə", "123", "0519678909", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 },
-                    { "CA-2", (byte)0, null, (byte)2, 0.0, (byte)0, "Orxan", false, "Hüseynzadə", "456", "0773628800", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 }
+                    { "CA-2", (byte)0, null, (byte)2, 0.0, (byte)0, "Orxan", false, "Sederek", "456", "0773628800", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 },
+                    { "CA-3", (byte)0, null, (byte)3, 0.0, (byte)0, "Vagif", false, "Mustafayev", "456", "0553628804", new Guid("00000000-0000-0000-0000-000000000000"), (byte)0 }
                 });
 
             migrationBuilder.InsertData(

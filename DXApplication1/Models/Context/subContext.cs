@@ -121,7 +121,8 @@ namespace PointOfSale.Models
 
             modelBuilder.Entity<DcCurrAcc>().HasData(
                 new DcCurrAcc { CurrAccCode = "CA-1", FirstName = "Sübhan", LastName = "Hüseynzadə", NewPassword = "123", PhoneNum = "0519678909", CurrAccTypeCode = 1 },
-                new DcCurrAcc { CurrAccCode = "CA-2", FirstName = "Orxan", LastName = "Hüseynzadə", NewPassword = "456", PhoneNum = "0773628800", CurrAccTypeCode = 2 });
+                new DcCurrAcc { CurrAccCode = "CA-2", FirstName = "Orxan", LastName = "Sederek", NewPassword = "456", PhoneNum = "0773628800", CurrAccTypeCode = 2 },
+                new DcCurrAcc { CurrAccCode = "CA-3", FirstName = "Vagif", LastName = "Mustafayev", NewPassword = "456", PhoneNum = "0553628804", CurrAccTypeCode = 3 });
 
             modelBuilder.Entity<DcCurrAccType>(entity =>
             {

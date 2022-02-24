@@ -318,10 +318,29 @@ namespace PointOfSale.Migrations
                             FirstName = "Orxan",
                             IsDisabled = false,
                             IsVip = false,
-                            LastName = "Hüseynzadə",
+                            LastName = "Sederek",
                             LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NewPassword = "456",
                             PhoneNum = "0773628800",
+                            RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
+                            VendorTypeCode = (byte)0
+                        },
+                        new
+                        {
+                            CurrAccCode = "CA-3",
+                            CompanyCode = (byte)0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreditLimit = 0m,
+                            CurrAccTypeCode = (byte)3,
+                            CustomerPosDiscountRate = 0.0,
+                            CustomerTypeCode = (byte)0,
+                            FirstName = "Vagif",
+                            IsDisabled = false,
+                            IsVip = false,
+                            LastName = "Mustafayev",
+                            LastUpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NewPassword = "456",
+                            PhoneNum = "0553628804",
                             RowGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             VendorTypeCode = (byte)0
                         });

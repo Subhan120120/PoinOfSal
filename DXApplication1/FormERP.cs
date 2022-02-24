@@ -22,7 +22,7 @@ namespace PointOfSale
 
         private void RibbonControl1_Merge(object sender, RibbonMergeEventArgs e)
         {
-            AdornerElement[] badges = ((FormInvoiceRetailPurchase)e.MergedChild.Parent).Badges;
+            AdornerElement[] badges = ((FormInvoice)e.MergedChild.Parent).Badges;
             adornerUIManager1.BeginUpdate();
             foreach (AdornerElement badge in badges)
             {
@@ -70,6 +70,7 @@ namespace PointOfSale
                 myCustomChild.Close();
             }
         }
+
         private void FormERP_MdiChildActivate(object sender, EventArgs e)
         {
             try
@@ -96,7 +97,6 @@ namespace PointOfSale
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }
-        
 
         private void aCE_Report_Click(object sender, EventArgs e)
         {
@@ -136,35 +136,70 @@ namespace PointOfSale
 
         private void aCE_RetailPurchaseInvoice_Click(object sender, EventArgs e)
         {
-            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
+            int OpenFormCount = 0;
 
-            if (formInvoice != null)
+            foreach (Form form in Application.OpenForms)
             {
-                formInvoice.BringToFront();
-                formInvoice.Activate();
+                FormInvoice formInvoice = form as FormInvoice;
+                if (formInvoice != null && formInvoice.processCode == "RP")
+                {
+                    formInvoice.BringToFront();
+                    formInvoice.Activate();
+                    OpenFormCount++;
+                }
             }
-            else
+
+            if (OpenFormCount == 0)
             {
-                formInvoice = new FormInvoice("RP");
+                FormInvoice formInvoice = new FormInvoice("RP", 1);
                 formInvoice.MdiParent = this;
                 formInvoice.Show();
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
             }
         }
 
-
         private void aCE_RetailSaleInvoice_Click(object sender, EventArgs e)
         {
-            FormInvoice formInvoice = Application.OpenForms["FormInvoice"] as FormInvoice;
+            int OpenFormCount = 0;
 
-            if (formInvoice != null)
+            foreach (Form form in Application.OpenForms)
             {
-                formInvoice.BringToFront();
-                formInvoice.Activate();
+                FormInvoice formInvoice = form as FormInvoice;
+                if (formInvoice != null && formInvoice.processCode == "RS")
+                {
+                    formInvoice.BringToFront();
+                    formInvoice.Activate();
+                    OpenFormCount++;
+                }
             }
-            else
+
+            if (OpenFormCount == 0)
             {
-                formInvoice = new FormInvoice("RS");
+                FormInvoice formInvoice = new FormInvoice("RS", 1);
+                formInvoice.MdiParent = this;
+                formInvoice.Show();
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+            }
+        }
+
+        private void aCE_Expense_Click(object sender, EventArgs e)
+        {
+            int OpenFormCount = 0;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                FormInvoice formInvoice = form as FormInvoice;
+                if (formInvoice != null && formInvoice.processCode == "EX")
+                {
+                    formInvoice.BringToFront();
+                    formInvoice.Activate();
+                    OpenFormCount++;
+                }
+            }
+
+            if (OpenFormCount == 0)
+            {
+                FormInvoice formInvoice = new FormInvoice("EX", 1);
                 formInvoice.MdiParent = this;
                 formInvoice.Show();
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
