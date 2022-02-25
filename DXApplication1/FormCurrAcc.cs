@@ -38,41 +38,54 @@ namespace PointOfSale
 
         private void FormCurrAcc_Load(object sender, EventArgs e)
         {
-            //ClearControls();
+            FillDataLayout();
+            dataLayoutControl1.isValid(out List<string> errorList);
 
+        }
+        private void FillDataLayout()
+        {
             dbContext = new subContext();
 
             if (string.IsNullOrEmpty(dcCurrAcc.CurrAccCode))
-            {
-                dcCurrAccsBindingSource.AddNew();
-            }
-
-            dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
-                   .LoadAsync()
-                   .ContinueWith(loadTask => dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+                ClearControlsAddNew();
+            else
+                dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
+                    .Load();
+            dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList();
         }
 
-        private void ClearControls()
+        private void ClearControlsAddNew()
         {
+            dcCurrAcc = dcCurrAccsBindingSource.AddNew() as DcCurrAcc;
 
+            string NewDocNum = efMethods.GetNextDocNum("CA", "DocumentNumber", "TrInvoiceHeaders");
+            dcCurrAcc.CurrAccCode = NewDocNum;
+            dcCurrAcc.DataLanguageCode = "AZ";
+
+            dcCurrAccsBindingSource.DataSource = dcCurrAcc;
+            //trInvoiceHeadersBindingSource.EndEdit();
         }
 
         private void btn_Ok_Click(object sender, EventArgs e)
         {
-            dbContext.SaveChanges();
+            if (!efMethods.CurrAccExist(dcCurrAcc.CurrAccCode)) //if invoiceHeader doesnt exist
+                efMethods.InsertCurrAcc(dcCurrAcc);
+            else
+                dbContext.SaveChanges();
             DialogResult = DialogResult.OK;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            FillDataLayout();
         }
 
         private void dcCurrAccsBindingSource_AddingNew(object sender, AddingNewEventArgs e)
         {
-            dcCurrAcc = new DcCurrAcc();
-            dcCurrAcc.CurrAccCode = efMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
-            dcCurrAcc.DataLanguageCode = "AZ";
-            e.NewObject = dcCurrAcc;
+            //dcCurrAcc = new DcCurrAcc();
+            //dcCurrAcc.CurrAccCode = efMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
+            //dcCurrAcc.DataLanguageCode = "AZ";
+            //e.NewObject = dcCurrAcc;
 
 
 

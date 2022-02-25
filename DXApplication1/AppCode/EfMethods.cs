@@ -421,7 +421,7 @@ namespace PointOfSale
             }
         }
 
-        public bool CurrAccExist(string CurrAccCode, string Password)
+        public bool Login(string CurrAccCode, string Password)
         {
             if (string.IsNullOrEmpty(Password.Trim()))
                 return false;
@@ -433,6 +433,25 @@ namespace PointOfSale
                                         .Where(x => x.CurrAccCode == CurrAccCode)
                                         .Any(x => x.NewPassword == Password);
                 }
+            }
+        }
+        public bool CurrAccExist(string CurrAccCode)
+        {
+
+            using (subContext db = new subContext())
+            {
+                return db.DcCurrAccs.Where(x => x.IsDisabled == false)
+                                    .Any(x => x.CurrAccCode == CurrAccCode);
+            }
+
+        }
+
+        public void InsertCurrAcc(DcCurrAcc dcCurrAcc)
+        {
+            using (subContext db = new subContext())
+            {
+                db.DcCurrAccs.Add(dcCurrAcc);
+                db.SaveChanges();
             }
         }
 

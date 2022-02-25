@@ -1,5 +1,7 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using PointOfSale.Models;
@@ -37,7 +39,7 @@ namespace PointOfSale
 
         }
 
-        private void gV_CurrAccList_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void gV_CurrAccList_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             GridView view = sender as GridView;
 
@@ -68,7 +70,7 @@ namespace PointOfSale
                 DialogResult = DialogResult.OK;
         }
 
-        private void bBI_CurrAccNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bBI_CurrAccNew_ItemClick(object sender, ItemClickEventArgs e)
         {
             dcCurrAcc = new DcCurrAcc();
             FormCurrAcc form = new FormCurrAcc();
@@ -77,7 +79,7 @@ namespace PointOfSale
             }
         }
 
-        private void bBI_CurrAccEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bBI_CurrAccEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormCurrAcc form = new FormCurrAcc(dcCurrAcc.CurrAccCode);
             form.Show();

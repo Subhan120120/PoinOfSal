@@ -50,7 +50,7 @@ namespace PointOfSale
 
         public bool Login(string user, string password)
         {
-            if (efMethods.CurrAccExist(user, password))
+            if (efMethods.Login(user, password))
             {
                 SessionSave();
                 return true;

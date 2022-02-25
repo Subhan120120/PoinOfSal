@@ -41,12 +41,10 @@ namespace PointOfSale.Models
         public string FirstName { get; set; }
 
         [DisplayName("Soyadı")]
-        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string LastName { get; set; }
 
         [DisplayName("Ata Adı")]
-        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [StringLength(60, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string FatherName { get; set; }
 
@@ -63,12 +61,10 @@ namespace PointOfSale.Models
 
 
         [DisplayName("Ş.V.Nömrəsi")]
-        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [StringLength(20, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string IdentityNum { get; set; }
 
         [DisplayName("Vergi Nömrəsi")]
-        [Required(ErrorMessage = "{0} boş buraxila bilmez \n")]
         [StringLength(20, ErrorMessage = "{0} {1} simvoldan çox ola bilməz \n")]
         public string TaxNum { get; set; }
 

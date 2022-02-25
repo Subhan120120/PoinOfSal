@@ -211,6 +211,8 @@ namespace PointOfSale
             // 
             // btn_Cancel
             // 
+            this.btn_Cancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_Cancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Cancel.ImageOptions.SvgImage")));
             this.btn_Cancel.Location = new System.Drawing.Point(606, 318);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(74, 71);
@@ -220,6 +222,7 @@ namespace PointOfSale
             // 
             // btn_Ok
             // 
+            this.btn_Ok.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Ok.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Ok.ImageOptions.SvgImage")));
             this.btn_Ok.Location = new System.Drawing.Point(684, 318);
             this.btn_Ok.Name = "btn_Ok";

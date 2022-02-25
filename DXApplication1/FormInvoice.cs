@@ -232,6 +232,7 @@ namespace PointOfSale
                     {
                         if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
                             efMethods.InsertInvoiceHeader(trInvoiceHeader);
+
                         dbContext.SaveChanges();
 
                         if (formPayment.ShowDialog(this) == DialogResult.OK)
@@ -251,8 +252,8 @@ namespace PointOfSale
                                 printTool.PrintDialog();
                             }
 
-                            trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
-                            gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(trInvoiceHeader.InvoiceHeaderId); // sifirlamaq
+                            //trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
+                            //gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(trInvoiceHeader.InvoiceHeaderId); // sifirlamaq
                         }
                     }
                 }
@@ -265,5 +266,15 @@ namespace PointOfSale
             }
         }
 
+        private void bBI_reportDesign_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ReportClass reportClass = new ReportClass();
+            string designPath = Settings.Default.AppSetting.PrintDesignPath;
+            if (!File.Exists(designPath))
+                designPath = reportClass.SelectDesign();
+
+            ReportDesignTool printTool = new ReportDesignTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(trInvoiceHeader.InvoiceHeaderId), designPath));
+            printTool.ShowRibbonDesigner();
+        }
     }
 }
