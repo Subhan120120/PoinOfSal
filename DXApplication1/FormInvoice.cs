@@ -73,6 +73,7 @@ namespace PointOfSale
             trInvoiceHeadersBindingSource.DataSource = trInvoiceHeader;
 
             //trInvoiceHeadersBindingSource.EndEdit();
+            labelControl1.Text = "";
 
             dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
                                     .LoadAsync()
@@ -99,6 +100,8 @@ namespace PointOfSale
                                             .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
 
                     dataLayoutControl1.isValid(out List<string> errorList);
+
+                    labelControl1.Text = "Ödənilib: " + efMethods.SelectPaymentLinesSum(trInvoiceHeader.InvoiceHeaderId).ToString() + "AZN";
                 }
             }
         }
@@ -116,6 +119,7 @@ namespace PointOfSale
         {
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId);
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
+            gV_InvoiceLine.SetRowCellValue(e.RowHandle, "Qty", 1);
 
         }
 
@@ -178,6 +182,9 @@ namespace PointOfSale
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
                         editor.EditValue = form.dcProduct.ProductCode;
+                        object row = form.dcProduct as object;
+                        gV_InvoiceLine.SetFocusedRowCellValue(col_Price, this.processCode == "RS" ? form.dcProduct.RetailPrice : 0);
+                        gV_InvoiceLine.SetFocusedRowCellValue(col_Price, this.processCode == "RP" ? form.dcProduct.PurchasePrice : 0);
                     }
                 }
             }
@@ -251,7 +258,6 @@ namespace PointOfSale
                                 ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(trInvoiceHeader.InvoiceHeaderId), designPath));
                                 printTool.PrintDialog();
                             }
-
                             //trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
                             //gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(trInvoiceHeader.InvoiceHeaderId); // sifirlamaq
                         }

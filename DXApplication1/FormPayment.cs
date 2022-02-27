@@ -10,7 +10,7 @@ namespace PointOfSale
 {
     public partial class FormPayment : XtraForm
     {
-        public Guid PaymentHeaderId = Guid.NewGuid();
+        public Guid PaymentHeaderId;
         public Guid InvoiceHeaderId { get; set; }
         public int PaymentType { get; set; }
         public decimal SumNetAmount { get; set; }
@@ -32,10 +32,14 @@ namespace PointOfSale
             this.PaymentType = PaymentType;
             this.SumNetAmount = Math.Abs(SumNetAmount);
             this.InvoiceHeaderId = InvoiceHeaderId;
+            this.PaymentHeaderId = Guid.NewGuid();
         }
 
         private void FormPayment_Load(object sender, EventArgs e)
         {
+            EfMethods efMethods = new EfMethods();
+            decimal prepaid = Math.Round(efMethods.SelectPaymentLinesSum(InvoiceHeaderId), 2); //əvvəlcədən ödənilən
+
             switch (PaymentType)
             {
                 case 1:
@@ -162,68 +166,75 @@ namespace PointOfSale
 
             string NewDocNum = efMethods.GetNextDocNum("P", "DocumentNumber", "TrPaymentHeaders");
 
-            if ((cashLarge + cashless + bonus) >= SumNetAmount)
-            {
-                decimal cash = SumNetAmount - cashless - bonus;
-                if (!efMethods.PaymentHeaderExist(InvoiceHeaderId))
-                {
-                    TrPaymentHeader trPayment = new TrPaymentHeader()
-                    {
-                        PaymentHeaderId = PaymentHeaderId,
-                        DocumentNumber = NewDocNum,
-                        InvoiceHeaderId = InvoiceHeaderId
-                    };
-                    efMethods.InsertPaymentHeader(trPayment);
-
-                    if (cash > 0)
-                    {
-                        TrPaymentLine TrPaymentLine = new TrPaymentLine()
-                        {
-                            PaymentLineId = Guid.NewGuid(),
-                            PaymentHeaderId = PaymentHeaderId,
-                            Payment = isNegativ ? cash * (-1) : cash,
-                            PaymentTypeCode = 1
-                        };
-                        efMethods.InsertPaymentLine(TrPaymentLine);
-                    }
-
-                    if (cashless > 0)
-                    {
-                        TrPaymentLine TrPaymentLine = new TrPaymentLine()
-                        {
-                            PaymentLineId = Guid.NewGuid(),
-                            PaymentHeaderId = PaymentHeaderId,
-                            Payment = isNegativ ? cashless * (-1) : cashless,
-                            PaymentTypeCode = 2
-                        };
-                        efMethods.InsertPaymentLine(TrPaymentLine);
-                    }
-
-                    if (bonus > 0)
-                    {
-                        TrPaymentLine TrPaymentLine = new TrPaymentLine()
-                        {
-                            PaymentLineId = Guid.NewGuid(),
-                            PaymentHeaderId = PaymentHeaderId,
-                            Payment = isNegativ ? bonus * (-1) : bonus,
-                            PaymentTypeCode = 3
-                        };
-                        efMethods.InsertPaymentLine(TrPaymentLine);
-                    }
-                }
-
-                decimal change = cashLarge + cashless + bonus - SumNetAmount;
-                if (change > 0)
-                {
-                    using (FormChange formChange = new FormChange(cashLarge, change))
-                    {
-                        formChange.ShowDialog(this);
-                    }
-                }
-                DialogResult = DialogResult.OK;
-            }
-            else
+            if ((cashLarge + cashless + bonus) < SumNetAmount)
                 XtraMessageBox.Show("Ödəmə ödənilməli olan məbləğdən azdır");
+            //else{
+
+            decimal cash = SumNetAmount - cashless - bonus;
+            if (cash > cashLarge)
+                cash = cashLarge;
+
+            //if (!efMethods.PaymentHeaderExist(InvoiceHeaderId))
+            //{
+            TrPaymentHeader trPayment = new TrPaymentHeader()
+            {
+                PaymentHeaderId = PaymentHeaderId,
+                DocumentNumber = NewDocNum,
+                InvoiceHeaderId = InvoiceHeaderId
+            };
+            efMethods.InsertPaymentHeader(trPayment);
+
+            if (cash > 0)
+            {
+                TrPaymentLine TrPaymentLine = new TrPaymentLine()
+                {
+                    PaymentLineId = Guid.NewGuid(),
+                    PaymentHeaderId = PaymentHeaderId,
+                    Payment = isNegativ ? cash * (-1) : cash,
+                    PaymentTypeCode = 1
+                };
+                efMethods.InsertPaymentLine(TrPaymentLine);
+            }
+
+            if (cashless > 0)
+            {
+                TrPaymentLine TrPaymentLine = new TrPaymentLine()
+                {
+                    PaymentLineId = Guid.NewGuid(),
+                    PaymentHeaderId = PaymentHeaderId,
+                    Payment = isNegativ ? cashless * (-1) : cashless,
+                    PaymentTypeCode = 2
+                };
+                efMethods.InsertPaymentLine(TrPaymentLine);
+            }
+
+            if (bonus > 0)
+            {
+                TrPaymentLine TrPaymentLine = new TrPaymentLine()
+                {
+                    PaymentLineId = Guid.NewGuid(),
+                    PaymentHeaderId = PaymentHeaderId,
+                    Payment = isNegativ ? bonus * (-1) : bonus,
+                    PaymentTypeCode = 3
+                };
+                efMethods.InsertPaymentLine(TrPaymentLine);
+            }
+
+            decimal change = cashLarge + cashless + bonus - SumNetAmount;
+            if (change > 0)
+            {
+                using (FormChange formChange = new FormChange(cashLarge, change))
+                {
+                    formChange.ShowDialog(this);
+                }
+            }
+            //}
+            //else
+            //    XtraMessageBox.Show("Odenis Movcuddur");
+
+            DialogResult = DialogResult.OK;
+            //}
+
         }
     }
 }

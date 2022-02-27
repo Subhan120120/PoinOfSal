@@ -36,6 +36,7 @@ namespace PointOfSale
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.trInvoiceLinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gC_InvoiceLine = new DevExpress.XtraGrid.GridControl();
             this.gV_InvoiceLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_InvoiceLineId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,14 +75,16 @@ namespace PointOfSale
             this.ItemForStoreCode = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForWarehouseCode = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForDescription = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lbl_Payment = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bBI_Save = new DevExpress.XtraBars.BarButtonItem();
             this.bBI_SaveAndNew = new DevExpress.XtraBars.BarButtonItem();
+            this.bBI_reportDesign = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bBI_reportDesign = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trInvoiceLinesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
@@ -115,6 +118,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStoreCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForWarehouseCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbl_Payment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +128,7 @@ namespace PointOfSale
             // 
             // dataLayoutControl1
             // 
+            this.dataLayoutControl1.Controls.Add(this.labelControl1);
             this.dataLayoutControl1.Controls.Add(this.gC_InvoiceLine);
             this.dataLayoutControl1.Controls.Add(this.IsReturnCheckEdit);
             this.dataLayoutControl1.Controls.Add(this.DocumentDateDateEdit);
@@ -145,6 +150,18 @@ namespace PointOfSale
             this.dataLayoutControl1.TabIndex = 4;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseTextOptions = true;
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl1.Location = new System.Drawing.Point(12, 425);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(1123, 25);
+            this.labelControl1.StyleController = this.dataLayoutControl1;
+            this.labelControl1.TabIndex = 15;
+            // 
             // gC_InvoiceLine
             // 
             this.gC_InvoiceLine.DataSource = this.trInvoiceLinesBindingSource;
@@ -154,7 +171,7 @@ namespace PointOfSale
             this.gC_InvoiceLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repoBtnEdit_ProductCode,
             this.repoBtnEdit_SalesPersonCode});
-            this.gC_InvoiceLine.Size = new System.Drawing.Size(1123, 318);
+            this.gC_InvoiceLine.Size = new System.Drawing.Size(1123, 289);
             this.gC_InvoiceLine.TabIndex = 13;
             this.gC_InvoiceLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_InvoiceLine});
@@ -449,7 +466,8 @@ namespace PointOfSale
             this.ItemForCustomsDocumentNumber,
             this.ItemForStoreCode,
             this.ItemForWarehouseCode,
-            this.ItemForDescription});
+            this.ItemForDescription,
+            this.lbl_Payment});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1127, 442);
@@ -487,7 +505,7 @@ namespace PointOfSale
             this.layoutControlItem1.Control = this.gC_InvoiceLine;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1127, 322);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1127, 293);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -554,6 +572,17 @@ namespace PointOfSale
             this.ItemForDescription.Text = "Açıqlama";
             this.ItemForDescription.TextSize = new System.Drawing.Size(98, 13);
             // 
+            // lbl_Payment
+            // 
+            this.lbl_Payment.Control = this.labelControl1;
+            this.lbl_Payment.Location = new System.Drawing.Point(0, 413);
+            this.lbl_Payment.MinSize = new System.Drawing.Size(67, 17);
+            this.lbl_Payment.Name = "lbl_Payment";
+            this.lbl_Payment.Size = new System.Drawing.Size(1127, 29);
+            this.lbl_Payment.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lbl_Payment.TextSize = new System.Drawing.Size(0, 0);
+            this.lbl_Payment.TextVisible = false;
+            // 
             // ribbonControl1
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
@@ -562,9 +591,10 @@ namespace PointOfSale
             this.ribbonControl1.SearchEditItem,
             this.bBI_Save,
             this.bBI_SaveAndNew,
-            this.bBI_reportDesign});
+            this.bBI_reportDesign,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 9;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsTouch.ShowTouchUISelectorInQAT = true;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -587,6 +617,21 @@ namespace PointOfSale
             this.bBI_SaveAndNew.Name = "bBI_SaveAndNew";
             this.bBI_SaveAndNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_SaveAndNew_ItemClick);
             // 
+            // bBI_reportDesign
+            // 
+            this.bBI_reportDesign.Caption = "Report Dizayn";
+            this.bBI_reportDesign.Id = 3;
+            this.bBI_reportDesign.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBI_reportDesign.ImageOptions.SvgImage")));
+            this.bBI_reportDesign.Name = "bBI_reportDesign";
+            this.bBI_reportDesign.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_reportDesign_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Ödəmə";
+            this.barButtonItem1.Id = 5;
+            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -602,26 +647,19 @@ namespace PointOfSale
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Yadda Saxla";
             // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.bBI_reportDesign);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 620);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1147, 24);
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.bBI_reportDesign);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
-            // 
-            // bBI_reportDesign
-            // 
-            this.bBI_reportDesign.Caption = "Report Dizayn";
-            this.bBI_reportDesign.Id = 3;
-            this.bBI_reportDesign.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.bBI_reportDesign.Name = "bBI_reportDesign";
-            this.bBI_reportDesign.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBI_reportDesign_ItemClick);
             // 
             // FormInvoice
             // 
@@ -671,6 +709,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStoreCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForWarehouseCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbl_Payment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -727,5 +766,8 @@ namespace PointOfSale
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoBtnEdit_SalesPersonCode;
         private DevExpress.XtraBars.BarButtonItem bBI_reportDesign;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraLayout.LayoutControlItem lbl_Payment;
     }
 }

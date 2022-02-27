@@ -38,7 +38,6 @@ namespace PointOfSale
                 gC_ProductList.DataSource = efMethods.SelectProductsByProductType(productTypeCode);
             else
                 gC_ProductList.DataSource = efMethods.SelectProducts();
-
         }
 
         private void gV_ProductList_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)

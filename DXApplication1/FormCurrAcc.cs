@@ -1,15 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using Microsoft.EntityFrameworkCore;
 using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
 
 namespace PointOfSale
 {
@@ -17,17 +14,13 @@ namespace PointOfSale
     {
         subContext dbContext;
         EfMethods efMethods = new EfMethods();
-
-
         public DcCurrAcc dcCurrAcc = new DcCurrAcc();
+
         public FormCurrAcc()
         {
             InitializeComponent();
             AcceptButton = btn_Ok;
             CancelButton = btn_Cancel;
-
-
-
         }
 
         public FormCurrAcc(string currAccCode)
@@ -40,8 +33,8 @@ namespace PointOfSale
         {
             FillDataLayout();
             dataLayoutControl1.isValid(out List<string> errorList);
-
         }
+
         private void FillDataLayout()
         {
             dbContext = new subContext();
@@ -49,9 +42,15 @@ namespace PointOfSale
             if (string.IsNullOrEmpty(dcCurrAcc.CurrAccCode))
                 ClearControlsAddNew();
             else
+            {
                 dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
                     .Load();
-            dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList();
+                dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList();
+
+                //dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
+                //                    .LoadAsync()
+                //                    .ContinueWith(loadTask => dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+            }
         }
 
         private void ClearControlsAddNew()
@@ -63,21 +62,16 @@ namespace PointOfSale
             dcCurrAcc.DataLanguageCode = "AZ";
 
             dcCurrAccsBindingSource.DataSource = dcCurrAcc;
-            //trInvoiceHeadersBindingSource.EndEdit();
         }
 
         private void btn_Ok_Click(object sender, EventArgs e)
         {
+            dcCurrAcc = dcCurrAccsBindingSource.Current as DcCurrAcc;
             if (!efMethods.CurrAccExist(dcCurrAcc.CurrAccCode)) //if invoiceHeader doesnt exist
                 efMethods.InsertCurrAcc(dcCurrAcc);
             else
                 dbContext.SaveChanges();
             DialogResult = DialogResult.OK;
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            FillDataLayout();
         }
 
         private void dcCurrAccsBindingSource_AddingNew(object sender, AddingNewEventArgs e)
@@ -86,9 +80,6 @@ namespace PointOfSale
             //dcCurrAcc.CurrAccCode = efMethods.GetNextDocNum("CA", "CurrAccCode", "DcCurrAccs");
             //dcCurrAcc.DataLanguageCode = "AZ";
             //e.NewObject = dcCurrAcc;
-
-
-
         }
 
         private void dataLayoutControl1_FieldRetrieving(object sender, DevExpress.XtraDataLayout.FieldRetrievingEventArgs e)

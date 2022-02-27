@@ -76,13 +76,20 @@ namespace PointOfSale
             FormCurrAcc form = new FormCurrAcc();
             if (form.ShowDialog(this) == DialogResult.OK)
             {
+                gC_CurrAccList.DataSource = efMethods.SelectCurrAccs();
+                gV_CurrAccList.MoveLast();
             }
         }
 
         private void bBI_CurrAccEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormCurrAcc form = new FormCurrAcc(dcCurrAcc.CurrAccCode);
-            form.Show();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                int sr = gV_CurrAccList.FocusedRowHandle;
+                gC_CurrAccList.DataSource = efMethods.SelectCurrAccs();
+                gV_CurrAccList.FocusedRowHandle = sr;
+            }
         }
     }
 }

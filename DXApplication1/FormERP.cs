@@ -199,7 +199,7 @@ namespace PointOfSale
 
             if (OpenFormCount == 0)
             {
-                FormInvoice formInvoice = new FormInvoice("EX", 1);
+                FormInvoice formInvoice = new FormInvoice("EX", 2);
                 formInvoice.MdiParent = this;
                 formInvoice.Show();
                 ribbonControl.SelectedPage = ribbonControl.MergedPages[0];

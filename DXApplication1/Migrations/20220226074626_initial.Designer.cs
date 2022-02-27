@@ -10,7 +10,7 @@ using PointOfSale.Models;
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    [Migration("20220224193958_initial")]
+    [Migration("20220226074626_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -204,7 +204,6 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(5);
 
                     b.Property<string>("FatherName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(60)")
                         .HasDefaultValueSql("space(0)")
@@ -218,7 +217,6 @@ namespace PointOfSale.Migrations
                         .HasMaxLength(60);
 
                     b.Property<string>("IdentityNum")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("space(0)")
@@ -234,7 +232,6 @@ namespace PointOfSale.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(60)")
                         .HasDefaultValueSql("space(0)")
@@ -272,7 +269,6 @@ namespace PointOfSale.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TaxNum")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValueSql("space(0)")

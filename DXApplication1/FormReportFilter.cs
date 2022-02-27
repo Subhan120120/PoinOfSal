@@ -79,12 +79,15 @@ namespace PointOfSale
 
                 string qry = lookUpEdit1.GetColumnValue("ReportQuery").ToString();
                 string filterString = CriteriaToWhereClauseHelper.GetMsSqlWhere(filterControl1.FilterCriteria);
-                DataTable dt = adoMethods.SqlGetDt(qry + " where " + filterString);
+                if (!string.IsNullOrEmpty(filterString))
+                    filterString = " where " + filterString;
+                DataTable dt = adoMethods.SqlGetDt(qry + filterString);
                 myform.gridControl1.DataSource = dt;
                 myform.MdiParent = this.MdiParent;
                 myform.Show();
 
-                efMethods.UpdateReportFilter(reportId, filterControl1.FilterCriteria.ToString()); //save filter to database
+                if (object.ReferenceEquals(filterControl1.FilterCriteria, null))
+                    efMethods.UpdateReportFilter(reportId, filterControl1.FilterCriteria.ToString()); //save filter to database
             }
             else
                 XtraMessageBox.Show("Hesabat Secin");

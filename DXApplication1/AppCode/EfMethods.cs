@@ -362,6 +362,16 @@ namespace PointOfSale
             }
         }
 
+        public decimal SelectPaymentLinesSum(Guid invoiceHeaderId)
+        {
+            using (subContext db = new subContext())
+            {
+                return db.TrPaymentLines.Include(x => x.TrPaymentHeader)
+                                        .Where(x => x.TrPaymentHeader.InvoiceHeaderId == invoiceHeaderId)
+                                        .Sum(s => s.Payment);
+            }
+        }
+
         public List<DcCurrAcc> SelectCurrAccs()
         {
             using (subContext db = new subContext())
@@ -443,7 +453,6 @@ namespace PointOfSale
                 return db.DcCurrAccs.Where(x => x.IsDisabled == false)
                                     .Any(x => x.CurrAccCode == CurrAccCode);
             }
-
         }
 
         public void InsertCurrAcc(DcCurrAcc dcCurrAcc)
