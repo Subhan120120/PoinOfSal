@@ -25,5 +25,14 @@
     <Setting Name="AppSetting" Type="PointOfSale.Models.AppSetting" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="OfficeCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="StoreCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WarehouseCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

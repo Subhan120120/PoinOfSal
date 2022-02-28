@@ -49,12 +49,24 @@ namespace PointOfSale
             //badge2.TargetElement = RibbonPage_Invoice;
         }
 
+
         public AdornerElement[] Badges { get { return new AdornerElement[] { badge1, badge2 }; } }
 
         private void FormInvoice_Load(object sender, EventArgs e)
         {
             ClearControlsAddNew();
+
+            LoadSession();
+
             dataLayoutControl1.isValid(out List<string> errorList);
+
+        }
+
+        private void LoadSession()
+        {
+            lUE_OfficeCode.EditValue = Settings.Default.OfficeCode;
+            lUE_StoreCode.EditValue = Settings.Default.StoreCode;
+            lUE_WarehouseCode.EditValue = Settings.Default.WarehouseCode;
         }
 
         private void ClearControlsAddNew()
@@ -111,7 +123,9 @@ namespace PointOfSale
             using (FormCurrAccList form = new FormCurrAccList(2))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
+                {
                     btnEdit_CurrAccCode.EditValue = form.dcCurrAcc.CurrAccCode;
+                }
             }
         }
 
@@ -157,6 +171,8 @@ namespace PointOfSale
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - PosDiscount);
         }
 
+
+
         private void gV_InvoiceLine_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             #region Comment
@@ -183,11 +199,27 @@ namespace PointOfSale
                     {
                         editor.EditValue = form.dcProduct.ProductCode;
                         object row = form.dcProduct as object;
-                        gV_InvoiceLine.SetFocusedRowCellValue(col_Price, this.processCode == "RS" ? form.dcProduct.RetailPrice : 0);
-                        gV_InvoiceLine.SetFocusedRowCellValue(col_Price, this.processCode == "RP" ? form.dcProduct.PurchasePrice : 0);
+
+                        gV_InvoiceLine.SetFocusedRowCellValue("Price", this.processCode == "RS" ? form.dcProduct.RetailPrice : (this.processCode == "RP" ? form.dcProduct.PurchasePrice : 0));
+
+                        CalcNetAmount();
                     }
                 }
             }
+        }
+
+        private void CalcNetAmount()
+        {
+            object objPrice = gV_InvoiceLine.GetFocusedRowCellValue("Price");
+            object objQty = gV_InvoiceLine.GetFocusedRowCellValue("Qty");
+            object objPosDiscount = gV_InvoiceLine.GetFocusedRowCellValue("PosDiscount");
+
+            decimal Price = objPrice.IsNumeric() ? Convert.ToDecimal(objPrice) : 0;
+            decimal Qty = objQty.IsNumeric() ? Convert.ToDecimal(objQty) : 0;
+            decimal PosDiscount = objPosDiscount.IsNumeric() ? Convert.ToDecimal(objPosDiscount) : 0;
+
+            gV_InvoiceLine.SetFocusedRowCellValue("Amount", Qty * Price);
+            gV_InvoiceLine.SetFocusedRowCellValue("NetAmount", Qty * Price - PosDiscount);
         }
 
         private void repoBtnEdit_SalesPersonCode_ButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -245,7 +277,7 @@ namespace PointOfSale
                         if (formPayment.ShowDialog(this) == DialogResult.OK)
                         {
                             efMethods.UpdateInvoiceIsCompleted(trInvoiceHeader.InvoiceHeaderId);
-
+                            SaveSession();
                             ClearControlsAddNew();
 
                             if (Settings.Default.AppSetting.GetPrint == true)
@@ -254,12 +286,9 @@ namespace PointOfSale
                                 string designPath = Settings.Default.AppSetting.PrintDesignPath;
                                 if (!File.Exists(designPath))
                                     designPath = reportClass.SelectDesign();
+                                  
 
-                                ReportPrintTool printTool = new ReportPrintTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(trInvoiceHeader.InvoiceHeaderId), designPath));
-                                printTool.PrintDialog();
-                            }
-                            //trInvoiceHeader.InvoiceHeaderId = Guid.NewGuid();
-                            //gC_InvoiceLine.DataSource = efMethods.SelectInvoiceLines(trInvoiceHeader.InvoiceHeaderId); // sifirlamaq
+
                         }
                     }
                 }
@@ -270,6 +299,14 @@ namespace PointOfSale
                 string combinedString = errorList.Aggregate((x, y) => x + "" + y);
                 XtraMessageBox.Show(combinedString);
             }
+        }
+
+        private void SaveSession()
+        {
+            Settings.Default.OfficeCode = lUE_OfficeCode.EditValue.ToString();
+            Settings.Default.StoreCode = lUE_StoreCode.EditValue.ToString();
+            Settings.Default.WarehouseCode = lUE_WarehouseCode.EditValue.ToString();
+            Settings.Default.Save();
         }
 
         private void bBI_reportDesign_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

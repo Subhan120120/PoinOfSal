@@ -92,5 +92,41 @@ namespace PointOfSale.Properties {
                 this["AppSetting"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string OfficeCode {
+            get {
+                return ((string)(this["OfficeCode"]));
+            }
+            set {
+                this["OfficeCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StoreCode {
+            get {
+                return ((string)(this["StoreCode"]));
+            }
+            set {
+                this["StoreCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WarehouseCode {
+            get {
+                return ((string)(this["WarehouseCode"]));
+            }
+            set {
+                this["WarehouseCode"] = value;
+            }
+        }
     }
 }

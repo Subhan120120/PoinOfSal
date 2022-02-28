@@ -32,10 +32,8 @@ namespace PointOfSale
             errorList = list;
             if (list.Count == 0)
                 return true;
-
             else
                 return false;
-
         }
 
         public static string GetPreviewText(decimal PosDiscount, decimal Amount, decimal NetAmount, float VatRate, string Barcode, string SalesPersonCode)
