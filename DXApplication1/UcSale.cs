@@ -411,12 +411,11 @@ namespace PointOfSale
 
             //object[] objInvoiceHeaders = efMethods.SelectInvoiceLineForReport(invoiceHeaderId).Cast<object>().ToArray();
 
-            DataSet dataSet = new DataSet();
+            DataSet dataSet = new DataSet("GunSonu");
             dataSet.Tables.AddRange(new DataTable[] { trInvoiceLines, trPaymentLines });
 
-            CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters(subConnString);
-            SqlDataSource dataSource = new SqlDataSource(connectionParameters);
-
+            SqlDataSource dataSource = new SqlDataSource(new CustomStringConnectionParameters(subConnString));
+            dataSource.Name = "GunSonu";
             DsMethods dsMethods = new DsMethods();
             SqlQuery sqlQuerySale = dsMethods.SelectInvoiceLines(DateTime.Now.Date, DateTime.Now.Date);
             SqlQuery sqlQueryPayment = dsMethods.SelectPaymentLines(DateTime.Now.Date, DateTime.Now.Date);

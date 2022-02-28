@@ -14,6 +14,10 @@ using System.Collections.Generic;
 using PointOfSale.Properties;
 using System.IO;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraBars;
+using DevExpress.Data;
+using System.Data;
+using System.ComponentModel;
 
 namespace PointOfSale
 {
@@ -90,6 +94,11 @@ namespace PointOfSale
             dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
                                     .LoadAsync()
                                     .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+
+            //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
+            //                        .Load();
+            //trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList();
+
         }
 
         private void btnEdit_DocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -111,9 +120,13 @@ namespace PointOfSale
                                             .LoadAsync()
                                             .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
 
+                    //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
+                    //                        .Load();
+                    //trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList();
+
                     dataLayoutControl1.isValid(out List<string> errorList);
 
-                    labelControl1.Text = "Ödənilib: " + efMethods.SelectPaymentLinesSum(trInvoiceHeader.InvoiceHeaderId).ToString() + "AZN";
+                    labelControl1.Text = "Ödənilib: " + Math.Round(efMethods.SelectPaymentLinesSum(trInvoiceHeader.InvoiceHeaderId), 2).ToString() + "AZN";
                 }
             }
         }
@@ -144,9 +157,7 @@ namespace PointOfSale
                 if (MessageBox.Show("Sətir Silinsin?", "Təsdiqlə", MessageBoxButtons.YesNo) != DialogResult.Yes)
                     return;
                 GridView gV = sender as GridView;
-                MessageBox.Show(gV.FocusedRowHandle.ToString());
-
-                gV.DeleteRow(gV.FocusedRowHandle);
+                gV.DeleteSelectedRows();
             }
         }
 
@@ -198,7 +209,7 @@ namespace PointOfSale
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
                         editor.EditValue = form.dcProduct.ProductCode;
-                        object row = form.dcProduct as object;
+                        object row = form.dcProduct;
 
                         gV_InvoiceLine.SetFocusedRowCellValue("Price", this.processCode == "RS" ? form.dcProduct.RetailPrice : (this.processCode == "RP" ? form.dcProduct.PurchasePrice : 0));
 
@@ -246,10 +257,13 @@ namespace PointOfSale
 
         private void gV_InvoiceLine_RowUpdated(object sender, RowObjectEventArgs e)
         {
+            DataRowView rowView = e.Row as DataRowView;
+            DataRow row = rowView.Row;
+
             //dbContext.SaveChanges();
         }
 
-        private void gV_InvoiceLine_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
+        private void gV_InvoiceLine_RowDeleted(object sender, RowDeletedEventArgs e)
         {
             //dbContext.SaveChanges();
         }
@@ -259,7 +273,7 @@ namespace PointOfSale
             dbContext.Dispose();
         }
 
-        private void bBI_SaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bBI_SaveAndNew_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (dataLayoutControl1.isValid(out List<string> errorList))
             {
@@ -271,6 +285,23 @@ namespace PointOfSale
                     {
                         if (!efMethods.InvoiceHeaderExist(trInvoiceHeader.InvoiceHeaderId))//if invoiceHeader doesnt exist
                             efMethods.InsertInvoiceHeader(trInvoiceHeader);
+
+                        #region if isReturn * (-1)
+                        //if ((bool)CheckEdit_IsReturn.EditValue)
+                        //{
+                        //    for (int i = 0; i < gV_InvoiceLine.DataRowCount; i++)
+                        //    {
+                        //        int qty = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_Qty));
+                        //        gV_InvoiceLine.SetRowCellValue(i, col_Qty, qty * (-1));
+
+                        //        int amount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_Amount));
+                        //        gV_InvoiceLine.SetRowCellValue(i, col_Amount, amount * (-1));
+
+                        //        int netAmount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_NetAmount));
+                        //        gV_InvoiceLine.SetRowCellValue(i, col_NetAmount, netAmount * (-1));
+                        //    }
+                        //} 
+                        #endregion
 
                         dbContext.SaveChanges();
 
@@ -286,9 +317,7 @@ namespace PointOfSale
                                 string designPath = Settings.Default.AppSetting.PrintDesignPath;
                                 if (!File.Exists(designPath))
                                     designPath = reportClass.SelectDesign();
-                                  
-
-
+                            }
                         }
                     }
                 }
@@ -309,7 +338,7 @@ namespace PointOfSale
             Settings.Default.Save();
         }
 
-        private void bBI_reportDesign_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bBI_reportDesign_ItemClick(object sender, ItemClickEventArgs e)
         {
             ReportClass reportClass = new ReportClass();
             string designPath = Settings.Default.AppSetting.PrintDesignPath;
@@ -318,6 +347,17 @@ namespace PointOfSale
 
             ReportDesignTool printTool = new ReportDesignTool(reportClass.CreateReport(efMethods.SelectInvoiceLineForReport(trInvoiceHeader.InvoiceHeaderId), designPath));
             printTool.ShowRibbonDesigner();
+        }
+
+        private void gV_InvoiceLine_AsyncCompleted(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+        }
+
+        private void gV_InvoiceLine_RowLoaded(object sender, RowEventArgs e)
+        {
+            object a = sender;
+            RowEventArgs r = e;
         }
     }
 }

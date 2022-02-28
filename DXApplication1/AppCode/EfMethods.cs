@@ -100,7 +100,7 @@ namespace PointOfSale
         {
             using (subContext db = new subContext())
             {
-                return db.TrInvoiceHeaders.Where(x => x.IsCompleted == true && x.ProcessCode == processCode)
+                return db.TrInvoiceHeaders.Where(x => x.ProcessCode == processCode)
                                           .OrderBy(x => x.CreatedDate)
                                           .ToList();
             }

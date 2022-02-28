@@ -51,7 +51,7 @@ namespace PointOfSale
             this.col_LineDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_SalesPersonCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repoBtnEdit_SalesPersonCode = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.IsReturnCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.CheckEdit_IsReturn = new DevExpress.XtraEditors.CheckEdit();
             this.trInvoiceHeadersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DocumentDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.DocumentTimeTimeSpanEdit = new DevExpress.XtraEditors.TimeSpanEdit();
@@ -93,7 +93,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_ProductCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_SalesPersonCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IsReturnCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CheckEdit_IsReturn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trInvoiceHeadersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DocumentDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DocumentDateDateEdit.Properties)).BeginInit();
@@ -130,7 +130,7 @@ namespace PointOfSale
             // 
             this.dataLayoutControl1.Controls.Add(this.labelControl1);
             this.dataLayoutControl1.Controls.Add(this.gC_InvoiceLine);
-            this.dataLayoutControl1.Controls.Add(this.IsReturnCheckEdit);
+            this.dataLayoutControl1.Controls.Add(this.CheckEdit_IsReturn);
             this.dataLayoutControl1.Controls.Add(this.DocumentDateDateEdit);
             this.dataLayoutControl1.Controls.Add(this.DocumentTimeTimeSpanEdit);
             this.dataLayoutControl1.Controls.Add(this.CustomsDocumentNumberTextEdit);
@@ -200,6 +200,8 @@ namespace PointOfSale
             this.gV_InvoiceLine.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gV_InvoiceLine_CellValueChanging);
             this.gV_InvoiceLine.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.gV_InvoiceLine_RowDeleted);
             this.gV_InvoiceLine.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gV_InvoiceLine_RowUpdated);
+            this.gV_InvoiceLine.RowLoaded += new DevExpress.XtraGrid.Views.Base.RowEventHandler(this.gV_InvoiceLine_RowLoaded);
+            this.gV_InvoiceLine.AsyncCompleted += new System.EventHandler(this.gV_InvoiceLine_AsyncCompleted);
             this.gV_InvoiceLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gV_InvoiceLine_KeyDown);
             // 
             // col_InvoiceLineId
@@ -299,16 +301,16 @@ namespace PointOfSale
             this.repoBtnEdit_SalesPersonCode.Name = "repoBtnEdit_SalesPersonCode";
             this.repoBtnEdit_SalesPersonCode.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoBtnEdit_SalesPersonCode_ButtonPressed);
             // 
-            // IsReturnCheckEdit
+            // CheckEdit_IsReturn
             // 
-            this.IsReturnCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.trInvoiceHeadersBindingSource, "IsReturn", true));
-            this.IsReturnCheckEdit.Location = new System.Drawing.Point(12, 36);
-            this.IsReturnCheckEdit.Name = "IsReturnCheckEdit";
-            this.IsReturnCheckEdit.Properties.Caption = "Qaytarılmadır";
-            this.IsReturnCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.IsReturnCheckEdit.Size = new System.Drawing.Size(559, 20);
-            this.IsReturnCheckEdit.StyleController = this.dataLayoutControl1;
-            this.IsReturnCheckEdit.TabIndex = 4;
+            this.CheckEdit_IsReturn.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.trInvoiceHeadersBindingSource, "IsReturn", true));
+            this.CheckEdit_IsReturn.Location = new System.Drawing.Point(12, 36);
+            this.CheckEdit_IsReturn.Name = "CheckEdit_IsReturn";
+            this.CheckEdit_IsReturn.Properties.Caption = "Qaytarılmadır";
+            this.CheckEdit_IsReturn.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.CheckEdit_IsReturn.Size = new System.Drawing.Size(559, 20);
+            this.CheckEdit_IsReturn.StyleController = this.dataLayoutControl1;
+            this.CheckEdit_IsReturn.TabIndex = 4;
             // 
             // trInvoiceHeadersBindingSource
             // 
@@ -474,7 +476,7 @@ namespace PointOfSale
             // 
             // ItemForIsReturn
             // 
-            this.ItemForIsReturn.Control = this.IsReturnCheckEdit;
+            this.ItemForIsReturn.Control = this.CheckEdit_IsReturn;
             this.ItemForIsReturn.Location = new System.Drawing.Point(0, 24);
             this.ItemForIsReturn.Name = "ItemForIsReturn";
             this.ItemForIsReturn.Size = new System.Drawing.Size(563, 24);
@@ -684,7 +686,7 @@ namespace PointOfSale
             ((System.ComponentModel.ISupportInitialize)(this.gV_InvoiceLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_ProductCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnEdit_SalesPersonCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IsReturnCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CheckEdit_IsReturn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trInvoiceHeadersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DocumentDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DocumentDateDateEdit.Properties)).EndInit();
@@ -722,7 +724,7 @@ namespace PointOfSale
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private System.Windows.Forms.BindingSource trInvoiceHeadersBindingSource;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraEditors.CheckEdit IsReturnCheckEdit;
+        private DevExpress.XtraEditors.CheckEdit CheckEdit_IsReturn;
         private DevExpress.XtraEditors.DateEdit DocumentDateDateEdit;
         private DevExpress.XtraEditors.TimeSpanEdit DocumentTimeTimeSpanEdit;
         private DevExpress.XtraEditors.TextEdit CustomsDocumentNumberTextEdit;

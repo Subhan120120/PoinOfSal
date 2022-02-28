@@ -10,9 +10,8 @@ namespace PointOfSale
         public CustomSqlQuery SelectInvoiceLines(DateTime StartDate, DateTime EndDate)
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            string str = "PointOfSale.AppCode.Qry_Sales.sql";
             string qry = "";
-            using (Stream stream = assembly.GetManifestResourceStream(str))
+            using (Stream stream = assembly.GetManifestResourceStream("PointOfSale.AppCode.Qry_Sales.sql"))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
@@ -20,16 +19,18 @@ namespace PointOfSale
                 }
             }
 
+            QueryParameter queryParameter1 = new QueryParameter();
+            queryParameter1.Name = "StartDate";
+            queryParameter1.Type = typeof(DateTime);
+            queryParameter1.ValueInfo = StartDate.ToString("yyyy-MM-dd");
+
+            QueryParameter queryParameter2 = new QueryParameter();
+            queryParameter2.Name = "EndDate";
+            queryParameter2.Type = typeof(DateTime);
+            queryParameter2.ValueInfo = EndDate.ToString("yyyy-MM-dd");
+
             CustomSqlQuery sqlQuerySale = new CustomSqlQuery();
             sqlQuerySale.Name = "trInvoiceLines";
-            QueryParameter queryParameter1 = new QueryParameter();
-            QueryParameter queryParameter2 = new QueryParameter();
-            queryParameter1.Name = "StartDate";
-            queryParameter1.Type = typeof(System.DateTime);
-            queryParameter1.ValueInfo = StartDate.ToString("yyyy-MM-dd");
-            queryParameter2.Name = "EndDate";
-            queryParameter2.Type = typeof(System.DateTime);
-            queryParameter2.ValueInfo = EndDate.ToString("yyyy-MM-dd");
             sqlQuerySale.Parameters.Add(queryParameter1);
             sqlQuerySale.Parameters.Add(queryParameter2);
             sqlQuerySale.Sql = qry;
