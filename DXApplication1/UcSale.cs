@@ -19,6 +19,7 @@ namespace PointOfSale
         public int rowIndx = (-1);                      // setting by "FocusedRowChanged" event
         EfMethods efMethods = new EfMethods();
         AdoMethods adoMethods = new AdoMethods();
+        DsMethods dsMethods = new DsMethods();
         ReportClass reportClass = new ReportClass();
 
         public UcSale()
@@ -406,21 +407,24 @@ namespace PointOfSale
 
         private void btn_ReportZ_Click(object sender, EventArgs e)
         {
-            DataTable trInvoiceLines = adoMethods.SelectInvoiceLines(DateTime.Now.Date, DateTime.Now.Date);
-            DataTable trPaymentLines = adoMethods.SelectPaymentLines(DateTime.Now.Date, DateTime.Now.Date);
-
             //object[] objInvoiceHeaders = efMethods.SelectInvoiceLineForReport(invoiceHeaderId).Cast<object>().ToArray();
 
-            DataSet dataSet = new DataSet("GunSonu");
-            dataSet.Tables.AddRange(new DataTable[] { trInvoiceLines, trPaymentLines });
+            //DataTable trInvoiceLines = adoMethods.SelectInvoiceLines(DateTime.Now.Date, DateTime.Now.Date);
+            //DataTable trPaymentLines = adoMethods.SelectPaymentLines(DateTime.Now.Date, DateTime.Now.Date);
+
+            //DataSet dataSet = new DataSet("GunSonu");
+            //dataSet.Tables.AddRange(new DataTable[] { trInvoiceLines, trPaymentLines });
 
             SqlDataSource dataSource = new SqlDataSource(new CustomStringConnectionParameters(subConnString));
             dataSource.Name = "GunSonu";
-            DsMethods dsMethods = new DsMethods();
-            SqlQuery sqlQuerySale = dsMethods.SelectInvoiceLines(DateTime.Now.Date, DateTime.Now.Date);
-            SqlQuery sqlQueryPayment = dsMethods.SelectPaymentLines(DateTime.Now.Date, DateTime.Now.Date);
 
-            dataSource.Queries.AddRange(new SqlQuery[] { sqlQuerySale, sqlQueryPayment });
+            //SqlQuery sqlQueryPurchases = dsMethods.SelectPurchases(DateTime.Now.Date, DateTime.Now.Date);
+            SqlQuery sqlQuerySale = dsMethods.SelectSales(DateTime.Now.Date, DateTime.Now.Date);
+            SqlQuery sqlQueryPayment = dsMethods.SelectPayments(DateTime.Now.Date, DateTime.Now.Date);
+            SqlQuery sqlQueryExpences = dsMethods.SelectExpences(DateTime.Now.Date, DateTime.Now.Date);
+
+
+            dataSource.Queries.AddRange(new SqlQuery[] { sqlQuerySale, sqlQueryPayment, sqlQueryExpences });
             dataSource.Fill();
 
             string designPath = Settings.Default.AppSetting.PrintDesignPath;

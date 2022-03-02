@@ -18,6 +18,8 @@ using DevExpress.XtraBars;
 using DevExpress.Data;
 using System.Data;
 using System.ComponentModel;
+using DevExpress.Utils.Extensions;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace PointOfSale
 {
@@ -91,13 +93,23 @@ namespace PointOfSale
             //trInvoiceHeadersBindingSource.EndEdit();
             labelControl1.Text = "";
 
-            dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
-                                    .LoadAsync()
-                                    .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
-
             //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
-            //                        .Load();
-            //trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList();
+            //                        .LoadAsync()
+            //                        .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+
+            dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId).Load();
+            var local = dbContext.TrInvoiceLines.Local;
+
+            foreach (var post in local)
+            {
+                TrInvoiceLine trInvoiceLine = new TrInvoiceLine() { InvoiceLineId = post.InvoiceLineId, Qty = post.Qty * (-1) };
+                dbContext.Entry(post).Property(x => x.Qty).IsModified = true;
+                dbContext.SaveChanges();
+            }
+
+            //asd.ForEach(x => x.Qty = x.Qty * (-1));
+
+            trInvoiceLinesBindingSource.DataSource = local.ToBindingList();
 
         }
 
@@ -107,22 +119,23 @@ namespace PointOfSale
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
-                    //trInvoiceHeadersBindingSource.DataSource = form.trInvoiceHeader;
-
                     trInvoiceHeader.InvoiceHeaderId = form.trInvoiceHeader.InvoiceHeaderId;
 
                     dbContext = new subContext();
                     dbContext.TrInvoiceHeaders.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId).Load();
                     trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList();
 
+                    //IQueryable<TrInvoiceLine> ado = dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId);
+                    //ado.ForEach(x => x.Qty = x.Qty * (-1));
 
-                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId)
-                                            .LoadAsync()
-                                            .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+                    //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId)
+                    //                        .LoadAsync()
+                    //                        .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
 
-                    //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
-                    //                        .Load();
-                    //trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList();
+                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId).Load();
+                    LocalView<TrInvoiceLine> local = dbContext.TrInvoiceLines.Local;
+                    local.ForEach(x => x.Qty = x.Qty * (-1));
+                    trInvoiceLinesBindingSource.DataSource = local.ToBindingList();
 
                     dataLayoutControl1.isValid(out List<string> errorList);
 
@@ -147,7 +160,6 @@ namespace PointOfSale
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceHeaderId", trInvoiceHeader.InvoiceHeaderId);
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "InvoiceLineId", Guid.NewGuid());
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "Qty", 1);
-
         }
 
         private void gV_InvoiceLine_KeyDown(object sender, KeyEventArgs e)
@@ -213,13 +225,13 @@ namespace PointOfSale
 
                         gV_InvoiceLine.SetFocusedRowCellValue("Price", this.processCode == "RS" ? form.dcProduct.RetailPrice : (this.processCode == "RP" ? form.dcProduct.PurchasePrice : 0));
 
-                        CalcNetAmount();
+                        CalcInvoiceLineNetAmount();
                     }
                 }
             }
         }
 
-        private void CalcNetAmount()
+        private void CalcInvoiceLineNetAmount()
         {
             object objPrice = gV_InvoiceLine.GetFocusedRowCellValue("Price");
             object objQty = gV_InvoiceLine.GetFocusedRowCellValue("Qty");
@@ -257,8 +269,8 @@ namespace PointOfSale
 
         private void gV_InvoiceLine_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            DataRowView rowView = e.Row as DataRowView;
-            DataRow row = rowView.Row;
+            //DataRowView rowView = e.Row as DataRowView;
+            //DataRow row = rowView.Row;
 
             //dbContext.SaveChanges();
         }
