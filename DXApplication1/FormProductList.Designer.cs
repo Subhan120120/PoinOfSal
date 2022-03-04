@@ -157,7 +157,7 @@ namespace PointOfSale
             // 
             // colRetailPrice
             // 
-            this.colRetailPrice.FieldName = "TrPrices.RetailPrice";
+            this.colRetailPrice.FieldName = "TrPrice.Price";
             this.colRetailPrice.Name = "colRetailPrice";
             this.colRetailPrice.Visible = true;
             this.colRetailPrice.VisibleIndex = 3;

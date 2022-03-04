@@ -534,6 +534,30 @@ namespace PointOfSale.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TrPrices",
+                columns: table => new
+                {
+                    PriceCode = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedUserName = table.Column<string>(maxLength: 20, nullable: true, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    LastUpdatedUserName = table.Column<string>(maxLength: 20, nullable: true, defaultValueSql: "substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))"),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()"),
+                    ProductCode = table.Column<string>(nullable: false),
+                    Price = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TrPrices", x => x.PriceCode);
+                    table.ForeignKey(
+                        name: "FK_TrPrices_DcProducts_ProductCode",
+                        column: x => x.ProductCode,
+                        principalTable: "DcProducts",
+                        principalColumn: "ProductCode",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TrInvoiceLines",
                 columns: table => new
                 {
@@ -916,6 +940,11 @@ namespace PointOfSale.Migrations
                 column: "PaymentTypeCode");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TrPrices_ProductCode",
+                table: "TrPrices",
+                column: "ProductCode");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TrRoleClaims_ClaimCode",
                 table: "TrRoleClaims",
                 column: "ClaimCode");
@@ -976,6 +1005,9 @@ namespace PointOfSale.Migrations
                 name: "TrPaymentLines");
 
             migrationBuilder.DropTable(
+                name: "TrPrices");
+
+            migrationBuilder.DropTable(
                 name: "TrRoleClaims");
 
             migrationBuilder.DropTable(
@@ -985,13 +1017,13 @@ namespace PointOfSale.Migrations
                 name: "DcFeatures");
 
             migrationBuilder.DropTable(
-                name: "DcProducts");
-
-            migrationBuilder.DropTable(
                 name: "TrPaymentHeaders");
 
             migrationBuilder.DropTable(
                 name: "DcPaymentTypes");
+
+            migrationBuilder.DropTable(
+                name: "DcProducts");
 
             migrationBuilder.DropTable(
                 name: "DcClaims");
@@ -1003,10 +1035,10 @@ namespace PointOfSale.Migrations
                 name: "TrShipmentHeaders");
 
             migrationBuilder.DropTable(
-                name: "DcProductTypes");
+                name: "TrInvoiceHeaders");
 
             migrationBuilder.DropTable(
-                name: "TrInvoiceHeaders");
+                name: "DcProductTypes");
 
             migrationBuilder.DropTable(
                 name: "DcCurrAccs");

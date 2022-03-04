@@ -74,7 +74,9 @@ namespace PointOfSale
         {
             using (subContext db = new subContext())
             {
-                return db.DcProducts.ToList();
+                return db.DcProducts.Include(pro => pro.TrPrices)
+                                    .OrderBy(c => c.CreatedDate)
+                                    .ToList();
             }
         }
 
@@ -83,7 +85,8 @@ namespace PointOfSale
             using (subContext db = new subContext())
             {
                 return db.DcProducts.Where(x => x.ProductTypeCode == productTypeCode)
-                                    .Include(x => x.TrPrices.OrderBy(a => a.CreatedDate).Take(1))
+                                    .Include(pro => pro.TrPrices)
+                                    .OrderBy(c=>c.CreatedDate)
                                     .ToList();
             }
         }
