@@ -471,6 +471,9 @@ namespace PointOfSale
             // 
             this.txtEdit_Barcode.Location = new System.Drawing.Point(514, 61);
             this.txtEdit_Barcode.Name = "txtEdit_Barcode";
+            // 
+            // 
+            // 
             this.txtEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 17F);
             this.txtEdit_Barcode.Properties.Appearance.Options.UseFont = true;
             this.txtEdit_Barcode.Size = new System.Drawing.Size(230, 34);
@@ -481,6 +484,9 @@ namespace PointOfSale
             // 
             this.imageComboEdit_Barcode.Location = new System.Drawing.Point(436, 60);
             this.imageComboEdit_Barcode.Name = "imageComboEdit_Barcode";
+            // 
+            // 
+            // 
             this.imageComboEdit_Barcode.Properties.AllowFocused = false;
             this.imageComboEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.imageComboEdit_Barcode.Properties.Appearance.Options.UseFont = true;
@@ -692,6 +698,9 @@ namespace PointOfSale
             this.txtEdit_CustomerPhoneNum.Enabled = false;
             this.txtEdit_CustomerPhoneNum.Location = new System.Drawing.Point(846, 126);
             this.txtEdit_CustomerPhoneNum.Name = "txtEdit_CustomerPhoneNum";
+            // 
+            // 
+            // 
             this.txtEdit_CustomerPhoneNum.Properties.AllowFocused = false;
             this.txtEdit_CustomerPhoneNum.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_CustomerPhoneNum.StyleController = this.lC_InvoiceLine;
@@ -702,6 +711,9 @@ namespace PointOfSale
             this.txtEdit_CustomerAddress.Enabled = false;
             this.txtEdit_CustomerAddress.Location = new System.Drawing.Point(846, 153);
             this.txtEdit_CustomerAddress.Name = "txtEdit_CustomerAddress";
+            // 
+            // 
+            // 
             this.txtEdit_CustomerAddress.Properties.AllowFocused = false;
             this.txtEdit_CustomerAddress.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_CustomerAddress.StyleController = this.lC_InvoiceLine;
@@ -712,6 +724,9 @@ namespace PointOfSale
             this.txtEdit_CustomerName.Enabled = false;
             this.txtEdit_CustomerName.Location = new System.Drawing.Point(846, 99);
             this.txtEdit_CustomerName.Name = "txtEdit_CustomerName";
+            // 
+            // 
+            // 
             this.txtEdit_CustomerName.Properties.AllowFocused = false;
             this.txtEdit_CustomerName.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_CustomerName.StyleController = this.lC_InvoiceLine;
@@ -824,6 +839,9 @@ namespace PointOfSale
             this.txtEdit_BonCardNum.Enabled = false;
             this.txtEdit_BonCardNum.Location = new System.Drawing.Point(846, 180);
             this.txtEdit_BonCardNum.Name = "txtEdit_BonCardNum";
+            // 
+            // 
+            // 
             this.txtEdit_BonCardNum.Properties.AllowFocused = false;
             this.txtEdit_BonCardNum.Size = new System.Drawing.Size(219, 20);
             this.txtEdit_BonCardNum.StyleController = this.lC_InvoiceLine;
@@ -1492,6 +1510,7 @@ namespace PointOfSale
             this.lCI_BonusCardNum.Control = this.txtEdit_BonCardNum;
             this.lCI_BonusCardNum.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_BonusCardNum.CustomizationFormText = "Müştəri Kartı";
+            this.lCI_BonusCardNum.Enabled = false;
             this.lCI_BonusCardNum.Location = new System.Drawing.Point(0, 135);
             this.lCI_BonusCardNum.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_BonusCardNum.Name = "lCI_BonusCardNum";
@@ -1506,6 +1525,7 @@ namespace PointOfSale
             this.lCI_CustomerAddress.Control = this.txtEdit_CustomerAddress;
             this.lCI_CustomerAddress.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerAddress.CustomizationFormText = "Adres";
+            this.lCI_CustomerAddress.Enabled = false;
             this.lCI_CustomerAddress.Location = new System.Drawing.Point(0, 108);
             this.lCI_CustomerAddress.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerAddress.Name = "lCI_CustomerAddress";
@@ -1520,6 +1540,7 @@ namespace PointOfSale
             this.lCI_CustomerTel.Control = this.txtEdit_CustomerPhoneNum;
             this.lCI_CustomerTel.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerTel.CustomizationFormText = "Telefon";
+            this.lCI_CustomerTel.Enabled = false;
             this.lCI_CustomerTel.Location = new System.Drawing.Point(0, 81);
             this.lCI_CustomerTel.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerTel.Name = "lCI_CustomerTel";
@@ -1534,6 +1555,7 @@ namespace PointOfSale
             this.lCI_CustomerName.Control = this.txtEdit_CustomerName;
             this.lCI_CustomerName.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerName.CustomizationFormText = "Adı, Soyadı";
+            this.lCI_CustomerName.Enabled = false;
             this.lCI_CustomerName.Location = new System.Drawing.Point(0, 54);
             this.lCI_CustomerName.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerName.Name = "lCI_CustomerName";
@@ -1548,6 +1570,7 @@ namespace PointOfSale
             this.lCI_CustomerCode.Control = this.txtEdit_CustomerCode;
             this.lCI_CustomerCode.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lCI_CustomerCode.CustomizationFormText = "Müştəri Kodu";
+            this.lCI_CustomerCode.Enabled = false;
             this.lCI_CustomerCode.Location = new System.Drawing.Point(0, 27);
             this.lCI_CustomerCode.MinSize = new System.Drawing.Size(119, 24);
             this.lCI_CustomerCode.Name = "lCI_CustomerCode";

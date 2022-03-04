@@ -149,6 +149,9 @@ namespace PointOfSale
             this.BarcodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "Barcode", true));
             this.BarcodeTextEdit.Location = new System.Drawing.Point(117, 60);
             this.BarcodeTextEdit.Name = "BarcodeTextEdit";
+            // 
+            // 
+            // 
             this.BarcodeTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.BarcodeTextEdit.Size = new System.Drawing.Size(229, 20);
             this.BarcodeTextEdit.StyleController = this.dataLayoutControl1;
@@ -159,6 +162,9 @@ namespace PointOfSale
             this.UsePosCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "UsePos", true));
             this.UsePosCheckEdit.Location = new System.Drawing.Point(350, 129);
             this.UsePosCheckEdit.Name = "UsePosCheckEdit";
+            // 
+            // 
+            // 
             this.UsePosCheckEdit.Properties.Caption = "Use Pos";
             this.UsePosCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.UsePosCheckEdit.Size = new System.Drawing.Size(159, 20);
@@ -188,11 +194,12 @@ namespace PointOfSale
             this.TaxRateTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "TaxRate", true));
             this.TaxRateTextEdit.Location = new System.Drawing.Point(117, 84);
             this.TaxRateTextEdit.Name = "TaxRateTextEdit";
+            // 
+            // 
+            // 
             this.TaxRateTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.TaxRateTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.TaxRateTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.TaxRateTextEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.TaxRateTextEdit.Properties.MaskSettings.Set("mask", "F");
             this.TaxRateTextEdit.Size = new System.Drawing.Size(229, 20);
             this.TaxRateTextEdit.StyleController = this.dataLayoutControl1;
             this.TaxRateTextEdit.TabIndex = 10;
@@ -202,11 +209,12 @@ namespace PointOfSale
             this.PosDiscountTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "PosDiscount", true));
             this.PosDiscountTextEdit.Location = new System.Drawing.Point(117, 108);
             this.PosDiscountTextEdit.Name = "PosDiscountTextEdit";
+            // 
+            // 
+            // 
             this.PosDiscountTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.PosDiscountTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.PosDiscountTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.PosDiscountTextEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.PosDiscountTextEdit.Properties.MaskSettings.Set("mask", "F");
             this.PosDiscountTextEdit.Size = new System.Drawing.Size(229, 20);
             this.PosDiscountTextEdit.StyleController = this.dataLayoutControl1;
             this.PosDiscountTextEdit.TabIndex = 11;
@@ -216,6 +224,9 @@ namespace PointOfSale
             this.IsDisabledCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "IsDisabled", true));
             this.IsDisabledCheckEdit.Location = new System.Drawing.Point(350, 153);
             this.IsDisabledCheckEdit.Name = "IsDisabledCheckEdit";
+            // 
+            // 
+            // 
             this.IsDisabledCheckEdit.Properties.Caption = "Is Disabled";
             this.IsDisabledCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.IsDisabledCheckEdit.Size = new System.Drawing.Size(309, 20);
@@ -227,11 +238,12 @@ namespace PointOfSale
             this.RetailPriceTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "RetailPrice", true));
             this.RetailPriceTextEdit.Location = new System.Drawing.Point(467, 45);
             this.RetailPriceTextEdit.Name = "RetailPriceTextEdit";
+            // 
+            // 
+            // 
             this.RetailPriceTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.RetailPriceTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.RetailPriceTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.RetailPriceTextEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.RetailPriceTextEdit.Properties.MaskSettings.Set("mask", "F");
             this.RetailPriceTextEdit.Size = new System.Drawing.Size(180, 20);
             this.RetailPriceTextEdit.StyleController = this.dataLayoutControl1;
             this.RetailPriceTextEdit.TabIndex = 13;
@@ -241,11 +253,12 @@ namespace PointOfSale
             this.PurchasePriceTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "PurchasePrice", true));
             this.PurchasePriceTextEdit.Location = new System.Drawing.Point(467, 93);
             this.PurchasePriceTextEdit.Name = "PurchasePriceTextEdit";
+            // 
+            // 
+            // 
             this.PurchasePriceTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.PurchasePriceTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.PurchasePriceTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.PurchasePriceTextEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.PurchasePriceTextEdit.Properties.MaskSettings.Set("mask", "F");
             this.PurchasePriceTextEdit.Size = new System.Drawing.Size(180, 20);
             this.PurchasePriceTextEdit.StyleController = this.dataLayoutControl1;
             this.PurchasePriceTextEdit.TabIndex = 14;
@@ -255,11 +268,12 @@ namespace PointOfSale
             this.WholesalePriceTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "WholesalePrice", true));
             this.WholesalePriceTextEdit.Location = new System.Drawing.Point(467, 69);
             this.WholesalePriceTextEdit.Name = "WholesalePriceTextEdit";
+            // 
+            // 
+            // 
             this.WholesalePriceTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.WholesalePriceTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.WholesalePriceTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.WholesalePriceTextEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.WholesalePriceTextEdit.Properties.MaskSettings.Set("mask", "F");
             this.WholesalePriceTextEdit.Size = new System.Drawing.Size(180, 20);
             this.WholesalePriceTextEdit.StyleController = this.dataLayoutControl1;
             this.WholesalePriceTextEdit.TabIndex = 15;
@@ -269,6 +283,9 @@ namespace PointOfSale
             this.UseInternetCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "UseInternet", true));
             this.UseInternetCheckEdit.Location = new System.Drawing.Point(513, 129);
             this.UseInternetCheckEdit.Name = "UseInternetCheckEdit";
+            // 
+            // 
+            // 
             this.UseInternetCheckEdit.Properties.Caption = "Use Internet";
             this.UseInternetCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.UseInternetCheckEdit.Size = new System.Drawing.Size(146, 20);
@@ -280,6 +297,9 @@ namespace PointOfSale
             this.ProductDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.dcProductsBindingSource, "ProductDescription", true));
             this.ProductDescriptionTextEdit.Location = new System.Drawing.Point(117, 36);
             this.ProductDescriptionTextEdit.Name = "ProductDescriptionTextEdit";
+            // 
+            // 
+            // 
             this.ProductDescriptionTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.ProductDescriptionTextEdit.Size = new System.Drawing.Size(229, 20);
             this.ProductDescriptionTextEdit.StyleController = this.dataLayoutControl1;

@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PointOfSale
@@ -32,7 +33,6 @@ namespace PointOfSale
         private byte productTypeCode;
         private EfMethods efMethods = new EfMethods();
         private subContext dbContext;
-
 
         public FormInvoice(string processCode, byte productTypeCode)
         {
@@ -53,7 +53,6 @@ namespace PointOfSale
             //badge2.TargetElement = RibbonPage_Invoice;
         }
 
-
         public AdornerElement[] Badges { get { return new AdornerElement[] { badge1, badge2 }; } }
 
         private void FormInvoice_Load(object sender, EventArgs e)
@@ -63,7 +62,6 @@ namespace PointOfSale
             LoadSession();
 
             dataLayoutControl1.isValid(out List<string> errorList);
-
         }
 
         private void LoadSession()
@@ -89,26 +87,12 @@ namespace PointOfSale
             trInvoiceHeadersBindingSource.DataSource = trInvoiceHeader;
 
             //trInvoiceHeadersBindingSource.EndEdit();
+
             labelControl1.Text = "";
 
-            //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
-            //                        .LoadAsync()
-            //                        .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
-
-            dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId).Load();
-            var local = dbContext.TrInvoiceLines.Local;
-
-            foreach (var post in local)
-            {
-                TrInvoiceLine trInvoiceLine = new TrInvoiceLine() { InvoiceLineId = post.InvoiceLineId, Qty = post.Qty * (-1) };
-                dbContext.Entry(post).Property(x => x.Qty).IsModified = true;
-                dbContext.SaveChanges();
-            }
-
-            //asd.ForEach(x => x.Qty = x.Qty * (-1));
-
-            trInvoiceLinesBindingSource.DataSource = local.ToBindingList();
-
+            dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId)
+                                    .LoadAsync()
+                                    .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void btnEdit_DocNum_ButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -123,17 +107,21 @@ namespace PointOfSale
                     dbContext.TrInvoiceHeaders.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId).Load();
                     trInvoiceHeadersBindingSource.DataSource = dbContext.TrInvoiceHeaders.Local.ToBindingList();
 
-                    //IQueryable<TrInvoiceLine> ado = dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId);
-                    //ado.ForEach(x => x.Qty = x.Qty * (-1));
+                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId)
+                                            .LoadAsync()
+                                            .ContinueWith(loadTask =>
+                                            {
+                                                LocalView<TrInvoiceLine> local = dbContext.TrInvoiceLines.Local;
+                                                if (form.trInvoiceHeader.IsReturn)
+                                                    local.ForEach(x => { x.Qty = x.Qty * (-1); x.Amount = x.Amount * (-1); x.NetAmount = x.NetAmount * (-1); });
 
-                    //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == form.trInvoiceHeader.InvoiceHeaderId)
-                    //                        .LoadAsync()
-                    //                        .ContinueWith(loadTask => trInvoiceLinesBindingSource.DataSource = dbContext.TrInvoiceLines.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+                                                trInvoiceLinesBindingSource.DataSource = local.ToBindingList();
+                                            }, TaskScheduler.FromCurrentSynchronizationContext());
 
-                    dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId).Load();
-                    LocalView<TrInvoiceLine> local = dbContext.TrInvoiceLines.Local;
-                    local.ForEach(x => x.Qty = x.Qty * (-1));
-                    trInvoiceLinesBindingSource.DataSource = local.ToBindingList();
+                    //dbContext.TrInvoiceLines.Where(x => x.InvoiceHeaderId == trInvoiceHeader.InvoiceHeaderId).Load();
+                    //LocalView<TrInvoiceLine> local = dbContext.TrInvoiceLines.Local;
+                    //local.ForEach(x => x.Qty = x.Qty * (-1));
+                    //trInvoiceLinesBindingSource.DataSource = local.ToBindingList();
 
                     dataLayoutControl1.isValid(out List<string> errorList);
 
@@ -192,6 +180,8 @@ namespace PointOfSale
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - PosDiscount);
         }
 
+
+
         private void gV_InvoiceLine_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             #region Comment
@@ -217,7 +207,6 @@ namespace PointOfSale
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
                         editor.EditValue = form.dcProduct.ProductCode;
-                        object row = form.dcProduct;
 
                         gV_InvoiceLine.SetFocusedRowCellValue("Price", this.processCode == "RS" ? form.dcProduct.RetailPrice : (this.processCode == "RP" ? form.dcProduct.PurchasePrice : 0));
 
@@ -295,20 +284,20 @@ namespace PointOfSale
                             efMethods.InsertInvoiceHeader(trInvoiceHeader);
 
                         #region if isReturn * (-1)
-                        if ((bool)CheckEdit_IsReturn.EditValue)
-                        {
-                            for (int i = 0; i < gV_InvoiceLine.DataRowCount; i++)
-                            {
-                                int qty = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, "Qty"));
-                                gV_InvoiceLine.SetRowCellValue(i, "Qty", qty * (-1));
+                        //if ((bool)CheckEdit_IsReturn.EditValue)
+                        //{
+                        //    for (int i = 0; i < gV_InvoiceLine.DataRowCount; i++)
+                        //    {
+                        //        int qty = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_Qty));
+                        //        gV_InvoiceLine.SetRowCellValue(i, col_Qty, qty * (-1));
 
-                                int amount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, "Amount"));
-                                gV_InvoiceLine.SetRowCellValue(i, "Amount", amount * (-1));
+                        //        int amount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_Amount));
+                        //        gV_InvoiceLine.SetRowCellValue(i, col_Amount, amount * (-1));
 
-                                int netAmount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, "NetAmount"));
-                                gV_InvoiceLine.SetRowCellValue(i, "NetAmount", netAmount * (-1));
-                            }
-                        }
+                        //        int netAmount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_NetAmount));
+                        //        gV_InvoiceLine.SetRowCellValue(i, col_NetAmount, netAmount * (-1));
+                        //    }
+                        //} 
                         #endregion
 
                         dbContext.SaveChanges();

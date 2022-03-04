@@ -111,7 +111,6 @@ namespace PointOfSale
             this.filterControl1.Size = new System.Drawing.Size(1155, 283);
             this.filterControl1.TabIndex = 5;
             this.filterControl1.Text = "filterControl1";
-            this.filterControl1.Click += new System.EventHandler(this.filterControl1_Click);
             // 
             // Root
             // 

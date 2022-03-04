@@ -1,13 +1,10 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.Utils.VisualEffects;
 using DevExpress.XtraBars;
-using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using PointOfSale.Models;
 using System;
 using System.Data;
-using System.Data.SqlClient;
-using System.IO;
 using System.Windows.Forms;
 
 namespace PointOfSale
@@ -48,16 +45,6 @@ namespace PointOfSale
             lookUpEdit1.Properties.DataSource = adoMethods.SqlGetDt("Select Id, ReportName, ReportQuery from DcReports");
             lookUpEdit1.Properties.DisplayMember = "ReportName";
             lookUpEdit1.Properties.ValueMember = "Id";
-        }
-
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        private void filterControl1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
