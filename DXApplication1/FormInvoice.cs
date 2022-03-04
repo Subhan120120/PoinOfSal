@@ -1,25 +1,23 @@
-﻿using DevExpress.Utils.VisualEffects;
+﻿using DevExpress.Data;
+using DevExpress.Utils.Extensions;
+using DevExpress.Utils.VisualEffects;
+using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using PointOfSale.Models;
-using System;
-using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using PointOfSale.Properties;
-using System.IO;
 using DevExpress.XtraReports.UI;
-using DevExpress.XtraBars;
-using DevExpress.Data;
-using System.Data;
-using System.ComponentModel;
-using DevExpress.Utils.Extensions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using PointOfSale.Models;
+using PointOfSale.Properties;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PointOfSale
 {
@@ -194,8 +192,6 @@ namespace PointOfSale
             gV_InvoiceLine.SetRowCellValue(e.RowHandle, "NetAmount", Qty * Price - PosDiscount);
         }
 
-
-
         private void gV_InvoiceLine_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             #region Comment
@@ -299,20 +295,20 @@ namespace PointOfSale
                             efMethods.InsertInvoiceHeader(trInvoiceHeader);
 
                         #region if isReturn * (-1)
-                        //if ((bool)CheckEdit_IsReturn.EditValue)
-                        //{
-                        //    for (int i = 0; i < gV_InvoiceLine.DataRowCount; i++)
-                        //    {
-                        //        int qty = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_Qty));
-                        //        gV_InvoiceLine.SetRowCellValue(i, col_Qty, qty * (-1));
+                        if ((bool)CheckEdit_IsReturn.EditValue)
+                        {
+                            for (int i = 0; i < gV_InvoiceLine.DataRowCount; i++)
+                            {
+                                int qty = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, "Qty"));
+                                gV_InvoiceLine.SetRowCellValue(i, "Qty", qty * (-1));
 
-                        //        int amount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_Amount));
-                        //        gV_InvoiceLine.SetRowCellValue(i, col_Amount, amount * (-1));
+                                int amount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, "Amount"));
+                                gV_InvoiceLine.SetRowCellValue(i, "Amount", amount * (-1));
 
-                        //        int netAmount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, col_NetAmount));
-                        //        gV_InvoiceLine.SetRowCellValue(i, col_NetAmount, netAmount * (-1));
-                        //    }
-                        //} 
+                                int netAmount = Convert.ToInt32(gV_InvoiceLine.GetRowCellValue(i, "NetAmount"));
+                                gV_InvoiceLine.SetRowCellValue(i, "NetAmount", netAmount * (-1));
+                            }
+                        }
                         #endregion
 
                         dbContext.SaveChanges();
