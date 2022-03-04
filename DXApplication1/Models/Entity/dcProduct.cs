@@ -69,6 +69,7 @@ namespace PointOfSale.Models
         public string ProductDescription { get; set; }
 
         public virtual DcProductType DcProductType { get; set; }
+        public virtual ICollection<TrPrice> TrPrices { get; set; }
         public virtual ICollection<TrInvoiceLine> TrInvoiceLines { get; set; }
         public virtual ICollection<TrFeature> TrFeature { get; set; }
     }

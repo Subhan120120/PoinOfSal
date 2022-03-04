@@ -65,7 +65,7 @@ namespace PointOfSale
             this.gC_ProductList.Location = new System.Drawing.Point(0, 158);
             this.gC_ProductList.MainView = this.gV_ProductList;
             this.gC_ProductList.Name = "gC_ProductList";
-            this.gC_ProductList.Size = new System.Drawing.Size(865, 233);
+            this.gC_ProductList.Size = new System.Drawing.Size(865, 358);
             this.gC_ProductList.TabIndex = 0;
             this.gC_ProductList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gV_ProductList});
@@ -157,7 +157,7 @@ namespace PointOfSale
             // 
             // colRetailPrice
             // 
-            this.colRetailPrice.FieldName = "RetailPrice";
+            this.colRetailPrice.FieldName = "TrPrices.RetailPrice";
             this.colRetailPrice.Name = "colRetailPrice";
             this.colRetailPrice.Visible = true;
             this.colRetailPrice.VisibleIndex = 3;
@@ -190,7 +190,7 @@ namespace PointOfSale
             // 
             this.BBI_ProductNew.Caption = "Yeni Məhsul";
             this.BBI_ProductNew.Id = 1;
-            this.BBI_ProductNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BBI_newProduct.ImageOptions.SvgImage")));
+            this.BBI_ProductNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BBI_ProductNew.ImageOptions.SvgImage")));
             this.BBI_ProductNew.Name = "BBI_ProductNew";
             this.BBI_ProductNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BBI_ProductNew_ItemClick);
             // 
@@ -224,7 +224,7 @@ namespace PointOfSale
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 391);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 516);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(865, 24);
@@ -238,7 +238,7 @@ namespace PointOfSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 415);
+            this.ClientSize = new System.Drawing.Size(865, 540);
             this.Controls.Add(this.gC_ProductList);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);

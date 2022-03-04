@@ -82,7 +82,9 @@ namespace PointOfSale
         {
             using (subContext db = new subContext())
             {
-                return db.DcProducts.Where(x => x.ProductTypeCode == productTypeCode).ToList();
+                return db.DcProducts.Where(x => x.ProductTypeCode == productTypeCode)
+                                    .Include(x => x.TrPrices.OrderBy(a => a.CreatedDate).Take(1))
+                                    .ToList();
             }
         }
 
@@ -460,6 +462,15 @@ namespace PointOfSale
             using (subContext db = new subContext())
             {
                 db.DcCurrAccs.Add(dcCurrAcc);
+                db.SaveChanges();
+            }
+        }
+
+        public void InsertProduct(DcProduct dcProduct)
+        {
+            using (subContext db = new subContext())
+            {
+                db.DcProducts.Add(dcProduct);
                 db.SaveChanges();
             }
         }

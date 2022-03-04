@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraDataLayout;
+using DevExpress.XtraEditors;
 using Microsoft.EntityFrameworkCore;
 using PointOfSale.Models;
 using System;
@@ -43,13 +44,13 @@ namespace PointOfSale
                 ClearControlsAddNew();
             else
             {
-                dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
-                    .Load();
-                dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList();
-
                 //dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
                 //                    .LoadAsync()
                 //                    .ContinueWith(loadTask => dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList(), TaskScheduler.FromCurrentSynchronizationContext());
+                
+                dbContext.DcCurrAccs.Where(x => x.CurrAccCode == dcCurrAcc.CurrAccCode)
+                    .Load();
+                dcCurrAccsBindingSource.DataSource = dbContext.DcCurrAccs.Local.ToBindingList();
             }
         }
 
@@ -64,16 +65,6 @@ namespace PointOfSale
             dcCurrAccsBindingSource.DataSource = dcCurrAcc;
         }
 
-        private void btn_Ok_Click(object sender, EventArgs e)
-        {
-            dcCurrAcc = dcCurrAccsBindingSource.Current as DcCurrAcc;
-            if (!efMethods.CurrAccExist(dcCurrAcc.CurrAccCode)) //if invoiceHeader doesnt exist
-                efMethods.InsertCurrAcc(dcCurrAcc);
-            else
-                dbContext.SaveChanges();
-            DialogResult = DialogResult.OK;
-        }
-
         private void dcCurrAccsBindingSource_AddingNew(object sender, AddingNewEventArgs e)
         {
             //dcCurrAcc = new DcCurrAcc();
@@ -82,13 +73,23 @@ namespace PointOfSale
             //e.NewObject = dcCurrAcc;
         }
 
-        private void dataLayoutControl1_FieldRetrieving(object sender, DevExpress.XtraDataLayout.FieldRetrievingEventArgs e)
+        private void dataLayoutControl1_FieldRetrieving(object sender, FieldRetrievingEventArgs e)
         {
             if (e.FieldName == "ModifiedDate")
             {
                 e.Visible = false;
                 e.Handled = true;
             }
+        }
+
+        private void btn_Ok_Click(object sender, EventArgs e)
+        {
+            dcCurrAcc = dcCurrAccsBindingSource.Current as DcCurrAcc;
+            if (!efMethods.CurrAccExist(dcCurrAcc.CurrAccCode)) //if invoiceHeader doesnt exist
+                efMethods.InsertCurrAcc(dcCurrAcc);
+            else
+                dbContext.SaveChanges();
+            DialogResult = DialogResult.OK;
         }
     }
 }

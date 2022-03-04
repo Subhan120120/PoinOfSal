@@ -47,6 +47,7 @@ namespace PointOfSale.Models
         public DbSet<TrFeature> TrFeatures { get; set; }
         public DbSet<AppSetting> AppSettings { get; set; }
         public DbSet<DcVariable> DcVariables { get; set; }
+        public DbSet<TrPrice> TrPrices { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -761,7 +762,20 @@ namespace PointOfSale.Models
                 new DcVariable { VariableCode = "W", VariableDesc = "Toptan Satış" },
                 new DcVariable { VariableCode = "EX", VariableDesc = "Xərclər" });
 
+            modelBuilder.Entity<TrPrice>(entity =>
+            {
+                entity.Property(e => e.CreatedDate)
+                    .HasDefaultValueSql("getdate()");
 
+                entity.Property(e => e.CreatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+
+                entity.Property(e => e.LastUpdatedDate)
+                    .HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.LastUpdatedUserName)
+                    .HasDefaultValueSql(@"substring(suser_name(),patindex('%\%',suser_name())+(1),(20))");
+            });
 
             OnModelCreatingPartial(modelBuilder);
         }

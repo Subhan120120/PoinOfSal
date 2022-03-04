@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Models;
 
 namespace PointOfSale.Migrations
 {
     [DbContext(typeof(subContext))]
-    partial class subContextModelSnapshot : ModelSnapshot
+    [Migration("20220304121039_initial256545")]
+    partial class initial256545
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1734,29 +1736,18 @@ namespace PointOfSale.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("getdate()");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("CreatedUserName")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
-                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
 
                     b.Property<DateTime>("LastUpdatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("getdate()");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("LastUpdatedUserName")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(20)")
-                        .HasDefaultValueSql("substring(suser_name(),patindex('%\\%',suser_name())+(1),(20))")
                         .HasMaxLength(20);
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
 
                     b.Property<string>("ProductCode")
                         .IsRequired()
